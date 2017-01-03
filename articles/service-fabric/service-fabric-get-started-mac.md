@@ -13,16 +13,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2016
+ms.date: 12/27/2016
 ms.author: seanmck
 
 ---
 # Set up your development environment on Mac OS X
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-get-started.md) 
+> * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
-> 
+>
 >  
 
 You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
@@ -30,7 +30,7 @@ You can build Service Fabric applications to run on Linux clusters using Mac OS 
 ## Prerequisites
 Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you need:
 
-* [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads)
+* [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads.html)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 ## Create the local VM
@@ -42,29 +42,30 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
 2. Navigate to the local clone of the repo
-   
+
     ```bash
     cd service-fabric-linux-vagrant-onebox
     ```
 3. (Optional) Modify the default VM settings
-   
+
     By default, the local VM is configured as follows:
-   
+
    * 3 GB of memory allocated
    * Private host network configured at IP 192.168.50.50 enabling passthrough of traffic from the Mac host
-     
+
      You can change either of these settings or add other configuration to the VM in the Vagrantfile. See the [Vagrant documentation](http://www.vagrantup.com/docs) for the full list of configuration options.
 4. Create the VM
-   
+
     ```bash
     vagrant up
     ```
+  
+   This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
    
-    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
-   
+
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
 5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
-   
+
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
 ## Install the Service Fabric plugin for Eclipse Neon (optional)
@@ -74,7 +75,7 @@ Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the 
 2. To install the Service Fabric plugin, choose **Help > Install New Software...**
 3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
 4. Click Add.
-   
+
     ![Eclipse Neon plugin for Service Fabric][sf-eclipse-plugin-install]
 5. Choose the Service Fabric plugin and click next.
 6. Proceed through the installation and accept the end-user license agreement.

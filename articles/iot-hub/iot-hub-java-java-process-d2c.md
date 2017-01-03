@@ -92,7 +92,7 @@ In this section, you modify the simulated device app you created in the [Get sta
     }
     ```
    
-    This randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message which requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message which requires immediate action by the solution back end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
    
    > [!NOTE]
    > You can use message properties to route messages for a variety of scenarios including cold-path processing, in addition to the hot path example shown here.

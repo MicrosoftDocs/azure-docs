@@ -87,7 +87,7 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [Learn more.][sumologic-doc]
 
 ## Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
+* [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
