@@ -112,13 +112,13 @@ You need an Azure network to which Azure VMs created after failover will connect
 * The network should be in the same region as the Recovery Services vault.
 * Depending on the resource model you want to use for failed over Azure VMs, you set up the Azure network in [Resource Manager mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * We recommend you set up a network before you begin. If you don't, you need to do it during Site Recovery deployment.
-Note that Azure networks used by Site Recovery can't be [moved](../resource-group-move-resources.md) within the same, or across different, subscriptions.
+Note that Azure networks used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
 
 ### Set up an Azure storage account
 * You need a standard Azure storage account to hold data replicated to Azure. The account must be in the same region as the Recovery Services vault.
 * Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 * We recommend that you set up an account before you begin. If you don't, you need to do it during Site Recovery deployment.
-- Note that storage accounts used by Site Recovery can't be [moved](../resource-group-move-resources.md) within the same, or across different, subscriptions.
+- Note that storage accounts used by Site Recovery can't be [moved](../azure-resource-manager/resource-group-move-resources.md) within the same, or across different, subscriptions.
 
 ### Prepare the VMM server
 * Make sure that the VMM server complies with the [prerequisites](#on-premises-prerequisites).
@@ -141,7 +141,7 @@ You need to set up network mapping during Site Recovery deployment. Network mapp
 
     ![New vault](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a resource group](../resource-group-template-deploy-portal.md), or select an existing one. Specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a resource group](../azure-resource-manager/resource-group-template-deploy-portal.md), or select an existing one. Specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** > **Create vault**.
 
     ![New vault](./media/site-recovery-vmm-to-azure/new-vault-settings.png)

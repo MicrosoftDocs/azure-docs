@@ -80,16 +80,22 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 **Logback**
 
+```
 
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+```
 
 **Log4J v2.0**
 
+```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+```
 
 **Log4J v1.2**
 
+```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+```
 
 #### Otherwise ...
 Download and extract the appropriate appender, then add the appropriate library to your project:

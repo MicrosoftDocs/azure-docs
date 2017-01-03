@@ -195,7 +195,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });

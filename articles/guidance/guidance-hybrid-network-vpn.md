@@ -495,9 +495,9 @@ Once you have your Azure VPN gateway functioning correctly, you can expand your 
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-n-tier-vm.md
 [resource-manager-overview]: ../azure-resource-manager/resource-group-overview.md
 [adds-extend-domain]: guidance-identity-adds-extend-domain.md
-[arm-templates]: ../resource-group-authoring-templates.md
+[arm-templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [azure-cli]: ../virtual-machines-command-line-tools.md
-[azure-portal]: ../azure-portal/resource-group-portal.md
+[azure-portal]: ../azure-resource-manager/resource-group-portal.md
 [azure-powershell]: ../powershell-azure-resource-manager.md
 [azure-virtual-network]: ../virtual-network/virtual-networks-overview.md
 [vpn-appliance]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md

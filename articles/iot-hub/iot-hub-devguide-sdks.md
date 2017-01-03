@@ -78,14 +78,14 @@ Other reference topics in this IoT Hub developer guide include:
 
 <!-- Links and images -->
 
-[lnk-c-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
-[lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
-[lnk-java-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
-[lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/service/README.md
-[lnk-java-service-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
-[lnk-node-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
-[lnk-node-service-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
-[lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdks/blob/master/python/device/readme.md
+[lnk-c-device-sdk]: https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md
+[lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/device/readme.md
+[lnk-java-device-sdk]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/readme.md
+[lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/service/README.md
+[lnk-java-service-sdk]: https://github.com/Azure/azure-iot-sdk-java/blob/master/service/readme.md
+[lnk-node-device-sdk]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/readme.md
+[lnk-node-service-sdk]: https://github.com/Azure/azure-iot-sdk-node/blob/master/service/README.md
+[lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/blob/master/device/readme.md
 [lnk-certified]: https://catalog.azureiotsuite.com/
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/README.md
 
