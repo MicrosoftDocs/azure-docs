@@ -141,7 +141,7 @@ If you manage multiple subscriptions as the Account admin, you can see the aggre
 
 ### Turn on and check out Azure Advisor recommendations
 
-[Azure Advisor](./advisor/advisor-overview.md) is a preview feature that helps you reduce costs by identifying resources with low usage. Turn it on in the Azure portal:
+[Azure Advisor](../advisor/advisor-overview.md) is a preview feature that helps you reduce costs by identifying resources with low usage. Turn it on in the Azure portal:
 
 ![Screenshot of Azure Advisor button in Azure portal](./media/billing-getting-started/advisor-button.PNG)
 
@@ -149,7 +149,7 @@ Then, you can get actionable recommendations in the **Cost** tab in the Advisor 
 
 ![Screenshot of Advisor cost recommendation example](./media/billing-getting-started/advisor-action.PNG)
 
-For more information, see [Advisor Cost recommendations](./advisor/advisor-cost-recommendations.md).
+For more information, see [Advisor Cost recommendations](../advisor/advisor-cost-recommendations.md).
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
