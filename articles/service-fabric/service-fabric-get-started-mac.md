@@ -34,10 +34,10 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 ## Create the local VM
-To create the local VM containing a 5-node Service Fabric cluster, do the following:
+To create the local VM containing a 5-node Service Fabric cluster, perform the following steps:
 
-1. Clone the Vagrantfile repo
-
+1. Clone the **Vagrantfile** repo
+   
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
@@ -59,8 +59,9 @@ To create the local VM containing a 5-node Service Fabric cluster, do the follow
     ```bash
     vagrant up
     ```
-
-    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you will see a message in the output indicating that the cluster is starting up.
+  
+   This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
+   
 
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
 5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
