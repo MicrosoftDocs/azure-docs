@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 ---
 
@@ -28,6 +28,8 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 
 ### To download the Azure Multi-Factor Authentication server from the Azure classic portal
 
+Use this download option if you already have a Multi-Factor Auth Provider, or if you pay for MFA on a per-user or per-authentication basis. 
+
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
 2. On the left, select **Active Directory**.
 3. On the Active Directory page, click **Multi-Factor Auth Providers**
@@ -39,6 +41,9 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 7. Save the download.
 
 ### To download the Azure Multi-Factor Authentication Server from the service settings
+
+Use this download option if you have Enterprise Mobility Suite, Azure AD Premium, or Enterprise Cloud Suite licenses. 
+
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
 2. On the left, select **Active Directory**.
 3. Double-click your instance of Azure AD.
