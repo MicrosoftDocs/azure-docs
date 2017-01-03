@@ -34,11 +34,9 @@ The OMS Agent extension for Windows can be run against Windows Server 2008 R2, 2
 
 The OMS Agent extension for Windows requires that the target virtual machine is connected to the internet. 
 
-## Extension configuration
+## Extension schema
 
 The OMS Agent virtual machine extension for Windows requires the workspace Id and workspace key from the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine.
-
-### Extension schema
 
 ```json
 {
