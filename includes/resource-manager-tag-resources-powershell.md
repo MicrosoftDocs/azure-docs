@@ -24,7 +24,7 @@ Version
 If your version of the module is 3.0.1 or later, you have the most recent cmdlets for working with tags. This version of the Azure Resources module installs automatically when you install or upgrade Azure PowerShell by using PowerShell Gallery, PowerShellGet, or Web Platform Installer.  If your version is earlier than 3.0.1, you can continue using that version, but you might consider updating to the latest version. The latest version includes changes that make it easier to work with tags. Both approaches are shown in this topic.
 
 ### Updating your script for changes in latest version
-In the latest release, the **Tags** parameter name changed to **Tag**, and the type changed from  `Hashtable[]`  to `Hashtable`. You no longer need to provide **Name** and **Value** for each entry. Instead you provide key-value pairings in the format **Key = "Value"**.
+In the latest release, the **Tags** parameter name changed to **Tag**, and the type changed from `Hashtable[]` to `Hashtable`. You no longer need to provide **Name** and **Value** for each entry. Instead you provide key-value pairings in the format **Key = "Value"**.
 
 To update existing script, change the **Tags** parameter to **Tag**, and change the tag format as shown in the following example:
 
