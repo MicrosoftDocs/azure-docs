@@ -26,17 +26,15 @@ Operations Management Suite (OMS) provides monitoring, alerting, and alert remed
 
 ## Prerequisites
 
-#### Operating System
-
+### Operating System
 The OMS Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
-#### Internet Connectivity
-
+### Internet Connectivity
 The OMS Agent extension for Windows requires that the target virtual machine is connected to the internet. 
 
 ## Extension schema
 
-The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace. These can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
@@ -70,8 +68,8 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId | Example from OMS - 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey | Example from OMS - z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| workspaceId | Example: 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey | Example: z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 ## Template deployment
 
