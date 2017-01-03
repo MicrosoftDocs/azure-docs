@@ -24,7 +24,7 @@ ms.author: kgremban
 Now that we have determined to use on-premises Multi-Factor Authentication, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the PhoneFactor server installed and are looking to upgrade, see [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) or if you are looking for information on installing just the web service see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
 
 ## Download the Azure Multi-Factor Authentication Server
-There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
+There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite license.
 
 ### To download the Azure Multi-Factor Authentication server from the Azure classic portal
 
@@ -142,8 +142,8 @@ When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’
 
 In addition to the fields above, the verification result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.
 
-## Advanced Azure Multi-Factor Authentication Server Configurations
-For additional information on advanced setup and configuration information, refer to the following table:
+## Next steps
+For additional information on advanced setup and configuration information, use the links in the following table:
 
 | Method | Description |
 |:--- |:--- |
