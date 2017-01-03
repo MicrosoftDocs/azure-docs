@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
@@ -68,8 +68,10 @@ This error can result from several different types of errors.
 
    If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
 
-      Code=InvalidTemplate
-      Message=Deployment template validation failed
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed
+  ```
 
    This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
@@ -85,9 +87,11 @@ This error can result from several different types of errors.
 
    Another invalid template error occurs when the resource name is not in the correct format.
 
-      Code=InvalidTemplate
-      Message=Deployment template validation failed: 'The template resource {resource-name}'
-      for type {resource-type} has incorrect segment lengths.
+  ```
+  Code=InvalidTemplate
+  Message=Deployment template validation failed: 'The template resource {resource-name}'
+  for type {resource-type} has incorrect segment lengths.
+  ```
 
    A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it is a **valid name**.
 
@@ -146,23 +150,27 @@ This error can result from several different types of errors.
 
    If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
-      Code=InvalidTemplate;
-      Message=Deployment template validation failed: 'The provided value {parameter value}
-      for the template parameter {parameter name} is not valid. The parameter value is not
-      part of the allowed values
+  ```
+  Code=InvalidTemplate;
+  Message=Deployment template validation failed: 'The provided value {parameter value}
+  for the template parameter {parameter name} is not valid. The parameter value is not
+  part of the allowed values
+  ``` 
 
    Double check the allowed values in the template, and provide one during deployment.
 
 - Circular dependency detected
 
-   You receive this error when resources are dependent on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies. For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
+   You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies. For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
 
 <a id="notfound" />
 ### NotFound and ResourceNotFound
 When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
 
-    Code=NotFound;
-    Message=Cannot find ServerFarm with name exampleplan.
+```
+Code=NotFound;
+Message=Cannot find ServerFarm with name exampleplan.
+```
 
 If you are attempting to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
 
@@ -190,9 +198,11 @@ You also see this error when the resource exists in a different resource group t
 
 If you attempt to use the [reference](resource-group-template-functions.md#reference) or [listKeys](resource-group-template-functions.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
 
-    Code=ResourceNotFound;
-    Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
-    group {resource group name} was not found.
+```
+Code=ResourceNotFound;
+Message=The Resource 'Microsoft.Storage/storageAccounts/{storage name}' under resource
+group {resource group name} was not found.
+```
 
 Look for an expression that includes the **reference** function. Double check that the parameter values are correct.
 
@@ -200,8 +210,10 @@ Look for an expression that includes the **reference** function. Double check th
 
 When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not yet exist, you receive the following error:
 
-    Code=ParentResourceNotFound;
-    Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
+Code=ParentResourceNotFound;
+Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+```
 
 The name of the child resource includes the parent name. For example, a SQL Database might be defined as:
 
@@ -224,8 +236,10 @@ But, if you do not specify a dependency on the parent resource, the child resour
 ### StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
-    Code=StorageAccountAlreadyTaken
-    Message=The storage account named mystorage is already taken.
+```
+Code=StorageAccountAlreadyTaken
+Message=The storage account named mystorage is already taken.
+```
 
 You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
 
@@ -247,14 +261,18 @@ You may encounter a BadRequest status when you provide an invalid value for a pr
 ### NoRegisteredProviderFound and MissingSubscriptionRegistration
 When deploying resource, you may receive the following error code and message:
 
-    Code: NoRegisteredProviderFound
-    Message: No registered resource provider found for location {ocation}
-    and API version {api-version} for type {resource-type}.
+```
+Code: NoRegisteredProviderFound
+Message: No registered resource provider found for location {ocation}
+and API version {api-version} for type {resource-type}.
+```
 
 Or, you may receive a similar message that states:
 
-    Code: MissingSubscriptionRegistration
-    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
+Code: MissingSubscriptionRegistration
+Message: The subscription is not registered to use namespace {resource-provider-namespace}
+```
 
 You receive these errors for one of three reasons:
 
@@ -346,9 +364,11 @@ info:    vm list-usage command OK
 
 If you deploy a template that creates more than four cores in the West US region, you get a deployment error that looks like:
 
-    Code=OperationNotAllowed
-    Message=Operation results in exceeding quota limits of Core.
-    Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
+Code=OperationNotAllowed
+Message=Operation results in exceeding quota limits of Core.
+Maximum allowed: 4, Current in use: 4, Additional requested: 2.
+```
 
 Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
 
@@ -380,15 +400,19 @@ In these cases, you should go to the portal and file a support issue to raise yo
 ### InvalidContentLink
 When you receive the error message:
 
-    Code=InvalidContentLink
-    Message=Unable to download deployment content from ...
+```
+Code=InvalidContentLink
+Message=Unable to download deployment content from ...
+```
 
 You have most likely attempted to link to a nested template that is not available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
 ### RequestDisallowedByPolicy
 You receive this error when your subscription includes a resource policy that prevents an action you are trying to perform during deployment. In the error message, look for the policy identifier.
 
-    Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
+Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'
+```
 
 In **PowerShell**, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
 
@@ -420,7 +444,7 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
 
-- Log in to the portal and add a new resource through the UI. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
+- Log in to the portal and add a resource through the UI. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
     ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
 
@@ -548,13 +572,13 @@ Real world scenarios can be considerably more complicated, but you can use the s
 
 Resource Manager identifies circular dependencies during template validation. It returns an error message that specifically states a circular dependency exists. To solve a circular dependency:
 
-1. Remove all **dependsOn** properties in your template, except when defining a child resource as dependent on the parent resource.
-2. Keep all uses of the **reference** function to specify an implicit dependency.
-3. Deploy the template. 
-4. If you receive an error, add a **dependsOn** property to fix the error. 
-5. Redeploy the template.
+1. In your template, find the resource identified in the circular dependency. 
+2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on. 
+3. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
+5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that are not needed. Remove those dependencies. If you are unsure that a dependency is needed, try removing it. 
+6. Redeploy the template.
 
-After several attempts, you have a template with the minimum number of dependencies. 
+Removing values from the **dependsOn** property can cause errors when you deploy the template. If you encounter an error, add the dependency back into the template. 
 
 If that approach does not solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you are deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 
@@ -563,8 +587,15 @@ If that approach does not solve the circular dependency, consider moving part of
 3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
 4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
+The same approach works for App Service apps. Consider moving configuration values into a child resource of the app resource. You can deploy two web apps in the following order:
+
+1. webapp1
+2. webapp2
+3. config for webapp1 depends on webapp1 and webapp2. It contains app settings with values from webapp2.
+4. config for webapp2 depends on webapp1 and webapp2. It contains app settings with values from webapp1.
+
 ## Troubleshooting other services
-If the preceding deployment error codes did not help you troubleshoot your issue, you can look for more detailed troubleshooting guidance for the particular Azure service with the error.
+If the preceding deployment error codes did not help you troubleshoot your issue, you can find more detailed troubleshooting guidance for each Azure service.
 
 The following table lists troubleshooting topics for Virtual Machines.
 

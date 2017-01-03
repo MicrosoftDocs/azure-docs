@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
@@ -138,7 +138,7 @@ When deciding what dependencies to set, use the following guidelines:
 * Set as few dependencies as possible.
 * Set a child resource as dependent on its parent resource.
 * Use the **reference** function to set implicit dependencies between resources that need to share a property. Do not add an explicit dependency (**dependsOn**) when you have already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. 
-* Set a dependency when a resource cannot be created without functionality from another resource (such as a virtual machine needing a virtual network interface).
+* Set a dependency when a resource cannot be **created** without functionality from another resource. Do not set a dependency if the resources only interact after deployment.
 * Let dependencies cascade without setting them explicitly. For example, your virtual machine depends on a virtual network interface, and the virtual network interface depends on a virtual network and public IP addresses. Therefore, the virtual machine is deployed after all three resources, but do not explicitly set the virtual machine as dependent on all three resources. This approach clarifies the dependency order and makes it easier to change the template later.
 * If a value can be determined before deployment, try deploying the resource without a dependency. For example, if a configuration value needs the name of another resource, you might not need a dependency. This guidance does not always work because some resources verify the existence of the other resource. If you receive an error, add a dependency. 
 
@@ -148,6 +148,8 @@ Resource Manager identifies circular dependencies during template validation. If
 2. vm2
 3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
 4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
+
+For information about assessing the deployment order and resolving dependency errors, see [Check deployment sequence](resource-manager-common-deployment-errors.md#check-deployment-sequence).
 
 ## Next steps
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
