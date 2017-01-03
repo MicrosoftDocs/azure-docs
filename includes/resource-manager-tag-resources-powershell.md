@@ -24,9 +24,9 @@ Version
 If your version of the module is 3.0.1 or later, you have the most recent cmdlets for working with tags. This version of the Azure Resources module installs automatically when you install or upgrade Azure PowerShell by using PowerShell Gallery, PowerShellGet, or Web Platform Installer.  If your version is earlier than 3.0.1, you can continue using that version, but you might consider updating to the latest version. The latest version includes changes that make it easier to work with tags. Both approaches are shown in this topic.
 
 ### Updating your script for changes in latest version
-In the latest release, the **Tags** parameter name changed to **Tag**, and the type changed from  **Hashtable[]**  to **Hashtable**. You no longer need to provide **Name** and **Value** for each entry. Instead you provide key-value pairings in the format **Key = "Value"**.
+In the latest release, the **Tags** parameter name changed to **Tag**, and the type changed from  `Hashtable[]`  to `Hashtable`. You no longer need to provide **Name** and **Value** for each entry. Instead you provide key-value pairings in the format **Key = "Value"**.
 
-To update existing script, change the **Tags** parameter to **Tag**, and change the tag format as shown in the following example.
+To update existing script, change the **Tags** parameter to **Tag**, and change the tag format as shown in the following example:
 
 ```powershell
 # Old
@@ -60,7 +60,7 @@ Tags              :
                 Environment  Production
 ```
 
-To retrieve the resource metadata including tags, use the following example.
+To retrieve the resource metadata including tags, use the following example:
 
 ```powershell
 Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
@@ -97,7 +97,7 @@ Environment            Production
 
 Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
-To retrieve resource groups with a tag value, use the following format.
+To retrieve resource groups with a tag value, use the following format:
 
 ```powershell
 (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
@@ -142,7 +142,7 @@ $tags += @{Status="approved"}
 Set-AzureRmResourceGroup -Name test-group -Tag $tags
 ```
 
-To remove one or more tags, simply save the array without the ones you want to remove.
+To remove one or more tags, save the array without the ones you want to remove.
 
 The process is the same for resources except you use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets. 
 
@@ -222,7 +222,7 @@ Environment: Production
 
 Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
 
-To retrieve resource groups with a tag value, use the following format.
+To retrieve resource groups with a tag value, use the following format:
 
 ```powershell
 Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
@@ -234,7 +234,7 @@ To get all the resources with a particular tag and value, use the Find-AzureRmRe
 Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
 ```
 
-To add a tag to a resource group that has no existing tags, simply use the Set-AzureRmResourceGroup command and specify a tag object.
+To add a tag to a resource group that has no existing tags, use the Set-AzureRmResourceGroup command and specify a tag object.
 
 ```powershell
 Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
@@ -267,7 +267,7 @@ $tags += @{Name="status";Value="approved"}
 Set-AzureRmResourceGroup -Name test-group -Tag $tags
 ```
 
-To remove one or more tags, simply save the array without the ones you want to remove.
+To remove one or more tags, save the array without the ones you want to remove.
 
 The process is the same for resources except you use the Get-AzureRmResource and Set-AzureRmResource cmdlets. 
 

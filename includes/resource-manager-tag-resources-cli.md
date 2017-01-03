@@ -10,7 +10,7 @@ Tags are updated as a whole. If you want to add a tag to a resource group that h
 azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
 ```
 
-Tags are not inherited by resources in a resource group. To add a tag to a resource, use **azure resource set**. You must pass the API version number for the resource type that you are adding the tag to. If you need to retrieve the API version, use the following command with the resource provider for the type you are setting:
+Tags are not inherited by resources in a resource group. To add a tag to a resource, use **azure resource set**. Pass the API version number for the resource type that you are adding the tag to. If you need to retrieve the API version, use the following command with the resource provider for the type you are setting:
 
 ```azurecli
 azure provider show -n Microsoft.Storage --json
@@ -38,7 +38,7 @@ Now, provide that API version, resource group name, resource name, resource type
 azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
 ```
 
-Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource group and its resources with **azure group show**.
+Tags exist directly on resources and resource groups. To see the existing tags, get a resource group and its resources with **azure group show**.
 
 ```azurecli
 azure group show -n tag-demo-group --json
