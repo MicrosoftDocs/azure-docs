@@ -276,4 +276,3 @@ For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes,
 [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)
 
 [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
-

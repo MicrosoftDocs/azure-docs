@@ -25,7 +25,10 @@ ms.author: seanmck
 > 
 > 
 
-Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we create an application for Linux and build a service using Java.
+Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we create an application for Linux and build a service using Java.  The following Microsoft Virtual Academy video also walks you through the process of creating a Java app on Linux:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
@@ -104,7 +107,6 @@ The Service Fabric templates include a set of Gradle tasks for building and depl
 
 Your app builds and deploys within a few moments. You can monitor its status from Service Fabric Explorer.
 
-
 ## Adding more services to an existing application
 
 To add another service to an application already created using `yo`, perform the following steps: 
@@ -115,6 +117,7 @@ To add another service to an application already created using `yo`, perform the
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

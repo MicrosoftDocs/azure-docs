@@ -4,16 +4,15 @@ description: Configure diagnostics on Azure resources to write logs and metrics 
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-omanager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/1/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -27,7 +26,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 4. Scripts to collect and then post data into Log Analytics (blanks in the following table and for services that are not listed)
 
 
-| Service | Resource Type | Logs | Metrics | Solution |
+| Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
 | Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | Azure Networking Analytics (Preview) |
 | API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
@@ -44,12 +43,10 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
 | Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | Azure Networking Analytics (Preview) |
-| Redis Cache             | Microsoft.Cache/redis                   |             | Diagnostics | |
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
 | Service Fabric          |                                         | Storage     |             | ServiceFabric Analytics (Preview) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
-| Stream Analytics        | Microsoft.StreamAnalytics/streamingjobs | Diagnostics | Diagnostics | |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Web Server farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |
@@ -57,12 +54,12 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 
 > [!NOTE]
-> For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](log-analytics-azure-vm-extension.md). The agent provides you with insights collected from within your virtual machines. You can also use the extension for Virtual machine scale sets. 
-> 
-> 
+> For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](log-analytics-azure-vm-extension.md). The agent provides you with insights collected from within your virtual machines. You can also use the extension for Virtual machine scale sets.
+>
+>
 
 ## Azure diagnostics direct to Log Analytics
-Many Azure resources are able to write diagnostic logs and metrics directly to Log Analytics and this is the preferred way of collecting the data for analysis. When using Azure diagnostics, data is written immediately to Log Analytics and there is no need to first write the data to storage. 
+Many Azure resources are able to write diagnostic logs and metrics directly to Log Analytics and this is the preferred way of collecting the data for analysis. When using Azure diagnostics, data is written immediately to Log Analytics and there is no need to first write the data to storage.
 
 Azure resources that support [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) can send their logs and metrics directly to Log Analytics.
 
@@ -76,7 +73,7 @@ The following PowerShell example shows how to use [Set-AzureRmDiagnosticSetting]
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
 Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
@@ -119,14 +116,14 @@ Log Analytics can use this approach to collect diagnostics from Azure storage fo
 
 | Resource | Logs |
 | --- | --- |
-| Service Fabric |ETWEvent <br> Operational Event <br> Reliable Actor Event <br> Reliable Service Event | 
+| Service Fabric |ETWEvent <br> Operational Event <br> Reliable Actor Event <br> Reliable Service Event |
 | Virtual Machines |Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent |
 | Web Roles <br> Worker Roles |Linux Syslog <br> Windows Event <br> IIS Log <br> Windows ETWEvent |
 
 > [!NOTE]
 > You are charged normal Azure data rates for storage and transactions when you send diagnostics to a storage account and for when Log Analytics reads the data from your storage account.
-> 
-> 
+>
+>
 
 See [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to learn more about how Log Analytics can collect these logs.
 
@@ -141,10 +138,9 @@ Learn more about the [Application Insights connector](https://blogs.technet.micr
 For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](log-analytics-data-collector-api.md)
 
 The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
- 
+
 ## Next steps
 
 * [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 * [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 * [Use search queries](log-analytics-log-searches.md) to analyze the data.
-

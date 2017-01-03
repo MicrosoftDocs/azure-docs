@@ -1,4 +1,4 @@
-﻿---
+---
 title: Lists the countries/regions in which Azure is commercially available, along with the supported currencies | Microsoft Docs
 description: The countries/regions in which Microsoft Azure is commercially available, and the corresponding currencies which can be used to purchase Azure.
 services: ''

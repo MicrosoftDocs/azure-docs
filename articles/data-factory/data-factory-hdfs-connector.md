@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data from on-premises HDFS | Microsoft Docs
 description: Learn about how to move data from on-premises HDFS using Azure Data Factory.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/22/2016
 ms.author: jingwang
 
 ---
@@ -99,9 +99,6 @@ Setting “external”: ”true” informs the Data Factory service that the dat
         }
     }
 
-
-
-
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
@@ -160,8 +157,6 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
         }
     }
 
-
-
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use these input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
@@ -202,8 +197,6 @@ The pipeline contains a Copy Activity that is configured to use these input and 
         }
     }
 
-
-
 ## HDFS Linked Service properties
 The following table provides description for JSON elements specific to HDFS linked service.
 
@@ -211,11 +204,11 @@ The following table provides description for JSON elements specific to HDFS link
 | --- | --- | --- |
 | type |The type property must be set to: **Hdfs** |Yes |
 | Url |URL to the HDFS |Yes |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |No |
+| authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
-| authenticationType |Windows, or Anonymous. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. |No |
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for on-premises HDFS.
 
@@ -253,6 +246,145 @@ See [Move data between on-premises sources and the cloud with Data Management Ga
         }
     }
 
+## Use Kerberos authentication for HDFS connector
+There are two options to set up the on-premises environment so as to use Kerberos Authentication in HDFS connector. You can choose the one better fits your case.
+* Option 1: [Make gateway machine join Kerberos realm](#kerberos-join-realm)
+* Option 2: [Enable mutual trust between Windows domain and Kerberos realm](#kerberos-mutual-trust)
+
+### <a name="kerberos-join-realm"></a>Option 1: Make gateway machine join Kerberos realm
+
+#### Requirement:
+
+* The gateway machine need join the Kerberos realm and can’t join any Windows domain.
+
+#### How to configure:
+
+**On gateway machine:**
+
+1.	Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
+
+    The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
+
+            C:> Ksetup /setdomain REALM.COM
+            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+
+	**Restart** the machine after executing these 2 commands.
+
+2.	Verify the configuration with **Ksetup** command. The output should be like below:
+
+            C:> Ksetup
+            default realm = REALM.COM (external)
+            REALM.com:
+                kdc = <your_kdc_server_address>
+
+**In Azure Data Factory:**
+
+* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#hdfs-linked-service-properties) section on configuration details.
+
+### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
+
+#### Requirement:
+*	The gateway machine must join a Windows domain.
+*	You need permission to update the domain controller's settings.
+
+#### How to configure:
+
+> [!NOTE]
+> Replace REALM.COM and AD.COM in below tutorial with your own respective realm and domain controller as needed.
+
+**On KDC server:**
+
+1.	Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to below configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+
+            [logging]
+             default = FILE:/var/log/krb5libs.log
+             kdc = FILE:/var/log/krb5kdc.log
+             admin_server = FILE:/var/log/kadmind.log
+
+            [libdefaults]
+             default_realm = REALM.COM
+             dns_lookup_realm = false
+             dns_lookup_kdc = false
+             ticket_lifetime = 24h
+             renew_lifetime = 7d
+             forwardable = true
+
+            [realms]
+             REALM.COM = {
+              kdc = node.REALM.COM
+              admin_server = node.REALM.COM
+             }
+            AD.COM = {
+             kdc = windc.ad.com
+             admin_server = windc.ad.com
+            }
+
+            [domain_realm]
+             .REALM.COM = REALM.COM
+             REALM.COM = REALM.COM
+             .ad.com = AD.COM
+             ad.com = AD.COM
+
+            [capaths]
+             AD.COM = {
+              REALM.COM = .
+             }
+
+        **Restart** the KDC service after configuration.
+
+2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
+
+            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+
+3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+
+**On domain controller:**
+
+1.	Run below **Ksetup** commands to add a realm entry:
+
+            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+
+2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM@AD.COM**.
+
+            C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+
+3.	Select encryption algorithm used in Kerberos.
+
+    1. Go to Server Manager > Group Policy Management > Domain > Group Policy Objects > Default or Active Domain Policy, and Edit.
+
+    2. In the **Group Policy Management Editor** popup window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options, and configure **Network security: Configure Encryption types allowed for Kerberos**.
+
+    3. Select the encryption algorithm you want to use when connect to KDC. Commonly, you can simply select all the options.
+
+        ![Config Encryption Types for Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+
+    4. Use **Ksetup** command to specify the encryption algorithm to be used on the specific REALM.
+
+                C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+
+4.	Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
+
+    1. Start the Administrative tools > **Active Directory Users and Computers**.
+
+    2. Configure advanced features by clicking **View** > **Advanced Features**.
+
+    3. Locate the account to which you want to create mappings, and right-click to view **Name Mappings** > click **Kerberos Names** tab.
+
+    4. Add a principal from the realm.
+
+        ![Map Security Identity](media/data-factory-hdfs-connector/map-security-identity.png)
+
+**On gateway machine:**
+
+* Run below **Ksetup** commands to add a realm entry.
+
+            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+
+**In Azure Data Factory:**
+
+* Configure the HDFS connector using **Windows authentication** together with either your Domain Account or Kerberos Principal to connect to the HDFS data source. Check [HDFS Linked Service properties](#hdfs-linked-service-properties) section on configuration details.
 
 
 ## HDFS Dataset type properties

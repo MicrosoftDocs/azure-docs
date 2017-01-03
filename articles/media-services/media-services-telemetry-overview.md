@@ -7,13 +7,13 @@ author: Juliako
 manager: erikre
 editor: ''
 
-ms.assetid:95c20ec4-c782-4063-8042-b79f95741d28
+ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 21/17/2016
+ms.date: 12/07/2016
 ms.author: juliako
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: How a Machine Learning model progresses from an experiment to an operationalized Web service | Microsoft Docs
 description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
 services: machine-learning
@@ -41,7 +41,7 @@ While Azure Machine Learning Studio is designed to help you develop and deploy a
 ## Developing and deploying a predictive Web service
 Here are the stages that a typical solution follows as you develop and deploy it using Machine Learning Studio:
 
-![Deployment flow](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Deployment flow](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Figure 1 - Stages of a typical predictive analysis model*
 
