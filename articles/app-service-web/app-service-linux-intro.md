@@ -63,8 +63,6 @@ Web Apps on Linux is only supported in the Dedicated app service plans and does 
 
 Web Apps on Linux must be created in a resource group that does not contain non-Linux web apps in the same region.
 
-Due to the lack of overlapped recycling of the web apps, customers should expect a small downtime if a web app gets restarted.
-
 ## Next steps
 See the following links to get started with App Service on Linux. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
