@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 
 ---
@@ -88,29 +88,45 @@ When your template is ready, you can deploy the new resources following the inst
 1. Open a PowerShell command prompt 
 2. To login type: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. If you have multiple subscriptions, get a list of the subscriptions with:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     And select the subscription to use.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Update the parameters in your parameters.json file
 5. Run the Deploy.ps1 to deploy your template on Azure
 
 ### OSX/Linux
 1. Open a terminal window 
 2. To login type:
-   
-        azure login 
+
+  ```azurecli
+  azure login
+  ```
+
 3. If you have multiple subscriptions, select the right subscription with:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Update the parameters in the parameters.json file.
 5. To deploy the template, run:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## Next steps
 * To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
