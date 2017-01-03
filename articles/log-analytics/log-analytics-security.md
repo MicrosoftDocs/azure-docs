@@ -4,16 +4,15 @@ description: Learn about how Log Analytics protects your privacy and secures you
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -113,7 +112,7 @@ OMS Log Analytics meets the following requirements:
 * Microsoft Trustworthy Computing
 * As an Azure service, the components that OMS uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
 
-> [!NOTE] 
+> [!NOTE]
 > In some certifications/attestations, Log Analytics is listed under its former name of *Operational Insights*.
 >
 >
