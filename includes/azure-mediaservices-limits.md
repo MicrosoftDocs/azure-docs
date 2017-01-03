@@ -1,7 +1,7 @@
 >[!NOTE]
 >For resources that are not fixed, you may ask for the quotas to be raised, by opening a support ticket. Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
-| Resource | Default Limit | Maximum Limit |
+| Resource | Default Limit | 
 | --- | --- | 
 | Azure Media Services (AMS) accounts in a single subscription | 25 (fixed) |
 | Assets per AMS account | 1,000,000|

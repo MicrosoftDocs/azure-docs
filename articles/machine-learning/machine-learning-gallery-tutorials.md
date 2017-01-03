@@ -49,9 +49,9 @@ tutorial's
 tutorial
  to invite other users to view the page.
 
-![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Contribute
 You can contribute a tutorial to the Gallery to help other users solve a problem or learn a concept.
@@ -62,16 +62,16 @@ Follow these steps to create and contribute a tutorial to the Cortana Intelligen
 * Sign in to the Gallery using your Microsoft account
 * Click your image at the top of the window and then click your name
   
-    ![Click your account name](media\\machine-learning-gallery-tutorials\\click-account-name.png)
+    ![Click your account name](media/machine-learning-gallery-tutorials/click-account-name.png)
 * Click **New Item**
   
-    ![Click "New Item"](media\\machine-learning-gallery-collections\\click-new-item.png)
+    ![Click "New Item"](media/machine-learning-gallery-collections/click-new-item.png)
 * Select **Collection** for **Item Type**, then give the collection a name, a brief summary, a description, and any tags that will help users find the collection
   
-    ![Enter information for new collection](media\\machine-learning-gallery-tutorials\\create-tutorial-page-1.png)
+    ![Enter information for new collection](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
 * Click **Next** - you can upload an image file, or select a stock image, that will be displayed with the collection; choose something that will help users identify the content and purpose of the collection
   
-    ![Enter information for new collection](media\\machine-learning-gallery-tutorials\\create-tutorial-page-2.png)
+    ![Enter information for new collection](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
 * Click **Next** - you can decide whether the tutorial is **Public** (it can be viewed by anyone) or **Unlisted** (only people with a direct link can view the tutorial)
   
   > [!IMPORTANT]
@@ -79,7 +79,7 @@ Follow these steps to create and contribute a tutorial to the Cortana Intelligen
   > 
   > 
   
-    ![Select Public or Unlisted](media\\machine-learning-gallery-tutorials\\create-tutorial-page-3.png)
+    ![Select Public or Unlisted](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
 * Click **Create**
 
 Your tutorial is now part of the Cortana Intelligence Gallery. It will be listed on your account page under the **Items** tab.

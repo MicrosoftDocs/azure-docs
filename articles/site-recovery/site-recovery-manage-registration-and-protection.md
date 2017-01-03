@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 12/28/2016
 ms.author: raynew
 
 ---
@@ -26,22 +26,32 @@ This article describes how to unregister servers from a Recovery Services vault 
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## Unregister a configuration server
+## Unregister a connected configuration server
 
-If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister the configuration server from a vault as follows:
+If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister a connected configuration server from a vault as follows:
 
 1. Disable machine protection. In **Protected Items** > **Replicated Items**, right-click the machine > **Delete**.
 2. Disassociate any policies. In **Site Recovery Infrastructure** > **For VMWare & Physical Machines** > **Replication Policies**, double-click the associated policy. Right-click the configuration server > **Disassociate**.
 3. Remove any additional on-premises process or master target servers. In **Site Recovery Infrastructure** > **For VMWare & Physical Machines** > **Configuration Servers**, right-click the server > **Delete**.
 4. Delete the configuration server.
 5. Manually uninstall the Mobility service running on the master target server (this will be either a separate server, or running on the configuration server).
-6. Uninstall the configuration server.
-7. Uninstall any additional process servers.
+6. Uninstall any additional process servers.
+7. Uninstall the configuration server.
 8. On the configuration server, uninstall the instance of MySQL that was installed by Site Recovery.
 9. In the registry of the configuration server delete the key ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
-The instructions are identical if the configuration server is connected or unconnected to Azure.
+## Unregister a unconnected configuration server
 
+If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
+
+1. Disable machine protection. In **Protected Items** > **Replicated Items**, right-click the machine > **Delete**. Select **Stop managing the machine**.
+2. Remove any additional on-premises process or master target servers. In **Site Recovery Infrastructure** > **For VMWare & Physical Machines** > **Configuration Servers**, right-click the server > **Delete**.
+3. Delete the configuration server.
+4. Manually uninstall the Mobility service running on the master target server (this will be either a separate server, or running on the configuration server).
+5. Uninstall any additional process servers.
+6. Uninstall the configuration server.
+7. On the configuration server, uninstall the instance of MySQL that was installed by Site Recovery.
+8. In the registry of the configuration server delete the key ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
 ## Unregister a connected VMM server
 

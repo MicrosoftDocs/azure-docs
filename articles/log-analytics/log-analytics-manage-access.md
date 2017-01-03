@@ -4,16 +4,15 @@ description: Manage workspaces in Log Analytics using a variety of administrativ
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/05/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
