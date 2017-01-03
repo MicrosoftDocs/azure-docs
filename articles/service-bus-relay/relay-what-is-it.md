@@ -37,7 +37,7 @@ Hybrid Connections and WCF Relays both enable secure connection to assets that e
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |
+| **.NET Framework** |x |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Standards-Based Open Protocol** | |x |

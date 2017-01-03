@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log Analytics HTTP Data Collector API | Microsoft Docs
 description: You can use the Log Analytics HTTP Data Collector API to add POST JSON data to the Log Analytics repository from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/15/2016
 ms.author: bwren
 
 ---
@@ -153,13 +153,13 @@ There are some constraints around the data posted to the Log Analytics Data coll
 * Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
 
 ## Return codes
-The HTTP status code 202 means that the request has been accepted for processing, but processing has not yet finished. This indicates that the operation completed successfully.
+The HTTP status code 200 means that the request has been received for processing. This indicates that the operation completed successfully.
 
 This table lists the complete set of status codes that the service might return:
 
 | Code | Status | Error code | Description |
 |:--- |:--- |:--- |:--- |
-| 202 |Accepted | |The request was successfully accepted. |
+| 200 |OK | |The request was successfully accepted. |
 | 400 |Bad request |InactiveCustomer |The workspace has been closed. |
 | 400 |Bad request |InvalidApiVersion |The API version that you specified was not recognized by the service. |
 | 400 |Bad request |InvalidCustomerId |The workspace ID specified is invalid. |
@@ -170,6 +170,8 @@ This table lists the complete set of status codes that the service might return:
 | 400 |Bad request |MissingLogType |The required value log type wasn’t specified. |
 | 400 |Bad request |UnsupportedContentType |The content type was not set to **application/json**. |
 | 403 |Forbidden |InvalidAuthorization |The service failed to authenticate the request. Verify that the workspace ID and connection key are valid. |
+| 404 |Not Found | | Either the URL provided is incorrect, or the request is too large. |
+| 429 |Too Many Requests | | The service is experiencing a high volume of data from your account. Please retry the request later. |
 | 500 |Internal Server Error |UnspecifiedError |The service encountered an internal error. Please retry the request. |
 | 503 |Service Unavailable |ServiceUnavailable |The service currently is unavailable to receive requests. Please retry your request. |
 
@@ -413,7 +415,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 202):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)

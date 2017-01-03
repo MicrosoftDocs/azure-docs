@@ -24,7 +24,11 @@ This article lists some of the common terms used in the IoT Hub articles.
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Azure CLI
-The [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure.
+The [Azure CLI](../xplat-cli-install.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
+
+## Azure CLI 2.0 (Preview)
+The [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This preview version of the CLI is implemented using Python.
+
 
 ## Azure IoT device SDKs
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
@@ -39,7 +43,7 @@ There are _service SDKs_ available for multiple languages that enable you to cre
 The [Microsoft Azure portal](https://portal.azure.com) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_. In some of the IoT Hub tutorials, you may be asked to use the [Azure classic portal](https://manage.windowsazure.com).
 
 ## Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
 
 ## Azure Resource Manager
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete the resources for your solution in a single, coordinated operation.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and manage Elastic Database jobs using PowerShell
 description: PowerShell used to manage Azure SQL Database pools
 services: sql-database
@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -29,7 +29,7 @@ The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a
 ## Prerequisites
 * An Azure subscription. For a free trial, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * A set of databases created with the Elastic Database tools. See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * **Elastic Database jobs** PowerShell package: See [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md)
 
 ### Select your Azure subscription
@@ -481,7 +481,7 @@ To trigger job deletion, use the [**Remove-AzureSqlJob cmdlet**](https://msdn.mi
     Remove-AzureSqlJob -JobName $jobName
 
 ## To create a custom database target
-You can define custom database targets either for direct execution or for inclusion within a custom database group. For example, because **Elastic Database pools** are not yet directly supported using PowerShell APIs, you can create a custom database target and custom database collection target which encompasses all the databases in the pool.
+You can define custom database targets either for direct execution or for inclusion within a custom database group. For example, because **elastic pools** are not yet directly supported using PowerShell APIs, you can create a custom database target and custom database collection target which encompasses all the databases in the pool.
 
 Set the following variables to reflect the desired database information:
 
