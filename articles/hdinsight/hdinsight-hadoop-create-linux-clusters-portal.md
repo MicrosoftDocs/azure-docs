@@ -39,6 +39,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
    
     ![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure portal")
+
 3. Enter **Cluster Name**: This name must be globally unique.
 
 4. From the **Subscription** drop-down, select the Azure subscription that will be used for the cluster.
@@ -79,7 +80,11 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 		>[!NOTE]
 		> Cluster AAD Identity is used to make the cluster accessible to the Azure Data Lake stores based on the AAD configuration. You will use this option if you want to use a Data Lake Store account as an additional storage associated with the cluster.
+		> 
+		>
 
+
+		&nbsp;
 
 	* **Azure Data Lake Store as default storage**
 
