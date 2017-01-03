@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/03/2017
 ms.author: xpouyat;anilmur;juliako
 
 ---
@@ -24,6 +24,7 @@ There are scenarios in which you might need to customize component properties, s
 * Overlaying text on video and setting the text value (for example, the current date) at runtime for each input video.
 * Customizing the Clip List XML (to specify one or several source files, with or without trimming, etc.).
 * Overlaying a logo image on the input video while the video is encoded.
+* Multiple audio language encoding.
 
 To let the **Media Encoder Premium Workflow** know that you are changing some properties in the workflow when you create the task or send multiple input files, you have to use a configuration string that contains **setRuntimeProperties** and/or **transcodeSource**. This topic explains how to use them.
 
@@ -240,7 +241,7 @@ With additional frame-accurate trimming:
       </transcodeRequest>
 
 
-## Example
+## Examples
 Consider an example in which you want to overlay a logo image on the input video while the video is encoded. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". You should perform the following steps:
 
 * Create a Workflow Asset with the workflow file (see the following example).
@@ -396,6 +397,43 @@ After the job is complete, the MP4 file in the output asset displays the overlay
 *Overlay on the video*
 
 You can download the sample workflow from [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
+
+### Another example : multiple audio language encoding
+
+An example of multiple audio language encoding workfkow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+
+This folder contains a sample workflow which can be used to encode a MXF file to a multi MP4 files asset with multiple audio tracks.
+
+This workflow assumes that the MXF file contains one audio track ; the additional audio tracks should be passed as seperate audio files (WAV or MP4...).
+
+To encode, please follow these steps:
+
+* Create a Media Services asset with the MXF file and the Audio files (0 to 18 audio files).
+* Make sure that the MXF file is set as a primary file.
+* Create a job and a task using the Premium Workflow Encoder processor. Use the workflow provided (MultiMP4-1080p-19audio-v1.workflow).
+* Pass the setruntime.xml data to the task (if you use Azure Media Services Explorer, use the “pass xml data to the workflow” button).
+  * Please update the XML data to specify the correct file names and languages tags.
+  * The workflow has audio components named Audio 1 to Audio 18.
+  * RFC5646 is supported for the language tag.
+
+
+    <?xml version="1.0" encoding="utf-16"?>
+    <transcodeRequest>
+      <setRuntimeProperties>
+        <property propertyPath="Media File Input Video/filename" value="MainVideo.mxf" />
+        <property propertyPath="Language/language_code" value="en" />
+        <property propertyPath="/primarySourceFile" value="MainVideo.mxf" />
+        <property propertyPath="Audio 1/Media File Input/filename" value="french-audio.wav" />
+        <property propertyPath="Audio 1/Language/language_code" value="fr" />
+        <property propertyPath="Audio 2/Media File Input/filename" value="german-audio.wav" />
+        <property propertyPath="Audio 2/Language/language_code" value="de" />
+        <property propertyPath="Audio 3/Media File Input/filename" value="japanese-audio.wav" />
+        <property propertyPath="Audio 3/Language/language_code" value="ja" />
+      </setRuntimeProperties>
+    </transcodeRequest>
+
+
+* The encoded asset will contain multi language audio tracks and these tracks should be selectable in Azure Media Player.
 
 ## See also
 * [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
