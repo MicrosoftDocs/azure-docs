@@ -1,5 +1,5 @@
 ---
-title: Getting started Azure Multi-Factor Authentication Server
+title: Getting started Azure Multi-Factor Authentication Server | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server.
 services: multi-factor-authentication
 keywords: authentication server, azure multi factor authentication app activation page, authentication server download
@@ -21,14 +21,17 @@ ms.author: kgremban
 # Getting started with the Azure Multi-Factor Authentication Server
 <center>![MFA on-premises](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Now that we have determined to use on-premises Multi-Factor Authentication, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the PhoneFactor server installed and are looking to upgrade, see [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) or if you are looking for information on installing just the web service see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
+Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the PhoneFactor server installed and are looking to upgrade, see [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) or if you are looking for information on installing just the web service see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
 
 ## Download the Azure Multi-Factor Authentication Server
 There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium, or Enterprise Mobility Suite license.
 
-### To download the Azure Multi-Factor Authentication server from the Azure classic portal
+> [!Important]
+> These two options seem similar, but it is important to know which one to use. If your users have licenses that come with MFA, don't create a Multi-Factor Auth Provider to get to the server download. Instead, use option 2 to download the server from the service settings page. 
 
-Use this download option if you already have a Multi-Factor Auth Provider, or if you pay for MFA on a per-user or per-authentication basis. 
+### Option 1: Download Azure Multi-Factor Authentication Server from the Azure classic portal
+
+Use this download option if you already have a Multi-Factor Auth Provider because you pay for MFA on a per-enabled user or per-authentication basis. 
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
 2. On the left, select **Active Directory**.
@@ -40,7 +43,7 @@ Use this download option if you already have a Multi-Factor Auth Provider, or if
    ![Download](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Save the download.
 
-### To download the Azure Multi-Factor Authentication Server from the service settings
+### Option 2: Download Azure Multi-Factor Authentication Server from the service settings
 
 Use this download option if you have Enterprise Mobility Suite, Azure AD Premium, or Enterprise Cloud Suite licenses. 
 
