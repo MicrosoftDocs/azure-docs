@@ -17,7 +17,7 @@ ms.date: 1/03/2017
 ms.author: pratshar
 
 ---
-# Test 	Failover (VMM to VMM) in Site Recovery
+# Test Failover (VMM to VMM) in Site Recovery
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site. 
 
