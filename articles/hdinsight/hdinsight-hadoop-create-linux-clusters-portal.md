@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 
 ---
@@ -43,7 +43,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 4. From the **Subscription** drop-down, select the Azure subscription that will be used for the cluster.
 
-4. Click **Cluster configuration**, and then select:
+5. Click **Cluster configuration**, and then select:
    
    * **Cluster Type**: If you don't know what to choose, select **Hadoop**. It is the most popular cluster type.
      
@@ -57,7 +57,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
      
      ![HDInsight premium tier configuration](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-cluster-type-configuration.png)
 
-5. Click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation). 
+6. Click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation). 
 
 7. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
    
@@ -69,7 +69,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-3. On the **Data Source** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage.  
+8. On the **Data Source** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage.  
 
 	* **Azure Storage Blobs as default storage**
 
