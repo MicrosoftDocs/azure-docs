@@ -21,10 +21,13 @@ ms.author: jeffstok
 # Understand Stream Analytics job monitoring and how to monitor queries
 
 ## Introduction: The monitor page
-The Azure portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
+The Azure portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section on the Overview page.  
 
+![Monitoring link](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
-  ![Monitoring job Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+The window will appear as shown:
+
+![Monitoring job Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics
 | Metric                 | Definition                               |
