@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
 ms.date: 12/22/2016
-ms.author: b-hoedid
+ms.author: arramac
 
 ---
 # Working with the Change Feed support in Azure DocumentDB
@@ -257,7 +257,7 @@ Changes are ordered by time within each partition key value within the partition
 > [!NOTE]
 > With Change Feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
 
-The .NET SDK provides the `CreateDocumentChangeFeedQuery` and `ChangeFeedOptions` helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
+The .NET SDK provides the [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) and [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
