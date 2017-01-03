@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to develop logic apps that automate and simplify business workflows across on-premises and the cloud. Tutorials, templates, and API references.
 ---
 # Logic Apps Documentation
 
-Logic Apps is a design tool for modeling and automating processes into workflows. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
+Learn how to develop Logic Apps that simplify and integrate scalable workflows in the cloud. Tutorials, templates, and API references help you design and deploy automated business workflows across on-premises and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>

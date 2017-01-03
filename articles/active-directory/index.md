@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
 ---
 
 # Azure Active Directory Documentation
 
-Azure Active Directory Premium is an Identity and Access Management cloud solution that provides single sign-on to thousands of cloud (SaaS) apps and access to web apps you run on-premises. Azure Active Directory enables enterprise mobility and collaboration and delivers advanced identity protection through Multi-Factor authentication (MFA), security reports, audits, alerts and adaptive conditional access policies based on device health, user location, and risk level.
+Learn how to synchronize directories and enable single sign-on with Azure Active Directory (Azure AD). Tutorials, API references, and other documentation show you how to integrate identity management capabilities including multi-factor authentication, device registration, role-based access control, and security monitoring and alerting.
 
 <ul class="panelContent cardsFTitle">
     <li>

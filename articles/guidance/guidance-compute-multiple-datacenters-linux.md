@@ -167,7 +167,7 @@ This series has focused on pure cloud deployments. Enterprise scenarios often re
 [install-azure-cli]: ../xplat-cli-install.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../azure-resource-manager/resource-group-overview.md
-[resource-group-links]: ../resource-group-link-resources.md
+[resource-group-links]: ../azure-resource-manager/resource-group-link-resources.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [ssl-client-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLClientToNode_t.html
 [ssl-node-node]: http://docs.datastax.com/en/cassandra/2.0/cassandra/security/secureSSLNodeToNode_t.html
