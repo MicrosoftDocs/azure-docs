@@ -26,7 +26,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 Test failover is run to validate your replication strategy or perform a disaster recovery drill without any data loss or downtime. Doing a test failover doesn't have any impact on the ongoing replication or on your production environment. Test failover can be done either on a virtual machine or a [recovery plan](site-recovery-create-recovery-plans.md). When triggering a test failover you need to specify the network to which test virtual machines would connect to. Once a test failover is triggered you can track progress in the **Jobs** page.  
 
 
-## Network options
+## Network options in site recovery
 
 When you run a test failover you'll be asked to select network settings for test replica machines. You have a number of options.  
 
@@ -42,7 +42,7 @@ When you run a test failover you'll be asked to select network settings for test
 >
 >
 
-## Preparing infrastructure
+## Preparing infrastructure for test failover
 * If you want to run a test failover using an existing network, prepare Active Directory, DHCP, and DNS in that network.
 * If you want to run a test failover using the option to create VM networks automatically, add manual step before Group-1 in the recovery plan you’re going to use for the test failover and then add the infrastructure resources to the automatically created network before running the test failover.
 
