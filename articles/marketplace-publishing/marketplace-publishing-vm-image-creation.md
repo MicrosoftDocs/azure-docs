@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/04/2016
 ms.author: hascipio; v-divte
 
 ---
@@ -34,8 +34,8 @@ Regardless of which operating system you use, add only the minimum number of dat
 
 > [!IMPORTANT]
 > **Do not change disk count in a new image version.** If you must reconfigure Data disks in the image, define a new SKU. Publishing a new image version with different disk counts will have the potential of breaking new deployment based on the new image version in cases of auto-scaling, automatic deployments of solutions through ARM templates and other scenarios.
-> 
-> 
+>
+>
 
 ### 1.1 Add an offer
 1. Sign in to the [Publishing Portal][link-pubportal] by using your seller account.
@@ -46,11 +46,11 @@ Regardless of which operating system you use, add only the minimum number of dat
 After you have added an offer, you need to define and identify your SKUs. You can have multiple offers, and each offer can have multiple SKUs under it. When an offer is pushed to staging, it is pushed along with all of its SKUs.
 
 1. **Add a SKU.** The SKU requires an identifier, which is used in the URL. The identifier must be unique within your publishing profile, but there is no risk of identifier collision with other publishers.
-   
+
    > [!NOTE]
    > The offer and SKU identifiers are displayed in the offer URL in the Marketplace.
-   > 
-   > 
+   >
+   >
 2. **Add a summary description for your SKU.** Summary descriptions are visible to customers, so you should make them easily readable. This information does not need to be locked until the "Push to Staging" phase. Until then, you are free to edit it.
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
@@ -74,41 +74,41 @@ These links can also be found in the Publishing Portal under the SKU page.
 
 > [!TIP]
 > If you are using the current Azure portal or PowerShell, Windows Server images published on September 8, 2014 and later are approved.
-> 
-> 
+>
+>
 
 ### 3.2 Create your Windows-based VM
 From the Microsoft Azure portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process:
 
 1. From the base image page, select **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
-   
+
     ![drawing][img-acom-1]
 2. Sign in to the portal with the Microsoft account and password for the Azure subscription you want to use.
 3. Follow the prompts to create a VM by using the base image you have selected. You need to provide a host name (name of the computer), user name (registered as an administrator), and password for the VM.
-   
+
     ![drawing][img-portal-vm-create]
 4. Select the size of the VM to deploy:
-   
+
     a.    If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
-   
+
     b.    If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
-   
+
     c.    For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
-   
+
     ![drawing][img-portal-vm-size]
 5. Set properties:
-   
+
     a.    For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
-   
+
     b.    Under **Storage Account**, you can optionally select the storage account in which the operating system VHD will be stored.
-   
+
     c.    Under **Resource Group**, you can optionally select the logical group in which to place the VM.
 6. Select the **Location** for deployment:
-   
+
     a.    If you plan to develop the VHD on-premises, the location does not matter because you will upload the image to Azure later.
-   
+
     b.    If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This speeds up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
-   
+
     ![drawing][img-portal-vm-location]
 7. Click **Create**. The VM starts to deploy. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
 
@@ -117,8 +117,8 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 
 > [!IMPORTANT]
 > If you develop your VHD on-premises (which is not recommended), see [Creating a virtual machine image on-premises](marketplace-publishing-vm-image-creation-on-premise.md). Downloading your VHD is not necessary if you are developing in the cloud.
-> 
-> 
+>
+>
 
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
@@ -136,10 +136,10 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 3. A blade opens that describes the selected VM.
 4. Click **Properties**.
 5. The first portion of the domain name is the service name. The host name is the VM name.
-   
+
     ![drawing][img-portal-vm-rdp]
 6. The cmdlet to download the RDP file for the created VM to the administrator's local desktop is as follows.
-   
+
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
 More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
@@ -169,9 +169,9 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 
 * For Windows, the image should be "sysprepped," and no configurations should be done that do not support the **sysprep** command.
 * You can run the following command from the directory %windir%\System32\Sysprep.
-  
+
         sysprep.exe /generalize /oobe /shutdown
-  
+
   Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## 4. Deploy a VM from your VHDs
@@ -208,13 +208,13 @@ To deploy a VM from a user VM image, you can use the current [Azure portal](http
 **Deploy a VM from the current Azure portal**
 
 1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
-   
+
     ![drawing][img-manage-vm-new]
 2. Go to **My images**, and then select the VM image from which to deploy a VM:
-   
+
    1. Pay close attention to which image you select, because the **My images** view lists both operating system images and VM images.
    2. Looking at the number of disks can help determine what type of image you are deploying, because the majority of VM images have more than one disk. However, it is still possible to have a VM image with only a single operating system disk, which would then have **Number of disks** set to 1.
-      
+
       ![drawing][img-manage-vm-select]
 3. Follow the VM creation wizard and specify the VM name, VM size, location, user name, and password.
 
@@ -230,13 +230,34 @@ To deploy a large VM from the generalized VM image just created, you can use the
 
 > [!IMPORTANT]
 > Please refer [Troubleshooting common issues encountered during VHD creation] for additional assistance.
-> 
-> 
+>
+>
 
 ## 5. Obtain certification for your VM image
-The next step in preparing your VM image for the Azure Marketplace is to have it certified.
+The next step in the publication of your VM image for the Azure Marketplace is to have it certified. This requires access to the image from your Azure Storage container for the Marketplace Certification Team. This access can be given by creating a Shared Access Signature (SAS) Url of the blob which contains the VHD.
 
-This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM image for certification.
+SAS URL can be generated in multiple ways to share your VHD for Azure Marketplace.
+
+Following are the 3 recommended tools:
+1.	Azure Storage Explorer
+2.	Microsoft Storage Explorer
+3.	Azure CLI
+
+### Azure Storage Explorer (recommended for Windows users)
+Following are the steps for generating SAS URL by using Azure Storage Explorer.
+1. Download [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) from CodePlex. Go to [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) and click downloads as below.
+2. Download [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) and install after unzipping it.
+3. After it is installed, open the application.
+4. Click **Add Account**
+5. Specify the storage account name, storage account key, and storage endpoints domain. This is the storage account in your Azure subscription where you have kept your VHD on Azure portal.
+6. Once Azure Storage Explorer is connected to your specific storage account It will start showing up all the containers within the storage account. Select the container where you have copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
+7. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
+8.
+9.
+10.
+11.
+12.
+13.
 
 ### 5.1 Download and run the Certification Test Tool for Azure Certified
 The certification tool runs on a running VM, provisioned from your user VM image, to ensure that the VM image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
@@ -253,15 +274,15 @@ The certification tool can be used with both Windows and Linux VMs. It connects 
 1. Select the SSH authentication mode: password or key file.
 2. If using password-­based authentication, enter the Domain Name System (DNS) name, user name, and password.
 3. If using key file authentication, enter the DNS name, user name, and private key location.
-   
+
    ![Password authentication of Linux VM Image][img-cert-vm-pswd-lnx]
-   
+
    ![Key file authentication of Linux VM Image][img-cert-vm-key-lnx]
 
 ### **Connect the certification tool to a Windows-based VM image**
 1. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
 2. Enter the user name and password.
-   
+
    ![Password authentication of Windows VM Image][img-cert-vm-pswd-win]
 
 After you have selected the correct options for your Linux or Windows-based VM image, select **Test Connection** to ensure
@@ -304,43 +325,43 @@ Instead of generating a shared access key by using code, you can also use storag
 1. Download [Azure Storage Explorer][link-azure-codeplex] 6 and above from CodePlex.
 2. After it is installed, open the application.
 3. Click **Add Account**.
-   
+
     ![drawing][img-azstg-add]
 4. Specify the storage account name, storage account key, and storage endpoints domain. Don’t select **Use HTTPS**.
-   
+
     ![drawing][img-azstg-setup-1]
 5. Azure Storage Explorer is now connected to your specific storage account. It will start showing all the containers within the storage account. Select the container where you have copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
-   
+
     ![drawing][img-azstg-setup-2]
 6. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
-   
+
     ![drawing][img-azstg-setup-3]
 7. After selecting the .vhd file in the container, click the **Security** tab.
-   
+
     ![drawing][img-azstg-setup-4]
 8. In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click the **Shared Access Signatures** tab.
-   
+
     ![drawing][img-azstg-setup-5]
 9. Follow the steps below to generate a shared access signature URI for the .vhd image:
-   
+
     ![drawing][img-azstg-setup-6]
-   
+
     a.    **Access permitted from**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
-   
+
     b.    **Access permitted to**: Select a date that is at least 7 to 8 days after the **Access permitted from** date.
-   
+
     c.    **Actions permitted**: Select the **List** and **Read** permissions.
-   
+
     d.    If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
-   
+
     e.    Click **Generate Signature**.
-   
+
     f.    In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
-   
+
    * Make sure that the URL doesn't start with "https".
    * Make sure that your image file name and ".vhd" are in the URI.
    * At the end of the signature, make sure that "=rl" appears. This demonstrates that Read and List access was provided successfully.
-     
+
      g.    To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
 10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
 11. Repeat these steps for each VHD in the SKU.
@@ -362,8 +383,20 @@ After you have created your offer and SKU, you should enter the image details as
 9. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD.
 10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
 11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
-    
+
     ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
+
+
+## Common issues & fixes
+
+|Issue|Failure Message|Fix|Documentation Link|
+|---|---|---|---|
+|Failure in copying images - "?" is not found in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url using recommended tools|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images - “st” and “se” parameters not in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url with Start and End dates on it|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images - “sp=rl” not in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri|Update the SAS Url with permissions set as “Read” & “List|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images - SAS url have white spaces in vhd name|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url without white spaces|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images – SAS Url Authorization error|Failure: Copying Images. Not able to download blob due to authorization error|Regenerate the SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+
 
 ## Next step
 After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
