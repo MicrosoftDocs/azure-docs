@@ -4,16 +4,17 @@
 ##[Create a server](analysis-services-create-server.md)
 
 # How to 
-## [Deploy](analysis-services-deploy.md)
+##[Deploy to a server](analysis-services-deploy.md)
+##[Connect from a client](analysis-services-connect.md)
 ## Manage
-###[Connect to a server](analysis-services-connect.md)
 ###[Manage a server](analysis-services-manage.md)
 ## Integrate
-###[On-premise data gateway](analysis-services-gateway.md)
+###[On-premises data gateway](analysis-services-gateway.md)
 
 # Reference
 ##[PowerShell](/powershell/resourcemanager)
-##[REST](/rest/api/analysisservices/)
+##[REST](/rest/api/analysisservices)
 
-# Related
+# Resources
+##[Data providers (client libaries)](analysis-services-data-providers.md)
 ##[Datasource connections](analysis-services-datasource.md)
