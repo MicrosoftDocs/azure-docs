@@ -18,14 +18,14 @@ ms.author: rclaus
 ---
 # High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)
 
-High Availability (HA) and Disaster Recovery (DR) are important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's import to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.
+High Availability (HA) and Disaster Recovery (DR) are important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's important to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.
 
 ## High Availability
 
 Microsoft supports the SAP HANA High Availability methods &quot;out of the box&quot;, which include:
 
 - **Storage Replication:** Ability for the storage system itself to replicate all data to another location (within, or separate, from the same data center). SAP HANA operates independently from this method.
-- **System Replication:** Replication of all data in SAP HANA to a separate SAP HANA system. RTO is minimized through data replicating at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended for only SAP HANA systems within the same data center or less than 100 km apart).
+- **HANA System Replication:** Replication of all data in SAP HANA to a separate SAP HANA system. RTO is minimized through data replicating at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended for only SAP HANA systems within the same data center or less than 100 km apart). In the current design of HANA Large Instance Stamps, HANA System Replication can be used for High Availability only.
 - **Host Auto-Failover:** One or more standby SAP HANA nodes are configured in &quot;scale out&quot; mode and SAP HANA automatically &quot;fails over&quot; to another node when the master node becomes unavailable.
 
 For more information on SAP HANA High Availability, see the following SAP information:
@@ -39,7 +39,7 @@ For more information on SAP HANA High Availability, see the following SAP inform
 
 ## Disaster Recovery
 
-SAP HANA on Azure (Large Instances) is offered in two Azure regions in a geo-political region. Between the two Large Instance stamps of two different regions is a direct network connectivity for replicating data during Disaster Recovery. The replication of the data is storage infrastructure based. The replication of the data is not done by default—it is done for customer configurations that ordered Disaster Recovery.
+SAP HANA on Azure (Large Instances) is offered in two Azure regions in a geo-political region. Between the two Large Instance stamps of two different regions is a direct network connectivity for replicating data during Disaster Recovery. The replication of the data is storage infrastructure based. The replication of the data is not done by default—it is done for customer configurations that ordered Disaster Recovery. In the current design, HANA System Replication can't be used for Disaster Recovery. 
 
 However, to take advantage of the Disaster Recovery, you need to start to design the network connectivity to the two different Azure regions accordingly. This means you would need an ExpressRoute circuit connecting from on-premises in your main Azure region, and another circuit connecting from on-premises into your DR region. This measure would cover a situation in which a complete Azure region, including MSEE location, has an issue.
 

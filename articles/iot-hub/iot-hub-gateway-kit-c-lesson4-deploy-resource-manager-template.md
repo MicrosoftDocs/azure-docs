@@ -72,7 +72,7 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
 ```bash
-az resource group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-gateway
+az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-gateway
 ```
 
 Use `iot-gateway` as the value of `{resource group name}` if you didn't change the value in Lesson 2.
