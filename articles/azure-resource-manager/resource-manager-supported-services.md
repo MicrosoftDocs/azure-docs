@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 12/27/2016
 ms.author: magoedte;tomfitz
 
 ---
@@ -89,8 +89,8 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | Cognitive Services |Yes | [Cognitive Services REST](/rest/api/cognitiveservices) |[Cognitive Services Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-02-01-preview/Microsoft.CognitiveServices.json) | |
 | Data Catalog |Yes |[Data Catalog REST](/rest/api/datacatalog) |[Data Catalog Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-03-30/Microsoft.DataCatalog.json) | |
 | Data Factory |Yes |[Data Factory REST](/rest/api/datafactory) | |[Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Data Lake Analytics |Yes | [Data Lake REST](/rest/api/datalakeanalytics) |[Data Lake Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
-| Data Lake Store |Yes |[Data Lake Store REST](/rest/api/datalakestore) |[Data Lake Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
+| Data Lake Analytics |Yes | [Data Lake REST](/rest/api/datalakeanalytics) |[Data Lake Analytics Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeAnalytics.json) |[Microsoft.DataLakeAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeAnalytics%22&type=Code) |
+| Data Lake Store |Yes |[Data Lake Store REST](/rest/api/datalakestore) |[Data Lake Store Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01-preview/Microsoft.DataLakeStore.json) |[Microsoft.DataLakeStore](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataLakeStore%22&type=Code) |
 | HDInsights |Yes |[HDInsights REST](/rest/api/hdinsight) | |[Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Machine Learning |Yes |[Machine Learning REST](/rest/api/machinelearning) |[Machine Learning Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-05-01-preview/Microsoft.MachineLearning.json) | |
 | Stream Analytics |Yes |[Steam Analytics REST](/rest/api/streamanalytics) | | |

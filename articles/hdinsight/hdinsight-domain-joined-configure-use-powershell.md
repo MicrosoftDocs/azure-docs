@@ -36,7 +36,7 @@ The PowerShell script provided performs steps 3 through 7. You must go through s
 
 An example of the final topology looks as follows:
 
-![Domain-joined HDInsight topology](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![Domain-joined HDInsight topology](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
 Because Azure AD currently only supports classic virtual networks (VNets) and Linux-based HDInsight clusters only support Azure Resource Manager based VNets, HDInsight Azure AD integration requires two VNets and a peering between them. For the comparison information between the two deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md). The two VNets must be in the same region as the Azure AD DS.
 

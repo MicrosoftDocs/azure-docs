@@ -22,7 +22,7 @@ You can connect System Center Configuration Manager to Log Analytics in OMS to s
 
 There are a number of steps needed to connect Configuration Manager to OMS, so here's a quick rundown of the overall process:
 
-1. In the Azure Management Portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../resource-group-create-service-principal-portal.md) for detailed information about how accomplish this step.
+1. In the Azure Management Portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) for detailed information about how accomplish this step.
 2. In the Azure Management Portal, [provide Configuration Manager (the registered web app) with permission to access OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. In Configuration Manager, [add a connection using the Add OMS Connection Wizard](#add-an-oms-connection-to-configuration-manager).
 4. In Configuration Manager, you can [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
