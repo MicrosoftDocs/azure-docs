@@ -175,7 +175,7 @@ There are a few failback requirements:
 **Azure account** | You need a Microsoft Azure account.
 **VMM server** | We recommend a VMM server in the primary site, and one in the secondary site, connected to the internet.<br/><br/> Each server should have at least one VMM private cloud, with the Hyper-V capability profile set.<br/><br/> You install the Azure Site Recovery Provider on the VMM server. The Provider coordinates and orchestrates replication with the Site Recovery service over the internet. Communications between the Provider and Azure are secure and encrypted.
 **Hyper-V server** |  You need one or more Hyper-V host servers in the primary and secondary VMM clouds. Servers should be connected to the internet.<br/><br/> Data is replicated between the primary and secondary Hyper-V host servers over the LAN or VPN, using Kerberos or certificate authentication.  
-**Source machines**: The source Hyper-V host server should have at least one VM that you want to replicate.
+**Source machines** | The source Hyper-V host server should have at least one VM that you want to replicate.
 
 ## Replication process
 
