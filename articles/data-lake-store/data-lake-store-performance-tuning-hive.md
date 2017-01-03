@@ -41,8 +41,11 @@ Here are the most important settings to tune for improved ADLS performance:
 * **hive.exec.reducer.bytes.per.reducer** – size of each reducer
 
 **hive.tez.container.size** - The container size determines how much memory is available for each task.  This is the main input for controlling the concurrency in Hive.  
+
 **tez.grouping.min-size** – This parameter allows you to set the minimum size of each mapper.  If the number of mappers that Tez chooses is smaller than the value of this parameter, then Tez will use the value set here.  
+
 **tez.grouping.max-size** – The parameter allows you to set the maximum size of each mapper.  If the number of mappers that Tez chooses is larger than the value of this parameter, then Tez will use the value set here.  
+
 **hive.exec.reducer.bytes.per.reducer** – This parameter sets the size of each reducer.  By default, each reducer is 256MB.  
 
 ## Guidance
@@ -54,26 +57,28 @@ Here are the most important settings to tune for improved ADLS performance:
 I/O intensive workloads can benefit from more parallelism by decreasing the Tez container size. This gives the user more containers which increases concurrency.  However, some Hive queries require a significant amount of memory (e.g. MapJoin).  If the task does not have enough memory, you will get an out of memory exception during runtime.  If you receive out of memory exceptions, then you should increase the memory.   
 
 The concurrent number of tasks running or parallelism will be bounded by the total YARN memory.  To find the YARN memory per node, you can go to Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
-Total YARN memory = nodes * YARN memory per node
-Concurrency = Total YARN memory / Tez container size
+
+		Total YARN memory = nodes * YARN memory per node
+		Concurrency = Total YARN memory / Tez container size
 The key to improving performance using ADLS is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
 
 ## Example Calculation
 
 Let’s say you have an 8 node D14 cluster.  
-Total YARN memory = nodes * YARN memory per node
+
+	Total YARN memory = nodes * YARN memory per node
 	Total YARN memory = 8 nodes * 96GB = 768GB
 	Concurrency = 768GB / 3072MB = 256
 
 ## Limitations
-* ADLS throttling: if you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.   
+ADLS throttling: if you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.   
 
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
 
 1. Put the following property in the log4j properties in Hive config. This can be done from Ambari view: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 Restart all the nodes/service for the config to take effect.
 
-2. If you are getting throttled, you’ll see the HTTP 429 error code in the hive log file. The hive log file is in /tmp/<user>/hive.log
+2. If you are getting throttled, you’ll see the HTTP 429 error code in the hive log file. The hive log file is in /tmp/&lt;user&gt;/hive.log
 
 ## Further information on Hive tuning
 
