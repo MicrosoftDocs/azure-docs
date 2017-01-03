@@ -19,6 +19,7 @@ ms.author: jeffstok
 
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries
+
 ## Introduction: The monitor page
 The Azure portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. To see these metrics, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
 
@@ -46,19 +47,6 @@ You can adjust the type of chart, metrics shown, and time range in the Edit Char
 
   ![Query Monitor Time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
-## Job status
-The status of Stream Analytics jobs can be viewed in the Azure Classic Portal where you see a list of jobs. You can see the list of jobs by clicking the Stream Analytics icon in the Azure Classic Portal.
-
-| Status   | Definition                               |
-| -------- | ---------------------------------------- |
-| Created  | A job has been created, however has not been started. |
-| Starting | A user clicked on Start the job, and the job is starting |
-| Running  | The job is allocated, processing input, or waiting to process input. If the job shows a Running state without producing output, it is likely that the data processing time window is large or the query logic is complicated. Another reason may be that currently there isn't any data being sent to the job. |
-| Stopping | A user clicked on Stop the job, and the job is stopping. |
-| Stopped  | The job has been stopped.                |
-| Degraded | This state indicates that a Stream Analytics job is encountering transient errors (for ex. Input/output errors, processing errors, conversion errors etc.). The job is still running, however there are a lot of errors being generated. This job needs customer attention, and the customer can see the Operations logs for the errors. |
-| Failed   | This indicates that the job has failed due to errors, and the processing has stopped. The customer needs to look into the operations logs in order to debug the errors. |
-| Deleting | This indicates that the job is being deleted. |
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
