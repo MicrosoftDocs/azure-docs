@@ -86,7 +86,7 @@ Now, let's deploy a Java app to Azure using FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. In **Java version**, select **Java 8** and click **Save**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     When you get the notification **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
     to see the default JSP servlet in action.

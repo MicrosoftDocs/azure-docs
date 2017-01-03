@@ -18,6 +18,17 @@ ms.author: cephalin
 
 ---
 # Deploy your first Python web app to Azure in five minutes
+
+> [!div class="op_single_selector"]
+> * [First HTML site](app-service-web-get-started-html.md)
+> * [First .NET app](app-service-web-get-started-dotnet.md)
+> * [First PHP app](app-service-web-get-started-php.md)
+> * [First Node.js app](app-service-web-get-started-nodejs.md)
+> * [First Python app](app-service-web-get-started-python.md)
+> * [First Java app](app-service-web-get-started-java.md)
+> 
+> 
+
 This tutorial helps you deploy your first Python web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
 and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
