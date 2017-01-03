@@ -26,17 +26,17 @@ Operations Management Suite (OMS) provides monitoring, alerting, and alert remed
 
 ## Prerequisites
 
-### Operating System
+#### Operating System
 
 The OMS Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
-### Connectivity
+#### Internet Connectivity
 
 The OMS Agent extension for Windows requires that the target virtual machine is connected to the internet. 
 
 ## Extension schema
 
-The OMS Agent virtual machine extension for Windows requires the workspace Id and workspace key from the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace. These can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
@@ -64,14 +64,14 @@ The OMS Agent virtual machine extension for Windows requires the workspace Id an
 
 ### Property values
 
-| Name | Value | Example |
-| ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | |
-| publisher | Microsoft.EnterpriseCloud.Monitoring | |
-| type | MicrosoftMonitoringAgent | |
-| typeHandlerVersion | 1.0 | |
-| workspaceId | From OMS | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey | From OMS | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| Name | Value |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
+| typeHandlerVersion | 1.0 |
+| workspaceId | Example from OMS - 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey | Example from OMS - z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 ## Template deployment
 
