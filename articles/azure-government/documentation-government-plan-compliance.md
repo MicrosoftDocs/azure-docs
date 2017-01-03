@@ -144,7 +144,7 @@ The Azure documentation site has detailed information regarding [storage service
 
 Azure Active Directory offers identity and access capabilities for information systems running in Microsoft Azure. Through the use of directory services, security groups, and group policy, customers can help control the access and security policies of the machines that make use of Azure Active Directory. Accounts and security groups can be used to help manage access to the information system. Group policy can help ensure that configuration requirements are met.
 
-Azure Active Directory security groups and directory services can help implement RBAC access control schemes, and control access to the information system. This may include security control implementations for:
+Azure Active Directory security groups and directory services can help implement role-based access control (RBAC) access control schemes, and control access to the information system. This may include security control implementations for:
 
 - Account management [NIST SP 800-53 control AC-2]
 
@@ -184,7 +184,7 @@ Azure Active Directory security groups and directory services can help implement
 
 - Access Restrictions for Change [NIST SP 800-53 control CM-5]
 
-  > CM-5 example control implementation statement: *Role-based access control (RBAC) enforced by Azure Active Directory is used to define, document, approve, and enforce logical access restrictions associated with changes. All accounts created within the system are role-based. Personnel request access from Account Administrators, and if approved, are placed in the appropriate security groups according to their roles. Access to the produce environment is only allowed to members of specific security groups after approval.*
+  > CM-5 example control implementation statement: *RBAC enforced by Azure Active Directory is used to define, document, approve, and enforce logical access restrictions associated with changes. All accounts created within the system are role-based. Personnel request access from Account Administrators, and if approved, are placed in the appropriate security groups according to their roles. Access to the produce environment is only allowed to members of specific security groups after approval.*
 
   > CM-5 (1) example control implementation statement: *Azure Active Directory enforces logical access restrictions via security group memberships. This requires security group owners to grant access to a given security group.*
 
