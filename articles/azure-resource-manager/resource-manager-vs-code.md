@@ -58,16 +58,16 @@ The easiest way to start working with a template is to either grab one of the Qu
 1. If you exported a template from a resource group, open the extracted files in VS Code.
    
     ![show files](./media/resource-manager-vs-code/show-files.png)
-2. Open the template.json file so that you can edit it and add some additional resources. After the **"resources": [** press enter to start a new line. If you type **arm**, you'll be presented with a list of options. These options are the template snippets you installed. It should look like this: 
+2. Open the template.json file so that you can edit it and add some additional resources. After the `"resources": [` press enter to start a new line. If you type **arm**, you'll be presented with a list of options. These options are the template snippets you installed. It should look like this: 
    
     ![show snippets](./media/resource-manager-vs-code/type-snippets.png)
-3. Choose the snippet you wish. For this article, I am choosing **arm-ip** to create a new public IP address. Put a comma after the closing bracket "}" of the newly created resource to make sure your template syntax is valid.
+3. Choose the snippet you wish. For this article, I am choosing **arm-ip** to create a new public IP address. Put a comma after the closing bracket `}` of the newly created resource to make sure your template syntax is valid.
    
      ![add comma](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code has built-in IntelliSense. As you edit your templates, VS Code suggests available values. For example, to add a variables section to your template, add **""** (two double-quotes) and select **Ctrl+Space** between those quotes. You will be presented with options including **variables**.
+4. VS Code has built-in IntelliSense. As you edit your templates, VS Code suggests available values. For example, to add a variables section to your template, add `""` (two double-quotes) and select **Ctrl+Space** between those quotes. You will be presented with options including **variables**.
    
     ![add variables](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense can also suggest available values or functions. To set a property to a parameter value, create an expression with **"[]"** and **Ctrl+Space**. You can start typing the name of a function. Select **Tab** when you have found the function you want.
+5. IntelliSense can also suggest available values or functions. To set a property to a parameter value, create an expression with `"[]"` and **Ctrl+Space**. You can start typing the name of a function. Select **Tab** when you have found the function you want.
    
     ![add parameter](./media/resource-manager-vs-code/select-parameters.png)
 6. Select **Ctrl+Space** again within the function to see a list of the available parameters within your template.
@@ -86,7 +86,7 @@ When your template is ready, you can deploy the new resources following the inst
 
 ### Windows
 1. Open a PowerShell command prompt 
-2. To login type: 
+2. To log in type: 
    
   ```powershell
   Login-AzureRmAccount
@@ -109,7 +109,7 @@ When your template is ready, you can deploy the new resources following the inst
 
 ### OSX/Linux
 1. Open a terminal window 
-2. To login type:
+2. To log in type:
 
   ```azurecli
   azure login
