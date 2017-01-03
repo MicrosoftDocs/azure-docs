@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/30/2016
+ms.date: 01/03/2017
 ms.author: cynthn
 
 ---
