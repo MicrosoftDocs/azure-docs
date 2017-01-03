@@ -27,9 +27,9 @@ ms.author: vturecek;mikhegn
 
 2. Update entryPoint.sh of the service you wish to debug, so that it starts the java process with remote debug parameters. This file can be found at the following location: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Port 8001 is set for debugging in this example.
 
-```sh
-java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
-```
+    ```sh
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
+    ```
 
 3. Update the Application Manifest by setting the instance count or the replica count for the service that is being debugged to 1. This setting avoids conflicts for the port that is used for debugging. For example, for stateless services, set ``InstanceCount="1"`` and for stateful services set the target and min replica set sizes to 1 as follows: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
@@ -37,10 +37,10 @@ java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djav
 
 5. In the Eclipse IDE, select **Run -> Debug Configurations -> Remote Java Application and input connection properties** and set the properties as follows:
 
-```
-Host: ipaddress
-Port: 8001
-```
+   ```
+   Host: ipaddress
+   Port: 8001
+   ```
 
 6.  Set breakpoints at desired points and debug the application.
 
