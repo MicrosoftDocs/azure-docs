@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2016
+ms.date: 12/21/2016
 ms.author: jgao
 
 ---
@@ -86,6 +86,8 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must configure sta
 
 9. Repeat step 6 to set the static IP address for the other two ZooKeeper nodes.
 
+For the cross-VNet scenario, you must use the **-ip** switch when calling the **hdi_enable_replication.sh** script action.
+
 ### Configure two virtual networks in two different regions
 
 Click the following image to create two virtual networks in two different regions. The template is stored in a public Azure Blob container.
@@ -95,6 +97,8 @@ Click the following image to create two virtual networks in two different region
 Create a VPN gateway between the two virtual networks. For instructions, see [Create a VNet with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 HBase replication uses IP addresses of the ZooKeeper VMs. You must configure static IP addresses for the destination HBase ZooKeeper nodes. To configure static IP, see the "Configure two virtual networks in the same region" section in this article.
+
+For the cross-VNet scenario, you must use the **-ip** switch when calling the **hdi_enable_replication.sh** script action.
 
 ## Load test data
 
@@ -119,7 +123,7 @@ The following steps show how to call the script action script from the Azure por
   - **Head**: Selected. Clear the other node types.
   - **Parameters**: The following sample parameters enable replication for all the existing tables and copy all the data from the source cluster to the destination cluster:
 
-            -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
+            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
 
 6. Click **Create**. The script can take some time, especially when the -copydata argument is used.
 
@@ -213,11 +217,11 @@ The print_usage() section of the [script](https://raw.githubusercontent.com/Azur
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   or
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
+        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari username> --src-ambari-password=<source cluster Ambari password>
 
 - **Disable replication on specified tables (table1, table2, and table3)**:
 
-        -m hn1 -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## Next steps
 
