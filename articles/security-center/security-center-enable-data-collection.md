@@ -33,6 +33,7 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 3. On the **Turn on data collection** blade, select your subscription. The **Security policy** blade for that subscription opens.
 4. On the **Security policy** blade, select **On** under **Data collection** to automatically collect logs. Turning on data collection will also provision the monitoring extension on all current and new supported VMs in the subscription.
    ![Security policy blade][3]
+   
 5. Select **Save**.
 6. Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be automatically created for you. In this example, we’ll choose **newstoracct**. You can change the storage account later by returning to the security policy for your subscription and choosing a different storage account.
    ![Choose a storage account][4]
@@ -47,7 +48,7 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. The Monitoring Agent also copies crash dump files to your storage account. This is the storage account you configured in the security policy.
 
 ## Disabling data collection
-You can disable data collection at any time, which will automatically remove any Monitoring Agents previous installed by Security Center.  You must select a subscription to turn data collection off.
+You can disable data collection at any time, which will automatically remove any Monitoring Agents previously installed by Security Center.  You must select a subscription to turn data collection off.
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn data collection off.
