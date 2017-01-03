@@ -71,7 +71,9 @@ Let’s say you have an 8 node D14 cluster.
 	Concurrency = 768GB / 3072MB = 256
 
 ## Limitations
-ADLS throttling: if you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.   
+**ADLS throttling** 
+
+UIf you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing Tez container size.  If you need more concurrency for your job, please contact us.   
 
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
 
