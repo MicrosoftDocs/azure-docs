@@ -179,7 +179,7 @@ Use these opportunities for getting the latest API versions:
 },
 ```
 
-When you deploy the example template, you enter values for the name of the administrator account on each VM, the password for the account, and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
+When you deploy the example template, you enter values for the name and password of the administrator account on each VM and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
 
 [Variables](../resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
@@ -479,7 +479,7 @@ You can also get extension information by using the **Get-AzureRmVMExtension** P
 
 When you deploy a template, Azure tracks the resources that you deployed as a group and automatically assigns a name to this deployed group. The name of the deployment is the same as the name of the template.
 
-If you are curious about the status of resources in the deployment, you can get it in the portal from the Resource Group blade:
+If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal:
 
 ![Get deployment information](./media/virtual-machines-windows-resource-walkthrough/virtual-machines-deployment-info.png)
     
