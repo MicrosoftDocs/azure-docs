@@ -25,8 +25,8 @@ You first need to make sure you've done these setup steps:
 
 * Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-* Get an [authentication token](../resource-group-authenticate-service-principal.md)
-* Create a resource group using [Azure PowerShell](../resource-group-template-deploy.md), [Azure CLI](../resource-group-template-deploy-cli.md), or [Azure portal](../resource-group-template-deploy-portal.md).
+* Get an [authentication token](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Create a resource group using [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), or [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 It takes about 30 minutes to do these steps.
 
@@ -222,18 +222,19 @@ The Azure Active Directory application is created and the authentication library
         using System.IO;
 2. Add this method to the Program class to get the token that's needed to create the credentials:
 
-     private static async Task<AuthenticationResult> GetAccessTokenAsync()
+   ```
+   private static async Task<AuthenticationResult> GetAccessTokenAsync()
+   {
+     var cc = new ClientCredential("{client-id}", "{client-secret}");
+     var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+     var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+     if (token == null)
      {
-
-       var cc = new ClientCredential("{client-id}", "{client-secret}");
-       var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-       if (token == null)
-       {
-         throw new InvalidOperationException("Could not get the token.");
-       }
-       return token;
+       throw new InvalidOperationException("Could not get the token.");
      }
+     return token;
+   }
+   ```
 
    Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 3. To create the credentials, add this code to the Main method in the Program.cs file:
@@ -292,26 +293,28 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 1. To delete the resource group, add this method to the Program class:
 
-     public static async void DeleteResourceGroupAsync(
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
 
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
 2. To call the method that you just added, add this code to the Main method:
 
-     DeleteResourceGroupAsync(
-
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## Step 6: Run the console application
 1. To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same credentials that you use with your subscription.

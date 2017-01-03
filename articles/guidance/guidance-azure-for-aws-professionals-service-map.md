@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 12/29/2016
 ms.author: lbrader
 
 ---
@@ -64,7 +64,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS exper
 |Subcategory|AWS Service|Azure Service|Description|
 |--- |--- |--- |--- |
 |Relational database|RDS|[SQL Database](https://azure.microsoft.com/services/sql-database/)|Relational database-as-a-service (DBaaS) where the database resilience, scale, and maintenance are primarily handled by the platform.|
-|NoSQL database|DynamoDB|[DocumentDB](https://azure.microsoft.com/services/documentdb/)|A NoSQL document database service that automatically indexes JSON data for applications that require rich query and multi-document transactions.|
+|NoSQL database|DynamoDB|[DocumentDB](https://azure.microsoft.com/services/documentdb/)|A globally distributed NoSQL database service that supports elastically scaling throughput and storage across multiple regions, supports multiple well-defined consistency models, and is capable of automatically indexing data to serve SQL and MongoDB APIs.|
 |Data warehouse|Redshift|[SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) |A fully managed data warehouse that analyzes data using business intelligence tools. It can transact SQL queries across relational and non-relational data.|
 |Table storage|DynamoDB <br/>SimpleDB|[Table Storage](https://azure.microsoft.com/services/storage/tables/)|A non-relational data store for semi-structured data. Developers store and query data items via web services requests.|
 |Caching|ElastiCache|[Azure Redis Cache](https://azure.microsoft.com/services/cache/)|An in-memory based, distributed caching service that provides a high-performance store typically used to offload non-transactional work from a database.|

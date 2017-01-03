@@ -154,9 +154,9 @@ You can set the scope at the level of the subscription, resource group, or resou
      ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
 9. Select **OK** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
-## Log in as application
+## Log in as the application
 
-Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that is gives it certain actions it can perform. 
+Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. 
 
 To log in through PowerShell, see [Provide credentials through PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
 
@@ -164,7 +164,7 @@ To log in through Azure CLI, see [Provide credentials through Azure CLI](resourc
 
 To get the access token for REST operations, see [Create the request](/rest/api/#create-the-request).
 
-Look the following sample applications to learn about logging in through application code.
+Look at the following sample applications to learn about logging in through application code.
 
 ### Sample applications
 The following sample applications show how to log in as the AD application.
