@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/11/2016
+ms.date: 01/03/2016
 ms.author: jeffstok
 
 ---
@@ -30,9 +30,6 @@ In the Azure Portal, browse to the Stream Analytics job you are interested in se
 
   ![Azure Portal Monitoring job Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
 
-The first time a Stream Analytics job is created in a region, you will need to configure Diagnostics for that region. To do this, click anywhere in the **Monitoring** section and the **Diagnostics** blade will appear. Here you can enable diagnostics and specify a storage account for monitoring data.  
-
-  ![Azure Portal Configure query Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics
 | Metric                 | Definition                               |
@@ -44,6 +41,11 @@ The first time a Stream Analytics job is created in a region, you will need to c
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
 | Runtime Errors         | Number of errors that happen during execution of a Stream Analytics job. |
 | Late Input Events      | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
+| Function Requests      | Number of calls to Azure machine learnings. |
+| Failed Function Requests | Number of failed function calls. |
+| Function Events        | Number of events sent to Azure machine learning functions |
+| Input Event Bytes      | Amount of data received by the Stream Analytics job, in bytes. This can be used to validate that events are being sent to the input source. |
+
 
 ## Customizing Monitoring in the Azure Management portal
 Up to 6 metrics can be displayed on a chart.
@@ -54,11 +56,7 @@ To switch between displaying relative values (final value only for each metric) 
 
 Metrics can be viewed in the Monitor chart in aggregations of 1 hour, 12 hours, 24 hours or 7 days.
 
-To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
-
-  ![Query monitor Time Scale](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)  
-
-You can set rules that can notify you by email in case the job crosses a defined threshold. 
+To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart. You can set rules that can notify you by email in case the job crosses a defined threshold. 
 
 ## Customizing Monitoring in the Azure Portal
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
