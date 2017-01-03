@@ -23,7 +23,7 @@ ms.author: tarcher
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
-The following steps walk you through using the AzCopy command-line utility to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file.
+The following steps walk you through using the AzCopy command-line utility to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
 
 > [!NOTE] 
 >  
@@ -71,7 +71,7 @@ The first parameter (*Destination*) contains the URI for a blob container (*uplo
 1. Using the storage account key and blob container URI, run the following command at the command prompt. The *vhdFileName* value needs to be in quotes. The process of uploading a VHD file can be lengthy depending on the size of the VHD file and your connection speed.   
 
 	```command-line
-	AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>"
+	AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
 	```
 
 ## Next steps

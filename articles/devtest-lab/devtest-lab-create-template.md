@@ -1,5 +1,5 @@
 ---
-title: Create a custom image in Azure DevTest Labs from a VHD file | Microsoft Docs
+title: Create a custom image from a VHD file | Microsoft Docs
 description: Learn how to create a custom image in Azure DevTest Labs from a VHD file using the Azure portal
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -18,13 +18,15 @@ ms.author: tarcher
 
 ---
 
-# Create a custom image in Azure DevTest Labs from a VHD file
+# Create a custom image from a VHD file
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
 [!INCLUDE [devtest-lab-upload-vhd-options](../../includes/devtest-lab-upload-vhd-options.md)]
+
+## Step-by-step instructions
 
 The following steps walk you through creating a custom image from a VHD file using the Azure portal:
 
@@ -56,7 +58,7 @@ The following steps walk you through creating a custom image from a VHD file usi
 
 1. On the **OS configuration** tab, select either **Windows** or **Linux**.
 
-1. If **Windows** is selected, specify via the checkbox whether *Sysprep* has been run on the machine.
+1. If **Windows** is selected, specify via the checkbox whether *Sysprep* has been run on the machine. 
 
 1. Select **OK** to close the **OS configuration** blade.
 

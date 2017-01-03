@@ -1,5 +1,5 @@
 ---
-title: Create a custom image in Azure DevTest Labs from a VM | Microsoft Docs
+title: Create a custom image from a VM | Microsoft Docs
 description: Learn how to create a custom image in Azure DevTest Labs from a provisioned VM using the Azure portal
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -18,9 +18,11 @@ ms.author: tarcher
 
 ---
 
-# Create a custom image in Azure DevTest Labs from a VM
+# Create a custom image from a VM
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
+
+## Step-by-step instructions
 
 You can create a custom image from a provisioned VM, and afterwards use that custom image to create identical VMs. The following steps illustrate how to create a custom image from a VM:
 

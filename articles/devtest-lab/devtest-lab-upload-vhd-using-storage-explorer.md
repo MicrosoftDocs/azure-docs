@@ -23,7 +23,7 @@ ms.author: tarcher
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
-This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file.
+This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
 
 1. [Download and install the latest version of the Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
 
@@ -83,13 +83,13 @@ This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azu
 	
 	1. Expand the **Blob Containers** node.
 	
-	1. Select the **uploads** directory.
+	1. Select the uploads blob container to display its contents in the right pane.
 		
 		![Upload directory][5]
 
 1. Upload the VHD file using Storage Explorer:
 
-	1. In the Storage Explorer right pane, you should see a listing of the blobs in the **uploads** directory of the lab's storage account. On the blob editor toolbar, select **Upload** 
+	1. In the Storage Explorer right pane, you should see a listing of the blobs in the **uploads** blob container of the lab's storage account. On the blob editor toolbar, select **Upload** 
 		
 		![Upload button][6]
 	
