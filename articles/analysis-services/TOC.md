@@ -16,5 +16,4 @@
 ##[REST](/rest/api/analysisservices)
 
 # Resources
-##[Data providers (client libaries)](analysis-services-data-providers.md)
 ##[Datasource connections](analysis-services-datasource.md)
