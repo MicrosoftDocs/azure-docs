@@ -292,7 +292,7 @@ In this case, we are assuming the storage account already exists. If the storage
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
 - [size](virtual-machines-windows-sizes.md)
-- [name](virtual-machines-linux-infrastructure-service-guidelines.md) and credentials
+- [name](virtual-machines-linux-infrastructure-naming-guidelines.md) and credentials
 - disk and [operating system settings](virtual-machines-windows-cli-ps-findimage.md)
 - [network interface](../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
@@ -471,7 +471,7 @@ The start.ps1 script can accomplish many configuration tasks. For example, the d
 
 You can see the status of the installed extensions from the Extensions settings in the portal:
 
-![Get extension status](./media/virtual-machines-windows-resource-walkthrough/virtual-machines-show-extensions.png)
+![Get extension status](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
 You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI 2.0 (Preview) command, or the **Get extension information** REST API.
 
@@ -481,7 +481,7 @@ When you deploy a template, Azure tracks the resources that you deployed as a gr
 
 If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal:
 
-![Get deployment information](./media/virtual-machines-windows-resource-walkthrough/virtual-machines-deployment-info.png)
+![Get deployment information](./media/virtual-machines-windows-template-description/virtual-machines-deployment-info.png)
     
 It’s not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that are not in the template.
 
