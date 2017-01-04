@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2016
+ms.date: 01/04/2016
 ms.author: arramac
 
 ---
@@ -99,6 +99,8 @@ If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mo
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
+
+Using the DocumentDB emulator, you can create up to 25 single partition collections or one partitioned collection. If you attempt to create both single partition collections and partitioned collections at the same time, the emulator throws a ServiceUnavailable error.  
 
 ## Export the DocumentDB Emulator SSL certificate
 
