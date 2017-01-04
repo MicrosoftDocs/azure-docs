@@ -4,7 +4,7 @@ description: This article describes how to deploy a Web\Mobile App Service to Az
 services: Azure-Government
 cloud: gov
 documentationcenter: ''
-author: sdubey
+author: sdubeymsft
 manager: zakramer
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 01/03/2016
-ms.author: sdubey
+ms.author: sdubeymsft
 
 ---
 # Deploy to Azure App Services using Visual Studio 2015
