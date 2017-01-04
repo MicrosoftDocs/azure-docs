@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
@@ -164,10 +164,11 @@ To avoid providing the service principal credentials every time it needs to log 
    Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
    ```
 
-> [!NOTE]
-> The access token expires, so using a saved profile only works for as long as the token is valid.
-> 
-> 
+  > [!NOTE]
+  > The access token expires, so using a saved profile only works for as long as the token is valid.
+  >  
+
+Alternatively, you can invoke REST operations from PowerShell to log in. From the authentication response, you can retrieve the access token for use with other operations. For an example of retrieving the access token by invoking REST operations, see [Using the Azure Resource Manager REST API – Get Access Token](https://blogs.technet.microsoft.com/stefan_stranger/2016/10/21/using-the-azure-arm-rest-apin-get-access-token/).
 
 ## Create service principal with certificate
 In this section, you perform the steps to:
