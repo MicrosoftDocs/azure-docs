@@ -81,27 +81,29 @@ There is a default outbound rule that allows traffic out to the internet. For th
 Each rule is discussed in more detail as follows (**Note**: any item in the following list beginning with a dollar sign (for example: $NSGName) is a user-defined variable from the script in the reference section of this document):
 
 1. First a Network Security Group must be built to hold the rules:
+
 	```PowerShell
 	New-AzureNetworkSecurityGroup -Name $NSGName `
 	    -Location $DeploymentLocation `
 	    -Label "Security group for $VNetName subnets in $DeploymentLocation"
 	```
+
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
    
    * “Type” signifies in which direction of traffic flow this rule takes effect. The direction is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Type is “Inbound” and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
    * “Priority” sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
    * “Action” signifies if traffic affected by this rule is blocked or allowed.
-	```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
-        -Type Inbound -Priority 100 -Action Allow `
-        -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
-        -DestinationAddressPrefix $VMIP[4] `
-        -DestinationPortRange '53' `
-        -Protocol *
-	```
+```PowerShell    
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
+    -Type Inbound -Priority 100 -Action Allow `
+    -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
+    -DestinationAddressPrefix $VMIP[4] `
+    -DestinationPortRange '53' `
+    -Protocol *
+```
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; “VIRTUAL_NETWORK” and “INTERNET.” These tags are an easy way to address a larger category of address prefixes.
-	```PowerShell
+```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
          Set-AzureNetworkSecurityRule -Name "Enable RDP to $VNetName VNet" `
          -Type Inbound -Priority 110 -Action Allow `
@@ -109,17 +111,21 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
          -DestinationAddressPrefix VIRTUAL_NETWORK `
          -DestinationPortRange '3389' `
          -Protocol *
-	```
+```
 4. This rule allows inbound internet traffic to hit the web server. This rule does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
+
 	```PowerShell
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-         Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" `
-         -Type Inbound -Priority 120 -Action Allow `
-         -SourceAddressPrefix Internet -SourcePortRange '*' `
-         -DestinationAddressPrefix $VMIP[0] `
-         -DestinationPortRange '*' `
-         -Protocol *
+
+	    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+	         Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" `
+	         -Type Inbound -Priority 120 -Action Allow `
+	         -SourceAddressPrefix Internet -SourcePortRange '*' `
+	         -DestinationAddressPrefix $VMIP[0] `
+	         -DestinationPortRange '*' `
+	         -Protocol *
+
 	```
+
 5. This rule allows traffic to pass from the IIS01 server to the AppVM01 server, a later rule blocks all other Frontend to Backend traffic. To improve this rule, if the port is known that should be added. For example, if the IIS server is hitting only SQL Server on AppVM01, the Destination Port Range should be changed from “*” (Any) to 1433 (the SQL port) thus allowing a smaller inbound attack surface on AppVM01 should the web application ever be compromised.
 	```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
