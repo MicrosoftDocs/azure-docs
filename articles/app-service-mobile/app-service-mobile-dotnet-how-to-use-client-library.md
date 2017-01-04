@@ -144,7 +144,7 @@ This section describes how to issue queries to the Mobile App backend, which inc
 > [!NOTE]
 > A server-driven page size is enforced to prevent all rows from being returned.  Paging keeps
 > default requests for large data sets from negatively impacting the service.  To return more than 50 rows,
-> use the `Skip` and `Take` method, as described in [Return data in pages].
+> use the `Skip` and `Take` method, as described in [Return data in pages](#paging).
 
 ### <a name="filtering"></a>How to: Filter returned data
 The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from
