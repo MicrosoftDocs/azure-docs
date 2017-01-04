@@ -307,7 +307,7 @@ Following are the 3 recommended tools:
 2.	Microsoft Storage Explorer
 3.	Azure CLI
 
-** Azure Storage Explorer (Recommended for Windows Users)**
+**Azure Storage Explorer (Recommended for Windows Users)**
 
 Following are the steps for generating SAS URL by using Azure Storage Explorer
 
@@ -370,7 +370,7 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
 
 13.	Repeat steps 6-10 for each VHD in the SKU.
 
-** Microsoft Azure Storage Explorer (Windows/MAC/Linux) **
+**Microsoft Azure Storage Explorer (Windows/MAC/Linux)**
 
 Following are the steps for generating SAS URL by using Microsoft Azure Storage Explorer
 
@@ -397,7 +397,9 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
     a.	**Start Time:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+
     b.	**Expiry Time:** Select a date that is at least 3 weeks after the **Start Time** date.
+
     c.	**Permissions:** Select the **List** and **Read** permissions
 
 8.	Copy Container shared access signature URI
@@ -428,7 +430,7 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 11.	Repeat these steps for each VHD in the SKU.
 
-** Azure CLI (Recommended for Non-Windows & Continuous Integration) **
+**Azure CLI (Recommended for Non-Windows & Continuous Integration)**
 
 Following are the steps for generating SAS URL by using Azure CLI
 
@@ -438,25 +440,25 @@ Following are the steps for generating SAS URL by using Azure CLI
 
 3.	Create a PowerShell file with following code and save it in local
 
-        $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-        azure storage container list vhds -c $conn
-        azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
+          azure storage container list vhds -c $conn
+          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
 
     Update the following parameters in above
 
-    a. **<StorageAccountName>**: Give your storage account name
+    a. **`<StorageAccountName>`**: Give your storage account name
 
-    b. **<Storage Account Key>**: Give your storage account key
+    b. **`<Storage Account Key>`**: Give your storage account key
 
-    c. **<Permission Start Date>**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016
+    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016
 
-    d. **<Permission End Date>**: Select a date that is at least 3 weeks after the **Start Date**. Then value should be **11/02/2016**.
+    d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. Then value should be **11/02/2016**.
 
     Following is the example code after updating proper parameters
 
-        $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-        azure storage container list vhds -c $conn
-        azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          azure storage container list vhds -c $conn
+          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
 4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3.
 
