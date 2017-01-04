@@ -44,7 +44,7 @@ For the most current list of services, see the [Products by Region](https://azur
 ## [Storage](documentation-government-services-storage.md)
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
 * Import/Export
-* StorSimple
+* [StorSimple](documentation-government-services-storage)
 * [Backup](documentation-government-services-backup)
 * [Site Recovery](documentation-government-services-monitoringandmanagement)
 
