@@ -479,14 +479,6 @@ Hybrid networking using an ExpressRoute private peering connection can be added 
 
 As shown in the preceding figure, ExpressRoute private peering provides a direct connection between your on-premises network and the Azure virtual network. Traffic transits only the service provider network and the Microsoft Azure network, never touching the Internet.
 
-> [!NOTE]
-> There are certain restrictions when using UDR with ExpressRoute, due to the complexity of dynamic routing used in the Azure virtual gateway. These are as follows:
->
-> * UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure virtual gateway is connected.
-> * The ExpressRoute linked Azure virtual gateway cannot be the NextHop device for other UDR bound subnets.
->
-> <br />
->
 > [!TIP]
 > Using ExpressRoute keeps corporate network traffic off of the Internet for better security and significantly increased performance. It also allows for service level agreements from your ExpressRoute provider. The Azure Gateway can pass up to 2 Gb/s with ExpressRoute, whereas with site-to-site VPNs, the Azure Gateway maximum throughput is 200 Mb/s.
 >
