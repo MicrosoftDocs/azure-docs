@@ -12,8 +12,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.topic: article
+ms.date: 01/05/2017
 ms.author: kgremban
 ---
 
@@ -24,13 +24,18 @@ ms.author: kgremban
 > * [Azure portal](application-proxy-publish-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-publish.md)
 
-Azure AD Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. After you complete this article, you'll be ready to configure the application with personalized information or security requirements.
+Azure Active Directory (AD) Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. Through the Azure portal, you can publish applications that are running on your local network and provide secure remote access from outside your network.
+
+This article walks you through the steps to publish your first app with Application Proxy. After you complete this article, you'll be ready to configure the application with personalized information or security requirements.
 
 > [!NOTE]
 > Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 
 ## Publish an on-premises app for remote access
+
+For your first published app, choose an application that's already set up for password-based authentication. Application Proxy supports other types of authentication, but password-based apps are the easiest to get up and running quickly. 
+
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory** > **Enterprise applications** > **Add**.
 
@@ -54,11 +59,11 @@ Azure AD Application Proxy helps you support remote workers by publishing on-pre
      > If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path.
 
    - **External URL**: The address your users will go to in order to access the app from outside your network.
-   - **Pre Authentication**: How Application Proxy verifies users before giving them access to your application. Choose one of the options from the drop-down menu.
+   - **Pre Authentication**: How Application Proxy verifies users before giving them access to your application. For this walkthrough, choose Azure Active Directory from the dropdown menu. 
 
      - Azure Active Directory: Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application.
      - Passthrough: Users don't have to authenticate against Azure Active Directory to access the application. You can still set up authentication requirements on the backend.
-   - **Translate URL in Headers?**: Choose whether to translate the URL in the headers, or keep the original.
+   - **Translate URL in Headers?**: Choose whether to translate the URL in the headers, or keep the original. 
    - **Connector Group**: Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default** and you'll see a warning message asking you to [create a connector group](active-directory-application-proxy-connectors-azure-portal.md).
 
    ![Configure your application](./media/application-proxy-publish-azure-portal/configure-app.png)
@@ -86,4 +91,4 @@ In your browser, navigate to the external URL that you configured during the pub
 ## Next steps
 - Download connectors and create connector groups to [Publish applications on separate networks and locations](active-directory-application-proxy-connectors-azure-portal.md)
 
-- Find out what else you can do in the [Azure Active Directory management experience preview](active-directory-preview-explainer.md) for the Azure portal.
+- Set up single sign-on for your newly-published app
