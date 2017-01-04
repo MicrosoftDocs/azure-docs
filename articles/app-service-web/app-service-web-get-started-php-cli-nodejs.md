@@ -1,13 +1,13 @@
 ---
-title: Deploy your first web app to Azure in five minutes | Microsoft Docs
-description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
+title: Deploy your first PHP web app to Azure in five minutes | Microsoft Docs
+description: Learn how easy it is to run web apps in App Service by deploying a sample PHP app. Start doing real development quickly and see results immediately.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
 manager: wpickett
 editor: ''
 
-ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
+ms.assetid: 21acd587-b772-4d89-be06-9a7429c33c7a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -17,15 +17,26 @@ ms.date: 01/04/2017
 ms.author: cephalin
 
 ---
-# Deploy your first web app to Azure in five minutes
-This tutorial helps you deploy your first web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+# Deploy your first PHP web app to Azure in five minutes
+
+> [!div class="op_single_selector"]
+> * [First HTML site](app-service-web-get-started-html-cli-nodejs.md)
+> * [First .NET app](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [First PHP app](app-service-web-get-started-php-cli-nodejs.md)
+> * [First Node.js app](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [First Python app](app-service-web-get-started-python-cli-nodejs.md)
+> * [First Java app](app-service-web-get-started-java.md)
+> 
+> 
+
+This tutorial helps you deploy your first PHP web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
 and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 You will: 
 
 * Create a web app in Azure App Service.
-* Deploy sample code (choose between ASP.NET, PHP, Node.js, Java, or Python).
+* Deploy sample PHP code.
 * See your code running live in production.
 * Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
@@ -35,8 +46,8 @@ You will:
 
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) – our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0 (Preview)](app-service-web-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](app-service-web-get-started-php-cli-nodejs.md) – our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0 (Preview)](app-service-web-get-started-php.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).
@@ -51,9 +62,7 @@ You can complete the task using one of the following CLI versions:
 > 
 > 
 
-## Deploy a web app
-Let's deploy a web app to Azure App Service.
-
+## Deploy a PHP web app
 1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
    are installed on your machine.
    
@@ -71,45 +80,28 @@ Let's deploy a web app to Azure App Service.
    
         azure config mode asm
         azure site deployment user set --username <username> --pass <password>
-
-4. Change to a working directory (`CD`) and clone the sample app like this:
+4. Change to a working directory (`CD`) and clone the sample PHP app like this:
    
-        git clone <github_sample_url>
-   
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
-   
-    For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework that you like:
-   
-   * HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-   * ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-   * PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-   * Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-   * Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-   * Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
-
+        git clone https://github.com/Azure-Samples/app-service-web-php-get-started.git
 5. Change to the repository of your sample app. For example:
    
-        cd app-service-web-html-get-started
-
+        cd app-service-web-php-get-started
 6. Create the App Service app resource in Azure with a unique app name and the deployment user you configured earlier. When you're prompted, specify the number of the desired region.
    
         azure site create <app_name> --git --gitusername <username>
    
-    ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started/4-create-site.png)
+    ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started-languages/php-site-create.png)
    
     Your app is created in Azure now. Also, your current directory is Git-initialized and connected to the new App Service app as a Git remote.
     You can browse to the app URL (http://&lt;app_name>.azurewebsites.net) to see the beautiful default HTML page, but let's actually get your code there now.
-
 7. Deploy your sample code to your Azure app like you would push any code with Git. When prompted, use the password you configured earlier.
    
         git push azure master
    
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started/5-push-code.png)
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/php-git-push.png)
    
-    If you used one of the language frameworks, you'll see different output. `git push` not only puts code in Azure, but also triggers deployment tasks
-    in the deployment engine. If you have any package.json
-    (Node.js) or requirements.txt (Python) files in your project (repository) root, or if you have a packages.config file in your ASP.NET project, the deployment
-    script restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
+    `git push` not only puts code in Azure, but also triggers deployment tasks in the deployment engine. You can also 
+    [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
 
 Congratulations, you have deployed your app to Azure App Service.
@@ -129,16 +121,15 @@ the first time. For example, every time you want to push a new change that you'v
     git push azure master
 
 ## Next steps
-Find the preferred development and deployment steps for your language framework:
+[Create, configure, and deploy a Laravel web app to Azure](app-service-web-php-get-started-cli-nodejs.md). By following this tutorial, you will learn
+the basic skills you need to run any PHP web app in Azure, such as:
 
-> [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
-> * [PHP](app-service-web-php-get-started-cli-nodejs.md)
-> * [Node.js](app-service-web-nodejs-get-started-cli-nodejs.md)
-> * [Python](web-sites-python-ptvs-django-mysql.md)
-> * [Java](web-sites-java-get-started.md)
-> 
-> 
+* Create and configure apps in Azure from PowerShell/Bash.
+* Set PHP version.
+* Use a start file that is not in the root application directory.
+* Enable Composer automation.
+* Access environment-specific variables.
+* Troubleshoot common errors.
 
 Or, do more with your first web app. For example:
 
