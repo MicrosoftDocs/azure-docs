@@ -27,9 +27,9 @@ Following are some common issues and resolutions.
 
 ### **Linux containers**
 
-####  Build errors occur when debugging a .NET Core web or console application.  
+####  Build errors occur when debugging a .NET Core web or console application  
 
-This could be related to not sharing the drive where the project resides with Docker For Windows.  You may receive an error like the following:
+This could be related to not sharing the drive where the project resides with Docker for Windows.  You may receive an error like the following:
 
 ```
 The "PrepareForLaunch" task failed unexpectedly.
@@ -45,7 +45,7 @@ To resolve this issue:
 
 ### **Windows containers**
 
-The following issues are specific to debugging .NET Framework web and console applications in windows containers.
+The following issues are specific to debugging .NET Framework web and console applications in Windows containers.
 
 #### Prerequisites
 
@@ -122,9 +122,9 @@ Documents        Libraries        Pictures
 ```
 
 > [!NOTE]
-> When working with Linux VMs, the container file system is case-sensitive.
+> When you're working with Linux VMs, the container file system is case-sensitive.
 
-## Build : "PrepareForBuild" task failed unexpectedly
+## Build: "PrepareForBuild" task failed unexpectedly
 
 Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect.
 
@@ -186,11 +186,11 @@ To manually upgrade Docker for Windows:
     },
     ```
 
-1. Uninstall the previous version and install Docker Tools 0.40. Then go to **Add > Docker Support** from the context menu for your ASP.Net Core Web or Console Application. This adds the new required Docker artifacts back to your project.
+1. Uninstall the previous version and install Docker Tools 0.40. Then go to **Add > Docker Support** from the context menu for your ASP.NET Core web or console application. This adds the new required Docker artifacts back to your project.
 
-## An error dialog occurs when attempting to add Docker Support or Debug (F5) an ASP.NET Core Application in a container
+## An error dialog occurs when attempting to add Docker Support or debug (F5) an ASP.NET Core application in a container
 
-After uninstalling and installing extensions, Visual Studio's Managed Extensibility Framework (MEF) cache can become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
+After uninstalling and installing extensions, the Managed Extensibility Framework (MEF) cache in Visual Studio can become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or debug (F5) your ASP.NET Core application. As a temporary workaround, use the following steps to delete and regenerate the MEF cache.
 
 1. Close all instances of Visual Studio.
 1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\.
