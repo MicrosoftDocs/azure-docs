@@ -21,7 +21,7 @@ ms.author: hkanna
 
 ## Overview
 
-Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure Storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
+Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
 
 In this article, we discuss StorSimple integration with Veritas Backup Exec and best practices for integrating both solutions. We also make recommendations on how to set up Backup Exec to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to set up Backup Exec to meet individual backup requirements and service-level agreements (SLAs).
 
@@ -41,9 +41,9 @@ The information in this article will be most helpful to backup administrators, s
 
 StorSimple is a good choice for a backup target because:
 
--   it provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
--   its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
--   it automatically provides offsite storage for disaster recovery.
+-   It provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
+-   Its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
+-   It automatically provides offsite storage for disaster recovery.
 
 ## Key concepts
 
@@ -55,8 +55,8 @@ StorSimple is designed to provide storage to applications that operate on a well
 ![StorSimple tiering diagram](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 With this architecture in mind, you will find that StorSimple is ideally suited to operate as a backup target. You can use StorSimple to:
--   perform your most frequent restores from the local working set of data.
--   use the cloud for offsite disaster recovery and older data, where restores are less frequent.
+-   Perform your most frequent restores from the local working set of data.
+-   Use the cloud for offsite disaster recovery and older data, where restores are less frequent.
 
 ## StorSimple benefits
 
@@ -190,7 +190,7 @@ In this section, we demonstrate some configuration examples. The following examp
 
 Set up the host backup server storage according to these guidelines:  
 
-- Don't use spanned volumes (created by Windows Disk Management); spanned disks are not supported.
+- Don't use spanned volumes (created by Windows Disk Management). Spanned disks are not supported.
 - Format your volumes using NTFS with 64-KB allocation size.
 - Map the StorSimple volumes directly to the Backup Exec server.
     - Use iSCSI for physical servers.
@@ -216,7 +216,7 @@ Set up your solution according to the guidelines in the following sections.
 ### StorSimple best practices
 
   -   Be sure that the StorSimple device is updated to [Update 3 or later](storsimple-install-update-3.md).
-  -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and backup server.
+  -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and the backup server.
   -   Be sure that your StorSimple device is a dedicated backup target. Mixed workloads are not supported because they affect your RTO and RPO.
 
 ### Backup Exec best practices
@@ -230,11 +230,11 @@ Set up your solution according to the guidelines in the following sections.
 -   Disable job verification. If necessary, verification should be scheduled after the latest backup job. It is important to understand that this job affects your backup window.
 -   Select **Storage** > **Your disk** > **Details** > **Properties**. Turn off **Pre-allocate disk space**.
 
-For the latest Backup Exec settings and best practices for implementing these requirements, see [www.veritas.com](https://www.veritas.com).
+For the latest Backup Exec settings and best practices for implementing these requirements, see [the Veritas website](https://www.veritas.com).
 
 ## Retention policies
 
-One of the most common backup retention policy types is a Grandfather, Father, and Son (GFS) policy. In a GFS policy, an incremental backup is performed daily and full backups are done weekly and monthly. This policy results in six StorSimple tiered volumes: one volume contains the weekly, monthly, and yearly full backups; the other five volumes store daily incremental backups.
+One of the most common backup retention policy types is a Grandfather, Father, and Son (GFS) policy. In a GFS policy, an incremental backup is performed daily and full backups are done weekly and monthly. This policy results in six StorSimple tiered volumes. One volume contains the weekly, monthly, and yearly full backups. The other five volumes store daily incremental backups.
 
 In the following example, we use a GFS rotation. The example assumes the following:
 
@@ -306,7 +306,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 
 | Frequency/backup type | Full | Incremental (days 1-5)  |   
 |---|---|---|
-| Weekly (weeks 1-4) | Saturday | Monday - Friday |
+| Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
 | Yearly | Saturday  |   |   |
 
@@ -336,7 +336,7 @@ The following sequence assumes that Backup Exec and the target host are configur
     > [!NOTE]
     > **Compression** and **Encryption type** are set to **None**.
 
-6.  Under **Verify**, select the **Do not verify data for this job** check box. Using this option could affect StorSimple tiering.
+6.  Under **Verify**, select the **Do not verify data for this job** check box. Using this option might affect StorSimple tiering.
 
     > [!NOTE]
     > Defragmentation, indexing, and background verification negatively affect the StorSimple tiering.
@@ -350,7 +350,7 @@ The following sequence assumes that Backup Exec and the target host are configur
 > [!NOTE]
 >Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
 
-In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
+In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you can use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
 
 The following figure shows typical short-term retention local (to the server) volumes and long-term retention archives volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archives volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
@@ -416,7 +416,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 ## StorSimple cloud snapshots
 
-StorSimple cloud snapshots protect the data that resides in your StorSimple device. Creating a cloud snapshot is equivalent to shipping local backup tapes to an offsite facility. If you use Azure geo-redundant storage, creating a cloud snapshot is equivalent to shipping backup tapes to multiple sites. If you need to restore a device after a disaster, you could bring another StorSimple device online and do a failover. After the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
+StorSimple cloud snapshots protect the data that resides in your StorSimple device. Creating a cloud snapshot is equivalent to shipping local backup tapes to an offsite facility. If you use Azure geo-redundant storage, creating a cloud snapshot is equivalent to shipping backup tapes to multiple sites. If you need to restore a device after a disaster, you might bring another StorSimple device online and do a failover. After the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
 
 The following section describes how to create a short script to start and delete StorSimple cloud snapshots during backup post-processing.
 
@@ -483,7 +483,7 @@ The following section describes how to create a short script to start and delete
     }
     ```
       Save the PowerShell script to the same location where you saved your Azure publish settings. For example, save as C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Add the script to your backup job in Backup Exec by editing your Backup Exec job options pre-processing and post-processing commands.
+6.  Add the script to your backup job in Backup Exec by editing your Backup Exec job options' pre-processing and post-processing commands.
 
     ![Backup Exec console, backup options, pre- and post-processing commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
@@ -499,12 +499,12 @@ Restores from a StorSimple device work like restores from any block storage devi
 > [!NOTE]
 > For backup target scenarios, StorSimple Cloud Appliance is not supported as a restore target.
 
-A disaster could be caused by a variety of factors. The following table lists common disaster recovery scenarios.
+A disaster can be caused by a variety of factors. The following table lists common disaster recovery scenarios.
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
-| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The indexing and cataloging rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
-| Backup Exec server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083). | You must rebuild or restore the Backup Exec server at the disaster recovery site. Restore the database to the most recent point. If the restored Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
+| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The indexing and cataloging rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
+| Backup Exec server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083). | You must rebuild or restore the Backup Exec server at the disaster recovery site. Restore the database to the most recent point. If the restored Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Backup Exec. | Restore StorSimple first, and then restore Backup Exec. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
 ## References
