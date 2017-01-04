@@ -38,7 +38,7 @@ The following Azure IoT device SDKs are available to download from GitHub:
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified].
 
 ## Azure IoT service SDK
-The Azure IoT service SDK contain code that facilitates building applications that interact directly with IoT Hub to manage devices and security.
+The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
 
 The following Azure IoT service SDKs are available to download from GitHub:
 
@@ -57,7 +57,7 @@ This Azure IoT Gateway SDK contains the infrastructure and modules to create IoT
 You can download the [Azure IoT Gateway SDK][lnk-gateway-sdk] from GitHub.
 
 ## Online API reference documentation
-The following is a list of links to online API reference documentation for Azure IoT device, service, and gateway libraries:
+The following list contains links to online API reference documentation for Azure IoT device, service, and gateway libraries:
 
 * [Internet of Things (IoT) .NET][lnk-dotnet-ref]
 * [IoT Hub REST][lnk-rest-ref]
