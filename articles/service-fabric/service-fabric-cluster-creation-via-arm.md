@@ -23,15 +23,15 @@ ms.author: chackdan
 >
 >
 
-This step-by-step guide walks you through setting up a secure Azure Service Fabric cluster in Azure by using Azure Resource Manager. We acknowledge that the document is long. Nevertheless, unless you are already thoroughly familiar with the content, be sure to follow each step carefully.
+This step-by-step guide walks you through setting up a secure Azure Service Fabric cluster in Azure by using Azure Resource Manager. We acknowledge that the article is long. Nevertheless, unless you are already thoroughly familiar with the content, be sure to follow each step carefully.
 
 The guide covers the following procedures:
 
-* Setting up an Azure key vault to upload certificates for cluster and application security.
-* Creating a secured cluster in Azure by using Azure Resource Manager.
-* Authenticating users by using Azure Active Directory (Azure AD) for cluster management.
+* Setting up an Azure key vault to upload certificates for cluster and application security
+* Creating a secured cluster in Azure by using Azure Resource Manager
+* Authenticating users by using Azure Active Directory (Azure AD) for cluster management
 
-A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, we highly recommend that you create a secure cluster from the outset. Because an unsecure cluster cannot be secured later, a new cluster must be created.
+A secure cluster is a cluster that prevents unauthorized access to management operations. This includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, we highly recommend that you create a secure cluster from the outset. Because an unsecure cluster cannot be secured later, a new cluster must be created.
 
 The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. For more information and helper scripts for creating secure Linux clusters, see [Creating secure clusters on Linux](#secure-linux-clusters).
 
@@ -279,7 +279,7 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
  At this point, you should have the following elements in place:
 
 * The key vault resource group.
-* The key vault and its URL (called Source vault in the above PowerShell output).
+* The key vault and its URL (called SourceVault in the preceding PowerShell output).
 * The cluster server authentication certificate and its URL in the key vault.
 * The application certificates and their URLs in the key vault.
 
@@ -288,7 +288,7 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
 
 ## Set up Azure Active Directory for client authentication
 
-Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. In this document, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster, one web application and one native application.
 
@@ -298,7 +298,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 > You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
 
 1. [Download the scripts][sf-aad-ps-script-download] to your computer.
-2. Right-click the zip file, select **Properties**, select the **Unblock** checkbox, and then click **Apply**.
+2. Right-click the zip file, select **Properties**, select the **Unblock** check box, and then click **Apply**.
 3. Extract the zip file.
 4. Run `SetupApplications.ps1`, and provide the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
 
