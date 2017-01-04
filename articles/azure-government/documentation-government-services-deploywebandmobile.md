@@ -36,7 +36,7 @@ This article describes how to deploy an App Service app to Azure Government usin
 ### References
 * [Deploy an ASP.NET web app to Azure App Service, using Visual Studio] (../app-service-web/web-sites-dotnet-get-started.md)
 * For other ways to deploy, see [Deploy your app to Azure App Service] (../app-service-web/web-sites-deploy.md)
-* For general App Service documentation, see [App Service - API Apps Documentation] (../app-service-api.md)
+* For general App Service documentation, see [App Service - API Apps Documentation] (../app-service-api/index.md)
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
