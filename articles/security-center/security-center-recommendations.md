@@ -1,4 +1,4 @@
----
+﻿---
 title: Managing security recommendations in Azure Security Center  | Microsoft Docs
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 12/20/2016
 ms.author: terrylan
 
 ---
@@ -73,7 +73,7 @@ Use the table below as a reference to help you understand the available recommen
 | [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, for example, do not allow passwords to be saved. |
 | [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
 | [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
-| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).</br></br>Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md).</br></br>You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. |
+| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443). </br>Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md).</br>You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. |
 | [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection) |To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation completes the necessary setup changes. |
 | [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md) |Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner to increase your security protections. |
 | [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW. |
@@ -90,6 +90,7 @@ Use the table below as a reference to help you understand the available recommen
 | [Update OS version](security-center-update-os-version.md) |Recommends that you update the operating system (OS) version for your Cloud Service to the most recent version available for your OS family.  To learn more about Cloud Services, see the [Cloud Services overview](../cloud-services/cloud-services-choose-me.md). |
 | [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
 | [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
+| [Enable encryption for Azure Storage Account](security-center-enable-encryption-for-storage-account.md) | Recommends that you enable Azure Storage Service Encryption for data at rest. Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypts before retrieval. SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs. To learn more, see [Storage Service Encryption for data at rest](../storage/storage-service-encryption.md).</br>SSE is only supported on Resource Manager storage accounts. |
 
 You can filter and dismiss recommendations.
 
