@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/30/2016
+ms.date: 01/05/2017
 ms.author: masnider;
 ---
 
@@ -98,7 +98,7 @@ Similarly, Service Fabric needs this replica to start listening for messages on 
 ## Notes on service lifecycle
 * Both the `RunAsync()` method and the `CreateServiceReplicaListeners/CreateServiceInstanceListeners` calls are optional. A service may have one of them, both, or neither. For example, if the service does all its work in response to user calls, there is no need for it to implement `RunAsync()`. Only the communication listeners and their associated code are necessary. Similarly, creating and returning communication listeners is optional, as the service may have only background work to do, and so only needs to implement `RunAsync()`
 * It is valid for a service to complete `RunAsync()` successfully and return from it. This is not considered a failure condition and would represent the background work of the service completing. For stateful reliable service `RunAsync()` would be called again if the service were demoted from primary and then promoted back to primary.
-* If a service exits from `RunAsync()` by throwing some exception (other than `OperationCanceledException` in the cancellation or shutdown path), this is a failure and the service will be shut down and a health error reported. 
+* If a service exits from `RunAsync()` by throwing some exception (other than `OperationCanceledException` in the cancellation or shutdown path), this is a failure and the service will be shut down and a health error reported.
 * While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request. If if your service does not respond to these API calls in a reasonable amount of time Service Fabric may forcibly terminate your service. Usually this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
 * For stateful services, there's an additional option on ServiceReplicaListeners which allows them to start on secondary replicas. This is uncommon, but the only change in lifecycles is that `CreateServiceReplicaListeners()` is called (and the resulting listeners Opened) even if the replica is a Secondary. Similary if the replica is later converted into a primary, the listeners are closed, destructed, and new ones created and Opened as a part of the change to Primary.
 * Failures in the `OnCloseAsync()` path result in `OnAbort()` being called which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
