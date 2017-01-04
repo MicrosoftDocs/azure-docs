@@ -1,21 +1,23 @@
-<properties
-	pageTitle="Virtual machines in an Azure Resource Manager template | Microsoft Azure"
-	description="Learn more about how the virtual machine resource is defined in an Azure Resource Manager template."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Virtual machines in an Azure Resource Manager template | Microsoft Azure
+description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/03/2017"
-	ms.author="davidmu"/>
+ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2017
+ms.author: davidmu
+
+---
 
 # Virtual machines in an Azure Resource Manager template
 
@@ -149,7 +151,10 @@ This example shows a typical resource section of a template for creating a speci
 ]
 ``` 
 
-> [AZURE.NOTE] This example relies on a storage account that was previously created. You could create the storage account by deploying it from the template. The example also relies on a network interface and its dependent resources that would be defined in the template. These resources are not shown in the example.
+> [!NOTE] 
+>This example relies on a storage account that was previously created. You could create the storage account by deploying it from the template. The example also relies on a network interface and its dependent resources that would be defined in the template. These resources are not shown in the example.
+>
+>
 
 ## API Version
 
