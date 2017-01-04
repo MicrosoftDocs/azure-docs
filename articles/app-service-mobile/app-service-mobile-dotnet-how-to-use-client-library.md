@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 01/04/2017
 ms.author: adrianha
 
 ---
