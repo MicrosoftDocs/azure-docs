@@ -317,36 +317,36 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
 
 2. Download [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) and install after unzipping it.
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_02.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_02.png)
 
 3. After it is installed, open the application.
 4. Click **Add Account**.
 
-    ![drawaing](media/marketplace-publishing-vm-image/creation/img5.2_03.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
 5. Specify the storage account name, storage account key, and storage endpoints domain. This is the storage account in your Azure subscription where you have kept your VHD on Azure portal.
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_04.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
 6. Once Azure Storage Explorer is connected to your specific storage account, it will start showing all of the contains within the storage account. Select the container where you copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_05.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
 
 7. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_06.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
 8.	After selecting the .vhd file in the container, click the **Security** tab.
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_07.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
 9.	In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click **Shared Access Signatures** tab.
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_08.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
 10.	Follow the steps below to generate a shared access signature URI for the .vhd image:
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_09.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
     a. **Access permitted from:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
 
@@ -376,7 +376,7 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 1.	Download Microsoft Azure Storage Explorer form [http://storageexplorer.com/](http://storageexplorer.com/) website. Go to [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) and click **“Download for Windows”**.
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_10.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
 2.	After it is installed, open the application.
 
@@ -384,17 +384,17 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 4.	Configure Microsoft Azure Storage Explorer to your subscription by sign in to your account
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_11.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
 5.	Go to storage account and select the Container
 
 6.	Select **“Get Share Access Signature..”** by using Right Click of the **container**
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_12.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
 7.	Update Start time, Expiry time and Permissions as per following
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_13.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
     a.	**Start Time:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
     b.	**Expiry Time:** Select a date that is at least 3 weeks after the **Start Time** date.
@@ -402,7 +402,7 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 8.	Copy Container shared access signature URI
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_14.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
     Generated SAS URL is for container Level and now we need to add VHD name in it.
 
@@ -413,7 +413,7 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
     Example:
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_15.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
     TestRGVM201631920152.vhd is the VHD Name then VHD SAS URL will be
 `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
@@ -464,7 +464,7 @@ Following are the steps for generating SAS URL by using Azure CLI
 
     Following will be the output of the SAS Signature and copy the highlighted part in a notepad
 
-    ![drawing](media/marketplace-publishing-vm-image/creation/img5.2_16.png)
+    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
 6.	Now you will get container level SAS URL and you need to add VHD name in it.
 
