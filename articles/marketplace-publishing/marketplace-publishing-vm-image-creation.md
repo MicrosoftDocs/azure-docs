@@ -143,7 +143,7 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 =======
-   
+
         Get-AzureRemoteDesktopFile -ServiceName “baseimagevm-6820cq00” -Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 >>>>>>> f234ca07d8917009a7d136c108fd28c51a099a55
 
@@ -239,30 +239,9 @@ To deploy a large VM from the generalized VM image just created, you can use the
 >
 
 ## 5. Obtain certification for your VM image
-The next step in the publication of your VM image for the Azure Marketplace is to have it certified. This requires access to the image from your Azure Storage container for the Marketplace Certification Team. This access can be given by creating a Shared Access Signature (SAS) Url of the blob which contains the VHD.
+The next step in preparing your VM image for the Azure Marketplace is to have it certified.
 
-SAS URL can be generated in multiple ways to share your VHD for Azure Marketplace.
-
-Following are the 3 recommended tools:
-1.	Azure Storage Explorer
-2.	Microsoft Storage Explorer
-3.	Azure CLI
-
-### Azure Storage Explorer (recommended for Windows users)
-Following are the steps for generating SAS URL by using Azure Storage Explorer.
-1. Download [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) from CodePlex. Go to [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) and click downloads as below.
-2. Download [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) and install after unzipping it.
-3. After it is installed, open the application.
-4. Click **Add Account**
-5. Specify the storage account name, storage account key, and storage endpoints domain. This is the storage account in your Azure subscription where you have kept your VHD on Azure portal.
-6. Once Azure Storage Explorer is connected to your specific storage account It will start showing up all the containers within the storage account. Select the container where you have copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
-7. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
-8.
-9.
-10.
-11.
-12.
-13.
+This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM image for certification.
 
 ### 5.1 Download and run the Certification Test Tool for Azure Certified
 The certification tool runs on a running VM, provisioned from your user VM image, to ensure that the VM image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
@@ -321,55 +300,194 @@ The shared access signature URI created should adhere to the following requireme
 * The duration for access should be a minimum of seven business days from when the shared access signature URI is created.
 * To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
 
-To create a shared access signature URI, you can follow the instructions provided in [Shared access signatures, Part 1: Understanding the SAS model][link-azure-1] and [Shared access signatures, Part 2: Create and use a SAS with the Azure Blob service][link-azure-2].
+SAS URL can be generated in multiple ways to share your VHD for Azure Marketplace.
+Following are the 3 recommended tools:
 
-Instead of generating a shared access key by using code, you can also use storage tools, such as [Azure Storage Explorer][link-azure-codeplex].
+1.	Azure Storage Explorer
+2.	Microsoft Storage Explorer
+3.	Azure CLI
 
-**Use Azure Storage Explorer to generate a shared access key**
+** Azure Storage Explorer (Recommended for Windows Users)**
 
-1. Download [Azure Storage Explorer][link-azure-codeplex] 6 and above from CodePlex.
-2. After it is installed, open the application.
-3. Click **Add Account**.
+Following are the steps for generating SAS URL by using Azure Storage Explorer
 
-    ![drawing][img-azstg-add]
-4. Specify the storage account name, storage account key, and storage endpoints domain. Don’t select **Use HTTPS**.
+1. Download [Azure Storage Explorer 6 Preview 3](https://azurestorageexplorer.codeplex.com/) from CodePlex. Go to [Azure Storage Explorer 6 Preview](https://azurestorageexplorer.codeplex.com/) and click **"Downloads"**.
 
-    ![drawing][img-azstg-setup-1]
-5. Azure Storage Explorer is now connected to your specific storage account. It will start showing all the containers within the storage account. Select the container where you have copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
+    ![drawing]()
 
-    ![drawing][img-azstg-setup-2]
-6. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
+2. Download [AzureStorageExplorer6Preview3.zip](https://azurestorageexplorer.codeplex.com/downloads/get/891668) and install after unzipping it.
 
-    ![drawing][img-azstg-setup-3]
-7. After selecting the .vhd file in the container, click the **Security** tab.
+    ![drawing]()
 
-    ![drawing][img-azstg-setup-4]
-8. In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click the **Shared Access Signatures** tab.
+3. After it is installed, open the application.
+4. Click **Add Account**.
 
-    ![drawing][img-azstg-setup-5]
-9. Follow the steps below to generate a shared access signature URI for the .vhd image:
+    ![drawaing]()
 
-    ![drawing][img-azstg-setup-6]
+5. Specify the storage account name, storage account key, and storage endpoints domain. This is the storage account in your Azure subscription where you have kept your VHD on Azure portal.
 
-    a.    **Access permitted from**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+    ![drawing]()
 
-    b.    **Access permitted to**: Select a date that is at least 7 to 8 days after the **Access permitted from** date.
+6. Once Azure Storage Explorer is connected to your specific storage account, it will start showing all of the contains within the storage account. Select the container where you copied the operating system disk VHD file (also data disks if they are applicable for your scenario).
 
-    c.    **Actions permitted**: Select the **List** and **Read** permissions.
+    ![drawing]()
 
-    d.    If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
+7. After selecting the blob container, Azure Storage Explorer starts showing the files within the container. Select the image file (.vhd) that needs to be submitted.
 
-    e.    Click **Generate Signature**.
+    ![drawing]()
 
-    f.    In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
+8.	After selecting the .vhd file in the container, click the **Security** tab.
 
-   * Make sure that the URL doesn't start with "https".
-   * Make sure that your image file name and ".vhd" are in the URI.
-   * At the end of the signature, make sure that "=rl" appears. This demonstrates that Read and List access was provided successfully.
+    ![drawing]()
 
-     g.    To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
-10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
-11. Repeat these steps for each VHD in the SKU.
+9.	In the **Blob Container Security** dialog box, leave the defaults on the **Access Level** tab, and then click **Shared Access Signatures** tab.
+
+    ![drawing]()
+
+10.	Follow the steps below to generate a shared access signature URI for the .vhd image:
+
+    ![drawing]()
+
+    a. **Access permitted from:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+
+    b. **Access permitted to:** Select a date that is at least 3 weeks after the **Access permitted from** date.
+
+    c. **Actions permitted:** Select the **List** and **Read** permissions.
+
+    d. If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
+
+    e. Click **Generate Signature**.
+
+    f. In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
+
+        - Make sure that your image file name and **".vhd"** are in the URI.
+        - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
+        - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+
+11.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
+
+12.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+
+13.	Repeat steps 6-10 for each VHD in the SKU.
+
+** Microsoft Azure Storage Explorer (Windows/MAC/Linux) **
+
+Following are the steps for generating SAS URL by using Microsoft Azure Storage Explorer
+
+1.	Download Microsoft Azure Storage Explorer form [http://storageexplorer.com/](http://storageexplorer.com/) website. Go to [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) and click **“Download for Windows”**.
+
+    ![drawing]()
+
+2.	After it is installed, open the application.
+
+3.	Click **Add Account**.
+
+4.	Configure Microsoft Azure Storage Explorer to your subscription by sign in to your account
+
+    ![drawing]()
+
+5.	Go to storage account and select the Container
+
+6.	Select **“Get Share Access Signature..”** by using Right Click of the **container**
+
+    ![drawing]()
+
+7.	Update Start time, Expiry time and Permissions as per following
+
+    ![drawing]()
+    a.	**Start Time:** To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+    b.	**Expiry Time:** Select a date that is at least 3 weeks after the **Start Time** date.
+    c.	**Permissions:** Select the **List** and **Read** permissions
+
+8.	Copy Container shared access signature URI
+
+    ![drawing]()
+
+    Generated SAS URL is for container Level and now we need to add VHD name in it.
+    Format of Container Level SAS URL: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+
+    Insert VHD name after the container name in SAS URL as below
+    `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+
+    Example:
+
+    ![drawing]()
+
+    TestRGVM201631920152.vhd is the VHD Name then VHD SAS URL will be
+`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+
+    - Make sure that your image file name and **".vhd"** are in the URI.
+    - In middle of the signature, make sure that **"sp=rl"** appears. This demonstrates that Read and List access was provided successfully.
+    - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+
+9.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
+
+10.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+
+11.	Repeat these steps for each VHD in the SKU.
+
+** Azure CLI (Recommended for Non-Windows & Continuous Integration) **
+
+Following are the steps for generating SAS URL by using Azure CLI
+
+1.	Download Microsoft Azure CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](http://aka.ms/mac-azure-cli)**.
+
+2.	Once it is downloaded, please install
+
+3.	Create a PowerShell file with following code and save it in local
+
+        $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
+        azure storage container list vhds -c $conn
+        azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+
+    Update the following parameters in above
+
+    a. **<StorageAccountName>**: Give your storage account name
+
+    b. **<Storage Account Key>**: Give your storage account key
+
+    c. **<Permission Start Date>**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016
+
+    d. **<Permission End Date>**: Select a date that is at least 3 weeks after the **Start Date**. Then value should be **11/02/2016**.
+
+    Following is the example code after updating proper parameters
+
+        $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+        azure storage container list vhds -c $conn
+        azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
+
+4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3.
+
+5.	Run the script and it will provide you the SAS URL for container level access
+
+    Following will be the output of the SAS Signature and copy the highlighted part in a notepad
+
+    ![drawing]()                
+6.	Now you will get container level SAS URL and you need to add VHD name in it.
+
+    Container level SAS URL #
+
+    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+
+7.	Insert VHD name after the container name in SAS URL as shown below
+    `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+
+    Example:
+
+    TestRGVM201631920152.vhd is the VHD Name then VHD SAS URL will be
+
+    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+
+    - Make sure that your image file name and ".vhd" are in the URI.
+    -	In middle of the signature, make sure that "sp=rl" appears. This demonstrates that Read and List access was provided successfully.
+    -	In middle of the signature, make sure that "sr=c" appears. This demonstrates that you have container level access
+
+8.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
+
+9.	Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
+
+10.	Repeat these steps for each VHD in the SKU.
+
 
 ### 5.3 Provide information about the VM image and request certification in the Publishing Portal
 After you have created your offer and SKU, you should enter the image details associated with that SKU:
@@ -415,12 +533,6 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 [img-portal-vm-location]:media/marketplace-publishing-vm-image-creation/vm-image-portal-location.png
 [img-portal-vm-rdp]:media/marketplace-publishing-vm-image-creation/vm-image-portal-rdp.png
 [img-azstg-add]:media/marketplace-publishing-vm-image-creation/vm-image-storage-add.png
-[img-azstg-setup-1]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup.png
-[img-azstg-setup-2]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-2.png
-[img-azstg-setup-3]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-3.png
-[img-azstg-setup-4]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-4.png
-[img-azstg-setup-5]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-5.png
-[img-azstg-setup-6]:media/marketplace-publishing-vm-image-creation/vm-image-storage-setup-6.png
 [img-manage-vm-new]:media/marketplace-publishing-vm-image-creation/vm-image-manage-new.png
 [img-manage-vm-select]:media/marketplace-publishing-vm-image-creation/vm-image-manage-select.png
 [img-cert-vm-key-lnx]:media/marketplace-publishing-vm-image-creation/vm-image-certification-keyfile-linux.png
