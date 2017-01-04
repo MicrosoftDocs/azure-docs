@@ -1,5 +1,5 @@
 ---
-title: DMZ Example – Build a Simple DMZ with NSGs | Microsoft Docs
+title: Azure DMZ Example – Build a Simple DMZ with NSGs | Microsoft Docs
 description: Build a DMZ with Network Security Groups (NSG)
 services: virtual-network
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 01/03/2017
 ms.author: jonor
 
 ---
-# Example 1 – Build a Simple DMZ using NSGs with classic PowerShell
+# Example 1 – Build a simple DMZ using NSGs with classic PowerShell
 [Return to the Security Boundary Best Practices Page][HOME]
 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ This example creates a primitive DMZ with four Windows servers and Network Secur
 
 ![Inbound DMZ with NSG][1]
 
-## Environment Description
+## Environment description
 In this example a subscription contains the following resources:
 
 * Two cloud services: “FrontEnd001” and “BackEnd001”
@@ -152,8 +152,8 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
         -DestinationPortRange '*' `
         -Protocol * 
 	```
-## Traffic Scenarios
-#### (*Allowed*) Web to Web Server
+## Traffic scenarios
+#### (*Allowed*) Internet to web server
 1. An internet user requests an HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Cloud service passes traffic through open endpoint on port 80 towards IIS01 (the web server)
 3. Frontend subnet begins inbound rule processing:
@@ -177,7 +177,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 12. The IIS server receives the SQL response and completes the HTTP response and sends to the requestor
 13. Since there are no outbound rules on the Frontend subnet the response is allowed, and the internet User receives the web page requested.
 
-#### (*Allowed*) RDP to Backend
+#### (*Allowed*) RDP to backend
 1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure portal or via PowerShell)
 2. Backend subnet begins inbound rule processing:
    1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
@@ -186,7 +186,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 4. RDP session is enabled
 5. AppVM01 prompts for the user name and password
 
-#### (*Allowed*) Web Server DNS look-up on DNS server
+#### (*Allowed*) Web server DNS look-up on DNS server
 1. Web Server, IIS01, needs a data feed at www.data.gov, but needs to resolve the address.
 2. The network configuration for the VNet lists DNS01 (10.0.2.4 on the Backend subnet) as the primary DNS server, IIS01 sends the DNS request to DNS01
 3. No outbound rules on Frontend subnet, traffic is allowed
@@ -203,7 +203,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
     2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed
 12. IIS01 receives the response from DNS01
 
-#### (*Allowed*) Web Server access file on AppVM01
+#### (*Allowed*) Web server access file on AppVM01
 1. IIS01 asks for a file on AppVM01
 2. No outbound rules on Frontend subnet, traffic is allowed
 3. The Backend subnet begins inbound rule processing:
@@ -218,7 +218,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
    2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
 7. The IIS server receives the file
 
-#### (*Denied*) Web to Backend Server
+#### (*Denied*) Web to backend server
 1. An internet user tries to access a file on AppVM01 through the BackEnd001.CloudApp.Net service
 2. Since there are no endpoints open for file share, this traffic would not pass the Cloud Service and wouldn’t reach the server
 3. If the endpoints were open for some reason, NSG rule 5 (Internet to VNet) would block this traffic
@@ -228,7 +228,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 2. Since there are no endpoints open for DNS, this traffic would not pass the Cloud Service and wouldn’t reach the server
 3. If the endpoints were open for some reason, NSG rule 5 (Internet to VNet) would block this traffic (Note: that Rule 1 (DNS) would not apply for two reasons, first the source address is the internet, this rule only applies to the local VNet as the source, also this rule is an Allow rule, so it would never deny traffic)
 
-#### (*Denied*) Web to SQL access through Firewall
+#### (*Denied*) Web to SQL access through firewall
 1. An internet user requests SQL data from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Since there are no endpoints open for SQL, this traffic would not pass the Cloud Service and wouldn’t reach the firewall
 3. If endpoints were open for some reason, the Frontend subnet begins inbound rule processing:
@@ -244,11 +244,11 @@ This example is a relatively simple and straight forward way of isolating the ba
 More examples and an overview of network security boundaries can be found [here][HOME].
 
 ## References
-### Main Script and Network Config
+### Main script and network config
 Save the Full Script in a PowerShell script file. Save the Network Config into a file named “NetworkConf1.xml.”
 Modify the user-defined variables as needed and run the script.
 
-#### Full Script
+#### Full script
 This script will, based on the user-defined variables;
 
 1. Connect to an Azure subscription
@@ -265,7 +265,8 @@ This PowerShell script should be run locally on an internet connected PC or serv
 > [!IMPORTANT]
 > When this script is run, there may be warnings or other informational messages that pop in PowerShell. Only error messages in red are cause for concern.
 > 
-> 
+>
+
 ```PowerShell
 <# 
  .SYNOPSIS
@@ -523,7 +524,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
   Write-Host
 ```
 
-#### Network Config File
+#### Network config file
 Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the preceding script.
 ```xml
 <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
@@ -556,8 +557,14 @@ Save this xml file with updated location and add the link to this file to the $N
   </VirtualNetworkConfiguration>
 </NetworkConfiguration>
 ```
-#### Sample Application Scripts
+#### Sample application scripts
 If you wish to install a sample application for this, and other DMZ Examples, one has been provided at the following link: [Sample Application Script][SampleApp]
+
+## Next steps
+* Update and save XML file
+* Run the PowerShell script to build the environment
+* Install the sample application
+* Test different traffic flows through this DMZ
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Inbound DMZ with NSG"

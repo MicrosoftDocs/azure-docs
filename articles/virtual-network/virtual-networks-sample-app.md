@@ -1,5 +1,5 @@
 ---
-title: Sample Application for Use with Security Boundary Environments | Microsoft Docs
+title: Azure sample application for use with DMZs | Microsoft Docs
 description: Deploy this simple web application after creating a DMZ to test traffic flow scenarios
 services: virtual-network
 documentationcenter: na
@@ -17,14 +17,14 @@ ms.date: 01/03/2017
 ms.author: jonor
 
 ---
-# Sample Application for Use with Security Boundary Environments
+# Sample application for use with DMZs
 [Return to the Security Boundary Best Practices Page][HOME]
 
 These PowerShell scripts can be run locally on the IIS01 and AppVM01 servers to install and set up a simple web application that displays an html page from the front-end IIS01 server with content from the back-end AppVM01 server.
 
 This application provides a simple testing environment for many of the DMZ Examples and how changes on the Endpoints, NSGs, UDR, and Firewall rules can affect traffic flows.
 
-## Firewall Rule to Allow ICMP
+## Firewall rule to allow ICMP
 This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This firewall update allows for easier testing and troubleshooting by allowing the ping protocol to pass through the windows firewall (for most Linux distros ICMP is on by default).
 ```PowerShell
 # Turn On ICMPv4
@@ -33,7 +33,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 ```
 If you use the following scripts, this firewall rule addition is the first statement.
 
-## IIS01 - Web Application Installation Script
+## IIS01 - Web application installation script
 This script will:
 
 1. Open IMCPv4 (Ping) on the local server windows firewall for easier testing
@@ -139,7 +139,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
     Write-Host
 ```
 
-## AppVM01 - File Server Installation Script
+## AppVM01 - File server installation script
 This script sets up the back-end for this simple application. This script will:
 
 1. Open IMCPv4 (Ping) on the firewall for easier testing
@@ -185,8 +185,13 @@ This PowerShell script should be run locally while RDP’d into AppVM01. PowerSh
     Write-Host
 ```
 
-## DNS01 - DNS Server Installation Script
+## DNS01 - DNS server installation script
 There is no script included in this sample application to set up the DNS server. If testing of the firewall rules, NSG, or UDR needs to include DNS traffic, the DNS01 server needs to be set up manually. The Network Configuration xml file and Resource Manager Template for both examples includes DNS01 as the primary DNS server and the public DNS server hosted by Level 3 as the backup DNS server. The Level 3 DNS server would be the actual DNS server used for non-local traffic, and with DNS01 not setup, no local network DNS would occur.
+
+## Next steps
+* Run the IIS01 script on an IIS server
+* Run File Server script on AppVM01
+* Browse to the Public IP on IIS01 to validate your build
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

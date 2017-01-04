@@ -1,5 +1,5 @@
 ---
-title: Microsoft cloud services and network security | Microsoft Docs
+title: Azure network security best practices | Microsoft Docs
 description: Learn some of the key features available in Azure to help create secure network environments
 services: virtual-network
 documentationcenter: na

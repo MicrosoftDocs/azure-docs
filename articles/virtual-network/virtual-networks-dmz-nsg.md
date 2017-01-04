@@ -17,7 +17,7 @@ ms.date: 01/03/2017
 ms.author: jonor
 
 ---
-# Example 1 – Build a Simple DMZ using NSGs with an Azure Resource Manager Template
+# Example 1 – Build a simple DMZ using NSGs with an Azure Resource Manager template
 [Return to the Security Boundary Best Practices Page][HOME]
 
 > [!div class="op_single_selector"]
@@ -334,7 +334,7 @@ To remove this deployment, delete the Resource Group and all child resources wil
 #### Sample application scripts
 Once the template runs successfully, you can set up the web server and app server with a simple web application to allow testing with this DMZ configuration. To install a sample application for this, and other DMZ Examples, one has been provided at the following link: [Sample Application Script][SampleApp]
 
-## Next Steps
+## Next steps
 
 * Deploy this example
 * Build the sample application
