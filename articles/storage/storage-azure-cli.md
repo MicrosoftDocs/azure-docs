@@ -341,6 +341,23 @@ az storage file list -s myshare/myDir
 az storage file list -s myshare -p myDir/mySubDir/MySubDir2
 ```
 
+### Copy files		
+You can copy a file to another file, a file to a blob, or a blob to a file. For example, to copy a file to a directory in a different share:		
+		
+```azurecli
+# Get the URL for the source file you want to copy
+az storage file url -s myshare -p /mydir/image.png
+
+# Copy the file to another share
+az storage file copy start \
+    --source-uri https://mystorageaccount.file.core.windows.net/myshare/mydir/image.png \	
+    --destination-share myshare2 --destination-path mydir2/image.png		
+```
+
+> [!NOTE]
+> There is known issue in the CLI 2.0 (Preview) preventing the use of `--source-share` and `--source-path`. You can use the `--source-uri` argument as a workaround until this issue is resolved.
+>
+
 ## Next steps
 Here are some additional resources for learning more about working with the Azure CLI 2.0 (Preview).
 
