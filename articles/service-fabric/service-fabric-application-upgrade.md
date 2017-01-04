@@ -47,14 +47,16 @@ The flowchart following this paragraph can help you understand the upgrade proce
 ![The upgrade process for a Service Fabric Application][image]
 
 ## Upgrade default services
-Default services within Service Fabric application would be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-model.md#describe-an-application). The standard rules of upgrading default services are:
+Default services within Service Fabric application can be upgraded during the upgrade process of an application. Default services are defined in the [application manifest](service-fabric-application-model.md#describe-an-application). The standard rules of upgrading default services are:
 
-1. Default services in the new [application manifest](service-fabric-application-model.md#describe-an-application) that do not exist in the cluster would be created.
+1. Default services in the new [application manifest](service-fabric-application-model.md#describe-an-application) that do not exist in the cluster are created.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) needs to be set to true to enable the following rules
 
-2. Default services existing in both previous [application manifest](service-fabric-application-model.md#describe-an-application) and new version would be updated. Service descriptions in the new version would overwrite.
-3. Default services in the previous [application manifest](service-fabric-application-model.md#describe-an-application) but not in the new version would be deleted. **Note that this deleting default services can not be reverted.**
+2. Default services existing in both previous [application manifest](service-fabric-application-model.md#describe-an-application) and new version are updated. Service descriptions in the new version would overwrite those already in the cluster. Application upgrade would rollback automatically upon updating default service failure.
+3. Default services in the previous [application manifest](service-fabric-application-model.md#describe-an-application) but not in the new version are deleted. **Note that this deleting default services can not be reverted.**
+
+In case of an application upgrade is rolled back, default services are reverted to the status before upgrade started. But deleted services can never be created.
 
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
