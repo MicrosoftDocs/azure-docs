@@ -81,7 +81,8 @@ There is a default outbound rule that allows traffic out to the internet. For th
 Each rule is discussed in more detail as follows:
 
 1. A Network Security Group resource must be instantiated to hold the rules:
-    ```json
+
+    ```JSON
 	"resources": [
 	  {
 	    "apiVersion": "2015-05-01-preview",
@@ -92,12 +93,14 @@ Each rule is discussed in more detail as follows:
 	  }
 	]
     ``` 
+
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
   * "destinationAddressPrefix" - Rules can use a special type of address prefix called a "Default Tag", these tags are system-provided identifiers that allow an easy way to address a larger category of address prefixes. This rule uses the Default Tag “Internet” to signify any address outside of the VNet. Other prefix labels are VirtualNetwork and AzureLoadBalancer.
   * “Direction” signifies in which direction of traffic flow this rule takes effect. The direction is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Direction is “Inbound” and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
   * “Priority” sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
   * “Access” signifies if traffic affected by this rule is blocked ("Deny") or allowed ("Allow").
-    ```json
+
+    ```JSON
 	"properties": {
 	"securityRules": [
 	  {
@@ -115,8 +118,10 @@ Each rule is discussed in more detail as follows:
 	    }
 	  },
     ```
+
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. 
-    ```json
+
+    ```JSON
     {
       "name": "enable_rdp_rule",
       "properties": {
@@ -132,8 +137,10 @@ Each rule is discussed in more detail as follows:
       }
     },
     ```
+
 4. This rule allows inbound internet traffic to hit the web server. This rule does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
-    ```json
+
+    ```JSON
 	{
 	  "name": "enable_web_rule",
 	  "properties": {
@@ -149,8 +156,10 @@ Each rule is discussed in more detail as follows:
 	    }
 	  },
     ```
+
 5. This rule allows traffic to pass from the IIS01 server to the AppVM01 server, a later rule blocks all other Frontend to Backend traffic. To improve this rule, if the port is known that should be added. For example, if the IIS server is hitting only SQL Server on AppVM01, the Destination Port Range should be changed from “*” (Any) to 1433 (the SQL port) thus allowing a smaller inbound attack surface on AppVM01 should the web application ever be compromised.
-    ```json
+
+    ```JSON
 	{
 	  "name": "enable_app_rule",
 	  "properties": {
@@ -165,9 +174,11 @@ Each rule is discussed in more detail as follows:
 	    "direction": "Inbound"
 	  }
 	},
-     ```json
+     ```
+
 6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
-    ```json
+
+    ```JSON
 	{
 	  "name": "deny_internet_rule",
 	  "properties": {
@@ -182,9 +193,11 @@ Each rule is discussed in more detail as follows:
 	    "direction": "Inbound"
 	  }
 	},
-     ```json
+     ```
+
 7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this rule is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
-    ```json
+
+    ```JSON
 	{
 	  "name": "deny_frontend_rule",
 	  "properties": {
@@ -199,7 +212,8 @@ Each rule is discussed in more detail as follows:
 	    "direction": "Inbound"
 	  }
 	}
-    ```json
+    ```
+
 ## Traffic scenarios
 #### (*Allowed*) Internet to web server
 1. An internet user requests an HTTP page from the public IP address of the NIC associated with the IIS01 NIC
