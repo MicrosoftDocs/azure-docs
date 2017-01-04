@@ -145,10 +145,10 @@ Trello application expects the SAML assertions to contain specific attributes. P
 
     b. Click **Next**.
 
-> [!NOTE]
-> You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, please contact Trello support team at <mailto:support@trello.com> to get the slug for you enterprise.
-> 
-> 
+    > [!NOTE]
+    > You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, please contact Trello support team at <mailto:support@trello.com> to get the slug for you enterprise.
+    > 
+    > 
 
 1. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL**:
    
@@ -183,6 +183,7 @@ In this section, you create a test user in the classic portal called Britta Simo
     ![Creating an Azure AD test user](./media/active-directory-saas-trello-tutorial/create_aaduser_09.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
