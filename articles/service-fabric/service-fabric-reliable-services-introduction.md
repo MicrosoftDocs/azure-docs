@@ -96,7 +96,7 @@ One thing to note about this service is that it sounds like a normal .NET servic
 If any of the following characterize your application service needs, then you should consider Reliable Services APIs:
 
 * You want your service's code (and optionally state) to be highly available and reliable
-* You need to provide transactional behavior guarantees across multiple units of state (e.g., orders and order line items).
+* You need transactional guarantees across multiple units of state (for example, orders and order line items).
 * Your application’s state can be naturally modeled as Reliable Dictionaries and Queues.
 * Your applications code or state needs to be highly available with low latency reads and writes.
 * Your application needs to control the concurrency or granularity of transacted operations across one or more Reliable Collections.
