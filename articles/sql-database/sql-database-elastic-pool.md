@@ -32,7 +32,6 @@ A common SaaS application pattern is the single-tenant database model: each cust
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
->
 
 In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for databases in an elastic pool. See [Introduction to SQL Database](sql-database-technical-overview.md) to learn more about DTUs and eDTUs.
 

@@ -65,7 +65,6 @@ You can use the **sys.dm_db_resource_stats** view to monitor your Azure In-Memor
 > [!NOTE]
 > Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for single databases. You cannot use it in databases in elastic pools.
 > 
-> 
 
 ### Maximum concurrent requests
 To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
