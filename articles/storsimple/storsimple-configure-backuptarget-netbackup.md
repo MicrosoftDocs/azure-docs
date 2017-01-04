@@ -21,7 +21,7 @@ ms.author: hkanna
 
 ## Overview
 
-Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure Storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
+Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
 
 In this article, we discuss StorSimple integration with Veritas NetBackup, and best practices for integrating both solutions. We also make recommendations on how to set up Veritas NetBackup to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to set up Veritas NetBackup to meet individual backup requirements and service-level agreements (SLAs).
 
@@ -41,9 +41,9 @@ The information in this article will be most helpful to backup administrators, s
 
 StorSimple is a good choice for a backup target because:
 
--   it provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
--   its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
--   it automatically provides offsite storage for disaster recovery.
+-   It provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
+-   Its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
+-   It automatically provides offsite storage for disaster recovery.
 
 ## Key concepts
 
@@ -55,8 +55,8 @@ StorSimple is designed to provide storage to applications that operate on a well
 ![StorSimple tiering diagram](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 With this architecture in mind, you will find that StorSimple is ideally suited to operate as a backup target. You can use StorSimple to:
--   perform your most frequent restores from the local working set of data.
--   use the cloud for offsite disaster recovery and older data, where restores are less frequent.
+-   Perform your most frequent restores from the local working set of data.
+-   Use the cloud for offsite disaster recovery and older data, where restores are less frequent.
 
 ## StorSimple benefits
 
@@ -296,7 +296,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 
 | Frequency/backup type | Full | Incremental (days 1-5)  |   
 |---|---|---|
-| Weekly (weeks 1-4) | Saturday | Monday - Friday |
+| Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
 | Yearly | Saturday  |   |   |
 
@@ -326,14 +326,14 @@ The following sequence assumes that NetBackup and the target host are configured
 
     ![NetBackup Administration Console, list clients in a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
-6.  Select the drive(s) you want to back up.
+6.  Select the drives you want to back up.
 
     ![NetBackup Administration Console, backup selections for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
 7.  Select the frequency and retention values that meet your backup rotation requirements.
 
     ![NetBackup Administration Console, backup frequency and rotation for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
-e
+
 8.  Select **Next** > **Next** > **Finish**.  You can modify the schedule after the policy is created.
 
 9.  Select to expand the policy you just created, and then select **Schedules**.
@@ -377,7 +377,7 @@ e
 > [!NOTE]
 >Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
 
-In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
+In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you can use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
 
 The following figure shows typical short-term retention local (to the server) volumes and long-term retention archives volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archives volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
@@ -429,7 +429,7 @@ After you've defined the initial disk pools, you need to define three additional
 
 2.  Enter a name for the snapshot, and then select **Add**.
 
-3.  In the **New Operation** dialog box, on the **Properties** tab, for **Operation**, select **Backup**. Select the values you want for **Destination storage**, and **Retention type**, and **Retention period**. Select **OK**.
+3.  In the **New Operation** dialog box, on the **Properties** tab, for **Operation**, select **Backup**. Select the values you want for **Destination storage**, **Retention type**, and **Retention period**. Select **OK**.
 
     ![NetBackup Administration Console, New Operation dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
@@ -474,7 +474,7 @@ After you've defined the initial disk pools, you need to define three additional
 
 ## StorSimple cloud snapshots
 
-StorSimple cloud snapshots protect the data that resides in your StorSimple device. Creating a cloud snapshot is equivalent to shipping local backup tapes to an offsite facility. If you use Azure geo-redundant storage, creating a cloud snapshot is equivalent to shipping backup tapes to multiple sites. If you need to restore a device after a disaster, you could bring another StorSimple device online and do a failover. After the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
+StorSimple cloud snapshots protect the data that resides in your StorSimple device. Creating a cloud snapshot is equivalent to shipping local backup tapes to an offsite facility. If you use Azure geo-redundant storage, creating a cloud snapshot is equivalent to shipping backup tapes to multiple sites. If you need to restore a device after a disaster, you might bring another StorSimple device online and do a failover. After the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
 
 The following section describes how to create a short script to start and delete StorSimple cloud snapshots during backup post-processing.
 
@@ -541,7 +541,7 @@ The following section describes how to create a short script to start and delete
     }
     ```
       Save the PowerShell script to the same location where you saved your Azure publish settings. For example, save as C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Add the script to your backup job in NetBackup. To do this, edit your NetBackup job options pre- and post-processing commands.
+6.  Add the script to your backup job in NetBackup. To do this, edit your NetBackup job options' pre-processing and post-processing commands.
 
 > [!NOTE]
 > We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.
@@ -555,12 +555,12 @@ Restores from a StorSimple device work like restores from any block storage devi
 > [!NOTE]
 > For backup target scenarios, StorSimple Cloud Appliance is not supported as a restore target.
 
-A disaster could be caused by a variety of factors. The following table lists common disaster recovery scenarios.
+A disaster can be caused by a variety of factors. The following table lists common disaster recovery scenarios.
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
-| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
-| NetBackup server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore. | You must rebuild or restore the NetBackup server at the disaster recovery site. Restore the database to the most recent point. If the restored NetBackup database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
+| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
+| NetBackup server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore. | You must rebuild or restore the NetBackup server at the disaster recovery site. Restore the database to the most recent point. If the restored NetBackup database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore NetBackup. | Restore StorSimple first, and then restore NetBackup. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
 ## References
