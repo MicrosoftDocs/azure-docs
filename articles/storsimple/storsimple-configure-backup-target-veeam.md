@@ -33,17 +33,17 @@ The information in this article will be most helpful to backup administrators, s
 
 ### Supported versions
 
--   Veeam 9 and later versions.
--   [StorSimple Update 3 and later versions](storsimple-overview.md#storsimple-workload-summary).
+-   Veeam 9 and later versions
+-   [StorSimple Update 3 and later versions](storsimple-overview.md#storsimple-workload-summary)
 
 
 ## Why StorSimple as a backup target?
 
 StorSimple is a good choice for a backup target because:
 
--   it provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
--   its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
--   it automatically provides offsite storage for disaster recovery.
+-   It provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
+-   Its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
+-   It automatically provides offsite storage for disaster recovery.
 
 
 ## Key concepts
@@ -57,8 +57,8 @@ StorSimple is designed to provide storage to applications that operate on a well
 
 With this architecture in mind, you will find that StorSimple is ideally suited to operate as a backup target. You can use StorSimple to:
 
--   perform your most frequent restores from the local working set of data.
--   use the cloud for offsite disaster recovery and older data, where restores are less frequent.
+-   Perform your most frequent restores from the local working set of data.
+-   Use the cloud for offsite disaster recovery and older data, where restores are less frequent.
 
 ## StorSimple benefits
 
@@ -193,7 +193,7 @@ In this section, we demonstrate some configuration examples. The following examp
 
 Set up the host backup server storage according to these guidelines:  
 
-- Don't use spanned volumes (created by Windows Disk Management); spanned volumes are not supported.
+- Don't use spanned volumes (created by Windows Disk Management). Spanned volumes are not supported.
 - Format your volumes using NTFS with 64-KB allocation unit size.
 - Map the StorSimple volumes directly to the Veeam server.
     - Use iSCSI for physical servers.
@@ -313,7 +313,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 
 | Frequency/backup type | Full | Incremental (days 1-5)  |   
 |---|---|---|
-| Weekly (weeks 1-4) | Saturday | Monday - Friday |
+| Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
 | Yearly | Saturday  |   |   |
 
@@ -364,7 +364,7 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 > [!NOTE]
 > Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
 
-In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50 and 10.
+In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you can use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
 
 The following figure shows typical short-term retention local (to the server) volumes and long-term retention archive volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
@@ -430,7 +430,7 @@ GFS rotation weekly, monthly, and yearly schedule
 
     ![Veeam management console, new backup copy job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage21.png)
 
-7.  Specify that the data transfer be direct.
+7.  Specify that the data transfer is direct.
 
 8.  Define the backup copy window schedule according to your needs, and then finish the wizard.
 
@@ -438,7 +438,7 @@ For more information, see [Create backup copy jobs](https://helpcenter.veeam.com
 
 ## StorSimple cloud snapshots
 
-StorSimple cloud snapshots protect the data that resides in your StorSimple device. Creating a cloud snapshot is equivalent to shipping local backup tapes to an offsite facility. If you use Azure geo-redundant storage, creating a cloud snapshot is equivalent to shipping backup tapes to multiple sites. If you need to restore a device after a disaster, you could bring another StorSimple device online and do a failover. After the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
+StorSimple cloud snapshots protect the data that resides in your StorSimple device. Creating a cloud snapshot is equivalent to shipping local backup tapes to an offsite facility. If you use Azure geo-redundant storage, creating a cloud snapshot is equivalent to shipping backup tapes to multiple sites. If you need to restore a device after a disaster, you might bring another StorSimple device online and do a failover. After the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
 
 The following section describes how to create a short script to start and delete StorSimple cloud snapshots during backup post-processing.
 
@@ -529,12 +529,12 @@ With Veeam, you get fast, granular, file-level recovery through StorSimple via t
 > [!NOTE]
 > For backup target scenarios, StorSimple Cloud Appliance is not supported as a restore target.
 
-A disaster could be caused by a variety of factors. The following table lists common disaster recovery scenarios.
+A disaster can be caused by a variety of factors. The following table lists common disaster recovery scenarios.
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
-| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
-| Veeam server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html).  | You must rebuild or restore the Veeam server at the disaster recovery site. Restore the database to the most recent point. If the restored Veeam database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
+| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
+| Veeam server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html).  | You must rebuild or restore the Veeam server at the disaster recovery site. Restore the database to the most recent point. If the restored Veeam database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Veeam. | Restore StorSimple first, and then restore Veeam. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
 
