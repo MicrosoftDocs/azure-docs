@@ -39,7 +39,7 @@ You will need to go to this [link](https://login.microsoftonline.com/common/oaut
 
 ## Create a resource group
 ```azurecli
-az resource group create -n acsrg1 -l "westus"
+az group create -n acsrg1 -l "westus"
 ```
 
 ![Image resource group create](media/container-service-create-acs-cluster-cli/rg-create.png)
