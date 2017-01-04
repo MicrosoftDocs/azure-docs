@@ -48,7 +48,7 @@ similarly restricted devices.
 We assume that you have already created and published your Mobile App backend project, which includes at least
 one table.  In the code used in this topic, the table is named `TodoItem` and it has the following columns:
 `Id`, `Text`, and `Complete`. This table is the same table created when you complete the
-[Azure Mobile Apps quickstart].
+[Azure Mobile Apps quickstart][1].
 
 The corresponding typed client-side type in C# is the following class:
 
@@ -65,7 +65,7 @@ public class TodoItem
 }
 ```
 
-The [JsonPropertyAttribute][6] is used to define the *PropertyName* mapping between the client type and the table.
+The [JsonPropertyAttribute][6] is used to define the *PropertyName* mapping between the client field and the table field.
 
 To learn how to create tables in your Mobile Apps backend, see the [.NET Server SDK topic][7]
 or the [Node.js Server SDK topic][8]. If you created your Mobile App backend in the Azure portal using the QuickStart,
@@ -592,7 +592,7 @@ the local SQLite store instead of the remote server store.  To create an offline
 
    * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1][3].
    * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1][4].
-   * **Universal Windows Platform** Install [SQLite for the Universal Windows Universal][5].
+   * **Universal Windows Platform** Install [SQLite for the Universal Windows][5].
 3. (Optional). For Windows devices, click **References** > **Add Reference...**, expand the **Windows** folder > **Extensions**,
     then enable the appropriate **SQLite for Windows** SDK along with the **Visual C++ 2013 Runtime for Windows** SDK.
     The SQLite SDK names vary slightly with each Windows platform.
@@ -1177,7 +1177,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 ```
 
 Another example of dealing with error conditions can be found in the [Mobile Apps Files Sample]. The
-[LoggingHandler] example provides a logging delegate handler (following) to log the requests being made
+[LoggingHandler] example provides a logging delegate handler to log the requests being made
 to the backend.
 
 ### <a name="headers"></a>How to: Customize request headers
@@ -1188,10 +1188,7 @@ can use a custom [DelegatingHandler], as in the following example:
 ```
 public async Task CallClientWithHandler()
 {
-    HttpResponseMessage[]
-    MobileServiceClient client = new MobileServiceClient("AppUrl",
-        new MyHandler()
-        );
+    MobileServiceClient client = new MobileServiceClient("AppUrl", new MyHandler());
     IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
     var newItem = new TodoItem { Text = "Hello world", Complete = false };
     await todoTable.InsertAsync(newItem);
