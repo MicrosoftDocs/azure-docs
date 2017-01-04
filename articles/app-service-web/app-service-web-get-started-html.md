@@ -1,5 +1,5 @@
 ---
-title: Deploy your first web app to Azure in five minutes | Microsoft Docs
+title: Deploy your first web app to Azure in five minutes (CLI 2.0 Preview) | Microsoft Docs
 description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
 services: app-service\web
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/03/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 
 ---
-# Deploy your first web app to Azure in five minutes
+# Deploy your first web app to Azure in five minutes (CLI 2.0 Preview)
 
 > [!div class="op_single_selector"]
 > * [First HTML site](app-service-web-get-started-html.md)
@@ -150,14 +150,11 @@ the first time. For example, every time you want to push a new change that you'v
 ## Next steps
 Find the preferred development and deployment steps for your language framework:
 
-> [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
-> * [PHP](app-service-web-php-get-started.md)
-> * [Node.js](app-service-web-nodejs-get-started.md)
-> * [Python](web-sites-python-ptvs-django-mysql.md)
-> * [Java](web-sites-java-get-started.md)
-> 
-> 
+* [.NET](web-sites-dotnet-get-started.md)
+* [PHP](app-service-web-php-get-started.md)
+* [Node.js](app-service-web-nodejs-get-started.md)
+* [Python](web-sites-python-ptvs-django-mysql.md)
+* [Java](web-sites-java-get-started.md)
 
 Or, do more with your first web app. For example:
 
