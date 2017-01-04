@@ -541,7 +541,7 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/
-[Example1]: ./virtual-network/virtual-networks-dmz-nsg-arm.md
+[Example1]: ./virtual-network/virtual-networks-dmz-nsg.md
 [Example2]: ./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
 [Example3]: ./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md
 [Example4]: ./virtual-network/virtual-networks-hybrid-s2s-nva-asm.md
