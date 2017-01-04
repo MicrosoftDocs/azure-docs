@@ -683,14 +683,14 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 This form is a typed method call and requires that the **MarkAllResult** return type is defined. Both
 typed and untyped methods are supported.
 
-The `InvokeApiAsync` method prepends '/api/' to the API that you wish to call unless the API starts with a '/'.
+The InvokeApiAsync() method prepends '/api/' to the API that you wish to call unless the API starts with a '/'.
 For example:
 
 * `InvokeApiAsync("completeAll",...)` calls /api/completeAll on the backend
-* `InvokeApiasync("/.auth/me",...)` calls /.auth/me on the backend
+* `InvokeApiAsync("/.auth/me",...)` calls /.auth/me on the backend
 
-You can use this to call any WebAPI, including those that are not defined with Azure Mobile Apps.  When you use
-`InvokeApiAsync()`, the appropriate headers, including authentication headers, are sent with the request.
+You can use InvokeApiAsync to call any WebAPI, including those WebAPIs that are not defined with Azure Mobile Apps.  When
+you use InvokeApiAsync(), the appropriate headers, including authentication headers, are sent with the request.
 
 ## <a name="authentication"></a>Authenticate users
 Mobile Apps supports authenticating and authorizing app users using various external identity providers: Facebook,
@@ -887,14 +887,14 @@ private async Task AuthenticateAsync()
 }
 ```
 
-#### <a name="client-livesdk"></a>Single sign-in using Microsoft Account with the Live SDK
+#### <a name="client-livesdk"></a>Single Sign On using Microsoft Account with the Live SDK
 To authenticate users, you must register your app at the Microsoft account Developer Center. Configure the
 registration details on your Mobile App backend. To create a Microsoft account registration and
 connect it to your Mobile App backend, complete the steps in
 [Register your app to use a Microsoft account login]. If you have both Windows Store and Windows Phone
 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile
+The following code authenticates using Live SDK and uses the returned token to sign in to your Mobile
 App backend.
 
 ```
