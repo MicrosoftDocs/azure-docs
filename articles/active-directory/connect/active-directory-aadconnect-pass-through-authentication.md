@@ -30,8 +30,9 @@ When combined with [Single Sign on](active-directory-aadconnect-sso.md), users a
 
 Pass-through authentication can be configured via AAD Connect and utilizes a simple on-premises agent that listens for password validation requests.  The agent can be easily deployed to multiple machines to provide high availability and load balancing.  Since all communications are outbound only, there is no requirement for a DMZ or for the connector to be installed in a DMZ.  The machine requirements for the connector are as follows:
 
-- Windows Server 2012 or higher
+- Windows Server 2012 R2 or higher
 - Joined to a domain in the forest that users will be validated in
+
 >[!NOTE]
 >Multi-forest environments can be supported if there are trusts been the forests and name suffix routing is correctly configured.
 
@@ -39,6 +40,7 @@ Pass-through authentication can be configured via AAD Connect and utilizes a sim
 Pass-through authentication is supported via web browser based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga).  For clients that are not support such as legacy Office clients, Exchange active sync (i.e. native email clients on mobile devices), customers are encouraged to use the modern authentication equivalent.  This not only allows pass-through authentication, but also allows for conditional access to be applied, such as multi-factor authentication.
 
 For customers using Windows 10 joined to Azure AD, pass-through authentication is not currently supported.  However customers can utilize password hash sync as an automatic fallback for Windows 10 in addition for legacy clients mentioned above.
+
 >[!NOTE]
 >During the preview Password hash synchronization is enabled by default when Pass-through authentication is selected as the sign-in option in Azure AD Connect. This can be disabled on the Options page of Azure AD Connect.
 
