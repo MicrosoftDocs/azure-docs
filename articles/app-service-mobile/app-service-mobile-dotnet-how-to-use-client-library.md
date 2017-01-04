@@ -81,7 +81,9 @@ Use one of the following methods to install the managed client SDK package for M
 
 In your main activity file, remember to add the following **using** statement:
 
-    using Microsoft.WindowsAzure.MobileServices;
+```
+using Microsoft.WindowsAzure.MobileServices;
+```
 
 ### <a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
 The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource][10].  Refer to the
@@ -90,7 +92,9 @@ The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSou
 ## <a name="create-client"></a>Create the Mobile Apps client
 The following code creates the [MobileServiceClient][12] object that is used to access your Mobile App backend.
 
-    var client = new MobileServiceClient("MOBILE_APP_URL");
+```
+var client = new MobileServiceClient("MOBILE_APP_URL");
+```
 
 In the preceding code, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the
 blade for your Mobile App backend in the [Azure portal]. The MobileServiceClient object should be a singleton.
