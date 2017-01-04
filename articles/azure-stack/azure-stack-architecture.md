@@ -37,7 +37,7 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 | **MAS-CA01** | Provides certificate authority services for Azure Stack role services.|
 | **MAS-CON01** | Console machine available for installing PowerShell, Visual Studio, and other tools.|
 | **MAS-DC01** | Hosts Active Directory, DNS, and DHCP services for Microsoft Azure Stack.|
-| **MAS-GWY01** | Provides  edge gateway services such as VPN site-to-site connections for tenant networks.|
+| **MAS-GWY01** | Provides edge gateway services such as VPN site-to-site connections for tenant networks.|
 | **MAS-NC01** | Hosts the Network Controller, which manages Azure Stack network services.  |
 | **MAS-SLB01** | Provides load balancing services in Azure Stack for both tenants and Azure Stack infrastructure services.  |
 | **MAS-SUS01** | Hosts Windows Server Update Services, and responsible for providing updates to other Azure Stack virtual machines.|
