@@ -343,7 +343,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
   # NSG Details
     $NSGName = "MyVNetSG"
 
-# User-Defined VM Specific Config
+# User-Defined VM Specific Configuration
     # Note: To ensure proper NSG Rule creation later in this script:
     #       - The Web Server must be VM 0
     #       - The AppVM1 Server must be VM 1
@@ -391,7 +391,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
       $VMIP += "10.0.2.4"
 
 # ----------------------------- #
-# No User-Defined Varibles or   #
+# No User-Defined Variables or  #
 # Configuration past this point #
 # ----------------------------- #    
 
@@ -402,7 +402,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 
   # Create Storage Account
     If (Test-AzureName -Storage -Name $StorageAccountName) { 
-        Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+        Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
         Return}
     Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
           New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -431,14 +431,14 @@ Else { Write-Host "The BackEndService service name is valid for use." -Foregroun
 If (-Not (Test-Path $NetworkConfigFile)) { 
     Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
     $FatalError = $true}
-Else { Write-Host "The network config file was found" -ForegroundColor Green
+Else { Write-Host "The network configuration file was found" -ForegroundColor Green
         If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-            Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+            Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
             $FatalError = $true}
         Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
 If ($FatalError) {
-    Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+    Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
     Return}
 Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
