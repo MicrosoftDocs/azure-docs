@@ -6,10 +6,9 @@
 # How to 
 ##[Deploy to a server](analysis-services-deploy.md)
 ##[Connect from a client](analysis-services-connect.md)
-## Manage
-###[Manage a server](analysis-services-manage.md)
-## Integrate
-###[On-premises data gateway](analysis-services-gateway.md)
+
+##[Manage a server](analysis-services-manage.md)
+##[Integrate On-premises data gateway](analysis-services-gateway.md)
 
 # Reference
 ##[PowerShell](/powershell/resourcemanager)
