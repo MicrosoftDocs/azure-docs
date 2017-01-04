@@ -71,8 +71,6 @@ The following URLs for ASR  are different in Azure Government:
 | *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
-
-
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
@@ -123,16 +121,6 @@ The following Log Analytics features behave differently in Azure Government:
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
-
-## Site Recovery
-Site Recovery is generally available in Azure Government.
-
-For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
-
-### Variations
-The following Site Recovery features are not currently available in Azure Government:
-
-* Azure Resource Manager site recovery vaults
 
 ## Next steps
 For supplemental information and updates, subscribe to the
