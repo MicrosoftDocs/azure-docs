@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2016
+ms.date: 01/04/2017
 ms.author: marsma
 
 ---
@@ -339,14 +339,6 @@ az storage file list -s myshare/myDir
 
 # List the files in a path within a share
 az storage file list -s myshare -p myDir/mySubDir/MySubDir2
-```
-
-### Copy files
-You can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory in a different share:
-
-```azurecli
-az storage file copy start --source-share myshare --source-path mydir/image.png \
-                           --destination-share myshare2 --destination-path mydir2/image.png
 ```
 
 ## Next steps
