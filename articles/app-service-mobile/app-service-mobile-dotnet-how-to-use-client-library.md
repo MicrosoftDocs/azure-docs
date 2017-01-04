@@ -628,6 +628,15 @@ line of code sends a POST request to the **completeAll** API on the backend:
 This form is a typed method call and requires that the **MarkAllResult** return type is defined. Both
 typed and untyped methods are supported.
 
+The `InvokeApiAsync` method prepends '/api/' to the API that you wish to call unless the API starts with a '/'.
+For example:
+
+* `InvokeApiAsync("completeAll",...)` calls /api/completeAll on the backend
+* `InvokeApiasync("/.auth/me",...)` calls /.auth/me on the backend
+
+You can use this to call any WebAPI, including those that are not defined with Azure Mobile Apps.  When you use
+`InvokeApiAsync()`, the appropriate headers, including authentication headers, are sent with the request.
+
 ## <a name="authentication"></a>Authenticate users
 Mobile Apps supports authenticating and authorizing app users using various external identity providers: Facebook,
 Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict
