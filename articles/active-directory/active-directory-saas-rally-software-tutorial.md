@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable users to authenticate 
 As part of this procedure, you are required to upload a certificate to Rally Software.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Rally Software **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Rally Software** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configure single sign-on")
 

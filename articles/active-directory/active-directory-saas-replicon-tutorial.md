@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable the application integr
 The objective of this section is to outline how to enable users to authenticate to Replicon with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Replicon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Replicon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configure single sign-on")
 
@@ -159,7 +159,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 ### To assign users to Replicon, perform the following steps:
 1. In the Azure classic portal, create a test account.
 
-2. On the **Replicon **application integration page, click **Assign users**.
+2. On the **Replicon** application integration page, click **Assign users**.
    
     ![Assign users](./media/active-directory-saas-replicon-tutorial/IC777809.png "Assign users")
 
