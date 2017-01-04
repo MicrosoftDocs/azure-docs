@@ -148,12 +148,12 @@ If you don't plan to failover DRBD now, the first option is easier although argu
 > [!WARNING]
 > This last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
 
-If you want to make queries from outside the VMs (which is the purpose of this guide) you also need to enable networking for MySQL. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
+If you want to make queries from outside the VMs (which is the purpose of this guide), you also need to enable networking for MySQL. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
 ### Create the MySQL load-balanced set
 Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
 
-After you create the endpoint, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
+After you create the endpoint, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, and then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
 
 You now have everything you need for manual operation of the cluster.
 
@@ -180,7 +180,7 @@ Corosync is the underlying cluster infrastructure required for Pacemaker to work
 
 The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.
 
-Fortunately, Corosync has a working unicast mode, and the only real constraint is that because all nodes are not communicating among themselves, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
+Fortunately, Corosync has a working unicast mode. The only real constraint is that because all nodes are not communicating among themselves, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
 
 > [!NOTE]
 > Use the following `transport: udpu` directive and the manually defined IP addresses for both nodes.
@@ -330,8 +330,8 @@ Sample code for the resource is available on [GitHub](https://github.com/bureado
 The following limitations apply:
 
 * The linbit DRBD resource script that manages DRBD as a resource in Pacemaker uses `drbdadm down` when shutting down a node, even if the node is just going on standby. This is not ideal because the slave will not be synchronizing the DRBD resource while the master gets writes. If the master does not fail graciously, the slave can take over an older file system state. There are two potential ways of solving this:
-  * Enforcing a `drbdadm up r0` in all cluster nodes via a local (not clusterized) watchdog.
-  * Editing the linbit DRBD script, making sure that `down` is not called in `/usr/lib/ocf/resource.d/linbit/drbd`.
+  * Enforcing a `drbdadm up r0` in all cluster nodes via a local (not clusterized) watchdog
+  * Editing the linbit DRBD script, making sure that `down` is not called in `/usr/lib/ocf/resource.d/linbit/drbd`
 * The load balancer needs at least five seconds to respond, so applications should be cluster-aware and be more tolerant of timeout. Other architectures, like in-app queues and query middlewares, can also help.
 * MySQL tuning is necessary to ensure that writing is done at a manageable pace and caches are flushed to disk as frequently as possible to minimize memory loss.
 * Write performance is dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.
