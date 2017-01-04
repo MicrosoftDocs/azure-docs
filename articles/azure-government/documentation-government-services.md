@@ -45,11 +45,11 @@ For the most current list of services, see the [Products by Region](https://azur
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
 * Import/Export
 * StorSimple
-* Backup
-* Site Recovery
+* [Backup](documentation-government-services-backup)
+* [Site Recovery](documentation-government-services-monitoringandmanagement)
 
 ## Web + Mobile
-* Web Apps
+* [App Services](documentation-government-services-webandmobile)
 * Media Services
 
 ## [Databases](documentation-government-services-database.md)
@@ -73,9 +73,9 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-* Backup
+* [Backup](documentation-government-services-backup) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement)
 * Scheduler
 * Traffic Manager
 * Monitoring and Diagnostics
