@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 
 ---
@@ -66,7 +66,7 @@ The objective of this section is to outline how to enable the application integr
 The objective of this section is to outline how to enable users to authenticate to RightAnswers with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **RightAnswers** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **RightAnswers** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configure Single Sign-On")
 
@@ -113,7 +113,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 ### To assign users to RightAnswers, perform the following steps:
 1. In the Azure classic portal, create a test account.
 
-2. On the **RightAnswers **application integration page, click **Assign users**.
+2. On the **RightAnswers** application integration page, click **Assign users**.
    
     ![Assign Users](./media/active-directory-saas-rightanswers-tutorial/IC802932.png "Assign Users")
 
