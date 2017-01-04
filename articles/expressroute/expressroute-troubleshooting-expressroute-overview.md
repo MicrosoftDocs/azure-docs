@@ -93,7 +93,7 @@ To list all the ExpressRoute circuits in a Resource Group, use the following com
 	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->You can get your resource group name through the Azure Portal. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
+>You can get your resource group name through the Azure portal. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
 >
 >
 
