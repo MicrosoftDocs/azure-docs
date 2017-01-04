@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute Troubleshooting Guide - Verifying Connectivity | Microsoft Docs
+title: Azure ExpressRoute Troubleshooting Guide - Verifying Connectivity | Microsoft Docs
 description: This page provides instructions on troubleshooting and validating end to end connectivity of an ExpressRoute circuit
 documentationcenter: na
 services: expressroute
@@ -392,8 +392,9 @@ A sample output of the command for a non-existent peering is:
     	+ CategoryInfo          : CloseError: (:) [Get-AzureDedicatedCircuitStats], CloudException
     	+ FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
-## References
-### Related websites and documentation
+## Next Steps
+For more information or help, check out the following links:
+
 - [Microsoft Support][Support]
 - [Create and modify an ExpressRoute circuit][CreateCircuit]
 - [Create and modify routing for an ExpressRoute circuit][CreatePeering]
