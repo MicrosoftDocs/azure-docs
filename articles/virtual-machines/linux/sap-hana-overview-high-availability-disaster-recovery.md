@@ -1,8 +1,8 @@
 ---
-title: High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: Establish High Availability and plan for Disaster Recovery of SAP HANA on Azure (Large Instances).
+title: High availability and disaster recovery of SAP HANA on Azure (large instances) | Microsoft Docs
+description: Establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter:
 author: RicksterCDN
 manager: timlt
 editor:
@@ -16,19 +16,19 @@ ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
-# High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)
+# High availability and disaster recovery of SAP HANA on Azure (large instances)
 
-High Availability (HA) and Disaster Recovery (DR) are important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's important to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.
+High availability and disaster recovery are important aspects of running your mission-critical SAP HANA on Azure (large instances) servers. It's important to work with SAP, your system integrator, or Microsoft to properly architect and implement the right high-availability/disaster-recovery strategy. It is also important to consider the recovery point objective and recovery time objective, which are specific to your environment.
 
-## High Availability
+## High availability
 
-Microsoft supports the SAP HANA High Availability methods &quot;out of the box&quot;, which include:
+Microsoft supports SAP HANA high availability methods "out of the box," which include:
 
-- **Storage Replication:** Ability for the storage system itself to replicate all data to another location (within, or separate, from the same data center). SAP HANA operates independently from this method.
-- **HANA System Replication:** Replication of all data in SAP HANA to a separate SAP HANA system. RTO is minimized through data replicating at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended for only SAP HANA systems within the same data center or less than 100 km apart). In the current design of HANA Large Instance Stamps, HANA System Replication can be used for High Availability only.
-- **Host Auto-Failover:** One or more standby SAP HANA nodes are configured in &quot;scale out&quot; mode and SAP HANA automatically &quot;fails over&quot; to another node when the master node becomes unavailable.
+- **Storage replication:** The storage system's ability to replicate all data to another location (within, or separate from, the same data center). SAP HANA operates independently of this method.
+- **HANA system replication:** The replication of all data in SAP HANA to a separate SAP HANA system. The recovery time objective is minimized through data replication at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended only for SAP HANA systems that are within the same data center or less than 100 KM apart). In the current design of HANA large instance stamps, HANA System Replication can be used for high availability only.
+- **Host auto-failover:** When one or more standby SAP HANA nodes are configured in "scale out" mode and SAP HANA automatically "fails over" to another node when the master node becomes unavailable.
 
-For more information on SAP HANA High Availability, see the following SAP information:
+For more information on SAP HANA high availability, see the following SAP information:
 
 - [SAP HANA High-Availability Whitepaper](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Administration Guide](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
@@ -37,44 +37,44 @@ For more information on SAP HANA High Availability, see the following SAP inform
 - [SAP Support Note #2165547 – SAP HANA Backup and Restore within SAP HANA System Replication Environment](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Note #1984882 – Using SAP HANA System Replication for Hardware Exchange with Minimum/Zero Downtime](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 
-## Disaster Recovery
+## Disaster recovery
 
-SAP HANA on Azure (Large Instances) is offered in two Azure regions in a geo-political region. Between the two Large Instance stamps of two different regions is a direct network connectivity for replicating data during Disaster Recovery. The replication of the data is storage infrastructure based. The replication of the data is not done by default—it is done for customer configurations that ordered Disaster Recovery. In the current design, HANA System Replication can't be used for Disaster Recovery. 
+SAP HANA on Azure (large instances) is offered in two Azure regions in a geo-political region. Between the two large instance stamps of two different regions is a direct network connectivity for replicating data during disaster recovery. The replication of the data is storage-infrastructure based. The replication of the data is not done by default. It is done for customer configurations that ordered disaster recovery. In the current design, HANA System Replication can't be used for disaster recovery.
 
-However, to take advantage of the Disaster Recovery, you need to start to design the network connectivity to the two different Azure regions accordingly. This means you would need an ExpressRoute circuit connecting from on-premises in your main Azure region, and another circuit connecting from on-premises into your DR region. This measure would cover a situation in which a complete Azure region, including MSEE location, has an issue.
+However, to take advantage of the disaster recovery, you need to start to design the network connectivity to the two different Azure regions accordingly. This means you would need an ExpressRoute circuit connecting from on-premises in your main Azure region, and another circuit connecting from on-premises into your disaster-recovery region. This measure would cover a situation in which a complete Azure region, including MSEE location, has an issue.
 
-As a second measure, you ideally would need to connect all Azure VNets that connect to SAP HANA on Azure (Large Instances) in one of the regions to both of those ExpressRoute circuits. This would address the case of just one of the MSEE locations that connects your on-premises location with Azure going off duty.
+As a second measure, you ideally would need to connect all Azure VNets that connect to SAP HANA on Azure (large instances) in one of the regions to both of those ExpressRoute circuits. This would address the case of just one of the MSEE locations that connects your on-premises location with Azure going off duty.
 
-The figure below shows the optimal configuration for Disaster Recovery:
+The figure below shows the optimal configuration for disaster recovery:
 
-![Optimal configuration for Disaster Recovery](./media/sap-hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
+![Optimal configuration for disaster recovery](./media/sap-hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
-The optimal case for a DR configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances (this is important in case an entire Azure region, including MSEE and Large Instance stamp, goes off the grid).
+The optimal case for a disaster-recovery configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances (this is important in case an entire Azure region, including MSEE and large instance stamp, goes off the grid).
 
-As a second measure, all the different VNets are connected to the different ExpressRoute circuits connecting to SAP HANA on Azure (Large Instances). You can bypass the location where an MSEE is failing, or you can lower RPO for Disaster Recovery, as you will see later.
+As a second measure, all the different VNets are connected to the different ExpressRoute circuits connecting to SAP HANA on Azure (large instances). You can bypass the location where an MSEE is failing, or you can lower the recovery point objective for disaster recovery, as you will see later.
 
-The next requirements for a DR setup are:
+The next requirements for a disaster-recovery setup are:
 
-- You need SAP HANA on Azure (Large Instances) SKUs of the same size as your production SKUs ordered and deployed in the DR region. These instances can be used to run test, sandbox or QA HANA instances.
-- Additionally, you need to order a DR profile for each of your SAP HANA on Azure (Large Instances) SKUs that you want to recover in the DR site, if necessary. This leads to the allocation of storage volumes, which are the target of the storage replication from your production region into the DR region.
+- You need SAP HANA on Azure (large instances) SKUs of the same size as your production SKUs ordered and deployed in the disaster-recovery region. These instances can be used to run test, sandbox or QA HANA instances.
+- Additionally, you need to order a disaster-recovery profile for each of your SAP HANA on Azure (large instances) SKUs that you want to recover in the disaster-recovery site, if necessary. This leads to the allocation of storage volumes, which are the target of the storage replication from your production region into the disaster-recovery region.
 
-After this is all set-up, it is then your responsibility to start the storage replication. In the storage infrastructure used for SAP HANA on Azure (Large Instances), the basis of storage replication is storage snapshots. To start the DR replication, you need to perform:
+After this is all set-up, it is then your responsibility to start the storage replication. In the storage infrastructure used for SAP HANA on Azure (large instances), the basis of storage replication is storage snapshots. To start the disaster-recovery replication, you need to perform:
 
 - A snapshot of your boot LUN as described earlier.
 - A snapshot of your HANA-related volumes as described earlier.
 
-After the execution of these snapshots, an initial replica of the volumes is seeded on the volumes associated with your DR profile in the DR region.
+After the execution of these snapshots, an initial replica of the volumes is seeded on the volumes associated with your disaster-recovery profile in the disaster-recovery region.
 
 Subsequently every hour the latest storage snapshot is leveraged to replicate the delta that developed on the storage volumes in the meantime.
 
-The RPO achieved with this configuration is between 60–90 minutes. To achieve a better RPO in the DR case, you need to copy the HANA transaction log backups off of SAP HANA on Azure (large Instances) and into the other Azure region. To achieve this, you would:
+The recovery point objective achieved with this configuration is between 60–90 minutes. To achieve a better recovery point objective in the disaster-recovery case, you need to copy the HANA transaction log backups off of SAP HANA on Azure (large Instances) and into the other Azure region. To achieve this, you would:
 
 - Back up the HANA Transaction Log as frequently as possible into /hana/log/backup.
-- Then, copy the transaction log backups when they are finished to an Azure VM, which is in a VNet that is connected to the SAP HANA on Azure (Large Instances) server.
-- From that VM, copy the backup to a VM which is in a VNet in the DR region.
+- Then, copy the transaction log backups when they are finished to an Azure VM, which is in a VNet that is connected to the SAP HANA on Azure (large instances) server.
+- From that VM, copy the backup to a VM which is in a VNet in the disaster-recovery region.
 - Keep the transaction log backups in that region in the VM.
 
-In case of disaster, after the DR profile has been deployed on an actual server, copy the transaction log backups from the VM in to the SAP HANA on Azure (Large Instances) that is now the primary in the DR region, and restore those backups. This is possible because the state of HANA the on DR disks is that of a HANA snapshot. This is the offset point for further restores of transaction log backups.
+In case of disaster, after the disaster-recovery profile has been deployed on an actual server, copy the transaction log backups from the VM in to the SAP HANA on Azure (large instances) that is now the primary in the disaster-recovery region, and restore those backups. This is possible because the state of HANA on the disaster-recovery disks is that of a HANA snapshot. This is the offset point for further restores of transaction log backups.
 
 ## Backup and restore
 
@@ -89,17 +89,17 @@ Two types of backups must be performed for best results:
 
 In addition to full database backups performed at an application-level, you can be even more thorough by performing backups with storage snapshots. Performing log backups is also important for restoring the database (and to empty the logs from already committed transactions).
 
-There are two backup and restore options for SAP HANA on Azure (Large Instances):
+There are two backup and restore options for SAP HANA on Azure (large instances):
 
 - DIY (Do It Yourself). After calculating and ensuring enough disk space, perform full database and log backups using disk backup methods (to those disks). Over time, the backups are copied to Azure Storage (after setting up an Azure-based file server with virtually unlimited standard storage), or use Azure Backup Vault or Azure Cold Storage. Another option could be to use a third-party data protection tool, such as Commvault, to store the backups once they are copied to Azure standard storage. The DIY backup option may also be necessary for data that needs to be stored for longer periods due to compliancy and auditing purposes.
-- Use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (Large Instances) provides. This option fulfills the need for backups, and it makes manual backups nearly obsolete (except in cases where data backups are required for compliance purposes). The rest of this section addresses the backup and restore functionality offered with HANA Large Instances.
+- Use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (large instances) provides. This option fulfills the need for backups, and it makes manual backups nearly obsolete (except in cases where data backups are required for compliance purposes). The rest of this section addresses the backup and restore functionality offered with HANA large instances.
 
 > [!NOTE]
-> The snapshot technology that is used by the underlying infrastructure of HANA Large Instances has a dependency on SAP HANA Snapshots. SAP HANA Snapshots do not work in conjunction with SAP HANA Multitenant Database Containers. As a result this method of backup can not be leveraged for SAP HANA Multitenant Database Container deployments!!
+> The snapshot technology that is used by the underlying infrastructure of HANA large instances has a dependency on SAP HANA Snapshots. SAP HANA Snapshots do not work in conjunction with SAP HANA Multitenant Database Containers. As a result this method of backup can not be leveraged for SAP HANA Multitenant Database Container deployments!!
 
-### Using storage snapshots of SAP HANA on Azure (Large Instances)
+### Using storage snapshots of SAP HANA on Azure (large instances)
 
-The storage infrastructure underlying SAP HANA on Azure (Large Instances) supports the notion of a storage snapshot of volumes. Both backup and restoration of a particular volume is supported with the following considerations:
+The storage infrastructure underlying SAP HANA on Azure (large instances) supports the notion of a storage snapshot of volumes. Both backup and restoration of a particular volume is supported with the following considerations:
 
 - Instead of database backups, storage volume snapshots are taken on a frequent basis.
 - The storage snapshot initiates an SAP HANA snapshot before executing the storage snapshot. This HANA snapshot will be the point to set up eventual log restores after recovery of the storage snapshot.
@@ -118,17 +118,17 @@ Specifying the backup\_name will snapshot the following volumes:
 
 ### Storage snapshot considerations
 
->[!NOTE] 
+>[!NOTE]
 >Storage snapshots are _not_ provided free of charge as additional storage space must be allocated.
 
-Specific mechanics of storage snapshots for SAP HANA on Azure (Large Instances):
+Specific mechanics of storage snapshots for SAP HANA on Azure (large instances):
 
 - A specific storage snapshot (at the point in time it is taken) consumes very little storage.
 - As data content changes and the content in SAP HANA data files change on the storage volume, the snapshot needs to store the original block content.
 - The storage snapshot increases in size. The longer the snapshot exists, the larger the storage snapshot becomes.
 - The more changes made to the SAP HANA database volume over the lifetime of a storage snapshot, the larger the space consumption of the storage snapshot.
 
-SAP HANA on Azure (Large Instances) comes with fixed volume sizes for the SAP HANA data and log volume. Performing snapshots of those volumes will eat into your volume space, so it is your responsibility to schedule storage snapshots (within the SAP HANA on Azure Large Instances process).
+SAP HANA on Azure (large instances) comes with fixed volume sizes for the SAP HANA data and log volume. Performing snapshots of those volumes will eat into your volume space, so it is your responsibility to schedule storage snapshots (within the SAP HANA on Azure large instances process).
 
 The following sections provide information for performing these snapshots including general recommendations:
 
@@ -137,19 +137,19 @@ The following sections provide information for performing these snapshots includ
 - Lower the number of storage snapshots based on free space. The number of snapshots kept might need to be lowered or the volumes might need to be extended (additional storage can be ordered in 1 TB units).
 - During activities like moving data into SAP HANA with system migration tools (with R3Load, or restoring SAP HANA databases from backups), it is highly recommended to not perform any storage snapshots. (Usually a system migration is being done on a new SAP HANA system, so storage snapshots would not need to be performed in that case.)
 - During larger reorganizations of SAP HANA tables, storage snapshots should be avoided if possible.
-- Also, storage snapshots are a pre-requisite to engage the DR capabilities of SAP HANA on Azure (Large Instances).
+- Also, storage snapshots are a pre-requisite to engage the disaster-recovery capabilities of SAP HANA on Azure (large instances).
 
 ### Setting up storage snapshots
 
-1. Make sure that Perl is installed in the Linux operating system on the HANA Large Instances server.
+1. Make sure that Perl is installed in the Linux operating system on the HANA large instances server.
 
 2. Modify /etc/ssh/ssh\_config to add the line _MACs hmac-sha1_.
 
 3. Create an SAP HANA backup user account on the master node for each SAP HANA instance you are running (if applicable).
 
-4. The SAP HANA HDB client must be installed on all HANA Large Instances servers.
+4. The SAP HANA HDB client must be installed on all HANA large instances servers.
 
-5. On the first HANA Large Instances server of each region, a public key must be created to access the underlying storage infrastructure that controls snapshot creation.
+5. On the first HANA large instances server of each region, a public key must be created to access the underlying storage infrastructure that controls snapshot creation.
 
 6. Copy the script azure\_hana\_backup.pl from /scripts to the location of **hdbsql** of the SAP HANA installation.
 
@@ -161,7 +161,7 @@ The following sections provide information for performing these snapshots includ
 
 **Step 1: Install SAP HANA HDBClient**
 
-The Linux installed on SAP HANA on Azure (Large Instances) includes the folders and scripts necessary to execute SAP HANA storage snapshots for backup and Disaster Recovery purposes. However, it is your responsibility to install SAP HANA HDBclient while installing SAP HANA.  (Microsoft will not install the HDBclient nor SAP HANA.)
+The Linux installed on SAP HANA on Azure (large instances) includes the folders and scripts necessary to execute SAP HANA storage snapshots for backup and disaster-recovery purposes. However, it is your responsibility to install SAP HANA HDBclient while installing SAP HANA. (Microsoft will not install the HDBclient nor SAP HANA.)
 
 **Step 2: Change /etc/ssh/ssh\_config**
 
@@ -200,7 +200,7 @@ MACs hmac-sha1
 
 **Step 3: Create a public key**
 
-On the first SAP HANA on Azure (Large Instances) server in each Azure region, a public key needs to be created that is used to access the storage infrastructure allowing creation of snapshots. The public key ensures a password is not required to login to the storage and that password credentials are not maintained. In Linux on the HANA Large Instances server, execute the following command to generate the public key:
+On the first SAP HANA on Azure (large instances) server in each Azure region, a public key needs to be created that is used to access the storage infrastructure allowing creation of snapshots. The public key ensures a password is not required to login to the storage and that password credentials are not maintained. In Linux on the HANA large instances server, execute the following command to generate the public key:
 ```
   ssh-keygen –t dsa –b 1024
 ```
@@ -319,7 +319,7 @@ To run the script:
 ```
 The script will output the message that the HANA connection was successful if the script is successful in obtaining the status of the HANA instance.
 
-Additionally, there is a second type of script to check the master HANA instance server&#39;s ability to login to the storage. It is required that you to execute the following script before executing the azure\_hana\_backup(\_bw).pl script. Whenever no snapshots exist in a volume, it is impossible to determine the difference between a volume that contains no snapshots or an ssh failure in obtaining the snapshot details.  For this reason, the following script execution executes two steps:
+Additionally, there is a second type of script to check the master HANA instance server&#39;s ability to login to the storage. It is required that you to execute the following script before executing the azure\_hana\_backup(\_bw).pl script. Whenever no snapshots exist in a volume, it is impossible to determine the difference between a volume that contains no snapshots or an ssh failure in obtaining the snapshot details. For this reason, the following script execution executes two steps:
 
 - Verifies that the storage console is accessible.
 - Creates a test, or dummy, snapshot for each volume by HANA instance.
@@ -382,10 +382,10 @@ hana_shared_<hana instance>_prod_t020_vol
 ```
 The retention period is strictly administrated with the number of snapshots submitted as a parameter when executing the script (such as 20, shown above). So the amount of time is a function of the period of execution, and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number named as a parameter in the call of the script, the oldest storage snapshot of this label (in our case above, _custom_), will be deleted before executing a new snapshot. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots.
 
->[!NOTE] 
+>[!NOTE]
 >As soon as you change the label, the counting starts again.
 
-You need to include the HANA instance name provided by SAP HANA on Azure Service Management as an argument if they are snapshotting multi-node environments. In single-node environments, the name of the SAP HANA on Azure (Large Instance) unit is sufficient, but the HANA instance name is still recommended.
+You need to include the HANA instance name provided by SAP HANA on Azure Service Management as an argument if they are snapshotting multi-node environments. In single-node environments, the name of the SAP HANA on Azure (large instance) unit is sufficient, but the HANA instance name is still recommended.
 
 Additionally, the ability is provided to backup boot volumes\luns using the same script. You must back up your boot volume at least once when you first get HANA running, although a weekly or nightly backup schedule for boot in cron is recommended. Rather than adding an SAP HANA instance name, just insert _boot_ as the argument into the script as follows:
 ```
@@ -393,7 +393,7 @@ Additionally, the ability is provided to backup boot volumes\luns using the same
 ```
 The same retention policy is afforded to the boot volume as well. On-demand snapshots, as described above, should be used for special cases only (such as during an SAP EHP upgrade, or at times when you need to create a distinct storage snapshot).
 
-You are highly encouraged to perform scheduled storage snapshots using cron, and it is recommended that the same script is used for all backups and Disaster Recovery needs (modifying the inputs of the script to match the different backup times requested). These are all scheduled differently in cron depending on their execution time: hourly, 12-hour, daily, or weekly (depending on circumstances). The cron schedule is designed to create storage snapshots that match the retention labeling discussed earlier for long-term off-site backup. The script includes commands to backup all production volumes depending on requested frequency (data and log files are backed up hourly, whereas the boot volume is only backed up daily).
+You are highly encouraged to perform scheduled storage snapshots using cron, and it is recommended that the same script is used for all backups and disaster-recovery needs (modifying the inputs of the script to match the different backup times requested). These are all scheduled differently in cron depending on their execution time: hourly, 12-hour, daily, or weekly (depending on circumstances). The cron schedule is designed to create storage snapshots that match the retention labeling discussed earlier for long-term off-site backup. The script includes commands to backup all production volumes depending on requested frequency (data and log files are backed up hourly, whereas the boot volume is only backed up daily).
 
 The entries in the following cron script run every hour at the tenth minute, every 12 hours at the tenth minute, and daily at the tenth minute. The cron jobs are created in such a way that only one SAP HANA storage snapshot takes place during any given hour, so that both an hourly and daily backup does not occur at the same time (12:10AM). SAP HANA on Azure Service Management will provide the recommended time for you to run your backups to optimize your snapshot creation and replication.
 
@@ -407,14 +407,14 @@ In the cron instructions above, the HANA volumes (without boot volume), get a sn
 Scheduling within cron can be tricky, as only one script should be executed at any given time unless the script is staggered by several minutes. If you want daily backups for long-term retention, either a daily is kept along with a 12hour (with a retention count of seven each), or the hourly snapshot is staggered to take place ten minutes later, but only one daily snapshot is kept in the production volume.
 ```
 10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
-10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 7 
+10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 7
 10 0 * * * ./azure_hana_backup.pl lhanad01 daily 7
 ```
 The frequencies listed are just examples. You need to get to your optimum number of snapshots based on the following criteria:
 
-- Requirements in RTO for point-in-time recovery.
+- Requirements in recovery time objective for point-in-time recovery.
 - Space usage.
-- Requirements in RPO and RTO for potential disaster recovery.
+- Requirements in recovery point objective and recovery time objective for potential disaster recovery.
 - Eventual execution of HANA full database backups against disks. Whenever a full database backup against disks, or _backint_ interface, is performed, the execution of storage snapshots will fail. If you plan to execute full database backups on top of storage snapshots, you would need to make sure the execution of storage snapshots is disabled during this time.
 
 >[!IMPORTANT]
@@ -463,9 +463,9 @@ As a result of running the script with setting above, the snapshots are getting 
 - A reduction can only be achieved if the last snapshot created before the run with the reduced number is more than one hour old.
 - The script also fails to delete snapshots that are younger than one hour.
 
-These restrictions are related to the optional DR functionality offered.
+These restrictions are related to the optional disaster-recovery functionality offered.
 
-Suppose you are no longer interested in maintaining a set of snapshots with that prefix, you can execute the script with _0_ as the retention number and the script will remove all snapshots matching that prefix, and then the script will exit. However, this will impact the capabilities of Disaster Recovery.
+Suppose you are no longer interested in maintaining a set of snapshots with that prefix, you can execute the script with _0_ as the retention number and the script will remove all snapshots matching that prefix, and then the script will exit. However, this will impact the capabilities of disaster recovery.
 
 ### Recovering to the latest HANA snapshot
 
@@ -475,7 +475,7 @@ On the other hand, a point-in-time recovery could be low urgency and planned ahe
 
 There are some preparations you have to do before issuing the request, as shown below. SAP HANA on Azure Service Management team will then be able to handle the request and provide the restored volumes. It is then up to you to restore the HANA database based on the snapshots.
 
->[!NOTE]  
+>[!NOTE]
 >The screenshots shown below might vary based on the SAP HANA release you use.
 
 1. Decide which snapshot to restore. Only the hana/data volume would be restored unless instructed otherwise.
@@ -490,7 +490,7 @@ There are some preparations you have to do before issuing the request, as shown 
 
     **While restoring the storage snapshot,** SAP HANA on Azure Service Management is restoring the snapshots for the volumes, might ask you to attend a conference call in order to ensure that no data is getting lost.
 
-    **After restoring storage snapshot,** SAP HANA on Azure Service Management will notify you when the storage snapshot has been restored. 
+    **After restoring storage snapshot,** SAP HANA on Azure Service Management will notify you when the storage snapshot has been restored.
 
 5. Once the restore process is complete, remount all data volumes.
 ![Remount all data volumes](./media/sap-hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
@@ -517,7 +517,7 @@ There are some preparations you have to do before issuing the request, as shown 
 
 This process restores back to a HANA snapshot that is included in the storage snapshot, and then restores the transaction log backups to latest state of the database before restoring the storage snapshot.
 
->[!Important] 
+>[!Important]
 >Make sure that you have a complete and contiguous chain of transaction log backups before you proceed. Without that you are not going to be able to get back to the current state of the database.
 
 Follow Steps 1 to 6 of the procedure for recovering to the latest HANA snapshot described above.
