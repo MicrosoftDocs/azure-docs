@@ -38,17 +38,19 @@ We use a Windows Server 2016 Datacenter image as an example, but that's just one
 ## Create the Windows virtual machine
 After you select the image, you can use the default settings and quickly create the virtual machine.
 
-1. On the **Basics** blade, enter a **Name** for the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
-2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. 
+1. On the **Basics** blade, enter a **Name** for the virtual machine. In this example, *HeroVM* is the name of the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
+2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. In this example, *azureuser* is the user name.
    
     The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
-3. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
+3. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. In this example, *HeroVMRG* is the name of the resource group.
+
+4. Select an Azure datacenter **Location**. In this example, *East US** is the location. 
 
 4. When you are done, click **OK** to continue to the next section. 
    
     ![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Choose a VM [size](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), and then click **Select** to continue. 
+5. Choose a VM [size](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), and then click **Select** to continue. In this example, *DS1_V2 Standard* is the VM size.
    
     ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. On the **Settings** blade, you can change the storage and network options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting **Premium (SSD)** in **Disk type**. When you're done making changes, click **OK**.
