@@ -40,7 +40,7 @@ This concept, of a replica being either a Primary or Active Secondary, is known 
 The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is Primary services read requests. The Primary also handles all write requests by updating its state and replicating the changes. These changes are applied to the Aactive Secondaries in the replica set. The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.
 
 > [!NOTE]
-> Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introducction.md) abstract away the concept of replica role from the developer. In actors it is entirely absent, while in Services it is visible if necessary but largely simplified.
+> Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) abstract away the concept of replica role from the developer. In actors it is entirely absent, while in Services it is visible if necessary but largely simplified.
 >
 >
 
@@ -50,4 +50,4 @@ For more information on Service Fabric concepts, see the following articles:
 * [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 * [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 * [Defining and managing state](service-fabric-concepts-state.md)
-* [Reliable Services](service-fabric-reliable-services-introducction.md)
+* [Reliable Services](service-fabric-reliable-services-introduction.md)
