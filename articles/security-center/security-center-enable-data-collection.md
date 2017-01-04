@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/04/2017
 ms.author: terrylan
 
 ---
@@ -32,8 +32,9 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
    ![Recommendations blade][2]
 3. On the **Turn on data collection** blade, select your subscription. The **Security policy** blade for that subscription opens.
 4. On the **Security policy** blade, select **On** under **Data collection** to automatically collect logs. Turning on data collection will also provision the monitoring extension on all current and new supported VMs in the subscription.
+
    ![Security policy blade][3]
-   
+
 5. Select **Save**.
 6. Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be automatically created for you. In this example, we’ll choose **newstoracct**. You can change the storage account later by returning to the security policy for your subscription and choosing a different storage account.
    ![Choose a storage account][4]
