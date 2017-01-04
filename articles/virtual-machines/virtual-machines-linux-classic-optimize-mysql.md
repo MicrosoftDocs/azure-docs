@@ -170,7 +170,7 @@ Then, remount the file system with the following command:
 
     mount -o remount /RAID0
 
-Test the modified result. When you modify the test file, the access time is not updated. The following examples show what the code looks like before and after modification
+Test the modified result. When you modify the test file, the access time is not updated. The following examples show what the code looks like before and after modification.
 
 Before:        
 
@@ -181,7 +181,7 @@ After:
 ![Code after access modification][6]
 
 ## Increase the maximum number of system handles for high concurrency
-MySQL is high concurrency database. The default number of concurrent handles is 1024 for Linux, which is not always sufficient. Use the following steps to increase the maximum concurrent handles of the system to support high concurrency of MySQL.
+MySQL is a high concurrency database. The default number of concurrent handles is 1024 for Linux, which is not always sufficient. Use the following steps to increase the maximum concurrent handles of the system to support high concurrency of MySQL.
 
 ### Modify the limits.conf file
 To increase the maximum allowed concurrent handles, add the following four lines in the /etc/security/limits.conf file. Note that 65536 is the maximum number that the system can support.   
@@ -192,7 +192,7 @@ To increase the maximum allowed concurrent handles, add the following four lines
     * hard nproc 65536
 
 ### Update the system for the new limits
-To update the system run the following commands:  
+To update the system, run the following commands:  
 
     ulimit -SHn 65536
     ulimit -SHu 65536
@@ -220,7 +220,7 @@ The following configuration items are the main factors that affect MySQL perform
 * **max_connections**: Sometimes applications do not close connections properly. A larger value will give the server more time to recycle idled connections. The maximum number of connections is 10,000, but the recommended maximum is 5,000.
 * **Innodb_file_per_table**: This setting enables or disables the ability of InnoDB to store tables in separate files. Turn on the option to ensure that several advanced administration operations can be applied efficiently. From a performance point of view, it can speed up the table space transmission and optimize the debris management performance. The recommended setting for this option is ON.</br></br>
 From MySQL 5.6, the default setting is ON, so no action is required. For earlier versions, the default setting is OFF. The setting should be changed before data is loaded, because only newly created tables are affected.
-* **innodb_flush_log_at_trx_commit**: The default value is 1, with the scope set to 0~2. The default value is the most suitable option for standalone MySQL DB. The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster. The setting of 0 allows data loss, which can affect reliability (in some cases with better performance), and is suitable for Slave in MySQL cluster.
+* **innodb_flush_log_at_trx_commit**: The default value is 1, with the scope set to 0~2. The default value is the most suitable option for standalone MySQL DB. The setting of 2 enables the most data integrity and is suitable for Master in MySQL Cluster. The setting of 0 allows data loss, which can affect reliability (in some cases with better performance), and is suitable for Slave in MySQL Cluster.
 * **Innodb_log_buffer_size**: The log buffer allows transactions to run without having to flush the log to disk before the transactions commit. However, if there is large binary object or text field, the cache will be consumed quickly and frequent disk I/O will be triggered. It is better increase the buffer size if Innodb_log_waits state variable is not 0.
 * **query_cache_size**: The best option is to disable it from the outset. Set query_cache_size to 0 (this is the default setting in MySQL 5.6) and use other methods to speed up queries.  
 
@@ -237,7 +237,7 @@ By default, this is not enabled. Turning on the slow query log might consume som
         slow_query_log = 1
         slow_query_log_file = /RAID0/mysql/mysql-slow.log
 
-2. Restart the mysql server.
+2. Restart the MySQL server.
 
         service  mysql  restart
 
