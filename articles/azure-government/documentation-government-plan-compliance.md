@@ -18,7 +18,7 @@ ms.date: 12/07/2016
 ms.author: jomolesk
 
 ---
-# Azure Government Compliance
+# Azure Government compliance
 
 ## Azure Blueprint
 
@@ -47,10 +47,10 @@ The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines
 
 To request a copy of the Azure Blueprint SSP or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
-## Azure Blueprint Implementation Guidance
+## Azure Blueprint implementation guidance
 
 Azure Blueprint implementation guidance is designed to help cloud solution architects and security personnel understand how Azure Government services and features can be deployed to implement a subset of customer-responsibility FedRAMP and DoD security controls. 
-An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based Resource Manager templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This implementation guidance addresses how these resources can be deployed in ways that help meet security control implementation requirements.
+An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based Resource Manager templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This implementation guidance addresses how these resources can be deployed in ways that help meet security control implementation requirements.
 
 ### Virtual Machines
 
@@ -78,13 +78,13 @@ Windows virtual machine configuration may include security control implementatio
 
   > CM-7 example control implementation statement: *A configuration-controlled group policy object (GPO) is maintained for all customer-controlled Windows machines within Azure. The group policy object is configured in accordance with the CIS benchmark for Windows Server 2012 R2 and customized to meet organization requirements specific to the operational needs of the system. The group policy object is used to establish a baseline virtual machine image, which is maintained for all Windows machines within Azure and reflects the configuration of Windows machines to provide only the capabilities essential for operation of the system.*
 
-  Security baseline remediation tools, which include pre-configured group policy objects (GPOs), for Windows machines, and shell scripts, for Linux machines, are available from [Microsoft](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/windows-security-baselines), for Windows machines, and the [Center for Internet Security](https://benchmarks.cisecurity.org/) and the [Defense Information Systems Agency (DISA)](http://iase.disa.mil/stigs), for both Windows and Linux machines.  
+  Security baseline remediation tools, which include pre-configured group policy objects (GPOs), for Windows machines, and shell scripts, for Linux machines, are available from [Microsoft](https://technet.microsoft.com/itpro/windows/keep-secure/windows-security-baselines), for Windows machines, and the [Center for Internet Security](https://benchmarks.cisecurity.org/) and the [Defense Information Systems Agency (DISA)](http://iase.disa.mil/stigs), for both Windows and Linux machines.  
 
 Azure virtual machines can be encrypted to meet security control requirements to protect information at rest [NIST SP 800-53 control SC-28]. Azure Quickstart Templates are available to deploy encryption to both [new](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image) and existing [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm) and [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm) virtual machines. 
 
 > SC-28 example control implementation statement: *Customer-controlled virtual machines within Azure implement disk encryption to protect the confidentiality and integrity of information at rest. Azure disk encryption for Windows is implemented using the BitLocker feature of Windows; disk encryption for Linux virtual machines is implemented using the DM-Crypt feature of Linux.
 
-Several Azure virtual machine extensions can be deployed to meet security control requirements. The [Microsoft Antimalware virtual machine extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware) can be deployed to new and existing virtual machines. The Antimalware extension can enable real-time protection as well as periodic, scheduled scans [NIST SP 800-53 control SI-3].
+Several Azure virtual machine extensions can be deployed to meet security control requirements. The [Microsoft Antimalware virtual machine extension](https://docs.microsoft.com/azure/security/azure-security-antimalware) can be deployed to new and existing virtual machines. The Antimalware extension can enable real-time protection as well as periodic, scheduled scans [NIST SP 800-53 control SI-3].
 
 > SI-3 example control implementation statement: *Host-based antimalware protections for customer-controlled Windows virtual machines in Azure are implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform both real-time and periodic scans (weekly), automatically update both the antimalware engine and protection signatures, perform automatic remediation actions, and provide notifications through Azure Diagnostics.*
 
@@ -124,7 +124,7 @@ Rulesets for network security groups enable restrictions on specific network por
 
 *Additional tools and resources*
 
-Documentation for the reference architecture above is available on the Azure [documentation site](https://docs.microsoft.com/en-us/azure/guidance/guidance-compute-n-tier-vm). Azure Resource Manager templates to deploy the reference architecture are included on the same page. The Azure documentation site also contains detailed information regarding [network security groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) and [user defined routes](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview).
+Documentation for the reference architecture above is available on the Azure [documentation site](https://docs.microsoft.com/azure/guidance/guidance-compute-n-tier-vm). Azure Resource Manager templates to deploy the reference architecture are included on the same page. The Azure documentation site also contains detailed information regarding [network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) and [user defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 ### Storage
 
@@ -138,7 +138,7 @@ Azure Storage Service Encryption (SSE) safeguards data at rest within Azure stor
 
 *Additional tools and resources*
 
-The Azure documentation site has detailed information regarding [storage service encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) and [storage replication](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy). 
+The Azure documentation site has detailed information regarding [storage service encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption) and [storage replication](https://docs.microsoft.com/azure/storage/storage-redundancy). 
 
 ### Azure Active Directory
 
@@ -257,9 +257,9 @@ Azure Active Directory group policy configurations can include security control 
 
 *Additional tools and resources*
 
-Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Active Directory by visiting [Microsoft Azure Docs](https://docs.microsoft.com/en-us/azure/active-directory/).
+Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Active Directory by visiting [Microsoft Azure Docs](https://docs.microsoft.com/azure/active-directory/).
 
-### Additional Implementation Guidance
+### Additional implementation guidance
 
 In addition to the core Azure services described above, several built-in features can help organizations meet security control compliance requirements. All Azure resources are organized into resource groups. Assets can be further organized by applying tags, which are key-value pairs that may be customer-selected to identify resources by category or any other property. Azure resource groups ensure complete identification and tracking of all customer resources deployed within Azure [NIST SP 800-53 control CM-8]. 
 
@@ -269,10 +269,10 @@ Azure Resource Manager templates, allow customers to define the configuration of
 
 > CM-2 example control implementation statement: *As a component of the information system baseline configuration, Azure Resource Manager templates are maintained, under configuration control, representing the deployed customer-controlled resources and configuration of information system components within Azure. These templates capture deployed resources, including virtual machines, storage, and network resources (including configurations of network resources that control network traffic entering, exiting, and within the customer Azure environment.*
 
-## Next Steps
+## Next steps
 
 For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide Blueprint feedback, email AzureBlueprint@microsoft.com.
 
-[Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)
+[Microsoft Trust Center](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 
 [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
