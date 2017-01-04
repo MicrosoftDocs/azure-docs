@@ -211,12 +211,12 @@ This article describes how to complete the following steps:
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI tools] describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
+11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI tools](https://github.com/Azure/azure-xplat-cli/issues/1268) describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
 
     a. Shut down the machine through the portal.
 
     b. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
-      ![Capture the virtual machine]  )
+      
       ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Create the cluster
