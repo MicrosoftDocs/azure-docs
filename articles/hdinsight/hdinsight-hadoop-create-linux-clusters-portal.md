@@ -78,13 +78,11 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 		![Add service principal to HDInsight cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
-		>[!NOTE]
-		> Cluster AAD Identity is used to make the cluster accessible to the Azure Data Lake stores based on the AAD configuration. You will use this option if you want to use a Data Lake Store account as an additional storage associated with the cluster.
-		> 
-		>
+	  >[!NOTE]
+	  > Cluster AAD Identity is used to make the cluster accessible to the Azure Data Lake stores based on the AAD configuration. You will use this option if you want to use a Data Lake Store account as an additional storage associated with the cluster.
+	  > 
+	  >
 
-
-		&nbsp;
 
 	* **Azure Data Lake Store as default storage**
 
