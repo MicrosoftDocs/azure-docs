@@ -44,12 +44,12 @@ For the most current list of services, see the [Products by Region](https://azur
 ## [Storage](documentation-government-services-storage.md)
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
 * Import/Export
-* [StorSimple](documentation-government-services-storage)
-* [Backup](documentation-government-services-backup)
-* [Site Recovery](documentation-government-services-monitoringandmanagement)
+* [StorSimple](documentation-government-services-storage.md#storsimple)
+* [Backup](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 
 ## Web + Mobile
-* [App Services](documentation-government-services-webandmobile)
+* [App Services](documentation-government-services-webandmobile.md#app-services)
 * Media Services
 
 ## [Databases](documentation-government-services-database.md)
@@ -73,9 +73,9 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-* [Backup](documentation-government-services-backup) 
+* [Backup](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* [Site Recovery](documentation-government-services-monitoringandmanagement)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Scheduler
 * Traffic Manager
 * Monitoring and Diagnostics
