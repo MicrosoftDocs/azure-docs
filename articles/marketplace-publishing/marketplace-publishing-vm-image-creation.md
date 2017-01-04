@@ -297,8 +297,8 @@ During the publishing process, you specify the uniform resource identifiers (URI
 The shared access signature URI created should adhere to the following requirements:
 
 * When generating shared access signature URIs for your VHDs, List and Read­ permissions are sufficient. Do not provide Write or Delete access.
-* The duration for access should be a minimum of seven business days from when the shared access signature URI is created.
-* To avoid immediate errors due to clock skews, specify a time 15 minutes before the current time.
+* The duration for access should be a minimum of three (3) weeks from when the shared access signature URI is created.
+* To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
 
 SAS URL can be generated in multiple ways to share your VHD for Azure Marketplace.
 Following are the 3 recommended tools:
@@ -515,7 +515,7 @@ After you have created your offer and SKU, you should enter the image details as
     ![drawing](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 
-## Common issues & fixes
+## Common SAS URL issues & fixes
 
 |Issue|Failure Message|Fix|Documentation Link|
 |---|---|---|---|
