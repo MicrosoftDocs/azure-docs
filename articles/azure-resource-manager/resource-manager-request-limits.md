@@ -62,7 +62,7 @@ Or, if want to see the remaining requests for debugging, you can provide the **-
 Get-AzureRmResourceGroup -Debug
 ```
 
-Which returns a lot of information, including the following response value:
+Which returns many values, including the following response value:
 
 ```powershell
 ...
@@ -83,7 +83,7 @@ In **Azure CLI**, you retrieve the header value by using the more verbose option
 azure group list -vv --json
 ```
 
-Which returns a lot of information, including the following object:
+Which returns many values, including the following object:
 
 ```azurecli
 ...
