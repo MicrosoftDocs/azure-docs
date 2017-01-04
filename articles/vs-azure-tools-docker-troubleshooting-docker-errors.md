@@ -20,7 +20,7 @@ ms.author: mlearned
 
 # Troubleshoot Visual Studio Docker development
 
-When working with Visual Studio Tools for Docker Preview, you may encounter some problems because of the nature of the preview.
+When you're working with Visual Studio Tools for Docker Preview, you may encounter some problems because of the nature of the preview.
 Following are some common issues and resolutions.  
 
 ## Visual Studio 2017 RC
@@ -190,7 +190,7 @@ To manually upgrade Docker for Windows:
 
 ## An error dialog occurs when attempting to add Docker Support or debug (F5) an ASP.NET Core application in a container
 
-After uninstalling and installing extensions, the Managed Extensibility Framework (MEF) cache in Visual Studio can become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or debug (F5) your ASP.NET Core application. As a temporary workaround, use the following steps to delete and regenerate the MEF cache.
+After uninstalling and installing extensions, the Managed Extensibility Framework (MEF) cache in Visual Studio can become corrupted. When this occurs, it can cause various error messages when you're adding Docker Support and/or attempting to run or debug (F5) your ASP.NET Core application. As a temporary workaround, use the following steps to delete and regenerate the MEF cache.
 
 1. Close all instances of Visual Studio.
 1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\.
