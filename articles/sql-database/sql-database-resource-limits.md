@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
-ms.author: carlrab
+ms.date: 01/04/2017
+ms.author: carlrab; janeng
 
 ---
 # Azure SQL Database resource limits
@@ -64,6 +64,7 @@ For an expanded definition of each resource listed in the previous tables, see t
 > [!IMPORTANT]
 > Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1st, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1, 2017. After December 1, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
 >
+
 
 ## Resources
 [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
