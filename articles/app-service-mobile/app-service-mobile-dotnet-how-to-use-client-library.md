@@ -165,7 +165,9 @@ List<TodoItem> items = await todoTable
 You can view the URI of the request sent to the backend by using message inspection software, such as browser developer
 tools or [Fiddler]. If you look at the request URI, notice that the query string is modified:
 
-    `GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1`
+```
+GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
+```
 
 This OData request is translated into an SQL query by the Server SDK:
 
