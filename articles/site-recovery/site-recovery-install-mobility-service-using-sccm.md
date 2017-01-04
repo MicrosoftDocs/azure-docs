@@ -52,7 +52,6 @@ This article provides you an example of how you can use System Center Configurat
   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
 7. Copy the code listed below and save it as **install.bat** into the **MobSvcWindows** folder
-
 > [!NOTE]
 > Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
@@ -140,7 +139,7 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
 > [!NOTE]
 > Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
-  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-linux-script.md)]
+  [!INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
 
 ## Step 2: Create a Package
 
