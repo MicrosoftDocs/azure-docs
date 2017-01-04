@@ -180,7 +180,7 @@ The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically f
 
 if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name.
 
-<p><font color="red">
+```
 Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
@@ -188,7 +188,7 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
     + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
     
-</font></p>
+```
 
 On successful completion, you should see an output like this.
 

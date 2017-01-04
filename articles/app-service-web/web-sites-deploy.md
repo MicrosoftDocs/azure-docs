@@ -1,5 +1,5 @@
 ---
-title: Deploy your app to Azure App Service
+title: Deploy your app to Azure App Service | Microsoft Docs 
 description: Learn how to deploy your app to Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/04/2017
 ms.author: cephalin;dariac
 
 ---
@@ -36,7 +36,7 @@ Since you don't have to worry about the web server or application framework, dep
 Popular web development tools support one or more of these deployment processes. While the tool you choose determines the deployment processes you can leverage, the actual DevOps functionality at your disposal depends on the combination of the deployment process and the specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation from Kudu, you do get package restore and MSBuild automation in Visual Studio. 
 
 > [!NOTE]
-> These deployment processes don't actually [provision the Azure resources](../resource-group-template-deploy-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy your code to it end-to-end. You can also find additional options for provisioning Azure resources in the [Automate deployment by using command-line tools](#automate) section.
+> These deployment processes don't actually [provision the Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy your code to it end-to-end. You can also find additional options for provisioning Azure resources in the [Automate deployment by using command-line tools](#automate) section.
 > 
 > 
 
@@ -55,21 +55,6 @@ The cons of copying files manually are:
 * No version control for rollback when failures occur.
 * No built-in deployment history for troubleshooting deployment issues.
 * Potential long deployment times because many FTP tools don't provide diff-only copying and simply copy all the files.  
-
-### <a name="howtoftp"></a>How to deploy by copying files to Azure manually
-Copying files to Azure involves a few simple steps:
-
-1. Assuming you already established deployment credentials, obtain the FTP connection information by going to **Settings** > **Properties**, and then copying the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. Please copy the **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
-   
-    ![FTP Connection Information](./media/web-sites-deploy/FTP-Connection-Info.PNG)
-    ![FTP Deployment Credentials](./media/web-sites-deploy/FTP-UID-PWD.PNG)
-2. From your FTP client, use the connection information you gathered to connect to your app.
-3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
-4. Browse to your app's URL to verify the app is running properly. 
-
-For more information, see the following resource:
-
-* [Create a PHP-MySQL web app and deploy using FTP](web-sites-php-mysql-deploy-use-ftp.md).
 
 ## <a name="dropbox"></a>Deploy by syncing with a cloud folder
 A good alternative to [copying files manually](#ftp) is syncing files and folders to App Service from a cloud storage service like OneDrive and Dropbox. Syncing with a cloud folder utilizes the Kudu process for deployment (see [Overview of deployment processes](#overview)).
@@ -207,7 +192,7 @@ You can use the command line in Windows, Mac or Linux machines to deploy by usin
 
 For more information, see the following resource:
 
-* [Azure Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
+* [Azure Command line tools](https://azure.microsoft.com/downloads/). Portal page in Azure.com for command line tool information.
 
 ### <a name="webdeploy"></a>Deploy from Web Deploy command line
 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft Visual Studio and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.

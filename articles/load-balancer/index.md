@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
 ---
 #Load Balancer Documentation
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+Learn how to configure Load Balancer to deliver high availability and network performance to your applications. Documentation shows you how to load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -82,82 +83,48 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Load Balancer PowerShell Reference</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/lb">Azure CLI 2​.0 (Preview)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/cli/azure/network/lb">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Load Balancer Azure CLI</p>
-                    </div>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node​.js</a></p>
+                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-	<li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Load Balancer REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

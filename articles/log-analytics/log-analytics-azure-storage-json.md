@@ -4,26 +4,29 @@ description: Log Analytics can read the logs from Azure services that write Azur
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
 # Analyze Azure diagnostic logs using Log Analytics
 Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
 
-* Automation (Preview)
 * Key Vault (Preview)
 * Application Gateway (Preview)
 * Network Security Group (Preview)
+
+> [!NOTE]
+> This method of collecting logs is deprecated. Use [Azure diagnostics direct to Log Analytics](log-analytics-azure-storage.md) to collect logs for the above services. Once the Key Vault Analytics and Azure Network Analytics management solutions are updated to support logs collected directly from Azure diagnostics this documentation will be deleted.
+>
+>
 
 The following sections walk you through using PowerShell to:
 
@@ -53,7 +56,7 @@ The example below enables logging on all supported resources
 # format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
 $storageAccountId = ""
 
-$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+$supportedResourceTypes = ("Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
 
 # update location to match your storage account location
 $resources = Get-AzureRmResource | where { $_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus" }
@@ -116,8 +119,8 @@ To find more details on OMS [Log Analytics PowerShell Cmdlets](https://msdn.micr
 
 > [!NOTE]
 > If resource and workspace are in different Azure Subscriptions, switch between them as needed using `Select-AzureRmSubscription -SubscriptionId <Subscription the resource is in>`
-> 
-> 
+>
+>
 
 ```
 # Connect to Azure
@@ -149,8 +152,8 @@ After running this script, you should see records in Log Analytics about 30 minu
 
 > [!NOTE]
 > The configuration is not visible in the Azure portal. You can verify configuration using the `Get-AzureRmOperationalInsightsStorageInsight` cmdlet.  
-> 
-> 
+>
+>
 
 ## Stopping Log Analytics from collecting Azure diagnostic logs
 To delete the Log Analytics configuration for a resource, use the `Remove-AzureRmOperationalInsightsStorageInsight` cmdlet.
@@ -233,4 +236,3 @@ To find the Storage Insight Name, use the `Get-AzureRmOperationalInsightsStorage
 * [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 * [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 * [Use search queries](log-analytics-log-searches.md) to analyze the data.
-

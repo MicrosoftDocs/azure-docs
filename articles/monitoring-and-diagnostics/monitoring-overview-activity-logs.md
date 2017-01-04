@@ -230,6 +230,6 @@ Each event in the Activity Log has a JSON blob similar to this example:
 | nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. Typically needed when there are more than 200 records. |
 
 ## Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
+* [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
 * [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 
