@@ -52,6 +52,7 @@ Default services within Service Fabric application would be upgraded during the 
 1. Default services in the new [application manifest](service-fabric-application-model.md#describe-an-application) that do not exist in the cluster would be created.
 
 ([EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) needs to be set to true for the following rule)
+
 2. Default services existing in both previous [application manifest](service-fabric-application-model.md#describe-an-application) and new version would be updated. Service descriptions in the new version would overwrite.
 3. Default services in the previous [application manifest](service-fabric-application-model.md#describe-an-application) but not in the new version would be deleted. **Note that this deleting default services can not be reverted.**
 
