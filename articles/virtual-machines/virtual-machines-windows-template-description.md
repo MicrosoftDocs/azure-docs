@@ -227,7 +227,7 @@ When you need more than one virtual machine for your application, you can use a 
 },
 ```
 
-Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the definition for vhd results in disks named myOSDisk1, myosdisk2, and myosdisk3:
+Also, notice in the example that the loop index is used when specifying some of the values for the resource. For example, if you entered an instance count of three, the definition for vhd results in disks named myOSDisk1, myOSDisk2, and myOSDisk3:
 
 ```
 "vhd": { 
@@ -440,7 +440,7 @@ Although [extensions](virtual-machines-windows-extensions-features.md) are a sep
 
 This extension resource uses the storageName variable and the diagnostic variables to provide values. If you want to change the data that is collected by this extension, you can add more performance counters to the wadperfcounters variable. You could also choose to put the diagnostics data into a different storage account than where the VM disks are stored.
 
-There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](virtual-machines-windows-extensions-customscript.md). In the example, a PowerShell script named start.ps1 is run on each VM when it first starts:
+There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](virtual-machines-windows-extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
 
 ```
 {
