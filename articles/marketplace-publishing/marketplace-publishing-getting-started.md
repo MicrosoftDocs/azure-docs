@@ -49,9 +49,9 @@ The first thing you would want to do as a publisher is to define what kind of so
 
 ### 3. Publish your solution
 1. Fulfill non-technical requirements
-  - [Fulfill non-technical pre-requisites](marketplace-publishing-pre-requisites.md)
-  - [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
-  - [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
+  - [Fulfill non-technical prerequisites](marketplace-publishing-pre-requisites.md)
+  - [VM technical prerequisites](marketplace-publishing-vm-image-creation-prerequisites.md)
+  - [Solution Template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md)
 2. Create your offer
   - [Virtual machine](marketplace-publishing-vm-image-creation.md)
   - [Solution Template](marketplace-publishing-solution-template-creation.md)
