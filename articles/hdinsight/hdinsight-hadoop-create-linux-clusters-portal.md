@@ -83,12 +83,13 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 	  > 
 	  >
 
+		Click **Select** to save the data source configuration.
 
 	* **Azure Data Lake Store as default storage**
 
 		For instructions on how to create an HDInsight cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-	Click **Select** to save the data source configuration.
+		Click **Select** to save the data source configuration.
 
 9. Click **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
    
