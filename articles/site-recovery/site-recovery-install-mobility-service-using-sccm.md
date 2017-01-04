@@ -109,8 +109,8 @@ This article provides you an example of how you can use System Center Configurat
 
 9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
-Mobility Service gets installed on the Windows Server Device Collection as per the schedule you configured.
-
+You can monitor the deployment progress using the SCCM console by going to **Monitoring** > **Deployments** > *[your package name]*
+  ![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
 ## Deploy Mobility Service on computers running Linux Operating Systems
 > [!NOTE]
@@ -193,7 +193,12 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
 
 Mobility Service gets installed on the Linux Server Device Collection as per the schedule you configured.
 
-Once the Mobility Service gets, installed you can start enabling protection for these servers.
+## Other methods to install mobility services
+Read more about other ways to install mobility services.
+* [Manual Installation using GUI](http://aka.ms/mobsvcmanualinstall)
+* [Manual Installation using command-line](http://aka.ms/mobsvcmanualinstallcli)
+* [Push Installation using Configuration Server ](http://aka.ms/pushinstall)
+* [Automated Installation using Azure Automation & Desired State Configuration ](http://aka.ms/mobsvcdscinstall)
 
 ## Next steps
-Enable protection
+You are now ready to [Enable protection](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.
