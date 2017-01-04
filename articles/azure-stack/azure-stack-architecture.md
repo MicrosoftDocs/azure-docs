@@ -45,7 +45,7 @@ The Azure Stack POC offers services using the following VMs on the POC host:
 | **MAS-XRP01** | Hosts the core resource providers of Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.|
 
 ## Storage services
-**Virtual Disk**, **Storage Space**, and **Storage Spaces Direct** are the respective underlying storage technology in Windows Server to enable the Microsoft Azure Stack core storage resource provider.  Storage services in the operating system on the physical host include:
+**Virtual Disk**, **Storage Space**, and **Storage Spaces Direct** are the respective underlying storage technology in Windows Server that enable the Microsoft Azure Stack storage resource provider.  Additional storage services installed in the operating system on the physical host include:
 
 | Name | Description |
 | ----- | ----- |
