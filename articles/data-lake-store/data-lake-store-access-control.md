@@ -241,7 +241,7 @@ Following are some advanced topics to help you understand how ACLs are determine
 
 In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder that's used to transform the permission for **owning user**, **owning group**, and **other** on the Access ACL of a new child file or folder. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for **owning user**, **owning group**, and **other**.
 
-In an HDFS system, the umask is typically a sitewide configuration option that is controlled by administrators. Data Lake Store uses an **account-wide umask** that cannot be changed. The following table shows Data Lake Store's umask.
+In an HDFS system, the umask is typically a sitewide configuration option that is controlled by administrators. Data Lake Store uses an **account-wide umask** that cannot be changed. The following table shows the unmask for Data Lake Store.
 
 | User group  | Setting | Effect on new child item's Access ACL |
 |------------ |---------|---------------------------------------|
@@ -280,7 +280,7 @@ No. Access control via ACLs is always on for a Data Lake Store account.
 * The folder to be deleted, and every folder within it, requires **Read + Write + Execute** permissions.
 
 > [!NOTE]
-> You do not need Write permissions to delete files in folders. Also, the Root folder "/" can **never** be deleted.
+> You do not need Write permissions to delete files in folders. Also, the root folder "/" can **never** be deleted.
 >
 >
 
