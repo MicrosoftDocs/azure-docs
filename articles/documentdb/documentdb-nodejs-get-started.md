@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 12/16/2016
+ms.date: 12/25/2016
 ms.author: anhoh
 
 ---
@@ -22,8 +22,10 @@ ms.author: anhoh
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Welcome to the Node.js tutorial for the Azure DocumentDB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.

@@ -6,14 +6,13 @@ documentationcenter: ''
 author: bandersmsft
 manager: carmonm
 editor: ''
-
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
