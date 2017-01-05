@@ -1,5 +1,5 @@
 ---
-title: How to manage security after restoring a database to a new server or failing over a database to a secondary database copy | Microsoft Docs
+title: Configure Azure SQL Database security for disaster recovery | Microsoft Docs
 description: This topic explains security considerations for managing security after a database restore or a failover.
 services: sql-database
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 10/13/2016
 ms.author: carlrab
 
 ---
-# How to manage Azure SQL Database security after disaster recovery
+# Learn how to configure and manage Azure SQL Database security for geo-restore or failover to a secondary server in the event of a data center outage or other disaster
 > [!NOTE]
 > [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
 > 
