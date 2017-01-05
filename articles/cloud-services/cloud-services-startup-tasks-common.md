@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 
 ---
@@ -24,7 +24,6 @@ See [this article](cloud-services-startup-tasks.md) to understand how startup ta
 
 > [!NOTE]
 > Startup tasks are not applicable to Virtual Machines, only to Cloud Service Web and Worker roles.
-> 
 > 
 
 ## Define environment variables before a role starts
