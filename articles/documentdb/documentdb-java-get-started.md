@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 12/27/2016
+ms.date: 01/05/2017
 ms.author: arramac
 
 ---
