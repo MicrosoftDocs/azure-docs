@@ -14,7 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 
 ---
@@ -51,7 +51,7 @@ Before we do that, there are a few things that you should understand and conside
 In this section, you will perform the following steps to create a new Azure Automation account  from the Azure portal.  This creates both the Run As and classic Run As account.  
 
 > [!NOTE]
-> The user performing these steps *must* be a member of the Subscription Admins role and co-administrator of the subscription which is granting access to the subscription for the user.  The user must also be added as a User to that subscriptions default Active Directory; the account does not need to be assigned to a privileged role.
+> The user performing these steps must be a member of the Service Admins role or co-administrator of the subscription which is granting access to the subscription for the user. The user must also be added as a User to that subscriptions default Active Directory; the account does not need to be assigned to a privileged role. Users who are not a member of the Subscription’s Active Directory prior to being added to the Co-Admin role of the subscription will be added to Active Directory as a Guest and will see the “You do not have permissions to create…” warning in the **Add Automation Account** blade. Users who were added to the co-admin role first can be removed from the subscriptions Active Directory and re-added to make them a full User in Active Directory. This situation can be verified from the **Azure Active Directory** pane in the Azure portal by selecting **Users and groups**, select **All users** and after selecting the specific user select **Profile**.  The value of the **User type** attribute under the users profile should not equal **Guest**.  
 > 
 > 
 
