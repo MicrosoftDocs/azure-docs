@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/04/2017
-ms.author: vturecek
+ms.author: bharatn
 
 ---
 # Service Fabric Reverse Proxy
