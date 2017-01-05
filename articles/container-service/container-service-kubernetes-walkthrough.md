@@ -53,7 +53,7 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 Once you have a resource group, you can create a cluster in that group with:
 ```console
 DNS_PREFIX=some-unique-value
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=my-cluster --dns-prefix=$DNS_PREFIX
+az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=my-cluster --dns-prefix=$DNS_PREFIX --generate-ssh-keys
 ```
 
 Once that command is complete, you should have a working Kubernetes cluster.
@@ -67,7 +67,7 @@ az acs kubernetes install-cli
 
 Once `kubectl` is installed, you can install the credentials to connect to your cluster
 ```console
-az acs kubernetes get-credentials --dns-prefix=$DNS_PREFIX --location=$LOCATION
+az acs kubernetes get-credentials --dns-prefix=$DNS_PREFIX --location=$LOCATION --user=azureuser
 ```
 
 At this point you should be ready to access your cluster from your machine, try running:
