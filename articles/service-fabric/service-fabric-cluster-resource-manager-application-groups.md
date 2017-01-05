@@ -149,7 +149,7 @@ There are several restrictions on Application Capacity parameters that must be r
 The restrictions are enforced both during application creation (on the client side), and during application update (on the server side).
 
 ## How not to use Application Capacity
-  * Do not try to use the Application Group features to constrain the application to a _specific_ subset of nodes. In other words, you can specify that the application runs on at most five nodes, but not which specific five nodes in the cluster. Constraining an application to specific nodes can be achieved using placement constraints for services.
+* Do not try to use the Application Group features to constrain the application to a _specific_ subset of nodes. In other words, you can specify that the application runs on at most five nodes, but not which specific five nodes in the cluster. Constraining an application to specific nodes can be achieved using placement constraints for services.
 * Do not try to use the Application Capacity to ensure that two services from the same application are placed alongside each other. Ensuring services run on the same node can be achieved by using affinity or with placement constraints depending on the specific requirements.
 
 ## Next steps

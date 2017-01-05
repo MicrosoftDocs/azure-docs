@@ -127,8 +127,8 @@ The Cluster Resource Manager allows stateful services to specify a different def
 ## Dynamic load
 Let’s say that you’ve been running your service for a while. With some monitoring, you’ve noticed that:
 
-1) Some partitions or instances of a given service consume more resources than others
-2) Some services have load that varies over time.
+1. Some partitions or instances of a given service consume more resources than others
+2. Some services have load that varies over time.
 
 There's lots of things that could cause these types of load fluctuations. The service or partition could be associated with a particular customer, or maybe they correspond to workloads that vary over the course of the day. Regardless of the reason, there’s no single number that you can use for default load. Any value you pick for default load is wrong some of the time. This is a problem since incorrect default loads result in the Cluster Resource Manager either over or under allocating resources for your service. As a result, you have nodes that are over or under utilized even if the Cluster Resource Manager thinks the cluster is balanced. Default loads are still good since they provide some information, but they're not a complete story for real workloads most of the time. This is why the Cluster Resource Manager allows each service object to update its own load during runtime. This is called dynamic load reporting.
 
