@@ -2,6 +2,7 @@
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
 ## [Global distribution](documentdb-distribute-data-globally.md)
+## [NoSQL TCO analysis](https://aka.ms/documentdb-tco-paper)
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
@@ -25,7 +26,6 @@
 # How To
 
 ## Plan
-### [Storage and performance](documentdb-manage.md)
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
@@ -40,8 +40,6 @@
 ### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
 ### [Performance levels](documentdb-performance-levels.md)
-### [Resource quotas](documentdb-limits.md)
-### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
 ### Azure CLI
 #### [Create an account](documentdb-automation-resource-manager-cli.md)
