@@ -50,7 +50,7 @@ To enable your app to authenticate users, you'll first need to register a new ap
   * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
 * Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
 
-Once in the portal for your app create **Key** for your application and copy it down.  You will need it shortly.
+Once in the portal for your app create a **Key** from the **Settings** page for your application and copy it down.  You will need it shortly.
 
 ## 2. Set up your app to use ADAL4J library and prerequisites using Maven
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
