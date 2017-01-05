@@ -1,0 +1,262 @@
+---
+title: Multi-region write4 architectures with Azure DocumentDB | Microsoft Docs
+description: Learn about how to design application architectures with local reads and writes across multiple geographic regions with Azure DocumentDB.
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: ''
+
+ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
+ms.service: documentdb
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/05/2016
+ms.author: arramac
+
+---
+# Multi-region writer architectures with Azure DocumentDB
+DocumentDB supports turnkey [global replication]() which allows you to distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and globally distributed readers in other (read) regions. 
+
+You can also use DocumentDB's global replication support to build applications in which writers and readers are globally distributed. This document outlines a pattern that enables achieving local write and local read access for distributed writers using Azure DocumentDB.
+
+## <a id="ExampleScenario"></a>Content Publishing - an example scenario
+Let's look at a real world scenario to describe how you can use globally distributed multi-region read write patterns with DocumentDB. Consider a content publishing platform built on DocumentDB. Here are some requirements that this plaform must meet for a great user experience for both publishers and consumers.
+
+* Both authors and subscribers are spread over the world 
+* Authors must publish (write) articles to their local (closest) region
+* Authors have readers/subscribers of their articles who are distributed across the globe. 
+* Subscribers should get a notification when new articles are published.
+* Subscribers must be able to read articles from their local region. They should also be able to add reviews to these articles. 
+* Anyone including the author of the articles should be able view all the reviews attached to articles from a local region. 
+
+Assuming millions of consumers and publishers with billions of articles, soon we will have to confront the problems of scale along with guaranteeing locality of access. As with most scalability problems, the solution lies in a good partitioning strategy. Next, let's take a look at how to model these entities like articles, review, and notifications as documents, how to partition them into collections, and how to choose the right partition key for each kind of document. 
+
+## <a id="ModelingNotifications"></a>Modeling Notifications
+Notifications are data feeds specific to a user. Therefore, the access patterns for notifications documents are always in the context of single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user". So, the optimal choice of partitioning key for this type would be `UserId`.
+
+	class Notification 
+	{ 
+		// Unique ID for Notification. 
+		public string Id { get; set; }
+
+		// The user Id for which notification is addressed to. 
+		public string UserId { get; set; }
+
+		// The partition Key for the resource. 
+		public string PartitionKey 
+		{ 
+			get 
+			{ 
+				return this.UserId; 
+				} 
+			}
+		}
+
+		// Subscription for which this notification is raised. 
+		public string SubscriptionFilter { get; set; }
+
+		// Subject of the notification. 
+		public string ArticleId { get; set; } 
+	}
+
+## <a id="ModelingSubscriptions"></a>Modeling Subscriptions
+Subscriptions can be created for various criteria like a specific category of articles of interest, or a specific publisher. Herence the `SubscriptionFilter` is a good choice for partition key.
+
+	class Subscriptions 
+	{ 
+		// Unique ID for Subscription 
+		public string Id { get; set; }
+
+		// Subscription source. Could be Author | Category etc. 
+		public string SubscriptionFilter { get; set; }
+
+		// subscribing User. 
+		public string UserId { get; set; }
+
+		public string PartitionKey 
+		{ 
+			get 
+			{ 
+				return this.SubscriptionFilter; 
+			} 
+		} 
+	}
+
+## <a id="ModelingArticles"></a>Modeling Articles
+Once an article is identified through notifications, subsequent queries are typically based on the `ArticleId`. Choosing `ArticleID` as partition the key thus provides the best distribution for storing articles inside a DocumentDB collection. 
+
+	class Article 
+	{ 
+		// Unique ID for Article public string Id { get; set; }
+		public string PartitionKey 
+		{ 
+			get 
+			{ 
+				return this.Id; 
+			} 
+		}
+		
+		// Author of the article
+		public string Author { get; set; }
+
+		// Category/genre of the article
+		public string Category { get; set; }
+
+		// Tags associated with the article
+		public string[] Tags { get; set; }
+
+		// Title of the article
+		public string Title { get; set; }
+		
+		//... 
+	}
+
+## <a id="ModelingReviews"></a>Modeling Reviews
+Like articles, reviews are mostly written and read in the context of article. Choosing `ArticleId` as a partition key provides best distribution and efficient access of reviews associated with article. 
+
+	class Review 
+	{ 
+		// Unique ID for Review 
+		public string Id { get; set; }
+
+		// Article Id of the review 
+		public string ArticleId { get; set; }
+
+		public string PartitionKey 
+		{ 
+			get 
+			{ 
+				return this.ArticleId; 
+			} 
+		}
+		
+		//Reviewer Id public string UserId { get; set; }
+		public string ReviewText { get; set; }
+		
+		public int Rating { get; set; } }
+	}
+
+## <a id="DataAccessMethods"></a>Data Access Methods
+Now let's take a look at the main data access methods we need to implement. Here's the list of methods that the `ContentPublishDatabase` will need:
+
+	class ContentPublishDatabase 
+	{ 
+		public async Task CreateSubscriptionAsync(string userId, string category);
+	
+		public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
+	
+		public async Task<Article> ReadArticleAsync(string articleId);
+	
+		public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
+	
+		public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
+	}
+
+## <a id="Architecture"></a>Architecture
+To achieve the local read and writes for related data in a globally distributed setup more specifically in cases where both publishers and consumers are globally distributed, in addition to partitioning data based on partition key, data is also partitioned based on geographical access pattern as follows.
+
+The below listing describes a model for 2 regions, but this model can be extended to N regions. The model relies on having a Geo replicated database account for every region as follows:
+
+| Account Name | Write Region | Read Region |
+| --- | --- | --- |
+| Account A-B |A |B |
+| Account B-A |B |A |
+
+With the above setup, Data access layer based on location of deployment can forward all writes to the account which is local. Reads are performed by reading from both accounts to get the global view of data.
+
+
+## <a id="DataAccessImplementation"></a>Data Access Layer Implementation
+Based on location of the deployment of the data access layer (DAL), it can resolve statically the account which is writable local vs accounts which are readable local. It can create multiple instances of `DocumentClient` for every account and store them in member variable write Client & read Client. With the above setup various access methods can be implemented as follows.
+
+    public async Task CreateSubscriptionAsync(string userId, string category)
+    {
+        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Subscriptions
+        {
+            UserId = userId,
+            SubscriptionFilter = category
+        });
+    }
+
+    public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating)
+    {
+        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Review
+        {
+            UserId = userId,
+            ArticleId = articleId,
+            ReviewText = reviewText,
+            Rating = rating
+        });
+    }
+
+    public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
+    {
+        IDocumentQuery<Notification> writeAccountNotification = (from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) where notification.UserId == userId select notification).AsDocumentQuery();
+        IDocumentQuery<Notification> readAccountNotification = (from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) where notification.UserId == userId select notification).AsDocumentQuery();
+
+        List<Notification> notifications = new List<Notification>();
+
+        while (writeAccountNotification.HasMoreResults || readAccountNotification.HasMoreResults)
+        {
+            IList<Task<FeedResponse<Notification>>> results = new List<Task<FeedResponse<Notification>>>();
+
+            if (writeAccountNotification.HasMoreResults)
+            {
+                results.Add(writeAccountNotification.ExecuteNextAsync<Notification>());
+            }
+
+            if (readAccountNotification.HasMoreResults)
+            {
+                results.Add(readAccountNotification.ExecuteNextAsync<Notification>());
+            }
+
+            IList<FeedResponse<Notification>> notificationFeedResult = await Task.WhenAll(results);
+
+            foreach (FeedResponse<Notification> feed in notificationFeedResult)
+            {
+                notifications.AddRange(feed);
+            }
+        }
+        return notifications;
+    }
+
+    public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
+    {
+        IDocumentQuery<Review> writeAccountReviews = (from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) where review.ArticleId == articleId select review).AsDocumentQuery();
+        IDocumentQuery<Review> readAccountReviews = (from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) where review.ArticleId == articleId select review).AsDocumentQuery();
+
+        List<Review> reviews = new List<Review>();
+        
+        while (writeAccountReviews.HasMoreResults || readAccountReviews.HasMoreResults)
+        {
+            IList<Task<FeedResponse<Review>>> results = new List<Task<FeedResponse<Review>>>();
+
+            if (writeAccountReviews.HasMoreResults)
+            {
+                results.Add(writeAccountReviews.ExecuteNextAsync<Review>());
+            }
+
+            if (readAccountReviews.HasMoreResults)
+            {
+                results.Add(readAccountReviews.ExecuteNextAsync<Review>());
+            }
+
+            IList<FeedResponse<Review>> notificationFeedResult = await Task.WhenAll(results);
+
+            foreach (FeedResponse<Review> feed in notificationFeedResult)
+            {
+                reviews.AddRange(feed);
+            }
+        }
+
+        return reviews;
+    }
+
+Thus, by choosing a good partitioning key and static account based partitioning based, you can achieve multi-region local writes and reads using Azure DocumentDB.
+
+## <a id="NextSteps"></a>Next Steps
+* Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
+* Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
+* Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
