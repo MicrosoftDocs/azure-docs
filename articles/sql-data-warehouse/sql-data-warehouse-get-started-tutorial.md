@@ -43,7 +43,7 @@ If you are running a Windows Operating System, we recommend using either [Visual
 # Step 2: Create an Azure SQL Data Warehouse
 
 > [!NOTE]
-> Creating a SQL Data Warehouse might result in a new billable service.  For more details, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a SQL Data Warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
 
@@ -58,8 +58,8 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 3. Fill out deployment details
 
-**Database Name**: Pick anything you'd like. We recommend your database includes information about your SQL DW instance such as 
-name, region, and environments, if you have multiple, such as *mydw-westus-1-test*
+**Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your name include details such as its region, environment, etc., 
+e.g. *mydw-westus-1-test*
 
 **Subscription**: Your Azure Subscription
 
@@ -117,13 +117,13 @@ create separate logins and users for each database. We shall explore user creati
 
 ## Why create a separate user?
 
-We will use the connection to the SQL Server (logical server) with server credentials from the previous step 
+We use the connection to the SQL Server (logical server) ,with server credentials from the previous step, 
 to create a new user for our SQL Data Warehouse. There are two primary reasons why you may want to create a separate 
 user/login for your SQL DW.
 
 1.  Your organization’s users should use a different account to authenticate. 
 This way you can limit the permissions granted to the application and reduce 
-the risks of malicious activity in case your application code is vulnerable to a SQL injection attack.
+the risks of malicious activity.
 
 2. By default, the server administrator login that you're currently connected with uses a smaller 
 resource class. Resource classes help you control memory allocation and CPU cycles given to a query. 
@@ -188,7 +188,7 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 2. Define the external file formats
 
     The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
-    format of the external data that you’ll be loading from. For the New York public taxi data, we’ve used the
+    format of the external data that you are loading from. For the New York public taxi data, we’ve used the
     two formats for storing the data in Azure Blob Storage
 
     ```sql
@@ -471,7 +471,7 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
     > the DMV query following and then grab a coffee or snack while Azure SQL Data Warehouse does some heavy lifting.
     >
 
-6. Create a new query window and watch as your data come in with this Dynamic Management View (DMV)
+6. Create a new query and watch as your data comes in with this Dynamic Management View (DMV)
 
     ```sql
     SELECT
@@ -602,7 +602,7 @@ As you might expect, the query takes much longer when you shuffle data among the
 > SQL DW does not automatically manage statistics for you. Statistics are important for query
 > performance and it is highly recommended you create and update statistics.
 > 
-> **You will gain the most benefit by having statistics on columns involved in joins, columns
+> **You gain the most benefit by having statistics on columns involved in joins, columns
 > used in the WHERE clause and columns found in GROUP BY.**
 >
 
