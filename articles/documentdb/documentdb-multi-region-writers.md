@@ -1,5 +1,5 @@
 ---
-title: Multi-region write4 architectures with Azure DocumentDB | Microsoft Docs
+title: Multi-region writer architectures with Azure DocumentDB | Microsoft Docs
 description: Learn about how to design application architectures with local reads and writes across multiple geographic regions with Azure DocumentDB.
 services: documentdb
 documentationcenter: ''
