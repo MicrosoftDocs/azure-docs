@@ -60,7 +60,7 @@ azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2
 
 ## Create a DNS record set
 
-In the above examples, the DNS record was either added to an existing record set, or the record set was created *implicitly*. You can also create the record set *explicitly* before adding records to it. Azure DNS supports 'empty' record sets, which can act as a placeholder to reserve a DNS name before creating DNS records. Empty record sets are visible in the Azure DNS control plane, but do appear on the Azure DNS name servers.
+In the above examples, the DNS record was either added to an existing record set, or the record set was created *implicitly*. You can also create the record set *explicitly* before adding records to it. Azure DNS supports 'empty' record sets, which can act as a placeholder to reserve a DNS name before creating DNS records. Empty record sets are visible in the Azure DNS control plane, but do not appear on the Azure DNS name servers.
 
 Record sets are created using the `azure network dns record-set create` command. For help, see `azure network dns record-set create -h`.
 
