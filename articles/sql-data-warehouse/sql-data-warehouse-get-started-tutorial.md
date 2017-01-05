@@ -72,7 +72,7 @@ e.g. *mydw-westus-1-test*
 
 **Source**: Blank Database
 
-**Server**: Select the server you created in [Step 1](./sql-data-warehouse-get-started-step-1.md).
+**Server**: Select the server you created in [Step 1](./sql-data-warehouse-get-started-tutorial.md#step-1-prerequisites).
 
 **Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS
 
@@ -111,7 +111,7 @@ in [Step 1].
 
 If all goes correctly, you should now be connected to your SQL Server (logical server) instance. You can use server 
 credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
-create separate logins and users for each database. We shall explore user creation in [Step 4](./sql-data-warehouse-get-started-step-4.md). 
+create separate logins and users for each database. We shall explore user creation in [Step 4](./sql-data-warehouse-get-started-tutorial.md#step-4-create-a-user-for-sql-data-warehouse). 
 
 # Step 4: Create a User for SQL Data Warehouse
 
@@ -642,7 +642,7 @@ savings by pausing and scaling to meet your business needs.
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Step 1]: sql-data-warehouse-get-started-step-1.md
+[Step 1]: sql-data-warehouse-get-started-tutorial.md#step-1-prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
