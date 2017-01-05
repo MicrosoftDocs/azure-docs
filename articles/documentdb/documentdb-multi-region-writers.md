@@ -162,6 +162,26 @@ In order to guarantee local reads and writes, we must partition data not just on
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
+Here is a code snippet showing how to initialize the clients in a DAL running in the `West US` region.
+    
+    ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
+    writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
+    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+
+    DocumentClient writeClient = new DocumentClient(
+        new Uri("https://contentpubdatabase-usa.documents.azure.com"), 
+        writeRegionAuthKey,
+        writeClientPolicy);
+
+    ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
+    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+    readClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
+
+    DocumentClient readClient = new DocumentClient(
+        new Uri("https://contentpubdatabase-europe.documents.azure.com"),
+        readRegionAuthKey,
+        readClientPolicy);
+
 With the above setup, Data access layer based on location of deployment can forward all writes to the account which is local. Reads are performed by reading from both accounts to get the global view of data. This can be extended to as many regions as required. For example, here's a setup with three geographic regions:
 
 | Account Name | Write Region | Read Region 1 | Read Region 2 |
@@ -169,7 +189,6 @@ With the above setup, Data access layer based on location of deployment can forw
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
-
 
 ## <a id="DataAccessImplementation"></a>Data Access Layer Implementation
 Now let's take a look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must do the following:
@@ -241,8 +260,15 @@ For reading notifications and reviews, you must read from both regions and union
 
     public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
     {
-        IDocumentQuery<Review> writeAccountReviews = (from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) where review.ArticleId == articleId select review).AsDocumentQuery();
-        IDocumentQuery<Review> readAccountReviews = (from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) where review.ArticleId == articleId select review).AsDocumentQuery();
+        IDocumentQuery<Review> writeAccountReviews = (
+        	from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
+        	where review.ArticleId == articleId 
+        	select review).AsDocumentQuery();
+        
+        IDocumentQuery<Review> readAccountReviews = (
+        	from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
+        	where review.ArticleId == articleId 
+        	select review).AsDocumentQuery();
 
         List<Review> reviews = new List<Review>();
         
