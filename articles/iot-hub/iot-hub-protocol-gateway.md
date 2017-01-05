@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/05/2017
 ms.author: kdotchko
 
 ---
@@ -37,17 +37,12 @@ To learn more about the Azure IoT protocol gateway and how to use and deploy it 
 * [Azure IoT protocol gateway repository on GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Azure IoT protocol gateway developer guide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-To learn more about planning your IoT Hub deployment, see:
-
-* [Compare with Event Hubs][lnk-compare]
-* [Scaling, HA and DR][lnk-scaling]
-
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+* [Compare with Event Hubs][lnk-compare]
+* [Scaling, HA and DR][lnk-scaling]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
