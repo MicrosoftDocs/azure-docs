@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # Download the template for a VM
-When you create a VM in Azure using the portal or PowerShell, a Resource Manager template is automatically created for you. You can use this template to quickly duplicate a deployment. The template contains information about all of the resources in a resource group. For a virtual machine, this means the template containers everything that is created in support of the VM in that resource group, including the networking resources.
+When you create a VM in Azure using the portal or PowerShell, a Resource Manager template is automatically created for you. You can use this template to quickly duplicate a deployment. The template contains information about all of the resources in a resource group. For a virtual machine, this means the template contains everything that is created in support of the VM in that resource group, including the networking resources.
 
 ## Download the template using the portal
 1. Log in to the [Azure portal](https://portal.azure.com/).
@@ -36,7 +36,7 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
    * parameters.json
    * template.json
 
-The .json file is the template.
+The template.json file is the template.
 
 ## Download the template using PowerShell
 You can also download the .json template file using the [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file. This example shows how to download the template for the resource group named **myResourceGroup** to the **C:\users\public\downloads** folder on your local computer.

@@ -27,14 +27,14 @@ This topic shows you how to use the Azure portal to create a simple "hello world
 ## Create a function app
 A function app hosts the execution of your functions in Azure. Follow these steps to create a function app in the Azure portal.
 
-Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Click **+New** > **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
    
-   * **[Resource Group](../azure-resource-manager/resource-group-overview.md)**: Select **Create new** and enter a name for your new resource group. You can also choose an existing resource group, however you may not be able to create a dynamic App Service plan for your function app.
+   * **[Resource Group](../azure-resource-manager/resource-group-overview.md)**: Select **Create new** and enter a name for your new resource group. You can also choose an existing resource group, however you may not be able to create a consumption-based App Service plan for your function app.
    * **[Hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**, which can be one of the following: 
-     * **Dynamic plan**: The default plan type for Azure Functions. When you choose a dynamic plan, you must also choose the **Location** and set the **Memory Allocation** (in MB). For information about how memory allocation affects costs, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). 
+     * **Consumption plan**: The default plan type for Azure Functions. When you choose a consumption plan, you must also choose the **Location** and set the **Memory Allocation** (in MB). For information about how memory allocation affects costs, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). 
      * **App Service plan**: An App Service plan requires you to create an **App Service plan/location** or select an existing one. These settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.  
    * **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or create one. 
      
@@ -74,7 +74,7 @@ This quickstart demonstrates a simple execution of a basic HTTP-triggered functi
 * [Testing Azure Functions](functions-test-a-function.md)  
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the dynamic service plan, and how to choose the right plan. 
+  Discusses service plans available with Azure Functions, including the consumption-based App Service plan, and how to choose the right plan. 
 * [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions uses the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
 

@@ -11,18 +11,21 @@ tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 
 ---
 # Create and modify routing for an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Classic](expressroute-howto-routing-classic.md)
+> * [Resource Manager- Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [Classic- PowerShell](expressroute-howto-routing-classic.md)
+> * [Video - Private peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - Public peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - Microsoft peering](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -246,7 +249,9 @@ This section provides instructions on how to create, get, update and delete the 
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-    >[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
+	> [!IMPORTANT]
+	> Ensure that you specify your AS number as peering ASN, not customer ASN.
+
 
 ### To view Azure public peering details
 You can get configuration details using the following cmdlet

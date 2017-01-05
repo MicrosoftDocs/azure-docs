@@ -1,14 +1,14 @@
-﻿---
+---
 title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
-services: service-bus,event-hubs
+services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
 editor: ''
 
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -215,7 +215,7 @@ The following sections explain which properties from the standard AMQP message s
 This section covers advanced capabilities of Azure Service Bus that are based on draft extensions to AMQP currently being developed in the OASIS Technical Committee for AMQP. Azure Service Bus implements the latest status of these drafts and will adopt changes introduced as those drafts reach standard status.
 
 > [!NOTE]
-> Service Bus Messaging advanced operations are supported thought a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+> Service Bus Messaging advanced operations are supported through a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx).
 > 
 > 
 

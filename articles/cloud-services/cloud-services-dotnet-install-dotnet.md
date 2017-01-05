@@ -13,14 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 
 ---
 # Install .NET on a Cloud Service Role
-This article describes how to install .NET framework on Cloud Service Web and Worker Roles. You can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4. For the latest information on Guest OS releases see [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4 which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
 
-The  process of installing .NET on your web and worker roles involves including the .NET installer package as part of your Cloud Project and launching the installer as part of the role's startup tasks.  
+>[!NOTE]
+>Guest OS 5 includes .NET 4.6
+
+The process of installing .NET on your web and worker roles involves including the .NET installer package as part of your Cloud Project and launching the installer as part of the role's startup tasks.  
 
 ## Add the .NET installer to your project
 * Download the the web installer for the .NET framework you want to install
@@ -74,7 +77,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
    > 
 3. Add the following script to the **install.cmd** file:
    
-    ```
+    ```cmd
     REM Set the value of netfx to install appropriate .NET Framework. 
     REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 91d3fd5e-d035-4c55-b1ea-a7ccc8e0f543
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -47,7 +48,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 4. In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your SQL Database server.
    
    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server.
+5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server. To get the server name for an existing server, go to [View and update an SQL SErver Database server and its settings](sql-database-view-update-server-settings.md).
    
     ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
@@ -68,7 +69,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

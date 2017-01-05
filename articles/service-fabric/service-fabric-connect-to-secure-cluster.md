@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # Connect to a secure cluster
-When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that will connect to the cluster.
+When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
 
 <a id="connectsecureclustercli"></a> 
 
@@ -53,7 +53,7 @@ For connecting to a cluster secured with a self-signed certificate, use the foll
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-After you connect, you should be able to run other CLI commands to interact with the cluster. 
+After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact with the cluster. 
 
 <a id="connectsecurecluster"></a>
 
@@ -108,7 +108,7 @@ The Service Fabric SDK provides the [FabricClient](https://msdn.microsoft.com/li
 
 ### Connect to an unsecure cluster
 
-To connect to a remote unsecured cluster, simply create a FabricClient instance and provide the cluster address:
+To connect to a remote unsecured cluster, create a FabricClient instance and provide the cluster address:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
@@ -168,10 +168,115 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
+### Connect to a secure cluster using Azure Active Directory
+
+Following this process enables Azure Active Directory for client identity and server certificate for server identity.
+
+To use interactive mode, which pops up an AAD interactive sign-in dialog:
+
+```csharp
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+
+ClaimsCredentials claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+
+FabricClient fc = new FabricClient(
+    claimsCredentials,
+    connection);
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
+}
+catch (AggregateException ae)
+{
+    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+```
+
+To use silent mode without any human interaction:
+
+(This example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213
+
+Refer to [Microsoft.IdentityModel.Clients.ActiveDirectory Namespace](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx) about how to acquire token and more information)
+
+```csharp
+string tenantId = "c15cfcea-02c1-40dc-8466-fbd0ee0b05d2";
+string clientApplicationId = "118473c2-7619-46e3-a8e4-6da8d5f56e12";
+string webApplicationId = "53E6948C-0897-4DA6-B26A-EE2A38A690B4";
+
+string token = GetAccessToken(
+    tenantId,
+    webApplicationId,
+    clientApplicationId,
+    "urn:ietf:wg:oauth:2.0:oob"
+    );
+
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
+string connection = "clustername.westus.cloudapp.azure.com:19000";
+ClaimsCredentials claimsCredentials = new ClaimsCredentials();
+claimsCredentials.ServerThumbprints.Add(serverCertThumb);
+claimsCredentials.LocalClaims = token;
+
+FabricClient fc = new FabricClient(
+   claimsCredentials,
+   connection);
+
+try
+{
+    var ret = fc.ClusterManager.GetClusterManifestAsync().Result;
+    Console.WriteLine(ret.ToString());
+}
+catch (AggregateException ae)
+{
+    Console.WriteLine("Connect failed: {0}", ae.InnerException.Message);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Connect failed: {0}", e.Message);
+}
+
+...
+
+static string GetAccessToken(
+    string tenantId,
+    string resource,
+    string clientId,
+    string redirectUri)
+{
+    string authorityFormat = @"https://login.microsoftonline.com/{0}";
+    string authority = string.Format(CultureInfo.InvariantCulture, authorityFormat, tenantId);
+    AuthenticationContext authContext = new AuthenticationContext(authority);
+
+    string token = "";
+    try
+    {
+        var authResult = authContext.AcquireToken(
+            resource,
+            clientId,
+            new UserCredential("TestAdmin@clustenametenant.onmicrosoft.com", "TestPassword"));
+        token = authResult.AccessToken;
+    }
+    catch (AdalException ex)
+    {
+        Console.WriteLine("Get AccessToken failed: {0}", ex.Message);
+    }
+
+    return token;
+}
+
+```
+
 <a id="connectsecureclustersfx"></a>
 
 ## Connect to a secure cluster using Service Fabric Explorer
-In order to reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) for a given cluster, point your browser to:
+To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) for a given cluster, point your browser to:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
@@ -183,7 +288,7 @@ To connect to a cluster that is secured with AAD, point your browser to:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-You will automatically be prompted to log in with AAD.
+You are automatically be prompted to log in with AAD.
 
 ### Connect to a secure cluster using a client certificate
 
@@ -191,7 +296,7 @@ To connect to a cluster that is secured with certifcates, point your browser to:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-You will automatically be prompted to select a client certificate.
+You are automatically be prompted to select a client certificate.
 
 <a id="connectsecureclustersetupclientcert"></a>
 ## Set up a client certificate on the remote computer

@@ -9,6 +9,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
+* [Use multiple storage accounts for each availability set]
 
 ## Configure multiple virtual machines in an availability set for redundancy
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -38,9 +39,17 @@ Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overvi
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
+## Use multiple storage accounts for each availability set
+There are best practices to be followed with regards to the storage accounts used by the Virtual Hard Disks (VHDs) within the VM. Each disk (VHD) is a page blob in an Azure Storage account. It is important to ensure that there is redundancy and isolation across the storage accounts in order to provide high availability for the VMs within the Availability Set.
+
+1. **Keep all disks (OS and data) associated with a VM in the same storage account**
+2. **Storage account [limits](../articles/storage/storage-scalability-targets.md) should be considered** when adding more VHDs to a storage account
+3. **Use separate storage account for each VM in an Availability Set.** Multiple VMs in the same availability set must NOT share the same storage account. It is acceptable for VMs across different Availability Sets to share storage accounts as long as the best practices above are followed
+
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-sets
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Use multiple storage accounts for each availability set]: #use-multiple-storage-accounts-for-each-availability-set
 

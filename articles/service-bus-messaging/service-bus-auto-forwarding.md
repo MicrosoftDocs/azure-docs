@@ -1,14 +1,14 @@
 ---
 title: Auto-forwarding Service Bus messaging entities | Microsoft Docs
 description: How to chain a queue or subscription to another queue or topic.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -5,11 +5,11 @@
 
 # Get started
 ## Insight & analytics
-###[Sign up for Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Sign up for Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automation & control
-###[My first runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [My first runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Protection & recovery
-###[Introduction to Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Introduction to Azure Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Security & compliance
 ### [Security and Audit](oms-security-getting-started.md)
 ### [Data security](oms-security-data-security.md)
@@ -34,6 +34,7 @@
 ### [Baseline assessment](oms-security-baseline.md)
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Connect security products](oms-security-connect-products.md)
 ## [Integrate with OMS](operations-management-suite-integration.md)
 
 
@@ -44,8 +45,8 @@
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Alert Management](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Application Dependency Monitor](operations-management-suite-application-dependency-monitor.md)
-##### [Configure](operations-management-suite-application-dependency-monitor-configure.md)
+#### [Service Map](operations-management-suite-service-map.md)
+##### [Configure](operations-management-suite-service-map-configure.md)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Containers](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault Analytics](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

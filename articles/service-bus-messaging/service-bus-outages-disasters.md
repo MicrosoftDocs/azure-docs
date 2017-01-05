@@ -1,14 +1,14 @@
 ---
 title: Insulating Service Bus applications against outages and disasters | Microsoft Docs
 description: Describes techniques you can use to protect applications against a potential Service Bus outage.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: tysonn
 
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

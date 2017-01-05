@@ -1,6 +1,8 @@
 The **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)** is a community driven site for discovering and sharing solutions built with the Cortana Intelligence Suite.
 The Gallery contains a variety of resources that you can use to develop your own analytics solutions.
 
+<!-- On the new DOCS platform, this is a dropdown, not tabs, which doesn't work well in this context. So I'm just removing it for now.
+
 > [!div class="op_single_selector"]
 > * [Overview](../articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md)
 > * [Industries](../articles/machine-learning/machine-learning-gallery-industries.md)
@@ -13,4 +15,4 @@ The Gallery contains a variety of resources that you can use to develop your own
 > * [Custom Modules](../articles/machine-learning/machine-learning-gallery-custom-modules.md)
 > 
 > 
-
+-->

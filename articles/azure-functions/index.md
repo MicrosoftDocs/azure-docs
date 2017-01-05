@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
 ---
 #Azure Functions Documentation
 
-Azure Functions is a solution for easily running small pieces of code ("functions") in the cloud. You can write the code you need for the problem at hand, without worrying about a whole application of the infrastructure to run it. You can also develop in the language of your choice, such as C#, F#, Node.js, Python, or PHP.
+Learn how to use Functions to develop and deploy small pieces of code in the language of your choice and in the cloud without setting up infrastructure. Tutorials, templates, and other documentation show you how to create functions for tasks you want to run in a background thread or on a schedule.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -24,7 +25,7 @@ Azure Functions is a solution for easily running small pieces of code ("function
         </div>
         </a>
     </li>
-   
+
    <li>
         <a href="/azure/azure-functions/functions-create-first-azure-function">
         <div class="cardSize">
@@ -100,54 +101,6 @@ Azure Functions is a solution for easily running small pieces of code ("function
 </ul>
 
 ---
-
-## Reference
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="/azure/azure-functions/functions-reference-csharp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>C&#35</h3>
-                        <p>C# Developer Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	 <li>
-        <a href="/azure/azure-functions/functions-reference-fsharp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>F&#35</h3>
-                        <p>F# Developer Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	 <li>
-        <a href="/azure/azure-functions/functions-reference-node">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Node.js Developer Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	</ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">

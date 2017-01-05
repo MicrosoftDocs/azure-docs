@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/18/2016
 ms.author: helaw
 
 ---
@@ -52,7 +52,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 3. Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
 ## Video example: hybrid virtual machine deployment
-[!VIDEO https://channel9.msdn.com/Blogs/azurestack/Microsoft-Azure-Stack-TP1-POC-Hybrid-VM-Deployment/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/azurestack/Microsoft-Azure-Stack-TP1-POC-Hybrid-VM-Deployment/player]
 
 
 ## Next steps
