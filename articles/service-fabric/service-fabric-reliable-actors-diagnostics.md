@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2016
+ms.date: 01/04/2017
 ms.author: abhisram
 
 ---
@@ -168,3 +168,4 @@ When a client invokes a method via an actor proxy object, it results in a reques
 * [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Sample code](https://github.com/Azure/servicefabric-samples)
+* [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
