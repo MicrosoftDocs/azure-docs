@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: motanv
 
 ---
@@ -27,7 +27,7 @@ Chaos simulates continuous, interleaved faults (both graceful and ungraceful) th
 While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that are being executed in that iteration. A ValidationFailedEvent contains the details of a failure that was found during cluster validation. You can invoke the GetChaosReportAsync API to get the report of Chaos runs.
 
 ## Faults induced in Chaos
-Chaos generates faults across the entire Service Fabric cluster and compresses faults that are seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This Chaos exercise leads to a significant improvement in the code quality of the service.
+Chaos generates faults across the entire Service Fabric cluster and compresses faults that are seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. Exercising Chaos leads to a significant improvement in the code quality of the service.
 
 Chaos induces faults from the following categories:
 
@@ -50,117 +50,164 @@ In its current form, Chaos induces only safe faults. This implies that, in the a
   * If the cluster health is OK
   * If the service health is OK
   * If the target replica set size is achieved for the service partition
-  * That no InBuild replicas exist
+  * No InBuild replicas exist
 * **MaxConcurrentFaults**: The maximum number of concurrent faults that are induced in each iteration. The higher the number, the more aggressive Chaos is. This results in more complex failovers and transition combinations. Chaos guarantees that, in the absence of external faults, there is no quorum loss or data loss, regardless of how high a value this configuration has.
 * **EnableMoveReplicaFaults**: Enables or disables the faults that cause the primary or secondary replicas to move. These faults are disabled by default.
 * **WaitTimeBetweenIterations**: The amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
 * **WaitTimeBetweenFaults**: The amount of time to wait between two consecutive faults in an iteration.
+* **Context**: This (string, string) dictionary can be used to record information about Chaos; for example why this run is being scheduled, who is scheduling it, etc.
+* **ClusterHealthPolicy**: ClusterHealthPolicy determines the state of the health of the entities that Chaos ensures before going onto the next set of faults. Setting 'ConsiderWarningAsError' to false would let Chaos go onto the next set of faults while there are entities in the cluster with healthState in warning (although Chaos will skip the entities in warning while choosing faultable entities.) 
 
 ## How to run Chaos
 **C#:**
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Fabric;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Fabric;
+    using System.Fabric.Chaos.DataStructures;
+    using System.Fabric.Health;
 
-using System.Diagnostics;
-using System.Fabric.Chaos.DataStructures;
-
-class Program
-{
-    private class ChaosEventComparer : IEqualityComparer<ChaosEvent>
+    class Program
     {
-        public bool Equals(ChaosEvent x, ChaosEvent y)
+        private class ChaosEventComparer : IEqualityComparer<ChaosEvent>
         {
-            return x.TimeStampUtc.Equals(y.TimeStampUtc);
-        }
-
-        public int GetHashCode(ChaosEvent obj)
-        {
-            return obj.TimeStampUtc.GetHashCode();
-        }
-    }
-
-    static void Main(string[] args)
-    {
-        var clusterConnectionString = "localhost:19000";
-        using (var client = new FabricClient(clusterConnectionString))
-        {
-            var startTimeUtc = DateTime.UtcNow;
-            var stabilizationTimeout = TimeSpan.FromSeconds(30.0);
-            var timeToRun = TimeSpan.FromMinutes(60.0);
-            var maxConcurrentFaults = 3;
-
-            var parameters = new ChaosParameters(
-                stabilizationTimeout,
-                maxConcurrentFaults,
-                true, /* EnableMoveReplicaFault */
-                timeToRun);
-
-            try
+            public bool Equals(ChaosEvent x, ChaosEvent y)
             {
-                client.TestManager.StartChaosAsync(parameters).GetAwaiter().GetResult();
-            }
-            catch (FabricChaosAlreadyRunningException)
-            {
-                Console.WriteLine("An instance of Chaos is already running in the cluster.");
+                return x.TimeStampUtc.Equals(y.TimeStampUtc);
             }
 
-            var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
-
-            var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
-
-            while (true)
+            public int GetHashCode(ChaosEvent obj)
             {
-                var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
+                return obj.TimeStampUtc.GetHashCode();
+            }
+        }
 
-                foreach (var chaosEvent in report.History)
+        static void Main(string[] args)
+        {
+            var clusterConnectionString = "localhost:19000";
+            using (var client = new FabricClient(clusterConnectionString))
+            {
+                var startTimeUtc = DateTime.UtcNow;
+                var stabilizationTimeout = TimeSpan.FromSeconds(30.0);
+                var timeToRun = TimeSpan.FromMinutes(60.0);
+                var maxConcurrentFaults = 3;
+                var waitTimeBetweenIterations = TimeSpan.FromSeconds(30);
+                var waitTimeBetweenFaults = TimeSpan.FromSeconds(5);
+
+                var context = new Dictionary<string, string>();
+                context.Add("k1", "v1");
+                context.Add("k2", "v2");
+
+                var clusterHealthPolicy = new ClusterHealthPolicy();
+                clusterHealthPolicy.ConsiderWarningAsError = false;
+                clusterHealthPolicy.MaxPercentUnhealthyNodes = 10;
+                clusterHealthPolicy.MaxPercentUnhealthyApplications = 20;
+                clusterHealthPolicy.ApplicationTypeHealthPolicyMap.Add("CriticalAppType", 33);
+
+                var parameters = new ChaosParameters(
+                                     stabilizationTimeout,
+                                     maxConcurrentFaults,
+                                     true,
+                                     /* EnableMoveReplicaFault */
+                                     timeToRun,
+                                     context,
+                                     waitTimeBetweenIterations,
+                                     waitTimeBetweenFaults,
+                                     clusterHealthPolicy);
+
+                try
                 {
-                    if (eventSet.add(chaosEvent))
+                    client.TestManager.StartChaosAsync(parameters).GetAwaiter().GetResult();
+                }
+                catch (FabricChaosAlreadyRunningException)
+                {
+                    Console.WriteLine("An instance of Chaos is already running in the cluster.");
+                }
+
+                var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
+
+                var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
+
+                string continuationToken = null;
+
+                while (true)
+                {
+                    ChaosReport report = null;
+                    try
                     {
-                        Console.WriteLine(chaosEvent);
+                        report = string.IsNullOrEmpty(continuationToken)
+                        ? client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult()
+                        : client.TestManager.GetChaosReportAsync(continuationToken).GetAwaiter().GetResult();
                     }
+                    catch (TimeoutException timeoutException)
+                    {
+                        Console.WriteLine("GetChaosReportAsync API call timed out, going to retry");
+                        Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                        continue;
+                    }
+
+                    foreach (var chaosEvent in report.History)
+                    {
+                        if (eventSet.Add(chaosEvent))
+                        {
+                            Console.WriteLine(chaosEvent);
+                        }
+                    }
+
+                    // When Chaos stops, a StoppedEvent is created.
+                    // If a StoppedEvent is found, exit the loop.
+                    var lastEvent = report.History.LastOrDefault();
+
+                    if (lastEvent is StoppedEvent)
+                    {
+                        break;
+                    }
+
+                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+
+                    continuationToken = report.ContinuationToken;
                 }
-
-                // When Chaos stops, a StoppedEvent is created.
-                // If a StoppedEvent is found, exit the loop.
-                var lastEvent = report.History.LastOrDefault();
-
-                if (lastEvent is StoppedEvent)
-                {
-                    break;
-                }
-
-                Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
             }
         }
     }
-}
 ```
 **PowerShell:**
 
 ```powershell
-$connection = "localhost:19000"
-$timeToRun = 60
-$maxStabilizationTimeSecs = 180
-$concurrentFaults = 3
-$waitTimeBetweenIterationsSec = 60
+$clusterHealthPolicy = new-object -TypeName System.Fabric.Health.ClusterHealthPolicy
+$clusterHealthPolicy.MaxPercentUnhealthyNodes = 10
+$clusterHealthPolicy.MaxPercentUnhealthyApplications = 20
+$clusterHealthPolicy.ConsiderWarningAsError = $False
+$clusterHealthPolicy.ApplicationTypeHealthPolicyMap.Add("CriticalAppType", 33)
 
-Connect-ServiceFabricCluster $connection
+$context = @{"k1" = "v1";"k2" = "v2"}
+
+Start-ServiceFabricChaos -TimeToRunMinute 10 -MaxConcurrentFaults 3 -MaxClusterStabilizationTimeoutSec 10 -WaitTimeBetweenIterationsSec 5 -WaitTimeBetweenFaultsSec 1 -EnableMoveReplicaFaults -Context $context -ClusterHealthPolicy $clusterHealthPolicy
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRun -MaxConcurrentFaults $concurrentFaults -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
+$continuationToken = $null
 
 while($true)
 {
     $stopped = $false
-    $report = Get-ServiceFabricChaosReport -StartTimeUtc $now -EndTimeUtc ([System.DateTime]::MaxValue)
+
+    if($continuationToken -ne $null)
+    {
+        $report = Get-ServiceFabricChaosReport -ContinuationToken $continuationToken
+    }
+    else
+    {
+        $report = Get-ServiceFabricChaosReport -StartTimeUtc $now -EndTimeUtc ([System.DateTime]::MaxValue)
+    }
 
     foreach ($e in $report.History) {
+
+        $stopped = $false
 
         if(-Not ($events.Contains($e.TimeStampUtc.Ticks)))
         {
@@ -187,7 +234,7 @@ while($true)
     }
 
     Start-Sleep -Seconds 1
-}
 
-Stop-ServiceFabricChaos
+    $continuationToken = $report.ContinuationToken
+}
 ```
