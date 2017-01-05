@@ -49,7 +49,6 @@
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
