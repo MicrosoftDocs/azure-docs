@@ -51,7 +51,7 @@ For network services to support Azure Government customer applications and solut
 
 All customers who utilize a private connectivity architecture should validate that an appropriate implementation is established and maintained for the customer connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premise environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
 
-## Support for BGP communities (Preview)
+## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute in AzureGov. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
 If you are connecting to Microsoft through ExpressRoute at any one peering location within the AzureGov region, you will have access to all Microsoft cloud services across all regions within the government boundary. 
@@ -85,6 +85,9 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
+
+## Support for VNet Peering 
+VNet Peering is generally available in Azure Government. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Next Steps
 For supplemental information and updates please subscribe to the
