@@ -20,28 +20,28 @@ ms.author: jgao
 ---
 #Use HDInsight Tools for IntelliJ with Hortonworks Sandbox
 
-Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications and test the applications on [Hortonworks Sandbox](http://hortonworks.com/products/sandbox/) running on your workstations. [Intellij IDEA](https://www.jetbrains.com/idea/) is a Java-integrated development environment (IDE) for developing computer software. After you have developed a Hadoop solution, you can  move it to [Azure HDInsight](hdinsight-hadoop-introduction.md).
+Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications and test the applications on [Hortonworks Sandbox](http://hortonworks.com/products/sandbox/) running on your workstation. [IntelliJ IDEA](https://www.jetbrains.com/idea/) is a Java-integrated development environment (IDE) for developing computer software. After you have developed and tested your applications on Hortonworks Sandbox, you can move them to [Azure HDInsight](hdinsight-hadoop-introduction.md).
 
 ##Prerequisites
 
 Before you begin this tutorial, you must have:
 
-- Hortonworks Sandbox running on your local environment. See [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](hdinsight-hadoop-emulator-get-started.md).
-- [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK is required by the Azure Toolkit for IntelliJ
-- [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the Scala plugin and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plugin. HDInsight Tools for IntelliJ are available as a part of the Azure Toolkit for IntelliJ. To install the plugins:
+- Hortonworks Sandbox running on your local environment. To cofigure, see [Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine](hdinsight-hadoop-emulator-get-started.md).
+- [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK is required by the Azure Toolkit for IntelliJ.
+- [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) plugin and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plugin. HDInsight Tools for IntelliJ are available as a part of the Azure Toolkit for IntelliJ. 
+
+  **To install the plugins:**
 
   1. Open IntelliJ IDEA.
   2. From the Welcome screen, click **Configure**, and then click **Plugins**.
   3. Click **Install JetBrains plugin** from the lower left corner.
   4. Use the search function to search **Scala**, and then click **Install**.
   5. Click **Restart IntelliJ IDEA** to complete the installation.
-  6. Repeat step 4 and 5 to install the **Azure Toolkit for IntelliJ.
-
-  For more information, see [Install the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
+  6. Repeat step 4 and 5 to install the **Azure Toolkit for IntelliJ**. For more information, see [Install the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## Create a Spark Scala application
 
-In this section, you create a sample project using IntelliJ. In the next section, you link IntelliJ IDEA to the Hortonworks Sandbox (emulator) before you submit the project.
+In this section, you create a sample scala project using IntelliJ IDEA. In the next section, you link IntelliJ IDEA to the Hortonworks Sandbox (emulator) before you submit the project.
 
 1. Open IntelliJ IDEA from your workstation.
 2. Click **Create New Project**.
@@ -57,10 +57,10 @@ In this section, you create a sample project using IntelliJ. In the next section
     - **Spark SDK**: Download the [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). You can also ignore this and use the Spark Maven repository instead, however please make sure you have the right maven repository installed to develop your Spark applications. (For example, you need to make sure you have the Spark Streaming part installed if you are using Spark Streaming; Also please make sure you are using the repository marked as Scala 2.10 - do not use the repository marked as Scala 2.11.)
 5. Click **Finish**.
 6. Press **[ALT]+1** to open the Project view.
-7. From **Project explorer**, expand the project, and then click **src**.
+7. From **Project Explorer**, expand the project, and then click **src**.
 8. Right-click **src**, point to **New**, and then click **Scala class**.
 9. Enter a name, select **Object** in **Kind**, and then click **OK**.
-10. In the scala file, paste the following code:
+10. In the .scala file, paste the following code:
 
         import java.util.Random
         import org.apache.spark.{SparkConf, SparkContext}
@@ -105,11 +105,10 @@ You need to have an existing IntelliJ application before you can link to a Horto
 
 **To link to an emulator**
 
-1. Open the project in Intellij if it is not opened yet.
+1. Open the project in IntelliJ if it is not opened yet.
 2. From the **View** menu, click **Tools Windows**, and then click **Azure Explorer**.
 3. Expand **Azure**, right-click **HDInsight**, and then click **Link A Emulator**.
 4. Enter the password you have configured for the root account of the Hortonworks Sandbox, leave the other fields with the default values, and then click **OK**. When it is connected successfully, you can see the emulator (Hortonworks Sandbox) listed under the HDInsight node.
-
 
 ## Submit the Spark Scala application to the Sandbox
 
