@@ -75,7 +75,7 @@ redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCur
 ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
 ```
 
-* Back on the **Configure** tab of your application in the Azure Management Portal, replace the value of the **RedirectUri** with this value.  
+* Back on the **Settings** tab of your application in the Azure Portal, add a **RedirectUri** with this value.  
 
 ## *3.    Use ADAL to Get Tokens from AAD*
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls `authContext.AcquireToken(…)`, and ADAL does the rest.  
