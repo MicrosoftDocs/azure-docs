@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/05/2017
 ms.author: lmazuel
 
 ---
@@ -40,7 +40,7 @@ All the features described in this article are available in the `azure-servicema
 To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [Azure classic portal][management-portal].
 
 > [!NOTE]
-> Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  It requires Python 2.7.4 or later. We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.
+> It is now possible to use certificates created with OpenSSL when running on Windows.  It requires Python 2.7.4 or later. We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.
 > 
 > 
 
