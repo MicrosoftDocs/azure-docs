@@ -38,5 +38,6 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Contact us](active-directory-ds-contact-us.md)
 ## [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Contact us](active-directory-ds-contact-us.md)
