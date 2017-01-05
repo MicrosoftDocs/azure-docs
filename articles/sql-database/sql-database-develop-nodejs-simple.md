@@ -3,7 +3,7 @@ title: Connect to SQL Database by using Node.js | Microsoft Docs
 description: Presents a Node.js code sample you can use to connect to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: meet-bhagdev
+author: LuisBosquez
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: meetb
+ms.date: 12/24/2016
+ms.author: lbosq
 
 ---
 # Connect to SQL Database by using Node.js

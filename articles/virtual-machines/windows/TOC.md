@@ -11,7 +11,7 @@
 ### [VM availability](../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Deployment models](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Deployment models](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Containers](../virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [FAQ](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -23,7 +23,7 @@
 ## [Different ways to create a VM](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Create a VM with PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Template walkthrough](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Create and deploy complex VM templates](../virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Application architecture](../virtual-machines-windows-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Access and security](../virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -59,7 +59,7 @@
 ### [Scale multiple VMs with VMSS](../virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create multiple Azure virtual machines](../virtual-machines-windows-multiple-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Create a VM with monitoring and diagnostics](../virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Deploy using Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Deploy using Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Deploy using C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Deploy using C# and templates](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Deploy application frameworks from a template](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -180,6 +180,9 @@
 ### [Troubleshoot application access](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Troubleshoot allocation failures](../virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Redeploy a VM](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Attach virtual hard disk to troubleshooting VM
+#### [Azure PowerShell](../virtual-machines-windows-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 
+#### [Azure portal](../virtual-machines-windows-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
@@ -191,7 +194,7 @@
 ## [Compute REST](/rest/api/compute)
 
 # Resources
-## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Author Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates)
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
