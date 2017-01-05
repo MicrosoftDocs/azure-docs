@@ -91,21 +91,21 @@ Once the affected region recovers from the outage, all the affected DocumentDB a
 
 ## <a id="ManualFailovers"></a>Manual Failovers
 
-In addition to automatic failovers, the current write region of a given DocumentDB account can be manually changed dynamically to one of the existing read regions. This can be done via the Azure portal or programmatically. 
+In addition to automatic failovers, the current write region of a given DocumentDB account can be manually changed dynamically to one of the existing read regions. Manual failovers can be initiated via the Azure portal or programmatically. 
 
-Manual failovers ensure **zero data loss** and **zero availability** loss and gracefully transfer write status from the old write region to the selected new write region for the specified DocumentDB account. Like in the case of automatic failovers, the Azure DocumentDB SDK automatically handles the write region changes during manual failovers and ensures that calls are automatically redirected to the new write region without requiring any changes to your application code. 
+Manual failovers ensure **zero data loss** and **zero availability** loss and gracefully transfer write status from the old write region to the new one for the specified DocumentDB account. Like in automatic failovers, the Azure DocumentDB SDK automatically handles write region changes during manual failovers and ensures that calls are automatically redirected to the new write region. No code or configuration changes are required in your application to manage failovers. 
 
 ![Manual failovers in Azure DocumentDB](./media/documentdb-regional-failovers/manual-failovers.png)
 
 Some of the common scenarios where manual failover can be useful are:
 
-**Follow the clock model**: If your applications have predictable traffic patterns based on the time of the day, you can take advantage of global distribution by changing the write status to the most active geographic region based on time of the day.
+**Follow the clock model**: If your applications have predictable traffic patterns based on the time of the day, you can periodically change the write status to the most active geographic region based on time of the day.
 
 **Service update**: Certain globally distributed application deployment may involve rerouting traffic to different region via traffic manager during their planned service update. Such application deployment now can use manual failover to keep the write status to the region where there is going to be active traffic during the service update window.
 
-**Business Continuity and Disaster Recovery (BCDR) drills**: Most enterprise applications include business continuity tests as part of their development and release process. BDDR testing is often an important step in compliance certifications and guaranteeing service availability in the case of regional outages. You can test the BCDR readiness of your applications that use DocumentDB for storage by triggering a manual failover of your DocumentDB account and/or adding and removing a region dynamically.
+**Business Continuity and Disaster Recovery (BCDR) drills**: Most enterprise applications include business continuity tests as part of their development and release process. BCDR testing is often an important step in compliance certifications and guaranteeing service availability in the case of regional outages. You can test the BCDR readiness of your applications that use DocumentDB for storage by triggering a manual failover of your DocumentDB account and/or adding and removing a region dynamically.
 
-In this article, we reviewed how manual and automatic failovers work in Azure DocumentDB, and how you can configure your DocumentDB accounts and applications to take the best advantage of failovers. By using Azure DocumentDB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures. 
+In this article, we reviewed how manual and automatic failovers work in Azure DocumentDB, and how you can configure your DocumentDB accounts and applications to be globally available. By using Azure DocumentDB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures. 
 
 ## <a id="NextSteps"></a>Next Steps
 * Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
