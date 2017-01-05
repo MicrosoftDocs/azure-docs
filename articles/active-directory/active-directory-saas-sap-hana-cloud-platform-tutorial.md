@@ -76,7 +76,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **SAP HANA Cloud Platform** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **SAP HANA Cloud Platform** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
 
@@ -154,17 +154,17 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 11. Click the **Attributes** tab.
 
-12. On the **Attributes** tab, perform the following steps:
+12. On the **Attributes** tab, perform the following step:
     
     ![Attributes](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Attributes")
     
-    1. By clicking **Add Assertion-Based Attribute**, add the following assertion-based attributes:
+    - Click **Add Assertion-Based Attribute**, and then add the following assertion-based attributes:
        
-       | Assertion Attribute | Principal Attribute |
-       | --- | --- |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |firstname |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |lastname |
-       | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email |
+    | Assertion Attribute | Principal Attribute |
+    | --- | --- |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |firstname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |lastname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress |email |
     
     > [!NOTE]
     > The configuration of the Attributes depends on how the application(s) on HCP are developed, i.e. which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
