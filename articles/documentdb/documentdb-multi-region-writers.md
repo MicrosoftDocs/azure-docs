@@ -138,7 +138,7 @@ Like articles, reviews are mostly written and read in the context of article. Ch
 		public int Rating { get; set; } }
 	}
 
-## <a id="DataAccessMethods"></a>Data Access Methods
+## <a id="DataAccessMethods"></a>Data Access Layer Methods
 Now let's take a look at the main data access methods we need to implement. Here's the list of methods that the `ContentPublishDatabase` will need:
 
 	class ContentPublishDatabase 
@@ -154,7 +154,7 @@ Now let's take a look at the main data access methods we need to implement. Here
 		public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
 	}
 
-## <a id="Architecture"></a>DocumentDB architecture
+## <a id="Architecture"></a>DocumentDB account configuration
 In order to guarantee local reads and writes, we must partition data not just on partition key, but also based on the geographical access pattern into regions. The model relies on having a geo-replicated Azure DocumentDB database account for each region. For example, with two regions, here's a setup for multi-region writes:
 
 | Account Name | Write Region | Read Region |
