@@ -4,6 +4,7 @@
 ## [FAQ](service-bus-faq.md)
 
 # Get Started
+## [Build a multi-tier Azure Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Create a namespace](service-bus-create-namespace-portal.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
