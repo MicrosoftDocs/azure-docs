@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: kakhan
 
 ---
@@ -120,7 +120,7 @@ The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VM
 > Azure Disk Encryption is supported on the following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux.
 
 > [!NOTE]
-> Linux OS disk encryption is currently supported on the following Linux distributions - RHEL 7.2, CentOS 7.2, Ubuntu 16.04
+> Linux OS disk encryption is currently supported on the following Linux distributions - RHEL 7.2, CentOS 7.2n, Ubuntu 16.04
 > 
 > All resources (Ex: Key Vault, Storage account, VM, etc.,) must belong to the same Azure region and subscription.
 

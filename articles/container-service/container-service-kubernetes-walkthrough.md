@@ -46,7 +46,7 @@ To create your cluster, you first need to create a resource group in a specific 
 ```console
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
-az resource group create --name=$RESOURCE_GROUP --location=$LOCATION
+az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster

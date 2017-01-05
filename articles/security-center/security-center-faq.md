@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 01/03/2017
 ms.author: terrylan
 
 ---
@@ -46,7 +46,7 @@ See [Permissions in Azure Security Center](security-center-permissions.md) to le
 Security Center collects data from your virtual machines to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by [disabling data collection](#how-do-i-disable-data-collection) in the Security Center policy.
 
 ### How do I disable data collection?
-You can disable **Data collection** for a subscription in the Security policy at any time. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.)  When you select a subscription, a new blade opens and provides you the option to turn off **Data collection**. To remove agents from existing virtual machines, select the **Delete agents** option in the top ribbon.
+You can disable **Data collection** for a subscription in the Security policy at any time. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.)  When you select a subscription, a new blade opens and provides you the option to turn off **Data collection**. Azure Monitoring Agents are automatically removed from the subscription's existing virtual machines when you turn off data collection.
 
 > [!NOTE]
 > Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn off data collection.
@@ -137,6 +137,7 @@ Supported Windows VMs:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 Supported Linux VMs:
 
