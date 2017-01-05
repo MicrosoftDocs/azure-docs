@@ -27,7 +27,7 @@ The Cluster Resource Manager has two ways of computing costs and limiting them, 
 This strategy works well. But as with default or static loads, it's unlikely in any complex system that all moves are equal. Some are likely to be much more expensive.
 
 ## Changing a replica's move cost and factors to consider
-As with reporting load (another feature of Cluster Resource Manager), services can dynamically self-reporting how costly it is to move at any time.
+As with reporting load (another feature of Cluster Resource Manager), services can dynamically self-report how costly it is to move at any time.
 
 Code:
 
@@ -37,7 +37,7 @@ this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 
 A default move cost can also be specified when a service is created.
 
-MoveCost has four levels: Zero, Low, Medium, and High. MoveCosts are relative to each other, except for Zero. Zero move cost means that movement is free and should not count against the score of the solution. Setting your move cost to High does *not* guarantee that the replica will stay in one place.
+MoveCost has four levels: Zero, Low, Medium, and High. MoveCosts are relative to each other, except for Zero. Zero move cost means that movement is free and should not count against the score of the solution. Setting your move cost to High does *not* guarantee that the replica stays in one place.
 
 <center>
 ![Move cost as a factor in selecting replicas for movement][Image1]

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/30/2016
+ms.date: 01/05/2017
 ms.author: masnider
 
 ---
@@ -37,10 +37,10 @@ If the Primary replica goes down, Service Fabric makes one of the Active Seconda
 This concept, of a replica being either a Primary or Active Secondary, is known as the Replica Role.
 
 ### Replica roles
-The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is Primary services read requests. The Primary also handles all write requests by updating its state and replicating the changes. These changes are applied to the Aactive Secondaries in the replica set. The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.
+The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is Primary services read requests. The Primary also handles all write requests by updating its state and replicating the changes. These changes are applied to the Active Secondaries in the replica set. The job of an Active Secondary is to receive state changes that the Primary replica has replicated and update its view of the state.
 
 > [!NOTE]
-> Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) abstract away the concept of replica role from the developer. In actors it is entirely absent, while in Services it is visible if necessary but largely simplified.
+> Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) and [Reliable Services](service-fabric-reliable-services-introduction.md) abstract away the concept of replica role from the developer. In actors, the notion of role is unnecessary, while in Services it is visible if necessary but largely simplified.
 >
 >
 

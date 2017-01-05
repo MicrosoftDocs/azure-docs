@@ -29,7 +29,7 @@ When thinking about the lifecycles of Reliable Services, the basics of the lifec
   * The cancellation token passed to RunAsync is canceled, and the listeners are closed
   * Once that is complete, the service object itself is destructed
 
-There are details around the exact ordering of these events. In particular, the order of events may change slightly depending on whether the Reliable Service is Stateless or Stateful. In addition, for stateful services, we have to deal with the Primary swap scenario, where the role of Primary is transferred to another replica (or comes back) without the service fully shutting down. Finally, we have to think about error or failure conditions.
+There are details around the exact ordering of these events. In particular, the order of events may change slightly depending on whether the Reliable Service is Stateless or Stateful. In addition, for stateful services, we have to deal with the Primary swap scenario. During this sequence, the role of Primary is transferred to another replica (or comes back) without the service shutting down. Finally, we have to think about error or failure conditions.
 
 ## Stateless service startup
 The lifecycle of a stateless service is fairly straightforward. Here's the order of events:
@@ -64,7 +64,7 @@ Stateful services have a similar pattern to stateless services, with a few chang
     - The service's RunAsync method (`StatefulServiceBase.RunAsync()`) is called
 4. Once all the replica listener's `OpenAsync()` calls complete and `RunAsync()` has been started (or these steps were skipped because this replica is currently a secondary), `StatefulServiceBase.OnChangeRoleAsync()` is called. (This is uncommonly overridden in the service.)
 
-Similarly to stateless services, there's no coordination between the order in which the listeners are created and opened and RunAsync being called. The solutions are much the same, with one additional case: say that the calls arriving at the communication listeners require information kept inside some  [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) to work. Because the communication listeners could open before the reliable collections are readable or writeable, and before RunAsync could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return some error code that the client uses to know to retry the request.
+Similarly to stateless services, there's no coordination between the order in which the listeners are created and opened and RunAsync being called. The solutions are much the same, with one additional case: say that the calls arriving at the communication listeners require information kept inside some [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) to work. Because the communication listeners could open before the reliable collections are readable or writeable, and before RunAsync could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return some error code that the client uses to know to retry the request.
 
 ## Stateful service Shutdown
 Similarly to Stateless services, the lifecycle events during shutdown are the same as during startup, but reversed. When a stateful service is being shut down, the following events occur:
@@ -77,14 +77,14 @@ Similarly to Stateless services, the lifecycle events during shutdown are the sa
 3. After `StatefulServiceBase.OnCloseAsync()` completes, the service object is destructed.
 
 ## Stateful service primary swaps
-While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their RunAsync method called. Secondary are simply constructed but see no further calls. While a stateful service is running however, which replica is currently the Primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
+While a stateful service is running, only the Primary replicas of that stateful services have their communication listeners opened and their RunAsync method called. Secondary are constructed but see no further calls. While a stateful service is running however, which replica is currently the Primary can change. What does this mean in terms of the lifecycle events that a replica can see? The behavior the stateful replica sees depends on whether it is the replica being demoted or promoted during the swap.
 
 ### For the primary being demoted
 Service Fabric needs this replica to stop processing messages and quit any background work it is doing. As a result, this step looks similar to when the service is being shut down. One difference is that the Service isn't destructed or closed since it remains as a Secondary. The following APIs are called:
 
 1. In parallel
     - Any open listeners are Closed (`ICommunicationListener.CloseAsync()` is called on each listener)
-    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property will return true, and if called the token's `ThrowIfCancellationRequested` method will return an `OperationCanceledException`)
+    - The cancellation token passed to `RunAsync()` is canceled (checking the cancellation token's `IsCancellationRequested` property returns true, and if called the token's `ThrowIfCancellationRequested` method returns an `OperationCanceledException`)
 2. Once `CloseAsync()` completes on each listener and `RunAsync()` also completes, the service's `StatefulServiceBase.OnChangeRoleAsync()` is called. (This is uncommonly overridden in the service.)
 
 ### For the secondary being promoted
@@ -97,10 +97,10 @@ Similarly, Service Fabric needs this replica to start listening for messages on 
 
 ## Notes on service lifecycle
 * Both the `RunAsync()` method and the `CreateServiceReplicaListeners/CreateServiceInstanceListeners` calls are optional. A service may have one of them, both, or neither. For example, if the service does all its work in response to user calls, there is no need for it to implement `RunAsync()`. Only the communication listeners and their associated code are necessary. Similarly, creating and returning communication listeners is optional, as the service may have only background work to do, and so only needs to implement `RunAsync()`
-* It is valid for a service to complete `RunAsync()` successfully and return from it. This is not considered a failure condition and would represent the background work of the service completing. For stateful reliable service `RunAsync()` would be called again if the service were demoted from primary and then promoted back to primary.
-* If a service exits from `RunAsync()` by throwing some exception (other than `OperationCanceledException` in the cancellation or shutdown path), this is a failure and the service will be shut down and a health error reported.
-* While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request. If if your service does not respond to these API calls in a reasonable amount of time Service Fabric may forcibly terminate your service. Usually this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
-* For stateful services, there's an additional option on ServiceReplicaListeners which allows them to start on secondary replicas. This is uncommon, but the only change in lifecycles is that `CreateServiceReplicaListeners()` is called (and the resulting listeners Opened) even if the replica is a Secondary. Similary if the replica is later converted into a primary, the listeners are closed, destructed, and new ones created and Opened as a part of the change to Primary.
+* It is valid for a service to complete `RunAsync()` successfully and return from it. This is not considered a failure condition and would represent the background work of the service completing. For stateful reliable services `RunAsync()` would be called again if the service were demoted from primary and then promoted back to primary.
+* If a service exits from `RunAsync()` by throwing some unexpected exception, this is a failure and the service object is shut down and a health error reported.
+* While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request. If your service does not respond to these API calls in a reasonable amount of time Service Fabric may forcibly terminate your service. Usually this only happens during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
+* For stateful services, there's an additional option on ServiceReplicaListeners that allows them to start on secondary replicas. This is uncommon, but the only change in lifecycles is that `CreateServiceReplicaListeners()` is called (and the resulting listeners Opened) even if the replica is a Secondary. Similarly, if the replica is later converted into a primary, the listeners are closed, destructed, and new ones created and Opened as a part of the change to Primary.
 * Failures in the `OnCloseAsync()` path result in `OnAbort()` being called which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
 
 ## Next steps

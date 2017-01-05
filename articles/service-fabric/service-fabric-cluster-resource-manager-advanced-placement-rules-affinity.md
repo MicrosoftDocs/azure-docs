@@ -28,7 +28,7 @@ Then there’s an “Oops...”. The “Oops” usually falls into one of these 
 2. These things communicate via (local named pipes | shared memory | files on disk) but they really need to be able to write to a shared resource for performance reasons right now. That hard dependency gets removed later.
 3. Everything is fine, but it turns out that these two components are actually chatty/performance sensitive. When they moved them into separate services overall application performance tanked or latency increased. As a result, the overall application is not meeting expectations.
 
-In these cases we don’t want to lose our refactoring work, and don’t want to go back to the monolith, but until we can redesign the components to work naturally as services (or until we can solve the performance expectations some other way) we're going to need some sense of locality.
+In these cases we don’t want to lose our refactoring work, and don’t want to go back to the monolith. However, until we can redesign the components to work naturally as services (or until we can solve the performance expectations some other way) we're going to need some sense of locality.
 
 What to do? Well, you could try turning on affinity.
 
@@ -44,17 +44,17 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 ## Different affinity options
-Affinity is represented via one of several correlation schemes, and has two different modes. The most common mode of affinity is what we call NonAlignedAffinity. In NonAlignedAffinity the replicas or instances of the different services are placed on the same nodes. The other mode is AlignedAffinity. Aligned Affinity is useful only with stateful services. Configuring two stateful services to have aligned affinity ensures that the primaries of those services are placed on the same nodes as each other. It also causes each pair of secondaries for those services to be placed on the same nodes. It is also possible (though less common) to configure NonAlignedAffinity for stateful services. For NonAlignedAffinity the different replicas of the two stateful services would be collocated on the same nodes, but no attempt would be made to align their primaries or secondaries.
+Affinity is represented via one of several correlation schemes, and has two different modes. The most common mode of affinity is what we call NonAlignedAffinity. In NonAlignedAffinity, the replicas or instances of the different services are placed on the same nodes. The other mode is AlignedAffinity. Aligned Affinity is useful only with stateful services. Configuring two stateful services to have aligned affinity ensures that the primaries of those services are placed on the same nodes as each other. It also causes each pair of secondaries for those services to be placed on the same nodes. It is also possible (though less common) to configure NonAlignedAffinity for stateful services. For NonAlignedAffinity, the different replicas of the two stateful services would be collocated on the same nodes, but no attempt would be made to align their primaries or secondaries.
 
 <center>
 ![Affinity Modes and Their Effects][Image1]
 </center>
 
 ### Best effort desired state
-There are a few differences between affinity and monolithic architectures. Many of them are because an affinity relationship is best effort. The services in an affinity relationship are fundamentally different entities that can fail and be moved independently. There are also causes for why an affinity relationship could break. For example, capacity limitations where only some of the service objects in the affinity relationship can fit on a given node. In these cases even though there's an affinity relationship in place, it can't be enforced due to the other constraints. The violation is automatically corrected later if it is possible to do so.
+There are a few differences between affinity and monolithic architectures. Many of them are because an affinity relationship is best effort. The services in an affinity relationship are fundamentally different entities that can fail and be moved independently. There are also causes for why an affinity relationship could break. For example, capacity limitations where only some of the service objects in the affinity relationship can fit on a given node. In these cases even though there's an affinity relationship in place, it can't be enforced due to the other constraints. if it is possible to do so, the violation is automatically corrected later.
 
 ### Chains vs. stars
-Today the Cluster Resource Manager isn't able to model chains of affinity relationships. What this means is that a service that is a child in one affinity relationship can’t be a parent in another affinity relationship. If you want to model this type of relationship, you effectively have to model it as a star, rather than a chain. To move from a chain to a star, the bottommost child would be parented to the first child’s parent instead. Depending on the arrangement of your services, you may have to do this multiple times. If there's no natural parent service, you may have to create one which serves as a placeholder. Depending on your requirements you may also want to look into [Application Groups](service-fabric-cluster-resource-manager-application-groups.md).
+Today the Cluster Resource Manager isn't able to model chains of affinity relationships. What this means is that a service that is a child in one affinity relationship can’t be a parent in another affinity relationship. If you want to model this type of relationship, you effectively have to model it as a star, rather than a chain. To move from a chain to a star, the bottommost child would be parented to the first child’s parent instead. Depending on the arrangement of your services, you may have to do this multiple times. If there's no natural parent service, you may have to create one that serves as a placeholder. Depending on your requirements, you may also want to look into [Application Groups](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
 ![Chains vs. Stars in the Context of Affinity Relationships][Image2]
@@ -66,7 +66,7 @@ Another thing to note about affinity relationships today is that they are direct
 The final thing to notice about affinity is that affinity relationships aren’t supported where the parent is partitioned. This is something that we may support eventually, but today it is not allowed.
 
 ## Next steps
-* For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+* For more information about the other options available for configuring services, check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
 * For uses such as limiting services to a small set of machines and trying to aggregate the load of a collection of services, use [Application Groups](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png

@@ -115,7 +115,7 @@ For Azure clusters, the full URL is also available in the cluster essentials pan
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
 
-If you attempt to connect to Service Fabric Explorer on a secure cluster, you will be required to present a client certificate or log in using AAD, depending on the cluster's configuration.
+If you attempt to connect to Service Fabric Explorer on a secure cluster, then depending on the cluster's configuration you'll be required to present a client certificate or log in using AAD.
 
 ## Next steps
 * [Testability overview](service-fabric-testability-overview.md)
