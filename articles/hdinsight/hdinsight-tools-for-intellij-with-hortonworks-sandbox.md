@@ -52,11 +52,11 @@ In this section, you create a sample project using IntelliJ. In the next section
 
     - **Project name**: Provide a project name.
     - **Project location**: Provide a project location.
-    - **Project SDK**: Click **New**, click **JDK**, and the specify the folder of Java JDK verion 7 or later.  The default location is C:\Program Files\Java\jdk1.8.x_xxx.
-    - **Scala SDK**: Click **Select**, select version **2.10.6**, and then click **OK**. If the version is not listed, click **Download**, select **Scala version**, and then cilck **OK**. Make sure not to use version 2.11.x. This article uses version 2.10.6.
+    - **Project SDK**: Click **New**, click **JDK**, and then specify the folder of Java JDK version 7 or later.  The default location is C:\Program Files\Java\jdk1.8.x_xxx.
+    - **Scala SDK**: Click **Select**, select version **2.10.6**, and then click **OK**. If the version is not listed, click **Download**, select **Scala version**, and then click **OK**. Make sure not to use version 2.11.x. This article uses version 2.10.6.
     - **Spark SDK**: Download the [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). You can also ignore this and use the Spark Maven repository instead, however please make sure you have the right maven repository installed to develop your Spark applications. (For example, you need to make sure you have the Spark Streaming part installed if you are using Spark Streaming; Also please make sure you are using the repository marked as Scala 2.10 - do not use the repository marked as Scala 2.11.)
 5. Click **Finish**.
-6. Press **[ALT]+1** to open the the Porject view.
+6. Press **[ALT]+1** to open the Project view.
 7. From **Project explorer**, expand the project, and then click **src**.
 8. Right-click **src**, point to **New, and then click **Scala class**.
 9. Enter a name, select **Object** in **Kind**, and then click **OK**.
@@ -96,12 +96,12 @@ In this section, you create a sample project using IntelliJ. In the next section
         }
         }
 
-11. From the **Build** menu, click **Build project**. Make sure the compilation is completed sucessfully.
+11. From the **Build** menu, click **Build project**. Make sure the compilation is completed successfully.
 
 
 ## Link to the HortonWorks Sandbox
 
-You need to have an existing IntelliJ application before you can link to an Hortonworks Sandbox(emulator).
+You need to have an existing IntelliJ application before you can link to a Hortonworks Sandbox(emulator).
 
 **To link to an emulator**
 
@@ -122,7 +122,7 @@ After you have linked the IntelliJ IDEA to the emulator, you can submit your pro
 
     - **Spark cluster (Linux only)**: Select your local Hortonworks Sandbox.
     - **Main class name**: Choose or enter the main class name.  For this tutorial, it is **GroupByTest**.
-3. Click **Submit**. The job submittion logs are shown in the Spark submission tool window.
+3. Click **Submit**. The job submission logs are shown in the Spark submission tool window.
 
 
 
