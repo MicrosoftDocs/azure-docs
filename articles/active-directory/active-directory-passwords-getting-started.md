@@ -136,10 +136,10 @@ Now that you’ve configured a user reset policy and specified contact details f
 4. In this case, choose to **call** the **office phone** first.  Note that when selecting a phone-based method, users will be asked to **verify their phone number** before they can reset their passwords.  This is to prevent malicious individuals from spamming phone numbers of users in your organization.
    
    ![][014]
-5. Once the user confirms their phone number, clicking call wall cause a spinner to appear and his or her phone to ring.  A message will play once he or she picks up your phone indicating that the **user should press “#”** to verify his or her account.  Pressing this key will automatically verify that the user possesses the first challenge and advance the UI to the second verification step.
+5. Once the user confirms their phone number, clicking call will cause a spinner to appear and his or her phone to ring.  A message will play once he or she picks up your phone indicating that the **user should press “#”** to verify his or her account.  Pressing this key will automatically verify that the user possesses the first challenge and advance the UI to the second verification step.
    
    ![][015]
-6. Once you’ve passed the first challenge, the UI is automatically updated to remove it from the list of choices the user has.  In this case, because you used your **Office Phone**first, only **Mobile Phone** and **Alternate Email** remain as valid options to use as the challenge for the second verification step.  Click on the **Email my alternate** email option.  After you have done that, pressing email will email the alternate email on file.
+6. Once you’ve passed the first challenge, the UI is automatically updated to remove it from the list of choices the user has.  In this case, because you used your **Office Phone** first, only **Mobile Phone** and **Alternate Email** remain as valid options to use as the challenge for the second verification step.  Click on the **Email my alternate** email option.  After you have done that, pressing email will email the alternate email on file.
    
    ![][016]
 7. Here is a sample of an email that users will see – notice the tenant branding:
