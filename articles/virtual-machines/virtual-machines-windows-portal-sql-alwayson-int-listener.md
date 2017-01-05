@@ -1,6 +1,6 @@
 ---
-title: Create Listener for AlwaysOn availability group for SQL Server in Azure Virtual Machines
-description: Step-by-step instructions for creating a listener for an AlwaysOn availability group for SQL Server in Azure Virtual Machines
+title: Create SQL Server Availability Group Listener - Azure Virtual Machines | Microsoft Docs
+description: Step-by-step instructions for creating a listener for an Always On availability group for SQL Server in Azure Virtual Machines
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -49,56 +49,56 @@ In this portion of the task, do the following steps in the Azure portal:
 ### 1. Create the load balancer and configure the IP address
 The first step is to create the load balancer. In the Azure portal, open the resource group that contains the SQL Server virtual machines. In the resource group, click **Add**.
 
-* Search for **load balancer**. From the search results select **Load Balancer**, which is published by **Microsoft**.
-* On the **Load Balancer** blade, click **Create**.
-* On **Create load balancer**, configure the load balancer as follows:
+1. Search for **load balancer**. From the search results select **Load Balancer**, which is published by **Microsoft**.
+1. On the **Load Balancer** blade, click **Create**.
+1. On **Create load balancer**, configure the load balancer as follows:
 
-| Setting | Value |
-| --- | --- |
-| **Name** |A text name representing the load balancer. For example, **sqlLB**. |
-| **Type** |**Internal** |
-| **Virtual network** |Choose the virtual network that the SQL Servers are in. |
-| **Subnet** |Choose the subnet that the SQL Servers are in. |
-| **IP address assignment** |**Static** |
-| **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script later in this article, use this address for the `$ILBIP` variable. |
-| **Subscription** |If you have multiple subscriptions, this field may appear. Select the subscription that you want associated with this resource. It is normally the same subscription as all the resources for the availability group. |
-| **Resource group** |Choose the resource group that the SQL Servers are in. |
-| **Location** |Choose the Azure location that the SQL Servers are in. |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
+   | **Type** |**Internal** |
+   | **Virtual network** |Choose the virtual network that the SQL Servers are in. |
+   | **Subnet** |Choose the subnet that the SQL Servers are in. |
+   | **IP address assignment** |**Static** |
+   | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script later in this article, use this address for the `$ILBIP` variable. |
+   | **Subscription** |If you have multiple subscriptions, this field may appear. Select the subscription that you want associated with this resource. It is normally the same subscription as all the resources for the availability group. |
+   | **Resource group** |Choose the resource group that the SQL Servers are in. |
+   | **Location** |Choose the Azure location that the SQL Servers are in. |
 
-* Click **Create**. 
+1. Click **Create**. 
 
 Azure creates the load balancer. The load balancer belongs to a specific network, subnet, resource group, and location. After Azure completes, verify the load balancer settings in Azure. 
 
 ### 2. Configure the backend pool
 The next step is to create a backend address pool. Azure calls the backend address pool *backend pool*. In this case, the backend pool is the addresses of the two SQL Servers in your availability group. 
 
-* In your resource group, click the load balancer you created. 
-* On **Settings**, click **Backend pools**.
-* On **Backend pools**, click **Add** to create a backend address pool. 
-* On **Add backend pool** under **Name**, type a name for the backend pool.
-* Under **Virtual machines**, click **+ Add a virtual machine**. 
-* Under **Choose virtual machines**, click **Choose an availability set** and specify the availability set that the SQL Server virtual machines belong to.
-* After you have chosen the availability set, click **Choose the virtual machines**. Click the two virtual machines that host the SQL Server instances in the availability group. Click **Select**. 
-* Click **OK** to close the blades for **Choose virtual machines**, and **Add backend pool**. 
+1. In your resource group, click the load balancer you created. 
+1. On **Settings**, click **Backend pools**.
+1. On **Backend pools**, click **Add** to create a backend address pool. 
+1. On **Add backend pool** under **Name**, type a name for the backend pool.
+1. Under **Virtual machines**, click **+ Add a virtual machine**. 
+1. Under **Choose virtual machines**, click **Choose an availability set** and specify the availability set that the SQL Server virtual machines belong to.
+1. After you have chosen the availability set, click **Choose the virtual machines**. Click the two virtual machines that host the SQL Server instances in the availability group. Click **Select**. 
+1. Click **OK** to close the blades for **Choose virtual machines**, and **Add backend pool**. 
 
 Azure updates the settings for the backend address pool. Now your availability set has a pool of two SQL Servers.
 
 ### 3. Create a probe
 The next step is to create a probe. The probe defines how Azure verifies which of the SQL Servers currently owns the availability group listener. Azure probes the service based on IP address on a port that you define when you create the probe.
 
-* On the load balancer **Settings** blade, click **Health probes**. 
-* On the **Health probes** blade, click **Add**.
-* Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
+1. On the load balancer **Settings** blade, click **Health probes**. 
+1. On the **Health probes** blade, click **Add**.
+1. Configure the probe on the **Add probe** blade. Use the following values to configure the probe:
 
-| Setting | Value |
-| --- | --- |
-| **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
-| **Protocol** |**TCP** |
-| **Port** |You may use any available port. For example, *59999*. |
-| **Interval** |*5* |
-| **Unhealthy threshold** |*2* |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
+   | **Protocol** |**TCP** |
+   | **Port** |You may use any available port. For example, *59999*. |
+   | **Interval** |*5* |
+   | **Unhealthy threshold** |*2* |
 
-* Click **OK**. 
+1.  Click **OK**. 
 
 > [!NOTE]
 > Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx). 
@@ -110,27 +110,27 @@ Azure creates the probe. Azure uses the probe to test which SQL Server has the l
 ### 4. Set the load balancing rules
 Set the load balancing rules. The load balancing rules configure how the load balancer routes traffic to the SQL Servers. For this load balancer, enable direct server return because only one of the two SQL Servers owns the availability group listener resource at a time.
 
-* On the load balancer **Settings** blade, click **Load balancing rules**. 
-* On the **Load balancing rules** blade, click **Add**.
-* Use the **Add load balancing rules** blade to configure the load balancing rule. Use the following settings: 
+1. On the load balancer **Settings** blade, click **Load balancing rules**. 
+1. On the **Load balancing rules** blade, click **Add**.
+1. Use the **Add load balancing rules** blade to configure the load balancing rule. Use the following settings: 
 
-| Setting | Value |
-| --- | --- |
-| **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
-| **Protocol** |**TCP** |
-| **Port** |*1433* |
-| **Backend Port** |*1433*. This value will be ignored because this rule uses **Floating IP (direct server return)**. |
-| **Probe** |Use the name of the probe that you created for this load balancer. |
-| **Session persistence** |**None** |
-| **Idle timeout (minutes)** |*4* |
-| **Floating IP (direct server return)** |**Enabled** |
+   | Setting | Value |
+   | --- | --- |
+   | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+   | **Protocol** |**TCP** |
+   | **Port** |*1433* |
+   | **Backend Port** |*1433*. This value will be ignored because this rule uses **Floating IP (direct server return)**. |
+   | **Probe** |Use the name of the probe that you created for this load balancer. |
+   | **Session persistence** |**None** |
+   | **Idle timeout (minutes)** |*4* |
+   | **Floating IP (direct server return)** |**Enabled** |
 
-> [!NOTE]
-> You might have to scroll down on the blade to see all of the settings.
-> 
+   > [!NOTE]
+   > You might have to scroll down on the blade to see all of the settings.
+   > 
 
-* Click **OK**. 
-* Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server that hosts the listener for the availability group. 
+1. Click **OK**. 
+1. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server that hosts the listener for the availability group. 
 
 At this point, the resource group has a load balancer, connecting to both SQL Server machines. The load balancer also contains an IP address for the SQL Server AlwaysOn availability group listener so that either machine can respond to requests for the availability groups.
 
@@ -145,7 +145,7 @@ The next step is to configure the listener on the cluster, and bring the listene
 1. Create the availability group listener on the failover cluster 
 2. Bring the listener online
 
-### 1. Create the availability group listener on the failover cluster
+### 5. Create the availability group listener on the failover cluster
 In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
 
 [!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]

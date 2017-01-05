@@ -1,5 +1,5 @@
 ---
-title: Overview of SQL Server Availability Groups | Azure VM 
+title: SQL Server Availability Groups - Azure Virtual Machines - Overview | Microsoft Docs 
 description: "This article introduces SQL Server Availability Groups on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
