@@ -199,8 +199,8 @@ The API runs all detectors on your time series data and returns anomaly scores a
 
 This output can be parsed using a [simple parser](https://adresultparser.codeplex.com/) - it has sample code that shows how to connect to the API and parse the output. The anomalies detected can be visualized on a dashboard and/or passed on to human experts for corrective actions or integrated into ticketing systems.
 
-[1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection-score.png
-[2]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection-seasonal.png
+[1]: ./media/machine-learning-apps-anomaly-detection-deprecated/anomaly-detection-score.png
+[2]: ./media/machine-learning-apps-anomaly-detection-deprecated/anomaly-detection-seasonal.png
 
 
 
