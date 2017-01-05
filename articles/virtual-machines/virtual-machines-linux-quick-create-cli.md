@@ -18,18 +18,18 @@ ms.author: rasquill
 
 ---
 
-# Create a Linux VM using the Azure CLI 2.0 (Preview)
+# Create a Linux VM using the Azure CLI 2.0 Preview (az.py)
 This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the [az vm create](/cli/azure/vm#create) command using the Azure CLI 2.0 (Preview). 
 
 > [!NOTE] 
-> The Azure CLI 2.0 Preview is our next generation multi-platform CLI. Try it out and let us know what you think on the [GitHub project page](https://github.com/Azure/azure-cli).
+> The Azure CLI 2.0 Preview is our next generation multi-platform CLI. [Try it out.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> The rest of our docs use the existing Azure CLI. To create a VM using the existing Azure CLI and not the CLI 2.0 Preview, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> The rest of our docs use the existing Azure CLI. To create a VM using the existing Azure CLI 1.0 and not the CLI 2.0 Preview, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 To create a VM, you need: 
 
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
+* the [Azure CLI v. 2.0 (Preview)](/cli/azure/install-az-cli2) installed
 * to be logged in to your Azure account (type [az login](/cli/azure/#login))
 
 (You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -38,10 +38,10 @@ The following example shows how to deploy a Debian VM and attach your Secure She
 
 ## Create a resource group
 
-First, type [az resource group create](/cli/azure/resource/group#create) to create your resource group that contains all deployed resources:
+First, type [az group create](/cli/azure/group#create) to create your resource group that contains all deployed resources:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 The output looks like the following (you can choose a different `--output` option if you wish):

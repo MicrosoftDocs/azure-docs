@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/05/2016
 ms.author: cephalin;dariac
 
 ---
@@ -41,7 +41,7 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
     > The **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
     > You can find the same information when you select **Properties** in the left menu. 
     >
-    > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment credentials.
+    > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
     >
     >
 
@@ -55,7 +55,7 @@ use the connection information you gathered to connect to your app.
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
 >
-> - dependency restore
+> - dependency restore (such as NuGet, NPM, PIP, and Composer automations)
 > - compilation of .NET binaries
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 

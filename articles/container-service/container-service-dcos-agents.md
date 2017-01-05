@@ -3,7 +3,7 @@ title: Public and Private DC/OS Agent Pools ACS | Microsoft Docs
 description: How the public and private agent pools work with an Azure Container Service cluster.
 services: container-service
 documentationcenter: ''
-author: Thraka
+author: dlepow
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
-ms.author: timlt
+ms.author: danlep
 
 ---
 # DC/OS Agent Pools for Azure Container Service

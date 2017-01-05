@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/04/2017
 ms.author: cephalin;dariac
 
 ---
@@ -23,10 +23,11 @@ This article helps you determine the best option to deploy the files for your we
 ## <a name="overview"></a>Azure App Service deployment overview
 Azure App Service maintains the application framework for you (ASP.NET, PHP, Node.js, etc). Some frameworks are enabled by default while others, like Java and Python, may need a simple checkmark configuration to enable it. In addition, you can customize your application framework, such as the PHP version or the bitness of your runtime. For more information, see [Configure your app in Azure App Service](web-sites-configure.md).
 
-Since you don't have to worry about the web server or application framework, deploying your app to App Service is a matter of deploying your code, binaries, content files, and their respective directory structure, to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs). App Service supports the following deployment options: 
+Since you don't have to worry about the web server or application framework, deploying your app to App Service is a matter of deploying your code, binaries, content files, and their respective directory structure, to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs). App Service supports three different deployment processes. All the deployment methods in this article use one of the 
+following processes: 
 
 * [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
-* [Kudu (Git/Mercurial or OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): Use the [deployment engine](https://github.com/projectkudu/kudu/wiki) in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) for continuous deployment and other automation tasks. The Kudu deployment engine supports 3 different types of deployment sources:   
+* [Kudu (Git/Mercurial or OneDrive/Dropbox)](https://github.com/projectkudu/kudu/wiki/Deployment): Kudu is the [deployment engine](https://github.com/projectkudu/kudu/wiki) in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) for continuous deployment and other automation tasks. The Kudu deployment engine supports 3 different types of deployment sources:   
   
   * Content sync from OneDrive and Dropbox   
   * Repository-based continuous deployment with auto-sync from GitHub, Bitbucket, and Visual Studio Team Services  
@@ -40,7 +41,7 @@ Popular web development tools support one or more of these deployment processes.
 > 
 > 
 
-## <a name="ftp"></a>Deploy via FTP by copying files to Azure manually
+## <a name="ftp"></a>Deploy manually by uploading files with FTP
 If you are used to manually copying your web content to a web server, you can use an [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) utility to copy files, such as Windows Explorer or [FileZilla](https://filezilla-project.org/).
 
 The pros of copying files manually are:
@@ -56,8 +57,8 @@ The cons of copying files manually are:
 * No built-in deployment history for troubleshooting deployment issues.
 * Potential long deployment times because many FTP tools don't provide diff-only copying and simply copy all the files.  
 
-### <a name="howtoftp"></a>How to deploy by copying files to Azure manually
-The [Azure Portal](https://portal.azure.com) gives you all the information you need to connect to your app using FTP or FTPS.
+### <a name="howtoftp"></a>How to upload files with FTP
+The [Azure Portal](https://portal.azure.com) gives you all the information you need to connect to your app's directories using FTP or FTPS.
 
 * [Deploy your app to Azure App Service using FTP](app-service-deploy-ftp.md)
 
@@ -98,6 +99,9 @@ Con of deploying from a cloud-based source control service is:
 In the [Azure Portal](https://portal.azure.com), you can configure continuous deployment from GitHub, Bitbucket, and Visual Studio Team Services.
 
 * [Continous Deployment to Azure App Service](app-service-continuous-deployment.md). 
+
+To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal (such as [GitLab](https://gitlab.com/)), see
+[Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="localgitdeployment"></a>Deploy from local Git
 If your development team uses an on-premises local source code management (SCM) service based on Git, you can configure this as a deployment source to App Service. 

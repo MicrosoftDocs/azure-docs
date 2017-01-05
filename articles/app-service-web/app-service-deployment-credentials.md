@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/05/2016
 ms.author: dariagrigoriu
 
 ---
@@ -86,7 +86,7 @@ To reset the app-level credentials:
 
 2. Click **...More** > **Reset publish profile**. Click **Yes** to confirm the reset.
 
-    The reset action invalidates all previously-downloaded .PublishSettings files.
+    The reset action invalidates any previously-downloaded .PublishSettings files.
 
 ## Next steps
 
