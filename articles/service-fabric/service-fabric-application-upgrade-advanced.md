@@ -1,5 +1,5 @@
 ---
-title: Application upgrade: advanced topics | Microsoft Docs
+title: Advanced Application Upgrade Topics | Microsoft Docs
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
 services: service-fabric
 documentationcenter: .net
