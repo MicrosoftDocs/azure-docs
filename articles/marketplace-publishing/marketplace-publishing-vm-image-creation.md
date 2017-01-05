@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 
 ---
@@ -139,13 +139,8 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 
     ![drawing][img-portal-vm-rdp]
 6. The cmdlet to download the RDP file for the created VM to the administrator's local desktop is as follows.
-<<<<<<< HEAD
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
-=======
-
-        Get-AzureRemoteDesktopFile -ServiceName “baseimagevm-6820cq00” -Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
->>>>>>> f234ca07d8917009a7d136c108fd28c51a099a55
 
 More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
