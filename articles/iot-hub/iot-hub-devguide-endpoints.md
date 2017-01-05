@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 
 ---
@@ -52,7 +52,7 @@ The [Azure IoT SDKs][lnk-sdks] article describes the various ways to access thes
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
 ## Custom routing endpoints
-You can link existing Azure services in your subscription to your IoT Hub to be used as endpoints for message routing. These act as service endpoints and are used as the "sink" for message routes. Devices cannot directly write to the additional endpoints. To learn more about message routes, please see the developer guide entry on [sending and receiving messages with IoT hub][lnk-devguide-messaging].
+You can link existing Azure services in your subscription to your IoT Hub to be used as endpoints for message routing. These service endpoints are used as "sinks" for message routes. Devices cannot directly write to the additional endpoints. To learn more about message routes, see the developer guide entry on [sending and receiving messages with IoT hub][lnk-devguide-messaging].
 
 IoT Hub currently supports the following Azure services as additional endpoints:
 
@@ -64,12 +64,12 @@ IoT Hub needs write access to these endpoints for message routing to work. If yo
 
 If a message matches multiple routes which all point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you do not need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering. Queues with sessions enabled are not supported as endpoints. Partitioned queues and topics with deduplication enabled are also not supported.
 
-For the limits on the number of endpoints you may add, please see [Quotas and throttling][lnk-devguide-quotas].
+For the limits on the number of endpoints you may add, see [Quotas and throttling][lnk-devguide-quotas].
 
 ## Field gateways
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low-power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
 
-You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDK offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub.
+You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDK offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same IoT Hub connection.
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:

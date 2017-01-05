@@ -370,6 +370,7 @@ and passing the attribute array into `BindAsync<T>()`. For example,
 
 The following table shows you the corresponding .NET attribute to use for each binding type and which package to reference.
 
+> [!div class="mx-codeBreakAll"]
 | Binding | Attribute | Add reference |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
