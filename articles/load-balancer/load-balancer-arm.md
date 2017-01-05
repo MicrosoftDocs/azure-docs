@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Resource Manager support for Load Balancer | Microsoft Docs
 description: Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Using Azure Resource Manager Support with Azure Load Balancer
@@ -39,7 +39,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 Templates can include definitions for Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application. The template file can be checked into content management system for version control and collaboration.
 
-[Learn more about templates](../resource-manager-template-walkthrough.md)
+[Learn more about templates](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
 [Learn more about Network Resources](../virtual-network/resource-groups-networking.md)
 

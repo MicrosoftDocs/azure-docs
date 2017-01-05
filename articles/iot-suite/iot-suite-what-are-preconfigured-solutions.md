@@ -86,7 +86,7 @@ In this preconfigured solution, the ASA jobs form part of to the **IoT solution 
 ## Event processor
 In this preconfigured solution, the event processor forms part of the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
+The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventProcessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
 ## Device identity registry and DocumentDB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.

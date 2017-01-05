@@ -16,6 +16,7 @@
 ## [Create a storage account](azure-stack-provision-storage-account.md)
 ## [Connect with CLI](azure-stack-connect-cli.md)
 ## [Connect with PowerShell](azure-stack-connect-powershell.md)
+## [Install Visual Studio](azure-stack-install-visual-studio.md)
 ## [Frequently asked questions](azure-stack-faq.md)
 
 # Offer services to tenants
@@ -28,6 +29,7 @@
 # Use templates
 ## [Template overview](azure-stack-arm-templates.md)
 ## [Develop templates](azure-stack-develop-templates.md)
+## [Check templates](azure-stack-validate-templates.md)
 ## [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 ## [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -72,10 +74,10 @@
 ### [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
 ## Plan and deploy App Service
-### [Azure Stack Web Apps Overview](azure-stack-app-service-overview.md)
-### [Before you get started with Azure Stack Web Apps](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: Adding more web worker roles](azure-stack-webapps-add-worker-roles.md)
-### [Add a Web Apps resource provider to Azure Stack](azure-stack-app-service-deploy.md)
+### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
+### [Before you get started](azure-stack-app-service-before-you-get-started.md)
+### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
+### [Add an App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md)
 
 # Troubleshoot
 ## [Troubleshoot Azure Stack](azure-stack-troubleshooting.md)

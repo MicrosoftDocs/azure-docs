@@ -1,19 +1,18 @@
-﻿---
+---
 title: Add Log Analytics management solutions | Microsoft Docs
 description: Log Analytics management solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -99,7 +98,7 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 <sup>1</sup>The Capacity Management management solution is not available to be added to workspaces. Customers who have the capacity management solution installed can continue to use the solution.
 
-<sup>2</sup>Wire Data The Wire Data solution is not currently available to be added to workspaces. Customers who already have the Wire Data solution enabled can continue to use it.
+<sup>2</sup>The Wire Data solution is not currently available to be added to workspaces. Customers who already have the Wire Data solution enabled can continue to use it.
 
 
 ### Automation & Control

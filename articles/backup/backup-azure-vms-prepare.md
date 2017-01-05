@@ -14,13 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 12/20/2016
 ms.author: trinadhk; jimpark; markgal;
 
 ---
 # Prepare your environment to back up Azure virtual machines
 > [!div class="op_single_selector"]
-> * [Resource manager model](backup-azure-arm-vms-prepare.md)
+> * [Resource Manager model](backup-azure-arm-vms-prepare.md)
 > * [Classic model](backup-azure-vms-prepare.md)
 >
 >
@@ -32,6 +32,11 @@ Before you can back up an Azure virtual machine (VM), there are three conditions
 * Install the VM agent on the VM.
 
 If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). Otherwise, read on, this article will lead you through the steps to prepare your environment to back up an Azure VM.
+
+##Supported operating system for backup
+ * **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
+ * **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
+
 
 ## Limitations when backing up and restoring a VM
 > [!NOTE]
@@ -46,8 +51,6 @@ If you know these conditions already exist in your environment then proceed to t
 * Cross-region backup and restore is not supported.
 * Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 * Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
-  * **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) except Core OS Linux. Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
-  * **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 * Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 * Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
   * Virtual machines under load balancer configuration (internal and external)
@@ -149,7 +152,7 @@ If you have setup a proxy server on a current user account(not a Local System Ac
 ```
 
 > [!NOTE]
-> If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly.
+> If you observe "(407)Proxy Authentication Required" in proxy server log, check your authentication is setup correctly.
 >
 >
 

@@ -1,5 +1,5 @@
 ---
-title: Manage features and data volume for Application Insights | Microsoft Docs
+title: Manage pricing and data volume for Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: awills
 
 ---
-# Manage features and data volume in Application Insights
+# Manage pricing and data volume in Application Insights
 
 
 Pricing for [Azure Application Insights][start] is based on data volume per application. Low usage during development or for a small app is likely to be free, because there's a free monthly allowance of telemetry data.
@@ -25,7 +25,38 @@ Each Application Insights resource is charged as a separate service, and contrib
 
 There are two pricing plans. The default plan is called Basic. You can opt for the Enterprise plan, which has a daily charge, but enables certain additional features such as [continuous export](app-insights-export-telemetry.md).
 
-[See the pricing plan][pricing].
+
+## The pricing plans
+
+
+[See the pricing plan][pricing] for current charges.
+
+### Basic plan
+
+**Basic** is the default plan. 
+
+* Use this plan unless you want features such as [Continuous Export](app-insights-export-telemetry.md) or [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&clcid=0x409). These aren't available in the Basic plan.
+* In the Basic plan, you are charged per GB of telemetry received at the Application Insights portal.
+* Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
+
+### Enterprise plan
+
+* In the Enterprise plan, your app can use all the features of Application Insights. 
+* You pay per node that is sending telemetry for any apps in the Enterprise plan. 
+ * A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your app.
+ * Development machines and client browsers and devices are not included in this count. 
+ * If your app has several components that send telemetry, such as a web service and a back-end worker, they will be counted separately.
+* Across a subscription, your charges are per node, not per app. If you have five nodes sending telemetry for 12 apps, then the charge is for five nodes.
+* Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge / 744. If your app scales to use more servers at a 
+* For each node that sends telemetry (from one or more Enterprise apps) in any hour, you get a quota of telemetry. This is accumulated over the day and across all Enterprise apps in your Azure subscription. At the end of each day (midnight UTC), a charge is made for any telemetry that your Enterprise apps have sent beyond the accumulated quota. 
+* Quota is not carried over from one day to the next.
+
+
+### Multi-step web tests
+
+There's an additional charge for [**Multi-step web tests**](app-insights-monitor-web-app-availability.md#multi-step-web-tests). This refers to web tests that perform a sequence of actions. 
+
+There is no separate charge for 'ping tests' of a single page. Telemetry from both ping tests and multi-step tests is charged along with other telemetry from your app.
 
 ## Review pricing plan for your Application Insights resource
 Open the Features + Pricing blade in the Application Insights resource for your application.
@@ -103,6 +134,11 @@ To discover the actual sampling rate no matter where it has been applied, use an
     | render areachart 
 
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of  previous discarded records. 
+
+
+## Transition from the old pricing tiers
+
+Existing applications can continue to use the old pricing tiers until February 2017. A that time, most applications will be automatically moved to the Basic plan. Those that are using continuous export or the connector for OMS Log Analytics will be moved to the Enterprise plan.
 
 
 ## Limits summary

@@ -26,7 +26,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 > 
 
 ## Create core resources
-Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md). Log in to your Azure account:
+Make sure that you have the [latest Azure PowerShell installed and configured](/powershell/azureps-cmdlets-docs). Log in to your Azure account:
 
 ```powershell
 Login-AzureRmAccount
@@ -139,7 +139,7 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../resource-group-create-multiple.md). 
+Read more about [creating multiple instances using *copy*](../azure-resource-manager/resource-group-create-multiple.md). 
 
 You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `MyNic2`, etc. The following shows an example of appending the index value:
 

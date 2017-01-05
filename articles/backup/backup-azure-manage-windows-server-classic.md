@@ -26,7 +26,8 @@ ms.author: jimpark;markgal
 
 In this article you'll find an overview of the backup management tasks available through the Azure classic portal and the Microsoft Azure Backup agent.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Management portal tasks
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).

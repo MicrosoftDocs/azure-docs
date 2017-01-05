@@ -86,7 +86,7 @@ Service Bus does not support transactions for receive-and-delete operations. In 
 ## Client-side batching
 Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue/subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching does not occur for peek or receive operations, nor does batching occur across clients.
 
-If the batch exceeds the maximum message size, the last message is removed from the batch, and the client immediately sends the batch. The last message becomes the first message of the next batch. By default, a client uses a batch interval of 20ms. You can change the batch interval by setting the [BatchFlushInterval][BatchFlushInterval] property before creating the messaging factory. This setting affects all clients that are created by this factory.
+By default, a client uses a batch interval of 20ms. You can change the batch interval by setting the [BatchFlushInterval][BatchFlushInterval] property before creating the messaging factory. This setting affects all clients that are created by this factory.
 
 To disable batching, set the [BatchFlushInterval][BatchFlushInterval] property to **TimeSpan.Zero**. For example:
 
