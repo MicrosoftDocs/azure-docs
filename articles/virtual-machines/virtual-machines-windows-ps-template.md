@@ -15,7 +15,7 @@
   ms.tgt_pltfrm="vm-windows"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="01/04/2017"
+  ms.date="01/06/2017"
   ms.author="davidmu"/>
 
 # Create a Windows virtual machine with a Resource Manager template
@@ -46,11 +46,13 @@ All resources must be deployed in a [resource group](../azure-resource-manager/r
    
   You should see something like this example:
 
+  ```
   ResourceGroupName : myResourceGroup
   Location          : centralus
   ProvisioningState : Succeeded
   Tags              :
   ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
+  ```
 
 ## Step 3: Create the resources
 Deploy the template and provide parameter values when prompted. This example deploys the 101-vm-simple-windows template in the resource group that you created:
@@ -62,6 +64,7 @@ You are asked to provide the name of the administrator account on the VM, the pa
 
 You should see something like this example:
 
+```
 DeploymentName    : azuredeploy
 ResourceGroupName : myResourceGroup
 ProvisioningState : Succeeded
@@ -83,6 +86,7 @@ Outputs           :
                     ===============  =========================  ===========
                     hostname         String                     myDomain.centralus.cloudapp.azure.com
 DeploymentDebugLogLevel :
+```
 
 > [!NOTE]
 > You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
