@@ -215,13 +215,12 @@ For example, how many unique make of cars passed through the toll booth in a 2 s
 **Solution:**
 
 ````
-    SELECT
-        COUNT(DISTINCT Make) AS CountMake,
-         System.Timestamp AS Time        
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-          TumblingWindow(second, 2)
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
 ````
 
 
