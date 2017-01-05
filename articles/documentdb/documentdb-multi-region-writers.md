@@ -51,7 +51,6 @@ Notifications are data feeds specific to a user. Therefore, the access patterns 
 			get 
 			{ 
 				return this.UserId; 
-				} 
 			}
 		}
 
@@ -155,21 +154,30 @@ Now let's take a look at the main data access methods we need to implement. Here
 		public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
 	}
 
-## <a id="Architecture"></a>Architecture
-To achieve the local read and writes for related data in a globally distributed setup more specifically in cases where both publishers and consumers are globally distributed, in addition to partitioning data based on partition key, data is also partitioned based on geographical access pattern as follows.
-
-The below listing describes a model for 2 regions, but this model can be extended to N regions. The model relies on having a Geo replicated database account for every region as follows:
+## <a id="Architecture"></a>DocumentDB architecture
+In order to guarantee local reads and writes, we must partition data not just on partition key, but also based on the geographical access pattern into regions. The model relies on having a geo-replicated Azure DocumentDB database account for each region. For example, with two regions, here's a setup for multi-region writes:
 
 | Account Name | Write Region | Read Region |
 | --- | --- | --- |
-| Account A-B |A |B |
-| Account B-A |B |A |
+| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
+| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
-With the above setup, Data access layer based on location of deployment can forward all writes to the account which is local. Reads are performed by reading from both accounts to get the global view of data.
+With the above setup, Data access layer based on location of deployment can forward all writes to the account which is local. Reads are performed by reading from both accounts to get the global view of data. This can be extended to as many regions as required. For example, here's a setup with three geographic regions:
+
+| Account Name | Write Region | Read Region 1 | Read Region 2 |
+| --- | --- | --- | --- |
+| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
+| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
+| `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 
 ## <a id="DataAccessImplementation"></a>Data Access Layer Implementation
-Based on location of the deployment of the data access layer (DAL), it can resolve statically the account which is writable local vs accounts which are readable local. It can create multiple instances of `DocumentClient` for every account and store them in member variable write Client & read Client. With the above setup various access methods can be implemented as follows.
+Now let's take a look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must do the following:
+
+* Create multiple instances of `DocumentClient` for each account. With two regions, each DAL instance will have one `writeClient` and one `readClient`. 
+* Based on the deployed region of the application, configure the endpoints for `writeclient` and `readClient`. For example, the DAL deployed in `West US` will use `contentpubdatabase-usa.documents.azure.com` for performing writes. The DAL deployed in `NorthEurope` will use `contentpubdatabase-europ.documents.azure.com` for writes.
+
+With the above setup, the data access methods can be implemented. Write operations simply forward the write to the corresponding `writeClient`.
 
     public async Task CreateSubscriptionAsync(string userId, string category)
     {
@@ -191,10 +199,19 @@ Based on location of the deployment of the data access layer (DAL), it can resol
         });
     }
 
+For reading notifications and reviews, you must read from both regions and union the results as shown below:
+
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
-        IDocumentQuery<Notification> writeAccountNotification = (from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) where notification.UserId == userId select notification).AsDocumentQuery();
-        IDocumentQuery<Notification> readAccountNotification = (from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) where notification.UserId == userId select notification).AsDocumentQuery();
+        IDocumentQuery<Notification> writeAccountNotification = (
+        	from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
+        	where notification.UserId == userId 
+        	select notification).AsDocumentQuery();
+        
+        IDocumentQuery<Notification> readAccountNotification = (
+        	from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
+        	where notification.UserId == userId 
+        	select notification).AsDocumentQuery();
 
         List<Notification> notifications = new List<Notification>();
 
@@ -257,6 +274,8 @@ Based on location of the deployment of the data access layer (DAL), it can resol
 Thus, by choosing a good partitioning key and static account based partitioning based, you can achieve multi-region local writes and reads using Azure DocumentDB.
 
 ## <a id="NextSteps"></a>Next Steps
+In this article, we described how you can use globally distributed multi-region read write patterns with DocumentDB using content publishing as a sample scenario.
+
 * Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
 * Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
 * Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
