@@ -298,6 +298,3 @@ Use the following PowerShell cmdlets to create an internal load balancer for Azu
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) removes a load balancer from an Azure resource group.
 
-
-## Next steps
-

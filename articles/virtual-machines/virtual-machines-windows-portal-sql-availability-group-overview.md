@@ -49,6 +49,3 @@ You can also create the virtual machines yourself without the template. First, c
 ## Configure Load balancers
 
 [Create a load balancer for the availability group listener](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-
-## Concepts
-

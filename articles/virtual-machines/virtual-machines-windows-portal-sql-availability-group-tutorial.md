@@ -20,11 +20,7 @@ ms.author: mikeray
 
 ---
 
-# Create Always On Availability Group to improve availability and disaster recovery #
-> [!div class="op_single_selector"]
-> * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> * [Resource Manager: Manual Prereq](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-> * [Resource Manager: Manual Tutorial](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+# Create Always On Availability Group to improve availability and disaster recovery
 
 This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers. 
 
@@ -379,7 +375,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
    | Setting | Description | Example
    | --- | --- |---
-   | |**Name** | Text | SQLLBBE
+   | **Name** | Type a text name | SQLLBBE
    | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
    | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1 
 
