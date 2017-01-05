@@ -45,7 +45,7 @@ The following considerations apply:
 * The current version of Media Services SDK does not support creating a locator with a specified locator id. To achieve this task, we will use Media Services REST API.
 * The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. To achieve this task, we will use the CreateFileInfos Media Services REST API. 
 * Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (since the encryption key will be different in both Media Services accounts). 
-* If you want to take advantage of dynamic packaging, you must first get at least one On-demand Streaming reserved units. For more information, see [Dynamically Packaging Assets](media-services-dynamic-packaging-overview.md).
+* If you want to take advantage of dynamic packaging, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 
 > [!NOTE]
 > Consider using the Media Services [Replicator Tool](http://replicator.codeplex.com/) as an alternative to implementing a failover streaming scenario manually. This tool allows you to replicate assets across two Media Services accounts.

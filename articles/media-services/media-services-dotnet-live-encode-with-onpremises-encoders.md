@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/31/2016
-ms.author: cenkd;juliako
+ms.date: 01/04/2017
+ms.author: cenkdin;juliako
 
 ---
 # How to perform live streaming with on-premise encoders using .NET
@@ -55,6 +55,9 @@ The following code example demonstrates how to achieve the following tasks:
 * Get locators for all your streaming endpoints
 * Shut down resources
 
+>[!NOTE]
+>Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
+	
 For information on how to configure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;

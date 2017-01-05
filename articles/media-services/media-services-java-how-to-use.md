@@ -21,9 +21,9 @@ ms.author: juliako
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## Setting Up an Azure Account for Media Services
-To set up your Media Services account, use the Azure portal. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md). After creating your account in the Azure portal, you are ready to set up your computer for Media Services development.
 
-## Setting up for Media Services development
+To set up your Media Services account, use the Azure portal. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md). After creating your account in the Azure portal, you are ready to set up your computer for Media Services development.
+ 
 This section contains general prerequisites for Media Services development using the Media Services SDK for Java.
 
 ### Prerequisites
@@ -31,6 +31,10 @@ This section contains general prerequisites for Media Services development using
 * The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][Azure Java Developer Center].
 
 ## How to: Use Media Services with Java
+
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
 You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).

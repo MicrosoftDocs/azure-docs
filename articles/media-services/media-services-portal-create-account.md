@@ -66,7 +66,10 @@ The steps in this section show how to create an AMS account.
    6. Select **Pin to dashboard** to see the progress of the account deployment.
 4. Click **Create** at the bottom of the form.
    
-    Once the account is successfully created, the status changes to **Running**. 
+    Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in the **Stopped** state. 
+
+    >[!NOTE]
+    >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
    
     ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
    

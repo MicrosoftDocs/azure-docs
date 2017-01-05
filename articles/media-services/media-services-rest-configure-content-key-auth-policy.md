@@ -40,7 +40,7 @@ For more information, see
 [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
 ### Some considerations apply:
-* To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one  streaming reserved unit. For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
+* To be able to use dynamic packaging and dynamic encryption, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 * Your asset must contain a set of adaptive bitrate MP4s or  adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
 * Upload and encode your assets using **AssetCreationOptions.StorageEncrypted** option.
 * If you plan to have multiple content keys that require the same policy configuration, it is strongly recommended to create a single authorization policy and reuse it with multiple content keys.

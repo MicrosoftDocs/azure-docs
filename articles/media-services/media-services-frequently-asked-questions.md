@@ -25,7 +25,7 @@ A: The reserved units are the same for Encoding and Indexing tasks. Follow instr
 
 Q: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
 
-A: One of the most common reasons is you do not have at least one reserved streaming unit allocated on the streaming endpoint from which you are trying to playback.  Follow instructions on [How to Scale Streaming Reserved Units](media-services-portal-scale-streaming-endpoints.md).
+A: One of the most common reasons is you do not have the streaming endpoint from which you are trying to playback in the **Running** state.  
 
 Q: Can I do compositing on a live stream?
 

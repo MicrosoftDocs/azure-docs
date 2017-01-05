@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: juliako
 
 ---
@@ -45,13 +45,13 @@ The following prerequisites are required to start developing with Media Services
 The following tasks are shown in this quickstart.
 
 1. Create a Media Services account (using the Azure portal).
-2. Configure streaming endpoint (using the Azure portal).
+2. Start streaming endpoint (using the Azure portal).
 3. Connect to the Media Services account with REST API.
 4. Create a new asset and upload a video file with REST API.
-5. Configure streaming units with REST API.
-6. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
-7. Publish the asset and get streaming and progressive download URLs with REST API.
-8. Play your content.
+5. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
+6. Publish the asset and get streaming and progressive download URLs with REST API. 
+7. Play your content. 
+ 
 
 For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
 
@@ -82,33 +82,22 @@ The steps in this section show how to create an AMS account.
 
     To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
-## Configure streaming endpoints using the Azure portal
-When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+## Start streaming endpoints using the Azure portal
 
-Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
-To take advantage of dynamic packaging, you need to do the following:
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-* Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
-* Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
+To start the streaming endpoint, do the following:
 
-With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
+1. In the Settings window, click Streaming endpoints. 
+2. Click the default streaming endpoint. 
 
-To create and change the number of streaming reserved units, do the following:
+	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
-1. In the **Settings** window, click **Streaming endpoints**.
-2. Click the default streaming endpoint.
-
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
-3. To specify the number of streaming units, slide the **Streaming units** slider.
-
-    ![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Click the **Save** button to save your changes.
-
-   > [!NOTE]
-   > The allocation of any new units can take up to 20 minutes to complete.
-   >
-   >
+3. Click the Start icon.
+4. Click the Save button to save your changes.
 
 ## <a id="connect"></a>Connect to the Media Services account with REST API
 Two things are required when accessing Azure Media Services: an access token provided by Azure Access Control Services (ACS), and the URI of Media Services itself. You can use any means you want when creating these requests as long as you specify the correct header values and pass in the access token correctly when calling into Media Services.
@@ -575,135 +564,12 @@ If successful, the following is returned:
     HTTP/1.1 204 No Content
     ...
 
-
-## <a id="configure_streaming_units"></a>Configure streaming units with REST API
-When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
-
-Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) without you having to repackage into these streaming formats.
-
-To take advantage of dynamic packaging, you need to do the following:
-
-* get at least one streaming unit for the **streaming endpoint** from which you plan to deliver your content (described in this section).
-* encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
-
-With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
-
-> [!NOTE]
-> For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
->
->
-
-To change the number of streaming reserved units, do the following:
-
-### Get the streaming endpoint you want to update
-For example, let's get the first streaming endpoint in your account (you can have up to two streaming endpoints in running state at the same time.)
-
-**HTTP Request**:
-
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints()?$top=1 HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json;odata=verbose
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-    x-ms-version: 2.11
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-**HTTP Response**
-
-If successful, the following is returned:
-
-    HTTP/1.1 200 OK
-    . . .
-
-### Scale the streaming endpoint
-**HTTP Request**:
-
-    POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json;odata=verbose
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-    x-ms-version: 2.11
-    x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-    {"scaleUnits":1}
-
-**HTTP Response**
-
-    HTTP/1.1 202 Accepted
-    Cache-Control: no-cache
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
-    request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
-    x-ms-request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
-    operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 1.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Fri, 16 Jan 2015 22:16:43 GMT
-    Content-Length: 0
-
-
-### <a id="long_running_op_status"></a> Check on the status of a long-running operation
-The allocation of any new units takes around 20 minutes to complete. To check the status of the operation use the **Operations** method and specify the Id of the operation. The operation Id was returned in the response to the **Scale** request.
-
-    operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
-
-**HTTP Request**:
-
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7') HTTP/1.1
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json;odata=verbose
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-    x-ms-version: 2.11
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-**HTTP Response**
-
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Content-Length: 515
-    Content-Type: application/json;odata=verbose;charset=utf-8
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 829e1a89-3ec2-4836-a04d-802b5aeff5e8
-    request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
-    x-ms-request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 1.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Fri, 16 Jan 2015 22:57:39 GMT
-
-    {  
-       "d":{  
-          "__metadata":{  
-             "id":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
-             "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
-             "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Operation"
-          },
-          "Id":"nb:opid:UUID:cc339c28-6bba-4f7d-bee5-91ea4a0a907e",
-          "State":"Succeeded",
-          "TargetEntityId":"nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486",
-          "ErrorCode":null,
-          "ErrorMessage":null
-       }
-    }
-
-
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
 After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](/rest/api/media/services/job), [Task](/rest/api/media/services/task) descriptions).
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
-
-To take advantage of dynamic packaging, you need to do the following:
-
-* encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files,  
-* get at least one streaming unit for the streaming endpoint from which you plan to deliver your content.
-
+ 
 The following section shows how to create a job that contains one encoding task. The task specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The section also shows how to monitor the job processing progress. When the job is complete, you would be able to create locators that are needed to get access to your assets.
 
 ### Get a media processor
@@ -992,6 +858,9 @@ The following code shows how to request the output asset Id.
 To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files. For more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
 Once you create the locators, you can build the URLs that are used to stream or download your files.
+
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 A streaming URL for Smooth Streaming has the following format:
 
