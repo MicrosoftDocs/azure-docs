@@ -47,7 +47,7 @@ Single sign on is supported via web browser based clients and Office clients tha
 *Requires separate configuration.
 
 >[!NOTE]
->For Windows 10 based clients, the recommendation is to use [Azure AD join](active-directory-azureadjoin-overview.md) for the best experience with Azure AD.
+>For Windows 10 based clients, the recommendation is to use [Azure AD join](../active-directory-azureadjoin-overview.md) for the best experience with Azure AD.
 
 ## How single sign on works
 
@@ -70,7 +70,7 @@ Single sign on is an opportunistic feature, which means that if it fails for som
 ## Enabling SSO with Pass-through Authentication or Password Hash Sync
 Azure AD Connect provides a simple process to enable single sign on with Pass-through authentication or Password hash sync.  You will need to ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account.  The username and password is not stored in Azure AD Connect or Azure AD and are used only for this operation.
 
-When installing Azure AD Connect select a custom installation so that you are able to select the single sign on option on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](connect\active-directory-aadconnect-get-started-custom.md).
+When installing Azure AD Connect select a custom installation so that you are able to select the single sign on option on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso3.png)
 
