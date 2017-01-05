@@ -1,5 +1,5 @@
 ---
-title: 'Machine Learning app: Anomaly Detection Service (deprecated) | Microsoft Docs'
+title: Machine Learning app: Anomaly Detection Service (deprecated) | Microsoft Docs
 description: (deprecated) Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 services: machine-learning
 documentationcenter: ''
@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 01/03/2017
+ms.date: 01/05/2017
 ms.author: alok
 
 ---
 # Machine Learning Anomaly Detection Service (deprecated)
 > [!NOTE]
-> You can now deploy this API into your Azure subscription using the new **signup** option in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). The method described in this article of accessing the API through the Azure Datamarket has been deprecated. 
+> You can now deploy this API into your Azure subscription using the new **signup** option in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). See [Machine Learning Anomaly Detection API](machine-learning-apps-anomaly-detection-api.md) for more information.
+> 
+> The method described in this article of accessing the API through the Azure Datamarket has been deprecated.
 
 ## Overview
 [Anomaly Detection API (Deprecated)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time. 
