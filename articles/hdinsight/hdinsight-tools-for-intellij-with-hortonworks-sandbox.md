@@ -58,7 +58,7 @@ In this section, you create a sample project using IntelliJ. In the next section
 5. Click **Finish**.
 6. Press **[ALT]+1** to open the Project view.
 7. From **Project explorer**, expand the project, and then click **src**.
-8. Right-click **src**, point to **New, and then click **Scala class**.
+8. Right-click **src**, point to **New**, and then click **Scala class**.
 9. Enter a name, select **Object** in **Kind**, and then click **OK**.
 10. In the scala file, paste the following code:
 
@@ -70,30 +70,30 @@ In this section, you create a sample project using IntelliJ. In the next section
         * Usage: GroupByTest [numMappers] [numKVPairs] [valSize] [numReducers]
         */
         object GroupByTest {
-        def main(args: Array[String]) {
-            val sparkConf = new SparkConf().setAppName("GroupBy Test")
-            var numMappers = 3
-            var numKVPairs = 10
-            var valSize = 10
-            var numReducers = 2
+            def main(args: Array[String]) {
+                val sparkConf = new SparkConf().setAppName("GroupBy Test")
+                var numMappers = 3
+                var numKVPairs = 10
+                var valSize = 10
+                var numReducers = 2
 
-            val sc = new SparkContext(sparkConf)
+                val sc = new SparkContext(sparkConf)
 
-            val pairs1 = sc.parallelize(0 until numMappers, numMappers).flatMap { p =>
-            val ranGen = new Random
-            var arr1 = new Array[(Int, Array[Byte])](numKVPairs)
-            for (i <- 0 until numKVPairs) {
-                val byteArr = new Array[Byte](valSize)
-                ranGen.nextBytes(byteArr)
-                arr1(i) = (ranGen.nextInt(Int.MaxValue), byteArr)
+                val pairs1 = sc.parallelize(0 until numMappers, numMappers).flatMap { p =>
+                val ranGen = new Random
+                var arr1 = new Array[(Int, Array[Byte])](numKVPairs)
+                for (i <- 0 until numKVPairs) {
+                    val byteArr = new Array[Byte](valSize)
+                    ranGen.nextBytes(byteArr)
+                    arr1(i) = (ranGen.nextInt(Int.MaxValue), byteArr)
+                }
+                arr1
+                }.cache
+                // Enforce that everything has been calculated and in cache
+                pairs1.count
+
+                println(pairs1.groupByKey(numReducers).count)
             }
-            arr1
-            }.cache
-            // Enforce that everything has been calculated and in cache
-            pairs1.count
-
-            println(pairs1.groupByKey(numReducers).count)
-        }
         }
 
 11. From the **Build** menu, click **Build project**. Make sure the compilation is completed successfully.
