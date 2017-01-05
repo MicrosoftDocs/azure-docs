@@ -59,7 +59,7 @@ After you select the image, you can use the default settings and quickly create 
 7. Click **Summary** to review your choices. When you see the **Validation passed** message, click **OK**.
    
     ![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-8. While Azure creates the virtual machine, you can track the progress in **Virtual Machines** on the hub menu. 
+8. While Azure creates the virtual machine, you can track the progress by clicking on **Virtual Machines** on the hub menu. When the VM has been created, the status will change to **Running**.
 
 ## Connect to the virtual machine and sign on
 1. On the hub menu, click **Virtual Machines**.
