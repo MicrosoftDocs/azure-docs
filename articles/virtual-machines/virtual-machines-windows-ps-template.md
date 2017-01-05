@@ -46,13 +46,11 @@ All resources must be deployed in a [resource group](../azure-resource-manager/r
    
   You should see something like this example:
 
-  ```powershell
   ResourceGroupName : myResourceGroup
   Location          : centralus
   ProvisioningState : Succeeded
   Tags              :
   ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
-  ```
 
 ## Step 3: Create the resources
 Deploy the template and provide parameter values when prompted. This example deploys the 101-vm-simple-windows template in the resource group that you created:
@@ -64,7 +62,6 @@ You are asked to provide the name of the administrator account on the VM, the pa
 
 You should see something like this example:
 
-```powershell
 DeploymentName    : azuredeploy
 ResourceGroupName : myResourceGroup
 ProvisioningState : Succeeded
@@ -86,7 +83,6 @@ Outputs           :
                     ===============  =========================  ===========
                     hostname         String                     myDomain.centralus.cloudapp.azure.com
 DeploymentDebugLogLevel :
-```
 
 > [!NOTE]
 > You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
