@@ -1075,8 +1075,8 @@ _**Table 4:** Change the second TCP/IP parameter_
 
 Setting up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS instance involves these tasks:
 
-1. Collecting the cluster nodes in a cluster configuration.
-2. Configuring a cluster file share witness.
+- Collecting the cluster nodes in a cluster configuration.
+- Configuring a cluster file share witness.
 
 #### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Collect the cluster nodes in a cluster configuration
 
@@ -1161,8 +1161,8 @@ Setting up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS inst
 
 Configuring a cluster file share witness involves these tasks:
 
-1. Creating a file share.
-2. Setting the file share witness quorum in Failover Cluster Manager.
+- Creating a file share.
+- Setting the file share witness quorum in Failover Cluster Manager.
 
 ##### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Create a file share
 
@@ -1241,9 +1241,9 @@ You now have a working Windows Server Failover Clustering configuration in Azure
 
 Installing SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk involves these tasks:
 
-1. Adding the .NET Framework 3.5.
-2. Installing SIOS DataKeeper.
-3. Setting up SIOS DataKeeper.
+- Adding the .NET Framework 3.5.
+- Installing SIOS DataKeeper.
+- Setting up SIOS DataKeeper.
 
 #### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Add the .NET Framework 3.5
 The Microsoft .NET Framework 3.5 isn't automatically activated or installed on Windows Server 2012 R2. Because SIOS DataKeeper requires the .NET Framework to be on all nodes that you install DataKeeper on, you must install the .NET Framework 3.5 on the guest operating system of all virtual machines in the cluster.
@@ -1398,12 +1398,11 @@ There are no special considerations when different DBMS services interact with t
 
 Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
-1. Creating a virtual host name for the clustered SAP ASCS/SCS instance.
-2. Installing the SAP first cluster node.
-3. Modifying the SAP profile of the ASCS/SCS instance.
-4. Adding a probe port.
-5. Opening the Windows firewall probe port.
-
+- Creating a virtual host name for the clustered SAP ASCS/SCS instance.
+- Installing the SAP first cluster node.
+- Modifying the SAP profile of the ASCS/SCS instance.
+- Adding a probe port.
+- Opening the Windows firewall probe port.
 
 #### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Create a virtual host name for the clustered SAP ASCS/SCS instance
 
