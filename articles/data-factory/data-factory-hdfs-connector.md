@@ -50,152 +50,162 @@ As a first step, set up the data management gateway. The instructions in the [mo
 **HDFS linked service**
 This example uses the Windows authentication. See [HDFS linked service](#hdfs-linked-service-properties) section for different types of authentication you can use.
 
+```JSON
+{
+    "name": "HDFSLinkedService",
+    "properties":
     {
-        "name": "HDFSLinkedService",
-        "properties":
+        "type": "Hdfs",
+        "typeProperties":
         {
-            "type": "Hdfs",
-            "typeProperties":
-            {
-                "authenticationType": "Windows",
-                "userName": "Administrator",
-                "password": "password",
-                "url" : "http://<machine>:50070/webhdfs/v1/",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Windows",
+            "userName": "Administrator",
+            "password": "password",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
         }
     }
+}
+```
 
 **Azure Storage linked service**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **HDFS input dataset**
 This dataset refers to the HDFS folder DataTransfer/UnitTest/. The pipeline copies all the files in this folder to the destination.
 
 Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
-    {
-        "name": "InputDataset",
-        "properties": {
-            "type": "FileShare",
-            "linkedServiceName": "HDFSLinkedService",
-            "typeProperties": {
-                "folderPath": "DataTransfer/UnitTest/"
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                "interval":  1
-            }
+```JSON
+{
+    "name": "InputDataset",
+    "properties": {
+        "type": "FileShare",
+        "linkedServiceName": "HDFSLinkedService",
+        "typeProperties": {
+            "folderPath": "DataTransfer/UnitTest/"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
         }
     }
+}
+```
 
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-    {
-        "name": "OutputDataset",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/hdfs/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```JSON
+{
+    "name": "OutputDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/hdfs/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
 
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use these input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
+```JSON
+{
+    "name": "pipeline",
+    "properties":
     {
-        "name": "pipeline",
-        "properties":
-        {
-            "activities":
-            [
+        "activities":
+        [
+            {
+                "name": "HdfsToBlobCopy",
+                "inputs": [ {"name": "InputDataset"} ],
+                "outputs": [ {"name": "OutputDataset"} ],
+                "type": "Copy",
+                "typeProperties":
                 {
-                    "name": "HdfsToBlobCopy",
-                    "inputs": [ {"name": "InputDataset"} ],
-                    "outputs": [ {"name": "OutputDataset"} ],
-                    "type": "Copy",
-                    "typeProperties":
+                    "source":
                     {
-                        "source":
-                        {
-                            "type": "FileSystemSource"
-                        },
-                        "sink":
-                        {
-                            "type": "BlobSink"
-                        }
+                        "type": "FileSystemSource"
                     },
-                    "policy":
+                    "sink":
                     {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1,
-                        "timeout": "00:05:00"
+                        "type": "BlobSink"
                     }
+                },
+                "policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "00:05:00"
                 }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z"
     }
+}
+```
 
 ## HDFS Linked Service properties
 The following table provides description for JSON elements specific to HDFS linked service.
@@ -213,38 +223,43 @@ The following table provides description for JSON elements specific to HDFS link
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for on-premises HDFS.
 
 ### Using Anonymous authentication
+
+```JSON
+{
+    "name": "hdfs",
+    "properties":
     {
-        "name": "hdfs",
-        "properties":
+        "type": "Hdfs",
+        "typeProperties":
         {
-            "type": "Hdfs",
-            "typeProperties":
-            {
-                "authenticationType": "Anonymous",
-                "userName": "hadoop",
-                "url" : "http://<machine>:50070/webhdfs/v1/",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Anonymous",
+            "userName": "hadoop",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
         }
     }
-
+}
+```
 
 ### Using Windows authentication
+ 
+```JSON
+{
+    "name": "hdfs",
+    "properties":
     {
-        "name": "hdfs",
-        "properties":
+        "type": "Hdfs",
+        "typeProperties":
         {
-            "type": "Hdfs",
-            "typeProperties":
-            {
-                "authenticationType": "Windows",
-                "userName": "Administrator",
-                "password": "password",
-                "url" : "http://<machine>:50070/webhdfs/v1/",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Windows",
+            "userName": "Administrator",
+            "password": "password",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
         }
     }
+}
+```
 
 ## Use Kerberos authentication for HDFS connector
 There are two options to set up the on-premises environment so as to use Kerberos Authentication in HDFS connector. You can choose the one better fits your case.
@@ -412,25 +427,29 @@ As mentioned in the previous section, you can specify a dynamic folderPath, file
 To learn more about time series datasets, scheduling, and slices, see [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles.
 
 #### Sample 1:
-    "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy":
-    [
-        { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-    ],
 
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
 In this example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
 
 #### Sample 2:
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy":
-     [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-    ],
 
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
 In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]

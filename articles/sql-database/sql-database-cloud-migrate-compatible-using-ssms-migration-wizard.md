@@ -48,7 +48,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 4. In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your SQL Database server.
    
    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server.
+5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server. To get the server name for an existing server, go to [View and update an SQL SErver Database server and its settings](sql-database-view-update-server-settings.md).
    
     ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:

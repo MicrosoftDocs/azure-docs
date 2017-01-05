@@ -10,6 +10,7 @@
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
+### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
@@ -24,7 +25,6 @@
 # How To
 
 ## Plan
-### [Storage and performance](documentdb-manage.md)
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
@@ -39,8 +39,6 @@
 ### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
 ### [Performance levels](documentdb-performance-levels.md)
-### [Resource quotas](documentdb-limits.md)
-### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
 ### Azure CLI
 #### [Create an account](documentdb-automation-resource-manager-cli.md)
