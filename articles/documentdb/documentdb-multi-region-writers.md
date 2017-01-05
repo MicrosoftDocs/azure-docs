@@ -34,6 +34,8 @@ Let's look at a real world scenario to describe how you can use globally distrib
 
 Assuming millions of consumers and publishers with billions of articles, soon we will have to confront the problems of scale along with guaranteeing locality of access. As with most scalability problems, the solution lies in a good partitioning strategy. Next, let's take a look at how to model these entities like articles, review, and notifications as documents, how to partition them into collections, and how to choose the right partition key for each kind of document. 
 
+If you would like to learn more about partitioning and partition keys, please see [Partitioning and Scaling in Azure DocumentDB](documentdb-partition-data.md).
+
 ## <a id="ModelingNotifications"></a>Modeling Notifications
 Notifications are data feeds specific to a user. Therefore, the access patterns for notifications documents are always in the context of single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user". So, the optimal choice of partitioning key for this type would be `UserId`.
 
