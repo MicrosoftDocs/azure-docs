@@ -104,7 +104,7 @@ Generally when a service cannot be reached it means the service instance or repl
 However, replicas or service instances can share a host process and may also share a port when hosted by an http.sys-based web server, including:
 
 * [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
-* [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
+* [ASP.NET Core WebListener](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
 In this situation it is likely that the web server is available in the host process and responding to requests but the resolved service instance or replica is no longer available on the host. In this case, the gateway will receive an HTTP 404 response from the web server. As a result, an HTTP 404 has two distinct meanings:
