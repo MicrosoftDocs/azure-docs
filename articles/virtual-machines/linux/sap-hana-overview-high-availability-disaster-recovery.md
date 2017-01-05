@@ -1,5 +1,5 @@
 ---
-title: High availability and disaster recovery of SAP HANA on Azure ((large instances)) | Microsoft Docs
+title: High availability and disaster recovery of SAP HANA on Azure (large instances) | Microsoft Docs
 description: Establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances).
 services: virtual-machines-linux
 documentationcenter:
@@ -25,7 +25,7 @@ High availability and disaster recovery are important aspects of running your mi
 Microsoft supports SAP HANA high-availability methods "out of the box," which include:
 
 - **Storage replication:** The storage system's ability to replicate all data to another location (within, or separate from, the same data center). SAP HANA operates independently of this method.
-- **HANA system replication:** The replication of all data in SAP HANA to a separate SAP HANA system. The recovery time objective is minimized through data replication at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended only for SAP HANA systems that are within the same data center or less than 100 KM apart). In the current design of HANA large instance stamps, HANA system replication can be used for high availability only.
+- **HANA system replication:** The replication of all data in SAP HANA to a separate SAP HANA system. The recovery time objective is minimized through data replication at regular intervals. SAP HANA supports asynchronous, synchronous in-memory, and synchronous modes (recommended only for SAP HANA systems that are within the same data center or less than 100 KM apart). In the current design of HANA large-instance stamps, HANA system replication can be used for high availability only.
 - **Host auto-failover:** A local fault-recovery solution to use as an alternative to system replication. When the master node becomes unavailable, one or more standby SAP HANA nodes are configured in scale-out mode and SAP HANA automatically fails over to another node.
 
 For more information on SAP HANA high availability, see the following SAP information:
@@ -39,7 +39,7 @@ For more information on SAP HANA high availability, see the following SAP inform
 
 ## Disaster recovery
 
-SAP HANA on Azure (large instances) is offered in two Azure regions in a geo-political region. Between the two large instance stamps of two different regions is a direct network connectivity for replicating data during disaster recovery. The replication of the data is storage-infrastructure based. The replication is not done by default. It is done for the customer configurations that ordered the disaster recovery. In the current design, HANA system replication can't be used for disaster recovery.
+SAP HANA on Azure (large instances) is offered in two Azure regions in a geo-political region. Between the two large-instance stamps of two different regions is a direct network connectivity for replicating data during disaster recovery. The replication of the data is storage-infrastructure based. The replication is not done by default. It is done for the customer configurations that ordered the disaster recovery. In the current design, HANA system replication can't be used for disaster recovery.
 
 However, to take advantage of the disaster recovery, you need to start to design the network connectivity to the two different Azure regions. To do so, you need an ExpressRoute circuit connection from on-premises in your main Azure region and another circuit connection from on-premises to your disaster-recovery region. This measure would cover a situation in which a complete Azure region, including a Microsoft enterprise edge router (MSEE) location, has an issue.
 
@@ -49,7 +49,7 @@ The figure below shows the optimal configuration for disaster recovery:
 
 ![Optimal configuration for disaster recovery](./media/sap-hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
-The optimal case for a disaster-recovery configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances (this is important if an entire Azure region, including the MSEE and large instance stamp, goes off the grid).
+The optimal case for a disaster-recovery configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances (this is important if an entire Azure region, including the MSEE and large-instance stamp, goes off the grid).
 
 As a second measure, the various virtual networks are connected to the various ExpressRoute circuits that are connected to SAP HANA on Azure (large instances). You can bypass the location where an MSEE is failing, or you can lower the recovery point objective for disaster recovery, as you will see later.
 
@@ -220,13 +220,13 @@ Authorize the SAPA HANA user account (to be used by the scripts without requirin
 
 The `hdbuserstore` command is entered as follows:
 
-![The hdbuserstore command is entered ](./media/sap-hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+![The hdbuserstore command is entered](./media/sap-hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
 
 In the following example, where the user is SCADMIN01 and the hostname is lhanad01, the command is:
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
 ```
-Choose to manage all scripting from a single server for scale-out HANA instances. In this example, the SAP HANA key SCADMIN01 must be altered for each host in a way that reflects the host that is related to the key (that is, the SAP HANA backup account is amended with the instance number of the HANA DB **lhanad**). The key must have administrative privileges on the host it is assigned to, and the backup user for scale-out must have access rights to all SAP HANA instances.
+Manage all scripting from a single server for scale-out HANA instances. In this example, the SAP HANA key SCADMIN01 must be altered for each host in a way that reflects the host that is related to the key (that is, the SAP HANA backup account is amended with the instance number of the HANA DB **lhanad**). The key must have administrative privileges on the host it is assigned to, and the backup user for scale-out must have access rights to all SAP HANA instances.
 ```
 hdbuserstore set SCADMIN01 lhanad:30015 SCADMIN <password>
 hdbuserstore set SCADMIN02 lhanad:30115 SCADMIN <password>
@@ -370,179 +370,193 @@ The execution of the script creates the storage snapshot in these three distinct
 - Execute a storage snapshot.
 - Remove the HANA snapshot.
 
-Execute the script by calling it from the HDB executable folder that it was copied to. It will back up at least the following volumes, but will also back up any volume that has the explicit SAP HANA instance name in the volume name.
+Execute the script by calling it from the HDB executable folder that it was copied to. It will back up at least the following volumes, but it will also back up any volume that has the explicit SAP HANA instance name in the volume name.
 ```
 hana_data_<hana instance>_prod_t020_vol
 hana_log_<hana instance>_prod_t020_vol
 hana_log_backup_<hana instance>_prod_t020_vol
 hana_shared_<hana instance>_prod_t020_vol
 ```
-The retention period is strictly administrated with the number of snapshots submitted as a parameter when executing the script (such as 20, shown above). So the amount of time is a function of the period of execution, and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number named as a parameter in the call of the script, the oldest storage snapshot of this label (in our case above, _custom_), will be deleted before executing a new snapshot. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots.
+The retention period is strictly administered, with the number of snapshots submitted as a parameter when you execute the script (such as 20, shown previously). So the amount of time is a function of the period of execution and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of this label (in our previous case, _custom_), is deleted before a new snapshot is executed. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots.
 
 >[!NOTE]
 >As soon as you change the label, the counting starts again.
 
-You need to include the HANA instance name provided by SAP HANA on Azure Service Management as an argument if they are snapshotting multi-node environments. In single-node environments, the name of the SAP HANA on Azure (large instance) unit is sufficient, but the HANA instance name is still recommended.
+You need to include the HANA instance name provided by SAP HANA on Azure Service Management as an argument if they are snapshotting multi-node environments. In single-node environments, the name of the SAP HANA on Azure (large instances) unit is sufficient, but the HANA instance name is still recommended.
 
-Additionally, the ability is provided to backup boot volumes\luns using the same script. You must back up your boot volume at least once when you first get HANA running, although we recommend a weekly or nightly backup schedule for boot in cron. Rather than add an SAP HANA instance name, insert _boot_ as the argument into the script as follows:
+Additionally, you can back up boot volumes\LUNs by using the same script. You must back up your boot volume at least once when you first run HANA, although we recommend a weekly or nightly backup schedule for booting in cron. Rather than add an SAP HANA instance name, insert _boot_ as the argument into the script as follows:
 ```
 ./azure_hana_backup boot customer 20
 ```
-The same retention policy is afforded to the boot volume as well. On-demand snapshots, as described above, should be used for special cases only (such as during an SAP EHP upgrade, or at times when you need to create a distinct storage snapshot).
+The same retention policy is afforded to the boot volume as well. Use on-demand snapshots, as described previously, for special cases only, such as during an SAP enhancement package (EHP) upgrade, or when you need to create a distinct storage snapshot.
 
-You are highly encouraged to perform scheduled storage snapshots using cron, and it is recommended that the same script is used for all backups and disaster-recovery needs (modifying the inputs of the script to match the different backup times requested). These are all scheduled differently in cron depending on their execution time: hourly, 12-hour, daily, or weekly (depending on circumstances). The cron schedule is designed to create storage snapshots that match the retention labeling discussed earlier for long-term off-site backup. The script includes commands to backup all production volumes depending on requested frequency (data and log files are backed up hourly, whereas the boot volume is only backed up daily).
+We encourage you to perform scheduled storage snapshots using cron, and we recommend that you use the same script for all backups and disaster-recovery needs (modifying the script inputs to match the various requested backup times). These are all scheduled differently in cron depending on their execution time: hourly, 12-hour, daily, or weekly. The cron schedule is designed to create storage snapshots that match the previously discussed retention labeling for long-term off-site backup. The script includes commands to back up all production volumes, depending on their requested frequency (data and log files are backed up hourly, whereas the boot volume is backed up daily).
 
-The entries in the following cron script run every hour at the tenth minute, every 12 hours at the tenth minute, and daily at the tenth minute. The cron jobs are created in such a way that only one SAP HANA storage snapshot takes place during any given hour, so that both an hourly and daily backup do not occur at the same time (12:10AM). SAP HANA on Azure Service Management will provide the recommended time for you to run your backups to optimize your snapshot creation and replication.
+The entries in the following cron script run every hour at the tenth minute, every 12 hours at the tenth minute, and daily at the tenth minute. The cron jobs are created in such a way that only one SAP HANA storage snapshot takes place during any particular hour, so that the hourly and daily backups do not occur at the same time (12:10 AM). To help optimize your snapshot creation and replication, SAP HANA on Azure Service Management provides the recommended time for you to run your backups.
 
 The default cron scheduling in /etc/crontab is as follows:
 ```
 10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
 10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 14
 ```
-In the cron instructions above, the HANA volumes (without boot volume), get a snapshot with the label hourly. Of these snapshots, 66 are retained. Additionally, 14 snapshots with the label 12hour are retained, so you basically have the possibility of hourly snapshots of three days, plus 12hour snapshots for another four days, so you cover a whole week with these snapshots. (The hourly snapshots are not scheduled at each of the full 12 hours. Only one snapshot is created at the 12hour, rather than both an hourly and a 12hour snapshot.)
+In the previous cron instructions, the HANA volumes (without boot volume) get an hourly snapshot with the label. Of these snapshots, 66 are retained. Additionally, 14 snapshots with the 12hour label are retained. You potentially get hourly snapshots for three days, plus 12hour snapshots for another four days, which gives you an entire week of snapshots.
 
-Scheduling within cron can be tricky, as only one script should be executed at any given time unless the script is staggered by several minutes. If you want daily backups for long-term retention, either a daily is kept along with a 12hour (with a retention count of seven each), or the hourly snapshot is staggered to take place ten minutes later, but only one daily snapshot is kept in the production volume.
+Scheduling within cron can be tricky, because only one script should be executed at any particular time, unless the scripts are staggered by several minutes. If you want daily backups for long-term retention, either a daily snapshot is kept along with a 12hour snapshot (with a retention count of seven each), or the hourly snapshot is staggered to take place ten minutes later. Only one daily snapshot is kept in the production volume.
 ```
 10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
 10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 7
 10 0 * * * ./azure_hana_backup.pl lhanad01 daily 7
 ```
-The frequencies listed are just examples. You need to get to your optimum number of snapshots based on the following criteria:
+The frequencies listed here are only examples. To derive your optimum number of snapshots, use the following criteria:
 
 - Requirements in recovery time objective for point-in-time recovery.
 - Space usage.
 - Requirements in recovery point objective and recovery time objective for potential disaster recovery.
-- Eventual execution of HANA full database backups against disks. Whenever a full database backup against disks, or _backint_ interface, is performed, the execution of storage snapshots will fail. If you plan to execute full database backups on top of storage snapshots, you would need to make sure the execution of storage snapshots is disabled during this time.
+- Eventual execution of HANA full database backups against disks. Whenever a full database backup against disks, or _backint_ interface, is performed, the execution of storage snapshots will fail. If you plan to execute full database backups on top of storage snapshots, make sure that the execution of storage snapshots is disabled during this time.
 
 >[!IMPORTANT]
-> The usage of storage snapshots for SAP HANA backups is only valid when performed in conjunction with SAP HANA log backups. These log backups need to be able to cover the time periods between the storage snapshots. If a commitment to users has been set for a point in time recovery of 30 days, the following is needed:
+> The use of storage snapshots for SAP HANA backups is valid only when the snapshots are performed in conjunction with SAP HANA log backups. These log backups need to be able to cover the time periods between the storage snapshots. If you've set a commitment to users of a point-in-time recovery of 30 days, you'll need the following:
 
 - Ability to access a storage snapshot that is 30 days old.
 - Contiguous log backups over the last 30 days.
 
-In the range of log backups, snapshot the backup log volume as well. However, you must ensure that regular log backups are performed in order to:
+In the range of log backups, snapshot the backup log volume as well. However, be sure to perform regular log backups so that you can:
 
 - Have the contiguous log backups needed to perform point-in-time recoveries.
-- Prevent the SAP Hana log volume from running out of space.
+- Prevent the SAP HANA log volume from running out of space.
 
 One of the last steps is to schedule SAP HANA backup logs in SAP HANA Studio. The SAP HANA backup log target destination is the specially created hana/log\_backups volume with the mount point of /hana/log/backups.
 
 ![Schedule SAP HANA backup logs in SAP HANA Studio](./media/sap-hana-overview-high-availability-disaster-recovery/image5-schedule-backup.png)
 
-Backups more frequent than every 15 minutes can be chosen. Some users even perform log backups every minute, however going _over_ 15 minutes is not recommended.
+You can choose backups that are more frequent than every 15 minutes. Some users even perform log backups every minute, although we do not recommend going _over_ 15 minutes.
 
-The last step is to create a file-based backup (after the initial installation of SAP HANA) to create a single backup entry that must exist within the backup catalog. Otherwise SAP HANA will not initiate the specified log backups as previously set.
+The last step is to create a file-based backup (after the initial installation of SAP HANA) to create a single backup entry that must exist within the backup catalog. Otherwise SAP HANA will not initiate your specified log backups.
 
 ![Make a file-based backup to create a single backup entry](./media/sap-hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
 
-### Monitoring number and size of snapshots on disk volume
+### Monitoring the number and size of snapshots on the disk volume
 
-On a particular storage volume, you can monitor the number of snapshots and the storage consumption of snapshots. The **ls** command will not show the snapshot directory or files. However, the Linux OS command **du** will, with the following commands:
-```
-- du –sh .snapshot will provide a total of all snapshots within the snapshot directory.
-- du –sh --max-depth=1 will list all snapshots saved in the .snapshot folder and the size of each snapshot.
-- du –hc will just provide the total size used by all snapshots.
-```
-Use these commands to make sure that the snapshots taken and stored are not consuming all the storage on the volumes.
+On a particular storage volume, you can monitor the number of snapshots and the storage consumption of snapshots. The **ls** command doesn't show the snapshot directory or files. However, the Linux OS command **du** does, with the following commands:
+
+- `du –sh .snapshot` provides a total of all snapshots within the snapshot directory.
+- `du –sh --max-depth=1` lists all snapshots that are saved in the .snapshot folder and the size of each snapshot.
+- `du –hc` provides the total size used by all snapshots.
+
+Use these commands to make sure that the snapshots that are taken and stored are not consuming all the storage on the volumes.
 
 ### Reducing the number of snapshots on a server
 
-As explained earlier, you can reduce the number stored of a certain label of snapshots. The last two parameters of the command to initiate a snapshot are a label and the number of snapshots you want to retain.
+As explained earlier, you can reduce the number of a certain label of snapshots that you store. The last two parameters of the command to initiate a snapshot are a label and the number of snapshots you want to retain.
 ```
 ./azure_hana_backup.pl lhanad01 customer 20
 ```
-In the example above the snapshot label is _customer_ and the number of snapshots with this label to be retained is _20_. As you respond to disk space consumption you might want to reduce the number of snapshots stored. The easy way to reduce the snapshots is to run the script with the last parameter set to 5:
+In the previous example, the snapshot label is _customer_ and the number of snapshots with this label to be retained is _20_. As you respond to disk space consumption, you might want to reduce the number of stored snapshots. The easy way to reduce the number of snapshots is to run the script with the last parameter set to 5:
 ```
 ./azure_hana_backup.pl lhanad01 customer 5
 ```
-As a result of running the script with setting above, the snapshots are getting reduced, so, that the number of snapshots including the new storage snapshot is 5. Be aware:
+As a result of running the script with this setting, the number of snapshots, including the new storage snapshot, is 5.
 
-- A reduction can only be achieved if the last snapshot created before the run with the reduced number is more than one hour old.
-- The script also fails to delete snapshots that are younger than one hour.
+ >[!NOTE]
+ > This script reduces the number of snapshots only if the most recent previous snapshot is more than one hour old. The script does not delete snapshots that are less than one hour old.
 
 These restrictions are related to the optional disaster-recovery functionality offered.
 
-Suppose you are no longer interested in maintaining a set of snapshots with that prefix, you can execute the script with _0_ as the retention number and the script will remove all snapshots matching that prefix, and then the script will exit. However, this will impact the capabilities of disaster recovery.
+If you no longer want to maintain a set of snapshots with that prefix, you can execute the script with _0_ as the retention number to remove all snapshots matching that prefix. However, removing all snapshots can affect the capabilities of disaster recovery.
 
-### Recovering to the latest HANA snapshot
+### Recovering to the most recent HANA snapshot
 
-In the event you experience a production down scenario, the process of recovering from a storage snapshot can be initiated as a Customer Incident with SAP HANA on Azure Service Management. In some cases, this would be an unexpected, high urgency matter if data was deleted in a production system and the only way is to get that data back through a restoration of the production database.
+In the event that you experience a production-down scenario, the process of recovering from a storage snapshot can be initiated as a customer incident with SAP HANA on Azure Service Management. Such an unexpected scenario might be a high-urgency matter if data was deleted in a production system and the only way to retrieve the data is to restore the production database.
 
-On the other hand, a point-in-time recovery could be low urgency and planned ahead for days in advance. You can plan this with the SAP HANA on Azure Service Management instead of raising a high priority issue. This would be the case if you plan to try an upgrade of the SAP software by applying a new Enhancement Package, and then need to revert back to a snapshot that represents the state before the EHP upgrade.
+On the other hand, a point-in-time recovery could be low urgency and planned for days in advance. You can plan this recovery with SAP HANA on Azure Service Management instead of raising a high-priority issue. For example, you might be planning to try an upgrade of the SAP software by applying a new enhancement package, and you then need to revert back to a snapshot that represents the state before the EHP upgrade.
 
-There are some preparations you have to do before issuing the request, as shown below. SAP HANA on Azure Service Management team will then be able to handle the request and provide the restored volumes. It is then up to you to restore the HANA database based on the snapshots.
+Before you issue the request, you'll need to do some preparation. SAP HANA on Azure Service Management team will then be able to handle the request and provide the restored volumes. Afterward, it is up to you to restore the HANA database based on the snapshots. Here is how to prepare for the request:
 
 >[!NOTE]
->The screenshots shown below might vary based on the SAP HANA release you use.
+>Your user interface might vary from the following screenshots, depending on the SAP HANA release you are using.
 
-1. Decide which snapshot to restore. Only the hana/data volume would be restored unless instructed otherwise.
+1. Decide which snapshot to restore. Only the hana/data volume would be restored unless you are instructed otherwise.
 
 2. Shut down the HANA instance.
-![Shut down the HANA instance](./media/sap-hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+
+ ![Shut down the HANA instance](./media/sap-hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 3. Unmount the data volumes on each HANA database node. The restoration of the snapshot will fail if the data volumes are not unmounted.
-![Unmount the data volumes on each HANA database node](./media/sap-hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+
+ ![Unmount the data volumes on each HANA database node](./media/sap-hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 4. Open an Azure support request to instruct the restoration of a specific snapshot.
 
-    **While restoring the storage snapshot,** SAP HANA on Azure Service Management is restoring the snapshots for the volumes, might ask you to attend a conference call in order to ensure that no data is getting lost.
+ - During the restoration: SAP HANA on Azure Service Management might ask you to attend a conference call to ensure that no data is getting lost.
 
-    **After restoring storage snapshot,** SAP HANA on Azure Service Management will notify you when the storage snapshot has been restored.
+ - After the restoration: SAP HANA on Azure Service Management will notify you when the storage snapshot has been restored.
 
-5. Once the restoration process is complete, remount all data volumes.
-![Remount all data volumes](./media/sap-hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+5. After the restoration process is complete, remount all data volumes.
 
-6. Select recover options within SAP HANA studio, if those do not automatically come up upon reconnecting to HANA DB through HANA Studio. The following example shows a restoration to the last HANA snapshot. A storage snapshot embeds one HANA snapshot, and if you are restoring to last the storage snapshot, it should be the most recent HANA snapshot. (If you are restoring to older storage snapshots, you need to locate the HANA snapshot based on the time the storage snapshot was taken.)
-![Select recover options within SAP HANA Studio](./media/sap-hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+ ![Remount all data volumes](./media/sap-hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
-7. Select the recovery type **Recover the database to a specific data backup or storage snapshot**.
-![Select the recovery type Recover the database to a specific data backup or storage snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+6. Select recovery options within SAP HANA Studio, if they do not automatically come up when you reconnect to HANA DB through SAP HANA Studio. The following example shows a restoration to the last HANA snapshot. A storage snapshot embeds one HANA snapshot, and if you are restoring to the most recent storage snapshot, it should be the most recent HANA snapshot. (If you are restoring to older storage snapshots, you need to locate the HANA snapshot based on the time the storage snapshot was taken.)
 
-8. Choose the option **Specify backup without catalog**.
-![Choose the option Specify backup without catalog](./media/sap-hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+ ![Select recover options within SAP HANA Studio](./media/sap-hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
-9. Choose **Destination Type: Snapshot**.
-![Choose Destination Type: Snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+7. Select **Recover the database to a specific data backup or storage snapshot**.
+
+ ![The "Specify Recovery Type" window](./media/sap-hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+
+8. Select **Specify backup without catalog**.
+
+ ![The "Specify Backup Location" window](./media/sap-hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+
+9. In the **Destination Type** list, select **Snapshot**.
+
+ ![The "Specify the Backup to Recover" window](./media/sap-hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 10. Click **Finish** to start recovery process.
-![Click Finish to start recovery process](./media/sap-hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-11. The HANA database is restorationd and recovered to the HANA snapshot included by the storage snapshot.
-![HANA database is restorationd and recovered to the HANA snapshot included by the storage snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+ ![Click Finish to start recovery process](./media/sap-hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-### Recovering to most recent state
+11. The HANA database is restored and recovered to the HANA snapshot that's included in the storage snapshot.
 
-This process restorations back to a HANA snapshot that is included in the storage snapshot, and then restorations the transaction log backups to latest state of the database before restoring the storage snapshot.
+ ![HANA database is restored and recovered to the HANA snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
->[!Important]
->Make sure that you have a complete and contiguous chain of transaction log backups before you proceed. Without that you are not going to be able to get back to the current state of the database.
+### Recovering to the most recent state
 
-Follow Steps 1 to 6 of the procedure for recovering to the latest HANA snapshot described above.
+This process restores the HANA snapshot that is included in the storage snapshot, and then restores the transaction log backups to the most recent state of the database before restoring the storage snapshot.
 
-1. Choose **Recover the database to its most recent state**.
-![Choose Recover the database to its most recent state](./media/sap-hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+>[!IMPORTANT]
+>Before you proceed, make sure that you have a complete and contiguous chain of transaction log backups. Without these backups, you will be unable to restore the current state of the database.
 
-2. Specify the location of the latest HANA log backups. The location specified needs to contain all HANA transaction log backups from the HANA snapshot to most recent state.
-![Specify the location of the latest HANA log backups](./media/sap-hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+1. Complete steps 1-6 of the preceding procedure in "Recovering to the most recent HANA snapshot."
 
-3. Choose a backup as a base from which to recover the database. In our example, this is the HANA snapshot that was included in the storage snapshot. (Only one of those snapshots was done in the following screenshot.)
-![Choose a backup as a base from which to recover the database](./media/sap-hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+2. Select **Recover the database to its most recent state**.
 
-4. Deselect **Use Delta Backups** if those do not exist between the time of the HANA snapshot and the most recent state.
-![Deselect Use Delta Backups if those do not exist between the time of the HANA snapshot and the most recent state](./media/sap-hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+ ![Select "Recover the database to its most recent state"](./media/sap-hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-5. Click **Finish** on the summary screen to start the restoration procedure.
-![Click "Finish" on the summary screen to start the restoration](./media/sap-hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+3. Specify the location of the latest HANA log backups. The location needs to contain all HANA transaction log backups from the HANA snapshot to the most recent state.
 
-To recover to a point time between the HANA snapshot (included in the storage snapshot) and one that is later than the HANA snapshot, point-in-time recovery:
+ ![Specify the location of the latest HANA log backups](./media/sap-hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+
+4. Select a backup as a base from which to recover the database. In our example, this is the HANA snapshot that was included in the storage snapshot. (Only one snapshot is listed in the following screenshot.)
+
+ ![Select a backup as a base from which to recover the database](./media/sap-hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+
+5. Clear the **Use Delta Backups** check box if deltas do not exist between the time of the HANA snapshot and the most recent state.
+
+ ![Clear the "Use Delta Backups" check box if no deltas exist](./media/sap-hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+
+6. On the summary screen, click **Finish** to start the restoration procedure.
+
+ ![Click "Finish" on the summary screen](./media/sap-hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+
+### Recovering to another point in time
+To recover to a point in time between the HANA snapshot (included in the storage snapshot) and one that is later than the HANA snapshot point-in-time recovery, do the following:
 
 - Make sure that you have all transaction log backups from the HANA snapshot to the time you want to recover.
-- Choose **Recover the database to the following point in time** (see _Restore to most recent state_, Step 1).
-- The remaining steps are the same as above.
+- In step 2 of the preceding procedure, in the **Specify Recovery Type** window, select **Recover the database to the following point in time**, specify the point in time, and then complete steps 3-6.
 
-## Monitoring snapshot execution
+## Monitoring the execution of snapshots
 
-The execution of Storage Snapshots needs to be monitored by you. The script that executes a storage snapshot writes output to a file, and saves in the same location as the Perl scripts. A separate file is written for each snapshot. The output of that file shows clearly the different phases the snapshot script will execute, which are:
+You'll need to monitor the execution of storage snapshots. The script that executes a storage snapshot writes output to a file and then saves it to the same location as the Perl scripts. A separate file is written for each snapshot. The output of each file shows clearly the various phases that the snapshot script will execute, which are:
 
 - Finding the volumes that need to create a snapshot.
 - Finding the snapshots taken from these volumes.
@@ -572,6 +586,4 @@ Snapshot created successfully.
 Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data drop snapshot"" ...
 HANA snapshot deletion successfully.
 ```
-You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this is initiated on the master node. The master node will initiate the synchronous creation of the snapshots on each of the worker nodes.
-
-Then the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted.
+You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the snapshots on each of the worker nodes. Then the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted.
