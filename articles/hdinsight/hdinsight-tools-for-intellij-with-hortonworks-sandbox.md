@@ -30,12 +30,12 @@ Before you begin this tutorial, you must have:
 - [Java Developer Kit (JDK) version 1.8 or later](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK is required by the Azure Toolkit for IntelliJ
 - [IntelliJ IDEA community edition](https://www.jetbrains.com/idea/download) with the Scala plugin and the [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) plugin. HDInsight Tools for IntelliJ are available as a part of the Azure Toolkit for IntelliJ. To install the plugins:
 
-        1. Open IntelliJ IDEA.
-        2. From the Welcome screen, click **Configure**, and then click **Plugins**.
-        3. Click **Install JetBrains plugin** from the lower left corner.
-        4. Use the search function to search **Scala**, and then click **Install**.
-        5. Click **Restart IntelliJ IDEA** to complete the installation.
-        6. Repeat step 4 and 5 to install the **Azure Toolkit for IntelliJ.
+    1. Open IntelliJ IDEA.
+    2. From the Welcome screen, click **Configure**, and then click **Plugins**.
+    3. Click **Install JetBrains plugin** from the lower left corner.
+    4. Use the search function to search **Scala**, and then click **Install**.
+    5. Click **Restart IntelliJ IDEA** to complete the installation.
+    6. Repeat step 4 and 5 to install the **Azure Toolkit for IntelliJ.
 
     For more information, see [Install the Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
