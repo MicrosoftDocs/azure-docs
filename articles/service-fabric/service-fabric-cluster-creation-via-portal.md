@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/21/2016
-ms.author: vturecek
+ms.author: chackdan
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
