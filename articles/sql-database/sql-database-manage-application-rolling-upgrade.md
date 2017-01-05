@@ -63,8 +63,9 @@ If the upgrade completed successfully you are now ready to switch the end users 
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
-1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
-2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
+1. Switch the online endpoint in the WATM profile to  <i>contoso-1.azurewebsites.net</i>.
+2. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
+3. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
