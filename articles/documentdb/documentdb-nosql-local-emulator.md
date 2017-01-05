@@ -100,7 +100,7 @@ If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mo
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-Using the DocumentDB emulator, you can create up to 25 single partition collections or one partitioned collection. If you attempt to create a collection after these limits have been exceeded, the emulator throws a ServiceUnavailable exception. In order fix the issue causing the exception, please delete any existing collections to meet the limits.
+Using the DocumentDB emulator, you can create up to 25 single partition collections or one partitioned collection. If you attempt to create a collection after these limits have been exceeded, the emulator throws a ServiceUnavailable exception. In order to fix the issue causing the exception, please delete any existing collections to meet the limits.
 
 ## Export the DocumentDB Emulator SSL certificate
 
