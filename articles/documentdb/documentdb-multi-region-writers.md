@@ -18,12 +18,12 @@ ms.author: arramac
 
 ---
 # Multi-region writer architectures with Azure DocumentDB
-DocumentDB supports turnkey [global replication]() which allows you to distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and globally distributed readers in other (read) regions. 
+DocumentDB supports turnkey [global replication](documentdb-distribute-data-globally.md), which allows you to distribute data to multiple regions with low latency access anywhere in the workload. This model is commonly used for publisher/consumer workloads where there is a writer in a single geographic region and globally distributed readers in other (read) regions. 
 
 You can also use DocumentDB's global replication support to build applications in which writers and readers are globally distributed. This document outlines a pattern that enables achieving local write and local read access for distributed writers using Azure DocumentDB.
 
 ## <a id="ExampleScenario"></a>Content Publishing - an example scenario
-Let's look at a real world scenario to describe how you can use globally distributed multi-region read write patterns with DocumentDB. Consider a content publishing platform built on DocumentDB. Here are some requirements that this plaform must meet for a great user experience for both publishers and consumers.
+Let's look at a real world scenario to describe how you can use globally distributed multi-region read write patterns with DocumentDB. Consider a content publishing platform built on DocumentDB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers.
 
 * Both authors and subscribers are spread over the world 
 * Authors must publish (write) articles to their local (closest) region
@@ -32,9 +32,9 @@ Let's look at a real world scenario to describe how you can use globally distrib
 * Subscribers must be able to read articles from their local region. They should also be able to add reviews to these articles. 
 * Anyone including the author of the articles should be able view all the reviews attached to articles from a local region. 
 
-Assuming millions of consumers and publishers with billions of articles, soon we will have to confront the problems of scale along with guaranteeing locality of access. As with most scalability problems, the solution lies in a good partitioning strategy. Next, let's take a look at how to model these entities like articles, review, and notifications as documents, how to partition them into collections, and how to choose the right partition key for each kind of document. 
+Assuming millions of consumers and publishers with billions of articles, soon we have to confront the problems of scale along with guaranteeing locality of access. As with most scalability problems, the solution lies in a good partitioning strategy. Next, let's look at how to model articles, review, and notifications as documents, configure DocumentDB accounts, and implement a data access layer. 
 
-If you would like to learn more about partitioning and partition keys, please see [Partitioning and Scaling in Azure DocumentDB](documentdb-partition-data.md).
+If you would like to learn more about partitioning and partition keys, see [Partitioning and Scaling in Azure DocumentDB](documentdb-partition-data.md).
 
 ## <a id="ModelingNotifications"></a>Modeling Notifications
 Notifications are data feeds specific to a user. Therefore, the access patterns for notifications documents are always in the context of single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user". So, the optimal choice of partitioning key for this type would be `UserId`.
@@ -64,7 +64,7 @@ Notifications are data feeds specific to a user. Therefore, the access patterns 
 	}
 
 ## <a id="ModelingSubscriptions"></a>Modeling Subscriptions
-Subscriptions can be created for various criteria like a specific category of articles of interest, or a specific publisher. Herence the `SubscriptionFilter` is a good choice for partition key.
+Subscriptions can be created for various criteria like a specific category of articles of interest, or a specific publisher. Hence the `SubscriptionFilter` is a good choice for partition key.
 
 	class Subscriptions 
 	{ 
@@ -141,7 +141,7 @@ Like articles, reviews are mostly written and read in the context of article. Ch
 	}
 
 ## <a id="DataAccessMethods"></a>Data Access Layer Methods
-Now let's take a look at the main data access methods we need to implement. Here's the list of methods that the `ContentPublishDatabase` will need:
+Now let's look at the main data access methods we need to implement. Here's the list of methods that the `ContentPublishDatabase` needs:
 
 	class ContentPublishDatabase 
 	{ 
@@ -157,7 +157,7 @@ Now let's take a look at the main data access methods we need to implement. Here
 	}
 
 ## <a id="Architecture"></a>DocumentDB account configuration
-In order to guarantee local reads and writes, we must partition data not just on partition key, but also based on the geographical access pattern into regions. The model relies on having a geo-replicated Azure DocumentDB database account for each region. For example, with two regions, here's a setup for multi-region writes:
+To guarantee local reads and writes, we must partition data not just on partition key, but also based on the geographical access pattern into regions. The model relies on having a geo-replicated Azure DocumentDB database account for each region. For example, with two regions, here's a setup for multi-region writes:
 
 | Account Name | Write Region | Read Region |
 | --- | --- | --- |
@@ -184,7 +184,7 @@ Here is a code snippet showing how to initialize the clients in a DAL running in
         readRegionAuthKey,
         readClientPolicy);
 
-With the above setup, Data access layer based on location of deployment can forward all writes to the account which is local. Reads are performed by reading from both accounts to get the global view of data. This can be extended to as many regions as required. For example, here's a setup with three geographic regions:
+With the preceding setup, the data access layer can forward all writes to the local account based on where it is deployed. Reads are performed by reading from both accounts to get the global view of data. This approach can be extended to as many regions as required. For example, here's a setup with three geographic regions:
 
 | Account Name | Write Region | Read Region 1 | Read Region 2 |
 | --- | --- | --- | --- |
@@ -193,12 +193,12 @@ With the above setup, Data access layer based on location of deployment can forw
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 ## <a id="DataAccessImplementation"></a>Data Access Layer Implementation
-Now let's take a look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must do the following:
+Now let's look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must implement the following steps:
 
-* Create multiple instances of `DocumentClient` for each account. With two regions, each DAL instance will have one `writeClient` and one `readClient`. 
-* Based on the deployed region of the application, configure the endpoints for `writeclient` and `readClient`. For example, the DAL deployed in `West US` will use `contentpubdatabase-usa.documents.azure.com` for performing writes. The DAL deployed in `NorthEurope` will use `contentpubdatabase-europ.documents.azure.com` for writes.
+* Create multiple instances of `DocumentClient` for each account. With two regions, each DAL instance has one `writeClient` and one `readClient`. 
+* Based on the deployed region of the application, configure the endpoints for `writeclient` and `readClient`. For example, the DAL deployed in `West US` uses `contentpubdatabase-usa.documents.azure.com` for performing writes. The DAL deployed in `NorthEurope` uses `contentpubdatabase-europ.documents.azure.com` for writes.
 
-With the above setup, the data access methods can be implemented. Write operations simply forward the write to the corresponding `writeClient`.
+With the preceding setup, the data access methods can be implemented. Write operations forward the write to the corresponding `writeClient`.
 
     public async Task CreateSubscriptionAsync(string userId, string category)
     {
@@ -220,7 +220,7 @@ With the above setup, the data access methods can be implemented. Write operatio
         });
     }
 
-For reading notifications and reviews, you must read from both regions and union the results as shown below:
+For reading notifications and reviews, you must read from both regions and union the results as shown in the following snippet:
 
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
@@ -299,7 +299,7 @@ For reading notifications and reviews, you must read from both regions and union
         return reviews;
     }
 
-Thus, by choosing a good partitioning key and static account based partitioning based, you can achieve multi-region local writes and reads using Azure DocumentDB.
+Thus, by choosing a good partitioning key and static account-based partitioning, you can achieve multi-region local writes and reads using Azure DocumentDB.
 
 ## <a id="NextSteps"></a>Next Steps
 In this article, we described how you can use globally distributed multi-region read write patterns with DocumentDB using content publishing as a sample scenario.
