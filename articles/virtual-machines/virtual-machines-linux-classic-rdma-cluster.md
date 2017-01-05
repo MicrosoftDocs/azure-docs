@@ -1,5 +1,5 @@
 ---
-title: Linux RDMA cluster to run MPI applications | Microsoft Docs
+title: Set up a Linux RDMA cluster to run MPI applications | Microsoft Docs
 description: Create a Linux cluster of size H16r, H16mr, A8, or A9 VMs to use the Azure RDMA network to run MPI apps
 services: virtual-machines-linux
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 # Set up a Linux RDMA cluster to run MPI applications
-Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-intensive A-series VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the RDMA-capable Azure VM sizes (currently H16r, H16mr, A8, or A9). Use the cluster to run MPI applications that communicate efficiently over a low latency, high-throughput network based on remote direct memory access (RDMA) technology.
+Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-intensive A-series VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the RDMA-capable Azure VM sizes (currently H16r, H16mr, A8, or A9). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
@@ -40,7 +40,7 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 >
 
 ### Prerequisites
-* **Client computer**: You need a Mac, Linux, or Windows-based client computer to communicate with Azure. These steps assume you are using a Linux client.
+* **Client computer**: You need a Mac, Linux, or Windows client computer to communicate with Azure. These steps assume you are using a Linux client.
 * **Azure subscription**: If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
 * **VM size availability**: The following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
 * **Cores quota**: You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
@@ -264,7 +264,7 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 #end
 ```
 
-The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the VNet defined earlier, not DNS names. For example, for two hosts with IP addresses 10.32.0.1 and 10.32.0.2 the file contains the following:
+The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the virtual network defined earlier, not DNS names. For example, for two hosts with IP addresses 10.32.0.1 and 10.32.0.2, the file contains the following:
 
 ```
 10.32.0.1:16
