@@ -16,7 +16,7 @@ ms.date: 01/03/2017
 ms.author: alok
 
 ---
-# Machine Learning Anomaly Detection Service
+# Machine Learning Anomaly Detection Service (deprecated)
 > [!NOTE]
 > You can now deploy this API into your Azure subscription using the new **signup** option in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). The method described in this article of accessing the API through the Azure Datamarket has been deprecated. 
 
