@@ -41,7 +41,7 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
 
 1. Open Visual Studio, and select **View**, then **Server Explorer**.
 2. From **Server Explorer**, right click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
-    
+
     ![Connect to HDInsight Emulator](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
 
 3. From the **Connect to HDInsight Emulator** dialog, enter the password that you configured for Ambari.
@@ -102,7 +102,6 @@ Hive provides a SQL-like query language (HiveQL,) for working with structured da
 
     > [!NOTE]
     > Tez is also the default when using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight; to use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
-
 
     Use the **Job Output** link to view the output. In this case, it is **823**; the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
 
