@@ -1,5 +1,5 @@
 ---
-  title: Event Hubs Management Libraries | Microsoft Docs
+  title: Azure Event Hubs Management Libraries | Microsoft Docs
   description: Manage Event Hubs namespaces and entities from .NET
   services: event-hubs
   cloud: na
