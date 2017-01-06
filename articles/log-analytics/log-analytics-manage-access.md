@@ -56,7 +56,7 @@ You can view details about your workspace in the Azure portal. You can also view
 
 #### View workspace information the Azure portal
 
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com) using your Azure subscription.
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
 2. On the **Hub** menu, click **More services** and in the list of resources, type **Log Analytics**. As you begin typing, the list will filter based on your input. Click **Log Analytics**.  
     ![Azure hub](./media/log-analytics-manage-access/hub.png)  
 3. In the Log Analytics subscriptions blade, select a workspace.
@@ -203,11 +203,11 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
 ## Upgrade a workspace to a paid plan
 There are three workspace plan types for OMS: **Free**, **Standalone**, and **OMS**.  If you are on the *Free* plan, there is a limit of 500 MB of data per day sent to Log Analytics.  If you exceed this amount, you need to change your workspace to a paid plan to avoid not collecting data beyond this limit. You can change your plan type at any time.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
 
-T### Using entitlements from an OMS subscription
+### Using entitlements from an OMS subscription
 To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
 
 When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. This allows you, for example, to have multiple workspaces that use the entitlement from the OMS subscriptions.
-
+e
 To ensure that usage of a workspace is applied to your entitlements from the OMS subscription, you need to:
 
 1. Create your workspace in an Azure subscription that is part of the Enterprise Agreement that includes the OMS subscription
@@ -241,14 +241,14 @@ If you need to change the Azure subscription that the workspace is linked to, yo
 
 ## Change how long Log Analytics stores data
 
-On the Free pricing tier Log Analytics makes available the last 7 days of data.
-On the Standard pricing tier Log Analytics makes available the last 30 days of data.
-On the Premium pricing tier Log Analytics makes available the last 365 days of data.
+On the Free pricing tier, Log Analytics makes available the last seven days of data.
+On the Standard pricing tier, Log Analytics makes available the last 30 days of data.
+On the Premium pricing tier, Log Analytics makes available the last 365 days of data.
 On the Standalone and OMS pricing tiers, by default, Log Analytics makes available the last 31 days of data.
 
-When you use the Standalone and OMS pricing tiers you have the option to keep upto 2 years of data (730 days). Data stored longer than the default of 31 days will incur a data retention charge. For more information on pricing see [overage charges](https://azure.microsoft.com/pricing/details/log-analytics/).
+When you use the Standalone and OMS pricing tiers, you can keep upto 2 years of data (730 days). Data stored longer than the default of 31 days incurs a data retention charge. For more information on pricing, see [overage charges](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-To change the length of data rention:
+To change the length of data retention:
 
 1. Sign into the [Azure portal](http://portal.azure.com).
 2. Browse for **Log Analytics** and then select it.
