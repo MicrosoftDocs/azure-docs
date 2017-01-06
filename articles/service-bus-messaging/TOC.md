@@ -5,7 +5,6 @@
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
-
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
