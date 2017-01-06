@@ -1,6 +1,6 @@
 ---
-title: Scale resource instance count manually or with autoscale in the Azure Portal | Microsoft Docs
-description: Learn how to scale your Cloud Services Azure.
+title: Scale instance count manually or with autoscale with Azure Portal | Microsoft Docs
+description: Learn how to scale your services Azure.
 author: rboucher
 manager: carmonm
 editor: ''
@@ -30,13 +30,23 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 > 
 
 ## Scaling manually
-1. In the [Azure Portal](https://portal.azure.com/), navigate to the resource you want to scale. For example, **App Services**, then choose **App Service Plan** in the next tile and **Scale out** in the following tile. 
-2. The **Scale out** tile tells you the status of scaling. You have options between **An instance count that I enter manually** or other automatic options. 
-3. Manually adjust the number **Instances** with slider.
+1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
+2. The **Scale** tile in **Operations** will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
+   
+    ![Scale tile](./media/insights-how-to-scale/Insights_UsageLens.png)
+3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.
+   
+    ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+   
+   > [!NOTE]
+   > Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
+   > 
+   > 
+4. You can manually adjust the number **Instances** with slider.
 5. Click the **Save** command and you'll be scaled to that number of instances almost immediately.
 
 ## Scaling based on a pre-set metric
-If you want the number of instances to automatically adjust based on a metric, select the metric you want in the **Scale by** dropdown. Select **schedule and performance rules** for finer control. When you  
+If you want the number of instances to automatically adjust based on a metric, select the metric you want in the **Scale by** dropdown. For example, for an **App Service plan** you can scale by **CPU Percentage**.
 
 1. When you select a metric you'll get a slider, and/or, text boxes to enter the number of instances you want to scale between:
    
@@ -71,7 +81,7 @@ You can scale based on metrics other than the presets that appear in the **Scale
 9. Once you have configured all of the rules you want, be sure to hit the **Save** command.
 
 ### Scaling with multiple steps
-The examples above are pretty basic. However, if you want to be more aggressive about scaling up (or down), you can even add multiple scale rules for the same metric. For example, you can define two scale rules on CPU percentage:
+The examples above are pretty basic. However, if you want to be more agressive about scaling up (or down), you can even add multiple scale rules for the same metric. For example, you can define two scale rules on CPU percentage:
 
 1. Scale out by 1 instance if CPU percentage is above 60%
 2. Scale out by 3 instances if CPU percentage is above 85%
@@ -85,7 +95,7 @@ By default, when you create a scale rule it will  always apply. You can see that
 
 ![Profile](./media/insights-how-to-scale/Insights_Profile.png)
 
-However, you may want to have more aggressive scaling during the day, or the week, than on the weekend. You could even shut down your service entirely off working hours.
+However, you may want to have more agressive scaling during the day, or the week, than on the weekend. You could even shut down your service entirely off working hours.
 
 1. To do this, on the profile you have, select **recurrence** instead of **always,** and choose the times that you want the profile to apply.
 2. For example, to have a profile that applies during the week, in the **Days** dropdown uncheck **Saturday** and **Sunday**.
