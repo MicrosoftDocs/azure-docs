@@ -15,31 +15,30 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 01/04/2017
 ms.author: nitinme
 
 ---
 # Get started in the Hadoop ecosystem with a Hadoop sandbox on a virtual machine
-Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission.
+Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission. Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 ## Prerequisites
-* [Oracle VirtualBox](https://www.virtualbox.org/)
+* [Oracle VirtualBox](https://www.virtualbox.org/). Download and install it from [here](https://www.virtualbox.org/wiki/Downloads).
 
-Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
 
 ## Download and install the virtual machine
-1. From [http://hortonworks.com/downloads/#sandbox](http://hortonworks.com/downloads/#sandbox), select the **DOWNLOAD FOR VIRTUALBOX** item for HDP 2.4 on Hortonworks Sandbox. You will be prompted to register with Hortonworks before the download begins.
+1. Browse to the [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
+2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hrotonworks Sandbox on a VM. You will be prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
    
     ![Link image for download Hortonworks Sandbox for VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
-2. From the same web page, select the **VirtualBox Install Guide** for HDP 2.4 on Hortonworks Sandbox. This will download a PDF containing installation instructions for the virtual machine.
+2. From the same web page, click the **Import on Virtual Box** link to download a PDF containing installation instructions for the virtual machine.
    
-    ![View the install guide](./media/hdinsight-hadoop-emulator-get-started/view-install-guide.png)
-
 ## Start the virtual machine
-1. Start VirtualBox, select the Hortonworks Sandbox, select **Start**, and then **Normal Start**.
+1. Start VirtualBox, select the Hortonworks Sandbox, select **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it will display login instructions.
    
     ![Normal start](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
-2. Once the virtual machine has finished the boot process, it will display login instructions. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
+2. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
 
 ## Set passwords
 1. From the **get started** step of the Hortonworks Sandbox page, select **View Advanced Options**. Use the information on this page to login to the sandbox using SSH. Use the name and password provided.
