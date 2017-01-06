@@ -36,7 +36,7 @@ Here's a summary of what you get by each route:
 | Requests & exceptions |Yes |Yes |
 | [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
 | [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP  Verb|
-| [System performance counters](app-insights-performance-counters.md) | |IIS or Azure cloud service, but not Azure web app |
+| [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
 | [API for custom telemetry][api] |Yes | |
 | [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes | |
 | [Page view & user data](app-insights-javascript.md) |Yes | |
@@ -52,29 +52,23 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app is hosted on your IIS server
 1. On your IIS web server, sign in with administrator credentials.
-2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
-3. In the installation wizard, sign in to Microsoft Azure.
-
-    ![Sign into Azure with your Microsoft account credentials](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *Connection errors? See [Troubleshooting](#troubleshooting).*
-4. Pick the installed web application or website that you want to monitor, then configure the resource in which you want to see the results in the Application Insights portal.
+2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).  
+3. Pick the installed web application or website that you want to monitor, then configure the resource in which you want to see the results in the Application Insights portal. You should be signed in to Microsoft Azure.
 
     ![Choose an app and a resource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
     Normally, you choose to configure a new resource and [resource group][roles].
 
     Otherwise, use an existing resource if you already set up [web tests][availability] for your site, or [web client monitoring][client].
-5. Restart IIS.
+4. Restart IIS.
 
     ![Choose Restart at the top of the dialog.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Your web service will be interrupted for a short while.
-6. Notice that ApplicationInsights.config has been inserted into the web apps that you want to monitor.
+5. Notice that ApplicationInsights.config has been inserted into the web apps that you want to monitor.
 
     ![Find the .config file alongside the code files of the web app.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   There are also some changes to web.config.
+   
 
 #### Want to (re)configure later?
 After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
@@ -102,7 +96,7 @@ To segment the chart by calls to different dependencies: Edit the chart, turn on
 ![Dependency](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## Performance counters
-(Not for Azure web apps.) Click Servers on the overview blade to see charts of server performance counters such as CPU occupancy and memory usage.
+Click Servers on the overview blade to see charts of server performance counters such as CPU occupancy and memory usage.
 
 If you have several server instances, you might want to edit the charts to group by Role instance.
 
@@ -143,10 +137,11 @@ OS support for Application Insights Status Monitor on Server:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows server 2012 R2
+* Windows Server 2016
 
-with latest SP and .NET Framework 4.0 and 4.5
+with latest SP and .NET Framework 4.5
 
-On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
+On the client side Windows 7, 8, 8.1 and 10, again with .NET Framework 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)
