@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 We use a Windows Server 2016 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu on the left-side of the screen, click **New** > **Compute** > **Windows Server 2016 Datacenter**.
+2. Starting in the upper-left, click **New** > **Compute** > **Windows Server 2016 Datacenter**.
    
     ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. On the **Windows Server 2016 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
@@ -59,10 +59,10 @@ After you select the image, you can use the default settings and quickly create 
 7. Click **Summary** to review your choices. When you see the **Validation passed** message, click **OK**.
    
     ![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-8. While Azure creates the virtual machine, you can track the progress by clicking on **Virtual Machines** on the hub menu. When the VM has been created, the status will change to **Running**.
+8. While Azure creates the virtual machine, you can track the progress by clicking on **Virtual Machines** on left. When the VM has been created, the status will change to **Running**.
 
 ## Connect to the virtual machine and sign on
-1. On the hub menu, click **Virtual Machines**.
+1. On the left, click **Virtual Machines**.
 2. Select the virtual machine from the list.
 3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
    
