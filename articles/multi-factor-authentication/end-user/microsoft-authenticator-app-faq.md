@@ -67,11 +67,13 @@ Here is a full list of permissions we ask for, and how they are used in the app:
 * **Full network access**: This permission is required for sending notifications to verify your identity.
 * **Run at startup**: If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.
 
-## Contact us
+## Next steps
+
+### Contact us
 If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, leave a comment on this page, or [contact support](https://support.microsoft.com/contactus) and we'll respond to your problem as soon as we can.
 
 
-## Related topics
+### Related topics
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
 * [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
 

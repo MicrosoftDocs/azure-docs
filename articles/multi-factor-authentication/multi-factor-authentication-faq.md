@@ -59,7 +59,7 @@ When you use the "per user" or "per authentication" model, Azure MFA is a consum
 
 When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
 
-Learn more about your options in [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md#how-to-get-azure-multifactor-authentication)
+Learn more about your options in [How Azure Multi-Factor Authentication works](multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication)
 
 **Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
 
@@ -158,8 +158,6 @@ A workaround for this is to have separate user accounts for admin-related and no
 
 ## Next steps
 If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:
-
-**Q: How can I get help with Azure Multi-Factor Authentication?**
 
 * Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
 * Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
