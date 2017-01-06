@@ -65,17 +65,17 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    * Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 2. Remove the WinHTTP proxy:
    
-    ```sh
+    ```CMD
     netsh winhttp reset proxy
     ```
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
-    ```sh
+    ```CMD
     diskpart san policy=onlineall
     ```
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
    
-    ```sh
+    ```CMD
     REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
     sc config w32time start= auto
     ```
@@ -83,7 +83,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 ## Configure Windows services
 1. Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
    
-    ```sh
+    ```CMD
     sc config bfe start= auto
    
     sc config dcomlaunch start= auto
@@ -130,14 +130,14 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 ## Configure Remote Desktop configuration
 1. If there are any self-signed certificates tied to the Remote Desktop Protocol (RDP) listener, remove them:
    
-    ```sh
+    ```CMD
     REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”
     ```
    
     For more information about configuring certificates for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 2. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
    
-    ```sh
+    ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
    
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
@@ -146,7 +146,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
     ```
 3. Configure the authentication mode for the RDP service:
    
-    ```sh
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
    
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
@@ -155,21 +155,21 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
     ```
 4. Enable RDP service by adding the following subkeys to the registry:
    
-    ```sh
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f
     ```
 
 ## Configure Windows Firewall rules
 1. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
    
-   ```sh
+   ```CMD
    Enable-PSRemoting -force
    ```
 2. Make sure that the following guest operating system firewall rules are in place:
    
    * Inbound
    
-   ```sh
+   ```CMD
    netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
    
    netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
@@ -193,7 +193,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    
    * Inbound and outbound
    
-   ```sh
+   ```CMD
    netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
    
    netsh advfirewall firewall set rule group="Core Networking" new enable=yes
@@ -201,7 +201,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    
    * Outbound
    
-   ```sh
+   ```CMD
    netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
    
    netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
@@ -227,7 +227,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 1. Run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see [this blog post](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 2. Make sure the Boot Configuration Data (BCD) settings match the following:
    
-   ```sh
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:
@@ -277,7 +277,7 @@ The following settings do not affect VHD uploading. However, we strongly recomme
 * Install the [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
 * The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
   
-    ```sh
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
   
     REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
@@ -290,7 +290,7 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 * After the VM is created in Azure, configure the system defined size pagefile on drive D:
   
-    ```sh
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f
     ```
 
