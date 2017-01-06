@@ -26,8 +26,10 @@ The NC and NV sizes are also known as GPU-enabled instances. These are specializ
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../includes/virtual-machines-common-sizes-gpu.md)]
 
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 ## Other sizes
-[General purpose](virtual-machines-windows-sizes-general.md)
-[Compute optimized](virtual-machines-windows-sizes-compute.md)
-[High performance compute](virtual-machines-windows-sizes-hpc.md)
-[Memory optimized](virtual-machines-windows-sizes-memory.md)
+- [General purpose](virtual-machines-windows-sizes-general.md)
+- [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [High performance compute](virtual-machines-windows-sizes-hpc.md)
+- [Memory optimized](virtual-machines-windows-sizes-memory.md)

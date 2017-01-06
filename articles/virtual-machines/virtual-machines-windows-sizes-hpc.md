@@ -26,11 +26,15 @@ H-series
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../includes/virtual-machines-common-sizes-hpc.md)]
 
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 ## Other sizes
-[General purpose](virtual-machines-windows-sizes-general.md)
-[Compute optimized](virtual-machines-windows-sizes-compute.md)
-[GPU optimized](virtual-machines-windows-sizes-gpu.md)
-[Memory optimized](virtual-machines-windows-sizes-memory.md)
+
+- [General purpose](virtual-machines-windows-sizes-general.md)
+- [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [Memory optimized](virtual-machines-windows-sizes-memory.md)
 
 
 

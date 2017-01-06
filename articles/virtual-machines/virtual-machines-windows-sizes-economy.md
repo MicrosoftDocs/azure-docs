@@ -26,10 +26,13 @@ The basic tier sizes are primarily for development workloads and other applicati
 
 [!INCLUDE [virtual-machines-common-sizes-economy](../../includes/virtual-machines-common-sizes-economy.md)]
 
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 ## Other sizes
-[General-purpose](virtual-machines-windows-sizes-general.md)
-[Memory optimized](virtual-machines-windows-sizes-memory.md)
-[Compute optimized](virtual-machines-windows-sizes-compute.md)
-[GPU optimized](virtual-machines-windows-sizes-gpu.md)
-[High performance compute](virtual-machines-windows-sizes-hpc.md)
+
+- [General-purpose](virtual-machines-windows-sizes-general.md)
+- [Memory optimized](virtual-machines-windows-sizes-memory.md)
+- [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [High performance compute](virtual-machines-windows-sizes-hpc.md)
 

@@ -32,8 +32,13 @@ DSv2-series*
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../includes/virtual-machines-common-sizes-memory.md)]
 
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+
 ## Other sizes
-[Memory optimized](virtual-machines-windows-sizes-memory.md)
-[Compute optimized](virtual-machines-windows-sizes-compute.md)
-[GPU optimized](virtual-machines-windows-sizes-gpu.md)
-[High performance compute](virtual-machines-windows-sizes-hpc.md)
+
+- [Memory optimized](virtual-machines-windows-sizes-memory.md)
+- [Compute optimized](virtual-machines-windows-sizes-compute.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [High performance compute](virtual-machines-windows-sizes-hpc.md)

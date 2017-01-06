@@ -1,13 +1,13 @@
 
-
-
-
-
+The A-series and Av2-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 
 ## A-series
+
+
+
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
+| Standard_A0* |1 |0.768 |20 |1 |1x500 |1 / low |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |1 / moderate |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
@@ -16,6 +16,8 @@
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
 <br>
+
+*The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
 ### Standard A0 - A4 using CLI and PowerShell
 In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
@@ -40,6 +42,9 @@ In the classic deployment model, some VM size names are slightly different in CL
 <br>
 
 ## D-series
+
+D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1 |1 |3.5 |50 |2 |2x500 |1 / moderate |
@@ -54,6 +59,10 @@ In the classic deployment model, some VM size names are slightly different in CL
 <br>
 
 ## Dv2-series
+
+Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+
+
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |3.5 |50 |2 |2x500 |1 / moderate |
@@ -71,9 +80,10 @@ In the classic deployment model, some VM size names are slightly different in CL
 
 <br>
 
-## General-purpose storage optimized
 
 ## DS-series*
+
+
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |1 / moderate |
@@ -92,6 +102,8 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 <br>
 
 ## DSv2-series*
+
+
 | Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |1 moderate |
@@ -113,9 +125,4 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 
 <br>
 
-## Size table definitions
 
-* Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
-* Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
-* Data disks can operate in cached or uncached modes.  For cached data disk operation, the host cache mode is set to **ReadOnly** or **ReadWrite**.  For uncached data disk operation, the host cache mode is set to **None**.
-* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.

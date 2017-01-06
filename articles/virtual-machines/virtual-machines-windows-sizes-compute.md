@@ -26,9 +26,12 @@ Fs-series*
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../includes/virtual-machines-common-sizes-compute.md)]
 
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## Other sizes
-[General purpose](virtual-machines-windows-sizes-general.md)
-[GPU optimized](virtual-machines-windows-sizes-gpu.md)
-[High performance compute](virtual-machines-windows-sizes-hpc.md)
-[Memory optimized](virtual-machines-windows-sizes-memory.md)
+
+- [General purpose](virtual-machines-windows-sizes-general.md)
+- [GPU optimized](virtual-machines-windows-sizes-gpu.md)
+- [High performance compute](virtual-machines-windows-sizes-hpc.md)
+- [Memory optimized](virtual-machines-windows-sizes-memory.md)
