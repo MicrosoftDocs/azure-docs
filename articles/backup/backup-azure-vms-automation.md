@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/06/2017
 ms.author: markgal; trinadhk
 
 ---
@@ -195,6 +195,11 @@ PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'KeyVaultName' -ResourceGroup
 PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
+
+> [!NOTE]
+> If you are on Azure Government cloud, then use the value ff281ffe-705c-4f53-9f37-a40e6f2c68f3 for the parameter **-ServicePrincipalName** in Set-AzureRmKeyVaultAccessPolicy cmdlet.
+> 
+> 
 
 For ASM based VMs
 
