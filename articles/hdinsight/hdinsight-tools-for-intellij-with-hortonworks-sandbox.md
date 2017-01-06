@@ -116,6 +116,8 @@ You need to have an existing IntelliJ application before you can link to a Horto
 
   ![IntelliJ link an emulator](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
+5. Click **Yes** to configure the emulator.
+
   When it is connected successfully, you can see the emulator (Hortonworks Sandbox) listed under the HDInsight node.
 
 ## Submit the Spark Scala application to the Sandbox
