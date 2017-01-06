@@ -65,7 +65,7 @@ You start by creating a Stream Analytics job that includes an input source and a
 	* For **Container**, select the container that you created in the selected storage account.
 	* For **Event serialization format**, select **CSV**.
 	* For **Delimiter**, select **tab**.
-	* For **Encodeing**, select **UTF-8**.
+	* For **Encoding**, select **UTF-8**.
 
 	Click **Create**. The portal now adds the input and tests the connection to it.
 
@@ -76,7 +76,7 @@ You start by creating a Stream Analytics job that includes an input source and a
 
 	![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.1.png "Add an output to your job")
 
-2. On the **New output** page, provide the following values.
+2. On the **New output** blade, provide the following values.
 
     ![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.2.png "Add an output to your job")
 
@@ -84,17 +84,17 @@ You start by creating a Stream Analytics job that includes an input source and a
 	* For **Sink**, select **Data Lake Store**.
 	* You will be prompted to authorize access to Data Lake Store account. Click **Authorize**.
 
-3. On the **New output** page, continue to provide the following values.
+3. On the **New output** blade, continue to provide the following values.
 
 	![Add an output to your job](./media/data-lake-store-stream-analytics/create.output.3.png "Add an output to your job")
 
 	* For **Account name**, select the Data Lake Store account you already created where you want the job output to be sent to.
-	* For **Path prefix patter**, enter a file path used to write your files within the specified Data Lake Store account.
+	* For **Path prefix pattern**, enter a file path used to write your files within the specified Data Lake Store account.
 	* For **Date format**, if you used a date token in the prefix path, you can select the date format in which your files are organized.
 	* For **Time format**, if you used a time token in the prefix path, specify the time format in which your files are organized.
 	* For **Event serialization format**, select **CSV**.
 	* For **Delimiter**, select **tab**.
-	* For **Encodeing**, select **UTF-8**.
+	* For **Encoding**, select **UTF-8**.
 	
 	Click **Create**. The portal now adds the output and tests the connection to it.
 	
