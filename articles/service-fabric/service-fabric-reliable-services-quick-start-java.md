@@ -148,7 +148,7 @@ public static void main(String[] args) throws Exception {
         Thread.sleep(Long.MAX_VALUE);
     }
     catch (Exception ex) {
-        logger.log(Level.SEVERE, "Exception in registration: {0}", ex.toString());
+        logger.log(Level.SEVERE, "Exception in registration:", ex);
         throw ex;
     }
 }
