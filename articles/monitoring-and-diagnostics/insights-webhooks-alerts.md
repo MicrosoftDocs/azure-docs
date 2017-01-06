@@ -2,7 +2,7 @@
 title: Configure webhooks on Azure metric alerts | Microsoft Docs
 description: Reroute Azure alerts to other non-Azure systems.
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/07/2016
 ms.author: ashwink
 
 ---
@@ -33,7 +33,7 @@ You can also configure an alert to post to a webhook URI using the [Azure PowerS
 The webhook can authenticate using either of these methods:
 
 1. **Token-based authorization** - The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Basic authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+2. **Password-based authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## Payload schema
 The POST operation contains the following JSON payload and schema for all metric-based alerts.
