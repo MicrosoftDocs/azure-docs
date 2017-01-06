@@ -75,7 +75,7 @@ Adaptive bitrate technologies allow video player applications to determine netwo
 To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator gives you the base path to the asset that contains the content you want to stream. However, to be able to stream this content, you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s path value and the manifest (filename.ism) file name. Then append **/Manifest** and an appropriate format (if needed) to the locator path.
 
 > [!NOTE]
-> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
+> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesn’t support SSL with custom domains.  
 > 
 
 
