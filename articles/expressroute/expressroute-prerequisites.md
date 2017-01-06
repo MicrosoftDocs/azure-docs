@@ -46,6 +46,7 @@ If you plan to enable Office 365 on ExpressRoute, please review the following do
 * [Network planning and performance tuning for Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [Network bandwidth calculators and tools](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Office 365 integration with on-premises environments](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
 
 ## CRM Online
 If you plan to enable CRM Online on ExpressRoute, please review the following documents for more information about CRM Online
