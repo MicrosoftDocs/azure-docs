@@ -207,7 +207,7 @@ There are three workspace plan types for OMS: **Free**, **Standalone**, and **OM
 To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
 
 When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. This allows you, for example, to have multiple workspaces that use the entitlement from the OMS subscriptions.
-e
+
 To ensure that usage of a workspace is applied to your entitlements from the OMS subscription, you need to:
 
 1. Create your workspace in an Azure subscription that is part of the Enterprise Agreement that includes the OMS subscription
