@@ -18,7 +18,7 @@ ms.author: magoedte
 
 ---
 # Forward job status and job streams from Automation to Log Analytics (OMS)
-Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  Job logs and job streams are visibile in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
+Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  Job logs and job streams are visible in the Azure portal, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
 
 * Get insight on your Automation jobs
 * Trigger an email or alert based on your runbook job status (for example, failed or suspended)
@@ -70,7 +70,7 @@ To see the logs, run the following query:
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
-To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are set correctly on the Automation account using the following PowerShell.  
+To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are set correctly on the Automation account using the following PowerShell:
 ```powershell
 # if you are not connected to Azure run the next command to login
 Login-AzureRmAccount
@@ -107,7 +107,7 @@ Diagnostics from Azure Automation creates two types of records in Log Analytics.
 | ResultDescription |Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed |
 | CorrelationId |GUID that is the Correlation Id of the runbook job. |
 | ResourceId |Specifies the Azure Automation account resource id of the runbook. |
-| SubscriptionId | The Azure subscription Id (guid) for the Automation account. |
+| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
@@ -130,7 +130,7 @@ Diagnostics from Azure Automation creates two types of records in Log Analytics.
 | ResultDescription |Includes the output stream from the runbook. |
 | CorrelationId |GUID that is the Correlation Id of the runbook job. |
 | ResourceId |Specifies the Azure Automation account resource id of the runbook. |
-| SubscriptionId | The Azure subscription Id (guid) for the Automation account. |
+| SubscriptionId | The Azure subscription Id (GUID) for the Automation account. |
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
@@ -150,7 +150,7 @@ To create an alert rule, you start by creating a log search for the runbook job 
 2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`.  You can also group by the RunbookName by using: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`.   
 
    If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  Automation account name can be derived from the Resource field in the search of JobLogs.  
-3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, please see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
 
 ### Find all jobs that have completed with errors
 In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases PowerShell produces an error stream, but the non-terminating errors do not cause your job to suspend or fail.    
@@ -159,7 +159,7 @@ In addition to alerting on failures, you can find when a runbook job has a non-t
 2. In the query field, type `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` and then click **Search**.
 
 ### View job streams for a job
-When you are debugging a job, you may also want to look into the job streams.  The following query shows all the streams for a single job with GUID  2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:   
+When you are debugging a job, you may also want to look into the job streams.  The following query shows all the streams for a single job with GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:   
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
 
