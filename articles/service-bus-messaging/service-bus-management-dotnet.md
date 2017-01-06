@@ -13,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: dotnet
   ms.topic: article
-  ms.date: 12/13/2016
+  ms.date: 1/6/2016
   ms.author: jotaub
 
 ---
@@ -39,24 +39,48 @@ In order to get started using the Service Bus management libraries, you must aut
 
 The above tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which will be used to authenticate by the management libraries. You must have 'Owner' permissions for the resource group that you wish to run on.
 
-You will also need DotNet Core installed. 
+You will also need [.NET Core](http://www.microsoft.com/net/core) installed. 
 
-## Commonly used operations
+## Programming pattern
 
-|Method|Summary|
-| --- |:---:|
-| [BeginCreateOrUpdateAsync(INamespacesOperations, String, String, NamespaceCreateOrUpdateParameters, CancellationToken)][Create Namespace] | Creates/Updates a service namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent. |
-| [CreateOrUpdateAsync(IQueuesOperations, String, String, String, QueueCreateOrUpdateParameters, CancellationToken)][Create Queue] | Creates/Updates a service Queue. This operation is idempotent. |
-| [CreateOrUpdateWithHttpMessagesAsync(String, String, String, TopicCreateOrUpdateParameters, Dictionary<String, List<String>>, CancellationToken)][Create Topic] | Creates a topic in the specified namespace. |
-| [CreateOrUpdateWithHttpMessagesAsync(String, String, String, String, SubscriptionCreateOrUpdateParameters, Dictionary<String, List<String>>, CancellationToken)][Create Subscription] | Creates a topic subscription. |
-| [Delete(INamespacesOperations, String, String)][Delete Namespace] | Deletes an existing namespace. This operation also removes all associated resources under the namespace. |
-| [Delete(IQueuesOperations, String, String, String)][Delete Queue] | Deletes a queue from the specified namespace in resource group. |
-| [DeleteWithHttpMessagesAsync(String, String, String, Dictionary<String, List<String>>, CancellationToken)][Delete Queue] | Deletes a topic from the specified namespace and resource group. |
-| [DeleteWithHttpMessagesAsync(String, String, String, String, Dictionary<String, List<String>>, CancellationToken)][Delete Subscription] | Deletes a subscription from the specified topic. |
+The pattern to manipulate any Service Bus resource is similar and follows a common protocol:
+
+1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library
+    ```csharp
+    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+
+    var result = await context.AcquireTokenAsync(
+        "https://management.core.windows.net/",
+        new ClientCredential(clientId, clientSecret)
+    );
+    ```
+
+1. Create the `ServiceBusManagementClient` object
+    ```csharp
+    var creds = new TokenCredentials(token);
+    var sbClient = new ServiceBusManagementClient(creds)
+    {
+        SubscriptionId = SettingsCache["SubscriptionId"]
+    };
+    ```
+
+1. Set the CreateOrUpdate parameters to your specified values
+    ```csharp
+    var queueParams = new QueueCreateOrUpdateParameters()
+    {
+        Location = SettingsCache["DataCenterLocation"],
+        EnablePartitioning = true
+    };
+    ```
+
+1. Execute the call
+    ```csharp
+    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
+    ```
 
 ## Next steps
-* [`Microsoft.Azure.Management.ServiceBus`](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus/) 
-* [DotNet Management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
+* [.NET Management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
+* [Microsoft.Azure.Management.ServiceBus Reference](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus/) 
 
 [Create Namespace]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.servicebus.namespacesoperationsextensions#Microsoft_Azure_Management_ServiceBus_NamespacesOperationsExtensions_BeginCreateOrUpdateAsync_Microsoft_Azure_Management_ServiceBus_INamespacesOperations_System_String_System_String_Microsoft_Azure_Management_ServiceBus_Models_NamespaceCreateOrUpdateParameters_System_Threading_CancellationToken_
 [Create Queue]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.servicebus.queuesoperationsextensions#Microsoft_Azure_Management_ServiceBus_QueuesOperationsExtensions_CreateOrUpdateAsync_Microsoft_Azure_Management_ServiceBus_IQueuesOperations_System_String_System_String_System_String_Microsoft_Azure_Management_ServiceBus_Models_QueueCreateOrUpdateParameters_System_Threading_CancellationToken_
