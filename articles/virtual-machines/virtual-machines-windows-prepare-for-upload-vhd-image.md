@@ -54,14 +54,12 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 ## Prepare Windows configuration for upload
-> [!NOTE]
-> Run all the following commands with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
-> 
-> 
+
+Run all the following commands from the command prompt window with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
    
-   * To view the route table, run `route print`.
+   * To view the route table, run `route print` from the command prompt window.
    * Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 2. Remove the WinHTTP proxy:
    
@@ -81,51 +79,51 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
     ```
 
 ## Configure Windows services
-1. Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
+Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
    
-    ```CMD
-    sc config bfe start= auto
+```CMD
+sc config bfe start= auto
    
-    sc config dcomlaunch start= auto
+sc config dcomlaunch start= auto
    
-    sc config dhcp start= auto
+sc config dhcp start= auto
    
-    sc config dnscache start= auto
+sc config dnscache start= auto
    
-    sc config IKEEXT start= auto
+sc config IKEEXT start= auto
    
-    sc config iphlpsvc start= auto
+sc config iphlpsvc start= auto
    
-    sc config PolicyAgent start= demand
+sc config PolicyAgent start= demand
    
-    sc config LSM start= auto
+sc config LSM start= auto
    
-    sc config netlogon start= demand
+sc config netlogon start= demand
    
-    sc config netman start= demand
+sc config netman start= demand
    
-    sc config NcaSvc start= demand
+sc config NcaSvc start= demand
    
-    sc config netprofm start= demand
+sc config netprofm start= demand
    
-    sc config NlaSvc start= auto
+sc config NlaSvc start= auto
    
-    sc config nsi start= auto
+sc config nsi start= auto
    
-    sc config RpcSs start= auto
+sc config RpcSs start= auto
    
-    sc config RpcEptMapper start= auto
+sc config RpcEptMapper start= auto
    
-    sc config termService start= demand
+sc config termService start= demand
    
-    sc config MpsSvc start= auto
+sc config MpsSvc start= auto
    
-    sc config WinHttpAutoProxySvc start= demand
+sc config WinHttpAutoProxySvc start= demand
    
-    sc config LanmanWorkstation start= auto
+sc config LanmanWorkstation start= auto
    
-    sc config RemoteRegistry start= auto
-    ```
+sc config RemoteRegistry start= auto
+```
 
 ## Configure Remote Desktop configuration
 1. If there are any self-signed certificates tied to the Remote Desktop Protocol (RDP) listener, remove them:
