@@ -20,7 +20,7 @@
 
 # Event Hubs management libraries
 
-The Service Bus management libraries provide functionality to dynamically provision Service Bus namespaces and entities. This allows for complex deployments and messaging scenarios, allowing users to programmatically determine what entities to provision. These libraries are currently available for .NET.
+The Service Bus management libraries provide functionality to dynamically provision Event Hubs namespaces and entities. This allows for complex deployments and messaging scenarios, allowing users to programmatically determine what entities to provision. These libraries are currently available for .NET.
 
 ## Supported functionality
 
