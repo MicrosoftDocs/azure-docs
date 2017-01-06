@@ -111,6 +111,9 @@ var eventHubSpout = new JavaComponentConstructor(
 topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions);
 ```
 
+> [!IMPORTANT]
+> UnicodeEventDataScheme is only available in the 9.5 version of the Event Hub components, which is available from [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/).
+
 ### Example Bolt usage
 
 You must use the JavaComponmentConstructor method to create an instance of the bolt. The following example demonstrates how to create and configure a new instance of the EventHubBolt:
