@@ -1,10 +1,11 @@
 # Overview
-## [What is Service Bus Messaging?](service-bus-queues-topics-subscriptions.md)
-## [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [What is Service Bus Messaging?](service-bus-messaging-overview.md)
+## [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 ## [FAQ](service-bus-faq.md)
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
+
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -24,11 +25,13 @@
 
 # How To
 ## Plan and design
+### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
 ### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
 ## Develop
+### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
 ### [Authentication and authorization](service-bus-authentication-and-authorization.md)
