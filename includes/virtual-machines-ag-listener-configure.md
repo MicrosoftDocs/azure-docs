@@ -12,7 +12,7 @@ The Availability Group listener is an IP address and network name that the SQL S
 
 The following sections provide detailed instructions for each of these steps. 
 
-#### <a name="getnet">Get the name of the cluster network resource</a> 
+#### <a name="getnet"></a>Get the name of the cluster network resource
 
 1. Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
 
@@ -24,7 +24,9 @@ The following sections provide detailed instructions for each of these steps.
 
    ![Cluster Network Name](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-#### <a name="addcap">Add the client access point</a>
+#### <a name="addcap"></a>Add the client access point
+
+The client access point is the network name that applications use to connect to the databases in an availability group. Create the client access point in Failover Cluster Manager. 
 
 1. Expand the cluster name, and then click **Roles**.
 
@@ -38,9 +40,9 @@ The following sections provide detailed instructions for each of these steps.
    
    To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
    
-#### <a name="congroup">Configure the IP resource for the Availability Group</a>
+#### <a name="congroup"></a>Configure the IP resource for the Availability Group
 
-1. Click the **Resources** tab, then expand the Client Access Point you created. The client access point is offline.
+1. Click the **Resources** tab, then expand the client access point you created. The client access point is offline.
 
    ![Client Access Point](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
 
@@ -53,11 +55,11 @@ The following sections provide detailed instructions for each of these steps.
 <!-----------------------I don't see this option on server 2016
 1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 ------------------------->
-#### <a name="listname">Make the Availability Group resource dependent on the listener resource</a>
+#### <a name="listname"></a>Make the client access point resource dependent on the IP address
 
 1. In Failover Cluster Manager, click **Roles** and click your Availability Group. 
 
-1. On the **Resources** tab, right-click the availability resource group under **Other Resources** and click **Properties**. 
+1. On the **Resources** tab, right-click the availability resource group under **Server Name** and click **Properties**. 
 
    ![IP Resource](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
@@ -67,7 +69,7 @@ The following sections provide detailed instructions for each of these steps.
 
 1. Right-click the listener name and click **Bring Online**. 
 
-#### <a name="setparam">Set the cluster parameters in PowerShell</a>
+#### <a name="setparam"></a>Set the cluster parameters in PowerShell
 
 1. Copy the following PowerShell script to one of your SQL Servers. Update the variables for your environment.     
    ```PowerShell
