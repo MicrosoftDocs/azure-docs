@@ -59,7 +59,7 @@ You must enable your client application to access the SQL Database service by se
 5. For the **SIGN-ON URL** and **APP ID URI** you can type a valid URL (for example, *http://myClientApp*) and continue.
 6. Click **CONFIGURE**.
 7. Copy your **CLIENT ID**. (You will need this value in your code later.)
-8. In the **keys** section, select **1 year** from the  **Select duration** drop-down list. (You will copy the key after you save in step 14.)
+8. In the **keys** section, select **1 year** from the  **Select duration** drop-down list. (You will copy the key after you save in step 13.)
 9. Scroll down and click **Add application**.
 10. Leave **SHOW** set to **Microsoft Apps** and select **Microsoft Azure Service Management**. Click the checkmark to continue.
 11. Select **Access Azure Service Management** from the **Delegated Permissions** drop-down list.

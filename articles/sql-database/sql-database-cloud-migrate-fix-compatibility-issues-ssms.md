@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Fix SQL Database compatibility migration issues | Microsoft Docs'
+title: 'SSMS: Fix Azure SQL Database compatibility migration issues | Microsoft Docs'
 description: In this article, you are introducted to fixing SQL Server database compatibility issues using the SQL Server Management Studio before migration to Azure SQL Database.
 keywords: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard
 services: sql-database

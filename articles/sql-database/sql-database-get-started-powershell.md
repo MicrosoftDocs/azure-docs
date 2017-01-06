@@ -1,5 +1,5 @@
 ---
-title: 'Powershell: Get started with SQL Database | Microsoft Docs'
+title: 'Powershell: Get started with Azure SQL Database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using PowerShell. You also learn to query databases using PowerShell.
 keywords: create new sql database,database setup
 services: sql-database

@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: Get started with SQL Database | Microsoft Docs'
+title: 'Azure portal: Get started with Azure SQL Database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure portal. You also learn to query databases using SQL Server Management Studio.
 keywords: sql database tutorial, create a sql database
 services: sql-database

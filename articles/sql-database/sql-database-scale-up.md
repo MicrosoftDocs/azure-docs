@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: Change Azure SQL Database pricing tier | Microsoft Docs' | Microsoft Docs
+title: 'Azure Portal: Change Azure SQL Database pricing tier | Microsoft Docs'
 description: Learn how to use the Azure portal to change the service tier and performance level of an Azure SQL database and scale the resources and pricing of your SQL database up or down.
 services: sql-database
 documentationcenter: ''

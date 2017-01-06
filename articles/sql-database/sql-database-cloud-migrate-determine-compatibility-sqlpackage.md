@@ -1,5 +1,5 @@
 ---
-title: 'SQLPackage: SQL Server database compatibility with SQL Database | Microsoft Docs'
+title: 'SQLPackage: Azure SQL Server database compatibility | Microsoft Docs'
 description: In this article, you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the SqlPackage
 keywords: Microsoft Azure SQL Database, database migration, SQL Database compatibility, SqlPackage
 services: sql-database

@@ -1,5 +1,5 @@
 ---
-title: 'SAMW: Fix SQL Database compatibility migration issues | Microsoft Docs'
+title: 'SAMW: Fix Azure SQL Database compatibility migration issues | Microsoft Docs'
 description: In this article, you learn about options to detect and fix SQL Server database compatibility issues using the SQL Azure Migration Wizard before migration to Azure SQL Database.
 keywords: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard
 services: sql-database
