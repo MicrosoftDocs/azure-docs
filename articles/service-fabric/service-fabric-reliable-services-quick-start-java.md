@@ -163,6 +163,6 @@ $ gradle
 
 This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Run the install.sh script to deploy:
 
-```bask
+```bash
 $ ./install.sh
 ```
