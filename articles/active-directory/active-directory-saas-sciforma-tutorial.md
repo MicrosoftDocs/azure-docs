@@ -69,7 +69,7 @@ The objective of this section is to outline how to enable the application integr
 The objective of this section is to outline how to enable users to authenticate to Sciforma with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Sciforma** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Sciforma** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configure single sign-on")
 
@@ -85,7 +85,7 @@ The objective of this section is to outline how to enable users to authenticate 
    
     ![Configure single sign-on](./media/active-directory-saas-sciforma-tutorial/IC777375.png "Configure single sign-on")
 
-5. Forward that metadata file to Sciforma support team. The support team needs configures single sign-on for you.
+5. Forward that metadata file to Sciforma support team. The support team configures single sign-on for you.
 
 6. Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    

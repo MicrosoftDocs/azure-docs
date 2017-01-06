@@ -56,7 +56,7 @@ Currently, you cannot create a preconfigured solution with a [Microsoft Azure fo
 ### How do I delete an AAD tenant?
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
-## Next steps
+### Next steps
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]

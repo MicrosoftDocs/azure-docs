@@ -71,7 +71,7 @@ As part of this procedure, you are required to create a base-64 encoded certific
 If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **ShiftPlanning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **ShiftPlanning** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configure Single Sign-On")
 
@@ -161,7 +161,8 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to ShiftPlanning, perform the following steps:
 1. In the Azure classic portal, create a test account.
-2. On the **ShiftPlanning **application integration page, click **Assign users**.
+
+2. On the **ShiftPlanning** application integration page, click **Assign users**.
    
     ![Assign Users](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Assign Users")
 
