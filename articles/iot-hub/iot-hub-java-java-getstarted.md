@@ -43,7 +43,7 @@ As a final step, make a note of the **Primary key** value. Then click **Endpoint
 
 ![Azure portal IoT Hub Messaging blade][6]
 
-You have now created your IoT hub, and you have the IoT Hub host name, IoT Hub connection string, IoT Hub Primary Key, Event Hub-compatible name, and Event Hub-compatible endpoint you need to complete this tutorial.
+You have now created your IoT hub. You have the IoT Hub host name, IoT Hub connection string, IoT Hub Primary Key, Event Hub-compatible name, and Event Hub-compatible endpoint you need to complete this tutorial.
 
 ## Create a device identity
 In this section, you create a Java console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
@@ -437,7 +437,7 @@ You are now ready to run the apps.
 ## Next steps
 In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
 
-To continue getting started with IoT Hub and to explore other IoT scenarios see:
+To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
