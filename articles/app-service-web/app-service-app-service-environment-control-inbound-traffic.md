@@ -29,7 +29,7 @@ Once a network security group is assigned to a subnet, inbound traffic to apps i
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Network Ports Used in an App Service Environment
+## Inbound Network Ports Used in an App Service Environment
 Before locking down inbound network traffic with a network security group, it is important to know the set of required and optional network ports used by an App Service Environment.  Accidentally closing off traffic to some ports can result in loss of functionality in an App Service Environment.
 
 The following is a list of ports used by an App Service Environment. All ports are **TCP**, unless otherwise clearly noted:
