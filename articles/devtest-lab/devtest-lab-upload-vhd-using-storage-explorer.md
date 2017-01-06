@@ -55,13 +55,9 @@ This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azu
 	
 1. Connect to an Azure subscription account using Storage Explorer.
 
-	Microsoft Azure Storage Explorer supports the following connection options:
-	 
-	- Connect to storage accounts associated with your Azure subscriptions.
-	- Connect to storage accounts and services shared from other Azure subscriptions.
-	- Connect to and managing local storage using the Azure Storage Emulator. 
-	
-	The following steps illustrate connecting to a storage account associated with your Azure subscription. To see how to connect using the other techniques, refer to the article, [Getting started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+	> [!TIP] 
+	> 
+	> Storage Explorer supports several connection options. This section illustrates connecting to a storage account associated with your Azure subscription. To see the other connection options supported by Storage Explorer, refer to the article, [Getting started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
  
 	1. Open Storage Explorer.
 	
