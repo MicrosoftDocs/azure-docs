@@ -27,7 +27,7 @@ Automation is generally available in Azure Government.
 ### Variations
 The following Automation features are not currently available in Azure Government.
 
-* Creation of a Service Principle credential for authentication
+* Creation of a Service Principal credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
@@ -61,8 +61,8 @@ The following Site Recovery features are not currently available in Azure Govern
 | Hyper-V | GA | GA |
 | Site to Site | GA | GA |
 
-[!NOTE]
-Table applies to VA and Iowa. 
+>[!NOTE]
+>Table applies to US Gov Virginia and US Gov Iowa. 
 
 The following URLs for ASR  are different in Azure Government:
 
