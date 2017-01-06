@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 1/07/2016
+ms.date: 1/07/2017
 ms.author: ryansoc
 
 ---
@@ -60,7 +60,7 @@ The following Site Recovery features are not currently available in Azure Govern
 | Hyper-V | GA | Planned |
 | Site to Site | GA | Planned |
 
-Notes: Table applies to VA and Iowa. 
+[!NOTE] Table applies to VA and Iowa. 
 
 The following URLs for ASR  are different in Azure Government:
 
