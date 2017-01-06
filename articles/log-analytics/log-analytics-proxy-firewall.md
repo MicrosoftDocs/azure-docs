@@ -142,7 +142,7 @@ Use the following procedures to register your Operations Manager management grou
 2. Under **RunAs Configuration**, select **Profiles**.
 3. Open the **System Center Advisor Run As Profile Proxy** profile.<br>  
     ![image of the System Center Advisor Run As Proxy profile](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.<br>  
+4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.<br>   
     ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
 5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.<br>  
     ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
@@ -155,8 +155,7 @@ Use the following procedures to register your Operations Manager management grou
 
 ### To validate that OMS management packs are downloaded
 If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.<br>  
-    ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)
-
+    ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
 Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
    ```  
