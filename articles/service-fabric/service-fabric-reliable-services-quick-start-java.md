@@ -42,13 +42,13 @@ To get started with Reliable Services, you only need to understand a few basic c
 * **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
 ## Create a stateless service
-Start by creating a new Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
+Start by creating a Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Follow the instructions to create a **Reliable Stateless Service**. For this tutorial, name the application "HelloWorldApplication" and the service "HelloWorld". The result will include directories for the `HelloWorldApplication` and `HelloWorld`.
+Follow the instructions to create a **Reliable Stateless Service**. For this tutorial, name the application "HelloWorldApplication" and the service "HelloWorld". The result includes directories for the `HelloWorldApplication` and `HelloWorld`.
 
 ```bash
 HelloWorldApplication/
@@ -96,7 +96,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-In this tutorial, we will focus on the `runAsync()` entry point method. This is where you can immediately start running your code.
+In this tutorial, we focus on the `runAsync()` entry point method. This is where you can immediately start running your code.
 
 ### RunAsync
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
@@ -108,10 +108,10 @@ The platform calls this method when an instance of a service is placed and ready
 
 This orchestration is managed by Service Fabric to keep your service highly available and properly balanced.
 
-`runAsync()` should not block synchronously. Your implementation of runAsync should return a CompletableFuture to allow the runtime to continue. If your workload need to implement a long running task that should be done inside the CompletableFuture.
+`runAsync()` should not block synchronously. Your implementation of runAsync should return a CompletableFuture to allow the runtime to continue. If your workload needs to implement a long running task that should be done inside the CompletableFuture.
 
 #### Cancellation
-Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `runAsync()` as quickly as possible when the system requests cancellation. The following example demonstrates how to handle a cancellation event:
+Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system waits for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `runAsync()` as quickly as possible when the system requests cancellation. The following example demonstrates how to handle a cancellation event:
 
 ```java
     @Override
@@ -155,13 +155,13 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and un-deploy the application. To run the application, first build the application with gradle:
+The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and undeploy the application. To run the application, first build the application with gradle:
 
 ```bash
 $ gradle
 ```
 
-This will produce a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Simply run the install.sh script to deploy:
+This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Run the install.sh script to deploy:
 
 ```bask
 $ ./install.sh
