@@ -108,7 +108,7 @@ The platform calls this method when an instance of a service is placed and ready
 
 This orchestration is managed by Service Fabric to keep your service highly available and properly balanced.
 
-`runAsync()`` should not block synchronously. Your implementation of runAsync should return a CompletableFuture to allow the runtime to continue. If your workload need to implement a long running task that should be done inside the CompletableFuture.
+`runAsync()` should not block synchronously. Your implementation of runAsync should return a CompletableFuture to allow the runtime to continue. If your workload need to implement a long running task that should be done inside the CompletableFuture.
 
 #### Cancellation
 Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `runAsync()` as quickly as possible when the system requests cancellation. The following example demonstrates how to handle a cancellation event:
