@@ -13,7 +13,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 10/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 
 ---
