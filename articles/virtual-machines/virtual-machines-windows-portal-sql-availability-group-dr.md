@@ -58,15 +58,13 @@ To create a replica in a remote data center, do the following steps:
 
 1. Create a virtual network in the new region.
 
-1. [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+1. [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
    >[!NOTE]
-   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.)
+   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md.)
 
 1. Create a domain controller in the new region.
 
-1. Create an Azure load balancer in the network on the new region.
-
-1. Configure load balancer backend pools, frontend IP pool, health probe, and load balancing rules. 
+1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
 
 1. Add Failover Clustering Role to the new SQL Server.
 
@@ -93,13 +91,13 @@ To create a replica in a remote data center, do the following steps:
 
 ## More Information
 
-* Always On Availability Groups
+* [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 
-* Azure Virtual Machines
+* [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
 
-* Azure Load Balancers
+* [Azure Load Balancers](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
 
-* Azure Availability Sets
+* [Azure Availability Sets](virtual-machines-windows-manage-availability.md)
 
 
 
