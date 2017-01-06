@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 01/05/2017
 ms.author: dobett
 
 ---
@@ -39,7 +39,7 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-As a final step, make a note of the **Primary key** value, and then click **Messaging**. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You need these three values when you create your **read-d2c-messages** app.
+As a final step, make a note of the **Primary key** value. Then click **Endpoints** and the **Events** built-in endpoint. On the **Properties** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint** address. You need these three values when you create your **read-d2c-messages** app.
 
 ![Azure portal IoT Hub Messaging blade][6]
 
