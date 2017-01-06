@@ -16,6 +16,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
+
 
 ---
 # How to create a database for DocumentDB using the Azure portal

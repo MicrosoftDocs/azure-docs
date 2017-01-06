@@ -61,7 +61,7 @@ There are special graph databases that can [run on Azure](http://neo4j.com/devel
 
 And it can be obtained with a single query, and with no joins. This is much more simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
-Azure DocumentDB makes sure that all the properties are indexed with its [automatic indexing](documentdb-indexing.md), which can even be [customized](documentdb-indexing-policies.md). The schema-free approach lets us store Documents with different and dynamic structures, maybe tomorrow we want posts to have a list of categories or hashtags associated with them, DocumentDB will handle the new Documents with the added attributes with no extra work required by us.
+Azure DocumentDB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](documentdb-indexing-policies.md). The schema-free approach lets us store Documents with different and dynamic structures, maybe tomorrow we want posts to have a list of categories or hashtags associated with them, DocumentDB will handle the new Documents with the added attributes with no extra work required by us.
 
 Comments on a post can be treated as just other posts with a parent property (this simplifies our object mapping). 
 

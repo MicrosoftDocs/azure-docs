@@ -2,7 +2,7 @@
 title: Request increased DocumentDB account quotas | Microsoft Docs
 description: Learn how to request an adjustment to DocumentDB database quotas such as document storage and throughput per collection.
 services: documentdb
-author: AndrewHoh
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2016
-ms.author: anhoh
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Request increased DocumentDB account quotas

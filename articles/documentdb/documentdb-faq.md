@@ -73,7 +73,7 @@ Microsoft Azure DocumentDB is available in the [Azure Portal][azure-portal].  Fi
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure Portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
 
 ### How do I create a database?
-You can create databases using the [Azure Portal]() as described in [Create a DocumentDB database](documentdb-create-database.md), one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+You can create databases using the [Azure Portal]() as described in [Create a DocumentDB collection and database](documentdb-create-collection.md), one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### What is a collection?
 A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the throughput and storaged used. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.

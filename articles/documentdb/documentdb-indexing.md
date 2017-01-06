@@ -2,9 +2,9 @@
 title: Automatic indexing in DocumentDB | Microsoft Docs
 description: Learn about how automatic indexing works in Azure DocumentDB.
 services: documentdb
-author: arramac
+author: mimig1
 manager: jhubbard
-editor: mimig
+editor: mimig1
 documentationcenter: ''
 
 ms.assetid: 126bfd36-9332-4127-8747-1a1c806760f7
@@ -14,7 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.author: arramac
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
+
 
 ---
 # Automatic indexing in Azure DocumentDB
