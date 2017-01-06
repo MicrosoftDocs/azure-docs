@@ -17,8 +17,19 @@ ms.date: 12/21/2016
 ms.author: elbutter
 
 ---
+# Introduction
+
+This tutorial will teach you:
+- How to provision a SQL Data Warehouse
+- How to set up firewall rules
+- How to create user logins
+- How to load data from Azure Storage Blobs
+- How to evalutate various types of queries
+- Scaling/Pausing basics
+
+**Estimated time to complete:** 75 minutes
+
 # Step 1: Prerequisites
-TODO: Finish the introduction here at some point
 
 
 ## Sign Up for Microsoft Azure
@@ -72,7 +83,7 @@ e.g. *mydw-westus-1-test*
 
 **Source**: Blank Database
 
-**Server**: Select the server you created in [Step 1](./sql-data-warehouse-get-started-tutorial.md#step-1-prerequisites).
+**Server**: Select the server you created in [Step 1].
 
 **Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS
 
