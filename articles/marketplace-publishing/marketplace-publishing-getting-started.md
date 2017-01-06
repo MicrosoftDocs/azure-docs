@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 
 ---
@@ -30,7 +30,7 @@ The first thing you would want to do as a publisher is to define what kind of so
 |Solution Type|Virtual Machine|Solution Template|
 |---|---|---|
 |Definition|Pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.|A data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.|
-|Example|**For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.|**For example,** as an Azure publisher, you've bundles a set of services from across Azure that makes it quick to deploy a secure, high availability cloud service with load balancing in a few clicks. Other Azure subscribers could fine value in saving time by procuring this solution template rather manually identifying and configuring the same or similar Azure services.|
+|Example|**For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.|**For example,** as an Azure publisher, you've bundled a set of services from across Azure that make it quick to deploy cloud services with load balancing, enhanced security and high availability. Other Azure subscribers can save time by procuring the solution template that meets their objective rather manually locating, procuring, deploying and configuring the same or similar Azure services.|
 
 > [!NOTE]
 > Please note some steps are shared between the different types of solutions and others are distinct to the respective type of solution. This article provides a short overview of what steps you will need to complete for any type of solution.
@@ -39,10 +39,12 @@ The first thing you would want to do as a publisher is to define what kind of so
 ![draw](media/marketplace-publishing-getting-started/img01.png)
 
 ### 1. Nominate your solution for pre-approval
-> [!IMPORTANT]
-> Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
+- Complete the solution nomination form for **Microsoft Azure Certified for Virtual Machines** [here](https://createopportunity.azurewebsites.net)
 
-- [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
+>[!NOTE]
+> If you are working with a Partner Account Manager or a DX Partner Manager, please ask them to nominate your solution for the Azure Certified program OR go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage, fill out the application form and enter the email of your Partner Account Manager or DX Partner Manager in the Microsoft Sponsor Contact field.
+
+If the eligibility criteria is met per the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833) and your application is approved, we will start working with you to onboard your solution to the Azure Marketplace.
 
 ### 2. Register your account as a Microsoft seller
 - [Register your Microsoft account as a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)

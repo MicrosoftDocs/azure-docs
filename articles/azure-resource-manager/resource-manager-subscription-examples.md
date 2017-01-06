@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scenarios and examples for subscription governance | Microsoft Docs
 description: Provides examples of how to implement Azure subscription governance for common scenarios.
 services: azure-resource-manager
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 
 ---

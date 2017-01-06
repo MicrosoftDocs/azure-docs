@@ -1,4 +1,3 @@
-﻿
 ---
 title: How does Azure RemoteApp save user data and settings? | Microsoft Docs
 description: Learn how Azure RemoteApp saves user data using the user profile disk.

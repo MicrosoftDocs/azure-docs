@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using elastic database client library with Entity Framework | Microsoft Docs
 description: Use Elastic Database client library and Entity Framework for coding databases
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

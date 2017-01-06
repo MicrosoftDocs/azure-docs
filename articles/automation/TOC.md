@@ -23,6 +23,7 @@
 ### [Schedule a runbook](automation-scheduling-a-runbook.md)
 ### [Run runbooks in your datacenter](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
+### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
@@ -52,6 +53,7 @@
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
+### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Monitor](automation-manage-send-joblogs-log-analytics.md)
 ## Migrate
 ### [Migrate from Orchestrator](automation-orchestrator-migration.md)

@@ -23,17 +23,21 @@ ms.author: anhowe
 # Microsoft Azure Container Service Engine - Kubernetes Walkthrough
 
 ## Prerequisites
-This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli) installed.
+This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed.
 
 ## Overview
 
-Once your Kubernetes cluster has been created you will have a resource group containing a master serving the Kubernetes REST API over https and a set of worker nodes in an Azure availability set.
+The instructions below will create a Kubernetes cluster with one master and two worker nodes.
+The master serves the Kubernetes REST API.  The worker nodes are grouped in an Azure availability set
+and run your containers. All VMs are in the same private VNET and are fully accessible to each other.
 
-The following image shows the architecture of a container service cluster with 1 master, and 2 agents:
+> [!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
+
+The following image shows the architecture of a container service cluster with one master, and two agents:
 
 ![Image of Kubernetes cluster on azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
-
-All VMs are in the same private VNET and are fully accessible to each other.
 
 ## Creating your Kubernetes cluster
 
@@ -42,7 +46,7 @@ To create your cluster, you first need to create a resource group in a specific 
 ```console
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
-az resource group create --name=$RESOURCE_GROUP --location=$LOCATION
+az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster
@@ -52,7 +56,7 @@ DNS_PREFIX=some-unique-value
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=my-cluster --dns-prefix=$DNS_PREFIX
 ```
 
-Once that command is complete you should have a working Kubernetes cluster.
+Once that command is complete, you should have a working Kubernetes cluster.
 
 ### Configure kubectl
 `kubectl` is the Kubernetes command line client.  If you don't already have it installed, you can install it with:
@@ -75,10 +79,10 @@ And validate that you can see the machines in your cluster.
 
 ## Create your First Kubernetes Service
 
-After completing this walkthrough you will know how to:
- * deploy a simple Docker application and expose to the world,
+After completing this walkthrough, you will know how to:
+ * deploy a Docker application and expose to the world,
  * use `kubectl exec` to run commands in a container, 
- * and finally access the Kubernetes dashboard.
+ * and access the Kubernetes dashboard.
 
 ### Start a simple container
 You can run a simple container (in this case the `nginx` web server) by running:
@@ -87,7 +91,7 @@ You can run a simple container (in this case the `nginx` web server) by running:
 kubectl run nginx --image nginx
 ```
 
-This will start the nginx Docker container in a pod on one of the nodes.
+This command starts the nginx Docker container in a pod on one of the nodes.
 
 You can run
 ```console
@@ -103,7 +107,8 @@ To expose the service to the world.  You create a Kubernetes `Service` of type `
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-This will now cause Kubernetes to create an Azure Load Balancer with a public IP. The change will take about 2-3 minutes to propogate to the load balancer.
+This will now cause Kubernetes to create an Azure Load Balancer with a public IP. The change
+takes about 2-3 minutes to propagate to the load balancer.
 
 To watch the service change from "pending" to an external ip type:
 ```console
@@ -171,15 +176,15 @@ To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/downl
   export KUBECONFIG=`pwd`/config
   kubectl get nodes
   ```
-# Learning More
+## Learning More
 
-## Azure Container Service
+### Azure Container Service
 
 1. [Azure Container Service documentation](https://azure.microsoft.com/en-us/documentation/services/container-service/)
 2. [Azure Container Service Open Source Engine](https://github.com/azure/acs-engine)
 
-## Kubernetes Community Documentation
+### Kubernetes Community Documentation
 
 1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
-2. [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
+2. [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
 3. [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.

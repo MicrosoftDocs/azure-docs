@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect a Raspberry Pi 3 to Azure IoT Hub | Microsoft Docs
 description: Get started with a Raspberry Pi 3 device, create your Azure IoT hub, and connect your Pi to your IoT hub.
 services: iot-hub
@@ -21,6 +21,9 @@ ms.author: xshi
 
 ---
 # Get started with Raspberry Pi 3 (Node.js)
+> [!div class="op_single_selector"]
+> * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
+> * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
 
