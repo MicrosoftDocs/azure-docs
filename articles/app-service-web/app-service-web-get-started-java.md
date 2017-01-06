@@ -1,5 +1,5 @@
 ---
-title: Deploy your first Java web app to Azure in five minutes | Microsoft Docs
+title: Deploy your first Java web app to Azure in five minutes (CLI 2.0 Preview) | Microsoft Docs
 description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
 services: app-service\web
 documentationcenter: ''
@@ -13,11 +13,22 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 
 ---
-# Deploy your first Java web app to Azure in five minutes
+# Deploy your first Java web app to Azure in five minutes (CLI 2.0 Preview)
+
+> [!div class="op_single_selector"]
+> * [First HTML site](app-service-web-get-started-html-cli-nodejs.md)
+> * [First .NET app](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [First PHP app](app-service-web-get-started-php-cli-nodejs.md)
+> * [First Node.js app](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [First Python app](app-service-web-get-started-python-cli-nodejs.md)
+> * [First Java app](app-service-web-get-started-java.md)
+> 
+> 
+
 This tutorial helps you deploy a simple Java web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
 and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -75,7 +86,7 @@ Now, let's deploy a Java app to Azure using FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. In **Java version**, select **Java 8** and click **Save**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     When you get the notification **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
     to see the default JSP servlet in action.

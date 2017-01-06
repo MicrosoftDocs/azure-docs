@@ -44,6 +44,7 @@
 ## Manage
 ### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
 ### [Plan for high availability](data-lake-store-troubleshooting-guidance.md)
+### [Performance tuning guidance](data-lake-store-performance-tuning-guidance.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
