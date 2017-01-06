@@ -36,13 +36,13 @@ In order to get started using the Event Hubs management libraries, you must auth
 * [Use Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Use Azure CLI to create a service principal to access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-The above tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which will be used to authenticate by the management libraries. You must have 'Owner' permissions for the resource group that you wish to run on.
+The previous tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which will be used to authenticate by the management libraries. You must have 'Owner' permissions for the resource group that you wish to run on.
 
 ## Programming pattern
 
 The pattern to manipulate any Event Hubs resource is similar and follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library
+1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
     ```csharp
     var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
@@ -52,7 +52,7 @@ The pattern to manipulate any Event Hubs resource is similar and follows a commo
     );
     ```
 
-1. Create the `EventHubManagementClient` object
+1. Create the `EventHubManagementClient` object.
     ```csharp
     var creds = new TokenCredentials(token);
     var ehClient = new EventHubManagementClient(creds)
@@ -61,7 +61,7 @@ The pattern to manipulate any Event Hubs resource is similar and follows a commo
     };
     ```
 
-1. Set the CreateOrUpdate parameters to your specified values
+1. Set the CreateOrUpdate parameters to your specified values.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -69,11 +69,11 @@ The pattern to manipulate any Event Hubs resource is similar and follows a commo
     };
     ```
 
-1. Execute the call
+1. Execute the call.
     ```csharp
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus Reference](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub/) 
+* [Microsoft.Azure.Management.ServiceBus Reference](/dotnet/api/Microsoft.Azure.Management.EventHub) 

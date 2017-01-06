@@ -37,13 +37,13 @@ In order to get started using the Service Bus management libraries, you must aut
 * [Use Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Use Azure CLI to create a service principal to access resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-The above tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which will be used to authenticate by the management libraries. You must have 'Owner' permissions for the resource group that you wish to run on.
+The previous tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which will be used to authenticate by the management libraries. You must have 'Owner' permissions for the resource group that you wish to run on.
 
 ## Programming pattern
 
 The pattern to manipulate any Service Bus resource is similar and follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library
+1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
     ```csharp
     var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
@@ -53,7 +53,7 @@ The pattern to manipulate any Service Bus resource is similar and follows a comm
     );
     ```
 
-1. Create the `ServiceBusManagementClient` object
+1. Create the `ServiceBusManagementClient` object.
     ```csharp
     var creds = new TokenCredentials(token);
     var sbClient = new ServiceBusManagementClient(creds)
@@ -62,7 +62,7 @@ The pattern to manipulate any Service Bus resource is similar and follows a comm
     };
     ```
 
-1. Set the CreateOrUpdate parameters to your specified values
+1. Set the CreateOrUpdate parameters to your specified values.
     ```csharp
     var queueParams = new QueueCreateOrUpdateParameters()
     {
@@ -71,11 +71,11 @@ The pattern to manipulate any Service Bus resource is similar and follows a comm
     };
     ```
 
-1. Execute the call
+1. Execute the call.
     ```csharp
     await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
     ```
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus Reference](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus/) 
+* [Microsoft.Azure.Management.ServiceBus Reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
