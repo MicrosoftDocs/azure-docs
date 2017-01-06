@@ -13,11 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
 # Frequently asked questions
+
+This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
+
 ## General AMS FAQs
 Q: How do you scale indexing?
 

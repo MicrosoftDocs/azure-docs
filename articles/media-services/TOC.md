@@ -93,6 +93,9 @@
 
 ## [Stream live](media-services-manage-channels-overview.md)
 ### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 ### Cloud encoder tutorials
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako;mingfeiy
 
 ---
@@ -35,7 +35,7 @@ Media Services does not provide Secure Token Services. You can create a custom S
 
 For more information, see
 
-[JWT token authenitcation](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
 [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -56,15 +56,15 @@ Open restriction means the system will deliver the key to anyone who makes a key
 
 The following example creates an open authorization policy and adds it to the content key.
 
-static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-{
-// Create ContentKeyAuthorizationPolicy with Open restrictions
-// and create authorization policy
-IContentKeyAuthorizationPolicy policy = _context.
-ContentKeyAuthorizationPolicies.
-CreateAsync("Open Authorization Policy").Result;
-
-List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
+	{
+		// Create ContentKeyAuthorizationPolicy with Open restrictions
+		// and create authorization policy
+		IContentKeyAuthorizationPolicy policy = _context.
+		ContentKeyAuthorizationPolicies.
+		CreateAsync("Open Authorization Policy").Result;
+		
+		List<ContentKeyAuthorizationPolicyRestriction> restrictions =
             new List<ContentKeyAuthorizationPolicyRestriction>();
 
         ContentKeyAuthorizationPolicyRestriction restriction =

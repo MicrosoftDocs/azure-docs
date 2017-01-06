@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -160,7 +160,7 @@ Standard Streaming Endpoint is suitable for most streaming workloads. Standard S
 It is recommended to use dynamic packaging and/or dynamic encryption.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 For more information, see [this](media-services-portal-manage-streaming-endpoints.md) topic.
 

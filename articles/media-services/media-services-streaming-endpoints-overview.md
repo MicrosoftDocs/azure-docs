@@ -1,6 +1,6 @@
 ---
 
-title: Streaming endpoints overview | Microsoft Docs
+title: Azure Media Services Streaming Endpoint overview | Microsoft Docs 
 description: This topic gives an overview of Azure Media Services streaming endpoints.
 services: media-services
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -28,7 +28,10 @@ In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a s
 In addition, starting with the 2.15 version (released in January 2017), Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 
-When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN avalability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. (**Note:** Azure CDN integration can be disabled before starting the streaming endpoint).
+When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN avalability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. 
+
+>[!NOTE]
+>Azure CDN integration can be disabled before starting the streaming endpoint.
 
 This topic gives an overview of the main functionalities that are provided by streaming endpoints.
 
@@ -40,7 +43,7 @@ Starting with the January 2017 release of Media Services, you have two streaming
 
 Type|Description
 ---|---
-**Standard**|This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint is free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note: Free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0.
+**Standard**|This is the default option that would work for the majority of the scenarios.<br/>With this option, you get fixed/limited SLA, first 15 days after you start the streaming endpoint is free.<br/>If you create more than one streaming endpoints, only the first one is free for the first 15 days, the others are billed as soon as you start them. <br/>Note that free trial only applies to newly created media services accounts and default streaming endpoint. Existing streaming endpoints and additionally created streaming endpoints doesn't includes free trial period even they are upgraded to version 2.0 or they are created as version 2.0.
 **Premium**|This option is suitable for professional scenarios that require higher scale or control.<br/>Variable SLA that is based on premium streaming unit (SU) capacity purchased, dedicated streaming endpoints live in isolated environment and do not compete for resources.
 
 For more detailed information, see the **Compare Streaming types** following section.

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---

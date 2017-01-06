@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -75,7 +75,7 @@ The steps in this section show how to create an AMS account.
     Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in **Stopped** state.
 
 	>[!NOTE]
-	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
     ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
@@ -86,7 +86,7 @@ The steps in this section show how to create an AMS account.
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 To start the streaming endpoint, do the following:
 
@@ -409,7 +409,7 @@ Progressive download URLs (audio and video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-To stream you video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+To stream your video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 

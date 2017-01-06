@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 
 ---
@@ -62,7 +62,7 @@ To start using Azure Media Services, you should have the following:
 2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md).
 
-	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
+	Also, learn how to [connect  programmatically](media-services-dotnet-connect-programmatically.md).
 4. A standard or premium streaming endpoint in started state.  For more information, see [Managing streaming endpoints](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints)
 
 ## Concepts and overview
@@ -76,7 +76,7 @@ This section describes common scenarios and provides links to relevant topics. T
 ![VoD workflow](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 	
 ### Protect content in storage and deliver streaming media in the clear (non-encrypted)
 1. Upload a high-quality mezzanine file into an asset.

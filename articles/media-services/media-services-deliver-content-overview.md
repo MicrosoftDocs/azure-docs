@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -26,7 +26,7 @@ To achieve this goal, you can:
 * Use Microsoft Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG-DASH.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 This article gives an overview of important content delivery concepts.
 
@@ -39,7 +39,7 @@ To take advantage of dynamic packaging, you need to encode your mezzanine (sourc
 
 With dynamic packaging, you store and pay for the files in single storage format. Media Services will build and serve the appropriate response based on your requests.
 
-Dynamic packaging is availabele for standard and premium streaming endpoints. 
+Dynamic packaging is available for standard and premium streaming endpoints. 
 
 For more information, see [Dynamic packaging](media-services-dynamic-packaging-overview.md).
 
@@ -77,7 +77,7 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 > [!NOTE]
 > You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
 > 
-> 
+
 
 You can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over SSL.
 
@@ -141,10 +141,10 @@ The following considerations apply:
 
 ## Streaming endpoints
 
-A streaming endpoint represents a streaming service that can deliver content directly to a client player application or to a content delivery network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream or a video-on-demand asset in your Media Services account. There are two types of streaming endpoints, standard and premium. For more information, see [Streaming endpoints overview](media-services-streaming-endpoints-overview.md).
+A streaming endpoint represents a streaming service that can deliver content directly to a client player application or to a content delivery network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream or a video-on-demand asset in your Media Services account. There are two types of streaming endpoints, **standard** and **premium**. For more information, see [Streaming endpoints overview](media-services-streaming-endpoints-overview.md).
 
-[!NOTE]
-When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 ## Known issues
 ### Changes to Smooth Streaming manifest version

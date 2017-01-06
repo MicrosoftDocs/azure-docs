@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -87,7 +87,7 @@ The steps in this section show how to create an AMS account.
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 To start the streaming endpoint, do the following:
 
@@ -280,7 +280,7 @@ The following example shows how to create an asset.
 
 If successful, the following is returned:
 
-    HTP/1.1 201 Created
+    HTTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 452
     Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
@@ -370,7 +370,7 @@ After you upload your digital media file into a blob container, you use the **ME
     }
 
 
-### Creating the AccessPolicy with write permission.
+### Creating the AccessPolicy with write permission
 Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 The following example shows how to create an AccessPolicy:
@@ -392,7 +392,7 @@ The following example shows how to create an AccessPolicy:
 
 **HTTP Response**
 
-    If successful, the following response is returned:
+If successful, the following response is returned:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -524,7 +524,9 @@ Now that you've uploaded your file, update the FileAsset size (and other) inform
 **HTTP Response**
 
 If successful, the following is returned:
+
     HTTP/1.1 204 No Content
+    ...
 
 ## Delete the Locator and AccessPolicy
 **HTTP Request**
@@ -860,7 +862,7 @@ To stream or download an asset, you first need to "publish" it by creating a loc
 Once you create the locators, you can build the URLs that are used to stream or download your files.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 A streaming URL for Smooth Streaming has the following format:
 

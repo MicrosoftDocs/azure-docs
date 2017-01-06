@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
 # Implementing failover streaming scenario
+
 This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for On-Demand streaming. This scenario is useful to customers that want to set up their CDN to failover between two datacenters in the case of an outage in one of our data centers.
 This walkthrough uses Microsoft Azure Media Services SDK, Microsoft Azure Media Services REST API, and Azure Storage SDK to demonstrate the following tasks.
 
@@ -97,7 +98,7 @@ In this section you will create and set up a C# Console Application project.
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## Add code that handles redundancy for On-Demand streaming.
+## Add code that handles redundancy for On-Demand streaming
 1. Add the following class-level fields to the Program class.
    
         // Read values from the App.config file.
@@ -125,6 +126,9 @@ In this section you will create and set up a C# Console Application project.
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
 2. Replace the default Main method definition with the following one:
+
+	>[!NOTE]
+	>Method definitions that are called from Main are defined in the following step.
    
         static void Main(string[] args)
         {
@@ -207,7 +211,7 @@ In this section you will create and set up a C# Console Application project.
                 writeSasLocator.Delete();
         }
 
-1. Method definitions that are called from Main are defined below.
+3. Method definitions that are called from Main are defined below.
    
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,

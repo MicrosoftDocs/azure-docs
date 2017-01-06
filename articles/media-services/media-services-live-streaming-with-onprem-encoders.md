@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: cenkd;juliako
 
 ---
@@ -32,8 +32,7 @@ In Azure Media Services, a **Channel** represents a pipeline for processing live
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
 
 * **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  This topic gives details about working with channels of this type.
-* **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
-  When requested, Media Services delivers the stream to customers.
+* **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. When requested, Media Services delivers the stream to customers.
 
 > [!NOTE]
 > This topic discusses attributes of channels that are not enabled to perform live encoding (**None** encoding type). For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
@@ -228,12 +227,10 @@ Other considerations related to working with channels and related components:
 * You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 * You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-live-streaming-with-onprem-encoders.md#states) section.
 
-## How to create channels that receive multi-bitrate live stream from on-premises encoders
+## Using 3rd Party Live Encoders
+
 For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
-Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
-
-[!INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

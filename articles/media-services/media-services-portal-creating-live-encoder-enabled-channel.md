@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -61,11 +61,11 @@ The following are general steps involved in creating common live streaming appli
 In this tutorial, the Azure portal is used to accomplish the following tasks: 
 
 1. Create a channel that is enabled to perform live encoding.
-2. Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel. .
-3. Create an event/program (and an asset)
-4. Publish the asset and get streaming URLs  
-5. Play your content 
-6. Cleaning up
+2. Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel.
+3. Create an event/program (and an asset).
+4. Publish the asset and get streaming URLs.  
+5. Play your content.
+6. Cleaning up.
 
 ## Prerequisites
 The following are required to complete the tutorial.
@@ -75,7 +75,7 @@ The following are required to complete the tutorial.
 * A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
 * A webcam and an encoder that can send a single bitrate live stream.
 
-## Create a CHANNEL
+## Create a channel
 1. In the [Azure portal](https://portal.azure.com/), select Media Services and then click on your Media Services account name.
 2. Select **Live Streaming**.
 3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
@@ -145,7 +145,7 @@ If you do want to retain the archived content, but not have it available for str
 Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the **standard** or **premium** streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 There are two ways to start event: 
 

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 
 ---
@@ -76,11 +76,6 @@ The threshold for an unused period is nominally 12 hours, but is subject to chan
 The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
 
 ![Live workflow][live-overview]
-
-## In this topic
-* Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
-* [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
-* [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations)
 
 ## <a id="scenario"></a>Common Live Streaming Scenario
 The following are general steps involved in creating common live streaming applications.
@@ -332,7 +327,7 @@ When set to true, this setting configures the live encoder to insert a slate ima
 
 Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
->
+
 >[!NOTE] 
 >Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
 
