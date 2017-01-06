@@ -96,7 +96,8 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
     source ~/azure.completion.sh
     ```
 
-> [!NOTE] Service Fabric commands are not yet available in Azure CLI 2.0.
+> [!NOTE]
+> Service Fabric commands are not yet available in Azure CLI 2.0.
 
 ## Set up a local cluster
 If everything has installed successfully, you should be able to start a local cluster.
