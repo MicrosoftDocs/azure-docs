@@ -30,9 +30,9 @@ The following image shows a common deployment of an availability group on Azure 
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
-In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. This is the architecture that you can build with the [availability group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
+In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. You can build this architecture [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
-This architecture is vulnerable downtime if the Azure region becomes inaccessible. To overcome this vulnerability you can add a new replica at a different Azure region. The following diagram shows how the new architecture would look:
+This architecture is vulnerable downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a new replica in a different Azure region. The following diagram shows how the new architecture would look:
 
    ![Availability Group DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
@@ -50,9 +50,9 @@ The following diagram shows how the networks communicate between data centers.
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
-## Create a replica in a remote data center - High level instructions
+## Create a replica in a remote data center: High-level instructions
 
-Create a replica in a remote data center, do the following steps:
+To create a replica in a remote data center, do the following steps:
 
 1. Create a SQL Server virtual machine in the new region.
 
@@ -60,13 +60,13 @@ Create a replica in a remote data center, do the following steps:
 
 1. [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal).
    >[!NOTE]
-   >In some cases you may have to create the VNet-to-VNet connection with PowerShell. For example, if you use different Azure accounts you will need to configure the connection with PowerShell. See, [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.)
+   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.)
 
 1. Create a domain controller in the new region.
 
 1. Create an Azure load balancer in the network on the new region.
 
-1. Configure load balancer backend pools, frontend IP pool, health probe, and load balaning rules. 
+1. Configure load balancer backend pools, frontend IP pool, health probe, and load balancing rules. 
 
 1. Add Failover Clustering Role to the new SQL Server.
 
@@ -78,7 +78,7 @@ Create a replica in a remote data center, do the following steps:
 
 1. In SQL Server Configuration Manager, enable the Always On Availability Groups feature.
 
-1. Open ports on the new SQL Server firewall for the mirroring endpoint and for the load balancer health probe.
+1. Open firewall ports on the new SQL Server. Open ports for mirroring endpoint and for the load balancer health probe.
 
 1. In Failover Cluster Manager, add the IP address on the load balancer frontend IP rule to the cluster resource.
 
@@ -90,6 +90,16 @@ Create a replica in a remote data center, do the following steps:
    The following screenshot shows a properly configured IP address cluster resource:
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+
+## More Information
+
+* Always On Availability Groups
+
+* Azure Virtual Machines
+
+* Azure Load Balancers
+
+* Azure Availability Sets
 
 
 
