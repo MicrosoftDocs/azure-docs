@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 01/03/2017
 ms.author: rnagpal
 
 ---
@@ -39,7 +39,9 @@ ms.author: rnagpal
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-get-started.md)</td></tr>
+
+<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
