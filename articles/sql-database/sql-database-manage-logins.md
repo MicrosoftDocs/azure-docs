@@ -52,7 +52,7 @@ For a walk-through of creating a server, a database, server-level firewall rules
 > 
 
 ## Additional server-level administrative roles
-In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the virtual master database to which user accounts can be added that grant permissions to either crate databases or manage logins.
+In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the virtual master database to which user accounts can be added that grant permissions to either create databases or manage logins.
 
 ### Database creators
 One of these administrative roles is the dbmanager role. Members of this role can create new databases. To use this role, you create a user in the master database and then add the user to the **dbmanager** database role. The user can be a contained database user, or a user based on a SQL Server login in the virtual master database.
