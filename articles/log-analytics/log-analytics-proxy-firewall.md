@@ -129,11 +129,11 @@ Use the following procedures to register your Operations Manager management grou
 ### To configure the proxy server in the Operations Manager console
 1. Open the Operations Manager console and select the **Administration** workspace.
 2. Expand **Operational Insights**, and then select **Operational Insights Connection**.<br>  
-    ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. In the OMS Connection view, click **Configure Proxy Server**.<br>  
-    ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.<br>  
-    ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### To specify credentials if the proxy server requires authentication
  Proxy server credentials and settings need to propagate to managed computers that will report to OMS. Those servers should be in the *Microsoft System Center Advisor Monitoring Server Group*. Credentials are encrypted in the registry of each server in the group.
@@ -141,21 +141,21 @@ Use the following procedures to register your Operations Manager management grou
 1. Open the Operations Manager console and select the **Administration** workspace.
 2. Under **RunAs Configuration**, select **Profiles**.
 3. Open the **System Center Advisor Run As Profile Proxy** profile.<br>  
-    ![image of the System Center Advisor Run As Proxy profile](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+   ![image of the System Center Advisor Run As Proxy profile](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
 4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.<br>   
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+   ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
 5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.<br>  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+   ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
 6. Search for then select **Microsoft System Center Advisor Monitoring Server Group**.<br>  
-    ![image of the Object Search box](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+   ![image of the Object Search box](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
 7. Click **OK** to close the Add a Run As account box.<br>  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+   ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
 8. Complete the wizard and save the changes.<br>  
-    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+   ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### To validate that OMS management packs are downloaded
 If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.<br>  
-    ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+   ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
 Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
    ```  
@@ -166,9 +166,9 @@ Or, you can also check for OMS management packs by using the following Windows P
 1. In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select **Performance Monitor**.
 2. Click **Add**, and then select **Health Service Management Groups**.
 3. Add all the counters that start with **HTTP**.<br>  
-    ![add counters](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+   ![add counters](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
 4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in OMS and the configured log collection policy.<br>  
-    ![Performance Monitor showing activity](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+   ![Performance Monitor showing activity](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## Next steps
 * [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
