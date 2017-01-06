@@ -1,5 +1,5 @@
 ---
-title: Step 1: Prerequisites | Microsoft Docs
+title: Get Started Tutorial | Microsoft Docs
 description: Get Started Tutorial with Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
