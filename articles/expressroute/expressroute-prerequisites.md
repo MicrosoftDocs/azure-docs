@@ -24,7 +24,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 
 ## Azure account
 * A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and CRM online.
-* An active Office 365 subscription (if using Office 365 services). For information, see the [Office 365 specific requirements](#office-365-specific-requirements) section of this article for more information.
+* An active Office 365 subscription (if using Office 365 services). For more information, see the [Office 365 specific requirements](#office-365-specific-requirements) section of this article.
 
 ## Connectivity provider
 * You can work with an [ExpressRoute connectivity partner](expressroute-locations.md#partners) to connect to the Microsoft cloud. You can set up a connection between your on-premises network and Microsoft in [three ways](expressroute-introduction.md#howtoconnect). 
