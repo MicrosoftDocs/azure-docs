@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2016
+ms.date: 1/06/2017
 ms.author: glimoli;genli
 
 ---
@@ -34,15 +34,14 @@ Make sure that the Windows VHD is working correctly on the local server. Resolve
 If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
 
 ### Convert using Hyper-V Manager
-* Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
-  
-  * On the **Locate Virtual Hard Disk** screen, browse to, and select your virtual disk.
-  * Select **Convert** on the next screen
+1. Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
+2. On the **Locate Virtual Hard Disk** screen, browse to, and select your virtual disk.
+3. Select **Convert** on the next screen.
     
     * If you need to convert from VHDX, select **VHD** and click **Next**
     * If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
-  * Browse to and select **Path for the new VHD file**.
-  * Click **Finish** to close.
+4. Browse to and select **Path for the new VHD file**.
+5. Click **Finish** to close.
 
 ### Convert using PowerShell
 You can convert a virtual disk using the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). In the following example, we are converting from a VHDX to VHD, and converting from a Dynamic to Fixed type:
@@ -66,17 +65,17 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    * Check the **Persistence Routes** sections. If there is a persistent route, use [route delete](https://technet.microsoft.com/library/cc739598.apx) to remove it.
 2. Remove the WinHTTP proxy:
    
-    ```
+    ```shell.command
     netsh winhttp reset proxy
     ```
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
-    ```
+    ```shell.command
     diskpart san policy=onlineall
     ```
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
    
-    ```
+    ```shell.command
     REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
     sc config w32time start= auto
     ```
@@ -84,7 +83,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 ## Configure Windows services
 1. Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
    
-    ```
+    ```shell.command
     sc config bfe start= auto
    
     sc config dcomlaunch start= auto
@@ -131,14 +130,14 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 ## Configure Remote Desktop configuration
 1. If there are any self-signed certificates tied to the Remote Desktop Protocol (RDP) listener, remove them:
    
-    ```
+    ```shell.command
     REG DELETE "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp\SSLCertificateSHA1Hash”
     ```
    
     For more information about configuring certificates for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 2. Configure the [KeepAlive](https://technet.microsoft.com/library/cc957549.aspx) values for RDP service:
    
-    ```
+    ```shell.command
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
    
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
@@ -147,7 +146,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
     ```
 3. Configure the authentication mode for the RDP service:
    
-    ```
+    ```shell.command
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
    
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
@@ -156,21 +155,21 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
     ```
 4. Enable RDP service by adding the following subkeys to the registry:
    
-    ```
+    ```shell.command
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD  /d 0 /f
     ```
 
 ## Configure Windows Firewall rules
 1. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
    
-   ```
+   ```shell.command
    Enable-PSRemoting -force
    ```
 2. Make sure that the following guest operating system firewall rules are in place:
    
    * Inbound
    
-   ```
+   ```shell.command
    netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
    
    netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
@@ -194,7 +193,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    
    * Inbound and outbound
    
-   ```
+   ```shell.command
    netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
    
    netsh advfirewall firewall set rule group="Core Networking" new enable=yes
@@ -202,7 +201,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    
    * Outbound
    
-   ```
+   ```shell.command
    netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
    
    netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
@@ -228,7 +227,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 1. Run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see [this blog post](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 2. Make sure the Boot Configuration Data (BCD) settings match the following:
    
-   ```
+   ```shell.command
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:
@@ -250,7 +249,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 9. Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object. This object is located under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
 
 ## Install Windows Updates
-1. Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
+Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
    
    * [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
    * [KB3115224](https://support.microsoft.com/kb/3115224) Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
@@ -264,20 +263,21 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
    * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
    * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
    * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
-     <a id="step23"></a>
-2. If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
+     
+## Run Sysprep  <a id="step23"></a>    
+If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
    
    * [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
    * [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
-## Suggested extra configurations
+## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
 
 * Install the [Azure Virtual Machines Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). After you install the agent, you can enable VM extensions. The VM extensions implement most of the critical functionality that you want to use with your VMs like resetting passwords, configuring RDP, and many others.
 * The Dump log can be helpful in troubleshooting Windows crash issues. Enable the Dump log collection:
   
-    ```
+    ```shell.command
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f`
   
     REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
@@ -290,7 +290,7 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 * After the VM is created in Azure, configure the system defined size pagefile on drive D:
   
-    ```
+    ```shell.command
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f
     ```
 
