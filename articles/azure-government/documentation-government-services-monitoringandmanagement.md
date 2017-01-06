@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/07/2017
 ms.author: ryansoc
 
 ---
@@ -60,7 +60,10 @@ The following Site Recovery features are not currently available in Azure Govern
 | Hyper-V | GA | Planned |
 | Site to Site | GA | Planned |
 
-Notes: Table applies to VA and Iowa. 
+>[!NOTE]
+>Table applies to VA and Iowa. 
+>
+>
 
 The following URLs for ASR  are different in Azure Government:
 
@@ -71,8 +74,6 @@ The following URLs for ASR  are different in Azure Government:
 | *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
-
-
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
@@ -81,7 +82,7 @@ The following Log Analytics features and solutions are not currently available i
 
 * Solutions that are in preview in Microsoft Azure, including:
   * Network Monitoring solution
-  * Application Dependency Monitoring solution
+  * Service Map
   * Office 365 solution
   * Windows 10 Upgrade Analytics solution
   * Application Insights solution
@@ -123,16 +124,6 @@ The following Log Analytics features behave differently in Azure Government:
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
-
-## Site Recovery
-Site Recovery is generally available in Azure Government.
-
-For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
-
-### Variations
-The following Site Recovery features are not currently available in Azure Government:
-
-* Azure Resource Manager site recovery vaults
 
 ## Next steps
 For supplemental information and updates, subscribe to the

@@ -23,7 +23,7 @@ ms.author: asaxton
 
 Resources for **Microsoft Power BI Embedded** are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource you provision is a **Power BI Workspace Collection**.
 
-![](media\\power-bi-embedded-get-started\\introduction.png)
+![](media/power-bi-embedded-get-started/introduction.png)
 
 ## Create a workspace collection
 A **Workspace Collection** is the top-level Azure resource and a container for the content that will be embedded in your application. A **Workspace Collection** can be created in two ways::
@@ -36,16 +36,16 @@ Let's walk through the steps to build a **Workspace Collection** using the Azure
 1. Open and sign into **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Click **+ New** on the top panel.
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-1.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Under **Data + Analytics** click **Power BI Embedded**.
 4. On the **Creation Blade**, enter the required information. For **Pricing**, see [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
    
-   ![](media\\power-bi-embedded-get-started\\create-workspace-2.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Click **Create**.
 
 The **Workspace Collection** will take a few moments to provision. When completed, you'll be taken to the **Workspace Collection Blade**.
 
-   ![](media\\power-bi-embedded-get-started\\create-workspace-3.png)
+   ![](media/power-bi-embedded-get-started/create-workspace-3.png)
 
 The **Creation Blade** contains the information you need to call the APIs that create workspaces and deploy content to them.
 
@@ -54,11 +54,11 @@ The **Creation Blade** contains the information you need to call the APIs that c
 ## View Power BI API Access Keys
 One of the most important pieces of information needed to call the Power BI REST APIs are the **Access Keys**. These are used to generate the **app tokens** that are used to authenticate your API requests. To view your **Access Keys**, click **Access Keys** on the **Settings Blade**. For more about **app tokens**, see [Authenticating and authorizing with Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
-   ![](media\\power-bi-embedded-get-started\\access-keys.png)
+   ![](media/power-bi-embedded-get-started/access-keys.png)
 
 You'll'notice that you have two keys.
 
-   ![](media\\power-bi-embedded-get-started\\access-keys-2.png)
+   ![](media/power-bi-embedded-get-started/access-keys-2.png)
 
 Copy these keys and store them securely in your application. It's very important that you treat these keys as you would a password, because they'll provide access to all the content in your **Workspace Collection**.
 

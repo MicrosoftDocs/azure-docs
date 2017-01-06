@@ -13,15 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 12/21/2016
 ms.author: bwren
 
 ---
-# Log Analytics HTTP Data Collector API
-When you use the Azure Log Analytics HTTP Data Collector API, you can add POST JavaScript Object Notation (JSON) data to the Log Analytics repository from any client that can call the REST API. By using this method, you can send data from third-party applications or from scripts, like from a runbook in Azure Automation.  
+# Send data to Log Analytics with the HTTP Data Collector API
+This article shows you how to use the HTTP Data Collector API to send data to Log Analytics from a REST API client.  It describes how to format data collected by your script or application, include it in a request, and have that request authorized by Log Analytics.  Examples are provided for PowerShell, C#, and Python.
+
+## Concepts
+You can use the HTTP Data Collector API to send data to Log Analytics from any client that can call a REST API.  This might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternate management system that uses Log Analytics to consolidate and analyze data.
+
+All data in the Log Analytics repository is stored as a record with a particular record type.  You format your data to send to the HTTP Data Collector API as multiple records in JSON.  When you submit the data, an individual record is created in the repository for each record in the request payload.
+
+
+![HTTP Data Collector overview](media/log-analytics-data-collector-api/overview.png)
+
+
 
 ## Create a request
-The next two tables list the attributes that are required for each request to the Log Analytics HTTP Data Collector API. We describe each attribute in more detail later in the article.
+To use the HTTP Data Collector API, you create a POST request that includes the data to send in JavaScript Object Notation (JSON).  The next three tables list the attributes that are required for each request. We describe each attribute in more detail later in the article.
 
 ### Request URI
 | Attribute | Property |
@@ -424,5 +434,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## Next steps
-* Use [View Designer](log-analytics-view-designer.md) to build custom views on the data that you submit.
-
+- Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
