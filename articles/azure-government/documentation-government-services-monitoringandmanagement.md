@@ -79,7 +79,7 @@ The following Log Analytics features and solutions are not currently available i
 
 * Solutions that are in preview in Microsoft Azure, including:
   * Network Monitoring solution
-  * Application Dependency Monitoring solution
+  * Service Map
   * Office 365 solution
   * Windows 10 Upgrade Analytics solution
   * Application Insights solution
