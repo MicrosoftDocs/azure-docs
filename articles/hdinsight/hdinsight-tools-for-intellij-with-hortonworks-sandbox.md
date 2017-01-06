@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/05/2017
+ms.date: 01/07/2017
 ms.author: jgao
 
 ---
@@ -112,7 +112,11 @@ You need to have an existing IntelliJ application before you can link to a Horto
 1. Open the project in IntelliJ if it is not opened yet.
 2. From the **View** menu, click **Tools Windows**, and then click **Azure Explorer**.
 3. Expand **Azure**, right-click **HDInsight**, and then click **Link an Emulator**.
-4. Enter the password you have configured for the root account of the Hortonworks Sandbox, leave the other fields with the default values, and then click **OK**. When it is connected successfully, you can see the emulator (Hortonworks Sandbox) listed under the HDInsight node.
+4. Enter the password you have configured for the root account of the Hortonworks Sandbox, and the rest of the values simliar to the following screenshot, and then click **OK**. 
+
+  ![IntelliJ link an emulator](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
+
+  When it is connected successfully, you can see the emulator (Hortonworks Sandbox) listed under the HDInsight node.
 
 ## Submit the Spark Scala application to the Sandbox
 
