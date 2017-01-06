@@ -1,5 +1,5 @@
 ---
-  title: Service Bus Management Libraries| Microsoft Docs
+  title: Azure Service Bus Management Libraries| Microsoft Docs
   description: Manage Service Bus namespaces and entities from .NET
   services: service-bus-messaging
   cloud: na
