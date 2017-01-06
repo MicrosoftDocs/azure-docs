@@ -23,7 +23,7 @@ ms.author: tarcher
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
-This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
+This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
 
 1. [Download and install the latest version of the Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
 
@@ -55,9 +55,13 @@ This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azu
 	
 1. Connect to an Azure subscription account using Storage Explorer:
 
-	> [!TIP] 
-	>  
-	> Microsoft Azure Storage Explorer provides several ways to connect to storage accounts. The connection options include connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator. The following steps illustrate connecting to a storage account associated with your Azure subscription. To see how to connect using the other techniques, refer to the article, [Getting started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or service).
+	Microsoft Azure Storage Explorer provides several ways to connect to storage accounts. The connection options include the following:
+	 
+	- Connecting to storage accounts associated with your Azure subscriptions.
+	- Connecting to storage accounts and services shared from other Azure subscriptions.
+	- Connecting to and managing local storage using the Azure Storage Emulator. 
+	
+	The following steps illustrate connecting to a storage account associated with your Azure subscription. To see how to connect using the other techniques, refer to the article, [Getting started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or service).
  
 	1. Open Storage Explorer.
 	
