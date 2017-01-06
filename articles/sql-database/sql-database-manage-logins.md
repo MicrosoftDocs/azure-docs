@@ -99,7 +99,7 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
    > [!NOTE]
    > The dbmanager is a database role in master database so you can only add a database user to the dbmanager role. You cannot add a server-level login to database-level role.
     
-5. If necessary, configure a firewall rule to allow the new user to connect. (The new user might be covered by an exisiting firewall rule.)
+5. If necessary, configure a firewall rule to allow the new user to connect. (The new user might be covered by an existing firewall rule.)
 
 Now the user can connect to the master database and can create new databases. The account creating the database becomes the owner of the database.
 
