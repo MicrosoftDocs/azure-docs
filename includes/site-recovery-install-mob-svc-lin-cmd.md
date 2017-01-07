@@ -16,7 +16,7 @@
 |-t |Mandatory|ToDo Venu|ToDo Venu|
 |-a |Mandatory|ToDo Venu|ToDo Venu|
 |-R |Mandatory|ToDo Venu|ToDo Venu|
-|-d |Mandatory|Location where the Mobility Service will be installed|/usr/local/ASR|
+|-d |Mandatory|Location where the Mobility Service will install|/usr/local/ASR|
 |-i |Mandatory|IP Address of the configuration server.|Any valid IP Address|
 |-p |Mandatory|Port on which the Configuration server is listening for incoming connections|443|
 |-s |Mandatory|ToDo Venu|ToDo Venu|
