@@ -59,7 +59,7 @@ If the competition is open, the status on the details page will be **Active**. T
 
 ![Competition has completed](media/machine-learning-gallery-competitions/open-competition.png)
 
-If the competition is no longer open, it's status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
+If the competition is no longer open, its status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
 
 ![Competition has completed](media/machine-learning-gallery-competitions/completed-competition.png)
 
