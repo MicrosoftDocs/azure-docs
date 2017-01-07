@@ -16,6 +16,6 @@
 7. Add the account you created in the CSPSConfigtool.
 
     - Log in to your Configuration Server.
-    - Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and under the  %ProgramData%\home\svsystems\bin folder)
+    - Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and under the %ProgramData%\home\svsystems\bin folder)
     - In the **Manage Accounts** tab, click **Add Account**.
     - Add the account you created. After adding the account, you need to provide the credentials when you enable replication for a machine.

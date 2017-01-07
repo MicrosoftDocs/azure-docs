@@ -1,16 +1,20 @@
-1. Copy the installer to a local folder (say /tmp) on the server that you want to protect and run the following commands from a terminal window.
+1. Copy the installer to a local folder (say C:\Temp) on the server that you want to protect and run the following commands from a elevated command prompt.
+
   ```
-  cd /tmp
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
+  cd C:\Temp
+  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+  MobilityServiceInstaller.exe /q /xC:\Temp\Extracted
+  cd C:\Temp\Extracted.
   ```
 2. Now we can install the Mobility service using the following command line
 
   ```
-  sudo sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
+  UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP Address of Configuration Server" /PassphraseFilePath <Full path to the passphrase file>``
   ```
 
 #### Mobility Service Installer Command line arguments
 ```
+Usage :
 UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]<br/>
 ```
 
@@ -20,4 +24,9 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Di
   |/InstallLocation|Mandatory|Location where the Mobility Service will  install|Any folder on the computer|
   |/CSIP|Mandatory|IP Address of the Configuration Server| Any valid IP Address|
   |/PassphraseFilePath|Mandatory|Location where the Passphrase is store |Any valid UNC or Local file path|
-  |/LogGilePath|Mandatory|Location for the installation log|Any valid folder on the computer|
+  |/LogGilePath|Optional|Location for the installation log|Any valid folder on the computer|
+
+#### Sample Usage
+```
+  UnifiedAgent.exe /Role "Agent" /CSEndpoint "I192.168.2.35" /PassphraseFilePath "C:\Temp\MobSvc.passphrase"
+```
