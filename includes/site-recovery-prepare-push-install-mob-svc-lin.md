@@ -1,16 +1,21 @@
-### Prepare for automatic push on Windows machines 
+### Prepare for push install on Linux Servers
 
-1. Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain), and is only used for the push installation.
+1. Ensure there’s network connectivity between the Linux machine and the process server.
+2. Create an account that can be used by the process server to access the machine. The account should be a **root** user on the source Linux server() this account is only used for the push installation/updates).
+3. Check that the `/etc/hosts` file on the source Linux server contains entries that map the local hostname to IP addresses associated with all network adapters.
+4. Install the latest openssh, openssh-server, openssl packages on the machine you want to replicate.
+5. Ensure SSH is enabled and running on port 22.
+6. Enable SFTP subsystem and password authentication in the sshd_config file as follows:
+  - Log in as **root**.
+  - In the file /etc/ssh/sshd_config file, find the line that begins with **PasswordAuthentication**.
+  - Uncomment the line and change the value from **no** to **yes**.
+   6.4 Find the line that begins with **Subsystem** and uncomment the line.
 
-   > [!NOTE]
-   > If you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1. To add the registry entry from a CLI type **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
-   >
-   >
-2. On the Windows Firewall of the machine you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain, you can configure the firewall settings with a GPO.
+     ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
 
-   ![Firewall settings](./media/site-recovery-prepare-push-install-mob-svc-win/mobility1.png)
-3. Add the account you created:
+7. Add the account you created in the CSPSConfigtool.
 
-   * Open **cspsconfigtool**. It's available as a shortcut on the desktop, and located in the %ProgramData%\home\svsystems\bin folder.
-   * In the **Manage Accounts** tab, click **Add Account**.
-   * Add the account you created. After adding the account, you need to provide the credentials when you enable replication for a machine.
+    - Log in to your Configuration Server.
+    - Open **cspsconfigtool.exe**. (It's available as a shortcut on the desktop and under the  %ProgramData%\home\svsystems\bin folder)
+    - In the **Manage Accounts** tab, click **Add Account**.
+    - Add the account you created. After adding the account, you need to provide the credentials when you enable replication for a machine.
