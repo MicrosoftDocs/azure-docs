@@ -18,7 +18,7 @@ ms.author: anwestg
 
 ---
 
-# App Servuce on Azure Stack Technical Preview 2 Configure Deployment Sources
+# App Service on Azure Stack Technical Preview 2 Configure Deployment Sources
 
 App Service on Azure Stack supports on-demand deployment from multiple Source Control Providers in Technical Preview Two.  The Source Control Providers supported, in addition to local Git, are:
 
@@ -33,18 +33,23 @@ In order for tenants to be able to configure App Service to connect to their rep
 
 1. Login to the Azure Stack portal as the service administrator.
 2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
+    ![App Service Resource Provider Admin][1]
 3. Click **Source control configuration**.   Here you see the list of all Deployment Sources configured.
+    ![App Service Resource Provider Admin Source Control Configuration][2]
 
 ## Configure GitHub as a Deployment Sources
 
 > [!NOTE]
 > You will require a GitHub account to complete this task.
-1. Login to GitHub, browse to https://www.gihub.com/settings/developers and click **Register a new application**
+1. Login to GitHub, browse to https://www.github.com/settings/developers and click **Register a new application**
+    ![GitHub - Register a new application][3]
 2. Enter an **Application name** for example - App Service on Azure Stack
 3. Enter the **Homepage URL** for example - https://portal.azurestack.local
 4. Enter an **Application Description**
 5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+    ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
+    ![GitHub - Completed application registration][5]
 7. In a new browser tab or window Login to the Azure Stack Portal as the service administrator.
 8. Browse to **Resource Providers** and select the ** App Service Resource Provider Admin**.
 9. Click **Source control configuration**
@@ -53,7 +58,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 12. Click **Roles**
 13. Click **Management Server**
 14. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
-
+    ![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
 ## Configure BitBucket as a Deployment Source
 
 > [!NOTE]
@@ -117,3 +122,11 @@ In order for tenants to be able to configure App Service to connect to their rep
 13. Click **Roles**
 14. Click **Management Server**
 15. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png
+[2]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-source-control-configuration.png
+[3]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-github-developer-applications.png
+[4]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-github-register-a-new-oauth-application-populated.png
+[5]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-github-register-a-new-oauth-application-complete.png
+[6]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-roles-management-server-repair-all.png
