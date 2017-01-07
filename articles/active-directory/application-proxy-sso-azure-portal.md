@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/06/2017
 ms.author: kgremban
 ---
 
@@ -32,9 +32,19 @@ You should already have published and tested your app with Application Proxy. If
 2. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.
 3. From the list, select the app that you want to set up with SSO. If you have a lot of apps, you can use the search box to filter for the right one.  
 4. Under the Manage section, select **Single sign-on**.
+
+   ![Select Single sign-on](./media/application-proxy-sso-azure-portal/select-sso.png)
+
 5. For the SSO mode, choose **Password-based Sign-on**.
 6. For the Sign-on URL, enter the URL for the page where users enter their username and password to sign in to your app. This should be the External URL that you created when you published the app through Application Proxy. 
-7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesnt, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
+
+   ![Choose password-based Sign-on and enter your URL](./media/application-proxy-sso-azure-portal/password-sso.png)
+
+7. Select **Save**.
+
+<!-- Need to repro?
+7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
+-->
 
 ## Test your app
 
@@ -42,4 +52,4 @@ Go to the [MyApps site](https://myapps.microsoft.com) and select the app you jus
 
 ## Next steps
 
-- Read about other SSO scenarios
+- Read about other ways to implement [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)

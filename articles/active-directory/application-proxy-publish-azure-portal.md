@@ -53,7 +53,7 @@ For your first published app, choose an application that's already set up for pa
 
 7. Provide the following information about your application:
 
-   - **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server, and give each one its own name and access rules.
+   - **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.
 
      > [!TIP]
      > If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path.
@@ -70,6 +70,8 @@ For your first published app, choose an application that's already set up for pa
 
 8. Select **Save**.
 
+   ![Save your Application Proxy settings](./media/application-proxy-publish-azure-portal/save-app-proxy.png)
+
 ## Add a test user 
 
 To test that your app was published correctly, add a user account that you have access to. 
@@ -79,7 +81,11 @@ To test that your app was published correctly, add a user account that you have 
   ![Assign a user for testing](./media/application-proxy-publish-azure-portal/assign-user.png)
 
 2. On the Users and groups blade, select **Add**.
+
+  ![Add a user or group](./media/application-proxy-publish-azure-portal/add-user.png)
+
 3. On the Add assignment blade, select **Users and groups** then choose the account you want to add. 
+4. Select **Assign**.
 
 ## Test your published app
 
@@ -91,4 +97,4 @@ In your browser, navigate to the external URL that you configured during the pub
 ## Next steps
 - Download connectors and create connector groups to [Publish applications on separate networks and locations](active-directory-application-proxy-connectors-azure-portal.md)
 
-- Set up single sign-on for your newly-published app
+- [Set up single sign-on](application-proxy-sso-azure-portal.md) for your newly-published app
