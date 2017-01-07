@@ -426,9 +426,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
-[lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
+[lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
+[lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/readme.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

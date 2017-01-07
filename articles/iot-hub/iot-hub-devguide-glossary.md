@@ -96,7 +96,7 @@ Refers to device state information, such as the connectivity method currently in
 Device data refers to the per-device data stored in the IoT Hub [identity registry](#identity-registry). It is possible to import and export this data.
 
 ## Device explorer
-The [device explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
+The [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/readme.md) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
 
 ## Device identities REST API
 The [Device identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
@@ -168,7 +168,7 @@ You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/
 Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
 ## iothub-explorer
-The [iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
+The [iothub-explorer](https://github.com/Azure/iothub-explorer/blob/master/readme.md) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
 
 ## Job
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
