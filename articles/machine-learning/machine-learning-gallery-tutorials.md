@@ -36,9 +36,9 @@ To browse for tutorials in the Gallery, open the [Gallery](http://gallery.cortan
 tutorials.
  Click **See all** to view all
 tutorials.
- From this page you can browse all the
+ From this page, you can browse all the
 tutorials
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. Or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 tutorial

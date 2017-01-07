@@ -36,9 +36,9 @@ To browse for collections in the Gallery, open the [Gallery](http://gallery.cort
 collections.
  Click **See all** to view all
 collections.
- From this page you can browse all the
+ From this page, you can browse all the
 collections
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. Or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 collection

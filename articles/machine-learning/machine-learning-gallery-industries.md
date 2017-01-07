@@ -39,8 +39,8 @@ These resources include experiments, custom modules, APIs, collections, and any 
 
  Each industry page displays a list of the most popular Gallery items associated with that industry.
  Click **See all** to view all the industry-specific resources in the Gallery.
- From this page you can browse all the resources
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ From this page, you can browse all the resources
+ in the Gallery. Or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
 ![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
