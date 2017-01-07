@@ -52,4 +52,4 @@ Go to the [MyApps site](https://myapps.microsoft.com) and select the app you jus
 
 ## Next steps
 
-- Read about other ways to implement [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+Read about other ways to implement [Single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
