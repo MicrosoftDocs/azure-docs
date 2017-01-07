@@ -1,6 +1,7 @@
 ---
-title: Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard | Microsoft Docs
-description: Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard
+title: 'SSMS: Migrate SQL Server database to Azure SQL Database | Microsoft Docs'
+description: This article shows you how to use the Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio to migrate a compatible SQL Server database directly into your Azure SQL Database server.
+keywords: Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -27,7 +28,7 @@ ms.author: carlrab
 > 
 > 
 
-The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a [compatible SQL Server database](sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
+This article shows you how to use the Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio to migrate a [compatible SQL Server database](sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
 
 ## Use the Deploy Database to Microsoft Azure Database Wizard
 > [!NOTE]
@@ -48,7 +49,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 4. In the deployment wizard, click **Next**, and then click **Connect** to configure the connection to your SQL Database server.
    
    ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server.
+5. In the Connect to Server dialog box, enter your connection information to connect to your SQL Database server. To get the server name for an existing server, go to [View and update an SQL SErver Database server and its settings](sql-database-view-update-server-settings.md).
    
     ![Deploy to Azure from Tasks menu](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. Provide the following for the [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file that this wizard creates during the migration process:
