@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Cluster Model | Microsoft Docs
+title: (deprecated) Cluster Model - Azure | Microsoft Docs
 description: (deprecated) Cluster Model
 services: machine-learning
 documentationcenter: ''

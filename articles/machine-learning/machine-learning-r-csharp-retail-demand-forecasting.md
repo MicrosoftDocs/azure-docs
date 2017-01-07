@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Forecasting - ETS + STL  | Microsoft Docs
+title: (deprecated) Forecasting - ETS + STL - Azure  | Microsoft Docs
 description: (deprecated) Forecasting - ETS + STL
 services: machine-learning
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Forecasting - Exponential Smoothing | Microsoft Docs
+title: (deprecated) Forecasting - Exponential Smoothing - Azure | Microsoft Docs
 description: '(deprecated) Web service: Forecasting-Exponential Smoothing'
 services: machine-learning
 documentationcenter: ''

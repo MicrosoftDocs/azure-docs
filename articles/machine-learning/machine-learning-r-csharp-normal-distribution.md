@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Normal Distribution Web Service Suite | Microsoft Docs
+title: (deprecated) Normal Distribution Web Service Suite - Azure | Microsoft Docs
 description: (deprecated) Normal Distribution Web Service Suite
 services: machine-learning
 documentationcenter: ''

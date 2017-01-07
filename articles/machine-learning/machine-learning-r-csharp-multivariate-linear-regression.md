@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Multivariate Linear Regression | Microsoft Docs
+title: (deprecated) Multivariate Linear Regression - Azure | Microsoft Docs
 description: (deprecated) Multivariate Linear Regression
 services: machine-learning
 documentationcenter: ''

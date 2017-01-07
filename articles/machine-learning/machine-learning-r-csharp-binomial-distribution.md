@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Binomial Distribution Suite | Microsoft Docs
+title: (deprecated) Binomial Distribution Suite - Azure | Microsoft Docs
 description: (deprecated) Binomial Distribution Suite
 services: machine-learning
 documentationcenter: ''

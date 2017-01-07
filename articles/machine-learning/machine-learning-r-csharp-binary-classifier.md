@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Binary Classifier | Microsoft Docs
+title: (deprecated) Binary Classifier - Azure | Microsoft Docs
 description: (deprecated) Binary Classifier
 services: machine-learning
 documentationcenter: ''

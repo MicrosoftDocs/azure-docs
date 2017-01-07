@@ -1,5 +1,5 @@
 ---
-title: '(deprecated) Forecasting: Autoregressive Integrated Moving Average (ARIMA) | Microsoft Docs'
+title: '(deprecated) Forecasting: Autoregressive Integrated Moving Average (ARIMA) - Azure | Microsoft Docs'
 description: (deprecated) Forecasting - Autoregressive Integrated Moving Average (ARIMA)
 services: machine-learning
 documentationcenter: ''

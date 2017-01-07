@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Difference in Proportions Test | Microsoft Docs
+title: (deprecated) Difference in Proportions Test - Azure | Microsoft Docs
 description: (deprecated) Difference in Proportions Test
 services: machine-learning
 documentationcenter: ''

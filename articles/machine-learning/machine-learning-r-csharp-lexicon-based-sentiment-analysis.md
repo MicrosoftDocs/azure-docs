@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Lexicon Based Sentiment Analysis | Microsoft Docs
+title: (deprecated) Lexicon Based Sentiment Analysis - Azure | Microsoft Docs
 description: (deprecated) Lexicon Based Sentiment Analysis
 services: machine-learning
 documentationcenter: ''

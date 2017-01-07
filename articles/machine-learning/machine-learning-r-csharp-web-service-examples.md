@@ -1,5 +1,5 @@
 ---
-title: (deprecated) Machine learning web services examples built with R | Microsoft Docs
+title: (deprecated) Machine learning web services examples built with R - Azure | Microsoft Docs
 description: (deprecated) Find a useful set of web services examples created with R code and Machine Learning, and published to the Azure Marketplace.
 keywords: csharp,r code,web services examples
 services: machine-learning
