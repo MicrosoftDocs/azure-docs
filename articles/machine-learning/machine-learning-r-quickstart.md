@@ -1,6 +1,6 @@
 ---
-title: Quickstart tutorial for R language for Machine Learning | Microsoft Docs
-description: Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution.
+title: (deprecated) Quickstart tutorial for R language for Machine Learning | Microsoft Docs
+description: (deprecated) Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution.
 keywords: quickstart,r language,r programming language,r programming tutorial
 services: machine-learning
 documentationcenter: ''
@@ -14,11 +14,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: garye
 
 ---
-# Quickstart tutorial for the R programming language for Azure Machine Learning
+# (deprecated) Quickstart tutorial for the R programming language for Azure Machine Learning
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Stephen F Elston, Ph.D.
 
 ## Introduction
