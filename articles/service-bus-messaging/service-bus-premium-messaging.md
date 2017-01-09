@@ -45,6 +45,15 @@ Partitioned queues and topics are supported in Premium Messaging, but they do no
 ### Express entities
 Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
 
+## Get started with Premium Messaging
+
+Getting started with Premium Messaging is straight forward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md). Make sure you select *Premium* under 'Pricing tier'.
+
+![create-premium-namespace][create-premium-namespace]
+
+You can also create a [Premium namespace using Azure Resource Manager templates](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+
+
 ## Next steps
 To learn more about Service Bus Messaging, see the following topics.
 
@@ -53,3 +62,6 @@ To learn more about Service Bus Messaging, see the following topics.
 * [Service Bus Messaging overview](service-bus-messaging-overview.md)
 * [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
+<!--Image references-->
+
+[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
