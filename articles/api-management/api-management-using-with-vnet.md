@@ -51,9 +51,9 @@ Select the desired access type:
 You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
 
 > [!NOTE]
-> **Service Endpoint** in the above diagram include Gateway/Proxy, Publisher Portal, Developer Portal, GIT and the Direct Management Endpoint.
-> **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure Portal and Powershell.
-> Also, please note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on the its configured Hostnames.
+> **Service Endpoint** in the above diagram includes Gateway/Proxy, Publisher Portal, Developer Portal, GIT, and the Direct Management Endpoint.
+> **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure portal and Powershell.
+> Also, note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on its configured Hostnames.
 
 > [!IMPORTANT]
 > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
@@ -97,7 +97,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | Source / Destination Port(s) | Direction | Transport protocol | Purpose | Source / Destination | Access type |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 / 80, 443 |Inbound |TCP |Client communication to API Management |INTERNET / VIRTUAL_NETWORK |External |
-| * / 3443 |Inbound |TCP |Management endpoint for Azure Portal and Powershell |INTERNET / VIRTUAL_NETWORK |External & Internal |
+| * / 3443 |Inbound |TCP |Management endpoint for Azure portal and Powershell |INTERNET / VIRTUAL_NETWORK |External & Internal |
 | 80, 443 / 80, 443 |Outbound |TCP |Dependency on Azure Storage and Azure Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | 1433 / 1433 |Outbound |TCP |Dependency on Azure SQL |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | 9350 - 9354 / 9350 - 9354 |Outbound |TCP |Dependency on Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
