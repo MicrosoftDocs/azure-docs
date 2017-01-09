@@ -167,7 +167,8 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 
 As for property updates, `null` values means that the JSON object member is being deleted.
 
-> [AZURE.IMPORTANT] IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
+> [!IMPORTANT] 
+> IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
 
 Refer to the [Device twins developer's guide][lnk-devguide-twin] for more information.
 
