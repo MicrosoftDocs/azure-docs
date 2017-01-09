@@ -1,4 +1,4 @@
-## Create a new logical SQL server in the Azure portal
+### Create a new logical SQL server in the Azure portal
 
 1. Click **New**, search **logical server**, and then hit **ENTER**.
 

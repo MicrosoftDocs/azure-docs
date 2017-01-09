@@ -1,4 +1,4 @@
-## Create a server-level firewall rule in the Azure portal
+### Create a server-level firewall rule in the Azure portal
 
 1. On the SQL server blade, under Settings, click **Firewall** to open the Firewall blade for the SQL server.
 
