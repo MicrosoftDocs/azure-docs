@@ -59,7 +59,7 @@ To score by using an Azure Machine Learning web service, use the open source Azu
 If you choose this option, you’ll need to convert any ScaleR model objects to equivalent open-source model objects for use with the web service. This can be done through the use of ScaleR coercion functions, such as `as.randomForest()` for ensemble-based models.
 
 ### Score on-premises
-To score on-premises after creating your model, you can serialize the model in R, download it, de-serialize it, and then use it for scoring new data. You can score new data by using the approach described earlier in [Scoring in HDInsight](#scoring-in-hdinsight) or by using [DeployR]((https://deployr.revolutionanalytics.com/).
+To score on-premises after creating your model, you can serialize the model in R, download it, de-serialize it, and then use it for scoring new data. You can score new data by using the approach described earlier in [Scoring in HDInsight](#scoring-in-hdinsight) or by using [DeployR](https://deployr.revolutionanalytics.com/).
 
 ## Maintain the cluster
 ### Install and maintain R packages
