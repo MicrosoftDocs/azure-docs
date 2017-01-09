@@ -53,7 +53,7 @@ You will now see a list of all regions where your API Management service is prov
 > [!NOTE]
 > **Service Endpoint** in the above diagram include Gateway/Proxy, Publisher Portal, Developer Portal, GIT and the Direct Management Endpoint.
 > **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure Portal and Powershell.
-> Also, please note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on Hostname headers.
+> Also, please note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on the its configured Hostnames.
 
 > [!IMPORTANT]
 > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
