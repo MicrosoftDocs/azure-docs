@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to Azure DPM backup | Microsoft Docs
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/08/2016
 ms.author: trinadhk;giridham;jimpark;markgal;adigan
 
 ---
@@ -35,7 +35,7 @@ This article provides an introduction to using Microsoft Azure Backup to protect
 * Supported scenarios
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 > 
 > 
 

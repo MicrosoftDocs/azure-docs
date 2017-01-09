@@ -1,4 +1,4 @@
-﻿---
+---
 title: Creating an on-premises virtual machine image for the Azure Marketplace | Microsoft Docs
 description: Understand and execute the steps to create an on-premises VM image and deploy to the Azure Marketplace for others to purchase.
 services: marketplace-publishing
@@ -123,7 +123,7 @@ Then you can create a container within that storage account by using the [NewAzu
 >  
 > 
 > ### Create a storage account by using the command-line tool for Mac and Linux
-> From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md), create a storage account as follows.
+> From [Linux command-line tool](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), create a storage account as follows.
 > 
 > 
 

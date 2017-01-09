@@ -75,7 +75,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
    
     Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
-        # List the structure of data for better understanding. Becuase the data will be
+        # List the structure of data for better understanding. Because the data will be
         # loaded as an array, this structure makes it easy to understand what each element
         # in the array corresponds to
 

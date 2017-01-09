@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 
 ---
@@ -61,10 +61,14 @@ The following instructions describe the steps for connecting an [mbed-enabled Fr
     ![][9]
 
 ### Walk through the code
-If you are interested in how the program works, this section describes some key parts of the sample code. If you just want to run the code, skip ahead to [Build and run the program](#buildandrun).
+If you are interested in how the program works, this section describes some key parts of the sample code. If you only want to run the code, skip ahead to [Build and run the program](#buildandrun).
 
 #### Defining the model
-This sample uses the [serializer][lnk-serializer] library to define a model that specifies the messages the device can send to IoT Hub and receive from IoT Hub. In this sample, the **Contoso** namespace defines a **Thermostat** model that specifies the **Temperature**, **ExternalTemperature**, and **Humidity** telemetry data along with metadata such as the device id, device properties, and the commands that the device responds to:
+This sample uses the [serializer][lnk-serializer] library to define a model that specifies the messages the device can send to IoT Hub and receive from IoT Hub. In this sample, the **Contoso** namespace defines a **Thermostat** model that specifies:
+
+- The **Temperature**, **ExternalTemperature**, and **Humidity** telemetry data.
+- Metadata such as the device id, device properties.
+- The commands that the device responds to:
 
 ```
 BEGIN_NAMESPACE(Contoso);

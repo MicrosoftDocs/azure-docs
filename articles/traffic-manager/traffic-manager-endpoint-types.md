@@ -3,8 +3,8 @@ title: Traffic Manager Endpoint Types | Microsoft Docs
 description: This article explains different types of endpoints that can be used with Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Traffic Manager endpoints

@@ -79,6 +79,8 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
     `<InstrumentationKey>` *the instrumentation key you copied* `</InstrumentationKey>`
 * Make sure that the properties of ApplicationInsights.config in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 
+It's useful to set the instrumentation key in code if you want to [switch the key for different build configurations](app-insights-separate-resources.md). If you set the key in code, you don't have to set it in the `.config` file.
+
 ## <a name="run"></a> Run your project
 Use the **F5** to run your application and try it out: open different pages to generate some telemetry.
 

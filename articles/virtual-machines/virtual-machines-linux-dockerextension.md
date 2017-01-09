@@ -22,7 +22,7 @@ Docker is a popular container management and imaging platform that allows you to
 
 For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
 
-* To quickly prototype an app, you can create a single Docker host using [Docker Machine](virtual-machines-linux-docker-machine.md).
+* To quickly prototype an app, you can create a single Docker host using [Docker Machine](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * For larger, more stable environments, you can use the Azure Docker VM extension, which also supports [Docker Compose](https://docs.docker.com/compose/overview/) to generate consistent container deployments. This article details using the Azure Docker VM extension.
 * To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../container-service/container-service-deployment.md).
 
@@ -187,7 +187,7 @@ You may wish to [configure the Docker daemon TCP port](https://docs.docker.com/e
 
 Read more information about the additional Docker deployment options in Azure:
 
-* [Use Docker Machine with the Azure driver](virtual-machines-linux-docker-machine.md)  
-* [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](virtual-machines-linux-docker-compose-quickstart.md).
+* [Use Docker Machine with the Azure driver](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+* [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Deploy an Azure Container Service cluster](../container-service/container-service-deployment.md)
 

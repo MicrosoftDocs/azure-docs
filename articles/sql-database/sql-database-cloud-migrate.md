@@ -1,5 +1,5 @@
 ---
-title: SQL Server database migration to SQL Database | Microsoft Docs
+title: SQL Server database migration to Azure SQL Database | Microsoft Docs
 description: Learn how about on-premises SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
@@ -10,8 +10,9 @@ editor: ''
 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 11/08/2016
@@ -19,11 +20,11 @@ ms.author: carlrab
 
 ---
 # SQL Server database migration to SQL Database in the cloud
-In this article, you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this database migration process, you migrate your schema and your data from the SQL Server database in your current environment into SQL Database. To succeed, the existing database must first pass a compatibility test. With [SQL Database V12](sql-database-v12-whats-new.md), there are few remaining compatibility issues, other than issue related to server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) need some re-engineering to fix these incompatibilities before the SQL Server database can be migrated.
+In this article, you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this database migration process, you migrate your schema and your data from the SQL Server database in your current environment into SQL Database. To succeed, the existing database must first pass a compatibility test. With SQL Database V12, there we are approaching [feature parity](sql-database-features.md), other than issue related to server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) need some re-engineering to fix these incompatibilities before the SQL Server database can be migrated.
 
 To migrate, the following are the steps you to take:
 
-* **Test for Compatibility**: Validate database compatibility with [SQL Database V12](sql-database-v12-whats-new.md). 
+* **Test for Compatibility**: Validate database compatibility with SQL Database. 
 * **Fix Compatibility Issues, if any**: If validation fails, you must fix the validation errors.  
 * **Perform the migration** Once your database is compatible, you can use one or several methods to perform the migration. 
 
@@ -107,7 +108,7 @@ To migrate with minimal downtime, use [SQL Server transaction replication](sql-d
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database feaures](sql-database-features.md)
   [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

@@ -20,7 +20,7 @@ ms.author: cynthn
 # Create a copy of a Linux virtual machine running on Azure
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
 
-You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md).
+You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Before you begin
 Ensure that you meet the following prerequisites before you start the steps:

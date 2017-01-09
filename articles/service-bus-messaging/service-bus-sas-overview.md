@@ -1,14 +1,14 @@
 ---
 title: Shared Access Signatures overview | Microsoft Docs
 description: What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: djrosanova
 manager: timlt
 editor: ''
 
 ms.assetid: bb8ef6ca-e7df-4e46-9cf5-73b7d255ec32
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

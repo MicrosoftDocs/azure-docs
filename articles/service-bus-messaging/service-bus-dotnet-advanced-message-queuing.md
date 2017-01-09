@@ -1,14 +1,14 @@
 ---
 title: How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Docs
 description: Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 79c7b2f2-e962-4fb4-8cc8-79d927ba55e6
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

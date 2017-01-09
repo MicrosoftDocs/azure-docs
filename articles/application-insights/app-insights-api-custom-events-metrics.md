@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
 # Application Insights API for custom events and metrics
-*Application Insights is in preview.*
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Visual Studio Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
+
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Azure Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
 
 ## API summary
 The API is uniform across all platforms, apart from a few small variations.
@@ -352,7 +352,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/), but synchronous if you choose to use the in-memory channel or [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
+Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 ## Authenticated users
 In a web app, users are by default identified by cookie. A user might be counted more than once if they access your app from a different machine or browser, or delete cookies.
@@ -704,7 +704,7 @@ If you set any of these values yourself, consider removing the relevant line fro
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages that you will see in the debug console output, and - if the messages get through - in diagnostic search.
 * *Is there a REST API to get data from the portal?*
 
-    Yes, coming soon. In the meantime, use [continuous export](app-insights-export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways of extracting data include [export from Analytics to Power BI](app-insights-export-power-bi.md) and [Continuous export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 [Search events and logs][diagnostic]

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 
 ---
@@ -22,8 +22,8 @@ This article helps you quickly get started with Azure Security Center by guiding
 
 > [!NOTE]
 > This article introduces the service by using an example deployment. This article is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -31,6 +31,9 @@ To get started with Security Center, you must have a subscription to Microsoft A
 The Free tier of Security Center is automatically enabled with your subscription and provides visibility into the security state of your Azure resources. It provides basic security policy management, security recommendations, and integration with security products and services from Azure partners.
 
 You access Security Center from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). To learn more about the Azure portal, see the [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/).
+
+## Permissions
+In Security Center, you only see information related to an Azure resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to. See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection
 Security Center collects data from your virtual machines (VMs) to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all VMs in your subscription. Data collection is recommended, but you can opt out by turning off data collection in the Security Center policy.
@@ -41,6 +44,7 @@ The following steps describe how to access and use the components of Security Ce
 In the portal, follow these steps to access Security Center:
 
 1. On the **Microsoft Azure** menu, select **Security Center**.
+
    ![Azure menu][1]
 2. If you are accessing Security Center for the first time, the **Welcome** blade opens. Select **Yes! I want to Launch Azure Security Center** to open the **Security Center** blade and to enable data collection.
    ![Welcome screen][10]
@@ -55,15 +59,15 @@ You can configure security policies for your Azure subscriptions and resource gr
 2. On the **Security policy - Define policy per subscription or resource group** blade, select a subscription.
 3. On the **Security policy** blade, **Data collection** is enabled to automatically collect logs. The monitoring extension is provisioned on all current and new VMs in the subscription. (You can opt out of data collection by setting **Data collection** to **Off**, but this prevents Security Center from giving you security alerts and recommendations.)
 4. On the **Security policy** blade, select **Choose a storage account per region**. For each region in which you have VMs running, you choose the storage account where data collected from those VMs is stored. If you do not choose a storage account for each region, it is created for you. The data that's collected is logically isolated from other customers' data for security reasons.
-   
+
    > [!NOTE]
    > We recommend that you enable data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level, but configuration of data collection and storage account occurs at the subscription level only.
-   > 
-   > 
+   >
+   >
 5. On the **Security policy** blade, select **Prevention policy**. This opens the **Prevention policy** blade.
    ![Prevention policy][4]
 6. On the **Prevention policy** blade, turn on the recommendations that you want to see as part of your security policy. Examples:
-   
+
    * Setting **System updates** to **On** scans all supported virtual machines for missing OS updates.
    * Setting **OS vulnerabilities** to **On** scans all supported virtual machines to identify any OS configurations that might make the virtual machine more vulnerable to attack.
 
@@ -82,11 +86,11 @@ You can configure security policies for your Azure subscriptions and resource gr
 ### View security alerts
 1. Return to the **Security Center** blade and select the **Security alerts** tile. The **Security alerts** blade opens and displays a list of alerts. The Security Center analysis of your security logs and network activity generates these alerts. Alerts from integrated partner solutions are included.
    ![Security alerts in Azure Security Center][7]
-   
+
    > [!NOTE]
    > Security alerts are only available if the Standard tier of Security Center is enabled. A 90 day free trial of the Standard tier is available. See [Next steps](#next-steps) for information on how to get the Standard tier.
-   > 
-   > 
+   >
+   >
 2. Select an alert to view additional information. In this example, let's select **Modified system binary discovered**. This opens blades that provide additional details about the alert.
    ![Security alert details in Azure Security Center][8]
 

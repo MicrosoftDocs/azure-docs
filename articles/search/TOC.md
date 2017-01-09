@@ -25,8 +25,11 @@
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
+
+
 ## Develop
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
+### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
 ## Manage
 ### Administer Azure Search
@@ -37,12 +40,14 @@
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
 ## Load data
-### [Index data sources](search-indexer-overview.md)
-#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-#### [Azure Tables](search-howto-indexing-azure-tables.md)
-#### [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [CSV blobs](search-howto-index-csv-blobs.md)
-### [SQL Server Azure VM Connection configuration](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Indexer overview](search-indexer-overview.md)
+### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
+### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
+### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Azure DocumentDB indexer](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Index CSV blobs](search-howto-index-csv-blobs.md)
+### [Index JSON blobs](search-howto-index-json-blobs.md)
+### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
 ##  Design search experience
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
@@ -55,16 +60,18 @@
 ### [Multi-lingual search](search-language-support.md)
 
 # Reference
-## [API versions](search-api-versions.md)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
-## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
-## [Service REST](https://docs.microsoft.com/rest/api/searchservice/)
-## [Service REST (Preview)](search-api-2015-02-28-preview.md)
-## [Management REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [.NET Management](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (Management)](/rest/api/searchmanagement)
 
 # Resources
+## [Service updates](https://azure.microsoft.com/updates/?product=search)
+## Using Search APIs
+## [API versions](search-api-versions.md)
+## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## Demo sites
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ### [Live demo apps](https://searchsamples.azurewebsites.net/)
@@ -74,7 +81,7 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 ## Partner & community
 ### [Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Multi-level faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)

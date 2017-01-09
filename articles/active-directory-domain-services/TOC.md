@@ -1,6 +1,5 @@
 # Overview
-## [What is Azure AD Domain Services?](https://azure.microsoft.com/services/active-directory-ds/)
-## [How it works](active-directory-ds-overview.md)
+## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
 ## [Is it right for you?](active-directory-ds-comparison.md)
 ## [Features](active-directory-ds-features.md)
 ## [Scenarios](active-directory-ds-scenarios.md)

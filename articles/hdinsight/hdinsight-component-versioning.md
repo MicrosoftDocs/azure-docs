@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/13/2016
 ms.author: saurinsh
 
 ---
@@ -99,7 +99,8 @@ The following table lists the versions of HDInsight currently available, the cor
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |Yes |10/28/2013 |No |05/12/2014 |05/31/2015 |
 | HDI 1.6 |HDP 1.1 | |No |10/28/2013 |No |04/26/2014 |05/31/2015 |
 
-**Deployment of non-default clusters**
+##HDI Version 3.2 and 3.3 nearing deprecation date
+The support for HDI 3.2 cluster expired on 03/01/2016 and it will be deprecated on 04/01/2017. The support for HDI 3.3 cluster expired on 06/27/2016 and it will be deprecated on 07/31/2017. If you have an HDI 3.2 or HDI 3.3 Cluster, then upgrade your Cluster to HDI 3.5 (latest version) soon. 
 
 ### The service-level agreement for HDInsight cluster versions
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
@@ -113,6 +114,17 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 > Windows-based HDInsight cluster (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
 > 
 > 
+
+##HDInsight Deprecation on Windows
+Starting HDI version 3.4, we have released HDInsight only on Linux OS. Some of the offerings for HDInsight are available for Linux only – Apache Ranger, HDInsight applications, Azure Data Lake Store as primary FS etc. This has multiple advantages for customers
+
+* We can bring open source big data technology faster to the market through HDInsight service
+* There is a large community and ecosystem for support
+* Active development by open source community for Hadoop and newer big data technologies 
+* HDInsight service can focus more on the big data open source technology 
+
+For continued investment on the open source big data technologies, future releases of HDInsight will be available only on Linux OS. There will not be any future release of HDInsight on Windows OS. The last release of HDInsight on Windows was HDI 3.3. The support for HDI 3.3 expired on 06/27/2016 and it will be deprecated on 07/31/2017. Refer [this](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) to migrate from a Windows based HDInsight cluster to a Linux-based cluster.
+
 
 ## Hortonworks release notes associated with HDInsight versions
 * HDInsight cluster version 3.4 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). This is the **default** Hadoop cluster created when using the portal.

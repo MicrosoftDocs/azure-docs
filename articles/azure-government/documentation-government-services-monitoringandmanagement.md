@@ -1,5 +1,5 @@
 ---
-title: Azure Government documentation | Microsoft Docs
+title: Azure Government Monitoring + Management | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
 services: Azure-Government
 cloud: gov
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/07/2017
 ms.author: ryansoc
 
 ---
-# Azure Government monitoring and management
+# Azure Government Monitoring + Management
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Automation
@@ -27,20 +27,51 @@ Automation is generally available in Azure Government.
 ### Variations
 The following Automation features are not currently available in Azure Government.
 
-* Creation of a Service Principle credential for authentication
+* Creation of a Service Principal credential for authentication
 
 For more information, see [Automation public documentation](../automation/automation-intro.md).
 
 ## Backup
 Backup is generally available in Azure Government.
 
-For more information, see [Backup public documentation](../backup/backup-introduction-to-azure-backup.md).
+For more information, see [Azure Government Backup](documentation-government-services-backup.md).
 
 ### Variations
 The following Backup features are not currently available in Azure Government:
 
-* Azure Resource Manager backup vaults
+* Azure Resource Manager vaults
 * Management using the Azure portal (the Azure classic portal is supported)
+
+The URLs for Backup are different in Azure Government:
+
+## Site Recovery
+Site Recovery (ASR) is generally available in Azure Government.
+
+For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+
+### Variations
+The following Site Recovery features are not currently available in Azure Government:
+
+* Azure Resource Manager site recovery vaults
+* Email notification
+
+| Site Recovery | Classic | Resource Manager | 
+| --- | --- | --- |
+| VMWare/Physical  | GA | GA |
+| Hyper-V | GA | GA |
+| Site to Site | GA | GA |
+
+>[!NOTE]
+>Table applies to US Gov Virginia and US Gov Iowa. 
+
+The following URLs for ASR  are different in Azure Government:
+
+| Azure Public | Azure Government | Notes |
+| --- | --- | --- |
+| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
+| *. backup.windowsazure.com  | *.backup.windowsazure.us | Access to Protection Service |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
@@ -50,7 +81,7 @@ The following Log Analytics features and solutions are not currently available i
 
 * Solutions that are in preview in Microsoft Azure, including:
   * Network Monitoring solution
-  * Application Dependency Monitoring solution
+  * Service Map
   * Office 365 solution
   * Windows 10 Upgrade Analytics solution
   * Application Insights solution
@@ -85,7 +116,7 @@ The following Log Analytics features behave differently in Azure Government:
   3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/library/hh212691.aspx) on the Microsoft TechNet website.
   4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-## Frequently asked questions
+### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
 * Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite Log Analytics portal?
@@ -93,17 +124,6 @@ The following Log Analytics features behave differently in Azure Government:
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
 
-## Site Recovery
-Site Recovery is generally available in Azure Government.
-
-For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
-
-### Variations
-The following Site Recovery features are not currently available in Azure Government:
-
-* Azure Resource Manager site recovery vaults
-
 ## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
-

@@ -1,14 +1,14 @@
 ---
 title: AMQP 1.0 support for Service Bus partitioned queues and topics | Microsoft Docs
 description: Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 with Service Bus partitioned queues and topics.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: hillaryc
 manager: timlt
 editor: ''
 
 ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple

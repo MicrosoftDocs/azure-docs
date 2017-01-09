@@ -22,7 +22,7 @@ ms.author: cynthn
 # Create an availability set
 When using the portal, if you want your VM to be part of an availability set, you need to create the availability set first.
 
-For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Use the portal to create an availability set before creating your VMs
 1. In the hub menu, click **Browse** and select **Availability sets**.
@@ -62,5 +62,5 @@ For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.co
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md).
+Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
