@@ -32,11 +32,11 @@ The following image shows a common deployment of an availability group on Azure 
 
 In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. You can build this architecture [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
-This architecture is vulnerable downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a new replica in a different Azure region. The following diagram shows how the new architecture would look:
+This architecture is vulnerable downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
 
    ![Availability Group DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
-The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Also notice that SQL-3 is not in an availability set. An Azure availability set is required if more than one virtual machine is in in the same region. If only one virtual machine is in the region, then the availability set is not required. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer. 
+The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Also notice that SQL-3 is not in an availability set. An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer. 
 
    >[!NOTE]
    >The replica in the remote region is normally configured with asynchronous commit and manual failover. 
