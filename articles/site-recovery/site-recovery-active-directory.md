@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 1/9/2017
 ms.author: pratshar
 
 ---
@@ -73,9 +73,9 @@ Most applications also require the presence of a domain controller and a DNS ser
 
 1. Enable protection in Site Recovery for the domain controller/DNS virtual machine.
 1. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
-1. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that will be used on failover in **Target IP** setting in VM properties. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp)
+1. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that will be used on failover in **Target IP** setting in **Compute and Network** settings. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
 
-	> [!NOTE]
+	> [!TIP]
 	> The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
 	> 
 	> 

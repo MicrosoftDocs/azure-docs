@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/04/2017
+ms.date: 1/09/2017
 ms.author: pratshar
 
 ---
@@ -39,10 +39,10 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 	1.    **Latest app-consistent**: This options fails over all virtual machines of the recovery plan to the latest application consistent recovery point that has already been processed by site recovery service. When you are doing test failover of a virtual machine, time stamp of the latest app-consistent recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get the this information. 
 	1.    **Latest**: This option first processes all the data that has been sent to site recovery service to create a recovery point for each virtual machine before failing them over to it. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover will have all the data that has been replicated to site recovery service when the failover was triggered. 
 	1.	**Custom**: If you are doing test failover of a virtual machine then you can use this option to failover to a particular recovery point.
-1. Select an **Azure virtual network**: Provide an Azure virtual network where the test virtual machines would be created. Site recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover then test virtual machine is created in the first subnet alphabetically. If same IP is not available in the subnet then virtual machine will receive another IP address available in the subnet. 
+1. Select an **Azure virtual network**: Provide an Azure virtual network where the test virtual machines would be created. Site recovery attempts to create test virtual machines in a subnet of same name and using the same IP as that provided in **Compute and Network** settings of the virtual machine. If subnet of same name is not available in the Azure virtual network provided for test failover then test virtual machine is created in the first subnet alphabetically. If same IP is not available in the subnet then virtual machine will receive another IP address available in the subnet. Read this section for [more details](site-recovery-test-failover-to-azure.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)
 1. If you're failing over to Azure and data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation.
 1. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
-1. To initiate an RDP connection on the virtual machine you will need to [add a public ip](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) on the network interface of the failed over virtual machine. If you are failing over to a Classic virtual machine then you will need to [add an endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) on port 3389
+1. To initiate an RDP connection on the virtual machine you will need to [add a public ip](site-recovery-monitoring-and-troubleshooting.md#creating-a-network-for-test-failover) on the network interface of the failed over virtual machine. If you are failing over to a Classic virtual machine then you will need to [add an endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) on port 3389
 1. Once you're done, When the failover reaches the **Complete testing** phase , click **Complete Test** to finish.
 1. In **Notes** record and save any observations associated with the test failover.
 1. Click **The test failover is complete** to automatically clean up the test environment. After this is complete the test failover will show the **Completed** status.
@@ -60,7 +60,15 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 > 
 
 
-### Doing test failover to a production recovery site network 
+### Creating a network for test failover 
+It is recommended that when you are doing a test failover you choose a network that is isolated from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. By default when you create an Azure virtual network, it is isolated from other networks. This network should mimic your production network:
+
+1. Test network should have same number of subnets with same name as of the subents in your production network.
+1. Test network should use the same IP range as that of your production network
+1. Update the DNS of the Test Network as the IP that you gave as target IP for the DNS virtual machine under **Compute and Network** settings. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details. 
+
+
+### Test failover to a production recovery site network 
 It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
 1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences. 

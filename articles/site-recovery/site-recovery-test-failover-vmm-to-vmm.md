@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/04/2017
+ms.date: 1/09/2017
 ms.author: pratshar
 
 ---
@@ -76,7 +76,7 @@ Prepare a DNS server for the test failover as follows:
 
 
 
-## Run test failover
+## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** > **Test Failover**.
@@ -92,7 +92,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 >
 
 
-## Doing test failover to a production recovery site network 
+## Test failover to a production recovery site network 
 It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
 1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences. 
