@@ -173,11 +173,9 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
       ....
       <application/>
 
-4. Create an instance of AuthenticationContext at your main Activity. The details of this call are beyond the scope of this README, but you can get a good start by looking at the [Android Native Client Sample](https://github.com/AzureADSamples/NativeClient-Android). Below is an example:
+4. Create an instance of AuthenticationContext at your main Activity. The details of this call are beyond the scope of this README, but you can get a good start by looking at the [Android Native Client Sample](https://github.com/AzureADSamples/NativeClient-Android). Below is an example, which uses SharedPreferences as default cache, and where Authority is in the form of `https://login.windows.net/yourtenant.onmicrosoft.com`:
    
-    // Authority is in the form of https://login.windows.net/yourtenant.onmicrosoft.com
-    mContext = new AuthenticationContext(MainActivity.this, authority, true); // This will use SharedPreferences as            default cache
-    * NOTE: mContext is a field in your activity
+    `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
 5. Copy this code block to handle the end of AuthenticationActivity after user enters credentials and receives authorization code:
    
