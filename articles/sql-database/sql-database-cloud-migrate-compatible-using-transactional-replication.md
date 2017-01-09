@@ -1,6 +1,7 @@
 ---
-title: Migrate to SQL Database using transactional replication | Microsoft Docs
-description: Microsoft Azure SQL Database, database migration, import database, transactional replication
+title: Use transacation replication to migrate to Azure SQL Database | Microsoft Docs
+description: In this article, you learn to migrate a compatible SQL Server database to Azure SQL Database with minimal downtime using SQL Server transactional replication.
+keywords: Microsoft Azure SQL Database, database migration, import database, transactional replication
 services: sql-database
 documentationcenter: ''
 author: jognanay

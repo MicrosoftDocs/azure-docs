@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 01/06/2016
 ms.author: jroth
 
 ---
@@ -76,7 +76,7 @@ The temporary storage drive, labeled as the **D**: drive, is not persisted to Az
 
 For D-series, Dv2-series, and G-series VMs, the temporary drive on these VMs is SSD-based. If your workload makes heavy use of TempDB (e.g. for temporary objects or complex joins), storing TempDB on the **D** drive could result in higher TempDB throughput and lower TempDB latency.
 
-For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we recommend storing TempDB and/or Buffer Pool Extensions on a disk that supports Premium Storage with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
+For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we recommend storing TempDB on a disk that supports Premium Storage with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
 
 ### Data disks
 * **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data file(s) and TempDB.
