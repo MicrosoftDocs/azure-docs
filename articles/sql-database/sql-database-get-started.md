@@ -41,17 +41,22 @@ When you finish this tutorial, you will have a sample database and a blank datab
 
 **Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
 
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## Prerequisites
 
 * You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> This tutorial helps you to learn the content of these learn topics: [SQL Database server overview](sql-database-server-overview.md), [SQL database overview](sql-database-overview.md), and [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md).
+>  
 
-### Sign in by using your existing account
+
+### Sign in to the Azure portal using your Azure account
 Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).

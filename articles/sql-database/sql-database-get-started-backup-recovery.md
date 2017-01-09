@@ -29,6 +29,10 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 
 **Time estimate**: This tutorial takes approximately 30 minutes to complete (assuming you have already met the prerequisites).
 
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+>
+
 ## Prerequisites
 
 * You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
@@ -37,11 +41,12 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md) of this tutorial. If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) of this tutorial before continuing.
 
-> [!TIP]
-> You can perform these same tasks in a getting started tutorial by using [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
->
 
-## Sign in by using your existing account
+> [!NOTE]
+> This tutorial helps you to learn the content of these learn topics: [SQL Database backups](sql-database-automated-backups.md), [Long-term backup retention](sql-database-long-term-retention.md), and [Recover an Azure SQL database using automated database backups](sql-database-recovery-using-backups.md).
+>  
+
+## Sign in to the Azure portal using your Azure account
 Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
