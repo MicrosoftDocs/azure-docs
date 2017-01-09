@@ -177,7 +177,7 @@ Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol. 
 
 
 
-## 3. Create the java PublicClient file
+## 3. Create the Java PublicClient file
 As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
 * Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:

@@ -65,7 +65,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
   * The `ida:ClientId` is the clientId of your application you copied from the portal.
   * The `ida:RedirectUri` is the redirect url you registered in the portal.
 
-## *3.    Use ADAL to Get Tokens from AAD*
+## 3.    Use ADAL to Get Tokens from AAD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls `authContext.AcquireTokenAsync(...)`, and ADAL does the rest.  
 
 * In the `DirectorySearcher` project, open `MainWindow.xaml.cs` and locate the `MainWindow()` method.  The first step is to initialize your app's `AuthenticationContext` - ADAL's primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
