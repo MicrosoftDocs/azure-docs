@@ -26,6 +26,7 @@
 #### [REST](media-services-rest-connect-programmatically.md)
 ### [Manage streaming endpoints](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 

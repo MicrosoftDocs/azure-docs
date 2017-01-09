@@ -403,16 +403,6 @@ The following table shows how Channel states map to the billing mode.
 * Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 * Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
-### How to create channels that perform live encoding from a singe bitrate to adaptive bitrate stream
-Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
-
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-> * [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-> 
-> 
-
 ## Next step
 Review Media Services learning paths.
 
@@ -424,6 +414,12 @@ Review Media Services learning paths.
 ## Related topics
 [Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
+[Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+
+[Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+
+[Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+ 
 [Media Services Concepts](media-services-concepts.md)
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)

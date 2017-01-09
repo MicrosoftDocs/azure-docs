@@ -27,8 +27,7 @@ In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a s
 
 In addition, starting with the 2.15 version (released in January 2017), Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
-
-When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN avalability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. 
+When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN availability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. 
 
 >[!NOTE]
 >Azure CDN integration can be disabled before starting the streaming endpoint.
