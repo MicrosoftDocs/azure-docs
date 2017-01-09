@@ -55,7 +55,7 @@ Before you can run the samples in the Azure IoT device SDK for C you must create
 
 If you need to create an instance of Azure IoT Hub on your Azure subscription, follow the instructions [here](https://github.com/Azure/azure-iot-sdks/blob/master/doc/setup_iothub.md).
 
-The [readme file](https://github.com/Azure/azure-iot-sdks/tree/master/c) included with the SDK provides instructions for preparing your development environment and obtain device credentials.
+The [readme file](https://github.com/Azure/azure-iot-sdk-c/blob/76906dc5fcb38eb3d2c67b670f638ed8965e502d/readme.md) included with the SDK provides instructions for preparing your development environment and obtain device credentials.
 The following sections include some additional commentary on those instructions.
 
 ### Preparing your development environment
@@ -63,7 +63,7 @@ While packages are provided for some platforms (such as NuGet for Windows or apt
 
 First, you'll need to obtain a copy of the SDK from GitHub and then build the source. You should get a copy of the source from the **master** branch of the [GitHub repository](https://github.com/Azure/azure-iot-sdks).
 
-When you’ve downloaded a copy of the source, you must complete the steps described in the SDK article ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md).
+When you’ve downloaded a copy of the source, you must complete the steps described in the SDK article ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdk-c/blob/76906dc5fcb38eb3d2c67b670f638ed8965e502d/doc/devbox_setup.md).
 
 The following are a few tips to help you complete the procedure described in the preparation guide:
 
