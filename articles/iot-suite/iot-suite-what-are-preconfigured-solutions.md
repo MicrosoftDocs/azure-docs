@@ -122,7 +122,7 @@ A device twin is a JSON document managed by the IoT Hub. A device twin for a dev
 - Desired properties that you want to send to the device. You can set these properties in the solution portal.
 - Tags that exist only in the device twin and not on the device. You can use these tags to filter lists of devices in the solution portal.
 
-This solution stores additional information about devices such as their state, the commands they support, and other metadata. The solution uses a DocumentDB database to store this solution-specific device data and the solution portal retrieves data from this DocumentDB database for display and editing.
+This solution uses device twins to manage device metadata. The solution also uses a DocumentDB database to store additional solution-specific device data such as the commands supported by each device and the command history.
 
 The solution must also keep the information in the device identity registry synchronized with the contents of the DocumentDB database. The **EventProcessorHost** uses the data from **DeviceInfo** stream analytics job to manage the synchronization.
 
