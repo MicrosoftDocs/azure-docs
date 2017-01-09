@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/09/2017
 ms.author: femila
 
 ---
@@ -35,7 +35,7 @@ Before beginning troubleshooting verify that the user and device have been confi
 If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
 
 - **General description of the error** – Are there error messages seen by the user? If there was no error message, describe the unexpected behavior you noticed, in detail. What features are enabled for sync and what is the user expecting to sync? Are multiple features not syncing or is it isolated to one?
-- ** Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
+- **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
 - **Information about the user** – What identity is the user using to log into the device? How is the user logging into the device? Are they part of a selected security group allowed to sync? 
 - **Information about the device** – Is this device Azure AD Joined or domain-joined? What build is the device on? What are the most recent updates?
 - **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
