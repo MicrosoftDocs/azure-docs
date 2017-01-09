@@ -28,7 +28,6 @@ ms.author: juliako
 
 The code in this topic shows how to do the following tasks using the Azure Media Services .NET SDK:
 
-- Set up your Visual Studio project.
 - Examine the default streaming endpoint.
 - Create/add new streaming endpoint.
 
@@ -56,14 +55,14 @@ For information about how to scale the streaming endpoint, see [this](media-serv
 3. Use **NuGet** to install the [latest Azure Media Services .NET SDK package](https://www.nuget.org/packages/windowsazure.mediaservices/).   
 4. Add the appSettings section to the .config file and update the Media Services name and key values. 
 	
-	<appSettings>
-	  <add key="MediaServicesAccountName" value="Media-Services-Account-Name"/>
-	  <add key="MediaServicesAccountKey" value="Media-Services-Account-Key"/>
-	</appSettings>
+		<appSettings>
+		  <add key="MediaServicesAccountName" value="Media-Services-Account-Name"/>
+		  <add key="MediaServicesAccountKey" value="Media-Services-Account-Key"/>
+		</appSettings>
 
 ###Add code that manages streaming endpoints
 	
-5. Replace the code in the Program.cs with the following code:
+Replace the code in the Program.cs with the following code:
 
 	using System;
 	using System.Collections.Generic;

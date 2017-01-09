@@ -155,15 +155,12 @@ In this section you will create and set up a C# Console Application project.
 		        var sourceOriginLocator = GetStreamingOriginLocator(_contextSource, sourceOutputAsset);
 		
 		        Console.WriteLine("Locator Id: {0}", sourceOriginLocator.Id);
-		
-		
+				
 		        // 1.Create a read-only SAS locator for the source asset to have read access to the container in the source Storage account (associated with the source Media Services account)
 		        var readSasLocator = GetSasReadLocator(_contextSource, sourceOutputAsset);
 		
-		
 		        // 2.Get the container name of the source asset from the read-only SAS locator created in the previous step
 		        string containerName = (new Uri(readSasLocator.Path)).Segments[1];
-		
 		
 		        // 3.Create a target empty asset in the target Media Services account
 		        var targetAsset = CreateTargetEmptyAsset(_contextTarget, containerName);
@@ -174,10 +171,8 @@ In this section you will create and set up a C# Console Application project.
 		        // Get asset container name.
 		        string targetContainerName = (new Uri(writeSasLocator.Path)).Segments[1];
 		
-		
 		        // 5.Copy the blobs in the source container (source asset) to the target container (target empty asset)
 		        CopyBlobsFromDifferentStorage(containerName, targetContainerName, StorageNameSource, StorageKeySource, StorageNameTarget, StorageKeyTarget);
-		
 		
 		        // 6.Use the CreateFileInfos Media Services REST API to automatically generate all the IAssetFile’s for the target asset. 
 		        //      This API call is not supported in the current Media Services SDK for .NET. 
@@ -289,8 +284,6 @@ In this section you will create and set up a C# Console Application project.
             return job;
         }
    
-        // Create a locator URL to a streaming media asset 
-        // on an origin server.
         public static ILocator GetStreamingOriginLocator(CloudMediaContext context, IAsset assetToStream)
         {
             // Get a reference to the streaming manifest file from the  
@@ -409,7 +402,6 @@ In this section you will create and set up a C# Console Application project.
 
             return locatorNewPath;
         }
-
 
         public static void SetPrimaryFile(IAsset asset)
         {
@@ -895,7 +887,6 @@ In this section you will create and set up a C# Console Application project.
                 Console.WriteLine(ex.Message);
             }
         }
-
 
         private static HttpWebRequest GenerateRequest(string verb,
                                                         string mediaServicesApiServerUri,
