@@ -38,17 +38,17 @@ You can retrieve information from the activity logs through the portal, PowerShe
    Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filtered by the selected resource.
    
     ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
-2. In the **Activity Log** blade, you see a summary of recent operations for all the resource groups in your subscription. It includes a listing of recent operations.
+2. In the **Activity Log** blade, you see a summary of recent operations.
    
     ![show actions](./media/resource-group-audit/audit-summary.png)
-3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month.
+3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month. Select **Apply** to view the results of your query.
    
     ![set filter options](./media/resource-group-audit/set-filter.png)
-4. Select **Apply** to view the results of your query.
-5. If you need to run the query again later, select **Save** and give the query a name.
+
+4. If you need to run the query again later, select **Save** and give the query a name.
    
     ![save query](./media/resource-group-audit/save-query.png)
-6. You can select one of the built-in queries, such as failed deployments.
+5. To quickly run a query, you can select one of the built-in queries, such as failed deployments.
 
     ![select query](./media/resource-group-audit/select-quick-query.png)
 
@@ -56,7 +56,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![view deployment errors](./media/resource-group-audit/view-failed-deployment.png)   
 
-7. Select one of the operations to see a summary of the event.
+6. Select one of the operations to see a summary of the event.
 
     ![view operation](./media/resource-group-audit/view-operation.png)  
 
@@ -67,7 +67,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
   Get-AzureRmLog -ResourceGroup ExampleGroup
   ```
    
-    The following example shows how to use the audit log to research operations taken during a specified time. The start and end dates are specified in a date format.
+    The following example shows how to use the activity log to research operations taken during a specified time. The start and end dates are specified in a date format.
 
   ```powershell
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
@@ -117,15 +117,15 @@ You can retrieve information from the activity logs through the portal, PowerShe
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. Based on these results, you can focus on one error by looking at the status message for that entry.
+5. You can focus on one error by looking at the status message for that entry.
    
         ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
    
     Which returns:
    
-        code           message                                                                        details
-        ----           -------                                                                        -------
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
+        code           message                                                                        
+        ----           -------                                                                        
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. 
 
 
 ## Azure CLI
@@ -142,6 +142,6 @@ The REST operations for working with the activity log are part of the [Insights 
 ## Next steps
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * To learn about setting security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
-* To learn about the commands for troubleshooting deployments, see [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-portal.md).
+* To learn about the commands for viewing deployment operations, see [View deployment operations with Azure Portal](resource-manager-troubleshoot-deployments-portal.md).
 * To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
