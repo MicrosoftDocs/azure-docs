@@ -132,9 +132,9 @@ An Azure Storage account is a required resource in Azure Functions.
 }
 ```
 
-### Fully Managed Scaling vs User Managed Scaling
+### Fully Managed Scaling (Consumption) vs User Managed Scaling (App Service Plan)
 
-There are scenarios when building functions in which you may want your functions to be scaled on-demand by the platform, or run
+There are scenarios when building functions in which you may want your functions to be scaled on-demand by the platform (Consumption), or run 24/7 on dedicated hardware (App Service Plan). The decision to use one plan over another could be based on features which aren't yet supported in the Consumption plan, or by cost decisions which are driven by the architecture of your functions.
 
 #### Consumption Plan
 
@@ -171,6 +171,16 @@ There are scenarios when building functions in which you may want your functions
 ```
 
 ### Function App (Site)
+
+Once the scaling option has been selected, it's time to create the container which will hold all of your functions, this is known as the Function App.
+
+A Function App has many child resources in which you will take advantage of including **App Settings** and **Source Control Options**. You may opt to remove the `sourcecontrols` child resource in favour of another [deployment option](./functions-continuous-deployment).
+
+> [!IMPORTANT]
+> It is important to understand how resources are deployed in Azure to ensure that you create a successful infrastructure as code configuration for your Application when using Azure Resource Manager. In this example, you will notice that there are top-level configurations being applied using **siteConfig**, these are important to set at a top-level as they convey meaning to Azure Functions runtime and deployment engine which are required before the child resource **sourcecontrols/web** is applied. While these settings could be configured in the child-level resource **config/appSettings** you will find that there are scenarios in which your Function App and Functions will need to be deployed **before** you apply your **config/appsettings** as your Functions are a dependency of another resource, for example a [Logic App](../logic-apps/index).
+
+> [!TIP]
+> In this template we are using the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Setting, which is setting the base directory in which the Functions Deployment Engine (Kudu) is going to look for deployable code. In this example, we have set this value to `src` as our GitHub repository contains a `src` folder in which our functions are a child of. If you have a repository in which your functions are directly in the root of the repository, or you are not deploying from Source Control, this App Setting can be removed.
 
 ```json
 {
@@ -234,7 +244,7 @@ There are scenarios when building functions in which you may want your functions
 
 ### Deploy to Azure button
 
-Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL encoded](https://www.bing.com/search?q=url+encode)
+Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL encoded](https://www.bing.com/search?q=url+encode) of the raw path of your `azuredeploy.json` file in GitHub.
 
 #### markdown
 
