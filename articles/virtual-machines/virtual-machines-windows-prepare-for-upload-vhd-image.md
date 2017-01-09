@@ -160,7 +160,7 @@ sc config RemoteRegistry start= auto
 ## Configure Windows Firewall rules
 1. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
    
-   ```CMD
+   ```powershell
    Enable-PSRemoting -force
    ```
 2. Make sure that the following guest operating system firewall rules are in place:
