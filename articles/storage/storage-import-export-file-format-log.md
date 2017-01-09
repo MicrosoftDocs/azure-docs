@@ -2,8 +2,8 @@
 
 title: Import-Export Service Log File Format | Microsoft Docs
 description: Learn about the format of the log files created when steps are executed for an Import-Export Service job
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2015
-ms.author: renash
+ms.author: muralikk
 
 ---
 # Import-Export Service Log File Format
