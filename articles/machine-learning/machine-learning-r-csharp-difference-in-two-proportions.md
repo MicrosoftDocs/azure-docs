@@ -1,4 +1,4 @@
-﻿---
+---
 title: Difference in Proportions Test | Microsoft Docs
 description: Difference in Proportions Test
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 01/04/2017
 ms.author: aniedea
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Windows VM with PowerShell | Microsoft Docs
 description: Create Windows virtual machines using Azure PowerShell and the classic deployment model.
 services: virtual-machines-windows
@@ -20,22 +20,21 @@ ms.author: cynthn
 ---
 # Create a Windows virtual machine with PowerShell and the classic deployment model
 > [!div class="op_single_selector"]
-> * [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md)
-> * [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
+> * [Azure classic portal - Windows](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
 <br>
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-ps-create.md).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
 ## Step 1: Add your account
 1. At the PowerShell prompt, type **Add-AzureAccount** and click **Enter**. 
@@ -260,5 +259,5 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 
 ## Next steps
-If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](virtual-machines-windows-expand-os-disk.md).
+If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

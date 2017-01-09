@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing Azure resources with Cloud Explorer | Microsoft Docs
 description: Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio.
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---

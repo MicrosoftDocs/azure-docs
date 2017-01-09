@@ -1,6 +1,6 @@
 ---
 title: Release notes for Application Insights for Windows
-description: The latest updates for Windows Store SDK.
+description: (Deprecated) SDK release notes.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
@@ -14,9 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 ms.author: joshweb
-
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Release Notes for Application Insights SDK for Windows Phone and Store
+
+> [!WARNING]
+> The Windows Phone and Store SDK is no longer supported. We recommend [HockeyApp](https://www.hockeyapp.net/) for managing the distribution and monitoring of mobile and desktop apps.
+>  
+
 The Application Insights SDK sends telemetry about your live app to [Application Insights](https://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 ## Version 1.1.1

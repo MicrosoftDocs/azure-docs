@@ -39,7 +39,7 @@ SSHD is the SSH Server that runs on the Linux VM.  SSH is a client that runs fro
 For this article it is very important to keep one login to your Linux VM open for the entire walk through.  For this reason we will open two terminals and SSH to the Linux VM from both of them.  We will use the first terminal to make the changes to SSHDs configuration file and restart the SSHD service.  We will use the second terminal to test those changes once the service is restarted.  Because we are disabling SSH passwords and relying strictly on SSH keys, if your SSH keys are not correct and you close the connection to the VM, the VM will be permanently locked and no one will be able to login to it requiring it to be deleted and recreated.
 
 ## Prerequisites
-* [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md)
+* [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Azure account
   * [free trial signup](https://azure.microsoft.com/pricing/free-trial/)
   * [Azure portal](http://portal.azure.com)
@@ -52,9 +52,13 @@ For this article it is very important to keep one login to your Linux VM open fo
 ## Quick Commands
 *Seasoned Linux Admins who just want the TLDR version start here.  For everyone else that wants the detailed explanation and walk through skip this section.*
 
+```bash
+sudo vim /etc/ssh/sshd_config
 ```
-username@macbook$ sudo vim /etc/ssh/sshd_config
 
+Edit the config file as follows:
+
+```sh
 # Change PasswordAuthentication to this:
 PasswordAuthentication no
 
@@ -66,12 +70,18 @@ PermitRootLogin no
 
 # Change ChallengeResponseAuthentication to this:
 ChallengeResponseAuthentication no
+```
 
-# On the Debian Family
-username@macbook$ sudo service ssh restart
+Restart the SSHD service. On Debian-based distros:
 
-# On the RedHat Family
-username@macbook$ sudo service sshd restart
+```bash
+sudo service ssh restart
+```
+
+On Red Hat-based distros:
+
+```bash
+sudo service sshd restart
 ```
 
 ## Detailed Walk Through
@@ -79,38 +89,35 @@ Login to the Linux VM on terminal 1 (T1).  Login to the Linux VM on terminal 2 (
 
 On T2 we are going to edit the SSHD configuration file.  
 
-```
-username@macbook$ sudo vim /etc/ssh/sshd_config
+```bash
+sudo vim /etc/ssh/sshd_config
 ```
 
 From here we will edit just the settings to disable passwords and enable SSH key logins.  There are many settings in this file that you should research and change to make Linux & SSH as secure as you need.
 
 #### Disable Password logins
-```
-username@macbook$ sudo vim /etc/ssh/sshd_config
 
+```sh
 # Change PasswordAuthentication to this:
 PasswordAuthentication no
 ```
 
 #### Enable Public Key Authentication
-```
-username@macbook$ sudo vim /etc/ssh/sshd_config
 
+```sh
 # Change PubkeyAuthentication to this:
 PubkeyAuthentication yes
 ```
 
 #### Disable Root Login
-```
-username@macbook$ sudo vim /etc/ssh/sshd_config
 
+```sh
 # Change PermitRootLogin to this:
 PermitRootLogin no
 ```
 
 #### Disable Challenge-response Authentication
-```
+```sh
 # Change ChallengeResponseAuthentication to this:
 ChallengeResponseAuthentication no
 ```
@@ -121,13 +128,13 @@ From the T1 shell verify that you are still logged in.  This is critical so you 
 From T2 run:
 
 ##### On the Debian Family
-```
-username@macbook$ sudo service ssh restart
+```bash
+sudo service ssh restart
 ```
 
 ##### On the RedHat Family
-```
-username@macbook$ sudo service sshd restart
+```bash
+sudo service sshd restart
 ```
 
 Passwords are now disabled on your VM protecting it from brute force password login attempts.  With only SSH Keys allowed you will be able to login faster and much more secure.

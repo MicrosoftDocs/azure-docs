@@ -43,7 +43,7 @@ To learn more about:
 ## Geo-redundant backups
 Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore data warehouse in case you cannot access the snapshots in your primary region. 
 
-This feature is on by default. If you don't want to use geo-redundant backups, you can opt out. 
+This feature is on by default. If you don't want to use geo-redundant backups, you can [opt out] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 
 > [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 

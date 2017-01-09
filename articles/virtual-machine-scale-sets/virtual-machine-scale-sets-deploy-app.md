@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy an App on Virtual Machine Scale Sets| Microsoft Docs
 description: Deploy an app on Virtual Machine Scale Sets
 services: virtual-machine-scale-sets
@@ -23,7 +23,7 @@ An application running on a VM Scale Set is typically deployed in one of three w
 
 * Installing new software on a platform image at deployment time. A platform image in this context is an operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2, etc.
 
-You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. [Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) is an example Azure Resource Manager Template with two VM extensions: a Linux Custom Script Extension to install Apache and PHP, and a Diagnostic Extension to emit performance data used by Azure Autoscale.
+You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. [Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) is an example Azure Resource Manager Template with two VM extensions: a Linux Custom Script Extension to install Apache and PHP, and a Diagnostic Extension to emit performance data used by Azure Autoscale.
 
 An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and VM deployment time could be longer if there is a lot for the script to download and configure.
 
@@ -48,7 +48,5 @@ Packer and Terraform also support Azure Resource Manager, so you can also define
 The scale set VMs then become a stable substrate for the containers and only require occasional security and OS-related updates. As mentioned, the Azure Container Service is a good example of taking this approach and building a service around it.
 
 ## How do you roll out an OS update across update domains?
-Suppose you want to update your OS image while keeping the VM Scale Set running. One way to do so is to update the VM images one VM at a time. You can do so with PowerShell or Azure CLI. There are separate commands to update the VM Scale Set model (how its configuration is defined), and to issue “manual upgrade” calls on individual VMs.
-
-[Here](https://github.com/gbowerman/vmsstools) is an example Python script that automates the process of updating a VM Scale Set one update domain at a time. (Caveat: it’s more of a proof of concept than a hardened production-ready solution – you might want to add some error checking etc.).
+Suppose you want to update your OS image while keeping the VM Scale Set running. One way to do so is to update the VM images one VM at a time. You can do so with PowerShell or Azure CLI. There are separate commands to update the VM Scale Set model (how its configuration is defined), and to issue "manual upgrade" calls on individual VMs. The [Upgrade a Virtual Machine Scale Set](./virtual-machine-scale-sets-upgrade-scale-set.md) Azure document also profides further information on what options are available to perform OS upgrades across a VM Scale Set.
 

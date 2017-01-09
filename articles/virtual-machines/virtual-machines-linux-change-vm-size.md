@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
-ms.author: mikewasson
+ms.author: mwasson
 
 ---
 # How to resize a Linux VM
@@ -25,8 +25,6 @@ After you provision a virtual machine (VM), you can scale the VM up or down by c
 This article shows how to resize a Linux VM using the [Azure CLI][azure-cli].
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
-classic deployment model.
 
 ## Resize a Linux VM
 To resize a VM, perform the following steps.

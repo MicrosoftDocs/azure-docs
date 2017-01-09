@@ -55,6 +55,9 @@
 ## Develop
 ### [Add functionality to your first web app](app-service-web-get-started-2.md)
 ### [Create a web app on Linux](app-service-linux-how-to-create-a-web-app.md)
+### [App Service reference](app-service-changes-existing-services.md)
+### [Azure portal](app-service-web-app-azure-portal.md)
+### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET apps
 #### [Deploy your first .NET web app to Azure in five minutes](app-service-web-get-started-dotnet.md)
@@ -150,6 +153,7 @@
 ### [On-premises connections](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [Advanced configuration](web-sites-transform-extend.md)
+### [Configure container for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 ### [Resource groups](app-service-move-resources.md)
 ### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -243,9 +247,10 @@
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
 # Reference
-## [App Service reference](app-service-changes-existing-services.md)
-## [Azure portal](app-service-web-app-azure-portal.md)
-## [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
+## [Azure CLI 2.0 preview](/cli/azure/appservice)
+## [.NET](/dotnet/api)
+## [Java](/java/api/)
+## [REST](/rest/api/appservice)
 
 # Related
 ## [Azure SDK for .NET release notes](azure-sdk-dotnet-release-notes.md)

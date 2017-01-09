@@ -22,7 +22,7 @@ ms.author: cynthn
 # Experiment with installing a role on your Windows VM
 Once you have your first virtual machine (VM) up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure portal to open port 80 to IIS traffic. 
 
-If you haven't already created your first VM, you should go back to [Create your first Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md) before continuing with this tutorial.
+If you haven't already created your first VM, you should go back to [Create your first Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before continuing with this tutorial.
 
 ## Make sure the VM is running
 1. Open the [Azure portal](https://portal.azure.com).
@@ -44,7 +44,7 @@ If you haven't already created your first VM, you should go back to [Create your
    
    ![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
+If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Install IIS on your VM
 Now that you are logged in to the VM, we will install a server role so that you can experiment more.
@@ -89,7 +89,7 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
    
     ![Screenshot showing the button to add a security rule](./media/virtual-machines-windows-hero-tutorial/port-80.png)
 
-For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)
+For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Connect to the default IIS website
 1. In the Azure portal, click **Virtual machines** and then select your VM.
@@ -102,5 +102,5 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
     ![Screenshot showing what the default IIS page looks like in a browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 
 ## Next steps
-* You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md) to your virtual machine. Data disks provide more storage for your virtual machine.
+* You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to your virtual machine. Data disks provide more storage for your virtual machine.
 
