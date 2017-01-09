@@ -92,7 +92,7 @@ The Azure PowerShell ARM cmdlets can be installed side-by-side with the ASM cmdl
 
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
-* Login-AzureRmAccount or [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). See [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+* Login-AzureRmAccount or [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). See [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### Renamed cmdlets

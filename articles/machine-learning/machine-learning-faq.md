@@ -287,9 +287,6 @@ Machine Learning Studio relies on a user supplied Azure storage account to store
 
 If you have changed storage account Access Keys, resync the Access Keys in the workspace using the Azure classic portal.  
 
-## Azure Marketplace
-See the [FAQ for publishing and using apps in the Machine Learning Marketplace](machine-learning-marketplace-faq.md).
-
 ## Support and training
 **Where can I get training for Azure Machine Learning?**
 

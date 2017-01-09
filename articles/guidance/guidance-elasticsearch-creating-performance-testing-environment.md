@@ -72,7 +72,7 @@ entails configuring each Elasticsearch node with a public IP address. If this is
 Elasticsearch configuration, then consider implementing the JMeter VMs in the same VNet as the
 Elasticsearch cluster by using the same resource group, in which case you can omit this first procedure.
 
-First, [create a resource group](../resource-group-template-deploy-portal.md).
+First, [create a resource group](../azure-resource-manager/resource-group-template-deploy-portal.md).
 This document assumes that your resource group is named *JMeterPerformanceTest*. If you wish to run the
 JMeter VMs in the same VNet as the Elasticsearch cluster, use the same resource group as that cluster
 instead of creating a new one.

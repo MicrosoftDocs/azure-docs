@@ -1,6 +1,6 @@
 ---
-title: New SQL Database setup with PowerShell | Microsoft Docs
-description: Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets.
+title: 'Powershell: Get started with Azure SQL Database | Microsoft Docs'
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using PowerShell. You also learn to query databases using PowerShell.
 keywords: create new sql database,database setup
 services: sql-database
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
@@ -20,7 +20,7 @@ ms.author: sstein
 
 ---
 
-# Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell
+# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules using PowerShell
 
 In this getting-started tutorial, you learn how to use PowerShell to:
 
@@ -28,8 +28,9 @@ In this getting-started tutorial, you learn how to use PowerShell to:
 * Create an Azure SQL logical server
 * View Azure SQL server properties
 * Create a server-level firewall rule
-* Create the AdventureWorksLT sample database
+* Create the AdventureWorksLT sample database as a single database
 * View AdventureWorksLT sample database properties
+* Create a blank single database
 
 In this tutorial, you also:
 
