@@ -163,7 +163,8 @@ You should only follow these steps if you for some reason are unable to run the 
    * The **ForeignSecurityPrincipals** container should be selected if you have multiple forests with trusts. This container allows cross-forest security group membership to be resolved.
    * The **RegisteredDevices** OU should be selected if you have enabled the device writeback feature. If you use another writeback feature, such as group writeback, make sure these locations are selected.
    * Select any other OU where Users, iNetOrgPersons, Groups, Contacts, and Computers are located. In the picture, all these are located in the ManagedObjects OU.
-   * **Note:** You can configure if new OUs should be synchronized or not synchronized. See next section for details.
+   * If you use group-based filtering, then the OU where the group is located must be included.
+   * **Note:** You can configure if new OUs added after the filtering configuration has completed should be synchronized or not synchronized. See next section for details.
 7. When you are done, close the **Properties** dialog by clicking **OK**.
 8. To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
