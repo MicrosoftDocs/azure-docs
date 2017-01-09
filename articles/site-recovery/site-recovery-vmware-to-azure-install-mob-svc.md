@@ -29,12 +29,15 @@ Mobility Service needs to be  deployed on every machine (VMware VM or physical s
 Perform these prerequisites before you start manually installing the Mobility Service on your servers.
 1. Login on to your Configuration Server and open up a command prompt in with Administrative privileges.
 2. Change directory to the bin folder and create a passphrase file
+
   ```
   cd %ProgramData%\ASR\home\svsystems\bin
   genpassphrase.exe -v > MobSvc.passphrase
   ```
 3. Store this file in a secure location as we will need to use it during the Mobility Service installation.
-4. The Mobility Service installers for all the supported operating systems can be found under the directory `%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
+4. The Mobility Service installers for all the supported operating systems can be found under the directory     
+
+  `%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 #### Mobility Service installer to Operating System mapping
 
