@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 01/09/2017
 ms.author: nepeters
 
 ---
@@ -23,10 +23,6 @@ ms.author: nepeters
 ## Overview
 
 Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The OMS Agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the OMS agent on Azure virtual machines, and enrolls virtual machines into an existing OMS workspace. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension for Linux.
-
-For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-linux-extensions-features.md).
-
-For more information on Operations Management Suite, see [Operations Management Suite overview](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
 
 ## Prerequisites
 
@@ -43,51 +39,13 @@ The OMS Agent extension can be run against these Linux distributions.
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
 | SUSE Linux Enterprise Server | 11 and 12 |
 
-### Connectivity
+### Internet Connectivity
 
 The OMS Agent extension for Linux requires that the target virtual machine is connected to the internet. 
 
-## Extension configuration
+## Extension schema
 
-The OMS Agent virtual machine extension for Linux requires the workspace Id and workspace key from the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine. The public and private configurations are specified at deployment time, which is detailed in subsequent sections of this document.
-
-### Public configuration
-
-Schema for the public configuration:
-
-- workspaceId: (required, string) the OMS workspace id to onboard the virtual machine into.
-
-```json
-{
-  "workspaceId": "myWorkspaceId"
-}
-```
-
-### Private configuration
-
-Schema for the public configuration:
-
-- workspaceKey: (required, string) the primary/secondary shared key of the workspace.
-
-```json
-{
-  "workspaceKey": "myWorkSpaceKey"
-}
-```
-
-## Template deployment
-
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to OMS. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
-
-This sample can be deployed from this document using this button:
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-### Template schema
-
-The JSON used to deploy the OMS Agent VM extension looks like the following JSON example. Make sure to provide a valid workspace Id and key in the template. These values can be hard coded into the resource provided by a template parameter or variable.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it shuold be stored in a protected setting configuation. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
@@ -114,10 +72,19 @@ The JSON used to deploy the OMS Agent VM extension looks like the following JSON
 
 ### Property values
 
-| Name | Example |
-| ---- | ---- | 
-| workspaceId | 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| Name | Value |
+| ---- | ---- |
+| apiVersion | 2015-06-15 |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | OmsAgentForLinux |
+| typeHandlerVersion | 1.0 |
+| workspaceId | **Example:** 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey | **Example:** z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+
+## Template deployment
+
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to OMS. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 ## Azure CLI deployment
 
