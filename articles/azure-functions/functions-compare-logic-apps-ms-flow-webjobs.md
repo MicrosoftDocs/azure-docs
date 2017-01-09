@@ -101,7 +101,6 @@ The following table summarizes the differences between Functions and WebJobs:
 | PHP |experimental |x |
 | Python |experimental |x |
 | JavaScript |x |x |
-| Java |experimental |x |
 
 Whether to use Functions or WebJobs ultimately depends on what you're already doing with App Service. If you have an App Service 
 app for which you want to run code snippets, and you want to manage them together in the same DevOps environment, you 

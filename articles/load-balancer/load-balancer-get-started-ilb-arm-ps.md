@@ -1,11 +1,10 @@
-﻿---
+---
 title: Create an internal load balancer using PowerShell in Resource Manager | Microsoft Docs
 description: Learn how to create an internal load balancer using PowerShell in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -15,17 +14,21 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Create an internal load balancer using PowerShell
 
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -52,7 +55,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 ### Step 1
 
 ```powershell
-    Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 ### Step 2
@@ -60,7 +63,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 Check the subscriptions for the account
 
 ```powershell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
 You will be prompted to Authenticate with your credentials.
@@ -70,17 +73,15 @@ You will be prompted to Authenticate with your credentials.
 Choose which of your Azure subscriptions to use.
 
 ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### Create Resource Group for load balancer
 
-### Step 4
-
 Create a new resource group (skip this step if using an existing resource group)
 
 ```powershell
-    New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
@@ -88,8 +89,6 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 In the example above we created a resource group called "NRP-RG" and location "West US".
 
 ## Create Virtual Network and a private IP address for front end IP pool
-
-### Step 1
 
 Creates a subnet for the virtual network and assigns to variable $backendSubnet
 
@@ -117,7 +116,7 @@ Create a front end IP pool using the private IP address 10.0.2.5 for the subnet 
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
-### step 2
+### Step 2
 
 Set up a back end address pool used to receive incoming traffic from front end IP pool:
 
@@ -183,7 +182,7 @@ Create a second network interface called LB-Nic2-BE:
 This step creates a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP:
 
 ```powershell
-    $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
 The end result will show the following:
@@ -240,11 +239,13 @@ Expected output:
 
 Use the command Add-AzureRmVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
+You can find the step by step instructions to create a virtual machine and assign to a NIC following the documentation: [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+
+## Add the network interface
 
 If you already have a virtual machine created, you can add the network interface with the following steps:
 
-#### Step 1
+### Step 1
 
 Load the load balancer resource into a variable (if you haven't done that yet). The variable used is called $lb and use the same names from the load balancer resource created above.
 
@@ -252,7 +253,7 @@ Load the load balancer resource into a variable (if you haven't done that yet). 
 $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
-#### Step 2
+### Step 2
 
 Load the backend configuration to a variable.
 
@@ -260,7 +261,7 @@ Load the backend configuration to a variable.
 $backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 ```
 
-#### Step 3
+### Step 3
 
 Load the already created network interface into a variable. the variable name used is $nic. The network interface name used is the same from the example above.
 
@@ -268,7 +269,7 @@ Load the already created network interface into a variable. the variable name us
 $nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
-#### Step 4
+### Step 4
 
 Change the backend configuration on the network interface.
 
@@ -276,7 +277,7 @@ Change the backend configuration on the network interface.
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 ```
 
-#### Step 5
+### Step 5
 
 Save the network interface object.
 
@@ -327,4 +328,3 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

@@ -1,14 +1,14 @@
 ---
 title: How to use Service Bus topics with Python | Microsoft Docs
 description: Learn how to use Azure Service Bus topics and subscriptions from Python.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Collect logs by using Azure Diagnostics | Microsoft Docs
 description: This article describes how to set up Azure Diagnostics to collect logs from a Service Fabric cluster running in Azure.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 01/04/2017
 ms.author: toddabel
 
 ---
@@ -33,9 +33,9 @@ You'll use these tools to perform some of the operations in this document:
 
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (related to Azure Cloud Services but has good information and examples)
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
-* [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Log sources that you might want to collect
 * **Service Fabric logs**: Emitted from the platform to standard Event Tracing for Windows (ETW) and EventSource channels. Logs can be one of several types:
@@ -81,7 +81,7 @@ To create a cluster by using Resource Manager, you need to add the Diagnostics c
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
-Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../resource-group-template-deploy.md).
+Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md).
 
 ```powershell
 
@@ -207,12 +207,12 @@ For example, if your event source is named My-Eventsource, add the following cod
         }
 ```
 
-To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md). Then, republish the Resource Manager template.
+To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Then, republish the Resource Manager template.
 
 ## Next steps
 To understand in more detail what events you should look for while troubleshooting issues, see the diagnostic events emitted for [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) and [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
 ## Related articles
-* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Service Fabric solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
@@ -41,13 +41,13 @@ Let's walk through setting up your Visual Studio development environment to acce
 4. Run the **ProvisionSample** console app. In the sample console app, you provision a workspace and import a PBIX file.
 5. To provision a new **Workspace**, select option 5, **Provision a new workspace in an existing workspace collection**.
 
-    ![](media\\powerbi-embedded-get-started-sample\\console-option-5.png)
+    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
 6. Enter your **Workspace Collection** name, and **Access Key**. You can get these in the **Azure Portal**. To learn more about how to get your **Access Key**, see [View Power BI API Access Keys](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) in Get started with Microsoft Power BI Embedded.
 
-    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
+    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
 7. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure Portal**.
 
-    ![](media\\powerbi-embedded-get-started-sample\\workspace-id.png)
+    ![](media/powerbi-embedded-get-started-sample/workspace-id.png)
 8. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
 9. If prompted, enter a friendly name for your **Dataset**.
 
@@ -83,11 +83,11 @@ The web app sample is a sample dashboard that renders reports imported into your
 
 Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
-![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-sample-left-nav.png)
+![](media/powerbi-embedded-get-started-sample/power-bi-embedded-sample-left-nav.png)
 
 After you click a report, the **EmbedSample** web application should look something this:
 
-![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
+![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## Explore the sample code
 The **Microsoft Power BI Embedded** sample is an example dashboard web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
@@ -219,7 +219,7 @@ Task<ActionResult> Report(string reportId)
 ### Integrate a report into your app
 Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report**. Here is a code snippet from  powerbi.js in the **Microsoft Power BI Embedded** sample.
 
-![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-iframe-code.png)
+![](media/powerbi-embedded-get-started-sample/power-bi-embedded-iframe-code.png)
 
 ## Filter reports embedded in your application
 You can filter an embedded report using a URL syntax. To do this, you add a **$filter** query string parameter with an **eq** operator to your iFrame src url with the filter specified. Here is the filter query syntax:

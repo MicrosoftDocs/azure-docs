@@ -1,23 +1,24 @@
 ---
 layout: LandingPage
+description: Learn how to understand your Azure billing, as well as manage and monitor usage and costs. Tutorials, FAQs, API references, and other documentation.
 ---
-#Azure Billing Documentation
+# Azure Billing Documentation
 
-Azure Billing is TBD...
+Learn how to understand your Azure billing, and monitor usage and costs. Tutorials, FAQs, API references, and other documentation show you how to manage your account.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/billing.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Billing</h3>
+                        <h3>Learn about Azure Billing</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +26,35 @@ Azure Billing is TBD...
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=billing">
+        <a href="https://azure.microsoft.com/free">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Billing Video Library</h3>
+                        <h3>Create a free account</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/billing-download-azure-invoice-daily-usage-date">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Download invoice and usage</h3>
                     </div>
                 </div>
             </div>
@@ -46,16 +65,40 @@ Azure Billing is TBD...
 
 ---
 
-##Reference
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Other</h3>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">API Overview</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Partner solution: Cloud Cruiser</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">Partner solution: Cloudyn</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-###REST
-[Billing REST API Reference](/rest/api/)
-
-###.NET
-[Billing Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+---
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
         <div class="img"></div>
         <div class="text">
             Download Billing Documentation

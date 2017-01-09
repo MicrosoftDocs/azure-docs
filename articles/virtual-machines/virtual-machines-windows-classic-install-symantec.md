@@ -1,6 +1,6 @@
 ﻿---
-title: Install Symantec Endpoint Protection on a VM | Microsoft Docs
-description: Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the classic deployment model.
+title: Install Symantec Endpoint Protection on a Windows VM in Azure | Microsoft Docs
+description: Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the Classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -14,14 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 
 ---
-# How to install and configure Symantec Endpoint Protection on a Windows VM
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-This article shows you how to install and configure the Symantec Endpoint Protection client on an existing virtual machine (VM) running Windows Server. This is the full client, which includes services such as virus and spyware protection, firewall, and intrusion prevention. The client is installed as a security extension by using the VM Agent.
+# How to install and configure Symantec Endpoint Protection on a Windows VM
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+
+This article shows you how to install and configure the Symantec Endpoint Protection client on an existing virtual machine (VM) running Windows Server. This full client includes services such as virus and spyware protection, firewall, and intrusion prevention. The client is installed as a security extension by using the VM Agent.
 
 If you have an existing subscription from Symantec for an on-premises solution, you can use it to protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see [Symantec Endpoint Protection on Microsoft's Azure platform][Symantec]. This page also has links to licensing information and instructions for installing the client if you're already a Symantec customer.
 
@@ -35,21 +37,24 @@ First, verify that the VM Agent is already installed on the virtual machine. Fil
 
 > [!TIP]
 > If you don't know the cloud service and virtual machine names, run **Get-AzureVM** to list the names for all virtual machines in your current subscription.
-> 
-> 
 
-    $CSName = "<cloud service name>"
-    $VMName = "<virtual machine name>"
-    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-    write-host $vm.VM.ProvisionGuestAgent
+```powershell
+$CSName = "<cloud service name>"
+$VMName = "<virtual machine name>"
+$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+write-host $vm.VM.ProvisionGuestAgent
+```
 
 If the **write-host** command displays **True**, the VM Agent is installed. If it displays **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2][Agent].
 
 If the VM Agent is installed, run these commands to install the Symantec Endpoint Protection agent.
 
-    $Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+```powershell
+$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
 
-    Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
+Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection \
+    -VM $vm | Update-AzureVM
+```
 
 To verify that the Symantec security extension has been installed and is up-to-date:
 
@@ -69,7 +74,7 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Create]: virtual-machines-windows-classic-tutorial.md
 
-[PS]: ../powershell-install-configure.md
+[PS]: /powershell/azureps-cmdlets-docs
 
 [Agent]: http://go.microsoft.com/fwlink/p/?LinkId=403947
 

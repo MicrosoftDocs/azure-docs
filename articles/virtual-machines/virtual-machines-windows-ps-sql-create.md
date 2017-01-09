@@ -20,21 +20,21 @@ ms.author: jroth
 ---
 # Provision a SQL Server virtual machine using Azure PowerShell (Resource Manager)
 > [!div class="op_single_selector"]
-> * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Portal](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [PowerShell](virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+>
+>
 
 ## Overview
 This tutorial shows you how to create a single Azure virtual machine using the **Azure Resource Manager** deployment model using Azure PowerShell cmdlets. In this tutorial, we will create a single virtual machine using a single disk drive from an image in the SQL Gallery. We will create new providers for the storage, network, and compute resources that will be used by the virtual machine. If you have existing providers for any of these resources, you can use those providers instead.
 
-If you need the classic version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](virtual-machines-windows-classic-ps-sql-create.md).
+If you need the classic version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Classic](virtual-machines-windows-classic-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Prerequisites
 For this tutorial you'll need:
 
 * An Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* [Azure PowerShell)](../powershell-install-configure.md), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
+* [Azure PowerShell)](/powershell/azureps-cmdlets-docs), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
   * To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
 ## Configure your subscription
@@ -64,7 +64,7 @@ Modify as desired and then execute the following cmdlets to initialize these var
 ### Storage properties
 Use the following variables to define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../storage/storage-premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../storage/storage-premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageSku = "Premium_LRS"
@@ -80,7 +80,7 @@ Modify as desired and then execute the following cmdlet to initialize these vari
     $SubnetName = "Default"
     $VNetAddressPrefix = "10.0.0.0/16"
     $VNetSubnetAddressPrefix = "10.0.0.0/24"
-    $DomainName = "sqlvm1"   
+    $DomainName = "sqlvm1"
 
 ### Virtual machine properties
 Use the following variables to define the virtual machine name, the computer name, the virtual machine size, and the operating system disk name for the virtual machine.
@@ -120,7 +120,7 @@ Execute the following cmdlet to create your new resource group.
 ## Create a storage account
 The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, we will create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet in order to place your SQL Server data and log files on dedicated disks. We will use the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet to create a standard storage account in your new resource group and with the storage account name, storage Sku name, and location defined using the variables that you previously initialized.
 
-Execute the following cmdlet to create your new storage account.  
+Execute the following cmdlet to create your new storage account.
 
     $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
@@ -136,8 +136,8 @@ We will start by creating a subnet configuration for our virtual network. For ou
 
 > [!NOTE]
 > You can define additional properties of the virtual network subnet configuration using this cmdlet, but that is beyond the scope of this tutorial.
-> 
-> 
+>
+>
 
 Execute the following cmdlet to create your virtual subnet configuration.
 
@@ -155,8 +155,8 @@ Now that we have our virtual network defined, we need to configure an IP address
 
 > [!NOTE]
 > You can define additional properties of the public IP address using this cmdlet, but that is beyond the scope of this initial tutorial. You could also create a private address or an address with a static address, but that is also beyond the scope of this tutorial.
-> 
-> 
+>
+>
 
 Execute the following cmdlet to create your public IP address.
 
@@ -187,7 +187,7 @@ Execute the following cmdlet and, in the Windows PowerShell credential request w
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### Set the operating system properties for the virtual machine
-Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
+Now we are ready to set the virtual machine's operating system properties. We will use the [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet to set the type of operating system as Windows, require the [virtual machine agent](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to be installed, specify that the cmdlet enables auto update and set the virtual machine name, the computer name, and the credential using the variables that you previously initialized.
 
 Execute the following cmdlet to set the operating system properties for your virtual machine.
 
@@ -230,7 +230,7 @@ Execute the following cmdlet to create your virtual machine.
 
 The virtual machine is created. Notice that a standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
 
-You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md#Connect).  
+You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Example script
 The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
@@ -291,5 +291,5 @@ The following script contains the complete PowerShell script for this tutorial. 
     New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
 ## Next steps
-After the virtual machine is created, you are ready to connect to the virtual machine using RDP and setup connectivity. For more information, see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
+After the virtual machine is created, you are ready to connect to the virtual machine using RDP and setup connectivity. For more information, see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

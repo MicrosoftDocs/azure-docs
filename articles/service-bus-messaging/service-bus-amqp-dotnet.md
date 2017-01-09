@@ -1,14 +1,14 @@
-﻿---
+---
 title: Service Bus with .NET and AMQP 1.0 | Microsoft Docs
 description: Using Service Bus from .NET with AMQP
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

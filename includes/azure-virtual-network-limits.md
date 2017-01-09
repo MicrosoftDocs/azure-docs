@@ -23,13 +23,14 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
 | Virtual networks per subscription |50 |500 |
+| Subnets per virtual network |1,000 |contact support |
 | DNS Servers per virtual network |9 |25 |
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP connections for a virtual machine or role instance |500K |500K |
 | Network Interfaces (NIC) |300 |10000 |
 | Network Security Groups (NSG) |100 |400 |
 | NSG rules per NSG |200 |500 |
-| User defined route tables |100 |400 |
+| User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses (dynamic) |60 |contact support |
 | Public IP addresses (Static) |20 |contact support |

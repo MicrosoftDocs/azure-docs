@@ -9,6 +9,7 @@ editor: ''
 tags: ''
 keywords: azure functions, patterns, best practice, functions, event processing, webhooks, dynamic compute, serverless architecture
 
+ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -22,14 +23,14 @@ ms.author: wesmc
 
 ##Overview
 
-This article provides a collection of best practices for you to consider when implementing function apps. 
+This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.  
 
 
-## Avoid long running functions
+## Avoid large long running functions
 
-Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has it's own internal dependencies.  
+Large long running functions can cause unexpected timeout issues. A function can be large because of many Node.js dependencies. Importing these dependencies can cause increased load times resulting in unexpected timeouts. Node.js dependencies could be explicitly loaded by multiple `require()` statements in your code. They could also be implicit based on a single module loaded by your code that has its own internal dependencies.  
 
-Whenever possible refactor large functions into small function sets that work together. For example a webhook or HTTP trigger function might receive a large payload and pass that payload to a queue trigger function.
+Whenever possible refactor large functions into smaller function sets that work together and return fast responses. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach allows you to defer the actual work and return an immediate response. It is common for webhooks to require an immediate response.
 
 
 ## Cross function communication.
@@ -50,12 +51,30 @@ Functions should be stateless and idempotent if possible. Associate any required
 
 Idempotent functions are especially recommended with timer triggers. For example, if you have something that absolutely must run once a day, write it so it can run any time during the day with the same results. The function can exit when there is no work for a particular day. Also if a previous run failed to complete, the next run should pick up where it left off.
 
-Assume your function could encounter an exception at any time. You should design your functions with the ability to continue from a previous fail point during the next execution.
+
+## Write defensive functions.
+
+Assume your function could encounter an exception at any time. Design your functions with the ability to continue from a previous fail point during the next execution. Consider a scenario that requires the following actions:
+
+1. Query for 10,000 rows in a db.
+2. Create a queue message for each of those rows to process further down the line.
+ 
+Depending on how complex your system is, you may have: involved downstream services behaving badly, networking outages, or quota limits reached, etc. All of these can affect your function at any time. You need to design your functions to be prepared for it.
+
+How does your code react if a failure occurs after inserting 5,000 of those items into a queue for processing? Track items in a set that you’ve completed. Otherwise, you might insert them again next time. This can have a serious impact on your work flow. 
+
+If a queue item was already processed, allow your function to be a no-op.
+
+Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers](functions-bindings-storage.md#storagequeuetrigger).
+ 
+
 
 
 ## Don't mix test and production code in the same function app.
 
-Functions within a function app share resources. If you're using a function app in production, don't add test related functions and resources to it. It can cause unexpected overhead during production code execution.
+Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.
+
+Be careful what you load in your production function apps. Memory is averaged across each function in the app.
 
 If you have a shared assembly referenced in multiple .Net functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example: 
 
@@ -67,9 +86,9 @@ Don't use verbose logging in production code. It has a negative performance impa
 
 
 
-## Avoid references to the Task.Result property
+## Use async code but avoid Task.Result
 
-If you are using asynchronous C# code, avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
+Asynchronous programming is a recommended best practice. However, always avoid referencing the `Task.Result` property. This approach essentially does a busy-wait on a lock of another thread. Holding a lock creates the potential for deadlocks.
 
 
 
@@ -77,6 +96,8 @@ If you are using asynchronous C# code, avoid referencing the `Task.Result` prope
 ## Next steps
 For more information, see the following resources:
 
-* [Testing a function](functions-test-a-function.md)
-* [Scale a function](functions-scale.md)
+* [Azure Functions developer reference](functions-reference.md)
+* [Azure Functions C# developer reference](functions-reference-csharp.md)
+* [Azure Functions F# developer reference](functions-reference-fsharp.md)
+* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 

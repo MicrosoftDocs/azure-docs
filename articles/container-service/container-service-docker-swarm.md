@@ -3,8 +3,8 @@ title: Azure Container Service container management with Docker Swarm | Microsof
 description: Deploy containers to a Docker Swarm in Azure Container Service
 services: container-service
 documentationcenter: ''
-author: neilpeterson
-manager: timlt
+author: rgardler
+manager: madhana
 editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: rogardle
 
 ---
 # Container management with Docker Swarm
