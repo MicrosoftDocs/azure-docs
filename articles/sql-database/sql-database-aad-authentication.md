@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication | Microsoft Docs
-description: Learn how to connect to SQL Database by using Azure Active Directory Authentication.
+title: Azure Active Directory Authentication for Azure SQL Database and Data Warehouse | Microsoft Docs
+description: Learn how to connect to SQL Database and SQL Data Warehouse by using Azure Active Directory Authentication.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
