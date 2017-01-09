@@ -39,7 +39,7 @@ In this getting-started tutorial, you learn how to use SQL Server Management Stu
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md) of this tutorial. If not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) of this tutorial before continuing.
 
 > [!NOTE]
-> This tutorial helps you to learn the content of these learn topics: [Azure SQL Database access and control](sql-database-control-access.md), [Controlling and greanting database access](Controlling and granting database access.md), [Database-Level Roles](https://msdn.microsoft.com/library/ms189121.aspx), and [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md).
+> This tutorial helps you to learn the content of these learn topics: [Azure SQL Database access and control](sql-database-control-access.md), [Controlling and greanting database access](sql-database-manage-logins.md), [Principals](https://msdn.microsoft.com/library/ms181127.aspx), [Database-Level Roles](https://msdn.microsoft.com/library/ms189121.aspx), and [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md).
 >  
 
 ## Sign in to the Azure portal using your Azure account
@@ -87,7 +87,7 @@ In this section of the tutorial, you view information about the security configu
 ## View the server admin account and its permissions 
 In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
 
-1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. For a newly created server that is not integrated with Azure Active Directory, notice that a login appears for the server admin specified during provisioning - the "sqladmin" login for this tutorial series.
+1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. Notice that a login appears for the server admin specified during provisioning - the "sqladmin" login for this tutorial series.
 
    ![server admin login](./media/sql-database-control-access-sql-authentication-get-started/server_admin_login.png)
 
@@ -96,7 +96,7 @@ In this section of the tutorial, you view information about the server admin acc
    ![master database user account for server admin](./media/sql-database-control-access-sql-authentication-get-started/master_database_user_account_for_server_admin.png)
 
    > [!NOTE]
-   > The other user accounts that you see in the master database are for internal use only.
+   > For informataion about the other user accounts that appear, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
    >
 
 3. In Object Explorer, right-click **master** and then click **New Query**.
