@@ -247,12 +247,11 @@ You can call **acquireTokenSilent** to handle caching, and token refresh. It pro
    
     AuthenticationSettings.Instance.setSkipBroker(true);
    
-   Developer needs to register special redirectUri for broker usage. RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature. You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri. Signature is related to your signing certificates.
+   Developer needs to register special redirectUri for broker usage. RedirectUri is in the format of `msauth://packagename/Base64UrlencodedSignature`. You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri. Signature is related to your signing certificates.
    
    Current broker model is for one user. AuthenticationContext provides API method to get the broker user.
    
-    String brokerAccount =  mContext.getBrokerUser();
-    Broker user will be returned if account is valid.
+    String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.
    
    Your app manifest should have permissions to use AccountManager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html
    
@@ -384,8 +383,6 @@ Your application should overwrite them if localized strings are desired.
      <string name="http_auth_dialog_title">Sign In</string>
      <string name="http_auth_dialog_login">Login</string>
      <string name="http_auth_dialog_cancel">Cancel</string>
-
-=======
 
 ### NTLM dialog
 Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient. Dialog layout and strings can be customized.
