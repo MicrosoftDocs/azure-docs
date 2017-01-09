@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/06/2016
 ms.author: meyoun
+
 ---
 # Azure Government Intelligence + Analytics
 This article outlines the intelligence and analytics services, variations, and considerations for the Azure Government environment.
