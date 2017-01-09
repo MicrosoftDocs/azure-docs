@@ -19,8 +19,7 @@ ms.author: mfussell
 ---
 # Preview: Service Fabric and containers
 > [!NOTE]
-> This feature is in preview for Linux and is not currently available on Windows Server 2016. This will be in preview for Windows Server on the next release of Azure Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
-> 
+> This feature is in preview for Linux and on Windows Server 2016. 
 > 
 
 ## Introduction
