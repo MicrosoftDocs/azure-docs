@@ -236,6 +236,49 @@ You can disable a device, and after it is disabled you can remove it:
 
 ![Disable and remove a device][img-disable]
 
+## Run jobs
+You can schedule jobs to perform bulk operations on your devices. You create a job for a list of devices. This list can contain all your devices or it can be a filtered list you created using the [filter tools](#filter-the-device-list) in the device list. A job can invoke a method on every device in the list or it can update the device twin for every device in the device list.
+
+### Create a job to invoke a method
+
+The following steps show you how to create a job that invokes the firmware update method on every device in a list. The method is only invoked on devices that support the method:
+
+1. Use the filter tools on the device list to create a list of devices to receive the firmware update:
+   
+   ![Open the filter editor][img-editfiltericon]
+2. On your filtered list, click **Job scheduler**:
+   
+   ![Open the job scheduler][img-clickjobscheduler]
+3. On the **Schedule job** panel, click **Invoke Method**.
+4. On the **Invoke Method** page, enter then details of the method to invoke, and then click **Schedule**:
+   
+   ![Configure method job][img-invokemethodjob]
+
+### Create a job to edit the device twin
+
+The following steps show you how to create a job that edits the device twin on every device in a list:
+
+1. Use the filter tools on the device list to create a list of devices to receive device twin edits:
+   
+   ![Open the filter editor][img-editfiltericon]
+2. On your filtered list, click **Job scheduler**:
+   
+   ![Open the job scheduler][img-clickjobscheduler]
+3. On the **Schedule job** panel, click **Edit Device Twin**.
+4. On the **Edit Device Twin** page, enter then details of the **Desired Properties** and **Tags** to edit, and then click **Schedule**:
+   
+   ![Configure method job][img-edittwinjob]
+
+### Monitor the job
+You can monitor the status of the jobs you schedule on the **Management Jobs** page. The **Job Details** panel displays information about the selected job:
+   
+   ![View job status][img-jobstatus]
+
+You can also view information about jobs on the **Dashboard**:
+   
+   ![View jobs on the dashboard][img-jobdashboard]
+
+
 ## Behind the scenes
 When you deploy a preconfigured solution, the deployment process creates multiple resources in the Azure subscription you selected. You can view these resources in the Azure [portal][lnk-portal]. The deployment process creates a **resource group** with a name based on the name you choose for your preconfigured solution:
 
@@ -296,6 +339,11 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [img-filterelist]: media/iot-suite-getstarted-preconfigured-solutions/filteredlist.png
 [img-savefilter]: media/iot-suite-getstarted-preconfigured-solutions/savefilter.png
 [img-openfilter]:  media/iot-suite-getstarted-preconfigured-solutions/openfilter.png
+[img-clickjobscheduler]: media/iot-suite-getstarted-preconfigured-solutions/clickscheduler.png
+[img-invokemethodjob]: media/iot-suite-getstarted-preconfigured-solutions/invokemethodjob.png
+[img-edittwinjob]: media/iot-suite-getstarted-preconfigured-solutions/edittwinjob.png
+[img-jobstatus]: media/iot-suite-getstarted-preconfigured-solutions/jobstatus.png
+[img-jobdashboard]: media/iot-suite-getstarted-preconfigured-solutions/jobdashboard.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
