@@ -24,7 +24,7 @@ This article provides you an example of how you can use System Center Configurat
 
 
 > [!NOTE]
-> This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity.
+> This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. You could also automate Mobility Service Installation using [Azure Automation and Desired State Configuration](site-recovery-automate-mobility-service-install.md) .
 
 ## Prerequisites
 1. A software deployment tool like System Center Configuration Manager(SCCM) that is already deployed in your environment.
