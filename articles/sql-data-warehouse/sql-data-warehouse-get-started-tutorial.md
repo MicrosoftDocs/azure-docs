@@ -17,29 +17,26 @@ ms.date: 12/21/2016
 ms.author: elbutter
 
 ---
-# Introduction
+# Get Started with SQL Data Warehouse
 
-This tutorial will teach you:
-- How to provision a SQL Data Warehouse
-- How to set up firewall rules
-- How to create user logins
-- How to load data from Azure Storage Blobs
-- How to evalutate various types of queries
-- Scaling/Pausing basics
+## Introduction
+
+This tutorial will teach you the basics of provisioning and loading data into a SQL Data Warehouse as well as some 
+basics on scaling, pausing, and tuning. 
 
 **Estimated time to complete:** 75 minutes
 
-# Step 1: Prerequisites
+## Step 1: Prerequisites
 
 
-## Sign Up for Microsoft Azure
+### Sign Up for Microsoft Azure
 If you don't already have a Microsoft Azure account, you must sign up for one to use this service. If you already have an account, you may skip this step. 
 
 1. Navigate to the account pages [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Create a free Azure account, or purchase an account.
 3. Follow the instructions
 
-## Install appropriate SQL Client Driver and Tools
+### Install appropriate SQL Client Driver and Tools
 
 Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL Data Warehouse supports, not every client application may be fully compatible 
 with SQL Data Warehouse.
@@ -51,14 +48,14 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-# Step 2: Create an Azure SQL Data Warehouse
+## Step 2: Create an Azure SQL Data Warehouse
 
 > [!NOTE]
 > Creating a SQL Data Warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
 
-## Create a SQL Data Warehouse
+### Create a SQL Data Warehouse
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Databases** > **SQL Data Warehouse**.
 
@@ -96,14 +93,14 @@ e.g. *mydw-westus-1-test*
 5. Sit back and wait for your Azure SQL Data Warehouse to deploy! It's normal for this process to take several minutes. 
 The portal will notify you when your instance is done deploying. 
 
-# Step 3: Connect to Azure SQL Data Warehouse through SQL Server (logical server)
+## Step 3: Connect to Azure SQL Data Warehouse through SQL Server (logical server)
 
 This tutorial uses SQL Server Management Studio to connect to our SQL Data Warehouse. Other tools can be used to connect 
 to SQL Data Warehouse through our supported connectors: ADO.NET, JDBC, ODBC, and PHP. Bear in mind, functionality may be limited for 
 tools not supported by Microsoft.
 
 
-## Get Connection Information
+### Get Connection Information
 
 To connect to your SQL Data Warehouse, you must connect through the SQL Server (logical server) you created 
 in [Step 1].
@@ -124,9 +121,9 @@ If all goes correctly, you should now be connected to your SQL Server (logical s
 credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
 create separate logins and users for each database. We shall explore user creation in [Step 4](./sql-data-warehouse-get-started-tutorial.md#step-4-create-a-user-for-sql-data-warehouse). 
 
-# Step 4: Create a User for SQL Data Warehouse
+## Step 4: Create a User for SQL Data Warehouse
 
-## Why create a separate user?
+### Why create a separate user?
 
 We use the connection to the SQL Server (logical server) ,with server credentials from the previous step, 
 to create a new user for our SQL Data Warehouse. There are two primary reasons why you may want to create a separate 
@@ -143,7 +140,7 @@ In contrast, users assigned to **xlargerc** are given large amounts of memory, a
 For loading data in a way that best optimizes compression, you want to make sure the user loading data 
 is part of a larger resource class. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
-## Creating a user of a larger resource class
+### Creating a user of a larger resource class
 
 1. Create a new query on the **master** database of your server
 
@@ -181,9 +178,9 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-# Step 5: Loading Data
+## Step 5: Loading Data
 
-## Defining External Data
+### Defining External Data
 1. Define an external data source
 
     ```sql
@@ -401,7 +398,7 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
     ;
     ```
 
- ## Create Table as Select (CTAS)
+ ### Create Table as Select (CTAS)
 
 5. Load your data from external tables into your SQL Data Warehouse instance. 
     ```sql
@@ -523,9 +520,9 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 
 
 
-# Step 6: Querying Data 
+## Step 6: Querying Data 
 
-## Scan Query with Scaling
+### Scan Query with Scaling
 
 Let's get a good idea of how scaling affects the speed of your queries.
 
@@ -566,7 +563,7 @@ Take note of the time it took to run this operation.
 > Azure SQL Data Warehouse.
 >
 
-## Join Query with Statistics
+### Join Query with Statistics
 
 1. Run a query that joins the Date table with the Trip table
 
