@@ -59,12 +59,15 @@ In order for tenants to be able to configure App Service to connect to their rep
 13. Click **Management Server**
 14. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
     ![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
+
 ## Configure BitBucket as a Deployment Source
 
 > [!NOTE]
 > You will require a BitBucket account to complete this task.
 1. Login to BitBucket and browse to **Integrations** under your account
+    ![BitBucket Dashboard - Integrations][7]
 2. Click **OAuth** under Access Management and **Add consumer**
+    ![BitBucket Add OAuth Consumer][8]
 3. Enter a **Name** for the consumer, for example App Service on Azure Stack
 4. Enter a **Description** for the application
 5. Enter the **Callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
@@ -130,3 +133,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 [4]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-github-register-a-new-oauth-application-populated.png
 [5]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-github-register-a-new-oauth-application-complete.png
 [6]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-roles-management-server-repair-all.png
+[7]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-dashboard.png
+[8]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-oauth-consumers.png
+[9]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-add-oauth-consumer-complete.png
+[10]: 
