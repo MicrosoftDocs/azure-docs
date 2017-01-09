@@ -90,7 +90,7 @@ To create a replica in a remote data center, do the following steps:
 1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
 
    >[!NOTE]
-   >The port numbers you need to open depend on your environment. Open ports for mirroring endpoint and for the Azure load balancer health probe.
+   >The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 
 1. In Failover Cluster Manager, add the IP address on the load balancer frontend IP rule to the cluster resource.
 
@@ -116,12 +116,6 @@ To create a replica in a remote data center, do the following steps:
 ## More Information
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
-
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
-
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
-
 * [Azure Availability Sets](virtual-machines-windows-manage-availability.md)
-
-
-
