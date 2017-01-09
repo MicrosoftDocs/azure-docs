@@ -26,9 +26,9 @@ ms.author: mfussell
 
 This article walks you through the process of building containerized services in Windows containers.
 
+# Preview: Service Fabric and containers
 > [!NOTE]
-> This feature is in preview for Linux and is not available for Windows Server 2016 (yet). The feature will be in preview for Windows Server 2016 in the upcoming release of Azure Service Fabric. 
-> 
+> This feature is in preview for Linux and on Windows Server 2016. 
 > 
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. 
