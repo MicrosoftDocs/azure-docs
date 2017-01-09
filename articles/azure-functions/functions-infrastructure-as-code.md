@@ -20,25 +20,25 @@ ms.author: cfowler;glenga
 ---
 # Automating Azure Functions Resource Deployment
 
-In this topic, you will learn how to build an Azure Resource Manager template which will deploy a function app. You will learn how to define the baseline of resources required for an Azure Function and the parameters that are specified when the deployment is executed. Depending on the [triggers and bindings](./functions-triggers-bindings) that are used in your funciton, you may require deploying additional resources to encompass your entire application as infrastructure as code.
+In this topic, you will learn how to build an Azure Resource Manager template, that deploys a function app. You will learn how to define the baseline of resources required for an Azure Function and the parameters that are specified when the deployment is executed. Depending on the [triggers and bindings](functions-triggers-bindings) that are used in your function, you may require deploying additional resources to encompass your entire application as infrastructure as code.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
 
-For examples of a complete template, [Create consumption based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) and/or [Create an App Service Plan based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json)
+For examples of a complete template, [Create consumption-based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) and/or [Create an App Service Plan based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json)
 
-## What you will deploy
+## What will be deployed
 
-With the examples below, you will be able to create a baseline Azure Function App. The resources required for an Function App are as follows:
+With the examples below, you will create a baseline Azure Function App. The resources required for a Function App are as follows:
 
 * [Azure Storage](../storage/index) Account
 * Hosting Plan (Consumption Plan or App Service Plan)
-* Function App (Microsoft.Web/Site of kind `functionapp`)
+* Function App (Microsoft.Web/Site of kind **functionapp**)
 
 ## Parameters
 
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values. You should define parameters for those values that will vary based on the project you are deploying or based on the environment you are deploying to.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all the parameter values. You should define parameters for those values that will vary based on the project you are deploying or based on the environment you are deploying to.
 
-If you have common values which don't change as part of your deployment, or need to do some transformation on the values which are provided as parameter, it is useful to leverage the [Variables](../azure-resource-manager/resource-group-authoring-templates#variables) section of the template.
+If you have common values, which don't change as part of your deployment, or need to do some transformation on the values which are provided as parameter, it is useful to apply the [Variables](../azure-resource-manager/resource-group-authoring-templates#variables) section of the template.
 
 When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
 
@@ -58,7 +58,7 @@ The name of the function you wish to create.
 
 The location in which to deploy the Function App.
 
->[NOTE] The **defaultValue** parameter is used to inherit the location of the Resource Group, if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box will be provided to select from the **allowedValues**.
+>[NOTE] The **defaultValue** parameter is used to inherit the location of the Resource Group, if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box is provided to select from the **allowedValues**.
 
 >[NOTE] For an up-to-date list of regions Azure Functions is available in visit the [Products available by region](https://azure.microsoft.com/en-us/regions/services/) page.
 
@@ -116,7 +116,7 @@ The location in which to deploy the Function App.
 
 ## Variables
 
-In addition to parameters, which are user provided at the execution of the Azure Resource Manager template, there is also a concept of variables which can leverage parameters to build out more specific settings to be used in your template.
+In addition to parameters, Azure Resource Manager templates also have a concept of variables which can incorporate parameters to build out more specific settings to be used by your template.
 
 In this example below, you can see that we are leveraging variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions) to take the provided appName and convert it to lowercase to ensure that the [naming requirements](/storage/storage-create-storage-account#create-a-storage-account) for Azure Storage accounts are met.
 
@@ -147,7 +147,7 @@ An Azure Storage account is a required resource in Azure Functions.
 
 ### Hosting Plan: Fully Managed Scaling vs User Managed Scaling
 
-There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption), or user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which you set the amount of underlying instances. The decision to use one plan over another could be based on features which aren't yet supported in the Consumption plan, or by cost decisions which are driven by the architecture of your functions.
+There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption). Alternatively, you could choose user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which the number of instances can be manually or automatically configured. The decision to use one plan over another could be based upon available features in the plan, or a decisions which are driven by architecting by cost.
 
 #### Consumption Plan
 
@@ -185,12 +185,12 @@ There are scenarios when building functions in which you may want your functions
 
 ### Function App (Site)
 
-Once the scaling option has been selected, it's time to create the container which will hold all of your functions, this is known as the Function App.
+Once the scaling option has been selected, it's time to create the container, which will hold all your functions, this is known as the Function App.
 
-A Function App has many child resources in which you will take advantage of including **App Settings** and **Source Control Options**. You may opt to remove the `sourcecontrols` child resource in favour of another [deployment option](./functions-continuous-deployment).
+A Function App has many child resources in which you can take advantage of including **App Settings** and **Source Control Options**. You may opt to remove the **sourcecontrols** child resource in favor of another [deployment option](./functions-continuous-deployment).
 
 > [!IMPORTANT]
-> It is important to understand how resources are deployed in Azure to ensure that you create a successful infrastructure as code configuration for your Application when using Azure Resource Manager. In this example, you will notice that there are top-level configurations being applied using **siteConfig**, these are important to set at a top-level as they convey meaning to Azure Functions runtime and deployment engine which are required before the child resource **sourcecontrols/web** is applied. While these settings could be configured in the child-level resource **config/appSettings** you will find that there are scenarios in which your Function App and Functions will need to be deployed **before** you apply your **config/appsettings** as your Functions are a dependency of another resource, for example a [Logic App](../logic-apps/index).
+> It is important to understand how resources are deployed in Azure to ensure that you create a successful infrastructure as code configuration for your Application when using Azure Resource Manager. In this example, you will notice that there are top level configurations being applied using **siteConfig**, these are important to set at a top level as they convey meaning to Azure Functions runtime and deployment engine which are required before the child resource **sourcecontrols/web** is applied. While these settings could be configured in the child level resource **config/appSettings**, there are scenarios in which your Function App and Functions will need to be deployed *before* the **config/appsettings** are applied as your Functions are a dependency of another resource, for example a [Logic App](../logic-apps/index).
 
 > [!TIP]
 > In this template we are using the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Setting, which is setting the base directory in which the Functions Deployment Engine (Kudu) is going to look for deployable code. In this example, we have set this value to `src` as our GitHub repository contains a `src` folder in which our functions are a child of. If you have a repository in which your functions are directly in the root of the repository, or you are not deploying from Source Control, this App Setting can be removed.
