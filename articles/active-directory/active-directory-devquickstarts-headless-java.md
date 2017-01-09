@@ -40,15 +40,15 @@ To get started, [download the app skeleton](https://github.com/Azure-Samples/act
 ## 1.  Register an Application with Azure AD
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-* Sign in to the [Azure portal](https://portal.azure.com).
-* On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-* Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
-* Click on **App registrations** and choose **Add**.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
   * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
-* Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
 
 Once in the portal for your app create a **Key** from the **Settings** page for your application and copy it down.  You will need it shortly.
 
@@ -180,7 +180,7 @@ Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol. 
 ## 3. Create the java PublicClient file
 As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
-1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
+* Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
 
 ```Java
 import java.io.BufferedReader;

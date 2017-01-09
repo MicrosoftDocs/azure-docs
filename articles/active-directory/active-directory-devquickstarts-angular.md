@@ -39,23 +39,23 @@ To build the complete working application, you'll need to:
 
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
-## *1. Register the DirectorySearcher Application*
+## 1. Register the DirectorySearcher Application
 To enable your app to authenticate users and get tokens, you'll first need to register it in your Azure AD tenant:
 
-* Sign in to the [Azure portal](https://portal.azure.com).
-* On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-* Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
-* Click on **App registrations** and choose **Add**.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **Name** of the application will describe your application to end-users.
   * The **Redirect Uri** is location to which AAD will return tokens.  The default location for this sample is `https://localhost:44326/`
-* Once you've completed registration, AAD will assign your app a unique **Application ID**.  You'll need this value in the next sections, so copy it from the application tab.
-* Adal.js uses the OAuth implicit flow to communicate with Azure AD.  You must enable the implicit flow for your application by:
+6. Once you've completed registration, AAD will assign your app a unique **Application ID**.  You'll need this value in the next sections, so copy it from the application tab.
+7. Adal.js uses the OAuth implicit flow to communicate with Azure AD.  You must enable the implicit flow for your application by:
   * Click the application and choose **Manifest** to open the inline manifest editor.
   * Locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
   * Click **Save** to save the manifest.
 
-## *2. Install ADAL & Configure the SPA*
+## 2. Install ADAL & Configure the SPA
 Now that you have an application in Azure AD, you can install adal.js and write your identity-related code.
 
 * Begin by adding adal.js to the TodoSPA project using the Package Manager Console:
@@ -74,7 +74,7 @@ Now that you have an application in Azure AD, you can install adal.js and write 
   * The `ida:Tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
   * The `ida:Audience` must be the **Client ID** of your application you copied from the portal.
 
-## *3.    Use ADAL to secure pages in the SPA*
+## 3.    Use ADAL to secure pages in the SPA
 Adal.js has been built to integrate with AngularJS route and http providers, which enables you to secure individual views in your SPA.
 
 * In `App/Scripts/app.js`, bring in the adal.js module:
