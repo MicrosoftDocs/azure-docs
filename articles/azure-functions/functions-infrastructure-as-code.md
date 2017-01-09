@@ -114,6 +114,19 @@ The location in which to deploy the Function App.
 }
 ```
 
+## Variables
+
+In addition to parameters, which are user provided at the execution of the Azure Resource Manager template, there is also a concept of variables which can leverage parameters to build out more specific settings to be used in your template.
+
+In this example below, you can see that we are leveraging variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions) to take the provided appName and convert it to lowercase to ensure that the [naming requirements](/storage/storage-create-storage-account#create-a-storage-account) for Azure Storage accounts are met.
+
+```json
+"variables": {
+    "lowerSiteName": "[toLower(parameters('appName'))]",
+    "storageAccountName": "[concat(variables('lowerSiteName'))]"
+}
+```
+
 ## Resources to Deploy
 
 ### Storage Account
@@ -132,9 +145,9 @@ An Azure Storage account is a required resource in Azure Functions.
 }
 ```
 
-### Fully Managed Scaling (Consumption) vs User Managed Scaling (App Service Plan)
+### Hosting Plan: Fully Managed Scaling vs User Managed Scaling
 
-There are scenarios when building functions in which you may want your functions to be scaled on-demand by the platform (Consumption), or run 24/7 on dedicated hardware (App Service Plan). The decision to use one plan over another could be based on features which aren't yet supported in the Consumption plan, or by cost decisions which are driven by the architecture of your functions.
+There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption), or user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which you set the amount of underlying instances. The decision to use one plan over another could be based on features which aren't yet supported in the Consumption plan, or by cost decisions which are driven by the architecture of your functions.
 
 #### Consumption Plan
 
