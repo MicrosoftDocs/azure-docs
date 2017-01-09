@@ -28,6 +28,7 @@
 ### [Upload VHD file using Storage Explorer](devtest-lab-upload-vhd-using-storage-explorer.md)
 ### [Create custom image from a VHD using the Azure portal](devtest-lab-create-template.md)
 ### [Create custom image from a VHD using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
 
