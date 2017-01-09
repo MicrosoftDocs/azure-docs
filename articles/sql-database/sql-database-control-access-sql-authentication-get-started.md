@@ -170,15 +170,27 @@ In this section of the tutorial, you view information about the server admin acc
 
 ## Create a new user in the AdventureWorksLT database with SELECT permissions
 
+In this section of the tutorial, you create a new user in the AdventureWorksLT database, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
+
 ## Create a database-level firewall rule for AdventureWorksLT database users
 
-## Create a database-level firewall rule for blankdb database users
+In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule, and then log in using this new database-level firewall rule. 
 
 ## Create a new user in the blankdb database with db_owner permissions
 
-## Create a new user in the master database with dbmanager permissions
+In this section of the tutorial, you create a new user in the blankdb database with db_owner permissions 
+
+## Create a database-level firewall rule for blankdb database users
+
+In this section of the tutorial, you create a database-level firewall rule for blankdb database Users
+
+## Create a new login and user in the master database with dbmanager permissions
+
+In this section of the tutorial, you create a new login and user in the master database with permissions to create new user databases.
 
 ## Create a server-level firewall rule for dbmanager user
+
+In this section of the tutorial, you create a new server-level firewall rule for the dbmanager user to enable this user to connect to all databases on the server.
 
 
 ## Next steps
