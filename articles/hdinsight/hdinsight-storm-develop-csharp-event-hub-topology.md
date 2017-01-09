@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/06/2016
+ms.date: 01/09/2017
 ms.author: larryfr
 
 ---
