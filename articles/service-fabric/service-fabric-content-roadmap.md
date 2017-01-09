@@ -24,7 +24,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 This short Channel9 video introduces Service Fabric and microservices:
 <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-content-roadmap/OverviewVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 ## The detailed overview
@@ -36,7 +36,7 @@ Service Fabric offers a reliable and flexible platform that enables you to write
 
 This longer Microsoft Virtual Academy video describes the Service Fabric core concepts:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
-<img src="./media/service-fabric-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 ## Get started and create your first app 
@@ -50,15 +50,20 @@ The Service Fabric SDK includes an add-in for Visual Studio that provides templa
 
 Try this extensive [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with the end-to-end development flow for Service Fabric.  Learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. 
 
+The following Channel9 video walks you through the process of creating a C# app in Visual Studio:  
+<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
+<img src="./media/service-fabric-content-roadmap/first-app-vid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
+
 ### On Linux
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. These topics walk you through the process of creating your first Java or C# application on Linux and running it on your development computer.
 [Set up your dev environment](service-fabric-get-started-linux.md)
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 [Create your first app (C#)](service-fabric-create-your-first-linux-application-with-csharp.md)
 
-The following Microsoft Virtual Academy video also walks you through the process of creating a Java app on Linux:  
+The following Microsoft Virtual Academy video walks you through the process of creating a Java app on Linux:  
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-content-roadmap/LinuxVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 ### On MacOS
