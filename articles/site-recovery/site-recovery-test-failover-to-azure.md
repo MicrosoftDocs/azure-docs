@@ -63,8 +63,8 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 ### Creating a network for test failover 
 It is recommended that when you are doing a test failover you choose a network that is isolated from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. By default when you create an Azure virtual network, it is isolated from other networks. This network should mimic your production network:
 
-1. Test network should have same number of subnets with same name as of the subents in your production network.
-1. Test network should use the same IP range as that of your production network
+1. Test network should have same number of subnets as that in your production network and with the same name as those of the subents in your production network.
+1. Test network should use the same IP range as that of your production network.
 1. Update the DNS of the Test Network as the IP that you gave as target IP for the DNS virtual machine under **Compute and Network** settings. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details. 
 
 
