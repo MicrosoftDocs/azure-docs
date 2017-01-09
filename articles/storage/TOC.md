@@ -161,7 +161,7 @@
 ## REST
 ### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [Resource provider](/rest/api/storagerp)
-### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Import/export](/rest/api/storageimportexport)
 
 # Related
 ## Classic Portal

@@ -1,6 +1,6 @@
 ---
-title: 'SQL Database tutorial: Create a server, a server-level firewall rule, a sample database, a database-level firewall rule and connect with SQL Server Management Studio | Microsoft Docs'
-description: Learn how to set up a SQL Database logical server, server firewall rule, SQL database, and sample data. Also, learn how to connect with client tools, configure users, and set up a database firewall rule.
+title: 'Azure portal: Get started with Azure SQL Database | Microsoft Docs'
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure portal. You also learn to query databases using SQL Server Management Studio.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 11/23/2016
 ms.author: carlrab
 
 ---
-# Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio
+# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules using the Azure portal and SQL Server Management Studio
 
 In this getting-started tutorial, you learn how to use the Azure portal to:
 
@@ -296,5 +296,7 @@ Now that you've completed this tutorial, there are number of additional tutorial
 * If you want to start creating tables and other objects, see the "To create a table" topic in [Creating a table](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## Additional resources
-[What is SQL Database?](sql-database-technical-overview.md)
+
+- For a technical overview see [What is SQL Database?](sql-database-technical-overview.md).
+- For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 

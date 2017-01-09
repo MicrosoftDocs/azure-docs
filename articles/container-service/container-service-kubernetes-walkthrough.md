@@ -31,6 +31,10 @@ The instructions below will create a Kubernetes cluster with one master and two 
 The master serves the Kubernetes REST API.  The worker nodes are grouped in an Azure availability set
 and run your containers. All VMs are in the same private VNET and are fully accessible to each other.
 
+> [!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
+
 The following image shows the architecture of a container service cluster with one master, and two agents:
 
 ![Image of Kubernetes cluster on azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
@@ -42,7 +46,7 @@ To create your cluster, you first need to create a resource group in a specific 
 ```console
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
-az resource group create --name=$RESOURCE_GROUP --location=$LOCATION
+az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### Create a cluster
@@ -104,7 +108,7 @@ kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
 This will now cause Kubernetes to create an Azure Load Balancer with a public IP. The change
-takes about 2-3 minutes to propogate to the load balancer.
+takes about 2-3 minutes to propagate to the load balancer.
 
 To watch the service change from "pending" to an external ip type:
 ```console
@@ -182,5 +186,5 @@ To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/downl
 ### Kubernetes Community Documentation
 
 1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
-2. [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
+2. [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
 3. [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.

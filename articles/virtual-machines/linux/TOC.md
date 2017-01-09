@@ -11,7 +11,7 @@
 ### [VM Availability](../virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Security Center](../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Deployment models](../../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Deployment models](../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [VM Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Containers](../virtual-machines-linux-containers.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [FAQ](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -22,9 +22,10 @@
 ## [Copy files to a Linux VM](../virtual-machines-linux-copy-files-to-linux-vm-using-scp.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Different ways to create a VM](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Install Azure CLI](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Create a VM with Azure CLI 2.0 (Preview)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Create a VM with Azure CLI](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Template walkthrough](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Create a VM with the Azure CLI
+### [Azure CLI 1.0](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Create and deploy complex VM templates](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Application architecture](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Access and security](../virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -34,15 +35,17 @@
 # How to
 ## Compute
 ### [Create a VM from an Azure template](../virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Create a complete environment using the CLI](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Create a complete environment with the Azure CLI
+#### [Azure CLI 1.0](../virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create multiple VMs with Scale Sets](../virtual-machines-linux-cli-vmss-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Attach a data disk using the CLI](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Attach a data disk using the portal](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Open ports and endpoints](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [How to resize a Linux VM](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Deploy a VM into an existing virtual network
-#### [Use the Azure CLI](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Use the Azure portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Find VM images](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use cloud-init](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Reset SSH access, manage users, and check disks](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -52,6 +55,7 @@
 ### [Create Docker hosts with the Azure Docker VM extension](../virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use Docker Compose with Azure](../virtual-machines-linux-docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use the Azure Container Registry](/azure/container-registry/?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Install and configure Remote Desktop to connect to a Linux VM](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Use Storage
 ### [Disks and VHDs](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -60,9 +64,12 @@
 ### [Configure software RAID](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configure LVM](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use Azure Files](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Mount Azure File Storage using SMB](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Network](../virtual-machines-linux-azure-vm-network-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Allow access to a VM using the CLI](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Allow access to a VM with the CLI
+#### [Azure CLI 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Preview)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Use internal DNS for VM name resolution](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create an FQDN using the portal](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Create a VM with multiple NICs](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -94,7 +101,7 @@
 
 ## Configure
 ### [Move a VM between subscriptions](../virtual-machines-linux-move-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Use tags](../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Use tags](../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Tag a VM](../virtual-machines-linux-tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Manage
@@ -184,7 +191,7 @@
 ## [REST](/rest/api/compute)
 
 # Resources
-## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Author Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates)
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Linux)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)

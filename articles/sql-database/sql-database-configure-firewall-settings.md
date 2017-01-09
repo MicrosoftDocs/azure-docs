@@ -1,6 +1,6 @@
 ---
-title: Configure an SQL Database server-level firewall rule | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL server.
+title: 'Azure portal: Azure SQL Database server-level firewall rules | Microsoft Docs'
+description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL server usinhg the Azure portal.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -53,7 +53,7 @@ Click **Save** to save the changes.
 - To understand how to create additional users who can connect to databases, see [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## Additional resources
-* [Securing your database](sql-database-security.md)   
+* [Securing your database](sql-database-security-overview.md)   
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)   
 
 

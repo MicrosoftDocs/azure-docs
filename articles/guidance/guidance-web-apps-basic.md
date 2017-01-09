@@ -226,7 +226,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [arm-template]: ../azure-resource-manager/resource-group-overview.md#resource-groups
 [custom-domain-name]: ../app-service-web/web-sites-custom-domain-name.md
 [deploy]: ../app-service-web/web-sites-deploy.md
-[deploy-arm-template]: ../resource-group-template-deploy.md
+[deploy-arm-template]: ../azure-resource-manager/resource-group-template-deploy.md
 [deployment-slots]: ../app-service-web/web-sites-staged-publishing.md
 [diagnostic-logs]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/

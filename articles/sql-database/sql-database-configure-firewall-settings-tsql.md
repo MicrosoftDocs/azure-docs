@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database server-level and database-level firewall rules using T-SQL | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: 'T-SQL: Azure SQL Database firewall rules | Microsoft Docs'
+description: Learn how to configure server-level and database-level firewall rules for IP addresses that access Azure SQL databases using Transact-SQL.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -85,6 +85,6 @@ For help in connecting to an Azure SQL database from open source or third-party 
 To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## Additional resources
-* [Securing your database](sql-database-security.md)
+* [Securing your database](sql-database-security-overview.md)
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
