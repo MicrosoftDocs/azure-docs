@@ -29,7 +29,7 @@ Microsoft Corporation is making images of FreeBSD available on Azure with the [A
 - FreeBSD 10.3-RELEASE
 - FreeBSD 11.0-RELEASE
 
-The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
+he agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
 
 As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are published by the FreeBSD release engineering team.
 
@@ -82,4 +82,4 @@ There is currently an outstanding issues with FreeBSD 11.0 on Hyper-V (and Azure
 
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
-* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
+* If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
