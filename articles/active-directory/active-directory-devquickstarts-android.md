@@ -175,19 +175,19 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
 4. Create an instance of AuthenticationContext at your main Activity. The details of this call are beyond the scope of this README, but you can get a good start by looking at the [Android Native Client Sample](https://github.com/AzureADSamples/NativeClient-Android). Below is an example:
    
-    // Authority is in the form of https://login.windows.net/yourtenant.onmicrosoft.com
-    mContext = new AuthenticationContext(MainActivity.this, authority, true); // This will use SharedPreferences as            default cache
-   * NOTE: mContext is a field in your activity
+      // Authority is in the form of https://login.windows.net/yourtenant.onmicrosoft.com
+      mContext = new AuthenticationContext(MainActivity.this, authority, true); // This will use SharedPreferences as            default cache
+      * NOTE: mContext is a field in your activity
 
 5. Copy this code block to handle the end of AuthenticationActivity after user enters credentials and receives authorization code:
    
-     @Override
-     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-         super.onActivityResult(requestCode, resultCode, data);
-         if (mContext != null) {
-             mContext.onActivityResult(requestCode, resultCode, data);
+        @Override
+         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+             super.onActivityResult(requestCode, resultCode, data);
+             if (mContext != null) {
+                mContext.onActivityResult(requestCode, resultCode, data);
+             }
          }
-     }
 
 6. To ask for a token, you define a callback
    
@@ -223,8 +223,8 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
 7. Finally, ask for a token using that callback:
    
-    mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
-                   callback);
+   `mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
+                   callback);`
 
 Explanation of the parameters:
 
@@ -245,13 +245,13 @@ You can call **acquireTokenSilent** to handle caching, and token refresh. It pro
 1. **Broker**:
    Microsoft Intune's Company portal app will provide the broker component. ADAL will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it. Developer can skip the broker user with:
    
-    AuthenticationSettings.Instance.setSkipBroker(true);
+   `AuthenticationSettings.Instance.setSkipBroker(true);`
    
    Developer needs to register special redirectUri for broker usage. RedirectUri is in the format of `msauth://packagename/Base64UrlencodedSignature`. You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri. Signature is related to your signing certificates.
    
    Current broker model is for one user. AuthenticationContext provides API method to get the broker user.
    
-    String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.
+   `String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.`
    
    Your app manifest should have permissions to use AccountManager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html
    
