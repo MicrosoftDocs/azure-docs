@@ -40,7 +40,7 @@ notebooks.
 notebooks.
  From this page, you can browse all the
 notebooks
- in the Gallery. Or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
  Click any
 notebook
