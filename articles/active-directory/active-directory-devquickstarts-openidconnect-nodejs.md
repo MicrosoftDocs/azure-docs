@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
