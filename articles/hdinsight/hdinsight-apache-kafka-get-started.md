@@ -70,7 +70,7 @@ Use the following steps to create a Kafka on HDInsight cluster:
     ![Select cluster type](./media/hdinsight-apache-kafka-get-started/cluster-type.png)
 
     > [!NOTE]
-    > If your account does not have access to the Kafka preview, instructions on how to gain access to the preview are displayed. The instructions displayed are similar to the following image:
+    > If your Azure subscription does not have access to the Kafka preview, instructions on how to gain access to the preview are displayed. The instructions displayed are similar to the following image:
     >
     > ![preview message: if you would like to deploy a managed Apache Kafka cluster on HDInsight, email us to request preview access](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
 
