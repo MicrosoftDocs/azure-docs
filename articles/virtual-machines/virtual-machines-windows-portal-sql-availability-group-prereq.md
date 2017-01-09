@@ -374,7 +374,7 @@ First, change the preferred DNS server address for each member server. Follow th
 
 Repeat these steps for all servers.
 
-### Join the servers to the domain.
+### <a name="joinDomain"></a>Join the servers to the domain.
 
 You are now able to join the VM to **corp.contoso.com**. Do the following for both SQL Servers and the file share witness server: 
 
