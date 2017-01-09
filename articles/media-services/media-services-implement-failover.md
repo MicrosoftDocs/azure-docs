@@ -436,7 +436,6 @@ In this section you will create and set up a C# Console Application project.
             return asset;
         }
 
-
         public static void CopyBlobsFromDifferentStorage(string sourceContainerName, string targetContainerName,
                                             string srcAccountName, string srcAccountKey,
                                             string destAccountName, string destAccountKey)
@@ -492,6 +491,7 @@ In this section you will create and set up a C# Console Application project.
 
             Console.WriteLine("Done copying.");
         }
+
         private static IMediaProcessor GetLatestMediaProcessorByName(CloudMediaContext context, string mediaProcessorName)
         {
 
