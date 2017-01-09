@@ -3,8 +3,8 @@ title: What is Traffic Manager | Microsoft Docs
 description: This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Overview of Traffic Manager

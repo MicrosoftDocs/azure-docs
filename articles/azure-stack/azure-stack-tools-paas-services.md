@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tools and PaaS services for Azure Stack | Microsoft Docs
 description: Learn how to get started with PaaS services in Azure Stack.
 services: azure-stack
@@ -65,7 +65,7 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 [Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
 > [!NOTE]
-> * If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.9.11`</br>
+> * If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.10.4`</br>
 > * If you're getting certificate validation issues, run the command `set NODE_TLS_REJECT_UNAUTHORIZED=0`
 > 
 > 

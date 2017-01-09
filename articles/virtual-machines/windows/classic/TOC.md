@@ -9,7 +9,7 @@
 # Get started
 ## [Create a VM using the portal](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Log on to a VM](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Install Azure PowerShell](../../../powershell-install-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Install Azure CLI](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # How to
@@ -102,13 +102,15 @@
 ### [Classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Reference
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Author Resource Manager templates](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Community templates](https://azure.microsoft.com/documentation/templates/)
-## [Compute REST](/rest/api/compute/)
-## [Network REST](/rest/api/)
-## [Storage REST](/rest/api/storageservices/)
+## [Community templates](https://azure.microsoft.com/documentation/templates)
+## [Compute REST](/rest/api/compute)
+## [Network REST](/rest/api)
+## [Storage REST](/rest/api/storageservices)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)

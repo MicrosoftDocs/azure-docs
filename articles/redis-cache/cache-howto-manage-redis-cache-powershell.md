@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 
 ---
@@ -28,14 +28,13 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md#classic-deployment-characteristics).
+For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
 
 ## Prerequisites
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
     Get-Module azure | format-table version
 
-[!INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 First, you must log in to Azure with this command.
 
@@ -762,7 +761,7 @@ To learn more about using Windows PowerShell with Azure, see the following resou
 
 * [Azure Redis Cache cmdlet documentation on MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the AzureResourceManager module.
-* [Using Resource groups to manage your Azure resources](../resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
+* [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
 * [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 * [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.

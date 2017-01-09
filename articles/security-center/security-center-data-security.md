@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Security Center Data Security | Microsoft Docs
 description: This document explains how data is managed and safeguarded in Azure Security Center.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/04/2017
 ms.author: yurid
 
 ---

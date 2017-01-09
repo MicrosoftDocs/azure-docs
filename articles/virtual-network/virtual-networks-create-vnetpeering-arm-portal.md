@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 
 ---
 # Create a virtual network peering using the Azure portal
@@ -80,8 +80,7 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 4. On the Add access blade, click select a role and choose Network Contributor, click Add Users, type the UserB sign in name, and click OK.
    
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-    This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding privileged user of the other VNet as users in the local VNet makes it easier to do setup in portal.
+
 5. Then login to Azure portal with UserB who is the privilege user for SubscriptionB. Follow above steps to add UserA as Network Contributor.
    
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)

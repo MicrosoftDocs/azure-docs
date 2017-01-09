@@ -3,8 +3,8 @@ title: Manage anonymous read access to containers and blobs | Microsoft Docs
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Manage anonymous read access to containers and blobs
@@ -34,18 +34,18 @@ Containers provide the following options for managing container access:
 
 You can set container permissions in the following ways:
 
-* From the [Azure Portal](https://portal.azure.com).
+* From the [Azure portal](https://portal.azure.com).
 * Programmatically, by using the storage client library or the REST API.
 * By using PowerShell. To learn about setting container permissions from Azure PowerShell, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
-### Setting container permissions from the Azure Portal
-To set container permissions from the [Azure Portal](https://portal.azure.com), follow these steps:
+### Setting container permissions from the Azure portal
+To set container permissions from the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Navigate to the dashboard for your storage account.
 2. Select the container name from the list. Clicking the name exposes the blobs in the chosen container
 3. Select **Access policy** from the toolbar.
 4. In the **Access type** field, select your desired level of permissions as shown in the screenshot below.
-   
+
     ![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Setting container permissions programmatically using .NET
@@ -53,12 +53,14 @@ To set permissions for a container using the .NET client library, first retrieve
 
 The following example sets the container's permissions to full public read access. To set permissions to public read access for blobs only, set the **PublicAccess** property to **BlobContainerPublicAccessType.Blob**. To remove all permissions for anonymous users, set the property to **BlobContainerPublicAccessType.Off**.
 
-    public static void SetPublicContainerPermissions(CloudBlobContainer container)
-    {
-        BlobContainerPermissions permissions = container.GetPermissions();
-        permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-        container.SetPermissions(permissions);
-    }
+```csharp
+public static void SetPublicContainerPermissions(CloudBlobContainer container)
+{
+    BlobContainerPermissions permissions = container.GetPermissions();
+    permissions.PublicAccess = BlobContainerPublicAccessType.Container;
+    container.SetPermissions(permissions);
+}
+```
 
 ## Access containers and blobs anonymously
 A client that accesses containers and blobs anonymously can use constructors that do not require credentials. The following examples show a few different ways to reference Blob service resources anonymously.
@@ -66,44 +68,50 @@ A client that accesses containers and blobs anonymously can use constructors tha
 ### Create an anonymous client object
 You can create a new service client object for anonymous access by providing the Blob service endpoint for the account. However, you must also know the name of a container in that account that's available for anonymous access.
 
-    public static void CreateAnonymousBlobClient()
-    {
-        // Create the client object using the Blob service endpoint.
-        CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
+```csharp
+public static void CreateAnonymousBlobClient()
+{
+    // Create the client object using the Blob service endpoint.
+    CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
-        // Get a reference to a container that's available for anonymous access.
-        CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    // Get a reference to a container that's available for anonymous access.
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-        // Read the container's properties. Note this is only possible when the container supports full public read access.
-        container.FetchAttributes();
-        Console.WriteLine(container.Properties.LastModified);
-        Console.WriteLine(container.Properties.ETag);
-    }
+    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    container.FetchAttributes();
+    Console.WriteLine(container.Properties.LastModified);
+    Console.WriteLine(container.Properties.ETag);
+}
+```
 
 ### Reference a container anonymously
 If you have the URL to a container that is anonymously available, you can use it to reference the container directly.
 
-    public static void ListBlobsAnonymously()
-    {
-        // Get a reference to a container that's available for anonymous access.
-        CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
+```csharp
+public static void ListBlobsAnonymously()
+{
+    // Get a reference to a container that's available for anonymous access.
+    CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
 
-        // List blobs in the container.
-        foreach (IListBlobItem blobItem in container.ListBlobs())
-        {
-            Console.WriteLine(blobItem.Uri);
-        }
+    // List blobs in the container.
+    foreach (IListBlobItem blobItem in container.ListBlobs())
+    {
+        Console.WriteLine(blobItem.Uri);
     }
+}
+```
 
 
 ### Reference a blob anonymously
 If you have the URL to a blob that is available for anonymous access, you can reference the blob directly using that URL:
 
-    public static void DownloadBlobAnonymously()
-    {
-        CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
-        blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
-    }
+```csharp
+public static void DownloadBlobAnonymously()
+{
+    CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
+    blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
+}
+```
 
 ## Features available to anonymous users
 The following table shows which operations may be called by anonymous users when a container's ACL is set to allow public access.

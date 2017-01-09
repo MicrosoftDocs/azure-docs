@@ -4,7 +4,7 @@ description: Join the Azure DocumentDB community to build relationships, showcas
 services: documentdb
 documentationcenter: ''
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: andrl
 
 ---
@@ -93,13 +93,14 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 ### Recent and upcoming events
 | Event Name | Speaker | Location | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |New York, NY |November 16-18, 2016 |#MSFTConnect |
+| [Wintellect webinar: An Introduction to Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|Online|January 12, 2017 1pm EST|n/a|
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
 ### Previous events and recordings
 | Event Name | Speaker | Location | Date | Recording |
 | --- | --- | --- | --- | --- |
+| [Connect(); // 2016](https://connectevent.microsoft.com/) |Kirill Gavrylyuk |New York, NY |November 16-18, 2016 |[Channel 9 Connect(); videos](https://channel9.msdn.com/Events/Connect) |
 | [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) |Santosh Hari |Tallahassee, FL |November 3, 2016 |n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) |DocumentDB team |Atlanta, GA |September 26-30, 2016 |[Slidedeck](http://www.slideshare.net/aliuy/pass-summit-2016-azure-documentdb-a-deep-dive-into-advanced-features) |
 | [DevTeach](http://devteach.com/) |Ken Cenerelli |Montreal, Canada |July 4-8, 2016 |[NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) |
@@ -197,7 +198,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 ## Contact the team
 ![Team](./media/documentdb-community/documentdb-team.png)
 
-Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/). You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB). 
+Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can schedule a 1:1 chat directly with the DocumentDB engineering team by sending us an [e-mail](mailto:askdocdb@microsoft.com) or tweeting us at [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Open source projects
 These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.

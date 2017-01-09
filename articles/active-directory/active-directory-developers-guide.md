@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory developer's guide | Microsoft Docs
 description: This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 
 ---
@@ -55,10 +55,12 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 
 * [Get an Azure AD tenant](active-directory-howto-tenant.md)
 * [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
+* [Authenticate a service/daemon application using a certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * Enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
 * [Make your application AppSource Certified for Azure AD](active-directory-devhowto-appsource-certified.md)
 * [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 * [Submit web apps for Office 365 to the Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Register an application with Azure Active Directory using the Azure portal](active-directory-app-registration.md)
 * [Understand the Azure Active Directory application manifest](active-directory-application-manifest.md)
 * [Understand the branding guidelines for the sign-in and app acquisition buttons in your client application](active-directory-branding-guidelines.md)
 * [Preview: How to build apps that sign users in with both personal & work or school accounts](active-directory-appmodel-v2-overview.md)
@@ -109,7 +111,7 @@ These overview presentations on developing apps by using Azure Active Directory 
 
 ## Social
 * [Active Directory Team blog](http://blogs.technet.com/b/ad/): The latest developments in the world of Azure Active Directory.
-* [Azure Active Directory Graph Team blog](http://blogs.msdn.com/b/aadgraphteam): Azure Active Directory information that's specific to the Graph API.
+* [Azure Active Directory Graph Team blog](https://blogs.msdn.microsoft.com/aadgraphteam): Azure Active Directory information that's specific to the Graph API.
 * [Cloud Identity](http://www.cloudidentity.net): Thoughts on identity management as a service, from a principal Azure Active Directory PM.  
 * [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.
 
@@ -118,4 +120,3 @@ For guidance on using Windows Server and Active Directory Federation Services (A
 
 * [AD FS Scenarios for Developers](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Provides an overview of AD FS components and how it works, with details on the supported authentication/authorization scenarios.
 * [AD FS walkthroughs](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): a list of walk-through articles, which provide step-by-step instructions on implementing the related authentication/authorization flows.
-

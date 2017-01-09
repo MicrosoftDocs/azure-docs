@@ -1,4 +1,4 @@
-﻿---
+---
 title: Virtual Network VPN Gateway FAQ | Microsoft Docs
 description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways
 services: vpn-gateway
@@ -20,7 +20,7 @@ ms.author: yushwang
 # VPN Gateway FAQ
 ## Connecting to Virtual Networks
 ### Can I connect virtual networks in different Azure regions?
-Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
+Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region. 
 
 ### Can I connect virtual networks in different subscriptions?
 Yes.

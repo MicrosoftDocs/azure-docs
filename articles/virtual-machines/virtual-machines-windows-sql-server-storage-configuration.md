@@ -28,7 +28,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
 * Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
-* Uses the [Resource Manager deployment model](../resource-manager-deployment-model.md).
+* Uses the [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
 * Uses [Premium Storage](../storage/storage-premium-storage.md).
 
 ## New VMs

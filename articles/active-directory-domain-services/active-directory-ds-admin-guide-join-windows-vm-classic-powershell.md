@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Administration Guide | Microsoft Docs'
 description: Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model.
 services: active-directory-ds
@@ -27,7 +27,7 @@ ms.author: maheshu
 <br>
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure AD Domain Services does not currently support the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure AD Domain Services does not currently support the Resource Manager model.
 > 
 > 
 
@@ -35,7 +35,7 @@ These steps show you how to customize a set of Azure PowerShell commands that cr
 
 These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
-If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
+If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
 ## Step 1: Add your account
 1. At the PowerShell prompt, type **Add-AzureAccount** and click **Enter**.
@@ -116,7 +116,7 @@ This PowerShell command set creates a virtual machine for a line-of-business ser
 
 * Uses the Windows Server 2012 R2 Datacenter image.
 * Is an extra small virtual machine.
-* Has the name contoso-test.
+* Has the name Contoso100-test.
 * Is automatically domain joined to the contoso100 managed domain.
 * Is added to the same virtual network as the managed domain.
 

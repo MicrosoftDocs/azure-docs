@@ -1,4 +1,4 @@
-﻿---
+---
 title: Runbook and module galleries for Azure Automation | Microsoft Docs
 description: Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery.
 services: automation
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2016
+ms.date: 12/14/2016
 ms.author: magoedte;bwren
 
 ---
@@ -23,7 +23,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop.
 
 ## Runbooks in Runbook Gallery
-The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery which is hosted in the [TechNet Script Center](http://gallery.technet.microsoft.com/), or you can directly import runbooks from the gallery from either the Azure classic portal or Azure portal.
+The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can either download a runbook from the gallery which is hosted in the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), or you can directly import runbooks from the gallery from either the Azure classic portal or Azure portal.
 
 You can only import directly from the Runbook Gallery using the Azure classic portal or Azure portal. You cannot perform this function using Windows PowerShell.
 

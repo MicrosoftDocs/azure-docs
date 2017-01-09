@@ -129,7 +129,7 @@ While App Service supports many ways to deploy your code to an API app, this tut
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));

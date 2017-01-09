@@ -66,6 +66,7 @@ Enterprise Integration supports these industry standards:
 * [XML message validation](app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
 * [XML transform](app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")
 * [Enterprise Integration Connectors](../connectors/apis-list.md "Learn about enterprise integration pack connectors")
+* [Integration Account Metadata](app-service-logic-enterprise-integration-metadata.md "Learn about integration account metadata")
 * [Monitor B2B messages](app-service-logic-monitor-b2b-message.md "Learn more about monitoring B2B messages")
 * [Tracking B2B messages in OMS portal](app-service-logic-track-b2b-messages-omsportal.md "Learn more about tracking B2B messages in OMS portal")
 

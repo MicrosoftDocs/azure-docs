@@ -7,7 +7,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
     ```
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Download the [Qpid Proton library](http://qpid.apache.org/proton/index.html) library, and extract it, e.g.:
+3. Download the [Qpid Proton library](http://qpid.apache.org/proton/index.html), and extract it, e.g.:
    
     ```
     wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
@@ -24,7 +24,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
     ```
 5. In your work directory, create a new file called **sender.c** with the following content. Remember to substitute the value for your Event Hub name and namespace name (the latter is usually `{event hub name}-ns`). You must also substitute a URL-encoded version of the key for the **SendRule** created earlier. You can URL-encode it [here](http://www.w3schools.com/tags/ref_urlencode.asp).
    
-    ```
+    ```c
     #include "proton/message.h"
     #include "proton/messenger.h"
    
@@ -109,8 +109,6 @@ In this section we will write a C app to send events to your Event Hub. We will 
     gcc sender.c -o sender -lqpid-proton
     ```
 
-> [!NOTE]
-> In this code, we use an outgoing window of 1 to force the messages out as soon as possible. In general, your application should try to batch messages to increase throughput. See [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html) for more information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
-> 
-> 
+	> [!NOTE]
+	> In this code, we use an outgoing window of 1 to force the messages out as soon as possible. In general, your application should try to batch messages to increase throughput. See [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html) for more information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
 

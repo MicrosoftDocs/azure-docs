@@ -8,6 +8,10 @@
 ### [Get started with IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Get started with IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Get started with IoT Hub (Node)](iot-hub-node-node-getstarted.md)
+## Get started with the IoT device SDK
+### [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
+### [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
 ## Get started with a Raspberry Pi
 ### [Get Started with Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Lesson 1: Configure your device
@@ -32,6 +36,7 @@
 ## [Get started with the Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Get started with the Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # How To
 ## [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Process device-to-cloud messages tutorial (Java)](iot-hub-java-java-process-d2c.md)
@@ -42,16 +47,16 @@
 ## [Get started with device twins (Node)](iot-hub-node-node-twin-getstarted.md)
 ## [Get started with device twins (.NET/Node)](iot-hub-csharp-node-twin-getstarted.md)
 ## [Use direct methods for Node.js](iot-hub-node-node-direct-methods.md)
-## [Use direct methods for .NET](iot-hub-csharp-csharp-direct-methods.md)
+## [Use direct methods for .NET/Node](iot-hub-csharp-node-direct-methods.md)
 ## [Get started with device management for Node.js](iot-hub-node-node-device-management-get-started.md)
-## [Get started with device management for .NET](iot-hub-csharp-csharp-device-management-get-started.md)
+## [Get started with device management for .NET/Node](iot-hub-csharp-node-device-management-get-started.md)
 ## [How to use twin properties (Node)](iot-hub-node-node-twin-how-to-configure.md)
 ## [How to use twin properties (.NET/Node)](iot-hub-csharp-node-twin-how-to-configure.md)
 ## [Use device jobs to update device firmware for Node.js](iot-hub-node-node-firmware-update.md)
-## [Use device jobs to update device firmware for .NET](iot-hub-csharp-csharp-firmware-update.md)
+## [Use device jobs to update device firmware for .NET/Node](iot-hub-csharp-node-firmware-update.md)
 ## [Schedule and broadcast jobs for Node.js](iot-hub-node-node-schedule-jobs.md)
-## [Schedule and broadcast jobs for .NET](iot-hub-csharp-csharp-schedule-jobs.md)
-## Plan your deployment
+## [Schedule and broadcast jobs for .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
+## Plan
 ### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)
 ### [High availability and disaster recovery](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [Device and service SDKs](iot-hub-devguide-sdks.md)
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
-## Manage the service
+## Manage
 ### [Create an IoT hub using the portal](iot-hub-create-through-portal.md)
-### [Create an IoT hub using the CLI](iot-hub-create-using-cli.md)
+### [Create an IoT hub using the CLI 2.0 Preview](iot-hub-create-using-cli.md)
+### [Create an IoT hub using the CLI](iot-hub-create-using-cli-nodejs.md)
 ### [Create an IoT hub using REST](iot-hub-rm-rest.md)
 ### [Create an IoT hub using Powershell](iot-hub-rm-template-powershell.md)
 ### [Create an IoT hub using a template](iot-hub-rm-template.md)
@@ -96,17 +102,16 @@
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 
 # Reference
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
+## [Azure CLI 2.0 Preview](/cli/azure/iot)
+## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
+## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (Devices)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK API](http://azure.github.io/azure-iot-gateway-sdk)
-## [Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [Device Identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [Device Messaging REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-## [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-## [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
+## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Related
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)

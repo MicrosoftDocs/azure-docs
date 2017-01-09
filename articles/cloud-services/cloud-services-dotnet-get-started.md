@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Cloud Services and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 services: cloud-services, storage
@@ -45,7 +45,7 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 ## Prerequisites
 The tutorial assumes that you understand [basic concepts about Azure cloud services](cloud-services-choose-me.md) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms.
 
-You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A55E3C668).
+You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 The tutorial instructions work with either of the following products:
 
