@@ -73,7 +73,19 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Set the new SQL Server service account to use a domain account](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
-1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
+1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
+
+   This load balancer must be:
+   
+   - In the same network and subnet as the new virtual machine.
+
+   - Have a static IP address for the Availability Group listener.
+
+   - A backend pool consisting of only the virtual machines in the same region as the load balancer.
+
+   - A TCP port probe specific to the IP address.
+
+   - Load balancing rules specific to the SQL Server in the same region.  
 
 1. [Add the new SQL Server to the Windows Server Failover Cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
@@ -99,6 +111,15 @@ To create a replica in a remote data center, do the following steps:
    The following screenshot shows a properly configured IP address cluster resource:
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+
+1. [Set the cluster parameters in PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+
+   >[!IMPORTANT]
+   >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
+
+## Why a Load Balancer?
+
+Azure virtual machines use the load balancer to 
 
 ## More Information
 
