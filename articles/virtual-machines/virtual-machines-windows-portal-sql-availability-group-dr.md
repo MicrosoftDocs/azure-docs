@@ -59,13 +59,13 @@ To create a replica in a remote data center, do the following steps:
 1. [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
-   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-rm-ps.md.)
+   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-rm-ps.md).
 
 1. [Create a domain controller in the new region](../active-directory/active-directory-new-forest-virtual-machine.md).
 
    This domain controller provides authentication if the domain controller in the primary site is not available. 
 
-1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision).
+1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
 1. [Add Failover Clustering Role to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
@@ -85,6 +85,8 @@ To create a replica in a remote data center, do the following steps:
    >The port numbers you need to open depend on your environment. Open ports for mirroring endpoint and for the Azure load balancer health probe.
 
 1. In Failover Cluster Manager, add the IP address on the load balancer frontend IP rule to the cluster resource.
+
+1. Add a replica to the availability group on the new SQL Server. 
 
 1. Add the IP address resource as a dependency for the listener client access point (network name) cluster. 
 
