@@ -45,7 +45,7 @@ The OMS Agent extension for Linux requires that the target virtual machine is co
 
 ## Extension schema
 
-The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it shuold be stored in a protected setting configuation. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
+The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
@@ -72,14 +72,14 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 
 ### Property values
 
-| Name | Value |
+| Name | Value / Example |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.0 |
-| workspaceId | **Example:** 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey | **Example:** z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| workspaceId | e.g: 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey | e.g: z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## Template deployment
