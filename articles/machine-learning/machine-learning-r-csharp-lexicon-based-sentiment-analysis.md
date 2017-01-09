@@ -22,7 +22,7 @@ ms.author: pengxia
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
 > 
-> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 How can you measure users’ opinions and attitudes toward brands or topics in online social networks, such as Facebook posts, tweets, reviews, etc.? Sentiment analysis provides a method for analyzing such questions.
 

@@ -23,7 +23,7 @@ ms.author: jaymathe
 > [!NOTE]
 > The Microsoft DataMarket is being retired and these APIs have been deprecated. 
 > 
-> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 In this article are example web services were created using Azure Machine Learning and published to the Azure Marketplace. Each web service example has a comprehensive document attached, embedding sample data sets for testing the services and explaining how the user can create a similar service themselves. 
 

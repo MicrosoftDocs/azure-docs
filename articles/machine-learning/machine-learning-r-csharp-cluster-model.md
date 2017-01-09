@@ -22,7 +22,7 @@ ms.author: lazzeri
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
 > 
-> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 How can we predict groups of credit cardholders’ behaviors in order to reduce the charge-off risk of credit card issuers? How can we define groups of personality traits of employees in order to improve their performance at work? How can doctors classify patients into groups based on the characteristics of their diseases? In principle, all of these questions can be answered through cluster analysis.   
 

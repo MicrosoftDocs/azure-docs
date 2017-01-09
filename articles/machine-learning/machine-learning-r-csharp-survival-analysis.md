@@ -22,7 +22,7 @@ ms.author: zhangya
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
 > 
-> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 Under many scenarios, the main outcome under assessment is the time to an event of interest. In other words, the question “when this event will occur?” is asked. As examples, consider situations where the data describes the elapsed time (days, years, mileage, etc.) until the event of interest (disease relapse, PhD degree received, brake pad failure) occurs. Each instance in the data represents a specific object (a patient, a student, a car, etc.).
 

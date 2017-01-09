@@ -22,7 +22,7 @@ ms.author: ireiter
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
 > 
-> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 The Normal Distribution Suite is a set of sample web services ([Generator](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile Calculator](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Probability Calculator](https://datamarket.azure.com/dataset/aml_labs/ndp5)) that help in generating and handling normal distributions. The services allow generating a normal distribution sequence of any length, calculating quantiles from a given probability, and calculating probability from a given quantile. Each of the services emits different outputs based on the selected service (see description below). The Normal Distribution Suite is based on the R functions qnorm, rnorm, and pnorm, which are included in R stats package.
 

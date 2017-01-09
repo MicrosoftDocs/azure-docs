@@ -22,7 +22,7 @@ ms.author: jaymathe
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
 > 
-> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery]((http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 Suppose you have a dataset and would like to predict a binary dependent variable based on the independent variables. ‘Logistic Regression’ is a popular statistical technique used for such predictions. Here the dependent variable is binary or dichotomous, and p is the probability of presence of the characteristic of interest. 
 
