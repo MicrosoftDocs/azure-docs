@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 01/09/2017
 ms.author: kgremban
 
+robots: noindex, nofollow
 ---
 # Learn more about Azure Multi-Factor Authentication
 The following is a collection of additional resources that will help you take full advantage of all the features available in Azure Multi-Factor Authentication

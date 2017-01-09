@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> For practice, to inspect the claims in the sample ID token, paste the sample ID token into [calebb.net](https://calebb.net).
+> For practice, to inspect the claims in the sample ID token, paste the sample ID token into [calebb.net](http://calebb.net/).
 >
 >
 
