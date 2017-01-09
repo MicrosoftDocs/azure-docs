@@ -66,8 +66,8 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId | e.g: 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey | e.g: z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 ## Template deployment
 
