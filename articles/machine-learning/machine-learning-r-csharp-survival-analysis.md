@@ -18,7 +18,7 @@ ms.author: zhangya
 
 ---
 # (deprecated) Survival Analysis
- 
+
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
 > 
