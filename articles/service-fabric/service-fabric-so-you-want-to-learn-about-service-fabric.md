@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 01/09/2017
 ms.author: ryanwi
 
 ---
@@ -42,16 +42,21 @@ This longer Microsoft Virtual Academy video describes the Service Fabric core co
 ## Get started and create your first app in a local cluster
 
 ### on Windows
+The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. These topics walk you through the process of creating your first application in Visual Studio and running it on your development computer.
+
 [Set up your dev environment](service-fabric-get-started.md)
 [Create your first app(C#)](service-fabric-create-your-first-application-in-visual-studio.md)
-[HOL lab]()
+
+Try this extensive [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with end-to-end development flow for Service Fabric and learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. 
 
 ### Linux
+Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. These toics walk you through the process of creating your first Java or C# application on Linux and running it on your development computer.
 [Set up your dev environment](service-fabric-get-started-linux.md)
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 [Create your first app (C#)](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 ### on MacOS
+You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development. These topics walk you through the process of creating your first Java application on MacOS and running it on an Ubuntu virtual machine.
 [Set up your dev environment](service-fabric-get-started-mac.md)
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
