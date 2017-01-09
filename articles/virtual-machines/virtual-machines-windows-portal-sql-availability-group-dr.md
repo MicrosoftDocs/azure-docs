@@ -117,10 +117,6 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Why a Load Balancer?
-
-Azure virtual machines use the load balancer to 
-
 ## More Information
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
