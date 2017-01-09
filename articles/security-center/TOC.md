@@ -8,6 +8,7 @@
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
+## [Permissions](security-center-permissions.md)
 ## [FAQ](security-center-faq.md)
 
 # How to

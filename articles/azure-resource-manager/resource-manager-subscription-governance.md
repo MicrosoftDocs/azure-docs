@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 
 ---
@@ -89,7 +89,7 @@ The second pillar of the scaffold involves creating [Azure Resource Manager poli
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).
-* You create polices with JSON (Javascript Object Notation) formatted files. After defining a policy, you assign it to a particular scope: subscription, resource group. or resource.
+* You create polices with JSON (Javascript Object Notation) formatted files. After defining a policy, you assign it to a particular scope: subscription, resource group, or resource.
 
 Policies have multiple actions that allow for a fine-grained approach to your scenarios. The actions are:
 

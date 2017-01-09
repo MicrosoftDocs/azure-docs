@@ -1,6 +1,6 @@
 ---
-title: Create Listener for AlwaysOn availabilty group for SQL Server in Azure Virtual Machines
-description: Step-by-step instructions for creating a listener for an AlwaysOn availabilty group for SQL Server in Azure Virtual Machines
+title: Create Listener for AlwaysOn availability group for SQL Server in Azure Virtual Machines
+description: Step-by-step instructions for creating a listener for an AlwaysOn availability group for SQL Server in Azure Virtual Machines
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT

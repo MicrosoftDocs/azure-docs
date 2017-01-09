@@ -193,9 +193,9 @@ To achieve high availability for this reference architecture, deploy to multiple
 
 <!-- links -->
 
-[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[arm-templates]: ../azure-resource-manager/resource-group-authoring-templates/
 [azure-administration]: ../automation/automation-intro.md
-[azure-audit-logs]: ../resource-group-audit.md
+[azure-audit-logs]: ../azure-resource-manager/resource-group-audit.md
 [azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: ../virtual-machines-command-line-tools.md
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
