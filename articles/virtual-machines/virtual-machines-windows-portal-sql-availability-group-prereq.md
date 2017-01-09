@@ -405,7 +405,7 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 7. Click **OK** to close the **Administrator Properties** dialog.
 8. Repeat the above steps on **sqlserver-1**, and **cluster-fsw**.
 
-### Set the SQL Server Service Accounts
+### <a name="setServiceAccount"></a>Set the SQL Server Service Accounts
 
 On each SQL Server, set the SQL Server service account. Use the accounts that you created when you [configured the domain accounts](#DomainAccounts).
 

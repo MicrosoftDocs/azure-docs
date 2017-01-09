@@ -59,7 +59,7 @@ To create a replica in a remote data center, do the following steps:
 1. [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
-   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-rm-ps.md).
+   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. [Create a domain controller in the new region](../active-directory/active-directory-new-forest-virtual-machine.md).
 
@@ -67,15 +67,15 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Add Failover Clustering Role to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
 1. [Join the new SQL Server to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-1. Set the new SQL Server service account to use a domain account.
+1. [Set the new SQL Server service account to use a domain account](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
 1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
 
-1. Add the new SQL Server to the Windows Server Failover Cluster.
+1. [Add the new SQL Server to the Windows Server Failover Cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
 1. In SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
@@ -86,7 +86,10 @@ To create a replica in a remote data center, do the following steps:
 
 1. In Failover Cluster Manager, add the IP address on the load balancer frontend IP rule to the cluster resource.
 
-1. Add a replica to the availability group on the new SQL Server. 
+1. [Add a replica to the availability group on the new SQL Server](http://msdn.microsoft.com/library/hh213239.aspx).
+
+   >[!NOTE]
+   >For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
 
 1. Add the IP address resource as a dependency for the listener client access point (network name) cluster. 
 

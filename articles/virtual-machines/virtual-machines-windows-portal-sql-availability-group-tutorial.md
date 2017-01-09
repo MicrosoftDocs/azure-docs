@@ -85,7 +85,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
-### Add the other SQL Server to cluster
+### <a name="addNode"></a>Add the other SQL Server to cluster
 
 Add the other SQL Server to the cluster. 
 
