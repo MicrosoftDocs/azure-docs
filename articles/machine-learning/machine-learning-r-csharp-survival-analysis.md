@@ -1,6 +1,6 @@
 ---
-title: Survival Analysis with Azure Machine Learning | Microsoft Docs
-description: Survival Analysis event occurrence probability
+title: (deprecated) Survival Analysis with Azure Machine Learning | Microsoft Docs
+description: (deprecated) Survival Analysis event occurrence probability
 services: machine-learning
 documentationcenter: ''
 author: zhangya
@@ -17,7 +17,7 @@ ms.date: 01/06/2017
 ms.author: zhangya
 
 ---
-# Survival Analysis
+# (deprecated) Survival Analysis
 
 > [!NOTE]
 > The Microsoft DataMarket is being retired and this API has been deprecated. 
