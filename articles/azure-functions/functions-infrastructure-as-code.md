@@ -26,7 +26,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 
 For examples of a complete template, [Create consumption-based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) and/or [Create an App Service Plan based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json)
 
-## What will be deployed
+## What is deployed
 
 With the examples below, you will create a baseline Azure Function App. The resources required for a Function App are as follows:
 
@@ -38,7 +38,7 @@ With the examples below, you will create a baseline Azure Function App. The reso
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all the parameter values. You should define parameters for those values that will vary based on the project you are deploying or based on the environment you are deploying to.
 
-If you have common values, which don't change as part of your deployment, or need to do some transformation on the values which are provided as parameter, it is useful to apply the [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) section of the template.
+[Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) are useful for values which don't change based on an individual deployment, or parameters which require transformation before used in a template (e.g. to pass validation rules).
 
 When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
 
@@ -58,7 +58,7 @@ The name of the function you wish to create.
 
 The location in which to deploy the Function App.
 
->[NOTE] The **defaultValue** parameter is used to inherit the location of the Resource Group, if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box is provided to select from the **allowedValues**.
+>[NOTE] The **defaultValue** parameter is used to inherit the location of the Resource Group, or if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box is provided to select from the **allowedValues**.
 
 >[NOTE] For an up-to-date list of regions Azure Functions is available in visit the [Products available by region](https://azure.microsoft.com/en-us/regions/services/) page.
 
@@ -147,7 +147,7 @@ An Azure Storage account is a required resource in Azure Functions.
 
 ### Hosting Plan: Fully Managed Scaling vs User Managed Scaling
 
-There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption). Alternatively, you could choose user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which the number of instances can be manually or automatically configured. The decision to use one plan over another could be based upon available features in the plan, or a decisions which are driven by architecting by cost.
+There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption). Alternatively, you could choose user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which the number of instances can be manually or automatically configured. The decision to use one plan over another could be based upon available features in the plan, or a decision which is driven by architecting by cost.
 
 #### Consumption Plan
 
@@ -190,7 +190,7 @@ Once the scaling option has been selected, it's time to create the container, wh
 A Function App has many child resources in which you can take advantage of including **App Settings** and **Source Control Options**. You may opt to remove the **sourcecontrols** child resource in favor of another [deployment option](functions-continuous-deployment.md).
 
 > [!IMPORTANT]
-> It is important to understand how resources are deployed in Azure to ensure that you create a successful infrastructure as code configuration for your Application when using Azure Resource Manager. In this example, you will notice that there are top level configurations being applied using **siteConfig**, these are important to set at a top level as they convey meaning to Azure Functions runtime and deployment engine which are required before the child resource **sourcecontrols/web** is applied. While these settings could be configured in the child level resource **config/appSettings**, there are scenarios in which your Function App and Functions will need to be deployed *before* the **config/appsettings** are applied as your Functions are a dependency of another resource, for example a [Logic App](../logic-apps/index.md).
+> It is important to understand how resources are deployed in Azure to ensure that you create a successful infrastructure as code configuration for your Application when using Azure Resource Manager. In this example, you will notice that there are top-level configurations being applied using **siteConfig**, these are important to set at a top level as they convey meaning to Azure Functions runtime and deployment engine which are required before the child resource **sourcecontrols/web** is applied. While these settings could be configured in the child level resource **config/appSettings**, there are scenarios in which your Function App and Functions will need to be deployed *before* the **config/appsettings** are applied as your Functions are a dependency of another resource, for example a [Logic App](../logic-apps/index.md).
 
 > [!TIP]
 > In this template we are using the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Setting, which is setting the base directory in which the Functions Deployment Engine (Kudu) is going to look for deployable code. In this example, we have set this value to `src` as our GitHub repository contains a `src` folder in which our functions are a child of. If you have a repository in which your functions are directly in the root of the repository, or you are not deploying from Source Control, this App Setting can be removed.
