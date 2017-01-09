@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/7/2017
+ms.date: 1/10/2017
 ms.author: magoedte
 
 ---
@@ -49,7 +49,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
 
 ## Set up integration with Log Analytics
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. Copy and the following PowerShell, edit the value for the `$workspaceId` and `$automationAccountId` then run it.
+2. Copy and paste the following PowerShell, edit the value for the `$workspaceId` and `$automationAccountId` then run it.
 
 ```powershell
 # if you are not connected to Azure run the next command to login
@@ -147,7 +147,7 @@ One of our top customer asks is for the ability to send an email or a text when 
 To create an alert rule, you start by creating a log search for the runbook job records that should invoke the alert.  Click the **Alert** button to create and configure the alert rule.
 
 1. From the Log Analytics Overview page, click **Log Search**.
-2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`.  You can also group by the RunbookName by using: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`.   
+2. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)`  You can also group by the RunbookName by using: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  Automation account name can be derived from the Resource field in the search of JobLogs.  
 3. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For further details on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
