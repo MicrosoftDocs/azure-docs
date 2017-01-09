@@ -212,6 +212,7 @@
 ## [Android client SDK](https://azure.github.io/azure-mobile-apps-android-client/)
 ## [iOS client SDK](https://azure.github.io/azure-mobile-apps-ios-client/)
 ## [JavaScript/Cordova client SDK](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Windows/Xamarin client SDK](https://msdn.microsoft.com/library/azure/mt419521.aspx)
 
 # Related
 ## [GitHub repositories](https://github.com/Azure/azure-mobile-apps)
