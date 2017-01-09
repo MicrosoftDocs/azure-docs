@@ -29,9 +29,8 @@ ms.author: mikeray
 
 <br/>
 
-> [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-> 
-> 
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 This end-to-end tutorial shows you how to implement Availability Groups using SQL Server Always On running on Azure virtual machines.
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 07/12/2016
+ms.date: 11/28/2016
 ms.author: MikeRayMSFT
 
 ---
@@ -27,7 +27,8 @@ ms.author: MikeRayMSFT
 
 This topic shows you how to configure a listener for an Always On Availability Group that is externally accessible on the internet. This is made possible by associating the cloud service's **public Virtual IP (VIP)** address with the listener.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) but have not configured a listener.
 
@@ -48,8 +49,20 @@ This article focuses on creating a listener that uses **external load balancing*
 ## Create load-balanced VM endpoints with direct server return
 External load balancing uses the virtual the public Virtual IP address of the cloud service that hosts your VMs. So you do not need to create or configure the load balancer in this case.
 
-[!INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
+You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
+1. In the Azure portal, navigate to each VM hosting a replica and view the details.
+2. Click the **Endpoints** tab for each of the VMs.
+3. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is “MyEndpoint” and the port is “1433”.
+4. On your local client, download and install [the latest PowerShell module](https://azure.microsoft.com/downloads/).
+5. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
+6. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
+7. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
+   
+        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+   
+    Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
+    
 1. Copy the PowerShell script below into a text editor and set the variable values to suit your environment (defaults have been provided for some parameters). Note that if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
    
         # Define variables
@@ -61,6 +74,7 @@ External load balancing uses the virtual the public Virtual IP address of the cl
         {
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
         }
+
 2. Once you have set the variables, copy the script from the text editor into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
 
 ## Verify that KB2854082 is installed if necessary
@@ -70,8 +84,13 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 [!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
 ## Create the availability group listener
+
+Create the availability group listener in two steps. First, create the client access point cluster resource and configure  dependencies. Second, configure the cluster resources with PowerShell.
+
+### Create the client access point and configure the cluster dependencies
 [!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
+### Configure the cluster resources in PowerShell
 1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure classic portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
 2. Note the address shown under **Public Virtual IP (VIP) Address**. If your solution spans VNets, repeat this step for each cloud service that contains a VM that hosts a replica.
 3. On one of the VMs, copy the PowerShell script below into a text editor and set the variables to the values you noted earlier.

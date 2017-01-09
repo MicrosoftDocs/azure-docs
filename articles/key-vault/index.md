@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
 ---
 # Key Vault Documentation
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
+Learn how to use Key Vault to safeguard and manage cryptographic keys and secrets used by cloud applications and services. Tutorials, API references, and other documentation show you how to create and maintain keys that access and encrypt your resources and solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +26,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=key-vault">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=key-vault">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -99,23 +100,50 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 </ul>
 
 ---
-
-## Reference
-
-### PowerShell
-[Azure PowerShell Reference](/PowerShell/azureps-cmdlets-docs)
-
-### Azure CLI 
-[Key Vault using Azure CLI](/cli/azure/keyvault)
-
-### Java 
-[Key Vault in Java Reference](/java/api/)
-
-### .NET 
-[Key Vault Managed Reference API](/dotnet/api/) 
-
-### REST 
-[Key Vault REST API Reference](/rest/api/keyvault) 
+ 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
+                         <p><a href="/cli/azure/keyvault">Azure 2​.0 CLI (Preview)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node​.js</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/keyvault">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 

@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
 ---
 #Azure Machine Learning Documentation
 
-Azure Machine Learning is a cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions. Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
+Learn how data scientists and developers use Machine Learning to embed predictive analytics into applications. Tutorials, videos, and example models show you how to build and deploy machine learning models.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -43,7 +44,7 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/machine-learning-data-science-for-beginnings-the-5-questions-data-science-answers">
+        <a href="/azure/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,11 +68,11 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first Azure Machine Learning experiment</h3>
+                        <h3>Get started creating an Azure Machine Learning experiment</h3>
                     </div>
                 </div>
             </div>
@@ -82,16 +83,46 @@ Azure Machine Learning is a cloud-based predictive analytics service that makes 
 
 ---
 
-##Reference
-
-###PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-###REST
-[Machine Learning REST API Reference](/rest/api/machinelearning)
-
-###Net#
-[Net# Neural Networks Language Reference](/azure/machine-learning/machine-learning-azure-ml-netsharp-reference-guide)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell module for Machine Learning</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm &amp; Module reference</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/machinelearning">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">

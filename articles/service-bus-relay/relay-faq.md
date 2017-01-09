@@ -1,20 +1,20 @@
 ---
 title: Relay FAQ | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Relay.
-services: service-bus
+services: service-bus-relay
 documentationcenter: na
 author: jtaubensee
-manager: ''
+manager: timlt
 editor: ''
 
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2016
-ms.author: jotaub
+ms.author: jotaub,sethm
 
 ---
 # Relay FAQ
@@ -28,7 +28,7 @@ The Azure [Relay service](relay-what-is-it.md) facilitates your hybrid applicati
 A [namespace](relay-create-namespace-portal.md) provides a scoping container for addressing Relay resources within your application. Creating one is necessary to use Relay and will be one of the first steps in getting started.
 
 ### What happened to the previously named Relay service?
-The previously named 'Relay' service is now WCF Relay. You can continue to use this service as usual. Hybrid Connections is an updated version of a service transplanted from BizTalk. Both WCF Relay and Hybrid Connections will continue to be supported going forward.
+The previously named **Relay** service is now called *WCF Relay*. You can continue to use this service as usual. Hybrid Connections is an updated version of a service transplanted from BizTalk. Both WCF Relay and Hybrid Connections will continue to be supported going forward.
 
 ## Pricing
 This section answers some frequently-asked questions about the Relay pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -40,13 +40,13 @@ For complete information about Relay pricing, please see [Service Bus pricing de
 Here are three example scenarios:
 
 1. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across the connection during the course of the month, your total charge will be $5.
-2. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 10 GB of data across the connection during the course of the month, your total charge will be $7.5: $5 for the connection and first 5GB + $2.5 for the additional 5GB of data.
-3. If you have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across connection A and 6 GB across connection B, your total charge will be $10.5: $5 for connection A + $5 for connection B + $0.5(for the 6th GB on connection B).
+2. If you have a single listener, such as an instance of the Hybrid Connections Manager installed and continuously running for the entire month and you send 10 GB of data across the connection during the course of the month, your total charge will be $7.50: $5 for the connection and first 5 GB + $2.50 for the additional 5 GB of data.
+3. If you have two instances, A and B, of the Hybrid Connections Manager installed and continuously running for the entire month and you send 3 GB of data across connection A and 6 GB across connection B, your total charge will be $10.50: $5 for connection A + $5 for connection B + $0.50(for the 6th GB on connection B).
 
-Please note that the prices used in the examples are applicable only during the preview period and are subject to change at general availability of Hybrid Connections.
+Please note that the prices used in the examples are applicable only during the preview period and are subject to change upon general availability of Hybrid Connections.
 
 ### How are WCF Relay hours calculated?
-Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is “open”. A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered “open” from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
+Relay hours are billed for the cumulative amount of time during which each Service Bus Relay is "open." A Relay is implicitly instantiated and opened at a given Service Bus address (service namespace URL) when a Relay-enabled WCF service, or “Relay listener,” first connects to that address. It is closed only when the last listener disconnects from its address. Therefore, for billing purposes a Relay is considered "open" from the time the first Relay listener connects, to the time the last Relay listener disconnects from the Service Bus address of that Relay.
 
 ### What if I have more than one listener connected to a given Relay?
 In some cases, a single Relay may have multiple connected listeners. A Relay is considered "open" when at least one Relay listener is connected to it. Adding additional listeners to an open Relay will result in additional relay hours. The number of Relay senders (clients that invoke or send messages to Relays) connected to a Relay also has no effect on the calculation of Relay hours.
@@ -83,7 +83,7 @@ A Relay namespace name can only be between 6-50 characters in length.
 
 ## Subscription and namespace management
 ### How do I migrate a namespace to another Azure subscription?
-You can use PowerShell commands (found in the article [here](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription)) to move a namespace from one Azure subscription to another. In order to execute the operation, the namespace must already be active. Also the user executing the commands must be an administrator on both source and target subscriptions.
+You can use PowerShell commands (found in the article [here](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription)) to move a namespace from one Azure subscription to another. In order to execute the operation, the namespace must already be active. Also the user executing the commands must be an administrator on both the source and target subscriptions.
 
 ## Troubleshooting
 ### What are some of the exceptions generated by Azure Relay APIs and their suggested actions?
@@ -96,7 +96,7 @@ Shared Access Signatures are an authentication mechanism based on SHA – 256 se
 [Relay exceptions]: relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
 
-## Next steps:
+## Next steps
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)

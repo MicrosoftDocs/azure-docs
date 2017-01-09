@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.
 ---
-#Virtual Machines Documentation
+# Virtual Machines Documentation
 
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine&mdash;configuring, patching, and maintaining the software that runs on the virtual machine.
+Learn how to create Azure virtual machines. Tutorials, API references, and other documentation show you how to create and deploy Windows and Linux virtual machines, as well as complex VM templates.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -44,22 +45,6 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
         </a>
     </li>    
 </ul>
-
----
-
-##Reference
-
-###.NET 
-[Virtual Machines Managed Reference API](/dotnet/api/) 
-
-###REST 
-[Virtual Machine REST API Reference](/rest/api/) 
-
-###Azure CLI 
-[Azure CLI for Virtual Machines](/cli/azure/)
-
-###Java 
-[Virtual Machines PowerShell Cmdlet](/java/api/)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">

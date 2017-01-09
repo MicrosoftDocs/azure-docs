@@ -1,5 +1,6 @@
 # [Overview](cdn-overview.md)
 ## [What is Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # Get Started
 ## [Enable Azure CDN](cdn-create-new-endpoint.md)
 
@@ -23,6 +24,8 @@
 #### [Premium tier](cdn-query-string-premium.md)
 ### [Purge cached assets](cdn-purge-endpoint.md)
 ### [Pre-load cached assets](cdn-preload-endpoint.md)
+### [Token authentication](cdn-token-auth.md)
+### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)
 ### [Get real-time alerts](cdn-real-time-alerts.md)
 
@@ -41,14 +44,15 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [Azure CDN POP Locations](cdn-pop-locations.md)
-## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
+## [REST](/rest/api/cdn/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
-## [MSDN forum](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Azure CDN POP Locations](cdn-pop-locations.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
-
+## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

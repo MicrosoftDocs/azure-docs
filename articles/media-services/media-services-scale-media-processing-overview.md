@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 
 ---
@@ -40,9 +40,9 @@ The following table helps you make decision when choosing between different enco
 > 
 
 * Reserved Units work for parallelizing all media processing, including indexing jobs using Azure Media Indexer.  However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
-* If using the shared pool, that is, without any reserved units, then your encode tasks have the same performance as with S1 RUs. However, there is no upper bound to the time your Tasks can spend in queued state, and at any given time, at most one Task is be running.
-* The following data centers do not offer the **S2** reserved unit type: Brazil South, India West, India Central, and India South.
-* The following data centers do not offer the **S3** reserved unit type: Brazil South, India West, India Central.
+* If using the shared pool, that is, without any reserved units, then your encode tasks have the same performance as with S1 RUs. However, there is no upper bound to the time your Tasks can spend in queued state, and at any given time, at most only one Task will be running.
+* The following data centers do not offer the **S2** reserved unit type: Brazil South, and India West.
+* The following data center does not offer the **S3** reserved unit type: India West.
 * The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 ## Quotas and limitations

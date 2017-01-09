@@ -3,8 +3,8 @@ title: Add sign-in to a Node.js web app for Azure B2C | Microsoft Docs
 description: How to build a Node.js web app that signs in users by using a B2C tenant.
 services: active-directory-b2c
 documentationcenter: ''
-author: brandwe
-manager: msmbaldwin
+author: xerners
+manager: mbaldwin
 editor: ''
 
 ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 01/09/2017
 ms.author: brandwe
 
 ---

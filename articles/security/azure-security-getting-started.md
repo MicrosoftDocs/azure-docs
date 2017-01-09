@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2016
-ms.author: yuridio
+ms.date: 01/09/2017
+ms.author: yurid
 
 ---
 # Getting started with Microsoft Azure security
@@ -81,7 +81,7 @@ Azure uses a hypervisor firewall (packet filter) that is implemented in the hype
 There are two categories of rules that are programmed here:
 
 * **Machine configuration or infrastructure rules**: By default, all communication is blocked. There are exceptions to allow a virtual machine to send and receive DHCP and DNS traffic. Virtual machines can also send traffic to the “public” internet and send traffic to other virtual machines within the cluster and the OS activation server. The virtual machines’ list of allowed outgoing destinations does not include Azure router subnets, Azure management back end, and other Microsoft properties.
-* **Role configuration file**: This defines the inbound Access Control Lists (ACLs) based on the tenant's service model. For example, if a tenant has a Web front end on port 80 on a certain virtual machine, then Azure opens TCP port 80 to all IPs if you’re configuring an endpoint in the [Azure classic deployment model](../resource-manager-deployment-model.md). If the virtual machine has a back end or worker role running, then it opens the worker role only to the virtual machine within the same tenant.
+* **Role configuration file**: This defines the inbound Access Control Lists (ACLs) based on the tenant's service model. For example, if a tenant has a Web front end on port 80 on a certain virtual machine, then Azure opens TCP port 80 to all IPs if you’re configuring an endpoint in the [Azure classic deployment model](../azure-resource-manager/resource-manager-deployment-model.md). If the virtual machine has a back end or worker role running, then it opens the worker role only to the virtual machine within the same tenant.
 
 ## Isolation
 Another important cloud security requirement is separation to prevent unauthorized and unintentional transfer of information between deployments in a shared multi-tenant architecture.
@@ -191,4 +191,3 @@ Azure has security controls in place to implement threat mitigation and also to 
 [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Active Directory Blog](http://blogs.technet.com/b/ad/)
-

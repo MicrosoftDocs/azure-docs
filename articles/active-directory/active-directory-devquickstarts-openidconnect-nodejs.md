@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting started with Azure AD sign in and sign out using node.js
 description: How to build a node.js Express MVC Web App that integrates with Azure AD for sign in.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
@@ -40,15 +40,15 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 The completed application is provided at the end of this tutorial as well.
 
 ## 1. Register an App
-* Sign into the Azure Management Portal.
-* In the left hand nav, click on **Active Directory**.
-* Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click add in the bottom drawer.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
   * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-* Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
 ## 2. Add pre-requisities to your directory
 From the command-line, change directories to your root folder if not already there and run the following commands:

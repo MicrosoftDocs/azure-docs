@@ -13,7 +13,7 @@
 
 # Get Started
 ## [Create a virtual network](virtual-networks-create-vnet-arm-pportal.md)
-## [Deploy a VM to a virtual network](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Deploy a VM to a virtual network](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # How To
 ## Plan and design
@@ -77,6 +77,8 @@
 #### Multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

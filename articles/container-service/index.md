@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to use Container Service to deploy and manage application containers using DC/OS, Docker Swarm, or Kubernetes. Tutorials, API references, and more.
 ---
 
-#Azure Container Service Documentation
+# Azure Container Service Documentation
 
-Azure Container Service makes it simple for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. Container Service uses an optimized configuration of popular open-source scheduling and orchestration tools. This lets you use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
+Learn how to use Container Service to deploy and manage fully portable application containers. Tutorials, API references, and other documentation show you how to scale and orchestrate containers using DC/OS, Docker Swarm, or Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -32,11 +33,11 @@ Azure Container Service makes it simple for you to create, configure, and manage
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/index/deploy.svg" alt="" />
+                            <img src="./media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy a Container Service cluster</h3>
+                        <h3>Get Started with Azure Container Service</h3>
                     </div>
                 </div>
             </div>
@@ -47,16 +48,45 @@ Azure Container Service makes it simple for you to create, configure, and manage
 
 ---
 
-##Reference
-
-###.NET
-[Azure Container Service Managed Reference API](/dotnet/api/)
-
-###REST (Compute) 
-[Compute REST API Reference](/rest/api/)  
-
-###PowerShell
-[Compute Module](/powershell/)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/containerservices">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">

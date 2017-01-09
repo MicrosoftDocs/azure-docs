@@ -1,6 +1,6 @@
-﻿---
-title: Smart Performance Anomaly Detection | Microsoft Docs
-description: Application Insights performs smart proactive analysis of your app telemetry and warns you of potential problems.
+---
+title: Smart Detection - performance anomalies | Microsoft Docs
+description: Application Insights performs proactive analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights
 documentationcenter: windows
 author: antonfrMSFT
@@ -16,15 +16,15 @@ ms.date: 10/31/2016
 ms.author: awills
 
 ---
-# Smart Performance Anomaly Detection
-*Application Insights is in preview.*
+# Smart Detection - Performance Anomalies
+
 
 [Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our smart alerts by email.
 
 This feature requires no setup, and is automatically active when your app generates enough telemetry.
 
-## What is Smart Performance Anomaly Detection?
-Smart Anomaly Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights.
+## What is Smart Detection of performance anomalies?
+Smart Detection discovers unusual patterns of performance in your app, by analyzing the telemetry that your app sends to Application Insights.
 
 In particular, it finds performance issues that only affect some of your users, or only affect users in some cases.
 
@@ -36,9 +36,9 @@ Currently, our algorithms look at page load times, request response times at the
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns.
 
-## About the smart alert
+## About the Smart Detection alert
 * *Why have I received this email?*
-  * Smart Anomaly Detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application.
+  * Smart Detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application.
 * *Does the notification mean I definitely have a problem?*
   * No. It's simply a suggestion about something you might want to look at more closely.
 * *What should I do?*
@@ -114,7 +114,7 @@ There's a web full of advice on improving your server responses and page load ti
 
     Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
 
-    You can also edit the recipients list Settings in the Proactive Detection blade.
+    You can also edit the recipients list Settings in the Smart Detection blade.
 * *I don't want to be flooded with these messages.*
   * They are limited to one per day with the most relevant issue that we haven't reported about yet. You won't get repeats of any message.
 * *If I don't do anything, will I get a reminder?*

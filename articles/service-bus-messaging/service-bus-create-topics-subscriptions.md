@@ -1,14 +1,14 @@
-﻿---
+---
 title: Create applications that use Service Bus topics and subscriptions | Microsoft Docs
 description: Introduction to the publish-subscribe capabilities offered by Service Bus topics and subscriptions.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: a48fc9b0-b7b0-464e-8187-a517bf8b4eb4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

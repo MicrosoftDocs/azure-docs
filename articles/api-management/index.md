@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use API Management to publish APIs securely and at scale. Documentation shows how to create modern API gateways for existing backend services.
 ---
 # API Management Documentation
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing backend services hosted anywhere.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +26,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,11 +68,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create APIs in Azure API Management</h3>
+                        <h3>Get Started creating APIs in Azure API Management</h3>
                     </div>
                 </div>
             </div>
@@ -82,14 +83,48 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-## Reference
-
-### PowerShell
-[API Management Resource Manager PowerShell cmdlet](/powershell/resourcemanager)
-
-
-### REST
-[API Management REST API Reference](/rest/api/apimanagement/)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Classic PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/apimanagement/">REST API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST API (original)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Other</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Policies</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Templates</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure AD Windows Store Getting Started | Microsoft Docs
 description: How to build a Windows Store application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
@@ -38,20 +38,20 @@ To build the complete working application, you’ll need to:
 
 To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip).  Each is a Visual Studio 2015 solution.  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
-## *1. Register the Directory Searcher Application*
+## 1. Register the Directory Searcher Application
 To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
-* Sign into the [Azure Management Portal](https://manage.windowsazure.com)
-* In the left hand nav, click on **Active Directory**
-* Select a tenant in which to register the application.
-* Click the **Applications** tab, and click **Add** in the bottom drawer.
-* Follow the prompts and create a new **Native Client Application**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Native Client Application**.
   * The **Name** of the application will describe your application to end-users
   * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a placeholder value for now, e.g. `http://DirectorySearcher`.  We'll replace this value later.
-* Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the **Configure** tab.
-* Also in **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+6. Once you’ve completed registration, AAD will assign your app a unique Application ID.  You’ll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** page, choose **Required Permissions** and choose **Add**.  For the "Azure Active Directory" application, select the **Microsoft Graph** as the API and add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
-## *2. Install & Configure ADAL*
+## 2. Install & Configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
 
 * Begin by adding ADAL to the DirectorySearcher project using the Package Manager Console.
@@ -75,9 +75,9 @@ redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCur
 ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
 ```
 
-* Back on the **Configure** tab of your application in the Azure Management Portal, replace the value of the **RedirectUri** with this value.  
+* Back on the **Settings** tab of your application in the Azure Portal, add a **RedirectUri** with this value.  
 
-## *3.    Use ADAL to Get Tokens from AAD*
+## 3.    Use ADAL to Get Tokens from AAD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls `authContext.AcquireToken(…)`, and ADAL does the rest.  
 
 * The first step is to initialize your app’s `AuthenticationContext` - ADAL’s primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.

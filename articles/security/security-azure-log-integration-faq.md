@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 
 ---
@@ -69,7 +69,7 @@ Error:
 ## Where can I find the definition of the properties in audit log?
 See:
 
-* [Audit operations with Resource Manager](../resource-group-audit.md)
+* [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [List the management events in a subscription in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?

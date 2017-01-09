@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
-This article shows how to move your telemetry data from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+This article shows how to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Continuous export moves your telemetry data into Azure Storage in JSON format. We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.
 

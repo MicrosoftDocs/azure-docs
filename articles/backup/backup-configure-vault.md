@@ -1,4 +1,4 @@
-﻿---
+---
 title: Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Docs
 description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
 services: backup
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/16/2016
 ms.author: jimpark; trinadhk; markgal
 
 ---
@@ -74,7 +74,7 @@ When you first create a Recovery Services vault you determine how storage is rep
 
 Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading and installing the Microsoft Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
 
-## Step 2 - Download files
+## Step 2: Download files
 > [!NOTE]
 > Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
 >
@@ -103,7 +103,7 @@ Now that you've created a vault, you prepare your infrastructure to back up file
 
     ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-download.png)
 
-## Step 3 -Install and register the agent
+## Step 3: Install and register the agent
 1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
 2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you need to:
 
@@ -179,7 +179,7 @@ To complete the initial backup, you use the Microsoft Azure backup agent.
 10. On the Confirmation page, review the information, and then click **Finish**.
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
-### Enable network throttling (optional)
+### Enable network throttling
 The backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
 
 > [!NOTE]

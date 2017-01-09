@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---
@@ -30,7 +30,7 @@ A Public IP Address can be added to an Azure Resource Manager template using the
 
 Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L121).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/publicIPAddresses",
@@ -52,7 +52,7 @@ A Public IP Address can be associated with a Virtual Network Adapter, or a Load 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address association with Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -76,7 +76,7 @@ Once access has been established to Azure resources, this access should be limit
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L68).
 
-```none
+```json
 {
   "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Network/networkSecurityGroups",
@@ -111,7 +111,7 @@ In this example, the network security group is associate with the subnet object 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group association with Virtual Network](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158).
 
-```none
+```json
 "subnets": [
   {
     "name": "[variables('subnetName')]",

@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Application Insights an extensible application performance management to detect, triage, and diagnose issues in web apps and services.
 ---
-# Visual Studio Application Insights Documentation
+# Application Insights Documentation
 
-Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
+Learn how to use Application Insights, an extensible application performance management service for web developers. Tutorials, API references, and other documentation show you how to detect, triage, and diagnose issues in web apps and services.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +18,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Visual Studio Application Insights</h3>
+                        <h3>Learn about Application Insights</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +26,7 @@ Application Insights is an extensible Application Performance Management (APM) s
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-insights">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-insights">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +36,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Visual Studio Application Insights Video Library</h3>
+                        <h3>Application Insights Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure web apps</h3>
+                        <h3>Get Started monitoring Azure web apps with Application Insights</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +72,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create Application Insights for ASP.NET</h3>
+                        <h3>Get Started with Application Insights using ASP.NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +90,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create Application Insights for a Java web project</h3>
+                        <h3>Get Started with Application Insights using Java</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +108,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Application Insights SDK to monitor a Node.js app</h3>
+                        <h3>Get Started with Application Insights for a Node.js app</h3>
                     </div>
                 </div>
             </div>
@@ -117,27 +118,41 @@ Application Insights is an extensible Application Performance Management (APM) s
 </ul>
 
 ---
-
-## Reference
-
-### Java
-[Application Insights Java API Reference](https://docs.microsoft.com/java/api/)
-
-### .NET 
-[Application Insights Managed Reference API](https://docs.microsoft.com/dotnet/api/)
-
-### JavaScript
-[Application Insights JS API Reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-
-
-### REST 
-[Application Insights REST API Reference](https://dev.applicationinsights.io/)
+ 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://dev.applicationinsights.io/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Visual Studio Application Insights Documentation
+            Download Application Insights Documentation
         </div>
     </a>
 </div>

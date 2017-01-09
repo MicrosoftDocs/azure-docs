@@ -23,7 +23,8 @@ If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514
 running in a cloud service) as compute resources to a
  head node in Azure. 
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ![Burst nodes][burst]
 

@@ -1,4 +1,3 @@
-
 ---
 title: Restore a virtual machines from backup | Microsoft Docs
 description: Learn how to restore an Azure virtual machine from a recovery point
@@ -29,7 +28,7 @@ ms.author: trinadhk; jimpark;
 Restore a virtual machine to a new VM from the backups stored in an Azure backup vault with the following steps.
 
 ## Restore workflow
-### 1. Choose an item to restore
+### Step 1: Choose an item to restore
 1. Navigate to the **Protected Items** tab and select the virtual machine you want to restore to a new VM.
    
     ![Protected items](./media/backup-azure-restore-vms/protected-items.png)
@@ -39,7 +38,7 @@ Restore a virtual machine to a new VM from the backups stored in an Azure backup
    
     ![Restore an item](./media/backup-azure-restore-vms/restore-item.png)
 
-### 2. Pick a recovery point
+### Step 2: Pick a recovery point
 1. In the **select a recovery point** screen, you can restore from the newest recovery point, or from a previous point in time. The default option selected when wizard opens is *Newest Recovery Point*.
    
     ![Select a recovery point](./media/backup-azure-restore-vms/select-recovery-point.png)
@@ -52,13 +51,13 @@ Restore a virtual machine to a new VM from the backups stored in an Azure backup
     ![Recovery points](./media/backup-azure-restore-vms/recovery-points.png)
 3. Select the recovery point from the **Recovery Points** table and click the Next arrow to go to the next screen.
 
-### 3. Specify a destination location
+### Step 3: Specify a destination location
 1. In the **Select restore instance** screen specify details of where to restore the virtual machine.
    
    * Specify the virtual machine name: In a given cloud service, the virtual machine name should be unique. We don't support over-writing existing VM. 
    * Select a cloud service for the VM: This is mandatory for creating a VM. You can choose to either use an existing cloud service or create a new cloud service.
      
-        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
      
         We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 2. Select a storage account for the VM: This is mandatory for creating the VM. You can select from existing storage accounts in the same region as the Azure Backup vault. We don’t support storage accounts that are Zone redundant or of Premium storage type.
@@ -89,10 +88,10 @@ Once the restore operation is finished, it will be marked as completed in **Jobs
 
 ![Restore job complete](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) for the virtual machine in the Azure portal.
+After restoring the virtual machine you may need to re-install the extensions existing on the original VM and [modify the endpoints](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) for the virtual machine in the Azure portal.
 
 ## Post-Restore steps
-If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password will be blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
+If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password will be blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
 
 ## Backup for Restored VMs
 If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored Vm to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.

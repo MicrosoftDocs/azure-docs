@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/01/2016
+ms.date: 11/15/2016
 ms.author: cynthn
 
 ---
@@ -29,6 +29,7 @@ This article describes the available sizes and options for the Azure virtual mac
 > 
 
 <br>   
+
 
 [!INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 

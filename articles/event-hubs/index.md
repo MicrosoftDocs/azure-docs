@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
 ---
 #Event Hubs Documentation
 
-Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or any batching or storage adapter.
+Learn how to use Event Hubs to collect and manage millions of events per second from connected IoT devices and applications. Tutorials, API references, and other documentation show you how set up scalable ingestion for events on a broad set of platforms.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -82,18 +83,34 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
 
 ---
 
-##Reference
-
-###.NET
-[.NET Managed Reference](/dotnet/api)
-
-###AMQP 
-[AMQP 1.0 protocol guide](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
-
-###REST
-[Event Hubs REST API Reference](/rest/api/eventhub)
-
-
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/eventhub">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
