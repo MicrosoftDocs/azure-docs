@@ -67,7 +67,7 @@ Azure API Management provides the following controls for use in the developer po
 ### Developer portal templates  
  The `app-actions` control may be used in the following developer portal templates.  
   
--   [Applications](User-profile-templates-in-Azure-API-Management.md#Applications)  
+-   [Applications](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a> basic-signin  
  The `basic-signin` control provides a control for collecting user sign in information in the sign in page in the developer portal.  
