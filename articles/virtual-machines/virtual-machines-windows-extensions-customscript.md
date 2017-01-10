@@ -36,7 +36,7 @@ The Custom Script Extension for Windows requires that the target virtual machine
 
 ## Extension schema
 
-## Template example for a Windows VM
+The following JSON shows the schema for the Custom Script Extension. The extension will require a script location (GitHub or in Azure Storage), and a command to execute. If using Azure Storage as the script source an Azure storage account name and account key will be required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
@@ -58,11 +58,13 @@ The Custom Script Extension for Windows requires that the target virtual machine
 		"autoUpgradeMinorVersion": true,
 		"settings": {
 			"fileUris": [
-				"https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
+				"script location"
 			]
 		},
 		"protectedSettings": {
-			"commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]"
+			"commandToExecute": "Script execution command",
+            "storageAccountName": "yourStorageAccountName",
+            "storageAccountKey": "yourStorageAccountKey"
 		}
 	}
 }
@@ -78,12 +80,22 @@ The Custom Script Extension for Windows requires that the target virtual machine
 | typeHandlerVersion | 1.4 |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
+| storageAccountName (e.g) | examplestorageacct |
+| storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
 
 ## Template deployment
+
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension extension can be found in [this sample on GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## PowerShell deployment
 
 ## Troubleshoot and support
+
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell Module.
+
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
 
 ### Troubleshoot
 
