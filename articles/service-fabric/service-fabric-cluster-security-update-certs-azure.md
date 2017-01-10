@@ -18,9 +18,9 @@ ms.author: chackdan
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
-It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates, read [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
+It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates and be familiar with the [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
 
-Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation, in addition to client certificates. Refer to [creating an azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an azure cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for details. If deploying via Resource Manager, and you specify only one cluster certificate, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
+Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation, in addition to client certificates. Refer to [creating an azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an azure cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for details on setting them up at create time. If you specify only one cluster certificate at create time, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
 
 > [!NOTE]
 > For a secure cluster, you will always need at least one valid (not revoked and not expired) cluster certificate (primary or secondary) deployed (if not, the cluster stops functioning). 90 days before all valid certificates reach expiration, the system generates a warning trace and also a warning health event on the node. There is currently no email or any other notification that service fabric sends out on this topic. 
@@ -33,7 +33,7 @@ Secondary cluster certificate cannot be added through the Azure portal. You have
 
 ## Swap the cluster certificates using the portal
 
-After you have successfully deployed a secondary cluster certificate, if you want to swap the primary and secondary, then Navigate to the Security blade, and select the 'Swap with primary' option from the context menu to swap the secondary cert with the primary cert.
+After you have successfully deployed a secondary cluster certificate, if you want to swap the primary and secondary, then navigate to the Security blade, and select the 'Swap with primary' option from the context menu to swap the secondary cert with the primary cert.
 
 ![Swap certificate][Delete_Swap_Cert]
 
@@ -45,31 +45,9 @@ To remove a secondary certificate from being used for cluster security, Navigate
 
 If your intent is to remove the certificate that is marked primary, then you will need to swap it with the secondary first, and then delete the secondary after the upgrade has completed.
 
-
-## Adding or removing Client certificates
-
-In addition to the cluster certificates, you can add client certificates to perform management operations on a service fabric cluster.
-
-You can add two kinds of client certificates - Admin or Read-only. These then can be used to control access to the admin operations and Query operations on the cluster. By default, the cluster certificates are added to the allowed Admin certificates list.
-
-you can specify any number of client certificates. Each addition/deletion results in a configuration update to the service fabric cluster
-
-
-### Adding client certificates - Admin or Read-Only
-
-1. Navigate to the Security blade, and select the '+ Authentication' button on top of the security blade.
-2. On the 'Add Authentication' blade, choose the 'Authentication Type' - 'Read-only client' or 'Admin client'
-3. Now choose the Authorization method. This indicates to Service Fabric whether it should look up this certificate by using the subject name or the thumbprint. In general, it is not a good security practice to use the authorization method of subject name. 
-
-![Add Client certificate][Add_Client_Cert]
-
-### Deletion of Client Certificates - Admin or Read-Only
-
-To remove a secondary certificate from being used for cluster security, Navigate to the Security blade and select the 'Delete' option from the context menu on the specific certificate.
-
 ## Add a secondary certificate using Resource Manager Powershell
 
-These steps assume that you are familiar with how Resource Manager works and have deployed atleast one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. it is also assumed that you are comfortable using JSON.
+These steps assume that you are familiar with how Resource Manager works and have deployed atleast one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
 > [!NOTE]
 > If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
@@ -82,9 +60,9 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 
 **Make sure to follow all the steps**
 
-1. Open up the Resource Manager template you used to deploy you Cluster.  (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
+**Step 1: **Open up the Resource Manager template you used to deploy you Cluster.  (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
 
-2. Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
+**Step 2: **Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -102,7 +80,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 
 ```
 
-3. Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
+**Step 3: **Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
 
    
 ```JSON
@@ -138,7 +116,7 @@ If you want to **rollover the cert**, then specify the new cert as primary and m
 ``` 
 
 
-4. Make changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions  - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
+**Step 4: **Make changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions  - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
 
 In the service fabric publisher settings, you should see something like this.
 
@@ -179,7 +157,7 @@ The properties should now look like this
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-5. Make Changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "vaultCertificates": , under "OSProfile". it should look something like this.
+**Step 5: **Make Changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "vaultCertificates": , under "OSProfile". it should look something like this.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]
@@ -219,8 +197,9 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 ```
 
 ### Deploy the template to Azure
-1. You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
-2. Login to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
+
+- You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
+- Login to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
 
 ```powershell
 Login-AzureRmAccount
@@ -257,7 +236,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplatePa
 
 ```
 
-Once the deployment is complete, connect to your cluster using the new Certificate and perform some queries. If you are able to do. Then you can delete the old primary certificate. 
+Once the deployment is complete, connect to your cluster using the new Certificate and perform some queries. If you are able to do. Then you can delete the old certificate. 
 
 If you are using a self-signed certificate, do not forget to import them into your local TrustedPeople cert store.
 
@@ -286,9 +265,34 @@ For quick reference here is the command to get cluster health
 ```powershell
 Get-ServiceFabricClusterHealth 
 ```
+
 ## Deploying Application certificates to the cluster.
 
 You can use the same steps as outlined in Steps 5 above to have the certificates deployed from a keyvault to the Nodes. you just need define and use different parameters.
+
+
+## Adding or removing Client certificates
+
+In addition to the cluster certificates, you can add client certificates to perform management operations on a service fabric cluster.
+
+You can add two kinds of client certificates - Admin or Read-only. These then can be used to control access to the admin operations and Query operations on the cluster. By default, the cluster certificates are added to the allowed Admin certificates list.
+
+you can specify any number of client certificates. Each addition/deletion results in a configuration update to the service fabric cluster
+
+
+### Adding client certificates - Admin or Read-Only via portal
+
+1. Navigate to the Security blade, and select the '+ Authentication' button on top of the security blade.
+2. On the 'Add Authentication' blade, choose the 'Authentication Type' - 'Read-only client' or 'Admin client'
+3. Now choose the Authorization method. This indicates to Service Fabric whether it should look up this certificate by using the subject name or the thumbprint. In general, it is not a good security practice to use the authorization method of subject name. 
+
+![Add Client certificate][Add_Client_Cert]
+
+### Deletion of Client Certificates - Admin or Read-Only using the portal
+
+To remove a secondary certificate from being used for cluster security, Navigate to the Security blade and select the 'Delete' option from the context menu on the specific certificate.
+
+
 
 ## Next steps
 Read these articles for more information on cluster management:
