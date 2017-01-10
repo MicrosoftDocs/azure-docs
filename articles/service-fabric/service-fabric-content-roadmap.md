@@ -80,6 +80,8 @@ An application type is the name/version assigned to a collection of service type
 
 A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. Defined in a ServiceManifest.xml file, embedded in a service package directory and the service package directory is then referenced by an application package's ApplicationManifest.xml file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. A service type is described by it's ServiceManifest.xml file and is composed of executable code service configuration settings which are loaded at run time, and static data that is consumed by the service.
 
+![Service Fabric application types and service types][cluster-imagestore-apptypes]
+
 The application package is a disk directory containing the application type's ApplicationManifest.xm file, which references the service packages for each service type that makes up the application type. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package. The files in the application package directory are copied to the Service Fabric cluster's image store. 
 
 A service package is a disk directory containing the service type's ServiceManifest.xml file, which references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's ApplicationManifest.xml file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
@@ -91,6 +93,17 @@ A machine or VM that is part of a cluster is called a node. Each node is assigne
 
 A named application is a collection of named services that performs a certain function or functions. A service performs a complete and standalone function (it can start and run independently of other services) and is composed of code, configuration, and data. After an application package is copied to the image store, you create an instance of the application within the cluster by specifying the application package's application type (using its name/version). Each application type instance is assigned a URI name that looks like this: *fabric:/MyNamedApp*. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.
 
-After creating a named application, you can create an instance of one of its service types within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: *fabric:/MyNamedApp/MyDatabase*. Within a named application, you can create several named services. Each named service can have its own partition scheme and instance/replica counts.
+After creating a named application, you can create an instance of one of its service types (a named service) within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: *fabric:/MyNamedApp/MyDatabase*. Within a named application, you can create one or more named services. Each named service can have its own partition scheme and instance/replica counts. 
+
+When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
+
+The following diagram shows the relationship between applications and service instances, partitions, and replicas.
+
+![Partitions and replicas within a service][cluster-application-instances]
 
 
+### Guest executables, containers, Reliable Services, and Reliable Actors
+
+
+[cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
+[cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
