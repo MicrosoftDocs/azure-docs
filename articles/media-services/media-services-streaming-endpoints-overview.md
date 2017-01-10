@@ -73,16 +73,15 @@ Feature|Standard|Premium
 Free first 15 days| Yes |No
 Throughput |Up to 600 Mbps and scales with CDN.|200 Mbps per streaming unit (SU) and scales with CDN.
 SLA | 99.9|99.9(200 Mbps per SU).
-Azure CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
+CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
-Streaming scale|Shared up to 600 Mbps direct access and scales with CDN.|Additional streaming units
+Scale|Auto scales up to the targeted throughput.|Additional streaming units
 IP filtering/G20/Custom host|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Basic to moderate usage.<br/> Up to 600 Mbps|Professional usage.<br/> Over 600 Mbps or for dedicated resources
-Live channel|Limited with bandwidth limit. Recommended 1 concurrent event.|Limited with SU capacity.
-Max assets|1,000(Recommended)|Limited with account limit
+Recommended usage |Basic to moderate usage.<br/> Up to 600 Mbps|Professional usage.<br/>If you think you may have needs beyond Standard.
+
 
 ## Migration between types
 
