@@ -1,12 +1,11 @@
 ---
 title: 'NoSQL tutorial: DocumentDB .NET Core SDK | Microsoft Docs'
-description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET Core SDK. DocumentDB is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, c# console application
+description: A NoSQL tutorial that creates an online database and C# UWP console application using the DocumentDB .NET Core SDK. DocumentDB is a NoSQL database for JSON.
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: ''
 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
@@ -28,7 +27,7 @@ ms.author: arramac
 >  
 > 
 
-Welcome to the NoSQL tutorial for the Azure DocumentDB .NET Core SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
+Welcome to the NoSQL tutorial for the Azure DocumentDB .NET Core SDK! After following this tutorial, you'll have a Universal Windows Platform (UWP) console application that creates and queries DocumentDB resources.
 
 We'll cover:
 
