@@ -26,6 +26,8 @@ In this article, we'll use the example of a password-based app to show how passw
 
 You should already have published and tested your app with Application Proxy. If not, follow the steps in [Publish applications using Azure AD Application Proxy - Public Preview](application-proxy-publish-azure-portal.md) then come back here. 
 
+Or, if you're new to Application Proxy, learn more about this feature with the article [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+
 ## Set up password vaulting for your application
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
