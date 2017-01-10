@@ -13,5 +13,5 @@
 | **Network** | |
 | Network Interface Card Type | VMXNET3 |
 | IP Address Type | Static |
-| Internet Access | The server should be able to access the following URL either directly or through a Proxy Server <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br>- ADD TIME SERVER URL |
+| Internet Access | The server should be able to access the following URL either directly or through a Proxy Server <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Control Channel Orchestration)<br>9443 (Data Transport)|

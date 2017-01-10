@@ -13,14 +13,14 @@
 
 |Parameter|Type|Description|Possible Values|
 |-|-|-|-|
-|-t |Mandatory|ToDo Venu|ToDo Venu|
-|-a |Mandatory|ToDo Venu|ToDo Venu|
-|-R |Mandatory|ToDo Venu|ToDo Venu|
-|-d |Mandatory|Location where the Mobility Service will install|/usr/local/ASR|
+|-t |Mandatory|Agent Type<br>(Will be deprecated in the next release)|*both*|
+|-a |Mandatory|Agent Configuration<br>(Will be deprecated in the next release) |*host*|
+|-R |Optional|Role of the Agent|Agent<br>MasterTarget|
+|-d |Optional|Location where the Mobility Service will install|/usr/local/ASR|
 |-i |Mandatory|IP Address of the configuration server.|Any valid IP Address|
 |-p |Mandatory|Port on which the Configuration server is listening for incoming connections|443|
-|-s |Mandatory|ToDo Venu|ToDo Venu|
-|-c |Mandatory|ToDo Venu|ToDo Venu|
+|-s |Mandatory|Start service after a successful install. (Will be deprecated in the next release)|*y*|
+|-c |Mandatory|Communication mode between Agent and Process Server |*https*|
 |-P |Mandatory|Configuration Server passphrase|Any valid UNC or local file path|
 
 
