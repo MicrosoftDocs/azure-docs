@@ -53,7 +53,7 @@ You can also enable VNET connectivity using the PowerShell cmdlets
 When using API Management in External Virtual Network Type, DNS is managed by Azure. For Internal Virtual Network type, you have to manage your own DNS.
 
 > [!NOTE]
-> API Management service does not listen to requests coming on IP addresses. It only responds to requests to the Hostname configured on > its Service Endpoints (which includes Gateway, Developer Portal, Publisher Portal, Direct  Management endpoint, and GIT).
+> API Management service does not listen to requests coming on IP addresses. It only responds to requests to the Hostname configured on > its Service Endpoints (which includes Gateway, Developer Portal, Publisher Portal, Direct Management endpoint, and GIT).
 
 ## Access on Default Host Names:
 When you create an API Management service say contoso in Public Azure, the following service Endpoints are configured by default.
@@ -66,7 +66,7 @@ When you create an API Management service say contoso in Public Azure, the follo
 
 >	GIT - contoso.scm.azure-api.net
 
-To access these API Management these service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like following.
+To access these API Management service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like following.
 
 > 10.0.0.5	  contoso.azure-api.net
 
