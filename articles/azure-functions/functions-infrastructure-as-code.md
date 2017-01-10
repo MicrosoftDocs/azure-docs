@@ -1,5 +1,5 @@
 ---
-title: Azure Functions  | Microsoft Docs
+title: Automating azure functions resource deployment | Microsoft Docs
 description: 
 services: Functions
 documtationcenter: na
@@ -18,7 +18,7 @@ ms.workload: na
 ms.date: 08/29/2016
 ms.author: cfowler;glenga
 ---
-# Automating Azure Functions Resource Deployment
+# Automating azure functions resource deployment
 
 In this topic, you will learn how to build an Azure Resource Manager template, that deploys a function app. You will learn how to define the baseline of resources required for an Azure Function and the parameters that are specified when the deployment is executed. Depending on the [triggers and bindings](functions-triggers-bindings.md) that are used in your function, you may require deploying additional resources to encompass your entire application as infrastructure as code.
 
@@ -58,9 +58,11 @@ The name of the function you wish to create.
 
 The location in which to deploy the Function App.
 
->[NOTE] The **defaultValue** parameter is used to inherit the location of the Resource Group, or if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box is provided to select from the **allowedValues**.
+> [!NOTE]
+> The **defaultValue** parameter is used to inherit the location of the Resource Group, or if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box is provided to select from the **allowedValues**.
 
->[NOTE] For an up-to-date list of regions Azure Functions is available in visit the [Products available by region](https://azure.microsoft.com/en-us/regions/services/) page.
+> [!TIP]
+> For an up-to-date list of regions Azure Functions is available in visit the [Products available by region](https://azure.microsoft.com/en-us/regions/services/) page.
 
 ```json
 "location": {
@@ -127,7 +129,7 @@ In this example below, you can see that we are leveraging variables to apply [Az
 }
 ```
 
-## Resources to Deploy
+## Resources to deploy
 
 ### Storage Account
 
@@ -145,11 +147,11 @@ An Azure Storage account is a required resource in Azure Functions.
 }
 ```
 
-### Hosting Plan: Fully Managed Scaling vs User Managed Scaling
+### Hosting plan: consumption vs app service plan
 
-There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption). Alternatively, you could choose user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which the number of instances can be manually or automatically configured. The decision to use one plan over another could be based upon available features in the plan, or a decision which is driven by architecting by cost.
+There are scenarios when building functions in which you may want your functions to be fully managed scaling meaning scaled on-demand by the platform (Consumption). Alternatively, you could choose user managed scaling in which your Functions run 24/7 on dedicated hardware (App Service Plan) in which the number of instances can be manually or automatically configured. The decision to use one plan over another could be based upon available features in the plan, or a decision which is driven by architecting by cost. To learn more about the different hosting plans, read the article [Scaling Azure Functions](functions-scale.md).
 
-#### Consumption Plan
+#### Consumption plan
 
 ```json
 {
@@ -165,7 +167,7 @@ There are scenarios when building functions in which you may want your functions
 }
 ```
 
-#### App Service Plan
+#### App service plan
 
 ```json
 {
@@ -183,7 +185,7 @@ There are scenarios when building functions in which you may want your functions
 }
 ```
 
-### Function App (Site)
+### Function app (site)
 
 Once the scaling option has been selected, it's time to create the container, which will hold all your functions, this is known as the Function App.
 
@@ -248,18 +250,18 @@ A Function App has many child resources in which you can take advantage of inclu
 }
 ```
 
-## Deploying your Template
+## Deploying your template
 
 * [Powershell](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/)
 * [CLI](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy-cli/)
 * [Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy-portal/)
 * [REST API](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy-rest/)
 
-### Deploy to Azure button
+### Deploy to azure button
 
 Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL encoded](https://www.bing.com/search?q=url+encode) of the raw path of your `azuredeploy.json` file in GitHub.
 
-#### markdown
+#### Markdown
 
 ```markdown
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
@@ -270,3 +272,11 @@ Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL encoded](https:
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
 ```
+
+## Next Steps
+
+Now that you have the ability to deploy a function app from code, take the opportunity to learn more about how to develop and configure Azure Functions:
+
+* [Azure Functions developer reference](functions-reference.md)
+* [How to configure Azure Functions app settings](functions-how-to-use-azure-function-app-settings.md)
+* [Create your first Azure Function](functions-create-first-azure-function.md)
