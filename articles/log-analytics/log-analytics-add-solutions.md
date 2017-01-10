@@ -1,6 +1,6 @@
 ---
 title: Add Operations Management Suite (OMS) management solutions | Microsoft Docs
-description: Operations Management Suite (OMS) / Log Analytics management solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area.
+description: Operations Management Suite (OMS) / Log Analytics management solutions are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -61,7 +61,7 @@ The following table identifies which solutions belong to each Operations Managem
 
 | Solution               | Log Analytics | Insight and Analytics | Automation and Control | Security and Compliance | Protection and Recovery |Pricing Tiers | Notes | 
 | ---                    | ---           | ---                   | ---                    | ---                     | ---                     | ---          | ---   |
-| Activity Log Analytics | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 |                        |                         || Free<br> Standard<br> Premium<br> Standalone<br> OMS | 90 days of data is available free of charge |
+| Activity Log Analytics | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 |                        |                         || Free<br> Standard<br> Premium<br> Standalone<br> OMS | 90 days of data are available free of charge |
 | AD Assessment          | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
 | AD Replication Status  | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
 | Agent Health 			 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
@@ -90,20 +90,20 @@ The following table identifies which solutions belong to each Operations Managem
 | Wire Data (Preview)	 | 	             |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |																					|| Free<br> OMS 										| |
 
 ## Data collection details
-The following tables shows data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
+The following tables shows data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers, which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
 
-Windows agents and SCOM agents are essentially the same, however the Windows agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use a SCOM agent, it must be targeted as an OMS agent to communicate with OMS. SCOM agents in this table are OMS agents that are connected to SCOM. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing SCOM environment to OMS.
+Windows agents and System Center Operations Manager agents are essentially the same. The Windows agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use a Operations Manager agent, it must be targeted as an OMS agent to communicate with OMS. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to OMS.
 
 > [!NOTE]
 > The type of agent that you use determines how data is sent to OMS, with the following conditions:
-> - You either use the Windows agent or a SCOM-attached OMS agent.
-> - When SCOM is required, SCOM agent data for the solution is always sent to OMS using the SCOM management group. Additionally, when SCOM is required, only the SCOM agent is used by the solution.
-> - When SCOM is not required and the table shows that SCOM agent data is sent to OMS using the management group, then SCOM agent data is always sent to OMS using management groups. Windows agents bypass the management group and send their data directly to OMS.
-> - When SCOM agent data is not sent using a management group, then the data is sent directly to OMS—bypassing the management group.
+> - You either use the Windows agent or a Operations Manager-attached OMS agent.
+> - When Operations Manager is required, Operations Manager agent data for the solution is always sent to OMS using the Operations Manager management group. Additionally, when Operations Manager is required, only the Operations Manager agent is used by the solution.
+> - When Operations Manager is not required and the table shows that Operations Manager agent data is sent to OMS using the management group, then Operations Manager agent data is always sent to OMS using management groups. Windows agents bypass the management group and send their data directly to OMS.
+> - When Operations Manager agent data is not sent using a management group, then the data is sent directly to OMS—bypassing the management group.
 
 ### Insight & Analytics / Log Analytics 
 
-| solution | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| solution | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Activity Log Analytics | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | on notification |
 | AD Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 days |
@@ -131,7 +131,7 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 ### Automation & Control
 
-| solution | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| solution | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 | Change Tracking |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
@@ -140,12 +140,12 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 ### Security & Compliance
 
-| solution type | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| solution type | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Antimalware Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Security and Audit<sup>1</sup> | Windows and Linux | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | various |
 
-<sup>1</sup>The Security and Audit solution can collect logs from Windows, SCOM, and Linux agents. See [Data sources](#data-sources) below for data collection information about:
+<sup>1</sup>The Security and Audit solution can collect logs from Windows, Operations Manager, and Linux agents. See [Data sources](#data-sources) for data collection information about:
 
 - Syslog
 - Windows security event logs
@@ -156,7 +156,7 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 ### Protection & Recovery
 
-| solution | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| solution | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Backup | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 | Azure Site Recovery | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
@@ -165,7 +165,7 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 ### Data sources
 
 
-| data source | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+| data source | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ETW |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutes |
 | IIS Logs |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutes |
@@ -181,23 +181,23 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 
 ## Preview management solutions and features
-By running a service and following devops practices we are able to partner with customers to develop features and solutions.
+By running a service and following devops practices, we are able to partner with customers to develop features and solutions.
 
-During private preview we give a small group of customers access to an early implementation of the feature or solution to gain feedback and make improvements. This early implementation has minimal features and operational capabilities.
+During private preview, we give a small group of customers access to an early implementation of the feature or solution to gain feedback and make improvements. This early implementation has minimal features and operational capabilities.
 
 Our goal is to try things quickly so we can find what works, and what doesn’t work. We iterate through this process until the feedback from the private preview customers informs us that we’re ready for a public preview.
 
 During the public preview, we make the feature or solution available for all users to get more feedback and validate our scaling and efficiency. During this phase:
 
-* Preview features will appear in the Settings tab and can be enabled by any user.
-* Preview solutions can be added through the gallery or using a published script.
+* Preview features appear in the Settings tab and can be enabled by any user.
+* Preview solutions are added through the gallery or using a script.
 
 ### What should I know about Preview features and solutions?
 We’re excited about new features and management solutions and we love working with you to develop them.
 
 Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with something that is under development.
 
-When enabling a preview feature through the portal you will be see a warning reminding you that the feature is in preview.
+When enabling a preview feature through the portal, you see a warning reminding you that the feature is in preview.
 
 #### For both *private* and *public* preview
 The following applies to both public and private previews:
@@ -212,22 +212,22 @@ The following applies to both public and private previews:
   * Based on our learnings during the preview we may decide to not release the feature or solution.
 * Previews may not work or may not have been tested with all configurations, and we may limit:
   * The operating systems that can be used (e.g. a feature may only apply to Linux while in preview).
-  * The type of agent (MMA, SCOM) that can be used (e.g. a feature may not work with SCOM while in preview).  
+  * The type of agent (MMA, Operations Manager) that can be used (for example, a feature may not work with Operations Manager while in preview).  
 * Preview solutions and features are not covered by the Service Level Agreement.
-* Usage of preview features will incur usage charges.
+* Usage of preview features incurs usage charges.
 * Features or capabilities that you need for the feature / solution to be useful may be missing or incomplete.
 * Features / solutions may not be available in all regions.
 * Features / solutions may not be localized.
 * Features / solutions may have a limit on the number of customers or devices that can use it.
 * You may need to use scripts to perform configuration and to enable the solution/feature.
-* The user interface (UI) will be incomplete and may change from day to day.
+* The user interface (UI) is be incomplete and may change from day to day.
 * Public previews may not be appropriate for your production / critical systems.
 
 #### For *private* preview
 In addition to the items above, the following is specific to private previews:
 
 * We expect you to provide us with feedback on your experience so that we can make the feature/solution better.
-* We may contact you for feedback using surveys, phone calls or e-mail.
+* We may contact you for feedback using surveys, phone calls, or e-mail.
 * Things won't always work correctly.
 * We may require a Non-Disclosure Agreement (NDA) for participation or may include confidential content.
   * Before blogging, tweeting, or otherwise communicating with third parties, please check with the Program Manager that is responsible for the preview to understand any restrictions on disclosure.
