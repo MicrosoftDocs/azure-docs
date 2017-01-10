@@ -81,7 +81,8 @@
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
 ## Manage
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Secure
 ### [Security guide](storage-security-guide.md)
