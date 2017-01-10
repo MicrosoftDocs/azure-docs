@@ -113,6 +113,20 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
+## Update client applications for multiple subnet failover
+
+When the replica in the remote region becomes the primary replica, application connections may timeout. This is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings for MultiSubnetFailover. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+
+If you cannot modify the connection strings, you can [configure the availability group to prevent timeouts in mulitple subnets](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+
+## Failover to Remote Region 
+
+You can failover a replica to the remote region. 
+
+[Perform a Planned Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
+
+[Perform a Forced Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
+
 ## More Information
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
