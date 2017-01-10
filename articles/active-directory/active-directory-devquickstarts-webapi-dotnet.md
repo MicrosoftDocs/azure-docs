@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -36,20 +36,20 @@ In order to do this, you’ll need to:
 
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  Each is a Visual Studio 2013 solution.  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
-## *1.    Register an Application with Azure AD*
+## 1.    Register an Application with Azure AD
 To secure your application, you’ll first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
-* Sign into the [Azure Management Portal](https://manage.windowsazure.com)
-* In the left hand nav, click on **Active Directory**
-* Select a tenant in which to register the application.
-* Click the **Applications** tab, and click **Add** in the bottom drawer.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **Name** of the application will describe your application to end-users.  Enter "To Do List Service".
   * The **Redirect Uri** is a scheme and string combination that Azure AD would use to return any tokens your app requested. Enter `https://localhost:44321/` for this value.
-* Once you’ve completed registration, navigate to **Configure** tab and locate the **App ID URI** field.  Enter a tenant-specific identifier for this value, e.g. `https://contoso.onmicrosoft.com/TodoListService`
-* Save the configuration.  Leave the portal open - you'll also need to register your client application shortly.
+  * For the **AppID URI** field, enter a tenant-specific identifier e.g. `https://contoso.onmicrosoft.com/TodoListService`
+6. Save the configuration.  Leave the portal open - you'll also need to register your client application shortly.
 
-## *2. Set up your app to use the OWIN authentication pipeline*
+## 2. Set up your app to use the OWIN authentication pipeline
 Now that you’ve registered an application with Azure AD, you need to set up your application to communicate with Azure AD in order to validate incoming requests & tokens.
 
 * To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
@@ -116,15 +116,16 @@ public IEnumerable<TodoItem> Get()
   * The `ida:Tenant` is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".
   * Your `ida:Audience` is the App ID URI of the application that you entered in the Azure Portal.
 
-## *3.    Configure a client application & Run the service*
+## 3. Configure a client application & Run the service
 Before you can see the Todo List Service in action, you need to configure the Todo List Client so it can get tokens from AAD and make calls to the service.
 
-* Navigate back to the [Azure Management Portal](https://manage.windowsazure.com)
+* Navigate back to the [Azure portal](https://portal.azure.com)
 * Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
   * The **Name** of the application will describe your application to end-users
   * Enter `http://TodoListClient/` for the **Redirect Uri** value.
-* Once you’ve completed registration, AAD will assign your app a unique **Client Id**. You’ll need this value in the next steps, so copy it from the Configure tab.
-* Also in **Configure** tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "All Apps" in the "Show" dropdown, and click the upper check mark. Locate & click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.
+* Once you’ve completed registration, AAD will assign your app a unique **Application Id**. You’ll need this value in the next steps, so copy it from the application page.
+* From the **Settings** page, choose **Required Permissions** and choose **Add**.  Locate and select the TodoListService and add the **Access TodoListService** permission under **Delegated Permissions** and choose **Done**.
+
 * In Visual Studio, open `App.config` in the TodoListClient project and enter your configuration values in the `<appSettings>` section.
   
   * The `ida:Tenant` is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".
