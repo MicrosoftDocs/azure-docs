@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 ---
 
@@ -59,7 +59,7 @@ For blob indexing, the data source must have the following required properties:
 
 * **name** is the unique name of the data source within your search service.
 * **type** must be `azureblob`.
-* **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value.
+* **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure portal by navigating to the storage account blade > **Settings** > **Keys** (for Classic storage accounts) or **Settings** > **Access keys** (for ARM storage accounts). Note that Azure Search does not currently support Shared Access Signature credentials. If you'd like to use SAS, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
 * **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter.
 
 To create a data source:
@@ -71,7 +71,7 @@ To create a data source:
     {
         "name" : "blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
@@ -144,6 +144,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 >
 
+<a name="DocumentKeys"></a>
 ### Defining document keys and field mappings
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 

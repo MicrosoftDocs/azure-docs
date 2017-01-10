@@ -1,6 +1,7 @@
 ---
-title: Import to SQL Database from a BACPAC file using SqlPackage
-description: Microsoft Azure SQL Database, database migration, import database, import BACPAC file, sqlpackage
+title: 'SqlPackage: Import to Azure SQL Database from a BACPAC file | Microsoft Docs'
+description: This article shows how to import to SQL database from a BACPAC file using the SqlPackage command-line utility.
+keywords: Microsoft Azure SQL Database, database migration, import database, import BACPAC file, sqlpackage
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -9,6 +10,7 @@ editor: ''
 
 ms.assetid: 424afa27-5f13-4ec3-98f6-99a511a6a2df
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

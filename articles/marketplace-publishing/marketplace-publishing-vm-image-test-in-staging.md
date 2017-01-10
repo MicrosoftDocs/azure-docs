@@ -1,4 +1,4 @@
-﻿---
+---
 title: Test your VM offer for the Marketplace | Microsoft Docs
 description: Understand how to test your VM image for the Azure Marketplace.
 services: marketplace-publishing

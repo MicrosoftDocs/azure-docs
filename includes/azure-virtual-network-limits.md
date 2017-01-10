@@ -23,6 +23,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
 | Virtual networks per subscription |50 |500 |
+| Subnets per virtual network |1,000 |contact support |
 | DNS Servers per virtual network |9 |25 |
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP connections for a virtual machine or role instance |500K |500K |

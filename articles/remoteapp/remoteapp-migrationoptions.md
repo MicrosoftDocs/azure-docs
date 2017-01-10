@@ -1,4 +1,3 @@
-﻿
 ---
 title: Options for migrating out of Azure RemoteApp | Microsoft Docs
 description: Learn about the options for migrating out of Azure RemoteApp.
@@ -13,7 +12,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/07/2017
 ms.author: mbaldwin
 
 ---

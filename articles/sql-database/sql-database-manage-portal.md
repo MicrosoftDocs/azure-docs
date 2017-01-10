@@ -3,17 +3,18 @@ title: Manage Azure SQL Database using the Azure Portal | Microsoft Docs
 description: Quick reference on how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal.
 services: sql-database
 documentationcenter: ''
-author: carlrabeler
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -26,6 +27,9 @@ ms.author: carlrab
 > 
 
 The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
+
+> [!TIP]
+> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, connect using SQL Server Management Studio, query the master database, create a sample database and a blank database, query database properties, connect using SQL Server Management Studio, and query the sample database, see [Get Started Tutorial](sql-database-get-started.md).
 
 ## View your Azure SQL databases, servers, and pools
 To view the available SQL Database services, click **More services**, and type **SQL** in the search box:
@@ -43,7 +47,7 @@ To open the **SQL servers** blade, click **SQL servers**, and then click the ser
 ![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
 
 ## How do I create or view SQL elastic pools?
-To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic database pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
+To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then click the pool you want to work with, or click **+Add** to create a pool. For details, see [Create an elastic pool with the Azure portal](sql-database-elastic-pool-create-portal.md).
 
 ![SQL elastic pools](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -99,7 +103,7 @@ To create a BACPAC of a SQL database, click **Export** on the **SQL database** b
 ![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## How do I restore a SQL database to a previous point in time?
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
+To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore.md).
 
 ![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 
@@ -118,5 +122,5 @@ To delete a SQL database, click **Delete** on the **SQL database** blade.
 
 ## Additional resources
 * [SQL Database](sql-database-technical-overview.md)
-* [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
+* [Monitor and manage an elastic pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
 

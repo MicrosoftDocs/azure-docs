@@ -1,6 +1,6 @@
 ---
 title: Create a new elastic pool with the Azure portal | Microsoft Docs
-description: How to add a scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases.
+description: How to add a scalable elastic pool to your SQL database configuration for easier administration and resource sharing across many databases.
 keywords: scalable database,database configuration
 services: sql-database
 documentationcenter: ''
@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
@@ -18,7 +19,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
-# Create a new elastic database pool with the Azure portal
+# Create a new elastic pool with the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -27,7 +28,7 @@ ms.tgt_pltfrm: NA
 
 This article shows you how to create a scalable [elastic pool](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
-You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
+You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 
 > [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
@@ -54,7 +55,7 @@ This article shows how to create a new pool from an existing **server** blade in
 
     ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-3. The **Elastic database pool** blade appears, which is where you will specify the settings for your pool. If you clicked **New pool** in the previous step, the pricing tier will be **Standard** by default and there will be no databases selected yet. You can create an empty pool, or specify a set of existing databases from that server to move into the pool. If you are creating a recommended pool, the recommended pricing tier, performance settings, and list of databases will be prepopulated, but you can still change them.
+3. The **elastic pool** blade appears, which is where you will specify the settings for your pool. If you clicked **New pool** in the previous step, the pricing tier will be **Standard** by default and there will be no databases selected yet. You can create an empty pool, or specify a set of existing databases from that server to move into the pool. If you are creating a recommended pool, the recommended pricing tier, performance settings, and list of databases will be prepopulated, but you can still change them.
 
     ![Configure elastic pool](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
@@ -85,7 +86,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for more detail about limits for each service tier, and see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
 
 	![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -106,7 +107,7 @@ The pool recommendation comprises:
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool
 
-The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic database pool it must exist for at least 7 days. Databases that are already in an elastic database pool are not considered as candidates for elastic database pool recommendations.
+The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
 
 The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 

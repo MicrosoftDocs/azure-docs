@@ -44,14 +44,16 @@
 ## Manage
 ### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
 ### [Plan for high availability](data-lake-store-troubleshooting-guidance.md)
-
+### [Performance tuning guidance](data-lake-store-performance-tuning-guidance.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](/rest/api/datalakestore/)
+## [Python (Account Mgmt.)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST](/rest/api/datalakestore)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-store)

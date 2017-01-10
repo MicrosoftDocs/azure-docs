@@ -18,7 +18,7 @@ At a high level, using device twins enable the solution back end to specify the 
 
 In this tutorial, the solution back end changes the telemetry configuration of a target device and, as a result of that, the device app follows a multi-step process to apply a configuration update (for example requiring a software module restart), which this tutorial simulates with a simple delay).
 
-The back-end stores the configuration in the device twin's desired properties in the following way:
+The solution back end stores the configuration in the device twin's desired properties in the following way:
 
         {
             ...
@@ -78,7 +78,7 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app will report the success of failure of this operation by updating the above property.
+Then, at some later time, the device app will report the success or failure of this operation by updating the above property.
 Note how the solution back end is able, at any time, to query the status of the configuration process across all the devices.
 
 This tutorial shows you how to:

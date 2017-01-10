@@ -170,9 +170,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
              }
 
     The request charge returned in this header is a fraction of your provisioned throughput (i.e., 2000 RUs / second). For example, if the query above returns 1000 1KB documents, the cost of the operation will be 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](documentdb-request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Handle rate limiting/request rate too large**
 
-    When a client attempts to exceed the reserved throughput for an account, there are no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+    When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

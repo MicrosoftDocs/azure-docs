@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/12/2016
 ms.author: johnkem
 
 ---
@@ -31,14 +31,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|
 |qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
 |memory_metric|Memory|Bytes|Average|Memory. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|
-
-## Microsoft.ApiManagement/service
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|TotalRequests|Total Gateway Requests|Count|Sum|Number of Gateway requests|
-|TotalSuccessfulRequests|Successful Gateway Requests|Count|Sum|Number of processed gateway requests|
-|TotalFailedRequests|Failed Gateway Requests|Count|Sum|Number of failures in gateway requests|
 
 ## Microsoft.Batch/batchAccounts
 
@@ -287,16 +279,23 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|
 
 ## Microsoft.Devices/IotHubs
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|Telemetry Message Send Attempts|Count|Total|Number of Device to Cloud telemetry messages attempted to be sent to your IoT hub|
-|d2c.telemetry.ingress.success|Telemetry Messages Sent|Count|Total|Number of Device to Cloud telemetry messages sent successfully to your IoT hub|
-|c2d.commands.egress.complete.success|Commands Completed|Count|Total|Number of Cloud to Device commands completed successfully by the device|
-|c2d.commands.egress.abandon.success|Commands Abandoned|Count|Total|Number of Cloud to Device commands abandoned by the device|
-|c2d.commands.egress.reject.success|Commands Rejected|Count|Total|Number of Cloud to Device commands rejected by the device|
-|devices.totalDevices|Total Devices|Count|Total|Number of devices registered to your IoT hub|
-|devices.connectedDevices.allProtocol|Connected Devices|Count|Total|Number of devices connected to your IoT hub|
+| Metric | Metric Display Name | Unit | Aggregation Type | Description |
+| --- | --- | --- | --- | --- |
+| d2c.telemetry.ingress.allProtocol |Telemetry Message Send Attempts |Count |Total |Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub |
+| d2c.telemetry.ingress.success |Telemetry Messages Sent |Count |Total |Number of device-to-cloud telemetry messages sent successfully to your IoT hub |
+| d2c.telemetry.egress.success | Telemetry messages delivered | Count | Total | The count of all successful writes to an endpoint |
+| d2c.telemetry.egress.invalid | Invalid telemetry message delivery attempts | Count | Total | The count of messages not delivered due to incompatibility with the endpoint |
+| d2c.telemetry.egress.dropped | Dropped telemetry messages | Count | Total | The count of messages dropped because an endpoint was unhealthy |
+| d2c.telemetry.egress.fallback | Telemetry messages matching fallback condition | Count | Total | The count of messages matching the fallback route |
+| d2c.telemetry.egress.orphaned | Orphaned telemetry messages | Count | Total | The count of messages not matching any routes including the fallback route |
+| d2c.endpoints.latency.eventHubs | Message latency for Event Hub endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into an Event Hub endpoint, in milliseconds |
+| d2c.endpoints.latency.serviceBusQueues | Message latency for Service Bus Queue endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Queue endpoint, in milliseconds |
+| d2c.endpoints.latency.serviceBusTopics | Message latency for Service Bus Topic endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Topic endpoint, in milliseconds |
+| c2d.commands.egress.complete.success |Commands Completed |Count |Total |Number of Cloud to Device commands completed successfully by the device |
+| c2d.commands.egress.abandon.success |Commands Abandoned |Count |Total |Number of Cloud to Device commands abandoned by the device |
+| c2d.commands.egress.reject.success |Commands Rejected |Count |Total |Number of Cloud to Device commands rejected by the device |
+| devices.totalDevices |Total Devices |Count |Total |Number of devices registered to your IoT hub |
+| devices.connectedDevices.allProtocol |Connected Devices |Count |Total |Number of devices connected to your IoT hub |
 
 ## Microsoft.EventHub/namespaces
 

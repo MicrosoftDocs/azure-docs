@@ -45,9 +45,11 @@ This topic provides answers to some of the most common questions about running [
 7. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
     No. You can not switch from pay-per-minute licensing to using your own license. Create a new Azure virtual machine using one of the [BYOL images](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#BYOL), and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-7. **Do you have to pay the SQL costs of a VM if it is only being used for standby/failover?**
+
+7. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
    
-    If you are creating the SQL VM through the gallery, then you must have a separate license for the standby SQL VM and the pricing is the same. If you install SQL Server manually on a virtual machine with [License Mobility](https://azure.microsoft.com/pricing/license-mobility/), you have the option to have one free passive SQL instance for failover. Please review the restrictions and requirements.
+    You do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment, if you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/).
+    
 8. **How are updates and service packs applied on a SQL Server VM?**
    
     Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
