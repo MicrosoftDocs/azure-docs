@@ -22,27 +22,17 @@ Azure API Management provides you the ability to customize the content of develo
  The templates in this section allow you to customize the content of the API pages in the developer portal.  
   
 -   [API list](#APIList)  
-  
 -   [Operation](#Product)  
-  
 -   [Code samples](#CodeSamples)  
-  
     -   [Curl](#Curl)  
-  
     -   [C#](#CSharp)  
-  
     -   [Java](#Stub)  
-  
     -   [JavaScript](#JavaScript)  
-  
     -   [Objective C](#ObjectiveC)  
-  
     -   [PHP](#PHP)  
-  
     -   [Python](#Python)  
-  
     -   [Ruby](#Ruby)  
-  
+
 > [!NOTE]
 >  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
