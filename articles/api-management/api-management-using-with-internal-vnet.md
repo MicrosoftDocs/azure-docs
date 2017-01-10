@@ -34,7 +34,7 @@ Using API Management in Internal mode, you can achieve the following scenarios
 API Management service in Internal Virtual Network is hosted behind an Internal Load Balancer(ILB). The IP Address of the ILB is in the RFC1918 (http://www.faqs.org/rfcs/rfc1918.html) range.  
 
 ## <a name="enable-vnet-portal"> </a>Enable VNET connection using Azure portal
-First create the API Management service by following the steps [Create API Management service][Create API Management service]. The configure the API Management inside a Virtual Network.
+First create the API Management service by following the steps [Create API Management service][Create API Management service]. Then configure the API Management inside a Virtual Network.
 
 ![Menu for Setting up APIM in Internal Virtual Network][api-management-using-internal-vnet-menu]
 
@@ -80,7 +80,7 @@ If you don’t want to access the API Management service with the default host n
 Then you can create A records in your DNS Server to access these endpoints which are only accessible from within your Virtual Network.
 
 ## <a name="related-content"> </a>Related content
-* [Common Network configuration issues while setting up APIM in VNET][api-management-using-with-vnet.md#a-namenetwork-configuration-issues-acommon-network-configuration-issues]
+* [Common Network configuration issues while setting up APIM in VNET][api-management-using-with-vnet.md#-common-network-configuration-issues]
 * [Virtual Network faqs](../virtual-network/virtual-networks-faq.md)
 * [Creating A record in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
 
