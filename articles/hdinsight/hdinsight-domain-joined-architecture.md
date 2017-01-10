@@ -1,6 +1,6 @@
 ﻿---
-title: Domain-joind HDInsight architecture| Microsoft Docs
-description: Learn ....
+title: Domain-joined HDInsight architecture| Microsoft Docs
+description: Learn how to plan domain-joined HDInsight
 services: hdinsight
 documentationcenter: ''
 author: saurinsh
@@ -22,7 +22,7 @@ ms.author: saurinsh
 
 Today, HDInsight is a single user cluster, which works fine for most companies who have smaller application teams building their BigData workloads. However, as Hadoop is gaining popularity, a lot of enterprises are moving towards a model where clusters are managed by IT teams, and multiple application teams are sharing clusters. Thus, multi-user clusters are one of the most requested functionality in HDInsight.
 
-Instead of building our own multi-user authentication, and authorization, HDInsight has decided to rely on the most popular identity provider – Active Directory. After integrating HDInsight with active directory, multiple users from active directory can communicate with the cluster using their active directory credentials. The powerful security groups functionality in active directory can be used to manage multi-user authorization in HDInsight. HDInsight maps the active directory user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, etc) work seamlessly for the logged in user.
+Instead of building our own multi-user authentication, and authorization, HDInsight has decided to rely on the most popular identity provider – Active Directory. After integrating HDInsight with active directory, multiple users from active directory can communicate with the cluster using their active directory credentials. The powerful security groups functionality in active directory can be used to manage multi-user authorization in HDInsight. HDInsight maps the active directory user to a local Hadoop user, so all the services running on HDInsight (Ambari, Hive server, Ranger, Spark thrift server, and so on) work seamlessly for the logged in user.
 
 ## Integrate HDInsight with Active Directory
 
@@ -41,7 +41,7 @@ Pre-requisites that need to be setup on active directory
 * An Organizational unit must be created, within which you want to place the HDInsight cluster VMs and the service principals used by the cluster.
 * LDAPS must be setup for communicating with the active directory. The certificate used to setup LDAPS must be a real certificate (not a self-signed certificate).
 * Reverse DNS zones must be created on the domain for the IP address range of the HDI Subnet (for example 10.2.0.0/24 in the above picture).
-* A service account, or a user account is needed, which isused to create the HDInsight cluster. This account must have the following permissions:
+* A service account, or a user account is needed, which issued to create the HDInsight cluster. This account must have the following permissions:
 
     - Permissions to create service principal objects and machine objects within the organizational unit.
     - Permissions to create reverse DNS proxy rules
@@ -51,10 +51,10 @@ Pre-requisites that need to be setup on active directory
 
 For a cloud-only azure active directory, you need to configure a domain controller so that HDInsight can be integrated with your azure active directory (AAD). This is achieved using [azure active directory domain services](../active-directory-domain-services/active-directory-ds-overview.md) (AD DS). The AD DS creates domain controller machines on the cloud, and provides you with IP addresses for them. It creates two domain controllers for high availability.
 
-The architecture for this setup is shown below. The AD DS only exists in Classic VNETs today, and hence you need access to Classic portal, and need to create a classic VNET for configuring AD DS. The HDInsight VNET exists in ARM portal, which need to be peered with the classic VNET using VNET to VNET peering.
+The architecture for this setup is shown below. The AD DS only exists in Classic VNETs today, and hence you need access to Classic portal, and need to create a classic VNET for configuring AD DS. The HDInsight VNET exists in the Azure portal, which need to be peered with the classic VNET using VNET to VNET peering.
 
 > [!NOTE]
-> Peering between Classic and ARM VNETs can happen only when they both are in same subscription and same region.
+> Peering between Classic and Azure Resource Manager VNETs can happen only when they both are in same subscription and same region.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/image2.png)
 
@@ -91,10 +91,10 @@ Pre-requisites that need to be setup on the on-premises active directory
 
 This architecture is like the architecture #2. The only difference is that in this case, the on-premises active directory is synced to the azure active directory (AAD). You  need to configure a domain controller on the cloud so that HDInsight can be integrated with your azure active directory (AAD). This is achieved using [azure active directory domain services](../active-directory-domain-services/active-directory-ds-overview.md) (AD DS). The AD DS creates domain controller machines on the cloud, and provides you with IP addresses for them. It creates two domain controllers for high availability.
 
-The architecture for this setup is shown below. The AD DS only exists in Classic VNETs today, and hence you need access to Classic portal, and need to create a classic VNET for configuring AD DS. The HDInsight VNET exists in ARM portal, which need to be peered with the classic VNET using VNET to VNET peering.
+The architecture for this setup is shown below. The AD DS only exists in Classic VNETs today, and hence you need access to Classic portal, and need to create a classic VNET for configuring AD DS. The HDInsight VNET exists in the Azure portal, which need to be peered with the classic VNET using VNET to VNET peering.
 
 > [!NOTE] 
-> Peering between Classic and ARM VNETs can happen only when they both are in same subscription and same region.
+> Peering between Classic and Resource Group VNETs can happen only when they both are in same subscription and same region.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/image2.png)
 
@@ -116,10 +116,10 @@ This architecture is like architecture #2. In most companies, the admin access t
 
 The architecture diagram for this setup is shown below. The AD DS creates domain controller machines on the cloud, and provides you with IP addresses for them. It creates two domain controllers for high availability.
 
-The architecture for this setup is shown below. The AD DS only exists in Classic VNETs today, and hence you need access to Classic portal, and  need to create a classic VNET for configuring AD DS. The HDInsight VNET exists in ARM portal, which need to be peered with the classic VNET using VNET to VNET peering.
+The architecture for this setup is shown below. The AD DS only exists in Classic VNETs today, and hence you need access to Classic portal, and  need to create a classic VNET for configuring AD DS. The HDInsight VNET exists in the Azure portal, which need to be peered with the classic VNET using VNET to VNET peering.
 
 > [!NOTE]
-> Peering between Classic and ARM VNETs can happen only when they both are in same subscription and same region.
+> Peering between Classic and Resource Manager VNETs can happen only when they both are in same subscription and same region.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/image2.png)
 
