@@ -21,8 +21,9 @@ ms.author: elbutter
 
 ## Introduction
 
-This tutorial will teach you the basics of provisioning and loading data into a SQL Data Warehouse, as well as some 
-basics on scaling, pausing, and tuning. 
+Get Started Tutorial with Azure SQL Data Warehouse. This tutorial will teach you the basics 
+of provisioning and loading data into a SQL Data Warehouse, as well as some basics on scaling, 
+pausing, and tuning. 
 
 **Estimated time to complete:** 75 minutes
 
