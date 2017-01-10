@@ -19,7 +19,7 @@ ms.author: cfowler
 
 # Azure Functions Binding Error Codes
 
-Azure Function provides a wrapper to common services within Azure. Often times while developing your Functions, you may have errors bubble up from the underlying Azure Services SDKs. The table below is a reference off to the Error Code documentation for the services that we wrap.
+Azure Function provides a wrapper to common services within Azure. Often times while developing your Functions, you may have errors bubble up from the underlying Azure Services SDKs. The following table is a reference off to the Error Code documentation for the services that we wrap.
 
 ## Azure Storage
 
