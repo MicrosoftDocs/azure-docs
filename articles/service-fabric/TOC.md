@@ -22,13 +22,16 @@
 #### [Programming model](service-fabric-choose-framework.md)
 #### [Application model](service-fabric-application-model.md)
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
+#### [Service manifest resources](service-fabric-service-manifest-resources.md)
 #### [Tools](service-fabric-manage-application-in-visual-studio.md)
 #### [Debug](service-fabric-debugging-your-application.md)
 #### Monitor and diagnose
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [Configure security policies for your application](service-fabric-application-runas-security.md)
-#### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [Manage application secrets](service-fabric-application-secret-management.md)  
+#### [Configure security policies for your application](service-fabric-application-runas-security.md)  
+#### [Configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)  
+#### [Common errors and exceptions](service-fabric-errors-and-exceptions.md) 
 
 ### Reliable Service application
 #### [Overview](service-fabric-reliable-services-introduction.md)
@@ -62,6 +65,7 @@
 #### [State management](service-fabric-reliable-actors-state-management.md)
 #### [Configure state provider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+#### [Configure communications settings](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
 ### Guest executable application
 #### [Deploy a guest executable](service-fabric-deploy-existing-app.md)
@@ -84,6 +88,7 @@
 #### [Capacity planning](service-fabric-cluster-capacity.md)
 #### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 #### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
+#### [Manage a cluster using Azure CLI](service-fabric-azure-cli.md) 
 #### [Security](service-fabric-cluster-security.md)
 #### [Disaster recovery](service-fabric-disaster-recovery.md)
 
@@ -97,6 +102,7 @@
 #### [Delete a cluster](service-fabric-cluster-delete.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-fabric-settings.md)
+#### [Manage certs for a cluster](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Try a Party Cluster for free](http://aka.ms/tryservicefabric)
 
 ### Standalone clusters
@@ -106,6 +112,8 @@
 #### [Secure a cluster](service-fabric-windows-cluster-x509-security.md)
 #### [Access control](service-fabric-cluster-security-roles.md)
 #### [Configure a cluster](service-fabric-cluster-manifest.md)
+#### [Secure a cluster using certs](service-fabric-windows-cluster-x509-security.md)  
+#### [Secure a cluster using Windows security](service-fabric-windows-cluster-windows-security.md) 
 
 ## Manage and orchestrate cluster resources
 ### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
