@@ -1,3 +1,3 @@
 ---
-redirect_url: ../../load-balancer/load-balancer-overview
+redirect_url: /load-balancer/load-balancer-overview
 ---
