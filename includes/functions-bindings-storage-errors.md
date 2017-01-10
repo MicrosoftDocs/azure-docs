@@ -1,3 +1,5 @@
+| Binding | Service | Reference |
+|---|---|---|
 | Blob | Azure Storage | [Blob Error Codes](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Table | Azure Storage | [Table Error Codes](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Queue | Azure Storage | [Queue Error Codes](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/table-service-error-codes) |

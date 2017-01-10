@@ -21,10 +21,22 @@ ms.author: cfowler
 
 Azure Function provides a wrapper to common services within Azure. Often times while developing your Functions, you may have errors bubble up from the underlying Azure Services SDKs. The table below is a reference off to the Error Code documentation for the services that we wrap.
 
-| Binding | Service | Reference |
-|---|---|---|
+## Azure Storage
+
 [!INCLUDE [storage-binding-errors](../../includes/functions-bindings-storage-errors.md)]
+
+## Service Bus
+
 [!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]
+
+## Event Hub
+
 [!INCLUDE [event-hub-errors](../../includes/functions-bindings-event-hub-errors.md)]
+
+## Notification Hub
+
 [!INCLUDE [notification-hub-errors](../../includes/functions-bindings-notification-hub-errors.md)]
+
+## DocumentDB
+
 [!INCLUDE [document-db-errors](../../includes/functions-bindings-document-db-errors.md)]
