@@ -53,7 +53,7 @@ This template defines the following parameters.
 ### serviceBusNamespaceName
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -65,7 +65,7 @@ The name of the Service Bus namespace to create.
 ### serviceBusSKU
 The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) to create.
 
-```
+```json
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
@@ -87,7 +87,7 @@ For more information about Service Bus pricing, see [Service Bus pricing and bil
 ### serviceBusApiVersion
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
@@ -100,7 +100,7 @@ The Service Bus API version of the template.
 ### Service Bus namespace
 Creates a standard Service Bus namespace of type **Messaging**.
 
-```
+```json
 "resources": [
     {
         "apiVersion": "[parameters('serviceBusApiVersion')]",
@@ -122,12 +122,12 @@ Creates a standard Service Bus namespace of type **Messaging**.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
