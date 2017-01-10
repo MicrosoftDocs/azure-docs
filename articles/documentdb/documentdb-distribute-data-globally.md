@@ -59,7 +59,6 @@ You can decide to make your data locally or globally distributed by either assoc
 ## Next steps
 Learn more about the distributing data globally with DocumentDB in the following articles:
 
-* [Provisioning throughput and storage for a collection][throughputandstorage]
 * [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs][developingwithmultipleregions]
 * [Consistency Levels in DocumentDB][consistency]
 * [Availability SLAs][sla]
@@ -76,7 +75,6 @@ Learn more about the distributing data globally with DocumentDB in the following
 [createaccount]: documentdb-create-account.md
 [manageaccount]: documentdb-manage-account.md
 [manageaccount-consistency]: documentdb-manage-account.md#consistency
-[throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
 [serviceregions]: https://azure.microsoft.com/en-us/regions/#services 

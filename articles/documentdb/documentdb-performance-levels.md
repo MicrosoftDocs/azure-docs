@@ -166,7 +166,6 @@ Once you change a collection from S1, S2, or S3 to Standard, you cannot move bac
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
 
 * [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Managing DocumentDB capacity](documentdb-manage.md)
 * [Modeling data in DocumentDB](documentdb-modeling-data.md)
 * [Partitioning data in DocumentDB](documentdb-partition-data.md)
 * [Request units](http://go.microsoft.com/fwlink/?LinkId=735027)

@@ -623,6 +623,4 @@ That's it, build it and you're on your way!
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
