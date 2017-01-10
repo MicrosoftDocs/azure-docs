@@ -84,10 +84,12 @@ Most applications also require the presence of a domain controller and a DNS ser
 
 1. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
 
+
 	> [!TIP]
 	> The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
 	> 
 	> 
+
 
 1. Do a test failover of the domain controller virtual machine run in the isolated network. Use latest available **application consistent** recovery point of the domain controller virtual machine to do the test failover. 
 1. Run a test failover for the application recovery plan.

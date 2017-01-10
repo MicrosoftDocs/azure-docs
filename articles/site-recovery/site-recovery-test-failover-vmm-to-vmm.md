@@ -1,5 +1,5 @@
 ---
-title: Test Failover (VMM to VMM) in Site Recovery | Microsoft Docs
+title: Test Failover (VMM to VMM) in Site Recovery (Azure) | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.
 services: site-recovery
 documentationcenter: ''
@@ -92,7 +92,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 >
 
 
-## Test failover to a production recovery site network 
+## Test failover to a production network on recovery site 
 It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
 1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences. 
@@ -100,4 +100,5 @@ It is recommended that when you are doing a test failover you choose a network t
 1. This way of doing testing leads to a downtime of your production application. Users of the application should be asked to not to use the application when the DR drill is in progress.  
 
 
-
+## Next Steps
+Once you have successfully tried a test failover you can try doing a [failover](site-recovery-failover.md).
