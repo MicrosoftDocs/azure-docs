@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 
 ---
 # Service Fabric Reverse Proxy
@@ -128,7 +128,7 @@ The service fabric Reverse proxy can be enabled for the cluster via the [Azure R
 
 Once you have the template for the cluster that you want to deploy (either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
-1. Define a port for the reverse proxy in the [Parameters section](../resource-group-authoring-templates.md) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
    
     ```json
     "SFReverseProxyPort": {
@@ -139,7 +139,7 @@ Once you have the template for the cluster that you want to deploy (either from 
         }
     },
     ```
-2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
+2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md)
    
     For apiVersion's prior to '2016-09-01'  the port is identified by the parameter name ***httpApplicationGatewayEndpointPort***
    
@@ -226,7 +226,7 @@ Once you have the template for the cluster that you want to deploy (either from 
         ]
     }
     ```
-4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../resource-group-authoring-templates.md)
+4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md)
    
     For apiVersion's prior to '2016-09-01'  the certificate is identified by the parameter name ***httpApplicationGatewayCertificate***
    

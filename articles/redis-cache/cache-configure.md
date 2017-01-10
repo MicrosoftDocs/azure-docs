@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/20/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 
 ---
@@ -68,7 +68,7 @@ Azure Redis Cache provides the following settings in the **Resource Menu**.
 
 ### Activity log
 
-Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### Access control (IAM)
 
@@ -76,7 +76,7 @@ The **Access control (IAM)** section provides support for role-based access cont
 
 ### Tags
 
-The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
 
 ### Diagnose and solve problems
@@ -110,7 +110,7 @@ Click **Access keys** to view or regenerate the access keys for your cache. Thes
 ![Redis Cache Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### Advanced settings
-The following settings are configure on the **Advanced settings** blade.
+The following settings are configured on the **Advanced settings** blade.
 
 * [Access Ports](#access-ports)
 * [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
@@ -262,11 +262,11 @@ Click **Properties** to view information about your cache, including the cache e
 ![Redis Cache Properties](./media/cache-configure/redis-cache-properties.png)
 
 ### Locks
-The **Locks** section allows you to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
+The **Locks** section allows you to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### Automation script
 
-Click **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../resource-group-template-deploy.md).
+Click **Automation script** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Administration settings
 The settings in the **Administration** section allow you to perform the following administrative tasks for your premium cache. 
@@ -466,7 +466,7 @@ You can move your cache to a new subscription by clicking **Move**.
 
 ![Move Redis Cache](./media/cache-configure/redis-cache-move.png)
 
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Next steps
 * For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands).

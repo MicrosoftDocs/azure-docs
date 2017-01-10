@@ -1,6 +1,6 @@
 ---
-title: Configure Azure SQL Database server-level firewall rules by using PowerShell | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: 'PowerShell: Configure Azure SQL Database firewall rules | Microsoft Docs'
+description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL databases uisng PowerShell.
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -74,7 +74,7 @@ For help connecting to an Azure SQL database from open source or third-party app
 To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## Additional resources
-* [Securing your database](sql-database-security.md)
+* [Securing your database](sql-database-security-overview.md)
 * [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->

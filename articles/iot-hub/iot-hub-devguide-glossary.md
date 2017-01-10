@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 
 ---
@@ -24,7 +24,11 @@ This article lists some of the common terms used in the IoT Hub articles.
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Azure CLI
-The [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure.
+The [Azure CLI](../xplat-cli-install.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
+
+## Azure CLI 2.0 (Preview)
+The [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This preview version of the CLI is implemented using Python.
+
 
 ## Azure IoT device SDKs
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
@@ -92,7 +96,7 @@ Refers to device state information, such as the connectivity method currently in
 Device data refers to the per-device data stored in the IoT Hub [identity registry](#identity-registry). It is possible to import and export this data.
 
 ## Device explorer
-The [device explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
+The [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
 
 ## Device identities REST API
 The [Device identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
@@ -128,7 +132,7 @@ A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigge
 An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management.
 
 ## Event Hubs service
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enable you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enables you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## Event Hub-compatible endpoint
 To read [device-to-cloud](#device-to-cloud) messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the [Event Hubs SDKs](../event-hubs/event-hubs-programming-guide.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
@@ -146,7 +150,7 @@ A gateway enables connectivity for devices that cannot connect directly to [IoT 
 The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
 
 ## Interactive message
-An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
+An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged in to a CRM system.
 
 ## IoT Hub
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
@@ -164,7 +168,7 @@ You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/
 Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
 ## iothub-explorer
-The [iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
+The [iothub-explorer](https://github.com/azure/iothub-explorer) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
 
 ## Job
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
@@ -191,7 +195,7 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 There are various [quotas](iot-hub-devguide-quotas-throttling.md) that apply to your use of [IoT Hub](#iot-hub), many of the quotas vary based on the tier of the IoT hub. [IoT Hub](#iot-hub) also applies [throttles](iot-hub-devguide-quotas-throttling.md) to your use of the service at run time.
 
 ## Reported configuration
-In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that should be reported by the device to the solution back end.
+In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that the device reports to the solution back end.
 
 ## Reported properties
 In the context of a [device twin](iot-hub-devguide-device-twins.md), reported properties is a subsection of the device twin used with [desired properties](#desired-properties) to synchronize device configuration or condition. Reported properties can only be set by the [device app](#device-app) and can be read and queried by a [back-end app](#back-end-app).

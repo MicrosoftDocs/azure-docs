@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 01/04/2017
 ms.author: arramac
 
 ---
@@ -92,17 +92,15 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
     // Connect to the DocumentDB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
-        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-        new ConnectionPolicy { EnableEndpointDiscovery = false });
-
-> [!NOTE]
-> When connecting to the emulator, you must set EnableEndpointDiscovery = false in the connection configuration.
+        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mongodb.md), please use the following connection string:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
+
+Using the DocumentDB emulator, you can create up to 25 single partition collections or one partitioned collection. If you attempt to create a collection after these limits have been exceeded, the emulator throws a ServiceUnavailable exception. In order to fix the issue causing the exception, please delete any existing collections to meet the limits.
 
 ## Export the DocumentDB Emulator SSL certificate
 
@@ -114,12 +112,14 @@ In order to obtain a certificate to use with languages and runtimes that do not 
 
 The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store). Once the certificate is imported into the cacerts store Java and MongoDB applications will be able to connect to the DocumentDB Emulator.
 
+When connecting to the emulator from Python and Node.js SDKs, SSL verification is disabled.
+
 ## <a id="command-line"></a>DocumentDB Emulator command-line tool reference
 From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
 
 ### Command-line Syntax
 
-    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
+    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/enableratelimiting] [/disableratelimiting] [/noui] [/noexplorer] [/?]
 
 To view the list of options, type `DocumentDB.Emulator.exe /?` at the command prompt.
 
@@ -132,74 +132,74 @@ To view the list of options, type `DocumentDB.Emulator.exe /?` at the command pr
 </tr>
 <tr>
   <td>[No arguments]</td>
-  <td>Starts up the DocumentDB Emulator with default settings</td>
+  <td>Starts up the DocumentDB Emulator with default settings.</td>
   <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
-  <td>Shutdown</td>
-  <td>Shuts down the DocumentDB Emulator</td>
-  <td>DocumentDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>Help</td>
-  <td>Displays the list of command-line arguments</td>
+  <td>[Help]</td>
+  <td>Displays the list of supported command-line arguments.</td>
   <td>DocumentDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
-  <td>Datapath</td>
-  <td>Specifies the path in which to store data files</td>
+  <td>shutdown</td>
+  <td>Shuts down the DocumentDB Emulator.</td>
+  <td>DocumentDB.Emulator.exe /shutdown</td>
+  <td></td>
+</tr>
+<tr>
+  <td>datapath</td>
+  <td>Specifies the path in which to store data files. Default is %LocalAppdata%\DocumentDBEmulator.</td>
   <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: An accessible path</td>
 </tr>
 <tr>
-  <td>Port</td>
-  <td>Specifies the port number to use for the emulator.  Default is 8081</td>
+  <td>port</td>
+  <td>Specifies the port number to use for the emulator.  Default is 8081.</td>
   <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>MongoPort</td>
-  <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250</td>
+  <td>mongoport</td>
+  <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250.</td>
   <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>DirectPorts</td>
-  <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254</td>
+  <td>directports</td>
+  <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254.</td>
   <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: Comma-delimited list of 4 ports</td>
 </tr>
 <tr>
-  <td>Key</td>
-  <td>Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector</td>
+  <td>key</td>
+  <td>Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector.</td>
   <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
   <td>&lt;key&gt;: Key must be the base-64 encoding of a 64-byte vector</td>
 </tr>
 <tr>
-  <td>EnableThrottling</td>
-  <td>Specifies that request throttling behavior is enabled</td>
-  <td>DocumentDB.Emulator.exe /enablethrottling</td>
+  <td>enableratelimiting</td>
+  <td>Specifies that request rate limiting behavior is enabled.</td>
+  <td>DocumentDB.Emulator.exe /enableratelimiting</td>
   <td></td>
 </tr>
 <tr>
-  <td>DisableThrottling</td>
-  <td>Specifies that request throttling behavior is disabled</td>
-  <td>DocumentDB.Emulator.exe /disablethrottling</td>
+  <td>disableratelimiting</td>
+  <td>Specifies that request rate limiting behavior is disabled.</td>
+  <td>DocumentDB.Emulator.exe /disableratelimiting</td>
   <td></td>
 </tr>
 <tr>
-  <td>NoUi</td>
+  <td>noui</td>
   <td>Do not show the emulator user interface.</td>
-  <td>DocumentDB.LocalEmulator.exe /noui</td>
+  <td>DocumentDB.Emulator.exe /noui</td>
   <td></td>
 </tr>
 <tr>
-  <td>NoExplorer</td>
+  <td>noexplorer</td>
   <td>Don't show document explorer on startup.</td>
-  <td>DocumentDB.LocalEmulator.exe /noexplorer</td>
+  <td>DocumentDB.Emulator.exe /noexplorer</td>
   <td></td>
 </tr>
 </table>

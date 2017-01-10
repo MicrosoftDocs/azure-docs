@@ -32,7 +32,7 @@ Azure AD Connect performs 3 types of operations from the directories it keeps in
 Following section describes different types of synchronization errors that can occur during the export operation to Azure AD using the Azure AD connector. This connector can be identified by the name format being "contoso.*onmicrosoft.com*".
 Errors during Export to Azure AD indicate that the operation \(add, update, delete etc.\) attempted by Azure AD Connect \(Sync Engine\) on Azure Active Directory failed.
 
-![Export Errors Overview](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Export Errors Overview](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## Data Mismatch Errors
 ### InvalidSoftMatch

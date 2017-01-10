@@ -150,7 +150,7 @@ In the following tutorials, you will learn about [creating and managing logins a
 |  | |
 
 ## Secure and protect data
-In the following tutorials, you will learn about [securing Azure SQL Database data](sql-database-security.md).
+In the following tutorials, you will learn about [securing Azure SQL Database data](sql-database-security-overview.md).
 
 | Tutorial | Description |
 | --- | --- | --- |
