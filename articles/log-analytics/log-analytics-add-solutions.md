@@ -1,6 +1,6 @@
 ---
-title: Add Log Analytics management solutions | Microsoft Docs
-description: Log Analytics management solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area.
+title: Add Operations Management Suite (OMS) management solutions | Microsoft Docs
+description: Operations Management Suite (OMS) / Log Analytics management solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/11/2017
 ms.author: banders
 
 ---
-# Add Log Analytics management solutions
+# Add Operations Management Suite (OMS) management solutions
 
-Log Analytics management solutions are a collection of **logic**, **visualization** and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
+Operations Management Suite (OMS) management solutions are a collection of **logic**, **visualization** and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
 
 Management solutions allow deeper insights to:
 
@@ -55,6 +55,39 @@ You can easily remove a management solution when it is no longer needed. When yo
     ![delete solution](./media/log-analytics-add-solutions/solution-delete.png)  
 4. In the confirmation dialog, click **Yes**.
 
+## Offers and pricing tiers
+
+The following table identifies which solutions belong to each Operations Management Suite offer. The table also identifies the pricing tiers that are available for each solution.
+
+| Solution               | Log Analytics | Insight and Analytics | Automation and Control | Security and Compliance | Protection and Recovery |Pricing Tiers | Notes | 
+| ---                    | ---           | ---                   | ---                    | ---                     | ---                     | ---          | ---   |
+| Activity Log Analytics | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 |                        |                         || Free<br> Standard<br> Premium<br> Standalone<br> OMS | 90 days of data is available free of charge |
+| AD Assessment          | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| AD Replication Status  | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Agent Health 			 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Alert Management 	     | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Antimalware Assessment | 				 |						 |						  | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)  						 													|| Free<br> OMS				  							| |
+| Application Insights Connector (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)      | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Automation Hybrid Worker |			 |						 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)				  |																						|| Free<br> OMS 					  					| Requires your Log Analytics workspace to be linked to an Automation account |
+| Azure Networking Analytics (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)     |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)      | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Backup                 |               |                       |                        |                          | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) 												| Free<br> OMS        									| |
+| Capacity Management (Preview)    | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)       | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Change Tracking		 |				 |						 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)				  |																						|| Free<br> OMS 							   			| Requires your Log Analytics workspace to be linked to an Automation account|
+| Containers 			 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Key Vault Analytics (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Network Performance Monitor | 		 |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                  						  								 |						  |							|| Free<br> OMS 										|  |
+| Office 365 Analytics (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Security and Audit	 | 				 |						 |						  | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)																			|| Free<br> OMS								  			| Collecting security event logs requires this solution |
+| Service Fabric Analytics | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)               | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Service Map (Preview)	 | 		         |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                  						  								 |						  |							|| Free<br> OMS 										| Only in East US and West Europe |
+| Site Recovery          |               |                       |                        |                           |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) 						  							|  Free<br> OMS 										| Only supports classic vaults |
+| SQL Assessment 		 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| SurfaceHub 			 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)        |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| System Center Operations Manager Assessment (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)  | 			  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Update Management		 |				 |						 | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)				  |																						|| Free<br> OMS 			 						    | Requires your Log Analytics workspace to be linked to an Automation account|
+| Upgrade Analytics (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)   |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | No charge for data or nodes |
+| VMware Monitoring (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)   |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |							|| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Wire Data (Preview)	 | 	             |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png)                 | 						  |																					|| Free<br> OMS 										| |
 
 ## Data collection details
 The following tables shows data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
@@ -68,7 +101,7 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 > - When SCOM is not required and the table shows that SCOM agent data is sent to OMS using the management group, then SCOM agent data is always sent to OMS using management groups. Windows agents bypass the management group and send their data directly to OMS.
 > - When SCOM agent data is not sent using a management group, then the data is sent directly to OMS—bypassing the management group.
 
-### Insight & Analytics or Log Analytics Standalone (per gigabyte)
+### Insight & Analytics / Log Analytics 
 
 | solution | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -96,16 +129,10 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 | Wire Data<sup>2</sup> |Windows (2012 R2 / 8.1 or later) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 minute |
 
 
-<sup>1</sup>The Capacity Management management solution is not available to be added to workspaces. Customers who have the capacity management solution installed can continue to use the solution.
-
-<sup>2</sup>The Wire Data solution is not currently available to be added to workspaces. Customers who already have the Wire Data solution enabled can continue to use it.
-
-
 ### Automation & Control
 
 | solution | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Activity Log Analytics | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | on notification |
 | Automation Hybrid Worker | Windows | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 | Change Tracking |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Change Tracking |Linux |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |hourly |
@@ -115,7 +142,6 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 | solution type | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Activity Log Analytics | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | on notification |
 | Antimalware Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Security and Audit<sup>1</sup> | Windows and Linux | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | various |
 
@@ -132,7 +158,6 @@ Windows agents and SCOM agents are essentially the same, however the Windows age
 
 | solution | platform | Windows Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Activity Log Analytics | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | on notification |
 | Backup | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 | Azure Site Recovery | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 
