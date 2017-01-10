@@ -26,6 +26,7 @@ When tuning performance on Spark, you need to consider the number of apps that w
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **Running Spark cluster on Azure Data Lake Store**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Store](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
 
 ## Parameters
 
@@ -38,15 +39,15 @@ Here are the most important settings that can be tuned to increase performance o
 * **Executor-cores** - The number of cores allocated to each executor.                     
 
 **Num-executors**
-Num-executors will set the maximum number of tasks that can run in parallel.  The actual number of tasks that can run in parallel is bounded by the number of containers and the number of other apps running.
+Num-executors will set the maximum number of tasks that can run in parallel.  The actual number of tasks that can run in parallel is bounded by the number of executors and the number of other apps running.
 
 **Executor-memory**
-This is the amount of memory that is being allocated to each executor.  The memory needed for each executor is dependent on the job.  For complex operations, the memory needs to be higher.  For simple operations like read and write, memory requirements will be lower.   
+This is the amount of memory that is being allocated to each executor.  The memory needed for each executor is dependent on the job.  For complex operations, the memory needs to be higher.  For simple operations like read and write, memory requirements will be lower.  The amount of memory for each executor can be viewed in Ambari.  In Ambari, navigate to Spark and view the Configs tab.  
 
 **Executor-cores**
 This sets the amount of cores used per executor, which determines the number of parallel threads that can be run per executor.  For example, if executor-cores = 2, then each executor can run 2 parallel tasks in the executor.  The executor-cores needed will be dependent on the job.  I/O heavy jobs do not require a large amount of memory so each executor can handle more parallel tasks.
 
-By default, each physical core is two virtual (YARN) cores when running Spark on HDInsight.  
+By default, each physical core is two virtual (YARN) cores when running Spark on HDInsight.  This number provides a good balance of concurrecy and amount of context switching from multiple threads.  
 
 ## Guidance
 
