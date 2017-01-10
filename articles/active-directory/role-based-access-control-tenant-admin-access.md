@@ -27,9 +27,25 @@ This feature is important because it allows the tenant admin to see all the subs
 
 The basic process works with the following steps:
 
-1. All tenant administrators get a service roll with a special action *elevateAccess*.
-2. Using the REST endpoint of ARM, a tenant admin calls *elevateAccess* to grant themselves the User Access Administrator role.
-3. As a User Access Admin, the tenant admin can assign any role at any scope.
-4. The tenant admin can, and should, revoke their User Access Admin privileges until they're needed again.
+1. All tenant administrators have permissions to call a special action, *elevateAccess*. Using the REST endpoint of ARM, a tenant admin calls *elevateAccess* to grant themselves the User Access Administrator role.
+
+2. As a User Access Admin, the tenant admin creates a [role assignment](/rest/api/authorization/roleassignments) assign any role at any scope. The following example shows the properties for assigning the Reader role at "/" scope:
+
+    ```
+    { "properties":{
+    "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
+    "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
+    "scope": "/"
+    },
+    "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+    }
+    ```
+
+3. The tenant admin can also delete role assignments at "/" scope.
+
+4. The tenant admin revokes their User Access Admin privileges until they're needed again.
 
 It's important to remember that the User Access Admin role should be inactive until needed. As a safety measure, always revoke the privileges when not needed. This is a safeguard to prevent the privileges from falling into the hands of a third party if the tenant admin account gets compromised. 
+
