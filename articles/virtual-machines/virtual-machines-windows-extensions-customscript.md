@@ -76,8 +76,8 @@ The Custom Script Extension for Windows requires that the target virtual machine
 | publisher | Microsoft.Compute |
 | type | extensions |
 | typeHandlerVersion | 1.4 |
-| fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/configure-music-app.ps1 |
-| commandToExecute (e.g) |powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
+| fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
+| commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 
 ## Template deployment
 
