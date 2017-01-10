@@ -18,8 +18,9 @@ ms.author: ryanwi
 
 ---
 # So you want to learn about Service Fabric?
+Here's a roadmap so you can navigate the Service Fabric content.
 
-## The five minute overview
+## The five-minute overview
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.  
 
 This short Channel9 video introduces Service Fabric and microservices:
@@ -72,14 +73,24 @@ You can build Service Fabric applications on MacOS X to run on Linux clusters. T
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
 ## Core concepts
-### Service Fabric clusters and nodes
+[Service Fabric terminology](service-fabric-technical-overview.md) and [Appliacation model](service-fabric-application-model.md) provide more concepts and descriptions, but here are the basics.
+
+### Design time: app type, service type, app package and manifest, service package and manifest
+An application type is the name/version assigned to a collection of service types. Defined in an ApplicationManifest.xml file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type which then runs within the cluster. 
+
+A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. Defined in a ServiceManifest.xml file, embedded in a service package directory and the service package directory is then referenced by an application package's ApplicationManifest.xml file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. A service type is described by it's ServiceManifest.xml file and is composed of executable code service configuration settings which are loaded at run time, and static data that is consumed by the service.
+
+The application package is a disk directory containing the application type's ApplicationManifest.xm file, which references the service packages for each service type that makes up the application type. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package. The files in the application package directory are copied to the Service Fabric cluster's image store. 
+
+A service package is a disk directory containing the service type's ServiceManifest.xml file, which references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's ApplicationManifest.xml file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
+
+### Run time: clusters and nodes, named apps and named services
 A cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines.
 
-A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
+A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For development or testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
 
-### Design time: app types, service types, app package and manifest, service package and manifest
-### Run time: clusters, named apps, named services, partitions
-### App lifecycle management
-### Health systems
-### Cluster resource manager
+A named application is a collection of named services that performs a certain function or functions. A service performs a complete and standalone function (it can start and run independently of other services) and is composed of code, configuration, and data. After an application package is copied to the image store, you create an instance of the application within the cluster by specifying the application package's application type (using its name/version). Each application type instance is assigned a URI name that looks like this: *fabric:/MyNamedApp*. Within a cluster, you can create multiple named applications from a single application type. You can also create named applications from different application types. Each named application is managed and versioned independently.
+
+After creating a named application, you can create an instance of one of its service types within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: *fabric:/MyNamedApp/MyDatabase*. Within a named application, you can create several named services. Each named service can have its own partition scheme and instance/replica counts.
+
 
