@@ -1,6 +1,6 @@
 ---
 title: Prepare a Windows VHD to upload to Azure | Microsoft Docs
-description: Recommended practices for preparing a Windows VHD before uploading to Azure
+description: How to prepare a Windows VHD or VHDX before uploading to Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -14,48 +14,42 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/06/2017
+ms.date: 1/10/2017
 ms.author: glimoli;genli
 
 ---
-# Prepare a Windows VHD to upload to Azure
-To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure, and it also explains [when and how to use Sysprep](#step23).
+# Prepare a Windows VHD or VHDX to upload to Azure
+To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
-## Prepare the virtual disk
-> [!NOTE]
-> Azure only supports [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are in the VHD file format. The newer VHDX format is not supported in Azure. 
-> 
-> The VHD must be a Fixed size, not Dynamic. If needed, the instructions below detail converting from VHDX or Dynamic disks. The maximum size allowed for the VHD is 1,023 GB.
-> 
-> 
+## Convert the virtual disk to VHD and fixed size disk 
+If you need to convert your virtual disk to the required format for Azure, use one of the following methods. Back up the VM before you run the virtual disk conversion process. And make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
 
-Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
+After you convert the disk, create a VM that uses the converted disk. Start and sign in to the VM to finish preparing the VM for upload.
 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
-
-### Convert using Hyper-V Manager
+### Convert disk using Hyper-V Manager
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
 2. On the **Locate Virtual Hard Disk** screen, browse to, and select your virtual disk.
-3. Select **Convert** on the next screen.
-    
-    * If you need to convert from VHDX, select **VHD** and click **Next**
-    * If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
-4. Browse to and select **Path for the new VHD file**.
-5. Click **Finish** to close.
+3. On the **Choose Action** screen, select **Convert** and **Next**.
+4. If you need to convert from VHDX, select **VHD** and click **Next**
+5. If you need to convert from dynamically expanding disk, select **Fixed size** and click **Next**
+6. Browse to and select a path to save the new VHD file.
+7. Click **Finish** to close.
 
-### Convert using PowerShell
-You can convert a virtual disk using the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). In the following example, we are converting from a VHDX to VHD, and converting from a Dynamic to Fixed type:
+### Convert disk using PowerShell
+You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
+The following example shows you how to convert from a VHDX to VHD, and from a dynamically expanding disk to fixed size disk:
 
 ```powershell
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
+Replace the values for -Path with the path to the virtual hard disk that you want to convert and -DestinationPath with the new path and name for the converted disk.
 
 ### Convert from VMware VMDK disk format
-If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
+If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Prepare Windows configuration for upload
 
-Run all the following commands from the command prompt window with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
+On the virtual machine you plan to upload to Azure, run all the following commands from the command prompt window with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
 1. Remove any static persistent route on the routing table:
    
@@ -262,12 +256,6 @@ Install the latest updates for Windows. If that is not possible, make sure that 
    * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
    * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
      
-## Run Sysprep  <a id="step23"></a>    
-If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
-   
-   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-   * [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-   * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
@@ -291,6 +279,12 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f
     ```
+## Run Sysprep  <a id="step23"></a>    
+If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
+   
+   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+   * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
