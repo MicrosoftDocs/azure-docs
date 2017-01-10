@@ -29,14 +29,14 @@ basics on scaling, pausing, and tuning.
 ## Prerequisites
 
 
-### Sign Up for Microsoft Azure
+### Sign up for Microsoft Azure
 If you don't already have a Microsoft Azure account, you must sign up for one to use this service. If you already have an account, you may skip this step. 
 
 1. Navigate to the account pages [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Create a free Azure account, or purchase an account.
 3. Follow the instructions
 
-### Install appropriate SQL Client Driver and Tools
+### Install appropriate SQL Client Driver and tools
 
 Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL Data Warehouse supports, not every client application may be fully compatible 
 with SQL Data Warehouse.
@@ -100,7 +100,7 @@ to SQL Data Warehouse through our supported connectors: ADO.NET, JDBC, ODBC, and
 tools not supported by Microsoft.
 
 
-### Get Connection Information
+### Get connection information
 
 To connect to your SQL Data Warehouse, you must connect through the SQL Server (logical server) you created 
 in [Prerequisites].
@@ -121,7 +121,7 @@ If all goes correctly, you should now be connected to your SQL Server (logical s
 credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
 create separate logins and users for each database. We shall explore user creation in [Create a User for SQL Data Warehouse](./sql-data-warehouse-get-started-tutorial.md#step-4-create-a-user-for-sql-data-warehouse). 
 
-## Create a User for SQL Data Warehouse
+## Create a user for SQL Data Warehouse
 
 ### Why create a separate user?
 
@@ -178,9 +178,9 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## Loading Data
+## Loading data
 
-### Defining External Data
+### Defining external data
 1. Define an external data source
 
     ```sql
@@ -520,9 +520,9 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 
 
 
-## Querying Data 
+## Querying data 
 
-### Scan Query with Scaling
+### Scan query with scaling
 
 Let's get a good idea of how scaling affects the speed of your queries.
 
@@ -563,7 +563,7 @@ Take note of the time it took to run this operation.
 > Azure SQL Data Warehouse.
 >
 
-### Join Query with Statistics
+### Join query with statistics
 
 1. Run a query that joins the Date table with the Trip table
 
@@ -617,7 +617,7 @@ As you might expect, the query takes much longer when you shuffle data among the
 3. Run the query from Prerequisites again and observe any performance differences. While the differences in
 query performance will not be as drastic as scaling up, you should notice a discernable speed-up. 
 
-## Next Steps
+## Next steps
 
 You're now ready to query and explore. Check out our best practices or tips.
 
@@ -626,7 +626,7 @@ savings by pausing and scaling to meet your business needs.
 
 ![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful Readings
+## Useful readings
 
 [Concurrency and Workload Management]
 
