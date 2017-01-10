@@ -120,7 +120,7 @@ in [Prerequisites].
 
 If all goes correctly, you should now be connected to your SQL Server (logical server) instance. You can use server 
 credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
-create separate logins and users for each database. We shall explore user creation in [Create a User for SQL Data Warehouse](./sql-data-warehouse-get-started-tutorial.md#step-4-create-a-user-for-sql-data-warehouse). 
+create separate logins and users for each database. We shall explore user creation in [Create a User for SQL Data Warehouse](./sql-data-warehouse-get-started-tutorial.md#create-a-user-for-sql-data-warehouse). 
 
 ## Create a user for SQL Data Warehouse
 
@@ -651,7 +651,7 @@ savings by pausing and scaling to meet your business needs.
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#step-1-prerequisites
+[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
