@@ -29,6 +29,11 @@ The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you 
 
 ## Configure Azure Resource Manager template repositories
 
+As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or VSTS Git repositories. There are a couple of rules to organize your Azure Resource Manager templates in a repository:
+
+
+
+
 ## Create the environments
 
 ## Next steps
