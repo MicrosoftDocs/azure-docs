@@ -39,7 +39,7 @@
 ### [Configure long-term backup retention](../sql-database/sql-database-configure-long-term-retention.md)
 ### [View backups in a Recovery Services vault](../sql-database/sql-database-view-backups-in-vault.md)
 ### [Restore from long-term backup retention](../sql-database/sql-database-restore-from-long-term-retention.md)
-### [Delete long-term Azure SQL backups](../../../sql-database/sql-database-long-term-retention-delete.md)
+### [Delete long-term Azure SQL backups](../sql-database/sql-database-long-term-retention-delete.md)
 
 ## Back up and restore Windows machines
 ### [Windows Server using the classic deployment model](backup-configure-vault-classic.md)
