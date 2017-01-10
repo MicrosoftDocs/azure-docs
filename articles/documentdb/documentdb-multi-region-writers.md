@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2016
+ms.date: 01/10/2016
 ms.author: arramac
 
 ---
@@ -36,7 +36,7 @@ Assuming millions of consumers and publishers with billions of articles, soon we
 
 If you would like to learn more about partitioning and partition keys, see [Partitioning and Scaling in Azure DocumentDB](documentdb-partition-data.md).
 
-## <a id="ModelingNotifications"></a>Modeling Notifications
+## <a id="ModelingNotifications"></a>Modeling notifications
 Notifications are data feeds specific to a user. Therefore, the access patterns for notifications documents are always in the context of single user. For example, you would "post a notification to a user" or "fetch all notifications for a given user". So, the optimal choice of partitioning key for this type would be `UserId`.
 
 	class Notification 
@@ -63,7 +63,7 @@ Notifications are data feeds specific to a user. Therefore, the access patterns 
 		public string ArticleId { get; set; } 
 	}
 
-## <a id="ModelingSubscriptions"></a>Modeling Subscriptions
+## <a id="ModelingSubscriptions"></a>Modeling subscriptions
 Subscriptions can be created for various criteria like a specific category of articles of interest, or a specific publisher. Hence the `SubscriptionFilter` is a good choice for partition key.
 
 	class Subscriptions 
@@ -86,7 +86,7 @@ Subscriptions can be created for various criteria like a specific category of ar
 		} 
 	}
 
-## <a id="ModelingArticles"></a>Modeling Articles
+## <a id="ModelingArticles"></a>Modeling articles
 Once an article is identified through notifications, subsequent queries are typically based on the `ArticleId`. Choosing `ArticleID` as partition the key thus provides the best distribution for storing articles inside a DocumentDB collection. 
 
 	class Article 
@@ -115,7 +115,7 @@ Once an article is identified through notifications, subsequent queries are typi
 		//... 
 	}
 
-## <a id="ModelingReviews"></a>Modeling Reviews
+## <a id="ModelingReviews"></a>Modeling reviews
 Like articles, reviews are mostly written and read in the context of article. Choosing `ArticleId` as a partition key provides best distribution and efficient access of reviews associated with article. 
 
 	class Review 
@@ -140,7 +140,7 @@ Like articles, reviews are mostly written and read in the context of article. Ch
 		public int Rating { get; set; } }
 	}
 
-## <a id="DataAccessMethods"></a>Data Access Layer Methods
+## <a id="DataAccessMethods"></a>Data access layer methods
 Now let's look at the main data access methods we need to implement. Here's the list of methods that the `ContentPublishDatabase` needs:
 
 	class ContentPublishDatabase 
@@ -192,7 +192,7 @@ With the preceding setup, the data access layer can forward all writes to the lo
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
-## <a id="DataAccessImplementation"></a>Data Access Layer Implementation
+## <a id="DataAccessImplementation"></a>Data access layer implementation
 Now let's look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must implement the following steps:
 
 * Create multiple instances of `DocumentClient` for each account. With two regions, each DAL instance has one `writeClient` and one `readClient`. 
@@ -301,9 +301,10 @@ For reading notifications and reviews, you must read from both regions and union
 
 Thus, by choosing a good partitioning key and static account-based partitioning, you can achieve multi-region local writes and reads using Azure DocumentDB.
 
-## <a id="NextSteps"></a>Next Steps
+## <a id="NextSteps"></a>Next steps
 In this article, we described how you can use globally distributed multi-region read write patterns with DocumentDB using content publishing as a sample scenario.
 
 * Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
+* Learn about [automatic and manual failovers in Azure DocumentDB](documentdb-regional-failovers.md)
 * Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
 * Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
