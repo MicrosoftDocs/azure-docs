@@ -6,14 +6,13 @@ documentationcenter: ''
 author: Juliako
 manager: erikre
 editor: ''
-
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -39,20 +38,8 @@ Click the image to view it full size.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.14).  
+You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## What you'll learn
-
-The tutorial shows how to accomplish the following tasks:
-
-1. Create a Media Services account (using the Azure portal).
-2. Configure streaming endpoint (using the Azure portal).
-3. Create and configure a Visual Studio project.
-4. Connect to the Media Services account.
-5. Create a new asset and upload a video file.
-6. Encode the source file into a set of adaptive bitrate MP4 files.
-7. Publish the asset and get URLs for streaming and progressive download.
-8. Test by playing your content.
 
 ## Prerequisites
 The following are required to complete the tutorial.
@@ -85,39 +72,31 @@ The steps in this section show how to create an AMS account.
    6. Select **Pin to dashboard** to see the progress of the account deployment.
 4. Click **Create** at the bottom of the form.
 
-    Once the account is successfully created, the status changes to **Running**.
+    Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in **Stopped** state.
+
+	>[!NOTE]
+	>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
     ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
     To manage your AMS account (for example, upload videos, encode assets, monitor job progress) use the **Settings** window.
 
-## Configure streaming endpoints using the Azure portal
-When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG DASH.
+## Start streaming endpoints using the Azure portal
 
-Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
-To take advantage of dynamic packaging, you need to do the following:
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-* Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
-* Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
+To start the streaming endpoint, do the following:
 
-With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
+1. In the Settings window, click Streaming endpoints. 
+2. Click the default streaming endpoint. 
 
-To create and change the number of streaming reserved units, do the following:
+	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
-1. In the **Settings** window, click **Streaming endpoints**.
-2. Click the default streaming endpoint.
-
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
-3. To specify the number of streaming units, slide the **Streaming units** slider.
-
-    ![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Click the **Save** button to save your changes.
-
-   > [!NOTE]
-   > The allocation of any new units can take up to 20 minutes to complete.
-   >
-   >
+3. Click the Start icon.
+4. Click the Save button to save your changes.
 
 ## Create and configure a Visual Studio project
 
@@ -255,15 +234,12 @@ After ingesting assets into Media Services, media can be encoded, transmuxed, wa
 
 As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG DASH.
 
-To take advantage of dynamic packaging, you need to do the following:
-
-* Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.  
-* Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.
+To take advantage of dynamic packaging, you need to encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.  
 
 The following code shows how to submit an encoding job. The job contains one task that specifies to transcode the mezzanine file into a set of adaptive bitrate MP4s using **Media Encoder Standard**. The code submits the job and waits until it is completed.
 
-Once the encoding job complets, you would be able to publish your assets and then stream or progressively download the MP4 files.
-
+Once the job is completed, you would be able to stream your asset or progressively download MP4 files that were created as a result of transcoding.
+ 
 Add the following method to the Program class.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -433,7 +409,7 @@ Progressive download URLs (audio and video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-To stream you video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+To stream your video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
