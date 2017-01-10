@@ -36,49 +36,52 @@ In addition to deploying and running the solutions in Azure, you can download th
 The following table shows how the solutions map to specific IoT features:
 
 | Solution | Data ingestion | Device identity | Device management | Command and control | Rules and actions | Predictive analytics |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | [Remote monitoring][lnk-getstarted-preconfigured] |Yes |Yes |Yes |Yes |Yes |- |
 | [Predictive maintenance][lnk-predictive-maintenance] |Yes |Yes |- |Yes |Yes |Yes |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
 * *Device identity*: Manage unique device identities and control device access to the solution.
 * *Device management*: Manage device metadata and perform operations such as device reboots and firmware upgrades.
-* *Command and control*: Send messages to a device from the cloud to cause the device to take some action.
+* *Command and control*: Send messages to a device from the cloud to cause the device to take an action.
 * *Rules and actions*: The solution back end uses rules to act on specific device-to-cloud data.
-* *Predictive analytics*: The solution back end applies analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
+* *Predictive analytics*: The solution back end analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
 ## Remote Monitoring preconfigured solution overview
 We have chosen to discuss the remote monitoring preconfigured solution in this article because it illustrates many common design elements that the other solutions share.
 
-The following diagram illustrates the key elements of the remote monitoring solution. The sections below provide more information about these elements.
+The following diagram illustrates the key elements of the remote monitoring solution. The following sections provide more information about these elements.
 
 ![Remote Monitoring preconfigured solution architecture][img-remote-monitoring-arch]
 
 ## Devices
-When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built-in temperature and humidity model that emits telemetry. These simulated devices are included to illustrate the end-to-end flow of data through the solution, and to provide a convenient source of telemetry and a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
+When you deploy the remote monitoring preconfigured solution, four simulated devices are pre-provisioned in the solution that simulate a cooling device. These simulated devices have a built-in temperature and humidity model that emits telemetry. These simulated devices are included to:
+- Illustrate the end-to-end flow of data through the solution.
+- Provide a convenient source of telemetry.
+- Provide a target for commands if you are a back-end developer using the solution as a starting point for a custom implementation.
 
 The simulated devices in the solution can respond to the following cloud-to-device communications:
 
 - *Methods (direct methods)*: A two-way communication method where a connected device is expected to respond immediately.
-- *Commands (cloud-to-device messages)*: A on-way communication method where a device retrieves the command from a durable queue.
+- *Commands (cloud-to-device messages)*: A one-way communication method where a device retrieves the command from a durable queue.
 
-For a comparison of these different approaches, see [Cloud-to-device comminications guidance][lnk-c2d-guidance].
+For a comparison of these different approaches, see [Cloud-to-device communications guidance][lnk-c2d-guidance].
 
-When a device first connects to IoT Hub in the remote monitoring preconfigured solution, the device information message sent to the IoT hub enumerates the list of commands that the device can respond to. In the remote monitoring preconfigured solution, the commands are: 
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, these commands are: 
 
-* *Ping Device*: The device responds to this command with an acknowledgement. This is useful for checking that the device is still active and listening.
+* *Ping Device*: The device responds to this command with an acknowledgement. This command is useful for checking that the device is still active and listening.
 * *Start Telemetry*: Instructs the device to start sending telemetry.
 * *Stop Telemetry*: Instructs the device to stop sending telemetry.
-* *Change Set Point Temperature*: Controls the simulated temperature telemetry values the device sends. This is useful for testing back-end logic.
+* *Change Set Point Temperature*: Controls the simulated temperature telemetry values the device sends. This command is useful for testing back-end logic.
 * *Diagnostic Telemetry*: Controls if the device should send the external temperature as telemetry.
-* *Change Device State*: Sets the device state metadata property that the device reports. This is useful for testing back-end logic.
+* *Change Device State*: Sets the device state metadata property that the device reports. This command is useful for testing back-end logic.
 
-When a device first connects to IoT Hub in the remote monitoring preconfigured solution, the device information message sent to the IoT hub enumerates the list of methods that the device can respond to. In the remote monitoring preconfigured solution, the methods are: 
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, these methods are: 
 
-* *Ping Device*: The device responds to this command with an acknowledgement. This is useful for checking that the device is still active and listening.
+* *Ping Device*: The device responds to this command with an acknowledgement. This method is useful for checking that the device is still active and listening.
 * *Start Telemetry*: Instructs the device to start sending telemetry.
 * *Stop Telemetry*: Instructs the device to stop sending telemetry.
-* *Change Device State*: Sets the device state metadata property that the device reports. This is useful for testing back-end logic.
+* *Change Device State*: Sets the device state metadata property that the device reports. This method is useful for testing back-end logic.
 * *Firmware Update*: Instructs the device to perform a firmware update.
 * *Configuration Update*: Instructs the device to update its configuration.
 
@@ -102,16 +105,18 @@ The device management capability of IoT Hub enables you to manage your device pr
 ## Azure Stream Analytics
 The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the devices:
 
-* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages, sent when a device first connects or in response to a **Change device state** command, to the solution device registry (a DocumentDB database). 
+* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages to the solution device registry (a DocumentDB database). This message is sent when a device first connects or in response to a **Change device state** command.
 * *Telemetry job* - sends all raw telemetry to Azure blob storage for cold storage and calculates telemetry aggregations that display in the solution dashboard.
-* *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table and triggers an action based on the settings defined on the Rules and Actions views in the solution portal.
+* *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table. These rules can also trigger an action based on the settings defined on the **Rules** and **Actions** views in the solution portal.
 
 In this preconfigured solution, the ASA jobs form part of to the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Event processor
 In this preconfigured solution, the event processor forms part of the **IoT solution back end** in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventProcessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses the **DeviceInfo** data to update the device data in the DocumentDB database, and uses the **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
+The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventProcessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses:
+- The **DeviceInfo** data to update the device data in the DocumentDB database.
+- The **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
 ## Device identity registry, device twin, and DocumentDB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.

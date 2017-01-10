@@ -61,15 +61,15 @@ The device list shows all the registered devices in the solution. You view and e
 2. The device list initially shows four simulated devices created by the provisioning process. You can add additional simulated and physical devices to the solution.
 3. You can customize the information shown in the device list by clicking **Column editor**. You can add and remove columns that display reported properties and tags. You can also reorder and rename columns:
    
-   ![Coumn editor][img-columneditor]
-4. Click a device in the device list to view the device details.
+   ![Column editor][img-columneditor]
+4. To view device details, click a device in the device list.
    
    ![Device details in dashboard][img-devicedetails]
 
 The **Device Details** panel contains six sections:
 
-* A collection of links that enable you to customize the device icon, disable the device, add a rule, send a command, or invoke a method. For a comparison of commands (device-to-cloud messages) and methods (direct methods), see [Cloud-to-device comminications guidance][lnk-c2d-guidance].
-* The **Device Twin - Tags** section enables you to edit tag values for the device. You can dispaly tag values in the device list and use tag values to filter the device list.
+* A collection of links that enable you to customize the device icon, disable the device, add a rule, send a command, or invoke a method. For a comparison of commands (device-to-cloud messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
+* The **Device Twin - Tags** section enables you to edit tag values for the device. You can display tag values in the device list and use tag values to filter the device list.
 * The **Device Twin - Desired Properties** section enables you to set property values to be sent to the device.
 * The **Device Twin - Reported Properties** section shows property values sent from the device.
 * The **Device Properties** section shows information from the identity registry such as the device id and authentication keys.
@@ -77,12 +77,12 @@ The **Device Details** panel contains six sections:
 
 ## Customize the device icon
 
-You can customize the icon that displays for a device in the device list from the the **Device Details** panel as follows:
+You can customize the device icon displayed in the device list from the **Device Details** panel as follows:
 
 1. Click the pencil icon to open the **Edit image** panel for a device:
    
    ![Open device image editor][img-startimageedit]
-2. Either upload an new image or use one of the existing images and then click **Save**:
+2. Either upload a new image or use one of the existing images and then click **Save**:
    
    ![Open device image editor][img-imageedit]
 3. The image you selected now displays in the **Icon** column for the device.
@@ -93,7 +93,7 @@ You can customize the icon that displays for a device in the device list from th
 > 
 
 ## Send a command to a device
-From the **Device Details** panel you can send commands to the device. When a device first starts, it sends information about the commands it supports to the solution.
+From the **Device Details** panel, you can send commands to the device. When a device first starts, it sends information about the commands it supports to the solution.
 
 1. Click **Commands** in the **Device Details** panel for the selected device:
    
@@ -107,7 +107,7 @@ From the **Device Details** panel you can send commands to the device. When a de
 The solution tracks the status of each command it sends. Initially the result is **Pending**. When the device reports that it has executed the command, the result is set to **Success**.
 
 ## Invoke a method on a device
-From the **Device Details** panel you can invoke methods on the device. When a device first starts, it sends information about the methods it supports to the solution.
+From the **Device Details** panel, you can invoke methods on the device. When a device first starts, it sends information about the methods it supports to the solution.
 
 1. Click **Methods** in the **Device Details** panel for the selected device:
    
@@ -126,7 +126,7 @@ When you deploy the preconfigured solution, you automatically provision four sam
 The following steps show you how to add a simulated device to the solution:
 
 1. Navigate back to the device list.
-2. Click **+ Add A Device** in the bottom left corner to add a device.
+2. To add a device, click **+ Add A Device** in the bottom left corner.
    
    ![Add a device to the preconfigured solution][img-adddevice]
 3. Click **Add New** on the **Simulated Device** tile.
@@ -178,7 +178,7 @@ You can sort the device list by clicking next to a column heading. The first cli
 
 In the device list, you can create, save, and reload filters to display a customized list of devices connected to your hub. To create a filter:
 
-1. Click the edit filter icon above the the list of devices:
+1. Click the edit filter icon above the list of devices:
    
    ![Open the filter editor][img-editfiltericon]
 2. In the **Filter editor**, add the fields, operators, and values to filter the device list. You can add multiple clauses to refine your filter. Click **Filter** to apply the filter:
@@ -187,10 +187,10 @@ In the device list, you can create, save, and reload filters to display a custom
 3. In this example, the list is filtered by manufacturer and model number:
    
    ![Filtered list][img-filterelist]
-4. Click the **Save as** icon to save your filter with a custom name:
+4. To save your filter with a custom name, click the **Save as** icon:
    
    ![Save a filter][img-savefilter]
-5. Click the **Open saved filter** icon to reapply a filter you saved previously:
+5. To reapply a filter you saved previously, click the **Open saved filter** icon:
    
    ![Open a filter][img-openfilter]
 
@@ -205,11 +205,11 @@ You can create filters based on device id, device state, desired properties, rep
 There are no rules for the new device you just added. In this section, you add a rule that triggers an alarm when the temperature reported by the new device exceeds 47 degrees. Before you start, notice that the telemetry history for the new device on the dashboard shows the device temperature never exceeds 45 degrees.
 
 1. Navigate back to the device list.
-2. Select your new device in the **Devices List**, and then click **Add rule** to add a rule for the device.
+2. To add a rule for the device, select your new device in the **Devices List**, and then click **Add rule**.
 3. Create a rule that uses **Temperature** as the data field and uses **AlarmTemp** as the output when the temperature exceeds 47 degrees:
    
     ![Add a device rule][img-adddevicerule]
-4. Click **Save and View Rules** to save your changes.
+4. To save your changes, click **Save and View Rules**.
 5. Click **Commands** in the device details pane for the new device.
    
    ![Add a device rule][img-adddevicerule2]
