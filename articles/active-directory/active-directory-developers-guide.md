@@ -111,7 +111,7 @@ These overview presentations on developing apps by using Azure Active Directory 
 
 ## Social
 * [Active Directory Team blog](http://blogs.technet.com/b/ad/): The latest developments in the world of Azure Active Directory.
-* [Azure Active Directory Graph Team blog](http://blogs.msdn.com/b/aadgraphteam): Azure Active Directory information that's specific to the Graph API.
+* [Azure Active Directory Graph Team blog](https://blogs.msdn.microsoft.com/aadgraphteam): Azure Active Directory information that's specific to the Graph API.
 * [Cloud Identity](http://www.cloudidentity.net): Thoughts on identity management as a service, from a principal Azure Active Directory PM.  
 * [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.
 

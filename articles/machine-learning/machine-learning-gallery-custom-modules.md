@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 
 ---
@@ -36,9 +36,9 @@ To browse for custom modules in the Gallery, open the [Gallery](http://gallery.c
 modules.
  Click **See all** to view all
 custom modules.
- From this page you can browse all the
+ From this page, you can browse all the
 custom modules
- in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top.
+ in the Gallery. You also can search by selecting filter criteria on the left of the page and entering search terms at the top.
 
 ### Comment and share
  Click any
