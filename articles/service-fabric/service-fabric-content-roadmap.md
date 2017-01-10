@@ -1,6 +1,6 @@
 ---
-title: Overview of Service Fabric | Microsoft Docs
-description: An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud.
+title: Azure Service Fabric content roadmap | Microsoft Docs
+description: An overview and getting started guide for Service Fabric where applications are composed of many microservices to provide scale and resilience. 
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # So you want to learn about Service Fabric?
-Here's a roadmap so you can navigate the Service Fabric content.
+This learning roadmap will help you get started developing scalable, reliable, and easily-managed applications on Service Fabric.
 
 ## The five-minute overview
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications. By using Service Fabric, developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.  
@@ -86,8 +86,8 @@ The application package is a disk directory containing the application type's Ap
 
 A service package is a disk directory containing the service type's ServiceManifest.xml file, which references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's ApplicationManifest.xml file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
 
-### Run time: clusters and nodes, named apps and named services
-A cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines.
+### Run time: clusters and nodes, named apps, named services, partitions, and replicas
+A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines.
 
 A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, FabricHost.exe, which starts running upon boot and then starts two executables: Fabric.exe and FabricGateway.exe. These two executables make up the node. For development or testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of Fabric.exe and FabricGateway.exe.
 
@@ -95,7 +95,7 @@ A named application is a collection of named services that performs a certain fu
 
 After creating a named application, you can create an instance of one of its service types (a named service) within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: *fabric:/MyNamedApp/MyDatabase*. Within a named application, you can create one or more named services. Each named service can have its own partition scheme and instance/replica counts. 
 
-Stateless vs stateful services
+There are two types of services: stateless and stateful.  A stateless service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure DocumentDB. Use a stateless service when the service has no persistent storage at all. A stateful service uses Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models.  
 
 When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
@@ -103,17 +103,29 @@ The following diagram shows the relationship between applications and service in
 
 ![Partitions and replicas within a service][cluster-application-instances]
 
-
-### Guest executables, containers, Reliable Services, and Reliable Actors
+## Supported programming models: guest executables, containers, Reliable Services, and Reliable Actors
 Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks, or services can simply be any compiled executable program written in any language and simply hosted on a Service Fabric cluster. For more information, see [Supported programming models](service-fabric-choose-framework.md).
 
-A guest executable is an arbitrary executable, written in any language, so you can take your existing applications and host them on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs, however, so they do not benefit from the full set of features the platform offers, such as custom health and load reporting, service endpoint registration, and stateful compute.
+### Guest executables
+A [guest executable](service-fabric-deploy-existing-app.md) is an arbitrary executable, written in any language, so you can take your existing applications and host them on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs, however, so they do not benefit from the full set of features the platform offers, such as custom health and load reporting, service endpoint registration, and stateful compute.
 
-By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.  Service Fabric currently supports deployment of Docker containers on Linux and Windows Server containers on Windows Server 2016. In the Service Fabric application model, a container represents an application host in which multiple service replicas are placed.  You can deploy existing applications, stateless services, or stateful services in a container using Service Fabric.  
+### Containers
+By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [container images](service-fabric-containers-overview.md). Importantly, you can mix services in processes and services in containers in the same application.  Service Fabric currently supports deployment of Docker containers on Linux and Windows Server containers on Windows Server 2016. In the Service Fabric application model, a container represents an application host in which multiple service replicas are placed.  You can deploy existing applications, stateless services, or stateful services in a container using Service Fabric.  
 
-Reliable Services is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services can be stateless (similar to most service platforms, such as web servers or Worker Roles in Azure Cloud Services) in which state is persisted in an external solution, such as Azure DB or Azure Table Storage. Reliable Services can also be stateful, where state is persisted directly in the service itself using Reliable Collections. State is made highly-available through replication and distributed through partitioning, all managed automatically by Service Fabric.
+### Reliable Services
+[Reliable Services](service-fabric-reliable-services-introduction.md)] is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services can be stateless (similar to most service platforms, such as web servers or Worker Roles in Azure Cloud Services) in which state is persisted in an external solution, such as Azure DB or Azure Table Storage. Reliable Services can also be stateful, where state is persisted directly in the service itself using Reliable Collections. State is made highly-available through replication and distributed through partitioning, all managed automatically by Service Fabric.
 
-Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
+### Reliable Actors
+Built on top of Reliable Services, the [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
+
+## Next steps
+* Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
+* Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
+* Learn about the [application lifecycle](service-fabric-application-lifecycle.md).
+* Learn to [inspect application and cluster health](service-fabric-health-introduction.md).
+* Learn to [monitor and diagnose services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
+* Learn about [Service Fabric support options](service-fabric-support.md).
+
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
