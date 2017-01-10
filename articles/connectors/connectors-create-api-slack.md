@@ -106,7 +106,7 @@ Follow these steps to sign into Slack and complete the configuration of the Slac
 
 - - -
 ## Object definition(s):
- **Message**:Yammer Message
+ **Message**:Slack Message
 
 Required properties for Message:
 
@@ -138,7 +138,7 @@ None of the properties are required.
 | liked_by |not defined |
 | system_message |boolean |
 
- **PostOperationRequest**:Represents a post request for Yammer Connector to post to yammer
+ **PostOperationRequest**:Represents a post request for Slack Connector to post to Slack
 
 Required properties for PostOperationRequest:
 
