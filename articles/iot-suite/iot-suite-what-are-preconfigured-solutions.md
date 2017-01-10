@@ -83,7 +83,8 @@ When a device first connects to IoT Hub in the preconfigured solution, it sends 
 * *Stop Telemetry*: Instructs the device to stop sending telemetry.
 * *Change Device State*: Sets the device state metadata property that the device reports. This method is useful for testing back-end logic.
 * *Firmware Update*: Instructs the device to perform a firmware update.
-* *Configuration Update*: Instructs the device to update its configuration.
+* *Reboot*: Instructs the device to reboot.
+* *Factory Reset*: Instructs the device to perform a factory reset.
 
 You can add more simulated devices to the solution that emit the same telemetry and respond to the same commands and methods.
 
