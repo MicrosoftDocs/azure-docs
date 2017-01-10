@@ -1,4 +1,4 @@
----
+* ---
 title: Data Lake Store MapReduce Performance Tuning Guidelines | Microsoft Docs
 description: Data Lake Store MapReduce Performance Tuning Guidelines
 services: data-lake-store
@@ -25,61 +25,65 @@ ms.author: stewu
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-
+* **Using MapReduce on HDInsight**.  For more information, see [Use MapReduce in Hadoop on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-mapreduce)  
 
 ## Parameters
 
 When running MapReduce jobs, here are the most important parameters that you can configure to increase performance on ADLS:
 
-* **Mapreduce.map.memory** – The amount of memory to allocate to each mapper
+* **Mapreduce.map.memory.mb** – The amount of memory to allocate to each mapper
 * **Mapreduce.job.maps** – The number of map tasks per job
-* **Mapreduce.reduce.memory** – The amount of memory to allocate to each reducer
+* **Mapreduce.reduce.memory.mb** – The amount of memory to allocate to each reducer
 * **Mapreduce.job.reduces** – The number of reduce tasks per job
 
 **Mapreduce.map.memory / Mapreduce.reduce.memory**
-This number should be adjusted based on how much memory is needed for the map and/or reduce task.  The default values of mapreduce.map.memory and mapreduce.reduce.memory can be viewed in Ambari via the Yarn configuration.  
+This number should be adjusted based on how much memory is needed for the map and/or reduce task.  The default values of mapreduce.map.memory and mapreduce.reduce.memory can be viewed in Ambari via the Yarn configuration.  In Ambari, navigate to YARN and view the Configs tab.  You can see the memory     
 
 **Mapreduce.job.maps / Mapreduce.job.reduces**
-This will determine the maximum number of mappers or reducers to be created.  The number of mappers will determine how many splits will be created for the MapReduce job.     
+This will determine the maximum number of mappers or reducers to be created.  The number of splits will determine how many mappers will be created for the MapReduce job.  Therefore, you may get less mappers than you requested if there are less splits than the number of mappers requested.       
 
 ## Guidance
 
-**Step 1: Set mapreduce.map.memory/mapreduce.reduce.memory** –  The size of the memory for map and reduce tasks will be dependent on your specific job.  You can reduce the memory size if you want to increase concurrency.  By decreasing the amount of memory per mapper or reducer, you are enabling more mappers or reducers to run concurrently.  If you get a heap error when running your job, you should increase the memory per mapper or reducer.  More guidance on how to set the correct memory parameter can be viewed on this page.
+**Step 1: Determine number of jobs running** - By default, MapReduce will use the entire cluster for your job.  You can use less of the cluster by using less mappers than there are available containers.  The guidance in this document assumes that your application is the only application running on your cluster.      
 
-**Step 2: Determine Total YARN memory** - To tune mapreduce.job.maps/mapreduce.job.reduces, you should consider the amount of total YARN memory available for use.  This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  You should multiply the YARN memory with the number of nodes in your cluster to get the total YARN memory.
+**Step 2: Set mapreduce.map.memory/mapreduce.reduce.memory** –  The size of the memory for map and reduce tasks will be dependent on your specific job.  You can reduce the memory size if you want to increase concurrency.  The number of concurrently running tasks depends on the number of containers.  By decreasing the amount of memory per mapper or reducer, more containers can be created, which enable more mappers or reducers to run concurrently.  Decreasing the amount of memory too much may cause some processes to run out of memory.  If you get a heap error when running your job, you should increase the memory per mapper or reducer.  You should consider that adding more containers will add extra overhead for each additional container, which can potentially degrade performance.  Another alternative is to get more memory by using a cluster that has higher amounts of memory or increasing the number of nodes in your cluster.  More memory will enable more containers to be used, which means more concurrency.  
+
+**Step 3: Determine Total YARN memory** - To tune mapreduce.job.maps/mapreduce.job.reduces, you should consider the amount of total YARN memory available for use.  This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  You should multiply the YARN memory with the number of nodes in your cluster to get the total YARN memory.
 
 	Total YARN memory = nodes * YARN memory per node
-If you are using an empty cluster, then memory can be the total YARN memory for your cluster.  If other applications are using memory, then you can choose to only use a portion of your cluster’s memory.  
+If you are using an empty cluster, then memory can be the total YARN memory for your cluster.  If other applications are using memory, then you can choose to only use a portion of your cluster’s memory by reducing the number of mappers or reducers to the number of containers you want to use.  
 
-**Step 3: Calculate parallelism** – mapreduce.job.maps is constrained either by memory or by CPU.  You should take total YARN memory and divide that by mapreduce.map.memory.  
+**Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces** – mapreduce.job.maps is constrained either by memory or by CPU.  You should take total YARN memory and divide that by mapreduce.map.memory.  
 
 	Memory constraint = total YARN memory / mapreduce.map.memory
-lThe CPU constraint is calculated as the total physical cores multiplied by the number of mappers per core.  You should set the number of mappers per cores to 2.
+The CPU constraint is calculated as the total physical cores multiplied by the number of mappers per core.  You should set the number of cores per mapper to 2.
 
-	CPU constraint = total virtual cores * mappers per core
+	CPU constraint = total physical cores * cores per mapper
 The concurrency should be the minimum of these two numbers.
 
-	concurrency = Min (total cores * mappers per core, available YARN memory / mapreduce.map.memory)   
-A good starting point would be to set mapreduce.job.maps to concurrency and you can experiment with more or less mappers or reduces based on your data size to tune you performance.  
+	Mapreduce.job.maps = Min (total cores * cores per mapper, available YARN memory / mapreduce.map.memory)   
+This is a good starting point for mapreduce.job.maps and you can experiment with more or less mappers based on your data size to tune you performance.  The same calculation can be done for mapreduce.job.reduces.  
 
 ## Example Calculation
 
 Let’s say you currently have a cluster composed of 8 D14 nodes and you want to run an I/O intensive job.  Here are the calculations you should do:
 
-**Step 1: Set mapreduce.map.memory/mapreduce.reduce.memory** – for our example, you are running an I/O intensive job and decide that 3GB of memory for map tasks will be sufficient.
+**Step 1: Determine number of jobs running** - for our example, we assume that our job is the only one running.  
+
+**Step 2: Set mapreduce.map.memory/mapreduce.reduce.memory** – for our example, you are running an I/O intensive job and decide that 3GB of memory for map tasks will be sufficient.
 
 	mapreduce.map.memory = 3GB
-**Step 2: Determine Total YARN memory** 
+**Step 3: Determine Total YARN memory** 
 
 	total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Step 3: Calculate concurrency**
+**Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces**
 
 	memory constraint = 768GB of available memory / 3 GB of memory =   256
 	cores = nodes in cluster * # of cores in node = 8 nodes * 16 cores  = 128  
 	CPU constraint = 128 cores * 2 cores per mapper = 256
-	concurrency = Min (128 cores * 2 mappers per core, 800GB of available YARN memory / 3GB of mapreduce.map.memory) = Min (256, 256) = 256
+	mapreduce.job.maps = Min (128 cores * 2 cores per mapper, 768GB of available YARN memory / 3GB of mapreduce.map.memory) = Min (256, 256) = 256
 
-The concurrency is 256 tasks in parallel so you can consider starting with 256 map/reduce tasks.  You can experiment further by increasing or decreasing the number of mappers to see if you get better performance.   
+You can run 256 tasks concurrently so you can consider starting with 256 map/reduce tasks.  You can experiment further by increasing or decreasing the number of mappers to see if you get better performance.   
 
 ## Limitations
 
