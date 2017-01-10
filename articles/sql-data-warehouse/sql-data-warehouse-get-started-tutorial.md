@@ -1,5 +1,5 @@
 ---
-title: Get Started Tutorial | Microsoft Docs
+title: Azure SQL Data Warehouse - Get Started Tutorial | Microsoft Docs
 description: Get Started Tutorial with Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -26,7 +26,7 @@ basics on scaling, pausing, and tuning.
 
 **Estimated time to complete:** 75 minutes
 
-## Step 1: Prerequisites
+## Prerequisites
 
 
 ### Sign Up for Microsoft Azure
@@ -48,7 +48,7 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Step 2: Create an Azure SQL Data Warehouse
+## Create an Azure SQL Data Warehouse
 
 > [!NOTE]
 > Creating a SQL Data Warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -80,7 +80,7 @@ e.g. *mydw-westus-1-test*
 
 **Source**: Blank Database
 
-**Server**: Select the server you created in [Step 1].
+**Server**: Select the server you created in [Prerequisites].
 
 **Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS
 
@@ -93,7 +93,7 @@ e.g. *mydw-westus-1-test*
 5. Sit back and wait for your Azure SQL Data Warehouse to deploy! It's normal for this process to take several minutes. 
 The portal will notify you when your instance is done deploying. 
 
-## Step 3: Connect to Azure SQL Data Warehouse through SQL Server (logical server)
+## Connect to Azure SQL Data Warehouse through SQL Server (logical server)
 
 This tutorial uses SQL Server Management Studio to connect to our SQL Data Warehouse. Other tools can be used to connect 
 to SQL Data Warehouse through our supported connectors: ADO.NET, JDBC, ODBC, and PHP. Bear in mind, functionality may be limited for 
@@ -103,7 +103,7 @@ tools not supported by Microsoft.
 ### Get Connection Information
 
 To connect to your SQL Data Warehouse, you must connect through the SQL Server (logical server) you created 
-in [Step 1].
+in [Prerequisites].
 
 1. Select your SQL Data Warehouse from the dashboard or search for it in your resources.
 
@@ -113,15 +113,15 @@ in [Step 1].
 
     ![Select Server Name](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. Open SSMS and use object explorer to connect to this server using the credentials you created in [Step 1]
+3. Open SSMS and use object explorer to connect to this server using the credentials you created in [Prerequisites]
 
     ![Connect with SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
 If all goes correctly, you should now be connected to your SQL Server (logical server) instance. You can use server 
 credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
-create separate logins and users for each database. We shall explore user creation in [Step 4](./sql-data-warehouse-get-started-tutorial.md#step-4-create-a-user-for-sql-data-warehouse). 
+create separate logins and users for each database. We shall explore user creation in [Create a User for SQL Data Warehouse](./sql-data-warehouse-get-started-tutorial.md#step-4-create-a-user-for-sql-data-warehouse). 
 
-## Step 4: Create a User for SQL Data Warehouse
+## Create a User for SQL Data Warehouse
 
 ### Why create a separate user?
 
@@ -178,7 +178,7 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## Step 5: Loading Data
+## Loading Data
 
 ### Defining External Data
 1. Define an external data source
@@ -520,7 +520,7 @@ EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 
 
 
-## Step 6: Querying Data 
+## Querying Data 
 
 ### Scan Query with Scaling
 
@@ -614,7 +614,7 @@ As you might expect, the query takes much longer when you shuffle data among the
 > used in the WHERE clause and columns found in GROUP BY.**
 >
 
-3. Run the query from Step 1 again and observe any performance differences. While the differences in
+3. Run the query from Prerequisites again and observe any performance differences. While the differences in
 query performance will not be as drastic as scaling up, you should notice a discernable speed-up. 
 
 ## Next Steps
@@ -650,7 +650,7 @@ savings by pausing and scaling to meet your business needs.
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Step 1]: sql-data-warehouse-get-started-tutorial.md#step-1-prerequisites
+[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#step-1-prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
