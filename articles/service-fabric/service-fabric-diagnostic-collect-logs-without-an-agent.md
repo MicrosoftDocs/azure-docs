@@ -38,12 +38,12 @@ Collecting application logs using [Azure Diagnostics extension](../cloud-service
    * The diagnostic subsystem running inside the application/service process can easily augment the traces with contextual information.
    * With agent-based log collection, the data must be sent to an agent via some inter-process communication mechanism, such as Event Tracing for Windows. This mechanism could impose additional limitations.
 
-It is possible to combine and benefit from both collection methods. Indeed, it might be the best solution for many applications. Agent-based collection is a natural solution for collecting logs related to the whole cluster and individual cluster nodes. It is much more reliable way, than in-process log collection, to diagnose service startup problems and crashes. Also, with a lot of services running inside a Service Fabric cluster, each service doing its own in-process log collection results in numerous outgoing connections from the cluster. Large number of outgoing connections is taxing both for the network subsystem and for the log destination. An agent such as [**Azure Diagnostics**](../cloud-services/cloud-services-dotnet-diagnostics.md) can gather data from multiple services and send all data through a few connections, improving throughput. 
+It is possible to combine and benefit from both collection methods. Indeed, it might be the best solution for many applications. Agent-based collection is a natural solution for collecting logs related to the whole cluster and individual cluster nodes. It is much more reliable way, than in-process log collection, to diagnose service startup problems and crashes. Also, with many services running inside a Service Fabric cluster, each service doing its own in-process log collection results in numerous outgoing connections from the cluster. Large number of outgoing connections is taxing both for the network subsystem and for the log destination. An agent such as [**Azure Diagnostics**](../cloud-services/cloud-services-dotnet-diagnostics.md) can gather data from multiple services and send all data through a few connections, improving throughput. 
 
 In this article, we show how to set up an in-process log collection using [**EventFlow open-source library**](https://github.com/Azure/diagnostics-eventflow). Other libraries might be used for the same purpose, but EventFlow has the benefit of having been designed specifically for in-process log collection and to support Service Fabric services. We use [**Azure Application Insights**](https://azure.microsoft.com/services/application-insights/) as the log destination. Other destinations such as [**Event Hubs**](https://azure.microsoft.com/services/event-hubs/) or [**Elasticsearch**](https://www.elastic.co/products/elasticsearch) are also supported. It is just a question of installing appropriate NuGet package and configuring the destination in the EventFlow configuration file. For more information on log destinations other than Application Insights, see [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow).
 
 ## Adding EventFlow library to a Service Fabric service project
-EventFlow binaries are available as a set of NuGet packages. To add EventFlow to a Service Fabric service project right-click the project in the Solution Explorer and choose "Manage NuGet packages." Switch to the "Browse" tab and search for "`Diagnostics.EventFlow`":
+EventFlow binaries are available as a set of NuGet packages. To add EventFlow to a Service Fabric service project, right-click the project in the Solution Explorer and choose "Manage NuGet packages." Switch to the "Browse" tab and search for "`Diagnostics.EventFlow`":
 
 ![EventFlow NuGet packages in Visual Studio NuGet package manager UI][1]
 
@@ -111,7 +111,7 @@ Open the `eventFlowConfig.json` file in the editor and change its content as sho
 
 Note that `eventFlowConfig.json` file is part of service configuration package. Changes to this file can be included in full- or configuration-only upgrades of the service, subject to Service Fabric upgrade health checks and automatic rollback if there is upgrade failure. For more information, see [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
-The final step is to instantiate EventFlow pipeline in your service's startup code. Open `Program.cs` file and make following changes (in the example below EventFlow-related additions are marked with comments starting with `****`):
+The final step is to instantiate EventFlow pipeline in your service's startup code, located in `Program.cs` file. In the following example  EventFlow-related additions are marked with comments starting with `****`:
 
 ```csharp
 using System;
