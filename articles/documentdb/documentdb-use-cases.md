@@ -44,7 +44,7 @@ IoT use cases commonly share some patterns in how they ingest, process and store
 
 Microsoft Azure offers rich services that can be leveraged for IoT use cases.  Azure IoT services are a set of services including Azure Event Hubs, Azure DocumentDB, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and PowerBI. 
 
-![Azure DocumentDB IoT reference architecture](./media/documentdb-use-cases/documentb-iot.png)
+![Azure DocumentDB IoT reference architecture](./media/documentdb-use-cases/documentdb-iot.png)
 
 Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics. Data can be loaded into DocumentDB for adhoc querying. Once the data is loaded into DocumentDB, the data is ready to be queried.  The data in DocumentDB can be used as reference data as part of real time analytics. In addition, data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
 
@@ -57,11 +57,11 @@ DocumentDB is commonly used in the retail industry for storing catalog data. Cat
 
 Consider an example of a product catalog for an automotive parts supplier. Every part may have its own attributes in addition to the common attributes that all parts share.  Furthermore, attributes for a specific part can change the following year when a new model is released.  As a JSON document store, DocumentDB supports flexible schemas and allows you to represent data with nested properties, and thus it is well suited for storing product catalog data.
 
-![Azure DocumentDB retail catalog reference architecture](./media/documentdb-use-cases/documentb-retail-catalog.png)
+![Azure DocumentDB retail catalog reference architecture](./media/documentdb-use-cases/documentdb-retail-catalog.png)
 
  In addition, data stored in DocumentDB can be integrated with HDInsight for big data analytics via Pig, Hive or Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).
 
- ![Azure DocumentDB retail orders reference architecture](./media/documentdb-use-cases/documentb-retail-orders.png)
+ ![Azure DocumentDB retail orders reference architecture](./media/documentdb-use-cases/documentdb-retail-orders.png)
 
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games require extremely low latencies for reads and writes to provide an engaging in-game experience, and the database tier needs to handle highs and lows in request rates during new game launches and feature updates.
@@ -74,7 +74,7 @@ DocumentDB is used by massive-scale games like [The Walking Dead: No Man's Land]
 * Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
 * DocumentDB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
 
-![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentb-gaming.png)
+![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentdb-gaming.png)
 
 ## Web and mobile applications
 DocumentDB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. 
@@ -86,7 +86,7 @@ Applications that integrate with third-party social networks must respond to cha
 
 Many of the social applications run at global scale and can exhibit unpredictable usage patterns. Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a DocumentDB account.  In addition, you can also create additional DocumentDB accounts across multiple regions. For DocumentDB service region availability, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-![Azure DocumentDB web app reference architecture](./media/documentdb-use-cases/documentb-web.png)
+![Azure DocumentDB web app reference architecture](./media/documentdb-use-cases/documentdb-web.png)
 
 ### Personalization
 Nowadays, modern applications come with complex views and experiences. These are typically dynamic, catering to user preferences or moods and branding needs. Hence, applications need to be able to retrieve personalized settings effectively in order to render UI elements and experiences quickly. 
