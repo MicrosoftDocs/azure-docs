@@ -24,7 +24,9 @@
 #### [Service communication](service-fabric-connect-and-communicate-with-services.md)
 #### [Service manifest resources](service-fabric-service-manifest-resources.md)
 #### [Tools](service-fabric-manage-application-in-visual-studio.md)
-#### [Debug](service-fabric-debugging-your-application.md)
+#### Debug
+##### [Debug a C# service in VS](service-fabric-debugging-your-application.md)
+##### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 #### Monitor and diagnose
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -181,6 +183,7 @@
 #### [During workloads](service-fabric-testability-workload-tests.md)
 #### [By invoking data loss](service-fabric-use-data-loss-api.md)
 #### [Using Test scenarios](service-fabric-testability-scenarios.md)
+#### [Using the node transition APIs](service-fabric-node-transition-apis.md)
 ### [Load test your application](service-fabric-vso-load-test.md)
 
 # Reference
@@ -190,6 +193,7 @@
 ## [REST](/rest/api/servicefabric)
 
 # Resources
+## [Common questions about Service Fabric](service-fabric-common-questions.md)
 ## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
