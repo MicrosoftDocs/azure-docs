@@ -8,10 +8,6 @@
 ### [Get started with IoT Hub (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [Get started with IoT Hub (Java)](iot-hub-java-java-getstarted.md)
 ### [Get started with IoT Hub (Node)](iot-hub-node-node-getstarted.md)
-## Get started with the IoT device SDK
-### [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
-### [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
 
 ## Get started with a Raspberry Pi (Node)
 ### [Get Started with Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -147,7 +143,10 @@
 ##### [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
 
 ##### [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md)
-
+## Get started with the IoT device SDK
+### [Introduction to the Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
+### [IoT device SDK for C: more about IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+### [IoT device SDK for C: more about serializer](iot-hub-device-sdk-c-serializer.md)
 # How To
 ## [Process device-to-cloud messages tutorial (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Process device-to-cloud messages tutorial (Java)](iot-hub-java-java-process-d2c.md)
