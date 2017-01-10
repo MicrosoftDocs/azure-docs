@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2016
+ms.date: 01/11/2016
 ms.author: maheshu
 
 ---
@@ -39,7 +39,7 @@ Administrators in your Azure AD directory do not have privileges to connect to d
 The first task is to provision a Windows Server virtual machine that is joined to the managed domain. For instructions, refer to the article titled [join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 
 ## Task 2 - Install Group Policy tools on the virtual machine
-Perform the following steps to install the Group Policy Administration tools on the domain joined virtual machine. 
+Perform the following steps to install the Group Policy Administration tools on the domain joined virtual machine.
 
 1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you created in Task 1 and click **Connect** on the command bar at the bottom of the window.
 
@@ -74,27 +74,26 @@ Now that the Group Policy Management feature is installed on the domain joined v
 >
 >
 
-1. From the Start screen, click **Administrative Tools**. You should see the **DNS** console installed on the virtual machine.
+1. From the Start screen, click **Administrative Tools**. You should see the **Group Policy Management** console installed on the virtual machine.
 
-    ![Administrative tools - DNS Console](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
-2. Click **DNS** to launch the DNS Management console.
-3. In the **Connect to DNS Server** dialog, click the option titled **The following computer**, and enter the DNS domain name of the managed domain (for example, 'contoso100.com').
+    ![Launch Group Policy Management](./media/active-directory-domain-services-admin-guide/gp-management-installed.png)
+2. Click **Group Policy Management** to launch the Group Policy Management console.
 
-    ![DNS Console - connect to domain](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
-4. The DNS Console connects to the managed domain.
+    ![Group Policy Console](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
+3. Click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain. There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain.
 
-    ![DNS Console - administer domain](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
-5. You can now use the DNS console to add DNS entries for computers within the virtual network in which you've enabled AAD Domain Services.
+    ![Built-in GPOs](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
+4. You can customize these built-in GPOs to configure group policies on your managed domain. Right click the GPO and click **Edit...** to customize the built-in GPO. This launches the Group Policy Configuration Editor and enables you to customize the GPO.
 
-> [!WARNING]
-> Be careful when administering DNS for the managed domain using DNS administration tools. Ensure that you **do not delete or modify the built-in DNS records that are used by Domain Services in the domain**. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
->
->
+    ![Edit built-in GPO](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
+5. You can now use the **Group Policy Management Editor** console to edit the built-in GPO. For instance, the following screenshot shows how to customize the built-in 'AADDC Computers' GPO.
 
-See the [DNS tools article on Technet](https://technet.microsoft.com/library/cc753579.aspx) for more information about managing DNS.
+    ![Customize GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+See the [Group Policy Management Console article on Technet](https://technet.microsoft.com/library/cc753298.aspx) for more information about using Group Policy Management Console.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
-* [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)
+* [Group Policy Management Console](https://technet.microsoft.com/library/cc753298.aspx)
