@@ -4,7 +4,7 @@ description: This provides a comparision of features and guidance on developing 
 services: Azure-Government
 cloud: gov
 documentationcenter: ''
-author: meyoun
+author: MeganYount
 manager: zakramer
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/06/2016
-ms.author: meyoun
+ms.author: MeganYount
 
 ---
 # Azure Government Intelligence + Analytics
