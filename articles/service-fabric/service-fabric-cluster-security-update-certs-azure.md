@@ -31,13 +31,13 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 
 Secondary cluster certificate cannot be added through the Azure portal. You have to use Azure powershell for that. The process is outlined later in this document.
 
-## Swap the primary and secondary cluster certificates using the portal
+## Swap the cluster certificates using the portal
 
 Navigate to the Security blade, and select the 'Swap with primary' option from the context menu to swap the secondary cert with the primary cert.
 
 ![Swap certificate][Delete_Swap_Cert]
 
-## Remove a Cluster certificate using the portal
+## Remove a cluster certificate using the portal
 
 For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate (primary or secondary) deployed if not, the cluster stops functioning.
 
@@ -46,7 +46,7 @@ To remove a secondary certificate from being used for cluster security, Navigate
 If your intent is to remove the certificate that is marked primary, then you will need to swap it with the secondary first, and then delete the secondary after the upgrade has completed.
 
 
-## Adding Client Certificates - Admin or Read-Only
+## Client certificates - Admin or Read-Only
 
 Optionally, Client certificates can added in addition to the cluster certificates to perform management operations on a service fabric cluster.
 
@@ -55,11 +55,11 @@ You can add two kinds of client certificates - Admin or Read-only. These then ca
 you can specify any number of client certificates. Each addition/deletion will result in a configuration update to the service fabric cluster
 
 
-### Adding Client Certificates - Admin or Read-Only
+### Adding client certificates - Admin or Read-Only
 
 1. Navigate to the Security blade, and select the '+ Authentication' button on top of the security blade.
 2. On the 'Add Authentication' blade,  choose the 'Authentication Type' - 'Read-only client' or 'Admin client'
-3. Now choose the Authorization method, This indicates to Service Fabric whether it should look up this certificate by using the subject name or the thumbprint. In general, it is not a good security practice to use the authorization method of subject name. Some customers do that for flexiblity reasons. 
+3. Now choose the Authorization method, This indicates to Service Fabric whether it should look up this certificate by using the subject name or the thumbprint. In general, it is not a good security practice to use the authorization method of subject name. 
 
 ![Add Client certificate][Add_Client_Cert]
 
@@ -67,46 +67,134 @@ you can specify any number of client certificates. Each addition/deletion will r
 
 To remove a secondary certificate from being used for cluster security, Navigate to the Security blade and select the 'Delete' option from the context menu on the specific certificate.
 
-## Add a secondary certificate and swap it to be the primary using Resource Manager Powershell
+## Add a secondary certificate using Resource Manager Powershell
 
 These steps assume that you are familiar with how Resource Manager works and have deployed atleast one Service Fabric cluster using an Resource Manager template, and have the template that you used to set up the cluster handy. it is also assumed that you are comfortable using JSON.
 
 > [!NOTE]
-> If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo]. (https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 #### Edit your Resource Manager template
 
-If you were using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you will find these changes in The sample 5-VM-1-NodeTypes-Secure_Step2.JSON. 
+For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains all the edits we will be making. the sample is avaialbe at [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+
+**Make sure to follow all the steps**
 
 1. Open up the Resource Manager template you used to deploy you Cluster.  (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
 
-2. Add a new parameter "secCertificateThumbprint" of type "string". If you are using the Resource Manager template that you downloaded from the portal during the creation time or from the quickstart templates, then just search for that parameter, you should find it already defined.  
+2. Add **two new parameters**  "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the code snippet below and add to the template. Depending on the source of your template, you may already have these defined, if so just move on to the next step. 
+ 
+```JSON
+   "secCertificateThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Thumbprint"
+      }
+    },
+    "secCertificateUrlValue": {
+      "type": "string",
+      "metadata": {
+        "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+      }
+    },
 
-3. Locate the "Microsoft.ServiceFabric/clusters" Resource definition. Under properties, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
+```
+
+3. Changes to the **Microsoft.ServiceFabric/clusters** resource- Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
    
-   ```JSON
+```JSON
       "properties": {
         "certificate": {
           "thumbprint": "[parameters('certificateThumbprint')]",
           "x509StoreName": "[parameters('certificateStoreValue')]"
-        }
-   ``` 
-4. Add a new tag "thumbprintSecondary" and give it a value "[parameters('secCertificateThumbprint')]".  
+     }
+``` 
 
-So now the resource definition should look like this (depending on your source of the template, it may not be exactly like the snippet below). As you can see below what you are doing here is specifying a new cert as primary and moving the current primary as secondary.  This results in the rollover of your current certificate to the new certificate in one deployment step.
+Add a new tag "thumbprintSecondary" and give it a value "[parameters('secCertificateThumbprint')]".  
+
+So now the resource definition should look like the following (depending on your source of the template, it may not be exactly like the snippet below). 
 
 ```JSON
-
       "properties": {
         "certificate": {
-            "thumbprint": "[parameters('certificateThumbprint')]",
-            "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
+          "thumbprint": "[parameters('certificateThumbprint')]",
+		  "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
+          "x509StoreName": "[parameters('certificateStoreValue')]"
+     }
+``` 
+
+If you do not want to **rollover the cert**, then just specify the new cert as primary and moving the current primary as secondary.  This results in the rollover of your current primary certificate to the new certificate in one deployment step.
+
+```JSON
+      "properties": {
+        "certificate": {
+          "thumbprint": "[parameters('secCertificateThumbprint')]",
+		  "thumbprintSecondary": "[parameters('certificateThumbprint')]",
+          "x509StoreName": "[parameters('certificateStoreValue')]"
+     }
+``` 
+
+1. Changes to the **Microsoft.Compute/virtualMachineScaleSets** resource - Locate the Microsoft.Compute/virtualMachineScaleSets resource defintion. Scroll to the  "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile"   
+
+In the service fabric publisher settings you will see something like this.
+
+![Json_Pub_Setting1][Json_Pub_Setting1]
+
+Add the new cert entries to it
+
+```JSON
+               "certificateSecondary": {
+                    "thumbprint": "[parameters('secCertificateThumbprint')]",
+                    "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
 
 ```
+The properties should now look like this
+
+![Json_Pub_Setting2][Json_Pub_Setting2]
+
+if you do not want to **rollover the cert**, then just specify the new cert as primary and moving the current primary as secondary.  This results in the rollover of your current certificate to the new certificate in one deployment step. 
+
+
+```JSON
+               "certificate": {
+                   "thumbprint": "[parameters('secCertificateThumbprint')]",
+                   "x509StoreName": "[parameters('certificateStoreValue')]"
+                     },
+               "certificateSecondary": {
+                    "thumbprint": "[parameters('certificateThumbprint')]",
+                    "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+
+```
+The properties should now look like this
+
+![Json_Pub_Setting3][Json_Pub_Setting3]
+
+
+1. Changes to the **Microsoft.Compute/virtualMachineScaleSets** resource - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the  "vaultCertificates": , under "OSProfile". it should look something like this.
+
+
+![Json_Pub_Setting4][Json_Pub_Setting4]
+
+Add the secCertificateUrlValue to it. use the following snippet.
+
+```Json
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('secCertificateUrlValue')]"
+                  }
+
+```
+Now the resulting Json should look something like this.
+![Json_Pub_Setting5][Json_Pub_Setting5]
+
+6. If you have only one Nodetype, then you are done with all the editing, else repeat the steps for all the Microsoft.Compute/virtualMachineScaleSets resource defnitions.
+
 
 #### Edit your template file to reflect the new parameters you added above
 If you were using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you can start to make changes in The sample 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
@@ -115,10 +203,10 @@ Edit the Resource Manager Template parameter File, add the new parameters for th
 
 ```JSON
     "secCertificateThumbprint": {
-      "value": "OLD Primary Certificate Thumbprint"
+      "value": "new Certificate Thumbprint"
     },
    "secSourceVaultValue": {
-      "value": "OLD Primary Certificate Key Vault location"
+      "value": "new Certificate Key Vault location"
     },
     "secCertificateUrlValue": {
       "value": "OLD Primary Certificate location in the key vault"
@@ -223,6 +311,11 @@ Read these articles for more information on cluster management:
 <!--Image references-->
 [Delete_Swap_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_09.PNG
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG
+[Json_Pub_Setting1]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_14.PNG
+[Json_Pub_Setting2]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_15.PNG
+[Json_Pub_Setting3]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_16.PNG
+[Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
+[Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
 [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
 [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
 [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
