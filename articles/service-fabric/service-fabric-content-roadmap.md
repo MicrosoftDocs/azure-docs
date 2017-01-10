@@ -73,7 +73,7 @@ You can build Service Fabric applications on MacOS X to run on Linux clusters. T
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
 ## Core concepts
-[Service Fabric terminology](service-fabric-technical-overview.md) and [Appliacation model](service-fabric-application-model.md) provide more concepts and descriptions, but here are the basics.
+[Service Fabric terminology](service-fabric-technical-overview.md), [Appliacation model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
 ### Design time: app type, service type, app package and manifest, service package and manifest
 An application type is the name/version assigned to a collection of service types. Defined in an ApplicationManifest.xml file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type which then runs within the cluster. 
@@ -95,6 +95,8 @@ A named application is a collection of named services that performs a certain fu
 
 After creating a named application, you can create an instance of one of its service types (a named service) within the cluster by specifying the service type (using its name/version). Each service type instance is assigned a URI name scoped under its named application's URI. For example, if you create a "MyDatabase" named service within a "MyNamedApp" named application, the URI looks like: *fabric:/MyNamedApp/MyDatabase*. Within a named application, you can create one or more named services. Each named service can have its own partition scheme and instance/replica counts. 
 
+Stateless vs stateful services
+
 When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
@@ -103,7 +105,15 @@ The following diagram shows the relationship between applications and service in
 
 
 ### Guest executables, containers, Reliable Services, and Reliable Actors
+Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks, or services can simply be any compiled executable program written in any language and simply hosted on a Service Fabric cluster. For more information, see [Supported programming models](service-fabric-choose-framework.md).
 
+A guest executable is an arbitrary executable, written in any language, so you can take your existing applications and host them on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs, however, so they do not benefit from the full set of features the platform offers, such as custom health and load reporting, service endpoint registration, and stateful compute.
+
+By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application.  Service Fabric currently supports deployment of Docker containers on Linux and Windows Server containers on Windows Server 2016. In the Service Fabric application model, a container represents an application host in which multiple service replicas are placed.  You can deploy existing applications, stateless services, or stateful services in a container using Service Fabric.  
+
+Reliable Services is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services can be stateless (similar to most service platforms, such as web servers or Worker Roles in Azure Cloud Services) in which state is persisted in an external solution, such as Azure DB or Azure Table Storage. Reliable Services can also be stateful, where state is persisted directly in the service itself using Reliable Collections. State is made highly-available through replication and distributed through partitioning, all managed automatically by Service Fabric.
+
+Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
