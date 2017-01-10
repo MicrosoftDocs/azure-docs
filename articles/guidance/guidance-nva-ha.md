@@ -31,7 +31,7 @@ An NVA can be deployed to a DMZ in many different architectures. For example, th
 
 In this architecture, the NVA provides a secure network boundary by checking all inbound and outbound network traffic and passing only the traffic that meets network security rules. However, the fact that all network traffic must pass through the NVA means that the NVA is a single point of failure in the network. If the NVA fails, there is no other path for network traffic and all the back-end subnets are unavailable.
 
-To make an NVA highly available, deploy more than one NVA into an availability set. Deploying the NVAs in an availability set provides a service level agreement (SLA) that guarantees the uptimes for the NVA VMs.   
+To make an NVA highly available, deploy more than one NVA into an availability set.    
 
 The following architectures describe the resources and configuration necessary for highly available NVAs:
 

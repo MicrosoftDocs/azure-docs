@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure IoT device SDK for C - Serializer | Microsoft Docs
 description: How to use the Serializer library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
 services: iot-hub
@@ -26,7 +26,7 @@ Finally, the article revisits some topics covered in previous articles such as m
 
 Everything described in this article is based on the **serializer** SDK samples. If you want to follow along, see the **simplesample\_amqp** and **simplesample\_http** applications included in the Azure IoT device SDK for C.
 
-You can find the **Azure IoT device SDK for C** in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+You can find the **Azure IoT device SDK for C** in the [Azure IoT SDK for C](https://github.com/azure/azure-iot-sdk-c) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 ## The modeling language
 The [introductory article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C** modeling language through the example provided in the **simplesample\_amqp** application:
@@ -527,10 +527,10 @@ This section described everything you need to know when sending events and recei
 
 ## Macro configuration
 If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
-If you have cloned the Azure-iot-sdks repository from GitHub using the --recursive option, then you will find this shared utility library here:
+If you have cloned the Azure-iot-sdk-c repository from GitHub using the --recursive option, then you will find this shared utility library here:
 
 ```
-.\\c\\azure-c-shared-utility
+.\\c-utility
 ```
 
 If you have not cloned the library, you can find it [here](https://github.com/Azure/azure-c-shared-utility).

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Online backup and restore with DocumentDB | Microsoft Docs
 description: Learn how to perform automatic backup and restore of NoSQL databases with Azure DocumentDB.
 keywords: backup and restore, online backup
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 01/04/2017
 ms.author: raprasa
 
 ---

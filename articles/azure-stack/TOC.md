@@ -16,6 +16,7 @@
 ## [Create a storage account](azure-stack-provision-storage-account.md)
 ## [Connect with CLI](azure-stack-connect-cli.md)
 ## [Connect with PowerShell](azure-stack-connect-powershell.md)
+## [Install Visual Studio](azure-stack-install-visual-studio.md)
 ## [Frequently asked questions](azure-stack-faq.md)
 
 # Offer services to tenants
@@ -28,6 +29,7 @@
 # Use templates
 ## [Template overview](azure-stack-arm-templates.md)
 ## [Develop templates](azure-stack-develop-templates.md)
+## [Check templates](azure-stack-validate-templates.md)
 ## [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 ## [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Node.js web app in Azure App Service | Microsoft Docs
 description: Learn how to deploy a Node.js application to a web app in Azure App Service.
 services: app-service\web
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 
 ---

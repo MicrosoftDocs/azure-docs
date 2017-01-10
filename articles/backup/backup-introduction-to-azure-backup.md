@@ -1,10 +1,10 @@
 ---
 title: What is Azure Backup? | Microsoft Docs
-description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines.
+description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows computers, System Center DPM servers and Azure virtual machines.
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor:
 keywords: backup and restore; recovery services; backup solutions
 
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 
 ---
@@ -30,10 +30,11 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 **Unlimited scaling** - Azure Backup uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability - with no maintenance or monitoring overhead. You can set up alerts to provide information about events, but you don't need to worry about high-availability for your data in the cloud.
 
-**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally-redundant storage](../storage/storage-redundancy.md#locally-redundant-storage) and [geo-replicated storage](../storage/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
+**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally redundant storage](../storage/storage-redundancy.md#locally-redundant-storage) and [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
 
-* Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a paired datacenter in the same region. LRS is a low-cost option and is ideal for price-conscious customers because it protects data against local hardware failures.
-* Geo-replication storage (GRS) replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but it provides a higher level of durability for your data, even if there is a regional outage.
+* Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a paired datacenter in the same region. LRS is a low-cost option for protecting your data from local hardware failures.
+
+* Geo-redundant storage (GRS) replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there is a regional outage.
 
 **Unlimited data transfer** - Azure Backup does not limit the amount of inbound or outbound data you transfer. Azure Backup also does not charge for the data that is transferred. However, if you use the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data. For more information about this cost, see [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md). Outbound data refers to data transferred from a Backup vault during a restore operation.
 
@@ -49,8 +50,8 @@ If you aren't sure which Azure Backup component works for your needs, see the fo
 | Component | Benefits | Limits | What is protected? | Where are backups stored? |
 | --- | --- | --- | --- | --- |
 | Azure Backup (MARS) agent |<li>Back up files and folders on physical or virtual Windows OS (VMs can be on-premises or in Azure)<li>No separate backup server required. |<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux. |<li>Files, <li>Folders |Azure Backup vault |
-| System Center DPM |<li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support on Hyper-V and VMware VMs <li>Protect VMware VMs using DPM 2012 R2 |Cannot back up Oracle workload.|<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Azure Backup vault,<li> Locally attached disk,<li>  Tape (on-premises only) |
-| Azure Backup Server |<li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support (if hosted on Hyper-V)<li>Protect VMware VMs using DPM 2012 R2<li>Does not require a System Center license |<li>Cannot back up Oracle workload.<li>Always requires live Azure subscription<li>No support for tape backup |<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Azure Backup vault,<li> Locally attached disk |
+| System Center DPM |<li>Application-aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support on Hyper-V and VMware VMs <li>Back up and restore VMware VMs using DPM 2012 R2 |Cannot back up Oracle workload.|<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Azure Backup vault,<li> Locally attached disk,<li>  Tape (on-premises only) |
+| Azure Backup Server |<li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Azure Backup vault<li>Linux support on Hyper-V and VMware VMs<li>Back up and restore VMware VMs <li>Does not require a System Center license |<li>Cannot back up Oracle workload.<li>Always requires live Azure subscription<li>No support for tape backup |<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Azure Backup vault,<li> Locally attached disk |
 | Azure IaaS VM Backup |<li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric-level backup with no backup infrastructure needed |<li>Back up VMs once-a-day <li>Restore VMs only at disk level<li>Cannot back up on-premises |<li>VMs, <li>All disks (using PowerShell) |<p>Azure Backup vault</p> |
 
 ## What are the deployment scenarios for each component?
@@ -173,17 +174,26 @@ The Azure Backup agent offers network throttling, which allows you to control ho
 
 ### Backup and retention
 
-Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per Backup vault. The following table shows the maximum backup frequency (to vault) for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, then you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
+Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per *protected instance*. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. For more information see the section, [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). An instance is protected once a backup copy of data has been saved. The backup copy of data is the protection. If the source data was lost or became corrupt, the backup copy could restore the source data. The following table shows the maximum backup frequency for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
 
 |  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Backup frequency<br/> (to Backup vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
 | Backup frequency<br/> (to disk) |Not applicable |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads</p> |Not applicable |
 | Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
-| Maximum recovery points per server |9999|9999|9999|9999|
+| Maximum recovery points per protected instance |9999|9999|9999|9999|
 | Maximum retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |
 | Recovery points on local disk |Not applicable |<li>64 for File Servers,<li>448 for Application Servers |<li>64 for File Servers,<li>448 for Application Servers |Not applicable |
 | Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |
+
+## What is a protected instance
+A protected instance is a generic reference to a Windows computer, a server (physical or virtual), or SQL database that has been configured to back up to Azure. An instance is protected once you configure a backup policy for the computer, server, or database, and create a backup copy of the data. Subsequent copies of the backup data for that protected instance (which are called recovery points), increase the amount of storage consumed. You can create up to 9999 recovery points for a protected instance. If you delete a recovery point from storage, it does not count against the 9999 recovery point total.
+Some common examples of protected instances are virtual machines, application servers, databases, and personal computers running the Windows operating system. For example:
+
+* A virtual machine running the Hyper-V or Azure IaaS hypervisor fabric. The guest operating systems for the virtual machine can be Windows Server or Linux.
+* An application server: The application server can be a physical or virtual machine running Windows Server and workloads with data that needs to be backed up. Common workloads are Microsoft SQL Server, Microsoft Exchange server, Microsoft SharePoint server, Microsoft Dynamics, and the File Server role on Windows Server. To back up these workloads you need System Center Data Protection Manager (DPM) or Azure Backup Server.
+* A personal computer or laptop running the Windows operating system.
+
 
 ## What is the vault credential file?
 The vault credentials file is a certificate generated by the portal for each Backup vault. The portal then uploads the public key to the Access Control Service (ACS). The private key is provided to you when downloading the credentials. Use it to register the computers you protect. The private key is what allows you to authenticate the servers or computers to send backup data to a particular Backup vault.

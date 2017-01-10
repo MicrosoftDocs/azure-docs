@@ -1,4 +1,4 @@
-﻿---
+---
 title: Implementing a Hybrid Network Architecture with Azure ExpressRoute | Microsoft Docs
 description: How to implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
 services: ''
@@ -312,7 +312,7 @@ If you have an existing on-premises infrastructure already configured with a sui
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [forced-tuneling]: ./guidance-iaas-ra-secure-vnet-hybrid.md
 [highly-available-network-architecture]: ./guidance-hybrid-network-expressroute-vpn-failover.md
-[arm-templates]: ../resource-group-authoring-templates.md
+[arm-templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [naming-conventions]: ./guidance-naming-conventions.md
 [solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/Deploy-ReferenceArchitecture.ps1
 [solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/deploy-reference-architecture.sh

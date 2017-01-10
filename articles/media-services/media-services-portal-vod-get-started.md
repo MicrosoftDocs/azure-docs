@@ -1,4 +1,4 @@
-﻿---
+---
 title: " Get started with delivering content on demand using the Azure portal | Microsoft Docs"
 description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure portal.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -30,7 +30,7 @@ This tutorial walks you through the steps of implementing a basic Video-on-Deman
 This tutorial includes the following tasks:
 
 1. Create an Azure Media Services account.
-2. Configure streaming endpoint.
+2. Start streaming endpoint.
 3. Upload a video file.
 4. Encode the source file into a set of adaptive bitrate MP4 files.
 5. Publish the asset and get streaming and progressive download URLs.  
@@ -57,7 +57,7 @@ The steps in this section show how to create an AMS account.
    6. Select **Pin to dashboard** to see the progress of the account deployment.
 4. Click **Create** at the bottom of the form.
    
-    Once the account is successfully created, the status changes to **Running**. 
+    Once the account is successfully created, overview page loads. In the streaming endpoint table the account will have a default streaming endpoint in the **Stopped** state. The streaming endpoint from which you want to stream our content has to be in the **Running** state. 
    
     ![Media Services settings](./media/media-services-portal-vod-get-started/media-services-settings.png)
    
@@ -76,33 +76,22 @@ You need the account name and the primary key information to programmatically ac
    
     ![Media Services Keys](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Configure streaming endpoints
-When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+## Start streaming endpoints 
 
-Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
-To take advantage of dynamic packaging, you need to do the following:
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-* Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
-* Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
+To start the streaming endpoint, do the following:
 
-With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
-
-To create and change the number of streaming reserved units, do the following:
-
-1. In the **Settings** window, click **Streaming endpoints**. 
+1. In the Settings window, click Streaming endpoints. 
 2. Click the default streaming endpoint. 
-   
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
-3. To specify the number of streaming units, slide the **Streaming units** slider.
-   
-    ![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Click the **Save** button to save your changes.
-   
-   > [!NOTE]
-   > The allocation of any new units can take up to 20 minutes to complete.
-   > 
-   > 
+
+	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+
+3. Click the Start icon.
+4. Click the Save button to save your changes.
 
 ## Upload files
 To stream videos using Azure Media Services, you need to upload the source videos, encode them into multiple bitrates, and publish the result. The first step is covered in this section. 
@@ -125,14 +114,11 @@ To stream videos using Azure Media Services, you need to upload the source video
 Once the upload completes, you see the new asset listed in the **Assets** window. 
 
 ## Encode assets
-When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
+When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH. To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
 
-Media Services also provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to repackage into these streaming formats. With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
+Media Services also provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, without you having to repackage into these streaming formats. With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
 
-To take advantage of dynamic packaging, you need to do the following:
-
-* Encode your source file into a set of multi-bitrate MP4 files (the encoding steps are demonstrated later in this section).
-* Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [configuring streaming endpoints](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+To take advantage of dynamic packaging, you need to encode your source file into a set of multi-bitrate MP4 files (the encoding steps are demonstrated later in this section).
 
 ### To use the portal to encode
 This section describes the steps you can take to encode your content with Media Encoder Standard.

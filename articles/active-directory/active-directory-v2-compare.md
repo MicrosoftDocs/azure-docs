@@ -1,4 +1,4 @@
-﻿---
+---
 title: The Azure AD v2.0 endpoint | Microsoft Docs
 description: An comparison between the original Azure AD and the v2.0 endpoints.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---

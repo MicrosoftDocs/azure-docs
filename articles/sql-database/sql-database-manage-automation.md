@@ -9,13 +9,13 @@ editor: monicar
 
 ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2016
-ms.author: jolevy
+ms.author: jhubbard
 
 ---
 # Managing Azure SQL Databases using Azure Automation
