@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse - Get Started Tutorial | Microsoft Docs
+title: Azure SQL Data Warehouse - Get started tutorial | Microsoft Docs
 description: Get Started Tutorial with Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -17,7 +17,7 @@ ms.date: 12/21/2016
 ms.author: elbutter
 
 ---
-# Get Started with SQL Data Warehouse
+# Get started with SQL Data Warehouse
 
 ## Introduction
 
