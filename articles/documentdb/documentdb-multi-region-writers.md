@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2016
+ms.date: 01/10/2016
 ms.author: arramac
 
 ---
@@ -305,5 +305,6 @@ Thus, by choosing a good partitioning key and static account-based partitioning,
 In this article, we described how you can use globally distributed multi-region read write patterns with DocumentDB using content publishing as a sample scenario.
 
 * Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
+* Learn about [automatic and manual failovers in Azure DocumentDB](documentdb-regional-failovers.md)
 * Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
 * Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
