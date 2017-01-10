@@ -35,7 +35,6 @@
 ### [Model your data](documentdb-modeling-data.md)
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
-### [Regional Failovers](documentdb-regional-failovers.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
@@ -52,11 +51,9 @@
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
-### [Track changes with Change feed](documentdb-change-feed.md)
+### [Track changes with Change feed](documentdb-change-feed.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
-### [Multi-region writes](documentdb-multi-region-writers.md)
-### [Working with DateTimes](documentdb-working-with-dates.md)
 
 ## Use DocumentDB Support for MongoDB
 ### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
