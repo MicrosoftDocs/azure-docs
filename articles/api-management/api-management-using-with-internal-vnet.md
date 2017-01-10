@@ -33,7 +33,7 @@ Using API Management in Internal mode, you can achieve the following scenarios
 ## <a name="enable-vpn"> </a>Creating an API Management in Internal VNET
 API Management service in Internal Virtual Network is hosted behind an Internal Load Balancer(ILB). The IP Address of the ILB is in the [RFC1918](http://www.faqs.org/rfcs/rfc1918.html) range.  
 
-## <a name="enable-vnet-portal"> </a>Enable VNET connection using Azure portal
+### Enable VNET connection using Azure portal
 First create the API Management service by following the steps [Create API Management service][Create API Management service]. Then configure the API Management inside a Virtual Network.
 
 ![Menu for Setting up APIM in Internal Virtual Network][api-management-using-internal-vnet-menu]
@@ -42,20 +42,20 @@ After the deployment succeeds, you should see the Internal Virtual IP Address of
 
 ![API Management Dashboard with Internal VNET configured][api-management-internal-vnet-dashboard]
 
-## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
+### Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
 
 * **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) to create an Azure API Management service inside a VNET and configure it to using the Internal VPN type.
 
 * **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network and configure it to using Internal VPN type.
 
-# <a name="dns-configuration-apim"></a>DNS Configuration
+## <a name="apim-dns-configuration"></a>DNS Configuration
 When using API Management in External Virtual Network Type, DNS is managed by Azure. For Internal Virtual Network type, you have to manage your own DNS.
 
 > [!NOTE]
 > API Management service does not listen to requests coming on IP addresses. It only responds to requests to the Hostname configured on > its Service Endpoints (which includes Gateway, Developer Portal, Publisher Portal, Direct Management endpoint, and GIT).
 
-## Access on Default Host Names:
+### Access on Default Host Names:
 When you create an API Management service say contoso in Public Azure, the following service Endpoints are configured by default.
 
 >	Gateway / Proxy - contoso.azure-api.net
@@ -66,7 +66,7 @@ When you create an API Management service say contoso in Public Azure, the follo
 
 >	GIT - contoso.scm.azure-api.net
 
-To access these API Management service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like following.
+To access these API Management service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal Virtual IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like following.
 
 > 10.0.0.5	  contoso.azure-api.net
 
@@ -79,7 +79,7 @@ To access these API Management service endpoints, you can create a Virtual Machi
 You can then access all the service endpoints from the Virtual Machine you created. 
 If using a Custom DNS server in a Virtual Network, you can also create A- DNS record and access these endpoints from anywhere in your Virtual Network. 
 
-## Access on Custom Domain Names:
+### Access on Custom Domain Names:
 If you don’t want to access the API Management service with the default host names, you can setup custom domain name for all your service endpoints like below
 
 ![Setting up custom domain for API Management][api-management-custom-domain-name]
