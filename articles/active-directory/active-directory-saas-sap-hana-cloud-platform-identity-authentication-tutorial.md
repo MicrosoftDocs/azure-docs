@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: jeedes
 
 ---
@@ -153,7 +153,7 @@ SAP HANA Cloud Platform Identity Authentication application expects the SAML ass
 
     a. In the **Sign On URL** textbox, type the sign on URL for the SAP application.
 
-	b. In the **Identifier** textbox, type the value following pattern: `<entity-id>.accounts.ondemand.com`. If you don't know this value, please follow the SAP HANA Cloud Platform Identity Authentication documentation on [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)
+	b. In the **Identifier** textbox, type the value following pattern: `<tenant-id>.accounts.ondemand.com`. If you don't know this value, please follow the SAP HANA Cloud Platform Identity Authentication documentation on [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)
 
 
 5. On the **SAP HANA Cloud Platform Identity Authentication Configuration** section, click **Configure SAP HANA Cloud Platform Identity Authentication** to open **Configure sign-on** dialog. Then, click on **SAML XML Metadata** and save the file on your computer
