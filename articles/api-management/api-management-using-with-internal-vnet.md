@@ -18,12 +18,12 @@ ms.author: sasolank
 
 ---
 # Using Azure API Management service with Internal Virtual Network
-Azure API Management can help you to manage your APIs not accessible on the Internet. Using Azure Virtual Network(VNET), you can access your API backend using the various VPN technologies. API Management can deployed in two modes in Virtual Network
+Azure API Management can help you to manage your APIs not accessible on the Internet. Using Azure Virtual Network(VNET), you can access your API backend using the various VPN technologies. API Management can be deployed in two modes in Virtual Network
 * External
 * Internal
 
 ## <a name="overview"> </a>Overview
-With API Management is deployed in a Internal Virtual Network mode, all the service Endpoints (Gateway, Developer Portal, Publisher Portal, Direct Management and GIT) are only visible inside a Virtual Network that you control access to. None of the Service Endpoints are registered on the Public DNS Server.
+When API Management is deployed in an Internal Virtual Network mode, all the service Endpoints (Gateway, Developer Portal, Publisher Portal, Direct Management and GIT) are only visible inside a Virtual Network that you control access to. None of the Service Endpoints are registered on the Public DNS Server.
 
 Using API Management in Internal mode, you can achieve the following scenarios
 * Securely extend your APIs hosted in your datacenter to Cloud with you can access through Site to Site Vpn or Express Route VPN.
@@ -53,11 +53,10 @@ You can also enable VNET connectivity using the PowerShell cmdlets
 When using API Management in External Virtual Network Type, DNS is managed by Azure. For Internal Virtual Network type, you have to manage your own DNS.
 
 > [!NOTE]
-> API Management service does not listen to requests coming on IP addresses. It only responds to requests to the Hostname configured on its Service Endpoints (which includes Gateway, Developer Portal, Publisher Portal,
-> Direct  Management endpoint and GIT).
+> API Management service does not listen to requests coming on IP addresses. It only responds to requests to the Hostname configured on > its Service Endpoints (which includes Gateway, Developer Portal, Publisher Portal, Direct  Management endpoint, and GIT).
 
 ## Access on Default Host Names:
-When you create an API Management service say contoso, the following service Endpoints are configured by default.
+When you create an API Management service say contoso in Public Azure, the following service Endpoints are configured by default.
 
 >	Gateway / Proxy - contoso.azure-api.net
 
@@ -67,7 +66,7 @@ When you create an API Management service say contoso, the following service End
 
 >	GIT - contoso.scm.azure-api.net
 
-To access these API Management service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like below.
+To access these API Management these service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like following.
 
 > 10.0.0.5	  contoso.azure-api.net
 
@@ -78,7 +77,7 @@ To access these API Management service endpoints, you can create a Virtual Machi
 > 10.0.0.5	  contoso.scm.azure-api.net
 
 You can then access all the service endpoints from the Virtual Machine you created. 
-If using the a Custom DNS server in a Virtual Network, you can also create A- DNS record  and access these endpoints from anywhere in your Virtual Network. 
+If using a Custom DNS server in a Virtual Network, you can also create A- DNS record and access these endpoints from anywhere in your Virtual Network. 
 
 ## Access on Custom Domain Names:
 If you don’t want to access the API Management service with the default host names, you can setup custom domain name for all your service endpoints like below
@@ -96,5 +95,5 @@ Then you can create A records in your DNS Server to access these endpoints which
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
-[Create API Management service]: api-management-get-started.md#-create-an-api-management-instance
-[Common Network Configuration Issues]: api-management-using-with-vnet.md#-common-network-configuration-issues
+[Create API Management service]: api-management-get-started.md#create-service-instance
+[Common Network Configuration Issues]: api-management-using-with-vnet.md#network-configuration-issues
