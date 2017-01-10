@@ -31,7 +31,7 @@ Using API Management in Internal mode, you can achieve the following scenarios
 * Manage your APIs hosted in multiple geographic locations using a single Gateway endpoint. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in Internal VNET
-API Management service in Internal Virtual Network is hosted behind an Internal Load Balancer(ILB). The IP Address of the ILB is in the RFC1918 (http://www.faqs.org/rfcs/rfc1918.html) range.  
+API Management service in Internal Virtual Network is hosted behind an Internal Load Balancer(ILB). The IP Address of the ILB is in the [RFC1918](http://www.faqs.org/rfcs/rfc1918.html) range.  
 
 ## <a name="enable-vnet-portal"> </a>Enable VNET connection using Azure portal
 First create the API Management service by following the steps [Create API Management service][Create API Management service]. Then configure the API Management inside a Virtual Network.
@@ -57,17 +57,25 @@ When using API Management in External Virtual Network Type, DNS is managed by Az
 > Direct  Management endpoint and GIT).
 
 ## Access on Default Host Names:
-When you create an API Management service, the following service Endpoints are configured by default.
-•	Gateway / Proxy - <serviceName>.azure-api.net
-•	Publisher Portal & Developer Portal - <serviceName>.portal.azure-api.net
-•	Direct Management Endpoint - <serviceName>.management.azure-api.net
-•	GIT - <serviceName>.scm.azure-api.net
-To access the API Management instance service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like below.
+When you create an API Management service say contoso, the following service Endpoints are configured by default.
 
-10.0.0.5	<serviceName>.azure-api.net
-10.0.0.5	<serviceName>.portal.azure-api.net
-10.0.0.5	<serviceName>.management.azure-api.net
-10.0.0.5	<serviceName>.scm.azure-api.net
+>	Gateway / Proxy - contoso.azure-api.net
+
+> Publisher Portal and Developer Portal - contoso.portal.azure-api.net
+
+> Direct Management Endpoint - contoso.management.azure-api.net
+
+>	GIT - contoso.scm.azure-api.net
+
+To access these API Management service endpoints, you can create a Virtual Machine in a subnet connected to the Virtual Network in which API Management is deployed. Assuming the Internal IP Address for your service is 10.0.0.5, you can do the hosts file mapping (%SystemDrive%\drivers\etc\hosts) like below.
+
+> 10.0.0.5	  contoso.azure-api.net
+
+> 10.0.0.5	  contoso.portal.azure-api.net
+
+> 10.0.0.5	  contoso.management.azure-api.net
+
+> 10.0.0.5	  contoso.scm.azure-api.net
 
 You can then access all the service endpoints from the Virtual Machine you created. 
 If using the a Custom DNS server in a Virtual Network, you can also create A- DNS record  and access these endpoints from anywhere in your Virtual Network. 
@@ -80,7 +88,7 @@ If you don’t want to access the API Management service with the default host n
 Then you can create A records in your DNS Server to access these endpoints which are only accessible from within your Virtual Network.
 
 ## <a name="related-content"> </a>Related content
-* [Common Network configuration issues while setting up APIM in VNET][api-management-using-with-vnet.md#-common-network-configuration-issues]
+* [Common Network configuration issues while setting up APIM in VNET][Common Network Configuration Issues]
 * [Virtual Network faqs](../virtual-network/virtual-networks-faq.md)
 * [Creating A record in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
 
@@ -89,3 +97,4 @@ Then you can create A records in your DNS Server to access these endpoints which
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: api-management-get-started.md#-create-an-api-management-instance
+[Common Network Configuration Issues]: api-management-using-with-vnet.md#-common-network-configuration-issues
