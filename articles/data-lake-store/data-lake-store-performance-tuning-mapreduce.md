@@ -1,4 +1,4 @@
-* ---
+---
 title: Data Lake Store MapReduce Performance Tuning Guidelines | Microsoft Docs
 description: Data Lake Store MapReduce Performance Tuning Guidelines
 services: data-lake-store
@@ -56,12 +56,12 @@ If you are using an empty cluster, then memory can be the total YARN memory for 
 **Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces** – mapreduce.job.maps is constrained either by memory or by CPU.  You should take total YARN memory and divide that by mapreduce.map.memory.  
 
 	Memory constraint = total YARN memory / mapreduce.map.memory
-The CPU constraint is calculated as the total physical cores multiplied by the number of mappers per core.  You should set the number of cores per mapper to 2.
+The CPU constraint is calculated as the total physical cores multiplied by the number of containers per core.  By default the number of containers per physical core is set to 2.
 
-	CPU constraint = total physical cores * cores per mapper
-The concurrency should be the minimum of these two numbers.
+	CPU constraint = total physical cores * containers per core
+Mapreduce.job.maps should be the minimum of these two numbers.
 
-	Mapreduce.job.maps = Min (total cores * cores per mapper, available YARN memory / mapreduce.map.memory)   
+	Mapreduce.job.maps = Min (total cores * containers per core, available YARN memory / mapreduce.map.memory)   
 This is a good starting point for mapreduce.job.maps and you can experiment with more or less mappers based on your data size to tune you performance.  The same calculation can be done for mapreduce.job.reduces.  
 
 ## Example Calculation
@@ -80,10 +80,10 @@ Let’s say you currently have a cluster composed of 8 D14 nodes and you want to
 
 	memory constraint = 768GB of available memory / 3 GB of memory =   256
 	cores = nodes in cluster * # of cores in node = 8 nodes * 16 cores  = 128  
-	CPU constraint = 128 cores * 2 cores per mapper = 256
-	mapreduce.job.maps = Min (128 cores * 2 cores per mapper, 768GB of available YARN memory / 3GB of mapreduce.map.memory) = Min (256, 256) = 256
+	CPU constraint = 128 cores * 2 containers per core = 256
+	mapreduce.job.maps = Min (128 cores * 2 containers per core, 768GB of available YARN memory / 3GB of mapreduce.map.memory) = Min (256, 256) = 256
 
-You can run 256 tasks concurrently so you can consider starting with 256 map/reduce tasks.  You can experiment further by increasing or decreasing the number of mappers to see if you get better performance.   
+A good starting point is 256 map/reduce tasks.  You can experiment further by increasing or decreasing the number of mappers to see if you get better performance.   
 
 ## Limitations
 
