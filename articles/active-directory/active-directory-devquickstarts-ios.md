@@ -3,7 +3,7 @@ title: Azure AD iOS Getting Started | Microsoft Docs
 description: How to build an iOS application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: ios
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
@@ -36,11 +36,11 @@ To build the complete working application, you’ll need to:
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 > [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation.
->
->
+> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
+> 
+> 
 
-## *1. Determine what your Redirect URI will be for iOS*
+## 1. Determine what your Redirect URI will be for iOS
 In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
 
 The iOS format for a Redirect URI is:
@@ -54,19 +54,20 @@ The iOS format for a Redirect URI is:
 
 An example for this QuickStart code would be: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## *2. Register the DirectorySearcher Application*
+## 2. Register the DirectorySearcher Application
 To enable your app to get tokens, you'll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top right, click on your account and under the **Directory** list, choose an Active Directory tenant where you have admin permissions.
-3. Type **App registrations** in the search filter.
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
-5. Follow the prompts and create a new **Native Client Application**. The **Name** of the application will describe your application to end-users. The **Redirect URI** is the URI used to return tokens to your app. Enter a value specific to your application. Click on **Create** to create the application.
-6. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
-7. Find the Application ID value and copy it to the clipboard.
-8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Windows Azure Active Directory' (this is the AADGraph API). Then, click on  **Select Permissions** and select 'Read Directory Data'.
+5. Follow the prompts and create a new **Native Client Application**.
+  * The **Name** of the application will describe your application to end-users
+  * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a value specific to your application based on the information above.
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** page, choose **Required Permissions** and choose **Add**. Select the **Microsoft Graph** as the API and add the **Read Directory Data** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
-## *3. Install & Configure ADAL*
+## 3. Install & Configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
 
 * Begin by adding ADAL to the DirectorySearcher project using Cocapods.
@@ -97,7 +98,7 @@ $ open QuickStart.xcworkspace
   * The `clientId` is the clientId of your application you copied from the portal.
   * The `redirectUri` is the redirect url you registered in the portal.
 
-## *4.    Use ADAL to Get Tokens from AAD*
+## 4.    Use ADAL to Get Tokens from AAD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock `+(void) getToken : `, and ADAL does the rest.  
 
 * In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.  This is where you pass ADAL the coordinates through a CompletionBlock to communicate with Azure AD and tell it how to cache tokens.
@@ -215,7 +216,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 * When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a login dialog, collect the user's credentials, and return a token upon successful authentication.  If ADAL is unable to return a token for any reason, it will throw an `AdalException`.
 * Notice that the `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect information your app may need.  In the QuickStart, `tokenCacheStoreItem` is used to determine if authenitcation has already occurred.
 
-## Step 5: Build and Run the application
+## 5: Build and Run the application
 Congratulations! You now have a working iOS application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your QuickStart app, and sign in with one of those users.  Search for other users based on their UPN.  Close the app, and re-run it.  Notice how the user's session remains intact.
 
 ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `getToken`.
@@ -229,3 +230,4 @@ You can now move on to additional scenarios.  You may want to try:
 * Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+

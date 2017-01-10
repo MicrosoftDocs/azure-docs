@@ -167,7 +167,8 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 
 As for property updates, `null` values means that the JSON object member is being deleted.
 
-> [AZURE.IMPORTANT] IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
+> [!IMPORTANT] 
+> IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
 
 Refer to the [Device twins developer's guide][lnk-devguide-twin] for more information.
 
@@ -202,12 +203,12 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
 [lnk-mqtt-docs]: http://mqtt.org/documentation
-[lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
-[lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
+[lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
+[lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
+[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/readme.md
 [lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md

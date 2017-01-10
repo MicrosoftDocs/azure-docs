@@ -76,4 +76,4 @@ The pattern to manipulate any Event Hubs resource is similar and follows a commo
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus Reference](/dotnet/api/Microsoft.Azure.Management.EventHub) 
+* [Microsoft.Azure.Management.EventHub Reference](/dotnet/api/Microsoft.Azure.Management.EventHub) 
