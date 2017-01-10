@@ -72,7 +72,7 @@ DocumentDB is used by games like [The Walking Dead: No Man's Land](https://azure
 * Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
 * DocumentDB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
 
-![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentdb-gaming.png)
+![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## Web and mobile applications
 DocumentDB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. 
