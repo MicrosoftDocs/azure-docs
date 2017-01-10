@@ -19,8 +19,8 @@
 |-d |Optional|Location where the Mobility Service will install|/usr/local/ASR|
 |-i |Mandatory|IP Address of the configuration server.|Any valid IP Address|
 |-p |Mandatory|Port on which the Configuration server is listening for incoming connections|443|
-|-s |Mandatory|Start service after a successful install. (Will be deprecated in the next release)|*y*|
-|-c |Mandatory|Communication mode between Agent and Process Server |*https*|
+|-s |Mandatory|Start service after a successful install<br>(Will be deprecated in the next release)|*y*|
+|-c |Mandatory|Communication mode between Agent and Process Server<br>(Will be deprecated in the next release) |*https*|
 |-P |Mandatory|Configuration Server passphrase|Any valid UNC or local file path|
 
 
