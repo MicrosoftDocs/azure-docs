@@ -1,5 +1,5 @@
 ---
-title: Collect logs directly from service process | Microsoft Docs
+title: Collect logs directly from an Azure Service Fabric service process | Microsoft Azure
 description: Describes Service Fabric applications can send logs directly to a central location like Azure Application Insights or Elasticsearch, without relying on Azure Diagnostics agent.
 services: service-fabric
 documentationcenter: .net
@@ -17,26 +17,26 @@ ms.date: 01/04/2017
 ms.author: karolz@microsoft.com
 
 ---
-# Collect logs directly from service process
+# Collect logs directly from an Azure Service Fabric service process
 ## In-process log collection
 Collecting application logs using [Azure Diagnostics extension](../cloud-services/cloud-services-dotnet-diagnostics.md) is a good option for **Azure Service Fabric** services if the set of log sources and destinations is small, does not change often, and there is a straightforward mapping between the sources and their destinations. If not, an alternative is to have services send their logs directly to a central location. This process is known as **in-process log collection** and has several potential advantages:
 
-1. *Easy configuration and deployment*
-   
-   * The configuration of diagnostic data collection is just part of the service configuration. It is easy to always keep it "in sync" with the rest of the application.
-   * Per-application or per-service configuration is easily achievable.
-       * Agent-based log collection usually requires a separate deployment and configuration of the diagnostic agent, which is an extra administrative task and a potential source of errors. Often there is only one instance of the agent allowed per virtual machine (node) and the agent configuration is shared among all applications and services running on that node. 
+* *Easy configuration and deployment*
 
-2. *Flexibility*
-   
-   * The application can send the data wherever it needs to go, as long as there is a client library that supports the targeted data storage system. New destinations can be added as desired.
-   * Complex capture, filtering, and data-aggregation rules can be implemented.
-   * Agent-based log collection is often limited by the data sinks that the agent supports. Some agents are extensible.
+    * The configuration of diagnostic data collection is just part of the service configuration. It is easy to always keep it "in sync" with the rest of the application.
+    * Per-application or per-service configuration is easily achievable.
+        * Agent-based log collection usually requires a separate deployment and configuration of the diagnostic agent, which is an extra administrative task and a potential source of errors. Often there is only one instance of the agent allowed per virtual machine (node) and the agent configuration is shared among all applications and services running on that node. 
 
-3. *Access to internal application data and context*
+* *Flexibility*
    
-   * The diagnostic subsystem running inside the application/service process can easily augment the traces with contextual information.
-   * With agent-based log collection, the data must be sent to an agent via some inter-process communication mechanism, such as Event Tracing for Windows. This mechanism could impose additional limitations.
+    * The application can send the data wherever it needs to go, as long as there is a client library that supports the targeted data storage system. New destinations can be added as desired.
+    * Complex capture, filtering, and data-aggregation rules can be implemented.
+    * Agent-based log collection is often limited by the data sinks that the agent supports. Some agents are extensible.
+
+* *Access to internal application data and context*
+   
+    * The diagnostic subsystem running inside the application/service process can easily augment the traces with contextual information.
+    * With agent-based log collection, the data must be sent to an agent via some inter-process communication mechanism, such as Event Tracing for Windows. This mechanism could impose additional limitations.
 
 It is possible to combine and benefit from both collection methods. Indeed, it might be the best solution for many applications. Agent-based collection is a natural solution for collecting logs related to the whole cluster and individual cluster nodes. It is much more reliable way, than in-process log collection, to diagnose service startup problems and crashes. Also, with many services running inside a Service Fabric cluster, each service doing its own in-process log collection results in numerous outgoing connections from the cluster. Large number of outgoing connections is taxing both for the network subsystem and for the log destination. An agent such as [**Azure Diagnostics**](../cloud-services/cloud-services-dotnet-diagnostics.md) can gather data from multiple services and send all data through a few connections, improving throughput. 
 
@@ -49,12 +49,12 @@ EventFlow binaries are available as a set of NuGet packages. To add EventFlow to
 
 The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. Add the following packages: 
 
-  1. `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
-      * (to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
-  2. `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
-      * (we are going to send the logs to an Azure Application Insights resource)  
-  3. `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
-      * (enables initialization of the EventFlow pipeline from Service Fabric service configuration and reports any problems with sending diagnostic data as Service Fabric health reports)
+* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
+    * (to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
+* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
+    * (we are going to send the logs to an Azure Application Insights resource)  
+* `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
+    * (enables initialization of the EventFlow pipeline from Service Fabric service configuration and reports any problems with sending diagnostic data as Service Fabric health reports)
 
 > [!NOTE]
 > `Microsoft.Diagnostics.EventFlow.Input.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package. 
