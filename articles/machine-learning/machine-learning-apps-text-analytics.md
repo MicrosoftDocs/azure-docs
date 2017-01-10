@@ -206,8 +206,7 @@ In the response below, you get the list of key phrases associated with your text
         "Errors":[]
     }
 
----
-
+- - -
 ### GetLanguageBatch
 
 In the POST call below, we are requesting language detection for two text inputs:
@@ -246,8 +245,8 @@ This returns the following response, where English is detected in the first inpu
        }],
        "Errors": []
     }
----
 
+- - -
 ## Topic Detection APIs
 This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. Note that this API charges 1 transaction per text record submitted.
 
