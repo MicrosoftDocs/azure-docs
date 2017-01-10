@@ -31,7 +31,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="ProductList"></a> Application list  
  The **Application list** template allows you to customize the body of the application list page in the developer portal.  
   
- ![Application List Page Developer Portal Templates](./media/api-management-dev-portal-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM Application List Page Developer Portal Templates")  
+ ![Application List Page Developer Portal Templates](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM Application List Page Developer Portal Templates")  
   
 ### Default template  
   
@@ -132,7 +132,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="Application"></a> Application  
  The **Application** template allows you to customize the body of the application page in the developer portal.  
   
- ![Application Page Developer Portal Templates](./media/api-management-dev-portal-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM Application Page Developer Portal Templates")  
+ ![Application Page Developer Portal Templates](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM Application Page Developer Portal Templates")  
   
 ### Default template  
   

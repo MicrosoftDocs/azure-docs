@@ -33,7 +33,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="SignIn"></a> Sign in  
  The **sign in** template allows you to customize the sign in page in the developer portal.  
   
- ![Sign In Page](./media/api-management-dev-portal-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM Sign In Page Developer Portal Templates")  
+ ![Sign In Page](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM Sign In Page Developer Portal Templates")  
   
 ### Default template  
   
@@ -132,7 +132,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="SignUp"></a> Sign up  
  The **sign up** template allows you to customize the sign up page in the developer portal.  
   
- ![Sign Up Page](./media/api-management-dev-portal-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM Sign Up Page Developer Portal Templates")  
+ ![Sign Up Page](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM Sign Up Page Developer Portal Templates")  
   
 ### Default template  
   
@@ -180,7 +180,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="PageNotFound"></a> Page not found  
  The **page not found** template allows you to customize the page not found page in the developer portal.  
   
- ![Not Found Page](./media/api-management-dev-portal-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM Not Found Page Developer Portal Templates")  
+ ![Not Found Page](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM Not Found Page Developer Portal Templates")  
   
 ### Default template  
   

@@ -29,7 +29,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="IssueList"></a> Issue list  
  The **Issue list** template allows you to customize the body of the issue list page in the developer portal.  
   
- ![Issue List Developer Portal](./media/api-management-dev-portal-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
+ ![Issue List Developer Portal](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
   
 ### Default template  
   

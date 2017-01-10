@@ -1,4 +1,4 @@
----
+﻿---
 title: Product templates in Azure API Management | Microsoft Docs
 description: Learn how to customize the content of the product pages in the Azure API Management developer portal.
 services: api-management
@@ -31,7 +31,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="ProductList"></a> Product list  
  The **Product list** template allows you to customize the body of the product list page in the developer portal.  
   
- ![Products list](./media/api-management-dev-portal-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
+ ![Products list](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
   
 ### Default template  
   
@@ -117,7 +117,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="Product"></a> Product  
  The **Product** template allows you to customize the body of the product page in the developer portal.  
   
- ![Developer portal product page](./media/api-management-dev-portal-templates/APIM_ProductPage.png "APIM_ProductPage")  
+ ![Developer portal product page](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
   
 ### Default template  
   

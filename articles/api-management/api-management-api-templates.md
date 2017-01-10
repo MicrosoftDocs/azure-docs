@@ -49,7 +49,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="APIList"></a> API list  
  The **API list** template allows you to customize the body of the API list page in the developer portal.  
   
- ![Developer Portal API List](./media/api-management-dev-portal-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")  
+ ![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")  
   
 ### Default template  
   
@@ -117,7 +117,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="Product"></a> Operation  
  The **Operation** template allows you to customize the body of the operation page in the developer portal.  
   
- ![Developer Portal Operation page](./media/api-management-dev-portal-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")  
+ ![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")  
   
 ### Default template  
   
@@ -647,7 +647,7 @@ Azure API Management provides you the ability to customize the content of develo
 ##  <a name="CodeSamples"></a> Code samples  
  The following templates allow you to customize the body of the individual code samples on the operation page.  
   
- ![Developer Portal Templates Code samples](./media/api-management-dev-portal-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")  
+ ![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")  
   
 -   [Curl](#Curl)  
   

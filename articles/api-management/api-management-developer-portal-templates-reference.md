@@ -51,10 +51,10 @@ Azure API Management provides you the ability to customize the content of develo
     -   [Subscriptions](api-management-user-profile-templates.md#Subscriptions)  
     -   [Applications](api-management-user-profile-templates.md#Applications)  
     -   [Update account info](api-management-user-profile-templates.md#UpdateAccountInfo)  
--   [Pages](api-management-page-templates-in-azure.md)  
-    -   [Sign in](api-management-page-templates-in-azure.md#SignIn)  
-    -   [Sign up](api-management-page-templates-in-azure.md#SignUp)  
-    -   [Page not found](api-management-page-templates-in-azure.md#PageNotFound)
+-   [Pages](api-management-page-templates.md)  
+    -   [Sign in](api-management-page-templates.md#SignIn)  
+    -   [Sign up](api-management-page-templates.md#SignUp)  
+    -   [Page not found](api-management-page-templates.md#PageNotFound)
 
 
 ## In this section  

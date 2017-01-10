@@ -50,7 +50,7 @@ Azure API Management provides the following controls for use in the developer po
 ##  <a name="app-actions"></a> app-actions  
  The `app-actions` control provides a user interface for interacting with applications on the user profile page in the developer portal.  
   
- ![app&#45;actions control](./media/api-management-dev-portal-templates/APIM-app-actions-control.png "APIM app-actions control")  
+ ![app&#45;actions control](./media/api-management-page-controls/APIM-app-actions-control.png "APIM app-actions control")  
   
 ### Usage  
   
@@ -72,7 +72,7 @@ Azure API Management provides the following controls for use in the developer po
 ##  <a name="basic-signin"></a> basic-signin  
  The `basic-signin` control provides a control for collecting user sign in information in the sign in page in the developer portal.  
   
- ![basic&#45;signin control](./media/api-management-dev-portal-templates/APIM-basic-signin-control.png "APIM basic-signin control")  
+ ![basic&#45;signin control](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic-signin control")  
   
 ### Usage  
   
@@ -86,12 +86,12 @@ Azure API Management provides the following controls for use in the developer po
 ### Developer portal templates  
  The `basic-signin` control may be used in the following developer portal templates.  
   
--   [Sign in](api-management-page-templates-in-azure.md#SignIn)  
+-   [Sign in](api-management-page-templates.md#SignIn)  
   
 ##  <a name="paging-control"></a> paging-control  
  The `paging-control` provides paging functionality on developer portal pages that display a list of items.  
   
- ![paging control](./media/api-management-dev-portal-templates/APIM-paging-control.png "APIM paging control")  
+ ![paging control](./media/api-management-page-controls/APIM-paging-control.png "APIM paging control")  
   
 ### Usage  
   
@@ -114,7 +114,7 @@ Azure API Management provides the following controls for use in the developer po
 ##  <a name="providers"></a> providers  
  The `providers` control provides a control for selection of authentication providers in the sign in page in the developer portal.  
   
- ![providers control](./media/api-management-dev-portal-templates/APIM-providers-control.png "APIM providers control")  
+ ![providers control](./media/api-management-page-controls/APIM-providers-control.png "APIM providers control")  
   
 ### Usage  
   
@@ -128,12 +128,12 @@ Azure API Management provides the following controls for use in the developer po
 ### Developer portal templates  
  The `providers` control may be used in the following developer portal templates.  
   
--   [Sign in](api-management-page-templates-in-azure.md#SignIn)  
+-   [Sign in](api-management-page-templates.md#SignIn)  
   
 ##  <a name="search-control"></a> search-control  
  The `search-control` provides search functionality on developer portal pages that display a list of items.  
   
- ![search control](./media/api-management-dev-portal-templates/APIM-search-control.png "APIM search control")  
+ ![search control](./media/api-management-page-controls/APIM-search-control.png "APIM search control")  
   
 ### Usage  
   
@@ -154,7 +154,7 @@ Azure API Management provides the following controls for use in the developer po
 ##  <a name="sign-up"></a> sign-up  
  The `sign-up` control provides a control for collecting user profile information in the sign up page in the developer portal.  
   
- ![sign&#45;up control](./media/api-management-dev-portal-templates/APIM-sign-up-control.png "APIM sign-up control")  
+ ![sign&#45;up control](./media/api-management-page-controls/APIM-sign-up-control.png "APIM sign-up control")  
   
 ### Usage  
   
@@ -168,12 +168,12 @@ Azure API Management provides the following controls for use in the developer po
 ### Developer portal templates  
  The `sign-up` control may be used in the following developer portal templates.  
   
--   [Sign up](api-management-page-templates-in-azure.md#SignUp)  
+-   [Sign up](api-management-page-templates.md#SignUp)  
   
 ##  <a name="subscribe-button"></a> subscribe-button  
  The `subscribe-button` provides a control for subscribing a user to a product.  
   
- ![subscribe&#45;button control](./media/api-management-dev-portal-templates/APIM-subscribe-button-control.png "APIM subscribe-button control")  
+ ![subscribe&#45;button control](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM subscribe-button control")  
   
 ### Usage  
   
@@ -192,7 +192,7 @@ Azure API Management provides the following controls for use in the developer po
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  The `subscription-cancel` control provides a control for cancelling a subscription to a product in the user profile page in the developer portal.  
   
- ![subscription&#45;cancel control](./media/api-management-dev-portal-templates/APIM-subscription-cancel-control.png "APIM subscription-cancel control")  
+ ![subscription&#45;cancel control](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM subscription-cancel control")  
   
 ### Usage  
   
