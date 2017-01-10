@@ -1,5 +1,5 @@
 ---
-title: Upload VHD file to lab's storage account using PowerShell | Microsoft Docs
+title: Upload VHD file to Azure DevTest Labs using PowerShell | Microsoft Docs
 description: Upload VHD file to lab's storage account using PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/10/2017
 ms.author: tarcher
 
 ---
@@ -24,6 +24,10 @@ ms.author: tarcher
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
 The following steps walk you through using PowerShell to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/virtual-machines-linux-about-disks-vhds.md)
+
+## Step-by-step instructions
+
+The following steps walk you through uploading a VHD file to Azure DevTest Labs using PowerShell. 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
