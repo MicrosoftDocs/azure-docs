@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/10/2017
 ms.author: banders
 
 ---
@@ -28,29 +28,29 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
-| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | Azure Networking Analytics (Preview) |
+| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Networking Analytics (Preview)](log-analytics-azure-networking-analytics.md) |
 | API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
-| Application insights    |                                         | Connector   | Connector   | Application Insights Connector (Preview) |
-| Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | |
+| Application insights    |                                         | Connector   | Connector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
+| Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [More information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
-| Classic cloud services  |                                         | Storage     |             | |
+| Classic cloud services  |                                         | Storage     |             | [More information](log-analytics-azure-storage-iis-table.md) |
 | Cognitive services      | Microsoft.CognitiveServices/accounts    |             | Diagnostics | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostics |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Event Hub namespace     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | KeyVault Analytics (Preview) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics (Preview)](log-analytics-azure-key-vault.md) |
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | Azure Networking Analytics (Preview) |
+| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Networking Analytics (Preview)](log-analytics-azure-networking-analytics.md) |
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
-| Service Fabric          |                                         | Storage     |             | ServiceFabric Analytics (Preview) |
+| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Web Server farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |
-| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | |
+| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnostics | [More information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring) |
 
 
 > [!NOTE]
