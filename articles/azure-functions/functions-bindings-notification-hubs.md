@@ -289,6 +289,10 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
+## Known Errors
+
+[!INCLUDE [notification-hub-errors](../../includes/functions-bindings-notification-hub-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

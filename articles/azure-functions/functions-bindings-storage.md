@@ -626,6 +626,10 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+## Known Errors
+
+[!INCLUDE [storage-binding-errors](../../includes/functions-bindings-storage-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

@@ -315,6 +315,10 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+## Known Errors
+
+[!INCLUDE [service-bus-errors](../../includes/functions-bindings-service-bus-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

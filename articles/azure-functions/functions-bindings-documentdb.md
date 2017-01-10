@@ -325,3 +325,7 @@ module.exports = function (context) {
   context.done();
 };
 ```
+
+## Known Errors
+
+[!INCLUDE [document-db-errors](../../includes/functions-bindings-document-db-errors.md)]

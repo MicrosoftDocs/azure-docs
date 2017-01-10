@@ -232,6 +232,10 @@ module.exports = function(context) {
 };
 ```
 
+## Known Errors
+
+[!INCLUDE [event-hub-errors](../../includes/functions-bindings-event-hub-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
