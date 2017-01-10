@@ -108,7 +108,7 @@ configuration IISInstall
 ```
 
 The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
-###Classic Model
+###Classic model
 ```powershell
 #Azure PowerShell cmdlets are required
 Import-Module Azure
@@ -128,7 +128,7 @@ $demoVM | Update-AzureVM -Verbose
 #check on status
 Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
 ```
-###Azure Resource Manager Model
+###Azure Resource Manager model
 
 ```powershell
 $resourceGroup = "dscVmDemo"
