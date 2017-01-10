@@ -145,7 +145,6 @@
 ### [Troubleshoot application upgrades](service-fabric-application-upgrade-troubleshooting.md)
 ### [Data serialization in application upgrades](service-fabric-application-upgrade-data-serialization.md)
 ### [Application upgrades advanced topics](service-fabric-application-upgrade-advanced.md)
-### [REST-based application lifecycle sample](service-fabric-rest-based-application-lifecycle-sample.md)
 
 ## Inspect application and cluster health
 ### [Monitor Service Fabric health](service-fabric-health-introduction.md)
