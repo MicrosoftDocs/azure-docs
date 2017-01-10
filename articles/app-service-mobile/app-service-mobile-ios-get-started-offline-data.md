@@ -43,18 +43,15 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
             MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
             self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
-
-
+            
     **Swift**:
 
     In the `ToDoTableViewController.viewDidLoad` method:
-
 
             let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
             let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
             self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
             client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
-
 
     This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol. 
 
@@ -92,11 +89,9 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
                 }];
             }
 
-
       **Swift**:
-
-
-        func onRefresh(sender: UIRefreshControl!) {
+      
+         func onRefresh(sender: UIRefreshControl!) {
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
             self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
