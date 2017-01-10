@@ -21,7 +21,7 @@ This topic provides a reference for the following API Management policies. For i
   
 ##  <a name="AdvancedPolicies"></a> Advanced policies  
   
--   [Control flow](api-managementadvanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-managementpolicy-expressions.md).  
+-   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).  
   
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.  
   
@@ -35,7 +35,7 @@ This topic provides a reference for the following API Management policies. For i
   
 -   [Send request](#SendRequest) - Sends a request to the specified URL.  
   
--   [Set variable](api-managementadvanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.  
+-   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.  
   
 -   [Set request method](#SetRequestMethod) - Allows you to change the HTTP method for a request.  
   

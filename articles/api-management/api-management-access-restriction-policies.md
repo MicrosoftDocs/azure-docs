@@ -21,15 +21,15 @@ This topic provides a reference for the following API Management policies. For i
   
 ##  <a name="AccessRestrictionPolicies"></a> Access restriction policies  
   
--   [Check HTTP header](api-managementaccess-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.  
+-   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.  
   
--   [Limit call rate by subscription](api-managementaccess-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.  
+-   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.  
   
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.  
   
--   [Restrict caller IPs](api-managementaccess-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.  
+-   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.  
   
--   [Set usage quota by subscription](api-managementaccess-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  
+-   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  
   
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.  
   
