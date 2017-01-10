@@ -530,7 +530,7 @@ If you’re using the **Serializer** library an important part of the SDK to be 
 If you have cloned the Azure-iot-sdk-c repository from GitHub using the --recursive option, then you will find this shared utility library here:
 
 ```
-.\\c\\azure-c-shared-utility
+.\\c-utility
 ```
 
 If you have not cloned the library, you can find it [here](https://github.com/Azure/azure-c-shared-utility).

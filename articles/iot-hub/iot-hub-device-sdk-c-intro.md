@@ -127,7 +127,7 @@ static const char* connectionString = "[device connection string]";
 If you want to follow along, enter your device connection string here, recompile the solution, and you'll be able to run the sample.
 
 ## IoTHubClient
-Within the **iothub\_client** folder in the azure-iot-sdk-c repository, there is a **samples** folder that contains an application called **iothub\_client\_sample\_amqp**.
+Within the **iothub\_client** folder in the [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) repository, there is a **samples** folder that contains an application called **iothub\_client\_sample\_amqp**.
 
 The Windows version of the **iothub\_client\_sample\_ampq** application includes the following Visual Studio solution:
 
@@ -242,7 +242,7 @@ The **IoTHubClient** library also provides precise control over how to serialize
 ## Serializer
 Conceptually the **serializer** library sits on top of the **IoTHubClient** library in the SDK. It uses the **IoTHubClient** library for the underlying communication with IoT Hub, but it adds modeling capabilities that remove the burden of dealing with message serialization from the developer. How this library works is best demonstrated by an example.
 
-Within the **serializer** folder in the azure-iot-sdk-c repository is a **samples** folder that contains an application called **simplesample\_amqp**. The Windows version of this sample includes the following Visual Studio solution:
+Within the **serializer** folder in the [azure-iot-sdk-c repository](https://github.com/Azure/azure-iot-sdk-c) is a **samples** folder that contains an application called **simplesample\_amqp**. The Windows version of this sample includes the following Visual Studio solution:
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_amqp.PNG)
 

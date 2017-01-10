@@ -82,6 +82,7 @@ Configure your `IoT hub connection string` within this tool to use all its capab
 ### IoT hub Explorer
 [IoT hub Explorer](https://github.com/Azure/iothub-explorer) is a sample multiplatform CLI tool to manage device clients. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
 
+
 To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 
 ```bash
