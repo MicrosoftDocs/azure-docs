@@ -19,7 +19,7 @@ ms.author: markvi
 # Automatic device registration with Azure Active Directory for Windows domain-joined devices
 As an IT Administrator, you can choose to automatically and silently register your domain-joined Windows devices with Azure Active Directory (Azure AD). This can be useful if you have configured device based conditional access polices to Office365 applications or applications managed on-premises by AD FS. You can learn more about the device registration scenarios by reading the [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md).
 
-> [!NOTE}
+> [!NOTE]
 >  For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 > 
 > 
