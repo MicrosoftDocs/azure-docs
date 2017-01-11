@@ -19,8 +19,6 @@ ms.author: elbutter
 ---
 # Get started with SQL Data Warehouse
 
-## Introduction
-
 Get Started Tutorial with Azure SQL Data Warehouse. This tutorial will teach you the basics 
 of provisioning and loading data into a SQL Data Warehouse, as well as some basics on scaling, 
 pausing, and tuning. 
