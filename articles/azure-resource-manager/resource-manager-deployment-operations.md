@@ -31,15 +31,15 @@ To see the deployment operations, use the following steps:
 1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
    
     ![deployment status](./media/resource-manager-deployment-operations/deployment-status.png)
-2. You will see the recent deployment history. Select the deployment that failed.
+2. You see the recent deployment history. Select the deployment that failed.
    
     ![deployment status](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Select **Failed. Click here for details** to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
+3. Select the link to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
    
     ![view failed deployment](./media/resource-manager-deployment-operations/view-error.png)
    
     This error message should be enough for you to begin troubleshooting. However, if you need more details about which tasks were completed, you can view the operations as shown in the following steps.
-4. You can view all of the deployment operations in the **Deployment** blade. Select any operation to see more details.
+4. You can view all the deployment operations in the **Deployment** blade. Select any operation to see more details.
    
     ![view operations](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -47,7 +47,7 @@ To see the deployment operations, use the following steps:
 5. You can view events for the deployment by selecting **Events**.
    
     ![view events](./media/resource-manager-deployment-operations/view-events.png)
-6. You see all of the events for the deployment and select any one for more details.
+6. You see all the events for the deployment and select any one for more details.
    
     ![see events](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -64,7 +64,7 @@ To see the deployment operations, use the following steps:
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Each deployment is usually made up of multiple operations, with each operation representing a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
+2. Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -88,7 +88,7 @@ To see the deployment operations, use the following steps:
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
-    Which returns all of the failed operations with each one in the following format:
+    Which returns all the failed operations with each one in the following format:
 
   ```powershell
   provisioningOperation : Create
@@ -122,7 +122,6 @@ To see the deployment operations, use the following steps:
 
 ## Azure CLI
 
-## Use deployment operations to troubleshoot
 1. Get the overall status of a deployment with the **azure group deployment show** command.
 
   ```azurecli
@@ -151,7 +150,7 @@ To see the deployment operations, use the following steps:
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
   ```
 
-    In the response, note in particular the **provisioningState** , **correlationId** and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+    In the response, note in particular the **provisioningState**, **correlationId**, and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
 
   ```json
   { 
@@ -174,7 +173,7 @@ To see the deployment operations, use the following steps:
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
   ```
    
-    The response will include request and/or response information based on what you specified in the **debugSetting** property during deployment.
+    The response includes request and/or response information based on what you specified in the **debugSetting** property during deployment.
 
   ```json
   {
@@ -205,5 +204,5 @@ To see the deployment operations, use the following steps:
 ## Next steps
 * For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * To learn about using the activity logs to monitor other types of actions, see [View activity logs to manage Azure resources](resource-group-audit.md).
-* To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+* To validate your deployment before executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
 
