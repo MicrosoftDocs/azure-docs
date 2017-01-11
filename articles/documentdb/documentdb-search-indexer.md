@@ -90,6 +90,7 @@ When rows are deleted from the source table, you should delete those rows from t
 In addition to capturing changed and deleted documents, specifying a DocumentDB query can be used to flatten nested properties, unwind arrays, project json properties, and filter the data to be indexed. Manipulating the data to be indexed can improve performance of the Azure Search indexer.
 
 Example Document:
+
     {
         "userId": 10001,
         "contact": {
@@ -100,17 +101,26 @@ Example Document:
         "tags": ["azure", "documentdb", "search"]
     }
 
+
 Flatten query:
-    SELECT c.userId, c.contact.firstName, c.contact.lastName, c.company FROM c
+
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    
     
 Projection query:
-    SELECT VALUE { "Name": c.contact.firstName, "Company": c.company } FROM c
+
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+
 
 Unwind array query:
-    SELECT c.userId, tag FROM c JOIN tag IN c.tags
+
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    
     
 Filter query:
-    SELECT * FROM c WHERE c.company = "microsoft"
+
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+
 
 ### <a id="CreateDataSourceExample"></a>Request body example
 The following example creates a data source with a custom query and policy hints:
