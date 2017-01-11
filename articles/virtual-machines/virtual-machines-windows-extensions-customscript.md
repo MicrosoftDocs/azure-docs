@@ -30,6 +30,10 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 The Custom Script Extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
+### Script Location
+
+The script that will be run on the virtual machine will need to be stored in Azure storage or on GitHub.
+
 ### Internet Connectivity
 
 The Custom Script Extension for Windows requires that the target virtual machine is connected to the internet. 
@@ -62,9 +66,9 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 			]
 		},
 		"protectedSettings": {
-			"commandToExecute": "Script execution command",
-            "storageAccountName": "yourStorageAccountName",
-            "storageAccountKey": "yourStorageAccountKey"
+			"commandToExecute": "myExecutionCommand",
+            "storageAccountName": "myStorageAccountName",
+            "storageAccountKey": "myStorageAccountKey"
 		}
 	}
 }
