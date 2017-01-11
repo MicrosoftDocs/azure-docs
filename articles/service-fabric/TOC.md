@@ -4,6 +4,7 @@
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
 ## [Terminology](service-fabric-technical-overview.md)
+## [Content roadmap](service-fabric-content-roadmap.md)
 
 # Get Started
 ## Set up your development environment
@@ -18,6 +19,7 @@
 
 # How To
 ## Build an application
+### [Patterns and scenarios](service-fabric-patterns-and-scenarios.md)
 ### Basics
 #### [Programming model](service-fabric-choose-framework.md)
 #### [Application model](service-fabric-application-model.md)
