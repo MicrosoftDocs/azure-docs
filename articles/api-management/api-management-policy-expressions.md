@@ -31,17 +31,6 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 > -   34:30 - See how to perform content filtering by removing data elements from the response received from the backend service using the [Control flow](api-management-advanced-policies.md#choose) and [Set body](api-management-transformation-policies.md#SetBody) policies. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.  
 > -   To download the policy statements used in this video, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github repo.  
   
-## In this topic  
-  
--   [Syntax](api-management-policy-expressions.md#Syntax)  
-  
--   [Examples](api-management-policy-expressions.md#PolicyExpressionsExamples)  
-  
--   [Usage](api-management-policy-expressions.md#PolicyExpressionsUsage)  
-  
--   [.NET Framework types allowed in policy expressions](api-management-policy-expressions.md#CLRTypes)  
-  
--   [Context variable](api-management-policy-expressions.md#ContextVariables)  
   
 ##  <a name="Syntax"></a> Syntax  
  Single statement expressions are enclosed in `@(expression)`, where `expression` is a well-formed C# expression statement.  
@@ -206,3 +195,6 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> If the input parameter contains a valid JWT token value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|  
 |Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|  
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Returns comma separated claim values or `defaultValue` if the header is not found.|
+
+## Next steps
+For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  

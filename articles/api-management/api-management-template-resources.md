@@ -571,3 +571,6 @@ Azure API Management provides the following types of resources for use in the de
 ```  
   
  For the complete list of glyphs, see [Glyphicons from Bootstrap](http://getbootstrap.com/components/#glyphicons).
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

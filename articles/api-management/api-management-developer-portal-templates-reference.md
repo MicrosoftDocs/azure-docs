@@ -57,8 +57,7 @@ Azure API Management provides you the ability to customize the content of develo
     -   [Page not found](api-management-page-templates.md#PageNotFound)
 
 
-## In this section  
-  
+## Next steps  
 -   [Template reference](api-management-developer-portal-templates-reference.md)  
 -   [Data model reference](api-management-template-data-model-reference.md)  
 -   [Page controls](api-management-page-controls.md)  

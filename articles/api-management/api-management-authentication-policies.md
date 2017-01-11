@@ -94,3 +94,6 @@ This topic provides a reference for the following API Management policies. For i
   
 -   **Policy scopes:** API  
   
+
+## Next steps
+For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  

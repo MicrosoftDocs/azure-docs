@@ -1,4 +1,4 @@
-﻿---
+---
 title: Product templates in Azure API Management | Microsoft Docs
 description: Learn how to customize the content of the product pages in the Azure API Management developer portal.
 services: api-management
@@ -252,3 +252,6 @@ Azure API Management provides you the ability to customize the content of develo
     "CannotAddBecauseMultipleSubscriptionsNotAllowed": true  
 }  
 ```
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

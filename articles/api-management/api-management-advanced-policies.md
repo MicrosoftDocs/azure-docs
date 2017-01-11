@@ -871,5 +871,7 @@ This topic provides a reference for the following API Management policies. For i
   
 -   **Policy scopes:**all scopes  
   
-## See Also  
- [Policy expressions](api-management-policy-expressions.md)
+## Next steps
+For more information working with policies, see:
+-	[Policies in API Management](api-management-howto-policies.md) 
+-	[Policy expressions](api-management-policy-expressions.md)

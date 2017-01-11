@@ -17,7 +17,7 @@ ms.date: 01/09/2017
 ms.author: mijiang
 ---
 # API Management policies
-This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-policies).  
+This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).  
   
  Policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.  
   
@@ -115,10 +115,5 @@ This section provides a reference for the following API Management policies. For
   
     -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.  
   
-## In this section  
-  
--   [Policies](api-management-policies.md)  
-  
--   [Policy expressions](api-management-policy-expressions.md)  
-  
--   [Error handling](api-management-error-handling-policies.md)  
+## Next steps
+For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  

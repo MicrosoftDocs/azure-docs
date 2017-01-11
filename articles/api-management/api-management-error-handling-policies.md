@@ -122,3 +122,6 @@ Azure API Management allows publishers to respond to error conditions that may o
 |validate-jwt|Required claims are missing from token|TokenClaimNotFound|JWT token is missing the following claims: <c1\>, <c2\>, … Access denied.|  
 |validate-jwt|Claim values mismatch|TokenClaimValueNotAllowed|Claim {claim-name} value of {claim-value} is not allowed. Access denied.|  
 |validate-jwt|Other validation failures|JwtInvalid|<message from jwt library\>|
+
+## Next steps
+For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  

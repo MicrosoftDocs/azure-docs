@@ -1,5 +1,5 @@
-﻿---
-title: "User profile templates in Azure API Management"
+---
+title: "User profile templates in Azure API Management | Microsoft Docs"
 description: Learn how to customize the content of the User Profile pages in the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -617,3 +617,6 @@ Azure API Management provides you the ability to customize the content of develo
     "IsBasicAccount": false  
 }  
 ```
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

@@ -1462,3 +1462,6 @@ puts response.body
     "parameters": []  
 }  
 ```
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

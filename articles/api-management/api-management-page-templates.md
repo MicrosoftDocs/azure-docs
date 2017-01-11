@@ -238,3 +238,6 @@ Azure API Management provides you the ability to customize the content of develo
     "referrerUrl": "https://contoso5.portal.azure-api.net/signup?startEditTemplate=SignUpTemplate"  
 }  
 ```
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

@@ -175,15 +175,9 @@ To restore all templates to their default versions, click **Restore default temp
 
 The restored templates must then be published individually or all at once by following the steps in [To publish a template](#to-publish-a-template).
 
-## Developer portal templates reference
+## Next steps
 For reference information for developer portal templates, string resources, icons, and page controls, see [API Management developer portal templates reference](api-management-developer-portal-templates-reference.md).
 
-## Watch a video overview
-Watch the following video to see how to add a discussion board and ratings to the API and operation pages in the developer portal using templates.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Adding-Developer-Portal-functionality-using-Templates-in-Azure-API-Management/player]
-> 
-> 
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png

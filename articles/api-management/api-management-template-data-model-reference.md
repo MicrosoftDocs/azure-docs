@@ -350,3 +350,6 @@ This topic describes the entity and type representations for common items used i
 |UserData|string|Value used by the [sign-up](api-management-page-controls.md#sign-up)sign-up control.|  
 |NameIdentifier|string|Value used by the [sign-up](api-management-page-controls.md#sign-up)sign-up control.|  
 |ProviderName|string|Authentication provider name.|
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

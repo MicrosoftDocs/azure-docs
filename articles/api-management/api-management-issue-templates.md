@@ -24,7 +24,7 @@ Azure API Management provides you the ability to customize the content of develo
 -   [Issue list](#IssueList)  
   
 > [!NOTE]
->  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a> Issue list  
  The **Issue list** template allows you to customize the body of the issue list page in the developer portal.  
@@ -128,3 +128,6 @@ Azure API Management provides you the ability to customize the content of develo
     "Search": null  
 }  
 ```
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).

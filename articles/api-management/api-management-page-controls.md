@@ -213,3 +213,6 @@ Azure API Management provides the following controls for use in the developer po
  The `subscription-cancel` control may be used in the following developer portal templates.  
   
 -   [Product](api-management-product-templates.md#Product)
+
+## Next steps
+For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).
