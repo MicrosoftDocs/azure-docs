@@ -59,7 +59,7 @@ You can easily remove a management solution when it is no longer needed. When yo
 
 The following table identifies which solutions belong to each Operations Management Suite offer. 
 The table also identifies the pricing tiers that are available for each management solution. 
-All of the solutions in the following table are available from within the Azure portal and the solutions gallery in the Log Analytics portal.
+All solutions in the following table are available from within the Azure portal and the solutions gallery in the Log Analytics portal.
 
 | Management Solution    		| Offer                                     | Pricing Tiers 										| Notes | 
 | ---                    		| ---                                       | ---           										| ---   |
@@ -101,7 +101,7 @@ Community provided solutions are available from the [Azure template gallery](htt
 
 
 ## Data collection details
-The following tables shows data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers, which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
+The following tables show data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers, which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
 
 The Log Analytics Windows agent and System Center Operations Manager agent are essentially the same. The Windows agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use an Operations Manager agent, it must be targeted as an OMS agent to communicate with OMS. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to OMS.
 
