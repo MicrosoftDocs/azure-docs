@@ -93,7 +93,7 @@ DocumentDB allows you to interact with the database using either logical (region
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
 DocumentDB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This allows you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. DocumentDB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
 
-### <a id="ComprehensiveSLAs"></a>Comprehensive SLAs (beyond just the high availability)
+### <a id="ComprehensiveSLAs"></a>Comprehensive SLAs (beyond just high availability)
 As a globally distributed database service, DocumentDB offers well-defined SLA for **data-loss**, **availability**, **latency at P99**, **throughput** and **consistency** for the database as a whole, regardless of the number of regions associated with the database.  
 
 ## <a id="LatencyGuarantees"></a>Latency guarantees
@@ -113,7 +113,7 @@ To distinguish the high latency from unavailability, DocumentDB provides an abso
 DocumentDB does not expose any developer facing tradeoffs between latency and throughput. It honors the SLA for both latency at P99 and deliver the throughput that the customer has purchased. 
 
 ## <a id="ConsistencyGuarantees"></a>Consistency guarantees
-While strong [9] consistency model is the gold standard of programmability, it comes at the steep price of high latency (in steady state) and loss of availability (in the face of failures). 
+While the [strong consistency model](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) is the gold standard of programmability, it comes at the steep price of high latency (in steady state) and loss of availability (in the face of failures). 
 
 DocumentDB offers a well-defined programming model to you to reason about replicated data's consistency. In order to enable you to build multi-homed applications, the consistency models exposed by DocumentDB are designed to be region-agnostic and not be dependent on the region from where the reads and writes are served. 
 
@@ -222,7 +222,7 @@ DocumentDB transparently exposes the throughput, latency, consistency and availa
  
 **Consistency, Latency, Throughput and Availability metrics are transparently available to each tenant**
 
-![Azure DocumentDB customer-visibile SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer SLAs.png)
+![Azure DocumentDB customer-visibile SLA metrics](./media/documentdb-distribute-data-globally/documentdb-customer-slas.png)
 
 ## <a id="References"></a>References
 1. Eric Brewer. [Towards Robust Distributed Systems](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
