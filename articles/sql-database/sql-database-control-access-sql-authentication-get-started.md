@@ -172,6 +172,67 @@ In this section of the tutorial, you view information about the server admin acc
 
 In this section of the tutorial, you create a new user in the AdventureWorksLT database, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
 
+1. Open a query window connected to the AdventureWorksLT database.
+2. Execute the following query to create a new user called user1 in the AdventureWorksLT database.
+
+   ```
+   CREATE USER user1
+   WITH PASSWORD = 'p@ssw0rd';
+   ```
+   ![new user user1 AdventureWorksLT](./media/sql-database-control-access-sql-authentication-get-started/new_user_user1_aw.png)
+
+3. In the query window, execute the following query to return information about the permissions of the user executing the query. Notice that the only permissions that a new user in a database has are the permissions associated with the public role.
+
+   ```
+   SELECT prm.permission_name
+      , prm.class_desc
+      , prm.state_desc
+      , p2.name as 'Database role'
+      , p3.name as 'Additional database role' 
+   FROM sys.database_principals p
+   JOIN sys.database_permissions prm
+      ON p.principal_id = prm.grantee_principal_id
+      LEFT JOIN sys.database_principals p2
+      ON prm.major_id = p2.principal_id
+      LEFT JOIN sys.database_role_members r
+      ON p.principal_id = r.member_principal_id
+      LEFT JOIN sys.database_principals p3
+      ON r.role_principal_id = p3.principal_id
+   WHERE p.name = 'user1';
+   ```
+
+   ![new user permissions in a user database](./media/sql-database-control-access-sql-authentication-get-started/new_user_permissions_in_user_database.png)
+
+4. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
+
+   ```
+   EXECUTE AS USER = 'user1';  
+   SELECT * FROM [SalesLT].[ProductCategory];
+   REVERT;
+   ```
+
+   ![no select permissions](./media/sql-database-control-access-sql-authentication-get-started/no_select_permissions.png)
+
+5. Execute the following query to grant select permissions on the ProductCategory table in the SalesLT schema to user1.
+
+   ```
+   GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
+   ```
+
+   ![grant select permissions](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
+
+6. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
+
+   ```
+   EXECUTE AS USER = 'user1';  
+   SELECT * FROM [SalesLT].[ProductCategory];
+   REVERT;
+   ```
+
+   ![select permissions](./media/sql-database-control-access-sql-authentication-get-started/select_permissions.png)
+
+   
+
 ## Create a database-level firewall rule for AdventureWorksLT database users
 
 In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule, and then log in using this new database-level firewall rule. 
