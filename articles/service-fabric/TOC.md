@@ -196,6 +196,7 @@
 
 # Resources
 ## [Common questions about Service Fabric](service-fabric-common-questions.md)
+## [Service Fabric support options](service-fabric-support.md)
 ## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
