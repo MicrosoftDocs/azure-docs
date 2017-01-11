@@ -36,10 +36,12 @@ This architecture is vulnerable downtime if the Azure region becomes inaccessibl
 
    ![Availability Group DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
-The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Also notice that SQL-3 is not in an availability set. An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer. 
+The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer.
 
-   >[!NOTE]
-   >The replica in the remote region is normally configured with asynchronous commit and manual failover. 
+>[!NOTE]
+> An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. You can only place a virtual machine in an availability set at creation time. If the virtual machine is already in an availability set, you can add a virtual machine for an additional replica at a later date. 
+
+In this architecture, the replica in the remote region is normally configured with asynchronous commit and manual failover.
 
 When availability group replicas are on Azure virtual machines in different Azure regions, each region requires:
 
@@ -67,13 +69,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
-
-1. [Join the new SQL Server to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
-
-1. [Set the new SQL Server service account to use a domain account](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
-
-1. [Create an Azure load balancer in the network on the new region].(./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region](./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
 
    This load balancer must:
    
@@ -83,7 +79,24 @@ To create a replica in a remote data center, do the following steps:
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
 
+1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+
+1. [Join the new SQL Server to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+
+1. [Set the new SQL Server service account to use a domain account](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
+
 1. [Add the new SQL Server to the Windows Server Failover Cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
+
+1. Create an IP address resource on the cluster. 
+
+   You can create the IP address resource in Failover Cluster Manager, right click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
+
+   ![Create new IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
+
+   Configure this IP address as follows:
+   
+   - Use the network from the remote datacenter.
+   - Assign an the IP address from the new Azure load balancer. 
 
 1. In SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
@@ -91,8 +104,6 @@ To create a replica in a remote data center, do the following steps:
 
    >[!NOTE]
    >The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
-
-1. In Failover Cluster Manager, add the IP address on the load balancer frontend IP rule to the cluster resource.
 
 1. [Add a replica to the availability group on the new SQL Server](http://msdn.microsoft.com/library/hh213239.aspx).
 
@@ -121,7 +132,7 @@ If you cannot modify the connection strings, you can [configure the availability
 
 ## Failover to Remote Region 
 
-You can failover a replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
+To test listener connectivity to the remote region, you can failover the replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
 1. Under **AlwaysOn Availability Groups**,**Availability Groups**, right-click your availability group and click **Properties**.
