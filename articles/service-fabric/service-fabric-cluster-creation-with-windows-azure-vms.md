@@ -3,7 +3,7 @@ title: Create a standalone cluster with Azure VMs running Windows| Microsoft Doc
 description: Learn how to create and manage an Azure Service Fabric cluster on Azure virtual machines running Windows Server.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/12/2016
-ms.author: dkshir;chackdan
+ms.author: ryanwi;chackdan
 
 ---
 # Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server
