@@ -60,33 +60,33 @@ If you are running a Windows Operating System, we recommend using either [Visual
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Databases** > **SQL Data Warehouse**.
 
-![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
+    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Fill out deployment details
 
-**Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your name include details such as its region, environment, etc., 
-e.g. *mydw-westus-1-test*
+    **Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your name include details such as its region, environment, etc., 
+    e.g. *mydw-westus-1-test*
 
-**Subscription**: Your Azure Subscription
+    **Subscription**: Your Azure Subscription
 
-**Resource Group**: Create new (or use existing if you plan on using your Azure SQL Data Warehouse with other services)
-> [!NOTE]
-> Services within a resource group should have the same lifecycle. Resource groups are useful for resource
-> administration such as scoping access control and templated deployment. 
-> Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
->
+    **Resource Group**: Create new (or use existing if you plan on using your Azure SQL Data Warehouse with other services)
+    > [!NOTE]
+    > Services within a resource group should have the same lifecycle. Resource groups are useful for resource
+    > administration such as scoping access control and templated deployment. 
+    > Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
+    >
 
-**Source**: Blank Database
+    **Source**: Blank Database
 
-**Server**: Select the server you created in [Prerequisites].
+    **Server**: Select the server you created in [Prerequisites].
 
-**Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS
+    **Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS
 
-**Select performance**: We recommend using staying with the standard 400DWU
+    **Select performance**: We recommend using staying with the standard 400DWU
 
 4. Choose **Pin to dashboard**
-![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+    ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Sit back and wait for your Azure SQL Data Warehouse to deploy! It's normal for this process to take several minutes. 
 The portal will notify you when your instance is done deploying. 
@@ -142,38 +142,38 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 
 1. Create a new query on the **master** database of your server
 
-![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
+    ![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
-![New Query on Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
+    ![New Query on Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
 2. Create a server login and user
 
-```sql
-CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
-```
+    ```sql
+    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    ```
 
-3. Create a new database user based on the server login
-```sql
-CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
-```
+    3. Create a new database user based on the server login
+    ```sql
+    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    ```
 
-4. Grant user DB control
-```sql
-GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
-```
-> [!NOTE]
-> If your database name has hyphens in it, be sure to wrap it in brackets! 
->
+    4. Grant user DB control
+    ```sql
+    GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
+    ```
+    > [!NOTE]
+    > If your database name has hyphens in it, be sure to wrap it in brackets! 
+    >
 
-5. Add your database user to the **xlargerc** resource class role
-```sql
-EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
-```
+    5. Add your database user to the **xlargerc** resource class role
+    ```sql
+    EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
+    ```
 
-6. Log in to your database with your new credentials
+    6. Log in to your database with your new credentials
 
-![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
+    ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
 ## Loading data
@@ -530,18 +530,18 @@ Before we begin, let's scale our operation down to 100 DWUs so we can get an ide
 
 2. Select scale in the SQL Data Warehouse blade. 
 
-![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
 3. Scale down the performance bar to 100 DWU and hit save.
 
-![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
 4. Wait for your scale operation to finish.
 
-> [!NOTE]
-> Please note, scaling operations **kill** your currently running queries and prevent new ones from being run.
->
- 
+    > [!NOTE]
+    > Please note, scaling operations **kill** your currently running queries and prevent new ones from being run.
+    >
+    
 5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager
  to move on quickly, feel free to select fewer rows.
 
