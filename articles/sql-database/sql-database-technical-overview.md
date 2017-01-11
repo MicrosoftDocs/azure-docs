@@ -23,7 +23,7 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 This article is an introduction to SQL Database core concepts and features related to performance, scalability, and manageability, with links to explore details. If you are ready to jump in to hands-on tutorials, go to [Create your first SQL database](sql-database-get-started.md) or [Create an elastic pool](sql-database-elastic-pool-create-portal.md). For a short video demonstration, watch this video.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
