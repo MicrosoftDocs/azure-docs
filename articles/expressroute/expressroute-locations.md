@@ -147,8 +147,9 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **Connectivity provider** | **Exchange** | **Locations** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
-| **[Arteria-Net](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
+| **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | London |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | London, Slough |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
@@ -170,6 +171,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Avanade Inc.](http://www.avanade.com/)** |Asia, Europe, US |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europe |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |US |
+| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australia |
+| **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
 | **[Nelite](http://nelite.com/)** |Europe |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asia |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |US |

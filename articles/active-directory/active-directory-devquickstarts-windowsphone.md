@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -26,8 +26,8 @@ If you're developing a Windows Phone 8.1 app, Azure AD makes it simple and strai
 
 > [!NOTE]
 > This code sample uses ADAL v2.0.  For the latest technology, you may want to instead try our [Windows Universal Tutorial using ADAL v3.0](active-directory-devquickstarts-windowsstore.md).  If you are indeed building an app for Windows Phone 8.1, this is the right place.  ADAL v2.0 is still fully supported, and is the recommended way of developing apps agianst Windows Phone 8.1 using Azure AD.
->
->
+> 
+> 
 
 For .NET native clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build a "Directory Searcher" Windows Phone 8.1 app that:
 
@@ -43,19 +43,20 @@ To build the complete working application, you’ll need to:
 
 To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip).  Each is a Visual Studio 2013 solution.  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
-## *1. Register the Directory Searcher Application*
+## 1. Register the Directory Searcher Application
 To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top right, click on your account and under the **Directory** list, choose an Active Directory tenant where you have admin permissions.
-3. Choose **Azure Active Directory** in the left nav.
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
 4. Click on **App registrations** and choose **Add**.
-5. Follow the prompts and create a new **Native Client Application**. The **Name** of the application will describe your application to end-users. The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a placeholder value for now, e.g. `http://DirectorySearcher`. We'll replace this value later. Click on **Create** to create the application.
-6. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
-7. Find the Application ID value and copy it to the clipboard.
-8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Windows Azure Active Directory' (this is the AADGraph API). Then, click on **Select Permissions** and select **Read Directory Data**. This will enable your application to query the Graph API for users.
+5. Follow the prompts and create a new **Native Client Application**.
+  * The **Name** of the application will describe your application to end-users
+  * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a placeholder value for now, e.g. `http://DirectorySearcher`.  We'll replace this value later.
+6. Once you’ve completed registration, AAD will assign your app a unique Application ID.  You’ll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** page, choose **Required Permissions** and choose **Add**. Select the **Microsoft Graph** as the API and add the **Read Directory Data** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
-## *2. Install & Configure ADAL*
+## 2. Install & Configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
 
 * Begin by adding ADAL to the DirectorySearcher project using the Package Manager Console.
@@ -80,7 +81,7 @@ ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-
 
 * Back on the **Configure** tab of your application in the Azure Management Portal, replace the value of the **RedirectUri** with this value.  
 
-## *3.    Use ADAL to Get Tokens from AAD*
+## 3. Use ADAL to Get Tokens from AAD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls `authContext.AcquireToken(…)`, and ADAL does the rest.  
 
 * The first step is to initialize your app’s `AuthenticationContext` - ADAL’s primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
@@ -175,3 +176,4 @@ For reference, the completed sample (without your configuration values) is provi
 [Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+

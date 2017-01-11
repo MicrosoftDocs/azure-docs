@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -39,25 +39,25 @@ To build the complete working application, you’ll need to:
 
 To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You'll also need an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
-## *0. Set up your Xamarin Development Environment*
-Because this tutorial includes projects for iOS, Android, and Windows, you’ll need Visual Studio and Xamarin together. To create the necessary environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete.
+## 0. Set up your Xamarin Development Environment
+Because this tutorial includes projects for iOS, Android, and Windows, you’ll need Visual Studio and Xamarin together. To create the necessary environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete. 
 
 Once you've completed the necessary setup, open the solution in Visual Studio to get started. You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, `DirectorySearcher.cs`
 
-## *1. Register the Directory Searcher Application*
+## 1. Register the Directory Searcher Application
 To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
-* Sign into the [Azure Portal](https://portal.azure.com)
-* Select a tenant in which to register the application.
-* In the left hand nav, click on **Azure Active Directory**
-* Click on **App Registrations** tab, and click **Add**.
-* Follow the prompts and create a new **Native Client Application**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Native Client Application**.
   * The **Name** of the application will describe your application to end-users
   * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a value, e.g. `http://DirectorySearcher`.
-* Once you’ve completed registration, AAD will assign your app a unique Application ID. You’ll need this value in the next sections, so copy it from the application page.
-* Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Windows Azure Active Directory' (this is the AADGraph API). Then, click on **Select Permissions** and select **Read Directory Data**. This will enable your application to query the Graph API for users.
+6. Once you’ve completed registration, AAD will assign your app a unique application ID. You’ll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** page, choose **Required Permissions** and choose **Add**. Select the **Microsoft Graph** as the API and add the **Read Directory Data** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
-## *2. Install & Configure ADAL*
+## 2. Install & Configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
 
 * Begin by adding ADAL to each of the projects in the solution using the Package Manager Console.
@@ -84,12 +84,12 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName
 
 * You should notice that two library references are added to each project - the PCL portion of ADAL and a platform-specific portion.
 * In the DirectorySearcherLib project, open `DirectorySearcher.cs`. Change the class member values to reflect the values you input into the Azure Portal. Your code will reference these values whenever it uses ADAL.
-
+  
   * The `tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
   * The `clientId` is the clientId of your application you copied from the portal.
   * The `returnUri` is the redirectUri you entered in the portal, e.g. `http://DirectorySearcher`.
 
-## *3.    Use ADAL to Get Tokens from AAD*
+## 3. Use ADAL to Get Tokens from AAD
 *Almost* all of the app's authentication logic lies in `DirectorySearcher.SearchByAlias(...)`. All that is necessary in the platform-specific projects is to pass a contextual parameter to the `DirectorySearcher` PCL.
 
 * First, open `DirectorySearcher.cs` and add a new parameter to the `SearchByAlias(...)` method. `IPlatformParameters` is the contextual parameter that encapsulates the platform-specific objects that ADAL needs to perform authentication.
@@ -181,3 +181,4 @@ For reference, the completed sample (without your configuration values) is provi
 [Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+
