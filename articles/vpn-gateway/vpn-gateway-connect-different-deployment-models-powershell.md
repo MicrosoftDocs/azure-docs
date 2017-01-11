@@ -4,7 +4,7 @@ description: Learn how to create a VPN connection between classic VNets and Reso
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -245,7 +245,7 @@ The return for this sample should show **Status: Successful**.
         $vnet02gateway -LocalNetworkGateway2 `
         $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-## Section 4:Verify your connections
+## Section 5: Verify your connections
 
 You can verify your connections by using the Azure portal or PowerShell.
 
