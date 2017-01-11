@@ -86,7 +86,7 @@ All solutions in the following table are available from within the Azure portal 
 | SQL Assessment 		 	  	| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
 | SurfaceHub 			 	  	| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| No charge for data or nodes |
 | System Center Operations Manager Assessment (Preview) |  Insight and Analytics <br> Log Analytics |Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
-| Update Management		 	  	| Automation and Control					| Free<br> OMS 							   				| Requires your Log Analytics workspace to be linked to an Automation account |
+| Update Management		 	  	| Automation&nbsp;and&nbsp;Control					| Free<br> OMS 							   				| Requires your Log Analytics workspace to be linked to an Automation account |
 | Upgrade Analytics (Preview) 	|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
 | VMware Monitoring (Preview) 	|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
 | Wire Data 			 	  	|Insight and Analytics 					 	|Free<br> OMS 											| Available in East US and West Europe |
@@ -97,7 +97,7 @@ Community provided solutions are available from the [Azure template gallery](htt
 
 | Management Solution         		| Offer 									| Pricing Tiers | Notes | 
 | ---                         		| ---       								| ---           | ---   |
-| All community provided solutions  | Insight and Analytics<br> Log Analytics 	| Free<br> OMS 	|	Requires your Log Analytics workspace to be linked to an Automation account |
+| All community provided solutions  | Insight&nbsp;and&nbsp;Analytics<br> Log Analytics 	| Free<br> OMS 	|	Requires your Log Analytics workspace to be linked to an Automation account |
 
 
 ## Data collection details
