@@ -20,7 +20,7 @@ ms.author: helaw
 # Deploy templates in Azure Stack using the command line
 Use the command line to deploy Azure Resource Manager templates to the Azure Stack POC. Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
 
-##Before you beging
+## Before you begin
  - [Install and connect](azure-stack-connect-cli.md) to Azure Stack with Azure CLI
  - Download the files *azuredeploy.json* and *azuredeploy.parameters.json* from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
