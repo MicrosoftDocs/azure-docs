@@ -135,7 +135,7 @@ You can failover a replica to the remote region. While the replica is asynchrono
 1. Connect to the SQL Server instance in the DR site and click **Next**. 
 1. On the **Summary** page, verify the settings and click **Finish**.
 
-### More information about manual plannded and forced failover
+### More information about planned and forced manual failover
 
 For more information, see the following topics:
 
