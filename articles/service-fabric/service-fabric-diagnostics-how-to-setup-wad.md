@@ -26,7 +26,7 @@ ms.author: toddabel
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
 
-One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are not that useful directly in storage. But you can use an external process to read the events from storage and place them in a product such as [Log Analytics](../log-analytics/log-analytics-service-fabric.md), [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md), or another log-parsing solution.
+One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage, Azure Application Insights, or Azure Event Hubs. The logs are not that useful directly in storage or in Event Hubs. But you can use an external process to read the events from storage and place them in a product such as [Log Analytics](../log-analytics/log-analytics-service-fabric.md) or another log-parsing solution. [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) comes with a comprehensive log search and analytics service built-in.
 
 ## Prerequisites
 You'll use these tools to perform some of the operations in this document:
@@ -54,7 +54,7 @@ To deploy the Diagnostics extension to the VMs in the cluster as part of cluster
 
 The Azure support team *requires* support logs to help resolve any support requests that you create. These logs are collected in real time and are stored in one of the storage accounts created in the resource group. The Diagnostics settings configure application-level events. These events include [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Services](service-fabric-reliable-services-diagnostics.md) events, and some system-level Service Fabric events to be stored in Azure Storage.
 
-Products such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or your own process can get the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If you don't implement a process to remove events from the table, the table will continue to grow.
+Products such as [Elasticsearch](https://www.elastic.co/guide/index.html) or your own process can get the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If you don't implement a process to remove events from the table, the table will continue to grow.
 
 When you're creating a cluster by using the portal, we highly recommend that you download the template *before you click **OK*** to create the cluster. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You'll need the template to make changes later, because you can't make some changes by using the portal.
 
