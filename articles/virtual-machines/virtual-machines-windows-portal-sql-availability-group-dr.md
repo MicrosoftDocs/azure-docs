@@ -113,18 +113,18 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Update client applications for multiple subnet failover
+## Update client applications for failover across multiple subnets
 
-When the replica in the remote region becomes the primary replica, application connections may timeout. This is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+When the replica in the remote region becomes the primary replica, application connections may time out. This behavior is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-If you cannot modify the connection strings, you can [configure the availability group to prevent timeouts in mulitple subnets](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+If you cannot modify the connection strings, you can [configure the availability group to prevent timeouts in multiple subnets](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
 ## Failover to Remote Region 
 
-You can failover a replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
+You can failover a replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
-1. Under **AlwaysOn Availability Groups\Availability Groups**, right click your availability group and click **Properties**.
+1. Under **AlwaysOn Availability Groups\Availability Groups**, right-click your availability group and click **Properties**.
 1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode. 
 1. If you have a secondary replica in same site as your primary replica for high availability, set this replica to **Asynchronous Commit** and **Manual**.
 1. Click OK.
@@ -133,11 +133,11 @@ You can failover a replica to the remote region. While the replica is asynchrono
 1. In **Object Explorer**, right-click the availability group, and click **Failover...**. SQL Server Management Studios opens a wizard to failover SQL Server.  
 1. Click **Next**, and select the SQL Server instance in the DR site. Click **Next** again.
 1. Connect to the SQL Server instance in the DR site and click **Next**. 
-1. On the **Summary** page verify the settings and click **Finish**.
+1. On the **Summary** page, verify the settings and click **Finish**.
 
-### More information about manual and force failover
+### More information about manual plannded and forced failover
 
-See the following topics for more information about planned and unplanned failover of SQL Server:
+For more information, see the following topics:
 
 - [Perform a Planned Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Perform a Forced Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
