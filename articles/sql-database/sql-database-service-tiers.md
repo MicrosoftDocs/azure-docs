@@ -38,7 +38,7 @@ The following table provides examples of the tiers best suited for different app
 First decide if you want to run a single database or if you want to group databases that shares resources. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
 
 * Max database size for individual databases (2 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium in the high end performance levels)
-* Maximum total storage in case of an elastic pool (117 GB for Basic, 1200 for Standard, and 750 for Premium)
+* Maximum total storage in case of an elastic pool (117 GB for Basic, 1200 GB for Standard, and 750 GB for Premium)
 * Maximum number of databases per pool (400 for Basic, 400 for Standard, and 50 for Premium)
 * Database backup retention period (7 days for Basic, 35 days for Standard and Premium)
 
