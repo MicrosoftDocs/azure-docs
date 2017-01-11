@@ -104,17 +104,17 @@ For more command options, run `az acs scale --help`.
 
 * The number of agent nodes must be between 1 and 100, inclusive. 
 
-* Agent node scaling operations are applied to an Azure virtual machine scale set that contains the agent pool. In a DC/OS cluster, the scaling operations shown in this article apply only to agent nodes in the private pool. 
+* Your cores quota can limit the number of agent nodes in a cluster.
 
-* You cannot change the number of master nodes in the cluster after deployment.
+* Agent node scaling operations are applied to an Azure virtual machine scale set that contains the agent pool. In a DC/OS cluster, only agent nodes in the private pool are scaled by the operations shown in this article.
 
-* Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](container-service-mesos-marathon-ui#scale-your-containers.md) to change the number of instances of a container application.
+* Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](container-service-mesos-marathon-ui.md) to change the number of instances of a container application.
 
 
 
 
 
 ## Next steps
-* See [more examples](service/container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 (Preview) commands with Azure Container Service.
+* See [more examples](container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 (Preview) commands with Azure Container Service.
 * Learn more about [DC/OS agent pools](container-service-dcos-agents.md) in Azure Container Service.
 
