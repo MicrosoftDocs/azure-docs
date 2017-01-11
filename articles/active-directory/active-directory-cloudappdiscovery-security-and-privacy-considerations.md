@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/11/2017
 ms.author: markvi
 
 ---
