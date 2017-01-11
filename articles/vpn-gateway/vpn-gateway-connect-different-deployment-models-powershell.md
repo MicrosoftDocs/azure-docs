@@ -247,8 +247,6 @@ The return for this sample should show **Status: Successful**.
 
 ## Section 5: Verify your connections
 
-You can verify your connections by using the Azure portal or PowerShell.
-
 ### To verify the connection from your classic VNet to your Resource Manager VNet
 
 ####Verify your connection using PowerShell
