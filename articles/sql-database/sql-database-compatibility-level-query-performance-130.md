@@ -171,7 +171,7 @@ ALTER DATABASE MyTestDB
     SET COMPATIBILITY_LEVEL = 130;
 GO 
 
-– The scan and aggregate are in batch mode,
+-- The scan and aggregate are in batch mode,
 -- and force MAXDOP to 1 to show that batch mode
 -- also now works in serial mode.
 

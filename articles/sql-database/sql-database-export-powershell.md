@@ -61,9 +61,9 @@ The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt70
 > 
 > 
 
-     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+     $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 
 
 ## Monitor the progress of the export operation
@@ -91,8 +91,8 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
     $ServerName = "SERVER-NAME"
     $serverAdmin = "ADMIN-NAME"
     $serverPassword = "ADMIN-PASSWORD" 
-    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    $securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+    $creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
     # Generate a unique filename for the BACPAC
     $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
@@ -103,9 +103,9 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
     $StorageKeytype = "StorageAccessKey"
     $StorageKey = "YOUR STORAGE KEY"
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
     $exportRequest
 
     # Check status of the export
