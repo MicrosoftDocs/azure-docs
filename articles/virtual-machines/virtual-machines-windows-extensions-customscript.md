@@ -54,7 +54,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 	"properties": {
 		"publisher": "Microsoft.Compute",
 		"type": "CustomScriptExtension",
-		"typeHandlerVersion": "1.4",
+		"typeHandlerVersion": "1.8",
 		"autoUpgradeMinorVersion": true,
 		"settings": {
 			"fileUris": [
@@ -77,7 +77,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | extensions |
-| typeHandlerVersion | 1.4 |
+| typeHandlerVersion | 1.8 |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (e.g) | examplestorageacct |
@@ -85,11 +85,25 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension extension can be found in [this sample on GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## PowerShell deployment
 
+The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machines. For more information, see [Set-AzureRmVMCustomScriptExtension
+](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+
+```powershell
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+-VMName myVM `
+-Location myLocation `
+-FileUri myURL `
+-Run 'myScript.ps1' `
+-Name DemoScriptExtension
+```
+
 ## Troubleshoot and support
+
+### Troubleshoot
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell Module.
 
@@ -97,7 +111,17 @@ Data about the state of extension deployments can be retrieved from the Azure po
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-### Troubleshoot
+Extension execution output us logged to files found in the following directory:
+
+```cmd
+C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
+```
+
+The script itself is downloaded into the following directory:
+
+```cmd
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads
+```
 
 ### Support
 
