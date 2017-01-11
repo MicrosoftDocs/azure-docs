@@ -23,13 +23,13 @@ Role-based Access Control helps tenant administrators get temporary elevations i
 
 This feature is important because it allows the tenant admin to see all the subscription that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization from a billing or asset management perspective.  
 
-## How to elevate access
+## How to use elevateAccess to give tenant access
 
 The basic process works with the following steps:
 
-1. All tenant administrators have permissions to call a special action, *elevateAccess*. Using the REST endpoint of ARM, a tenant admin calls *elevateAccess* to grant themselves the User Access Administrator role.
+1. Using the REST endpoint of ARM, call *elevateAccess* which grants you the User Access Administrator role at "/" scope.
 
-2. As a User Access Admin, the tenant admin creates a [role assignment](/rest/api/authorization/roleassignments) assign any role at any scope. The following example shows the properties for assigning the Reader role at "/" scope:
+2. Create a [role assignment](/rest/api/authorization/roleassignments) to assign any role at any scope. The following example shows the properties for assigning the Reader role at "/" scope:
 
     ```
     { "properties":{
@@ -43,9 +43,59 @@ The basic process works with the following steps:
     }
     ```
 
-3. The tenant admin can also delete role assignments at "/" scope.
+3. While a User Access Admin, you can also delete role assignments at "/" scope.
 
-4. The tenant admin revokes their User Access Admin privileges until they're needed again.
+4. Revoke your User Access Admin privileges until they're needed again.
 
-It's important to remember that the User Access Admin role should be inactive until needed. As a safety measure, always revoke the privileges when not needed. This is a safeguard to prevent the privileges from falling into the hands of a third party if the tenant admin account gets compromised. 
 
+## How to undo the elevateAccess action
+
+When you call *elevateAccess* you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment. 
+
+1.  Call [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role. The response should look like this:
+
+    ```
+    {"value":[{"properties":{
+    "roleName":"User Access Administrator",
+    "type":"BuiltInRole",
+    "description":"Lets you manage user access to Azure resources.",
+    "assignableScopes":["/"],
+    "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
+    "createdOn":"0001-01-01T08:00:00.0000000Z",
+    "updatedOn":"2016-05-31T23:14:04.6964687Z",
+    "createdBy":null,
+    "updatedBy":null},
+    "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+    "type":"Microsoft.Authorization/roleDefinitions",
+    "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
+    "nextLink":null}
+    ```
+
+    Save the GUID from the *name* parameter, in this case **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**. 
+
+2. Call [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) where principalId = your own ObjectId. This will list all your assignments in the tenant. Look for the one where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1. The role assignment should look like this:
+
+    ```
+    {"value":[{"properties":{
+    "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+    "principalId":"{objectID}",
+    "scope":"/",
+    "createdOn":"2016-08-17T19:21:16.3422480Z",
+    "updatedOn":"2016-08-17T19:21:16.3422480Z",
+    "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
+    "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
+    "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+    "type":"Microsoft.Authorization/roleAssignments",
+    "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
+    "nextLink":null}
+    ```
+
+    Again, save the GUID from the *name* parameter, in this case **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+
+3. Finally, call [DELETE roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) where roleAssignmentId = the name GUID you found in step 2. 
+
+## Next steps
+
+-Learn more about [managing Role-Based Access Control with REST](role-based-access-control-manage-access-rest.md)
+
+-[Manage access assignments](role-based-access-control-manage-assignments.md) in the Azure portal
