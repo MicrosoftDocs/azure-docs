@@ -72,7 +72,7 @@ The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It i
 
 
 ## Configuration
-In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.
 
 
 ### Migrating from BlueStripe FactFinder
