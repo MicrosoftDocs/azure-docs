@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 
 ---
@@ -39,7 +39,7 @@ To use Service Bus, download and use the Ruby Azure package, which includes a se
 ### Import the package
 Using your favorite text editor, add the following to the top of the Ruby file in which you intend to use storage:
 
-```
+```ruby
 require "azure"
 ```
 
@@ -47,7 +47,7 @@ require "azure"
 The Azure module reads the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS\_KEY**
 for information required to connect to your namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -57,7 +57,7 @@ Set the namespace value to the value you created rather than the entire URL. For
 ## Create a topic
 The **Azure::ServiceBusService** object enables you to work with topics. The following code creates an **Azure::ServiceBusService** object. To create a topic, use the **create\_topic()** method. The following example creates a topic or prints out the errors if there are any.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   topic = azure_service_bus_service.create_queue("test-topic")
@@ -68,7 +68,7 @@ end
 
 You can also pass a **Azure::ServiceBus::Topic** object with additional options, which allow you to override default topic settings such as message time to live or maximum queue size. The following example shows setting the maximum queue size to 5GB and time to live to 1 minute:
 
-```
+```ruby
 topic = Azure::ServiceBus::Topic.new("test-topic")
 topic.max_size_in_megabytes = 5120
 topic.default_message_time_to_live = "PT1M"
@@ -84,7 +84,7 @@ Subscriptions are persistent and will continue to exist until either they, or th
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "all-messages" and uses the default **MatchAll** filter.
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
 ```
 
@@ -99,7 +99,7 @@ Since the default filter is applied automatically to all new subscriptions, you 
 
 The following example creates a subscription named "high-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a custom **message\_number** property greater than 3:
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
 azure_service_bus_service.delete_rule("test-topic", "high-messages", "$Default")
 
@@ -113,7 +113,7 @@ rule = azure_service_bus_service.create_rule(rule)
 
 Similarly, the following example creates a subscription named "low-messages" with a **Azure::ServiceBus::SqlFilter** that only selects messages that have a **message_number** property less than or equal to 3:
 
-```
+```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
 azure_service_bus_service.delete_rule("test-topic", "low-messages", "$Default")
 
@@ -128,11 +128,11 @@ rule = azure_service_bus_service.create_rule(rule)
 When a message is now sent to "test-topic", it is always be delivered to receivers subscribed to the "all-messages" topic subscription, and selectively delivered to receivers subscribed to the "high-messages" and "low-messages" topic subscriptions (depending upon the message content).
 
 ## Send messages to a topic
-To send a message to a Service Bus topic, your application must use the **send\_topic\_message()** method on the **Azure::ServiceBusService** object. Messages sent to Service Bus topics are instances of the **Azure::ServiceBus::BrokeredMessage** objects. **Azure::ServiceBus::BrokeredMessage** objects have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application specific properties, and a body of string data. An application can set the body of the message by passing a string value to the **send\_topic\_message()** method and any required standard properties will be populated by default values.
+To send a message to a Service Bus topic, your application must use the **send\_topic\_message()** method on the **Azure::ServiceBusService** object. Messages sent to Service Bus topics are instances of the **Azure::ServiceBus::BrokeredMessage** objects. **Azure::ServiceBus::BrokeredMessage** objects have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application-specific properties, and a body of string data. An application can set the body of the message by passing a string value to the **send\_topic\_message()** method and any required standard properties will be populated by default values.
 
 The following example demonstrates how to send five test messages to "test-topic". Note that the **message_number** custom property value of each message varies on the iteration of the loop (this determines which subscription receives it):
 
-```
+```ruby
 5.times do |i|
   message = Azure::ServiceBus::BrokeredMessage.new("test message " + i,
     { :message_number => i })
@@ -152,7 +152,7 @@ If the **:peek\_lock** parameter is set to **false**, reading and deleting the m
 
 The following example demonstrates how messages can be received and processed using **receive\_subscription\_message()**. The example first receives and deletes a message from the "low-messages" subscription by using **:peek\_lock** set to **false**, then it receives another message from the "high-messages" and then deletes the message using **delete\_subscription\_message()**:
 
-```
+```ruby
 message = azure_service_bus_service.receive_subscription_message(
   "test-topic", "low-messages", { :peek_lock => false })
 message = azure_service_bus_service.receive_subscription_message(
@@ -170,13 +170,13 @@ In the event that the application crashes after processing the message but befor
 ## Delete topics and subscriptions
 Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The example below demonstrates how to delete the topic named "test-topic".
 
-```
+```ruby
 azure_service_bus_service.delete_topic("test-topic")
 ```
 
 Deleting a topic also deletes any subscriptions that are registered with the topic. Subscriptions can also be deleted independently. The following code demonstrates how to delete the subscription named "high-messages" from the "test-topic" topic:
 
-```
+```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 

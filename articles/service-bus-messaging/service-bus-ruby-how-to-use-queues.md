@@ -50,7 +50,7 @@ require "azure"
 The Azure module reads the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS_KEY**
 for information required to connect to your Service Bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -60,7 +60,7 @@ Set the namespace value to the value you created, rather than the entire URL. Fo
 ## How to create a queue
 The **Azure::ServiceBusService** object enables you to work with queues. To create a queue, use the **create_queue()** method. The following example creates a queue or prints out any errors.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
@@ -71,7 +71,7 @@ end
 
 You can also pass a **Azure::ServiceBus::Queue** object with additional options, which enables you to override the default queue settings, such as message time to live or maximum queue size. The following example shows how to set the maximum queue size to 5GB and time to live to 1 minute:
 
-```
+```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
 queue.max_size_in_megabytes = 5120
 queue.default_message_time_to_live = "PT1M"
@@ -80,11 +80,11 @@ queue = azure_service_bus_service.create_queue(queue)
 ```
 
 ## How to send messages to a queue
-To send a message to a Service Bus queue, you application calls the **send\_queue\_message()** method on the **Azure::ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **Azure::ServiceBus::BrokeredMessage** objects, and have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.
+To send a message to a Service Bus queue, your application calls the **send\_queue\_message()** method on the **Azure::ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **Azure::ServiceBus::BrokeredMessage** objects, and have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.
 
 The following example demonstrates how to send a test message to the queue named "test-queue" using **send\_queue\_message()**:
 
-```
+```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
 message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
@@ -102,7 +102,7 @@ If the **:peek\_lock** parameter is set to **false**, reading and deleting the m
 
 The following example demonstrates how to receive and process messages using **receive\_queue\_message()**. The example first receives and deletes a message by using **:peek\_lock** set to **false**, then it receives another message and then deletes the message using **delete\_queue\_message()**:
 
-```
+```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
   { :peek_lock => false })
 message = azure_service_bus_service.receive_queue_message("test-queue")

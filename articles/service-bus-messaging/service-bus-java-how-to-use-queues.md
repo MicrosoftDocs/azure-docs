@@ -110,7 +110,7 @@ catch (ServiceException e)
 ```
 
 Messages sent to, and received from Service Bus queues are instances of the [BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage] objects have a set of standard properties (such as [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) and [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), a dictionary
-that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the [BrokeredMessage][BrokeredMessage], and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
+that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the [BrokeredMessage][BrokeredMessage], and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
 
 The following example demonstrates how to send five test messages to the
 `TestQueue` **MessageSender** we obtained in the previous code snippet:
