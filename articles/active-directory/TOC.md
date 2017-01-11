@@ -141,7 +141,7 @@
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
 #### Publish apps
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
-##### [Classic portal]](active-directory-application-proxy-publish.md)
+##### [Classic portal](active-directory-application-proxy-publish.md)
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
