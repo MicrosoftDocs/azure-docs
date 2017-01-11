@@ -139,12 +139,15 @@
 
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
-#### [Publish apps](active-directory-application-proxy-publish.md)
+#### Publish apps
+##### [Azure portal](application-proxy-publish-azure-portal.md)
+##### [Classic portal]](active-directory-application-proxy-publish.md)
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure portal](application-proxy-sso-azure-portal.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Conditional access](active-directory-application-proxy-conditional-access.md)
