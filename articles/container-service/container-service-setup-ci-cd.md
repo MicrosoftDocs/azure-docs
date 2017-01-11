@@ -326,17 +326,17 @@ Delete the ACS cluster:
 1. Open the resource group's blade UI, and click **Delete** in the blade's command bar.
 
 Delete the Azure Container Registry:
-1. In the Azure portal, search for the Azure Container Registry, and delete it. 
+In the Azure portal, search for the Azure Container Registry, and delete it. 
 
 The [Visual Studio Team Services account offers free Basic Access Level for the first five users](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), but you can delete the build and release definitions.
-1. Delete the VSTS Build Definition:
+Delete the VSTS Build Definition:
 		
 	* Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
 	* Click the action menu beside the build definition you want to delete, and select **Delete Definition**
 
 	![Delete VSTS Build Definition](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. Delete the VSTS Release Definition:
+Delete the VSTS Release Definition:
 
 	* Open the Release Definition URL in your browser.
 	* In the Release Definitions list on the left-hand side, click the drop-down beside the release definition you want to delete, and select **Delete**.
