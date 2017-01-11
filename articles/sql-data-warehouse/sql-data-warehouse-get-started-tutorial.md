@@ -60,10 +60,11 @@ If you are running a Windows Operating System, we recommend using either [Visual
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Databases** > **SQL Data Warehouse**.
 
-
+```
 ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png).
 
 ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+```
 
 3. Fill out deployment details
 
@@ -88,7 +89,6 @@ e.g. *mydw-westus-1-test*
 **Select performance**: We recommend using staying with the standard 400DWU
 
 4. Choose **Pin to dashboard**
-
 ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Sit back and wait for your Azure SQL Data Warehouse to deploy! It's normal for this process to take several minutes. 
