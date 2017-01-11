@@ -59,7 +59,7 @@ To add a new device to your remote monitoring solution, complete the following s
 4. Make a note the device credentials (Device ID, IoT Hub Hostname, and Device Key), your client application needs them to connect to the remote monitoring solution. Then click **Done**.
    
     ![][4]
-5. Make sure your device displays in the devices section. The device status is **Pending** until the device establishes a connection to the remote monitoring solution.
+5. Make sure your device displays in the device list. Click **Enable Device** in the **Device Details** panel to allow the device to connect. The simple device you have created does not send any reported properties.
    
     ![][5]
 
