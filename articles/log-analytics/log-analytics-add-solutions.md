@@ -18,7 +18,7 @@ ms.author: banders
 ---
 # Add Operations Management Suite (OMS) management solutions
 
-Operations Management Suite (OMS) management solutions are a collection of **logic**, **visualization** and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
+Operations Management Suite (OMS) management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
 
 Management solutions allow deeper insights to:
 
@@ -195,7 +195,7 @@ During the public preview, we make the feature or solution available for all use
 ### What should I know about Preview features and solutions?
 We’re excited about new features and management solutions and we love working with you to develop them.
 
-Preview features and solutions aren’t right for everyone though, so before asking to join a private preview or enabling a public preview make sure you’re OK working with something that is under development.
+Preview features and solutions aren’t right for everyone. Before asking to join a private preview or enabling a public preview, make sure you’re OK working with something that is under development.
 
 When enabling a preview feature through the portal, you see a warning reminding you that the feature is in preview.
 
