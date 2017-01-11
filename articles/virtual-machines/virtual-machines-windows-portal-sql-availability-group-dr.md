@@ -50,7 +50,7 @@ The following diagram shows how the networks communicate between data centers.
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
-## Create a replica in a remote data center: High-level instructions
+## Create remote replica
 
 To create a replica in a remote data center, do the following steps:
 
@@ -113,7 +113,7 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Update client applications for failover across multiple subnets
+## Update applications for failover across multiple subnets
 
 When the replica in the remote region becomes the primary replica, application connections may time out. This behavior is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
 
@@ -124,7 +124,7 @@ If you cannot modify the connection strings, you can [configure the availability
 You can failover a replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
-1. Under **AlwaysOn Availability Groups\Availability Groups**, right-click your availability group and click **Properties**.
+1. Under **AlwaysOn Availability Groups**,**Availability Groups**, right-click your availability group and click **Properties**.
 1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode. 
 1. If you have a secondary replica in same site as your primary replica for high availability, set this replica to **Asynchronous Commit** and **Manual**.
 1. Click OK.
