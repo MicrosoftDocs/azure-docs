@@ -19,10 +19,10 @@ ms.author: glimoli;genli
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
-To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
 ## Convert the virtual disk to VHD and fixed size disk 
-If you need to convert your virtual disk to the required format for Azure, use one of the following methods. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
 
 After you convert the disk, create a VM that uses the converted disk. Start and sign in to the VM to finish preparing the VM for upload.
 
@@ -79,7 +79,7 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     ```
 
 ## Set services startup to Windows default values
-Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
+Make sure that each of the following Windows services is set to the **Windows default values**. To reset the startup settings, run the following commands:
    
 ```CMD
 sc config bfe start= auto
@@ -162,7 +162,7 @@ sc config RemoteRegistry start= auto
     ```
 
 ## Configure Windows Firewall rules
-1. Run the following command in PowerShell to allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
+1. Run the following command in PowerShell to allow WinRM through the three firewall profiles (Domain, Private, and Public) and enable PowerShell Remote service:
    
    ```powershell
    Enable-PSRemoting -force
@@ -226,7 +226,7 @@ sc config RemoteRegistry start= auto
    ```
 
 ## Verify VM is healthy, secure, and accessible with RDP 
-1. In the command prompt window, run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see the blog post [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+1. In the command prompt window, run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see the blog post [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)
 2. Set the Boot Configuration Data (BCD) settings:
    
    ```CMD
