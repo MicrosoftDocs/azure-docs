@@ -31,7 +31,7 @@ Management solutions allow deeper insights to:
 
 Using this article, you add management solutions to a workspace using the Azure portal Marketplace. After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service typically takes a few minutes to an hour. After the service processes the data, you can view it in OMS.
 
-You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to OMS, which can reduce the amount of data used by your daily quota, if you have one.
+You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to OMS. If you are on the Free pricing tier, removing a solution can reduce the amount of data used, helping you stay under daily quota of data.
 
 ## Add a management solution
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
@@ -57,21 +57,21 @@ You can easily remove a management solution when it is no longer needed. When yo
 
 ## Offers and pricing tiers
 
-The following tables identify which solutions belong to each Operations Management Suite offer. The tables also identify the pricing tiers that are available for each solution.
+The following tables identify which management solutions belong to each Operations Management Suite offer. The tables also identify the pricing tiers that are available for each management solution.
 
 ### Insight and Analytics
 
-| Solution                    | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
+| Management Solution         | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
 | ---                         | ---       | ---           | ---          | ---             | ---      | ---   |
 | Network Performance Monitor (Preview) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | |
 | Service Map (Preview)	      | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | Available in East US and West Europe |
 | Wire Data (Preview)	      | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |	Available in East US and West Europe|
 
-Also included in Insight and Analytics are all Log Analytics solutions and all community provided solutions.
+Also included in Insight and Analytics are all [Log Analytics](#Log Analytics) management solutions and all [community provided management solutions](#community provided management solutions).
 
 ### Automation and Control
 
-| Solution                    | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
+| Management Solution         | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
 | ---                         | ---       | ---           | ---          | ---             | ---      | ---   |
 | Automation Hybrid Worker    | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | Requires your Log Analytics workspace to be linked to an Automation account |
 | Change Tracking		      | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | Requires your Log Analytics workspace to be linked to an Automation account |
@@ -80,16 +80,16 @@ Also included in Insight and Analytics are all Log Analytics solutions and all c
 
 ### Security and Compliance
 
-| Solution                    | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
+| Management Solution         | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
 | ---                         | ---       | ---           | ---          | ---             | ---      | ---   |
 | Antimalware Assessment      | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |	|
 | Security and Audit	      | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | Collecting security event logs requires this solution |
 
 ### Log Analytics
 
-| Solution                    | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
+| Management Solution         | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
 | ---                         | ---       | ---           | ---          | ---             | ---      | ---   |
-| Activity Log Analytics  |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | 90 days of data is available free of charge|
+| Activity Log Analytics  |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | 90 days of data are available free of charge|
 | AD Assessment           |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | |
 | AD Replication Status   | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | |
 | Agent Health 			  | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | |
@@ -107,13 +107,13 @@ Also included in Insight and Analytics are all Log Analytics solutions and all c
 | Upgrade Analytics (Preview)  |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | No charge for data or nodes |
 | VMware Monitoring (Preview)  |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | |
 
-### Community provided solutions
+### Community provided management solutions
 
 Community provided solutions are available from the [Azure template gallery](https://azure.microsoft.com/resources/templates/?term=OMS) and direct from the authors.
 
 | Solution                    | Free Tier | Standard Tier | Premium Tier | Standalone Tier | OMS Tier | Notes | 
 | ---                         | ---       | ---           | ---          | ---             | ---      | ---   |
-| All third party solutions   | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |	Requires your Log Analytics workspace to be linked to an Automation account |
+| All community provided solutions   | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | | | | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |	Requires your Log Analytics workspace to be linked to an Automation account |
 
 
 ## Data collection details
