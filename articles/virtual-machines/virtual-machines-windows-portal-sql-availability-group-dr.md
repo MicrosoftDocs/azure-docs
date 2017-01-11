@@ -39,7 +39,7 @@ This architecture is vulnerable downtime if the Azure region becomes inaccessibl
 The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a different Azure region. SQL-3 is added to the Windows Server Failover Cluster. SQL-3 can host an availability group replica. Finally, notice that the Azure region for SQL-3 has a new Azure load balancer.
 
 >[!NOTE]
-> An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. You can only place a virtual machine in an availability set at creation time. If the virtual machine is already in an availability set, you can add a virtual machine for an additional replica at a later date. 
+> An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. You can only place a virtual machine in an availability set at creation time. If the virtual machine is already in an availability set, you can add a virtual machine for an additional replica later. 
 
 In this architecture, the replica in the remote region is normally configured with asynchronous commit and manual failover.
 
@@ -91,7 +91,7 @@ To create a replica in a remote data center, do the following steps:
 
    You can create the IP address resource in Failover Cluster Manager, right-click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
 
-   ![Create new IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
+   ![Create IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
    Configure this IP address as follows:
    
