@@ -9,12 +9,12 @@ editor: monicar
 tags: azure-service-management
 
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
-ms.service: virtual-machines
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.custom: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: iaas-sql-server
 ms.date: "01/09/2017"
 ms.author: mikeray
 
@@ -73,7 +73,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Set the new SQL Server service account to use a domain account](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
-1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region].(./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
 
    This load balancer must:
    
@@ -146,5 +146,5 @@ For more information, see the following topics:
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Azure Load Balancers](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
+* [Azure Load Balancers](./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
 * [Azure Availability Sets](virtual-machines-windows-manage-availability.md)
