@@ -49,6 +49,7 @@
 ### [Use AMQP with partitioned queues and topics](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Paired namespaces](service-bus-paired-namespaces.md)
 ### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
+
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
 ### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
