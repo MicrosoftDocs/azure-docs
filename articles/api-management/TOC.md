@@ -60,7 +60,7 @@
 #### [Applications](api-management-application-templates.md)
 #### [Issues](api-management-issue-templates.md)
 #### [User profile](api-management-user-profile-templates.md)
-#### [Pages](api-management-page-templates-in-azure.md)
+#### [Pages](api-management-page-templates.md)
 ### [Data model reference](api-management-template-data-model-reference.md)
 ### [Page controls](api-management-page-controls.md)
 ### [Template resources](api-management-template-resources.md)
