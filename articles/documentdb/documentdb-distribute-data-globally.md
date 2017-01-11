@@ -122,11 +122,11 @@ DocumentDB's consistency SLA guarantees that 100% of the read requests will met 
 **Consistency guarantees associated with a given consistency level in DocumentDB**
 
 <table>
-	<th>
+	<tr>
 		<td><strong>Consistency Level</strong></td>
 		<td><strong>Consistency Characteristics</strong></td>
 		<td><strong>SLA</strong></td>
-	</th>
+	</tr>
 	<tr>
 		<td rowspan="3">Session</td>
 		<td>Read your own write</td>
