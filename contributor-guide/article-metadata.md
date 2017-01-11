@@ -4,14 +4,14 @@
 The standard Azure metadata section looks like this:
   ```
   ---
-  title: <page title you want displayed in search results> | Microsoft Docs
-  description: <description text>
+  title: <page title displayed in search results. Include the brand Azure> | Microsoft Docs
+  description: <article description that is displayed in search results>
   services: <service slug assigned to your service by ACOM>
   cloud: <cloud value assigned by ACOM for sovereign clouds such as Azure Government and Azure Stack>
   documentationcenter: <usually not applicable; if applicable, use value listed below for the correct dev center>
   author: <your GitHub user alias, with correct capitalization>
   manager: <alias of the content publishing manager responsible for the service area>
-  
+
   ms.assetid: <asset ID - include the attribute, but leave it blank. The value will be added post publication.>
   ms.service: <service per approved list>
   ms.workload: na
@@ -29,9 +29,9 @@ The standard Azure metadata section looks like this:
 
 ## Attributes and values
 
-![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Docs* (typed as: space pipe space Microsoft Azure). The title should be different from the H1 heading of your article.
+![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. Title text appears in the browser tab and as the heading in a search result. Use up to 60 characters including spaces and including the site identifier *| Microsoft Docs* (typed as: space pipe space Microsoft Docs). The H1 of an article should expand on the title, not duplicate it. 
 
-![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality. The description should be at least 125 characters long to 155 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
+![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality. The description should be at least 115 characters long to 145 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
 - This text may be displayed as the description or abstract paragraph in search results on Google.
 - This text is displayed in [the article index results](https://azure.microsoft.com/documentation/articles/).
@@ -54,7 +54,7 @@ The standard Azure metadata section looks like this:
 - **windows**: Verifying this new value
 - **xamarin**: Verifying this new value
 
-![](./media/article-metadata/checkmark-small.png)**author**: Required, one value only. List the GitHub account for the primary author or article SME. Get the capitalization right, it matters! 
+![](./media/article-metadata/checkmark-small.png)**author**: Required, one value only. List the GitHub account for the primary author or article SME. Get the capitalization right, it matters!
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the email alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
@@ -70,7 +70,7 @@ The standard Azure metadata section looks like this:
 
 ![](./media/article-metadata/checkmark-small.png)**ms.assetid**: Required, but leave it blank for now. We will be periodically adding the asset ID post publication.
 
-![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page. 
+![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page.
 
  If a page applies to multiple services, choose the service to which it most directly applies; for instance, an article that uses an app hosted on web sites to demonstrate Service Bus functionality should have the **service-bus** value, rather than **web-sites**. If a page applies to multiple services equally, choose **multiple**. If a page does not apply to any services (this will be rare), choose **NA**.
 

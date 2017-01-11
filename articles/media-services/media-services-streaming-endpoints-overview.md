@@ -60,6 +60,9 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 >
  
 ## Comparing streaming types
+
+### Versions
+
 |Type|StreamingEndpointVersion|ScaleUnits|CDN|Billing|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Classic|1.0|0|NA|Free|NA|
@@ -67,6 +70,7 @@ If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU
 |Premium Streaming Units|1.0|>0|Yes|Paid|Yes|
 |Premium Streaming Units|2.0|>0|Yes|Paid|Yes|
 
+### Features
 
 Feature|Standard|Premium
 ---|---|---
