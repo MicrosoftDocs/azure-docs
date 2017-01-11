@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/11/2017
 ms.author: chackdan
 
 ---
@@ -60,9 +60,9 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 
 **Make sure to follow all the steps**
 
-**Step 1: **Open up the Resource Manager template you used to deploy you Cluster.  (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
+**Step 1:** Open up the Resource Manager template you used to deploy you Cluster.  (If you have downloaded the sample from the above repo, then Use 5-VM-1-NodeTypes-Secure_Step1.JSON to deploy a secure cluster and then open up that template).
 
-**Step 2: **Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
+**Step 2:** Add **two new parameters** "secCertificateThumbprint" and "secCertificateUrlValue" of type "string" to the parameter section of your template. You can copy the following code snippet and add to the template. Depending on the source of your template, you may already have these defined, if so move to the next step. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -80,7 +80,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 
 ```
 
-**Step 3: **Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
+**Step 3:** Make changes to the **Microsoft.ServiceFabric/clusters** resource - Locate the "Microsoft.ServiceFabric/clusters" resource definition in your template. Under properties of that definition, you will find "Certificate" JSON tag, which should look something like the following JSON snippet.
 
    
 ```JSON
@@ -116,7 +116,7 @@ If you want to **rollover the cert**, then specify the new cert as primary and m
 ``` 
 
 
-**Step 4: **Make changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions  - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
+**Step 4:** Make changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions  - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "publisher": "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
 
 In the service fabric publisher settings, you should see something like this.
 
@@ -157,7 +157,7 @@ The properties should now look like this
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-**Step 5: **Make Changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "vaultCertificates": , under "OSProfile". it should look something like this.
+**Step 5:** Make Changes to **all** the **Microsoft.Compute/virtualMachineScaleSets** resource definitions - Locate the Microsoft.Compute/virtualMachineScaleSets resource definition. Scroll to the "vaultCertificates": , under "OSProfile". it should look something like this.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]
