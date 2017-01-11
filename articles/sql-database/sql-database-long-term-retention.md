@@ -83,7 +83,7 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 * To stop sending the backups for a specific database to the vault, remove the retention policy for that database.
   
     ```
-    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
+    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
     ```
 
 > [!NOTE]
