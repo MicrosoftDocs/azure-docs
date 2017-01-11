@@ -64,7 +64,7 @@ The DocumentDB .NET Core Preview SDK has feature parity with the latest version 
 * [Partitioned collections](documentdb-partition-data.md). 
 * [Multi-region database accounts and geo-replication](documentdb-distribute-data-globally.md).
 
-If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [MSDN forums](http://go.microsoft.com/fwlink/?LinkId=631655), or send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). Or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## Release & Retirement Dates
 
