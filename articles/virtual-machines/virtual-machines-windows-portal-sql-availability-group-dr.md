@@ -89,14 +89,14 @@ To create a replica in a remote data center, do the following steps:
 
 1. Create an IP address resource on the cluster. 
 
-   You can create the IP address resource in Failover Cluster Manager, right click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
+   You can create the IP address resource in Failover Cluster Manager, right-click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
 
    ![Create new IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
    Configure this IP address as follows:
    
    - Use the network from the remote datacenter.
-   - Assign an the IP address from the new Azure load balancer. 
+   - Assign the IP address from the new Azure load balancer. 
 
 1. In SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
@@ -135,7 +135,7 @@ If you cannot modify the connection strings, you can [configure the availability
 To test listener connectivity to the remote region, you can failover the replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
-1. Under **AlwaysOn Availability Groups**,**Availability Groups**, right-click your availability group and click **Properties**.
+1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and click **Properties**.
 1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode. 
 1. If you have a secondary replica in same site as your primary replica for high availability, set this replica to **Asynchronous Commit** and **Manual**.
 1. Click OK.
