@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 01/10/2016
 ms.author: arramac
 
 ---
@@ -111,4 +111,5 @@ In this article, we reviewed how manual and automatic failovers work in Azure Do
 * Learn about how DocumentDB supports [global distribution](documentdb-distribute-data-globally.md)
 * Learn about [global consistency with DocumentDB](documentdb-consistency-levels.md)
 * Develop with multiple regions using the [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)
+* Learn how to build [Multi-region writer architectures](documentdb-multi-region-writers.md) with Azure DocumentDB
 
