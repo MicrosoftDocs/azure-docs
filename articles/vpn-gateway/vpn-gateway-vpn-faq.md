@@ -138,13 +138,13 @@ No.
 
 ### How do I specify which traffic goes through the VPN gateway?
 
-####For a Resource Manager VPN gateway: 
+####Resource Manager deployment model
 * PowerShell: use "AddressPrefix" to specify traffic for the local network gateway.
 * Azure portal: navigate to the Local network gateway > Configuration > Address space.
 
-####For a classic VPN gateway: 
+####Classic deployment model
 * Azure portal: Navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
-* Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
+* Classic portal: Add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Forced Tunneling?
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
