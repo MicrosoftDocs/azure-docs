@@ -60,11 +60,8 @@ If you are running a Windows Operating System, we recommend using either [Visual
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Databases** > **SQL Data Warehouse**.
 
-```
-![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png).
-
+![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
 ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
-```
 
 3. Fill out deployment details
 
