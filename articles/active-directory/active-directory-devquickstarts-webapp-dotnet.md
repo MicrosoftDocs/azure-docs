@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -35,19 +35,20 @@ In order to do this, you'll need to:
 
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
-## *1.    Register an Application with Azure AD*
+## 1. Register an Application with Azure AD
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-* Sign into the [Azure Portal](https://portal.azure.com).
-* Select the tenant where you wish to register the application.
-* In the left hand nav, click on **Azure Active Directory**.
-* Click the **App Registrations** tab, and click **Add**.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `https://localhost:44320/`.
-* Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
+  * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
-## *2. Set up your app to use the OWIN authentication pipeline*
+## 2. Set up your app to use the OWIN authentication pipeline
 Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 * To begin, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
@@ -95,7 +96,7 @@ public void ConfigureAuth(IAppBuilder app)
   * The `ida:Tenant` is the name of your Azure AD tenant, e.g. "contoso.onmicrosoft.com".
   * Your `ida:PostLogoutRedirectUri` indicates to Azure AD where a user should be redirected after a sign-out request successfully completes.
 
-## *3. Use OWIN to issue sign-in and sign-out requests to Azure AD*
+## 3. Use OWIN to issue sign-in and sign-out requests to Azure AD
 Your app is now properly configured to communicate with Azure AD using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
 
 * You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
@@ -150,7 +151,7 @@ else
 }
 ```
 
-## *4.    Display user information*
+## 4. Display user information
 When authenticating users with OpenID Connect, Azure AD returns an id_token to the application that contains "claims," or assertions about the user.  You can use these claims to personalize your app:
 
 * Open the `Controllers\HomeController.cs` file.  You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
@@ -177,3 +178,4 @@ You can now move onto more advanced topics.  You may want to try:
 [Secure a Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+

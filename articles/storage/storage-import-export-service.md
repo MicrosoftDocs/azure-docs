@@ -1,7 +1,7 @@
 ---
 title: Using import/export to transfer data to Blob Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal to transfer data to blob storage.
-author: renashahmsft
+author: muralikk
 manager: aungoo
 editor: tysonn
 services: storage
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: renash
+ms.author: muralikk
 
 ---
 # Use the Microsoft Azure Import/Export Service to transfer data to Blob storage
