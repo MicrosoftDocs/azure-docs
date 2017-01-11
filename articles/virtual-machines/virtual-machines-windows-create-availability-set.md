@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/11/2017
 ms.author: cynthn
 
 ---
 # Create an availability set
-When using the portal, if you want your VM to be part of an availability set, you need to create the availability set first.
+When using the portal, if you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. If your VM will be using Managed Disks, the availability set must be created as a managed availability set.
 
 For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -52,9 +52,19 @@ For each additional VM that you create that should belong in the set, make sure 
 ![Screenshot showing how to select an existing availability set to use for your VM.](./media/virtual-machines-windows-create-availability-set/add-vm-to-set.png)
 
 ## Use PowerShell to create an availability set
-This example creates an availability set in the **RMResGroup** resource group in the **West US** location. This needs to be done before you create the first VM that will be in the set.
+This example creates an availability set named **myAvailabilitySet** in the **myResourceGroup** resource group in the **West US** location. This needs to be done before you create the first VM that will be in the set.
 
-    New-AzureRmAvailabilitySet -ResourceGroupName "RMResGroup" -Name "AvailabilitySet03" -Location "West US"
+If you are using managed disks for your VMs, type:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" -Name "myAvailabilitySet" -Location "West US" -managed
+```
+
+If you are using your own storage accounts for your VMs, type:
+
+```powershell
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" -Name "myAvailabilitySet" -Location "West US" 
+```
 
 For more information, see [New-AzureRmAvailabilitySet](https://msdn.microsoft.com/library/mt619453.aspx).
 
