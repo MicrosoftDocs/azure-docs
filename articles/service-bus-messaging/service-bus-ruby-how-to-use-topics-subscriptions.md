@@ -22,63 +22,9 @@ ms.author: sethm
 
 This article describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
 
-## Service Bus topics and subscriptions
-Service Bus topics and subscriptions support a *publish/subscribe*
-messaging communication model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other; they instead exchange messages via a topic, which acts as an
-intermediary.
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-In contrast to Service Bus queues, where each message is processed by a
-single consumer, topics and subscriptions provide a **one-to-many** form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to process
-independently.
-
-A topic subscription resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which enables you
-to filter/restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-large number of messages across a large number of users and
-applications.
-
-## Create a namespace
-To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within
-your application. You must create the namespace through the command-line interface because the [Azure portal][Azure portal] does not create the namespace with an ACS connection.
-
-To create a namespace:
-
-1. Open an Azure Powershell console window.
-2. Type the following command to create a namespace. Provide your own namespace value and specify the same region as your application.
-   
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-    ```
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
-
-## Obtain default management credentials for the namespace
-In order to perform management operations, such as creating a queue on the new
-namespace, you must obtain the management credentials for the namespace.
-
-The PowerShell cmdlet you ran to create the Service Bus namespace displays
-the key you can use to manage the namespace. Copy the **DefaultKey** value. You
-will use this value in your code later in this tutorial.
-
-![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
-
-> [!NOTE]
-> You can also find this key if you log on to the
-> [Azure portal][Azure portal] and navigate to the
-> connection information for your namespace.
-> 
-> 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create a Ruby application
 For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).

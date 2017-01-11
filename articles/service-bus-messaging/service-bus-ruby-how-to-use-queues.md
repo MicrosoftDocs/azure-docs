@@ -1,5 +1,5 @@
 ---
-title: How to use Service Bus queues with Ruby | Microsoft Docs
+title: How to use Azure Service Bus queues with Ruby | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.
 services: service-bus-messaging
 documentationcenter: ruby
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 
 ---
@@ -25,67 +25,10 @@ written in Ruby and use the Azure gem. The scenarios
 covered include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information about Service Bus queues, see the [Next Steps](#next-steps) section.
 
-## What are Service Bus queues?
-Service Bus queues support a *brokered messaging* communication
-model. With queues, components of a distributed application do not
-communicate directly with each other; instead they exchange messages via
-a queue, which acts as an intermediary. A message producer (sender)
-hands off a message to the queue and then continues its processing.
-Asynchronously, a message consumer (receiver) pulls the message from the
-queue and processes it. The producer does not have to wait for a reply
-from the consumer in order to continue to process and send further
-messages. Queues offer **First In, First Out (FIFO)** message delivery
-to one or more competing consumers. That is, messages are typically
-received and processed by the receivers in the order in which they were
-added to the queue, and each message is received and processed by only
-one message consumer.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-![QueueConcepts](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
-
-Service Bus queues are a general-purpose technology that can be used for
-a wide variety of scenarios:
-
-* Communication between web and worker roles in a [multi-tier
-  Azure application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md).
-* Communication between on-premises apps and Azure hosted apps
-  in a [hybrid solution](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
-* Communication between components of a distributed application
-  running on-premises in different organizations or departments of an
-  organization.
-
-Using queues can enable you to scale out your applications better, and
-enable more resiliency to your architecture.
-
-## Create a namespace
-To begin using Service Bus queues in Azure, you must first create a namespace. A namespace provides a scoping container for addressing Service Bus resources within your application. You must create the
-namespace through the command-line interface because the Azure portal does not create the namespace with an ACS connection.
-
-To create a namespace:
-
-1. Open an Azure Powershell console.
-2. Type the following command to create a Service Bus namespace. Provide your own namespace value and specify the same region as your application.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## Obtain management credentials for the namespace
-In order to perform management operations, such as creating a queue on the new
-namespace, you must obtain the management credentials for the namespace.
-
-The PowerShell cmdlet you ran to create the Azure service bus namespace displays
-the key you can use to manage the namespace. Copy the **DefaultKey** value. You
-will use this value in your code later in this tutorial.
-
-![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> You can also find this key if you log on to the [Azure portal](https://portal.azure.com/) and navigate to the connection information for your Service Bus namespace.
-> 
-> 
-
 ## Create a Ruby application
 Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
