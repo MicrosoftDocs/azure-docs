@@ -20,9 +20,9 @@ ms.author: saudas
 
 ---
 # Scale an Azure Container Service cluster
-After you have [deployed an Azure Container Service cluster](container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
+After [deploying an Azure Container Service cluster](container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
-You can change the number of agent nodes in the cluster by using the Azure portal, the Azure CLI, or the Azure CLI 2.0 (Preview). The Azure CLI 2.0 (Preview) is our next generation CLI for the Resource Managemer deployment model.
+You can change the number of agent nodes in the cluster by using the Azure portal, the Azure CLI, or the Azure CLI 2.0 (Preview). The Azure CLI 2.0 (Preview) is the next generation CLI for the Resource Manager deployment model.
 
 > [!NOTE]
 > Currently, autoscaling of agent nodes in a container service cluster is not supported.
@@ -30,7 +30,7 @@ You can change the number of agent nodes in the cluster by using the Azure porta
 
 ## Scale with the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), in **Container services**, click the container service that you want to modify.
+1. In the [Azure portal](https://portal.azure.com), browse for **Container services**, and then click the container service that you want to modify.
 2. In the **Container service** blade, click **Agents**.
 3. In **VM Count**, enter the desired number of agents nodes.
 
@@ -46,16 +46,16 @@ Make sure that you [installed](../xplat-cli-install.md?toc=%2fazure%2fvirtual-ma
 
 
 ### See the current agent count
-To see the number of agents currently in the cluster, run the `azure acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the cluster in the resource group `myResourceGroup` and named `containerservice-myACSName`:
+To see the number of agents currently in the cluster, run the `azure acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the container service named `containerservice-myACSName` in the resource group `myResourceGroup`:
 
 ```azurecli
 azure acs show myResourceGroup containerservice-myACSName
 ```
 
-The command returns the number of agents in the value of `AgentPoolProfiles` > `Count`.
+The command returns the number of agents in the `Count` value under `AgentPoolProfiles`.
 
 
-### Use the command to scale
+### Use the azure acs scale command
 To change the number of agent nodes, run the `azure acs scale` command and supply the **resource group**, **container service name**, and the desired **new agent count**. By using a smaller or higher number, you can scale down or up, respectively.
 
 For example, to change the number of agents in the previous cluster to 10, type the following command:
@@ -76,16 +76,16 @@ Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 
 
 
 ### See the current agent count
-To see the number of agents currently in the cluster, run the `az acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the cluster in the resource group `myResourceGroup` and named `containerservice-myACSName`:
+To see the number of agents currently in the cluster, run the `az acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the container service named `containerservice-myACSName` in the resource group `myResourceGroup`:
 
 ```azurecli
 az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-The command returns the number of agents in the value of `AgentPoolProfiles` > `Count`.
+The command returns the number of agents in the `Count` value under `AgentPoolProfiles`.
 
 
-### Use the command to scale
+### Use the az acs scale command
 To change the number of agent nodes, run the `az acs scale` command and supply the **resource group**, **container service name**, and the desired **new agent count**. By using a smaller or higher number, you can scale down or up, respectively.
 
 For example, to change the number of agents in the previous cluster to 10, type the following command:
@@ -94,7 +94,7 @@ For example, to change the number of agents in the previous cluster to 10, type 
 azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-The Azure CLI returns a JSON string representing the new configuration of the container service, including the new agent count.
+The Azure CLI 2.0 (Preview) returns a JSON string representing the new configuration of the container service, including the new agent count.
 
 For more command options, run `az acs scale --help`.
 
@@ -102,11 +102,11 @@ For more command options, run `az acs scale --help`.
 ## Scaling considerations
 
 
-* You cannot change the number of master nodes in the cluster after deployment.
-
 * The number of agent nodes must be between 1 and 100, inclusive. 
 
 * Agent node scaling operations are applied to an Azure virtual machine scale set that contains the agent pool. In a DC/OS cluster, the scaling operations shown in this article apply only to agent nodes in the private pool. 
+
+* You cannot change the number of master nodes in the cluster after deployment.
 
 * Depending on the orchestrator you deploy in your cluster, you can separately scale the number of instances of a container running on the cluster. For example, in a DC/OS cluster, use the [Marathon UI](container-service-mesos-marathon-ui#scale-your-containers.md) to change the number of instances of a container application.
 
@@ -116,4 +116,5 @@ For more command options, run `az acs scale --help`.
 
 ## Next steps
 * See [more examples](service/container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 (Preview) commands with Azure Container Service.
+* Learn more about [DC/OS agent pools](container-service-dcos-agents.md) in Azure Container Service.
 
