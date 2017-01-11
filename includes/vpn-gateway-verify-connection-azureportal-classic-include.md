@@ -10,4 +10,4 @@ In the Azure portal, you can view the connection status for a classic VNet gatew
 	![Connection status](./media/vpn-gateway-verify-connection-azureportal-classic/siteconnectstatus.png "Connection status")
 5. To view more information about the connection, click the name of the connection to open the **Site-to-site VPN Connection** blade.
 
-	![Connection status more](./media/vpn-gateway-verify-connection-azureportal-classic/connections.png "Connection status more info")
+	![Connection status more](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Connection status more info")
