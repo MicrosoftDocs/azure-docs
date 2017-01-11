@@ -24,10 +24,10 @@ Operations Management Suite (OMS) provides monitoring, alerting, and alert remed
 
 ## Prerequisites
 
-### Operating System
+### Operating system
 The OMS Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
-### Internet Connectivity
+### Internet connectivity
 The OMS Agent extension for Windows requires that the target virtual machine is connected to the internet. 
 
 ## Extension schema
@@ -96,9 +96,9 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module.
 
-```azurecli
+```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
