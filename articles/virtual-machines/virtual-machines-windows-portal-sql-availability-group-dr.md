@@ -115,17 +115,32 @@ To create a replica in a remote data center, do the following steps:
 
 ## Update client applications for multiple subnet failover
 
-When the replica in the remote region becomes the primary replica, application connections may timeout. This is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings for MultiSubnetFailover. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+When the replica in the remote region becomes the primary replica, application connections may timeout. This is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
 
 If you cannot modify the connection strings, you can [configure the availability group to prevent timeouts in mulitple subnets](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
 ## Failover to Remote Region 
 
-You can failover a replica to the remote region. 
+You can failover a replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
-[Perform a Planned Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
+1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
+1. Under **AlwaysOn Availability Groups\Availability Groups**, right click your availability group and click **Properties**.
+1. On the **General** page, under **Availability Replicas**, set the secondary replica in the DR site to use **Synchronous Commit** availability mode and **Automatic** failover mode. 
+1. If you have a secondary replica in same site as your primary replica for high availability, set this replica to **Asynchronous Commit** and **Manual**.
+1. Click OK.
+1. In **Object Explorer**, right-click the availability group, and click **Show Dashboard**.
+1. On the dashboard, verify that the replica on the DR site is synchronized. 
+1. In **Object Explorer**, right-click the availability group, and click **Failover...**. SQL Server Management Studios opens a wizard to failover SQL Server.  
+1. Click **Next**, and select the SQL Server instance in the DR site. Click **Next** again.
+1. Connect to the SQL Server instance in the DR site and click **Next**. 
+1. On the **Summary** page verify the settings and click **Finish**.
 
-[Perform a Forced Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
+### More information about manual and force failover
+
+See the following topics for more information about planned and unplanned failover of SQL Server:
+
+- [Perform a Planned Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
+- [Perform a Forced Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
 ## More Information
 
