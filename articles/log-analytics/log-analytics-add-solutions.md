@@ -92,11 +92,11 @@ The following table identifies which solutions belong to each Operations Managem
 ## Data collection details
 The following tables shows data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers, which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
 
-Windows agents and System Center Operations Manager agents are essentially the same. The Windows agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use a Operations Manager agent, it must be targeted as an OMS agent to communicate with OMS. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to OMS.
+The Log Analytics Windows agent and System Center Operations Manager agent are essentially the same. The Windows agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use an Operations Manager agent, it must be targeted as an OMS agent to communicate with OMS. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to OMS.
 
 > [!NOTE]
 > The type of agent that you use determines how data is sent to OMS, with the following conditions:
-> - You either use the Windows agent or a Operations Manager-attached OMS agent.
+> - You either use the Windows agent or an Operations Manager-attached OMS agent.
 > - When Operations Manager is required, Operations Manager agent data for the solution is always sent to OMS using the Operations Manager management group. Additionally, when Operations Manager is required, only the Operations Manager agent is used by the solution.
 > - When Operations Manager is not required and the table shows that Operations Manager agent data is sent to OMS using the management group, then Operations Manager agent data is always sent to OMS using management groups. Windows agents bypass the management group and send their data directly to OMS.
 > - When Operations Manager agent data is not sent using a management group, then the data is sent directly to OMS—bypassing the management group.
@@ -114,7 +114,7 @@ Windows agents and System Center Operations Manager agents are essentially the s
 | Alert Management (Operations Manager) |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |3 minutes |
 | Application Insights Connector (Preview) | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | on notification |
 | Azure Networking Analytics (Preview) | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 10 minutes |
-| Capacity Management<sup>1</sup> |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
+| Capacity Management |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Containers | Linux | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 minutes |
 | Key Vault Analytics (Preview) |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |10 minutes |
 | Network Performance Monitor | Windows | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | TCP handshakes every 5 seconds, data sent every 3 minutes |
@@ -126,7 +126,7 @@ Windows agents and System Center Operations Manager agents are essentially the s
 | System Center Operations Manager Assessment (Preview) | Windows | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | seven days |
 | Upgrade Analytics (Preview) | Windows | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 2 days |
 | VMware Monitoring (Preview) | Linux | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 3 minutes |
-| Wire Data<sup>2</sup> |Windows (2012 R2 / 8.1 or later) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 minute |
+| Wire Data |Windows (2012 R2 / 8.1 or later) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 1 minute |
 
 
 ### Automation & Control
@@ -211,7 +211,7 @@ The following applies to both public and private previews:
 * The feature or solution may be removed (either temporarily or permanently).
   * Based on our learnings during the preview we may decide to not release the feature or solution.
 * Previews may not work or may not have been tested with all configurations, and we may limit:
-  * The operating systems that can be used (e.g. a feature may only apply to Linux while in preview).
+  * The operating systems that can be used (for example, a feature may only apply to Linux while in preview).
   * The type of agent (MMA, Operations Manager) that can be used (for example, a feature may not work with Operations Manager while in preview).  
 * Preview solutions and features are not covered by the Service Level Agreement.
 * Usage of preview features incurs usage charges.
@@ -220,7 +220,7 @@ The following applies to both public and private previews:
 * Features / solutions may not be localized.
 * Features / solutions may have a limit on the number of customers or devices that can use it.
 * You may need to use scripts to perform configuration and to enable the solution/feature.
-* The user interface (UI) is be incomplete and may change from day to day.
+* The user interface (UI) is incomplete and may change from day to day.
 * Public previews may not be appropriate for your production / critical systems.
 
 #### For *private* preview
@@ -228,7 +228,7 @@ In addition to the items above, the following is specific to private previews:
 
 * We expect you to provide us with feedback on your experience so that we can make the feature/solution better.
 * We may contact you for feedback using surveys, phone calls, or e-mail.
-* Things won't always work correctly.
+* Things don't always work correctly.
 * We may require a Non-Disclosure Agreement (NDA) for participation or may include confidential content.
   * Before blogging, tweeting, or otherwise communicating with third parties, please check with the Program Manager that is responsible for the preview to understand any restrictions on disclosure.
 * Do not run on production / critical systems.
