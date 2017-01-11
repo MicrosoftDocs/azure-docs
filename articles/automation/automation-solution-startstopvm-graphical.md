@@ -17,7 +17,7 @@ ms.date: 07/06/2016
 ms.author: magoedte;bwren
 
 #Redirection
-redirect_url: https://docs.microsoft.com/en-us/azure/automation/
+redirect_url: /automation/automation-solution-vm-management
 redirect_document_id: FALSE
 ---
 
