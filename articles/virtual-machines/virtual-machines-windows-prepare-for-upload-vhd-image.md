@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 1/11/2017
 ms.author: glimoli;genli
 
 ---
@@ -22,7 +22,7 @@ ms.author: glimoli;genli
 To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## Convert the virtual disk to VHD and fixed size disk 
-If you need to convert your virtual disk to the required format for Azure, use one of the following methods. Back up the VM before you run the virtual disk conversion process. And make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
+If you need to convert your virtual disk to the required format for Azure, use one of the following methods. Back up the VM before you run the virtual disk conversion process and make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
 
 After you convert the disk, create a VM that uses the converted disk. Start and sign in to the VM to finish preparing the VM for upload.
 
@@ -37,7 +37,7 @@ After you convert the disk, create a VM that uses the converted disk. Start and 
 
 ### Convert disk using PowerShell
 You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
-The following example shows you how to convert from a VHDX to VHD, and from a dynamically expanding disk to fixed size disk:
+The following example shows you how to convert from a VHDX to VHD, and from a dynamically expanding disk to fixed size:
 
 ```powershell
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
@@ -47,7 +47,7 @@ Replace the values for -Path with the path to the virtual hard disk that you wan
 ### Convert from VMware VMDK disk format
 If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
-## Prepare Windows configuration for upload
+## Set Windows configurations for Azure
 
 On the virtual machine you plan to upload to Azure, run all the following commands from the command prompt window with [administrative privileges](https://technet.microsoft.com/library/cc947813.aspx).
 
@@ -60,19 +60,25 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     ```CMD
     netsh winhttp reset proxy
     ```
-3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
+3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
    
     ```CMD
-    diskpart san policy=onlineall
+    diskpart 
+    san policy=onlineall
+    exit
     ```
-4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
+    
+
+4. Set Coordinated Universal Time (UTC) time for Windows and the startup type of the Windows Time (w32time) service to **Automatically**:
    
     ```CMD
     REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
+    ```
+    ```CMD
     sc config w32time start= auto
     ```
 
-## Configure Windows services
+## Set services startup to Windows default values
 Make sure that each of the following Windows services is set to the **Windows default values**. They are configured with the startup settings noted in the following list. You can run these commands to reset the startup settings:
    
 ```CMD
@@ -119,7 +125,7 @@ sc config LanmanWorkstation start= auto
 sc config RemoteRegistry start= auto
 ```
 
-## Configure Remote Desktop configuration
+## Update Remote Desktop registry settings
 1. If there are any self-signed certificates tied to the Remote Desktop Protocol (RDP) listener, remove them:
    
     ```CMD
@@ -131,18 +137,22 @@ sc config RemoteRegistry start= auto
    
     ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
-   
+    ```
+    ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
-   
+    ```
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
     ```
 3. Configure the authentication mode for the RDP service:
    
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
-   
+   ```
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
-   
+   ```
+    ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
     ```
 4. Enable RDP service by adding the following subkeys to the registry:
@@ -152,12 +162,12 @@ sc config RemoteRegistry start= auto
     ```
 
 ## Configure Windows Firewall rules
-1. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
+1. Run the following command in PowerShell to allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
    
    ```powershell
    Enable-PSRemoting -force
    ```
-2. Make sure that the following guest operating system firewall rules are in place:
+2. Run the following commands in the command prompt window to make sure that the following guest operating system firewall rules are in place:
    
    * Inbound
    
@@ -215,9 +225,9 @@ sc config RemoteRegistry start= auto
    netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
    ```
 
-## Additional Windows configuration steps
-1. Run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see [this blog post](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
-2. Make sure the Boot Configuration Data (BCD) settings match the following:
+## Verify VM is healthy, secure, and accessible with RDP 
+1. In the command prompt window, run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see the blog post [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+2. Set the Boot Configuration Data (BCD) settings:
    
    ```CMD
    bcdedit /set {bootmgr} integrityservices enable
@@ -233,15 +243,15 @@ sc config RemoteRegistry start= auto
    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
    ```
 3. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
-4. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command.
+4. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command in the command prompt window. Type "Y" to schedule the check and restart the VM.
 5. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
-6. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure. You can use the `netstat -anob` command to check the ports that are using by the applications.
+6. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure. You can run `netstat -anob` in the command prompt window to see the ports that are used by the applications.
 7. If the Windows VHD that you want to upload is a domain controller, follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 8. Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection.
-9. Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object. This object is located under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
+9. Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection. This access permission is controlled by the "Allow log on through Remote Desktop Services" Group Policy object. You can view this object in the Local Group Policy Editor under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
 
 ## Install Windows Updates
-Install the latest updates for Windows. If that is not possible, make sure that the following updates are installed:
+Install the latest updates for Windows. If that's not possible, make sure that the following updates are installed:
    
    * [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VMs don't recover from a network outage and data corruption issues occur
    * [KB3115224](https://support.microsoft.com/kb/3115224) Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
@@ -256,6 +266,11 @@ Install the latest updates for Windows. If that is not possible, make sure that 
    * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
    * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
      
+## Run Sysprep  <a id="step23"></a>    
+If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](virtual-machines-windows-generalize-vhd?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
+   
+   * [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
@@ -279,12 +294,6 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /t REG_MULTI_SZ /v PagingFiles /d "D:\pagefile.sys 0 0" /f
     ```
-## Run Sysprep  <a id="step23"></a>    
-If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
-   
-   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-   * [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-   * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
