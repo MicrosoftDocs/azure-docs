@@ -41,5 +41,5 @@ This topic lists current POP locations for **Azure CDN from Verizon** and **Azur
 | Australia and New Zealand |Melbourne, Australia<br />Sydney, Australia |**&#x2713;**\* |
 
 ## See Also
-* [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting](https://docs.microsoft.com/en-us/rest/api/den/edgenodes)
+* [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 
