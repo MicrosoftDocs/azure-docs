@@ -123,67 +123,35 @@ DocumentDB's consistency SLA guarantees that 100% of the read requests will met 
 
 <table>
 	<th>
-		<td>**Consistency Level**</td>
-		<td>**Consistency Characteristics**</td>
-		<td>**SLA**</td>
+		<td><strong>Consistency Level</strong></td>
+		<td><strong>Consistency Characteristics</strong></td>
+		<td><strong>SLA</strong></td>
 	</th>
 	<tr>
-		<td>Session</td>
-		<td>
-			<table>
-				<tr>
-					<td>Read your own write</td>
-				</tr>
-				<tr>
-					<td>Monotonic read</td>
-				</tr>
-				<tr>
-					<td>Consistent prefix</td>
-				</tr>
-			</table>
-		</td>
-		<td>
-			<table>
-				<tr>
-					<td>100%</td>
-				</tr>
-				<tr>
-					<td>100%</td>
-				</tr>
-				<tr>
-					<td>100%</td>
-				</tr>
-			</table>
-		</td>
+		<td rowspan="3">Session</td>
+		<td>Read your own write</td>
+		<td>100%</td>
 	</tr>
 	<tr>
-		<td>Bounded staleness</td>
-		<td>
-			<table>
-				<tr>
-					<td>Monotonic read (within a region)</td>
-				</tr>
-				<tr>
-					<td>Consistent prefix</td>
-				</tr>
-				<tr>
-					<td>Staleness bound &lt; K,T</td>
-				</tr>
-			</table>
-		</td>
-		<td>
-			<table>
-				<tr>
-					<td>100%</td>
-				</tr>
-				<tr>
-					<td>100%</td>
-				</tr>
-				<tr>
-					<td>100%</td>
-				</tr>
-			</table>
-		</td>
+		<td>Monotonic read</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Consistent prefix</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td rowspan="3">Bounded staleness</td>
+		<td>Monotonic read (within a region)</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Consistent prefix</td>
+		<td>100%</td>
+	</tr>
+	<tr>
+		<td>Staleness bound &lt; K,T</td>
+		<td>100%</td>
 	</tr>
 	<tr>
 		<td>Eventual</td>
