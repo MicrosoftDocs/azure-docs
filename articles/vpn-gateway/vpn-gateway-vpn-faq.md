@@ -99,7 +99,7 @@ By default, the client computer will not reestablish the VPN connection automati
 Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
 ### Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
-Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using `-VpnType PolicyBased`.
+Yes. Both these solutions will work if you have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or gateways using the `-VpnType PolicyBased` cmdlet.
 
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 Yes, it is possible. But the virtual networks cannot have overlapping IP prefixes and the Point-to-Site address spaces must not overlap between the virtual networks.
@@ -137,8 +137,14 @@ The gateway subnet minimum size depends entirely on the configuration that you w
 No.
 
 ### How do I specify which traffic goes through the VPN gateway?
-* For a classic VPN gateway, in the Azure portal, navigate to the VNet > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. In the Azure classic portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
-* For a Resource Manager VPN gateway, using PowerShell, use "AddressPrefix" to specify traffic for the local network gateway. In the Azure portal, navigate to the Local network gateway > Configuration > Address space.
+
+####For a Resource Manager VPN gateway: 
+* PowerShell: use "AddressPrefix" to specify traffic for the local network gateway.
+* Azure portal: navigate to the Local network gateway > Configuration > Address space.
+
+####For a classic VPN gateway: 
+* Azure portal: Navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
+* Classic portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Forced Tunneling?
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
@@ -184,10 +190,10 @@ No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gate
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-**Resource Manager deployment model**<br>
+####Resource Manager deployment model
 Yes. See the [BGP](#bgp) section for more information.
 
-**Classic deployment model**<br>
+####Classic deployment model
 Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
