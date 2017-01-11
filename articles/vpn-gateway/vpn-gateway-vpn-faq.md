@@ -171,7 +171,7 @@ No, both virtual networks MUST be using route-based (dynamic routing) VPNs.
 Yes, it is protected by IPsec/IKE encryption.
 
 ### Does VNet-to-VNet traffic travel over the Azure backbone?
-Yes, this traffic ic traversing the Azure backbone. It is not going over the Internet.
+Yes, this traffic traverses the Azure backbone. It does not go over the Internet.
 
 ### How many on-premises sites and virtual networks can one virtual network connect to?
 Max. 10 combined for the Basic and Standard Dynamic Routing gateways; 30 for the High Performance VPN gateways.
