@@ -24,9 +24,7 @@
 ### Connect programmatically
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Manage streaming endpoints](media-services-streaming-endpoints-overview.md)
-#### [Portal](media-services-portal-manage-streaming-endpoints.md)
-#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
+### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
 ### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 
@@ -94,9 +92,6 @@
 
 ## [Stream live](media-services-manage-channels-overview.md)
 ### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
-#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 ### Cloud encoder tutorials
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -113,9 +108,8 @@
 ### [Configure content protection in the portal](media-services-portal-protect-content.md)
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
 ### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
-### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
 ### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
-### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
+### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
 ### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
 ### [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md)
@@ -153,7 +147,7 @@
 ### [Media Processing](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 ### Streaming Endpoints
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
@@ -185,6 +179,7 @@
 ### [Manage assets across multiple Storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
 ### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
+### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
 
 ## Monitor
 ### Check job progress
