@@ -66,7 +66,9 @@ When you create system-versioned temporal table, the accompanying history table 
 
 In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently. 
 
-**Note**: Columnstore indexes are only available in the premium service tier.
+> [!NOTE]
+> Columnstore indexes are only available in the premium service tier.
+>
 
 The following script shows how default index on history table can be changed to the clustered columnstore:
 
