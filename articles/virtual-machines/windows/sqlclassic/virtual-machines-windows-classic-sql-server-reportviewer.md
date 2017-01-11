@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: asaxton
 
 ---
@@ -26,8 +26,6 @@ You can build a Microsoft Azure Web site with the Visual Studio ReportViewer con
 
 > [!IMPORTANT]
 > The ASP.NET MVC Web Application templates do not support the ReportViewer control.
-> 
-> 
 
 To incorporate ReportViewer into your Microsoft Azure Web site, you need to complete the following tasks.
 
@@ -42,10 +40,6 @@ Review the “General recommendation and best practices” section in [SQL Serve
 > ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
 > 
 > ReportViewer configured in local processing mode is not supported in Microsoft Azure.
-> 
-> 
-
-Review the white paper [Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
 
 ## Adding Assemblies to the Deployment Package
 When you host your ASP.NET application on-premise, the ReportViewer assemblies are usually installed directly in the global assembly cache (GAC) of the IIS server during Visual Studio installation, and can be accessed directly by the application. However, when you host your ASP.NET application in the cloud, Microsoft Azure does not allow anything to be installed into the GAC, so you must make sure the ReportViewer assemblies are available locally for your application. You can do this by adding references to them in your project and configure them to be copied locally.
@@ -95,6 +89,4 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md)
 
 [Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md)
-
-[Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
