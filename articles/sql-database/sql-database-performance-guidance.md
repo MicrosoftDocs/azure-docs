@@ -62,10 +62,6 @@ Each service tier and performance level is associated with different limits and 
 ### Maximum In-Memory OLTP storage
 You can use the **sys.dm_db_resource_stats** view to monitor your Azure In-Memory storage use. For more information about monitoring, see [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md).
 
-> [!NOTE]
-> Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for single databases. You cannot use it in databases in elastic pools.
-> 
-
 ### Maximum concurrent requests
 To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
 
