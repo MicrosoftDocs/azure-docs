@@ -18,7 +18,7 @@ ms.author: dastrock
 
 ---
 # Protect a Web API using Bearer tokens from Azure AD
-[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 If you’re building an application that provides access to protected resources you will need to know how to protect those resources from unwarranted access.
 Azure AD makes it simple and straightforward to protect a web API using OAuth Bearer 2.0 Access Tokens with only a few lines of code.
@@ -136,5 +136,5 @@ Finally, clean, build and run each project!  If you haven’t already, now is th
 
 For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip).  You can now move on to more additional identity scenarios.
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
