@@ -29,7 +29,7 @@ Before you create an export job, you need to choose a set of blobs that are to b
 |**/sn:**<StorageAccountName\>|Required. The name of the storage account for the export job.|  
 |**/sk:**<StorageAccountKey\>|Required if and only if a container SAS is not specified. The account key for the storage account for the export job.|  
 |**/csas:**<ContainerSas\>|Required if and only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageservices/importexport/Put-Job) operation of the Import/Export Service REST API.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export Service REST API.|  
 |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500GB, 1.5TB.|  
   
 The following example demonstrates the `PreviewExport` command:  

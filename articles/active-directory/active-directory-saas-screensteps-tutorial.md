@@ -69,7 +69,7 @@ The objective of this section is to outline how to enable the application integr
 The objective of this section is to outline how to enable users to authenticate to ScreenSteps with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **ScreenSteps** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **ScreenSteps** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single sign-on](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configure single sign-on")
 
@@ -164,13 +164,12 @@ To test your configuration, you need to grant the Azure AD users you want to all
 ### To assign users to ScreenSteps, perform the following steps:
 1. In the Azure classic portal, create a test account.
 
-2. On the **ScreenSteps **application integration page, click **Assign users**.
+2. On the **ScreenSteps** application integration page, click **Assign users**.
    
-    ![Assign users](./media/active-directory-saas-screensteps-tutorial/IC773094.png "Assign users")
+    ![Assign users](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Assign users")
 
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
-    ![Assign users](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Assign users")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

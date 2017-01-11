@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: carlrab; janeng
 
 ---
@@ -47,7 +47,7 @@ Once you have determined the minimum service tier, you are ready to determine th
 After initially picking a performance level, you can and then scale the [individual database](sql-database-scale-up.md) or your [elastic pool](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) up or down dynamically based on actual experience. For migration scenarios, you can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
 
 >
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## Single database service tiers and performance levels
@@ -67,9 +67,10 @@ Pools allow databases to share and consume eDTU resources without needing to ass
 
 The following table describes the characteristics of pool service tiers.
 
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 Each database within a pool also adheres to the single database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 4800 - 28800, but an individual database within a Basic pool has a database limit of 300 sessions.
+
 
 ## Next steps
 

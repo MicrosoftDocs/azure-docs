@@ -173,8 +173,7 @@
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md)
 
 # Reference
-## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
-## [PowerShell module for Machine Learning](machine-learning-powershell-module.md)
+## [PowerShell](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -193,7 +192,7 @@
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### APIs
-#### [Anomaly detection](machine-learning-apps-anomaly-detection.md)
+#### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
 #### [Text analytics](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Recommendations

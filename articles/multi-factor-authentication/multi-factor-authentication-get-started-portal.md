@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 01/04/2017
 ms.author: kgremban
 
 ---
@@ -36,7 +36,7 @@ The following pre-requisites are required to install the users portal on the sam
 1. Within the Azure Multi-Factor Authentication Server, click the **User Portal** icon in the left menu, then click **Install User Portal**.
 2. Click **Next**.
 3. Click **Next**.
-4. If the computer is domain-joined, and Active Directory is not configuration to secure communication between the user portal and the Azure Multi-Factor Authentication service, then the Active Directory step is displayed. Click the **Next** button to automatically complete this configuration.
+4. If the computer is domain-joined, and Active Directory is not configured to secure communication between the user portal and the Azure Multi-Factor Authentication service, then the Active Directory step is displayed. Click the **Next** button to automatically complete this configuration.
 5. Click **Next**.
 6. Click **Next**.
 7. Click **Close**.
