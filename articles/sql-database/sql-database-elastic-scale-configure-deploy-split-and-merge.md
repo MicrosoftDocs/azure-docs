@@ -90,14 +90,13 @@ Execute the following command from the same window where makecert was executed; 
 6. Click **Finish** and **OK**.
 
 ### Upload the PFX file to the cloud service
-Go to the [Azure Portal](https://portal.azure.com).
-
-1. Select **Cloud Services**.
-2. Select the cloud service you created above for the Split/Merge service.
-3. Click **Certificates** on the top menu.
-4. Click **Upload** in the bottom bar.
-5. Select the PFX file and enter the same password as above.
-6. Once completed, copy the certificate thumbprint from the new entry in the list.
+1. Go to the [Azure Portal](https://portal.azure.com).
+2. Select **Cloud Services**.
+3. Select the cloud service you created above for the Split/Merge service.
+4. Click **Certificates** on the top menu.
+5. Click **Upload** in the bottom bar.
+6. Select the PFX file and enter the same password as above.
+7. Once completed, copy the certificate thumbprint from the new entry in the list.
 
 ### Update the service configuration file
 Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings.
