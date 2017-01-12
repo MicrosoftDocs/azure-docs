@@ -3,9 +3,8 @@
 ## [Is it right for you?](active-directory-ds-comparison.md)
 ## [Features](active-directory-ds-features.md)
 ## [Scenarios](active-directory-ds-scenarios.md)
-## Reference
-### [How synchronization works](active-directory-ds-synchronization.md)
-### [Compatible third-party software](active-directory-ds-compatible-software.md)
+## [How synchronization works](active-directory-ds-synchronization.md)
+## [Compatible third-party software](active-directory-ds-compatible-software.md)
 
 # Get started
 ## [Create administrative group](active-directory-ds-getting-started.md)
