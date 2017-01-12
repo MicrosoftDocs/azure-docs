@@ -25,7 +25,9 @@ The split-merge tool lets you move data between sharded databases. See [Moving d
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commmands.
 3. Download the latest Split-Merge package into the current directory with the below command:
-   `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
+   ```
+   nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
+   ```  
 
 The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the split-merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
 
@@ -254,7 +256,9 @@ The script files included are:
    
    If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
    
-     ```Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.```
+     ```
+     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
+     ```
    
    If it succeeded, the output should look like the below:
    
@@ -314,13 +318,17 @@ The Split-Merge service does not create the target database (or schema for any t
 ## Troubleshooting
 You may see the below message when running the sample powershell scripts:
 
-   ```Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.```
+   ```
+   Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+   ```
 
 This error means that your SSL certificate is not configured correctly. Please follow the instructions in section 'Connecting with a web browser'.
 
 If you cannot submit requests you may see this:
 
- ```[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'. ```
+```
+[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'. 
+```
 
 In this case, check your configuration file, in particular the setting for **WorkerRoleSynchronizationStorageAccountConnectionString**. This error typically indicates that the worker role could not successfully initialize the metadata database on first use. 
 
