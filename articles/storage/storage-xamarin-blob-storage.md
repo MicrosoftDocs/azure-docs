@@ -40,7 +40,7 @@ Follow these steps to create your application:
 You should now have an application that allows you to click a button which increments a counter.
 
 ## Create container and upload blob
-Next, under your "(Portable)" project, you'll add some code to `MyClass.cs`. This code creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
+Next, under your `(Portable)` project, you'll add some code to `MyClass.cs`. This code creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
