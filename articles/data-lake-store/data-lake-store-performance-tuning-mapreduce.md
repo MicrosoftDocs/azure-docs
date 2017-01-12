@@ -53,7 +53,7 @@ This will determine the maximum number of mappers or reducers to be created.  Th
 	Total YARN memory = nodes * YARN memory per node
 If you are using an empty cluster, then memory can be the total YARN memory for your cluster.  If other applications are using memory, then you can choose to only use a portion of your cluster’s memory by reducing the number of mappers or reducers to the number of containers you want to use.  
 
-**Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces** – mapreduce.job.maps is constrained either by memory or by CPU.  You should take total YARN memory and divide that by mapreduce.map.memory.  
+**Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces** – mapreduce.job.maps is constrained either by memory or by CPU.  Take total YARN memory and divide that by mapreduce.map.memory.  
 
 	Memory constraint = total YARN memory / mapreduce.map.memory
 The CPU constraint is calculated as the total physical cores multiplied by the number of containers per core.  By default the number of containers per physical core is set to 2.
@@ -89,11 +89,11 @@ A good starting point is 256 map/reduce tasks.  You can experiment further by in
 
 **Using more mappers/reducers**
 
-Using more mappers or reducers does not necessarily mean you will see better performance.  We encourage you to tune this number based on your scenario.  
+Using more mappers or reducers does not necessarily mean you will see better performance.  The number of mappers or reducers running concurrently depends on the available containers.  That is why we encourage you to tune the number of containers based on your available resources.   
 
 **ADLS throttling** 
 
-If you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing the container size.  If you need more bandwidth for your job, please contact us.   
+As a multi-tenant service, ADLS sets account level bandwidth limits.  If you hit these limits, you will start to see task failures. This can be identified by observing throttling errors in task logs.  If you need more bandwidth for your job, please contact us.   
 
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
 
