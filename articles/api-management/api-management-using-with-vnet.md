@@ -69,6 +69,10 @@ Click **Save** at the top of the screen.
 > The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
 > 
 
+
+> [!IMPORTANT] 
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to 4 hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
+
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
 
