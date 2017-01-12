@@ -28,6 +28,7 @@ ms.author: ashmaka
 
 There are two ways to populate an index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your index and let Azure Search automatically pull in the data.
 
+
 ## Push data to an index
 This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (for example, if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
 
@@ -47,6 +48,7 @@ Indexer functionality is exposed in the [Azure portal](search-import-data-portal
 An advantage to using the portal is that Azure Search can usually generate a default index schema for you by reading the metadata of the source dataset. You can modify the generated index until the index is processed, after which the only schema edits allowed are those that do not require reindexing. If the changes you want to make impact the schema directly, you would need to rebuild the index. 
 
 After the index is populated, you can use **Search Explorer** in the portal command bar as a verification step.
+
 
 ## Query an index using Search Explorer
 
