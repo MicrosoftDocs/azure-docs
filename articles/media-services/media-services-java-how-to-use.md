@@ -1,6 +1,6 @@
 ---
 title: Get started with delivering content on demand using Java | Microsoft Docs
-description: Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources.
+description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.
 services: media-services
 documentationcenter: java
 author: juliako
@@ -13,21 +13,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 
 ---
 # Get started with delivering content on demand using Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## Setting Up an Azure Account for Media Services
+This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.
 
-To set up your Media Services account, use the Azure portal. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md). After creating your account in the Azure portal, you are ready to set up your computer for Media Services development.
- 
-This section contains general prerequisites for Media Services development using the Media Services SDK for Java.
+## Prerequisites
 
-### Prerequisites
-* A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md).
+The following are required to complete the tutorial:
+
+* An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][Azure Java Developer Center].
 
 ## How to: Use Media Services with Java
