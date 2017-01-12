@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2016
+ms.date: 01/12/2017
 ms.author: micurd
 
 ---
@@ -33,19 +33,14 @@ For this getting started, we'll be creating an app that targets Android, iOS, an
 Follow these steps to create your application:
 
 1. If you haven't already, download and install [Xamarin for Visual Studio](https://www.xamarin.com/download).
-2. Open Visual Studio, and create a Blank App (Native Shared): **File > New > Project > Cross-Platform > Blank App(Native Shared)**.
+2. Open Visual Studio, and create a Blank App (Native Portable): **File > New > Project > Cross-Platform > Blank App(Native Portable)**.
 3. Right-click your solution in the Solution Explorer pane and select **Manage NuGet Packages for Solution**. Search for **WindowsAzure.Storage** and install the latest stable version to all projects in your solution.
 4. Build and run your project.
 
 You should now have an application that allows you to click a button which increments a counter.
 
-> [!NOTE]
-> The Azure Storage Client Library for Xamarin currently supports the following project types: Native Shared, Xamarin.Forms Shared, Xamarin.Android, and Xamarin.iOS.
-> 
-> 
-
 ## Create container and upload blob
-Next, you'll add some code to the shared class `MyClass.cs` that creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
+Next, under your "(Portable)" project, you'll add some code to `MyClass.cs`. This code creates a container and uploads a blob into this container. `MyClass.cs` should look like the following:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
@@ -59,7 +54,7 @@ Next, you'll add some code to the shared class `MyClass.cs` that creates a conta
             {
             }
 
-            public static async Task createContainerAndUpload()
+            public static async Task performBlobOperation()
             {
                 // Retrieve storage account from connection string.
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
@@ -82,7 +77,9 @@ Next, you'll add some code to the shared class `MyClass.cs` that creates a conta
         }
     }
 
-Make sure to replace "your_account_name_here" and "your_account_key_here" with your actual account name and account key. You can then use this shared class in your iOS, Android, and Windows Phone application. You can simply add `MyClass.createContainerAndUpload()` to each project. For example:
+Make sure to replace "your_account_name_here" and "your_account_key_here" with your actual account name and account key. 
+
+Your iOS, Android, and Windows Phone projects all have references to your Portable project - meaning you can write all of your shared code in one place and use it across all of your projects. You can now add the following line of code to each project to start taking advantage: `MyClass.performBlobOperation()`
 
 ### XamarinApp.Droid > MainActivity.cs
     using Android.App;
@@ -111,7 +108,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
                     button.Text = string.Format ("{0} clicks!", count++);
                 };
 
-                await MyClass.createContainerAndUpload();
+                await MyClass.performBlobOperation();
             }
         }
     }
@@ -140,7 +137,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
                     Button.SetTitle (title, UIControlState.Normal);
                 };
 
-                await MyClass.createContainerAndUpload();
+                await MyClass.performBlobOperation();
             }
 
             public override void DidReceiveMemoryWarning ()
@@ -192,7 +189,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
                     Button.Content = title;
                 };
 
-                await MyClass.createContainerAndUpload();
+                await MyClass.performBlobOperation();
             }
         }
     }
