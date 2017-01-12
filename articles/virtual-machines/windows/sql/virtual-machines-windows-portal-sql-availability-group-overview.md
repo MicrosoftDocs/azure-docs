@@ -30,7 +30,7 @@ The diagram illustrates the parts of a complete SQL Server Availability Group in
 
 ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-The key difference for an Availability Group in Azure Virtual Machines is that the Azure virtual machines, require a [load balancer](../load-balancer/load-balancer-overview.md). The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group each group requires a listener. One load balancer can support multiple listeners.
+The key difference for an Availability Group in Azure Virtual Machines is that the Azure virtual machines, require a [load balancer](../../../load-balancer/load-balancer-overview.md). The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group each group requires a listener. One load balancer can support multiple listeners.
 
 When you are ready to build a SQL Server Availability Group on Azure Virtual Machines, refer to these tutorials.
 

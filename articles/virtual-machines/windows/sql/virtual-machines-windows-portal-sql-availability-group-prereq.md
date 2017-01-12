@@ -63,7 +63,7 @@ Azure creates the resource group and pins a shortcut to the resource group in th
 ## Create network and subnets
 The next step is to create the networks and subnets in the Azure resource group.
 
-The solution uses one virtual network with two subnets. The [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
+The solution uses one virtual network with two subnets. The [Virtual Network Overview](../../../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
 
 To create the virtual network:
 
@@ -132,7 +132,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Servers.
 
@@ -191,7 +191,7 @@ The following table shows the settings for these two machines:
 
 
    >[!IMPORTANT]
-   >You can only place a VM in an availability set when you create it. You cannot change the availability set after a VM is created. See [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+   >You can only place a VM in an availability set when you create it. You cannot change the availability set after a VM is created. See [Manage the availability of virtual machines](../../virtual-machines-windows-manage-availability.md).
 
 Azure creates the virtual machines.
 
@@ -212,7 +212,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 6. Select the **Active Directory Domain Services** and **DNS Server** roles. When prompted, add any additional features required by these roles.
    
    > [!NOTE]
-   > Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](../virtual-network/virtual-networks-reserved-private-ip.md).
+   > Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](../../../virtual-network/virtual-networks-reserved-private-ip.md).
    > 
    > 
    

@@ -438,7 +438,7 @@ The next thing to do is to configure an Availability Group listener on the failo
 >
 >
 
-[!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]
+[!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
 ## Set listener port
 
@@ -497,4 +497,4 @@ The SQLCMD connection automatically connects to whichever instance of SQL Server
 
 ## Next steps
 
-- [Add an IP address to a load balancer for a second availability group](windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
+- [Add an IP address to a load balancer for a second availability group](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

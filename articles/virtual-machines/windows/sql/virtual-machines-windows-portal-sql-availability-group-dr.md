@@ -56,20 +56,20 @@ The following diagram shows how the networks communicate between data centers.
 
 To create a replica in a remote data center, do the following steps:
 
-1. [Create a virtual network in the new region](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+1. [Create a virtual network in the new region](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
-1. [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
    >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. [Create a domain controller in the new region](../active-directory/active-directory-new-forest-virtual-machine.md).
+1. [Create a domain controller in the new region](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
    This domain controller provides authentication if the domain controller in the primary site is not available. 
 
 1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Create an Azure load balancer in the network on the new region](./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
 
    This load balancer must:
    
@@ -166,5 +166,5 @@ For more information, see the following topics:
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Azure Load Balancers](./windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
-* [Azure Availability Sets](virtual-machines-windows-manage-availability.md)
+* [Azure Load Balancers](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
+* [Azure Availability Sets](../../virtual-machines-windows-manage-availability.md)
