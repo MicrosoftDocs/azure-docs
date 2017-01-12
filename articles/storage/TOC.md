@@ -75,7 +75,9 @@
 ### [Performance and scalability checklist](storage-performance-checklist.md)
 ### [Concurrency](storage-concurrency.md)
 ## Develop
-### [Samples](storage-samples.md)
+### Samples
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
 ### [Configure connection strings](storage-configure-connection-string.md)
 ### [Use the Storage Emulator](storage-use-emulator.md)
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
