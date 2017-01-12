@@ -212,7 +212,7 @@
 #### [CSV file format](active-directory-b2b-references-csv-file-format.md)
 #### [User objects](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [User tokens](active-directory-b2b-references-external-user-token-format.md)
-### [Integrate on-premises identities using Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Delegate access to resources
@@ -284,7 +284,8 @@
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
