@@ -1,13 +1,13 @@
 ---
 title: Connect to an Azure Container Service cluster | Microsoft Docs
-description: Connect to an Azure Container Service cluster by using an SSH tunnel.
+description: Connect to a Kubernetes, DC/OS, or Docker Swarm cluster in Azure Container Service from a remote computer
 services: container-service
 documentationcenter: ''
-author: rgardler
+author: danlep
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, DC/OS, Azure
+keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
 ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/12/2017
 ms.author: rogardle
 
 ---
 # Connect to an Azure Container Service cluster
-After [deploying an Azure Container Service cluster](container-service-deployment.md), you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the cluster from a remote computer. The Kubernetes, DC/OS and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
+After [deploying an Azure Container Service cluster](container-service-deployment.md), you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the cluster from a remote computer. The Kubernetes, DC/OS, and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
 this endpoint is securely exposed on the internet, and you can use the `kubectl` command-line tool to access it directly from any machine connected to the internet. For DC/OS 
 and Docker Swarm, you must create a secure shell (SSH) tunnel to securely connect to the REST endpoint. This article describes each of these connections.
 
@@ -47,11 +47,11 @@ Alternatively, you can download the client directly from the [releases page](htt
 
 ### Download cluster credentials
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine. One way to do
-this is with the `az acs kubernetes get-credentials` command. You need to pass the name of the resource group and the name of the container service cluster:
+this is with the `az acs kubernetes get-credentials` command. You need to pass the name of the resource group and the name of the container service resource:
 
 
 ```azurecli
-az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
+az acs kubernetes get-credentials --resource-group=<container-service-resource-group> --name=<container-service-name>
 ```
 
 This downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
@@ -63,12 +63,12 @@ mkdir $HOME/.kube/config
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-If you are on Windows, you need to use Bash on Ubuntu on Windows, the Putty `pscp` tool, or a similar tool.
+If you are on Windows, you need to use Bash on Ubuntu on Windows, the PuTTy secure file copy client, or a similar tool.
 
 These commands assume that you have an appropriate SSH key in `$HOME/.ssh/id_rsa`. See these 
 instructions for [OS X and Linux] (../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)
-for more information.  If this isn't working, you may need to 
+for more information. If this isn't working, you may need to 
 [reset your SSH keys](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ### Connect to Kubernetes
