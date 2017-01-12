@@ -131,7 +131,6 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 | **Location** | **Exchange** | **Connectivity Providers** |
 | --- | --- | --- |
-
 | **Amsterdam** | Equinix | Eurofiber |
 | **London** | Equinix | Exponential E, HSO |
 | **New York** |Equinix |Lightower |
