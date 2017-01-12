@@ -80,8 +80,7 @@ The following code snippet is an example of how to implement a poll trigger.
             // Extension method provided by the AppService service SDK.
             return this.Request.EventTriggered(new { files = touchedFiles });
         }
-        // If there are no files touched after the timestamp, tell the caller to poll again after 1 mintue.
-        else
+        // Else there are no files touched after the timestamp, tell the caller to poll again after 1 minute.        
         {
             // Extension method provided by the AppService service SDK.
             return this.Request.EventWaitPoll(new TimeSpan(0, 1, 0));
