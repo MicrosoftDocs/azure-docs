@@ -1,5 +1,5 @@
 ---
-title: Enable Azure AD Application Proxy | Microsoft Docs
+title: Enable Azure AD Application Proxy Connector | Microsoft Docs
 description: Turn on Application Proxy in the Azure classic portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 07/19/2016
 ms.author: kgremban
 
 ---
-# Enable Application Proxy in the Azure portal
+# Enable Application Proxy Connector in the Azure portal
 This article walks you through the steps to enable Microsoft Azure AD Application Proxy for your cloud directory in Azure AD.
 
 If you're unfamiliar with what Application Proxy can help you do, learn more about [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
@@ -61,7 +61,8 @@ Before you can enable and use Application Proxy services, you need to have:
 2. Follow the instructions in the wizard to install.
 3. During installation, you will are prompted to register the connector with the Application Proxy of your Azure AD tenant.
    
-   * Provide your Azure AD global administrator credentials. Your global administrator tenant may be different from your Microsoft Azure credentials.
+
+* Provide your Azure AD global administrator credentials. Your global administrator tenant may be different from your Microsoft Azure credentials.
    * Make sure the admin who registers the connector is in the same directory where you enabled the Application Proxy service. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other alias on that domain.
    * If **IE Enhanced Security Configuration** is set to **On** on the server where you are installing the connector, the registration screen might be blocked. Follow the instructions in the error message to allow access. Make sure that Internet Explorer Enhanced Security is off.
    * If connector registration does not succeed, see [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md).  
@@ -77,6 +78,21 @@ Before you can enable and use Application Proxy services, you need to have:
 For high availability purposes, you should deploy at least two connectors. To deploy more connectors, repeat steps 2 and 3, above. Each connector must be registered separately.
 
 If you want to uninstall the Connector, uninstall both the Connector service and the Updater service. Restart your computer to fully remove the service.
+
+## Automatic Updates to the AAD Application Proxy Connector 
+
+With the Connector Updater service, we offer an automated way to keep up-to-date. This way you have the continued advantage of all new features, and security and performance enhancements.
+
+Azure AD now supports automatic updates for all connectors that you deploy. As long as the _Application Proxy Connector Updater_ service is running, your connectors will update automatically with no downtime and no manual steps required. If you don’t see the Connector Updater service on your server, you need to reinstall your connector in order to get any updates. If you want to learn more about installing connectors, see the [setup documentation](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-enable.md).
+
+### Update Impact
+_Tenants with One Connector:_ If you have only one connector, that connector will be updated as part of the latest group. Because there is no other connector to reroute traffic through, the service will be unavailable during the update. To avoid this downtime and more easily ensure high availability, we recommend you install a second connector and create a connector group. For details on how to do this, see the [documentation on connector groups](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-connectors.md).
+
+_Other Tenants:_ During the connector update, traffic is rerouted to your other connectors for minimal disruption. However, any transactions in progress when the update starts may be dropped. Your browser should automatically retry the operation, making this potential drop transparent to you. Otherwise you may need to refresh your page to work around this.
+
+We know it can be painful to have even one minute of downtime, but these updates allow us to give you an even better connector with numerous improvements, which we think are worth it.
+
+If you’d like more details about the changes in our recent Connector update, see the [latest update](https://azure.microsoft.com/en-us/updates/app-proxy-connector-12sept2016). We revise that page along with each update.
 
 ## Next steps
 You are now ready to [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
