@@ -150,9 +150,9 @@ After testing connectivity, move the primary replica back to your primary data c
 
 | Location | Server Instance | Role | Availability Mode | Failover Mode
 | ----- | ----- | ----- | ----- | ----- 
-| Primary data center | sql-1 | Primary | Synchronous | Automatic
-| Primary data center | sql-2 | Secondary | Synchronous | Automatic
-| Secondary or remote data center | sql-3 | Secondary | Asynchronous | Manual
+| Primary data center | SQL-1 | Primary | Synchronous | Automatic
+| Primary data center | SQL-2 | Secondary | Synchronous | Automatic
+| Secondary or remote data center | SQL-3 | Secondary | Asynchronous | Manual
 
 
 ### More information about planned and forced manual failover
