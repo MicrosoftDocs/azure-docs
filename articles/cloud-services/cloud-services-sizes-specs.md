@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2016
+ms.date: 01/12/2017
 ms.author: adegeo
 
 ---
@@ -55,9 +55,9 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 | SKU Family | ACU/Core |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
+| [ExtraSmall](#a-series) |50 |
+| [Small-ExtraLarge](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [Standard_A1-8v2](#av2-series) |100 |
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -79,24 +79,24 @@ The following tables show the sizes and the capacities they provide.
 ## A-series
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0.768 |20 |1 |1x500 |1 / low |
-| Standard_A1 |1 |1.75 |70 |2 |2x500 |1 / moderate |
-| Standard_A2 |2 |3.5 GB |135 |4 |4x500 |1 / moderate |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
-| Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
+| ExtraSmall |1 |0.768 |20 |1 |1x500 |1 / low |
+| Small |1 |1.75 |70 |2 |2x500 |1 / moderate |
+| Medium |2 |3.5 GB |135 |4 |4x500 |1 / moderate |
+| Large |4 |7 |285 |8 |8x500 |2 / high |
+| ExtraLarge |8 |14 |605 |16 |16x500 |4 / high |
+| A5 |2 |14 |135 |4 |4X500 |1 / moderate |
+| A6 |4 |28 |285 |8 |8x500 |2 / high |
+| A7 |8 |56 |605 |16 |16x500 |4 / high |
 
 ## A-series - compute-intensive instances
 For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16x500 |2 / high |
-| Standard_A9* |16 |112 |382 |16 |16x500 |4 / very high |
-| Standard_A10 |8 |56 |382 |16 |16x500 |2 / high |
-| Standard_A11 |16 |112 |382 |16 |16x500 |4 / very high |
+| A8* |8 |56 |382 |16 |16x500 |2 / high |
+| A9* |16 |112 |382 |16 |16x500 |4 / very high |
+| A10 |8 |56 |382 |16 |16x500 |2 / high |
+| A11 |16 |112 |382 |16 |16x500 |4 / very high |
 
 \*RDMA capable
 
@@ -164,15 +164,6 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 \*RDMA capable
 
-## Notes: Standard A0 - A4 using CLI and PowerShell
-In the classic deployment model, some VM size names are slightly different in CLI and PowerShell:
-
-* Standard_A0 is ExtraSmall
-* Standard_A1 is Small
-* Standard_A2 is Medium
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
-
 ## Configure sizes for Cloud Services
 You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
@@ -192,6 +183,13 @@ As the nature of your workload changes or new VM sizes become available, you may
 > You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?](cloud-services-model-and-package.md)
 >
 >
+
+## Get a list of sizes
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes currently available for your Cloud Service.
+
+```powershell
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+```
 
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
