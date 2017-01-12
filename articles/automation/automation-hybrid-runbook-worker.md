@@ -29,8 +29,6 @@ You can designate one or more computers in your data center to act as a Hybrid R
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
 > [!NOTE]
-> Hybrid Runbook Workers do not currently support having [DSC Configurations](automation-dsc-overview.md) applied to the computer hosting this role.
-><br><br>
 >Currently if you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace will be automatically configured as a Hybrid Runbook Worker in order to support runbooks that are part of this solution.  However, it is not registered with any Hybrid Worker groups you have created in your Automation account, and you cannot add it to a Hybrid Worker group to run your own runbooks.  If a Windows computer is already designated as a Hybrid Runbook Worker and connected to the OMS workspace, you will need to remove it from the OMS workspace before adding the solution in order to prevent your runbooks from failing to function as expected.  
 
 
