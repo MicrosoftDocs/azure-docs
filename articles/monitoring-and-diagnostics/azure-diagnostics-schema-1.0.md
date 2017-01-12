@@ -4,7 +4,7 @@ description: Schema version 1.0 for Azure diagnostics shipped as part of the Mic
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: ''
+manager: carmonm
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 01/15/2017
 ms.author: robb
 
 ---
