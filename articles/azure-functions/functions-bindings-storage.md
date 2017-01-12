@@ -18,6 +18,8 @@ ms.workload: na
 ms.date: 08/22/2016
 ms.author: chrande
 
+redirect_url: /azure/azure-functions/functions-bindings-storage-blob
+ROBOTS: NOINDEX, NOFOLLOW
 ---
 # Azure Functions triggers and bindings for Azure Storage
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]

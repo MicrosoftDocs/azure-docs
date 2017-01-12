@@ -302,7 +302,7 @@ If you look at how a web app calls an API app under [Application Identity with O
 4. Azure AD authenticates the application and returns a JWT access token that is used to call the web API.
 5. Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx/) describes how authorization code grant flow works.
+In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describes how authorization code grant flow works.
 
 In license acquisition with token restriction, we are following the same trusted subsystem pattern. And the license delivery service in Azure Media Services is the web API resource, the “backend resource” a web application needs to access. So where is the access token?
 
