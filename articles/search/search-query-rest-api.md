@@ -30,7 +30,7 @@ This article will show you how to query an index using the [Azure Search REST AP
 
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-## I. Identify your Azure Search service's query api-key
+## Identify your Azure Search service's query api-key
 A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 1. To find your service's api-keys you must log into the [Azure portal](https://portal.azure.com/)
@@ -44,7 +44,7 @@ Your service will have *admin keys* and *query keys*.
 
 For the purposes of querying an index, you can use one of your query keys. Your admin keys can also be used for queries, but you should use a query key in your application code as this better follows the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## II. Formulate your query
+## Formulate your query
 There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters will be defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters will be defined within the request URL. Note that POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
 For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2016-09-01` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL will be where you provide the query parameters. See below for the URL format:
@@ -95,7 +95,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## III. Submit your HTTP request
+## Submit your HTTP request
 Now that you have formulated your query as part of your HTTP request URL (for GET) or body (for POST), you can define your request headers and submit your query.
 
 #### Request and Request Headers

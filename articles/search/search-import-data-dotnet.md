@@ -38,7 +38,7 @@ In order to push documents into your index using the .NET SDK, you will need to:
 2. Create an `IndexBatch` containing the documents to be added, modified, or deleted.
 3. Call the `Documents.Index` method of your `SearchIndexClient` to send the `IndexBatch` to your search index.
 
-## I. Create an instance of the SearchIndexClient class
+## Create an instance of the SearchIndexClient class
 To import data into your index using the Azure Search .NET SDK, you will need to create an instance of the `SearchIndexClient` class. You can construct this instance yourself, but it's easier if you already have a `SearchServiceClient` instance to call its `Indexes.GetClient` method. For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
 
 ```csharp
@@ -52,7 +52,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to add, modify, delete, or query documents in your index.
 
-## II. Decide which indexing action to use
+## Decide which indexing action to use
 To import data using the .NET SDK, you will need to package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document (upload, merge, delete, etc). Depending on which of the below actions you choose, only certain fields must be included for each document:
 
 | Action | Description | Necessary fields for each document | Notes |
@@ -64,7 +64,7 @@ To import data using the .NET SDK, you will need to package up your data into an
 
 You can specify what action you want to use with the various static methods of the `IndexBatch` and `IndexAction` classes, as shown in the next section.
 
-## III. Construct your IndexBatch
+## Construct your IndexBatch
 Now that you know which actions to perform on your documents, you are ready to construct the `IndexBatch`. The example below shows how to create a batch with a few different actions. Note that our example uses a custom class called `Hotel` that maps to a document in the "hotels" index.
 
 ```csharp
@@ -127,7 +127,7 @@ Also, note that you can only include up to 1000 documents in a single indexing r
 > 
 > 
 
-## IV. Import data to the index
+## Import data to the index
 Now that you have an initialized `IndexBatch` object, you can send it to the index by calling `Documents.Index` on your `SearchIndexClient` object. The following example shows how to call `Index`, as well as some extra steps you will need to perform:
 
 ```csharp

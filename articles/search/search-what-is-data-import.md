@@ -26,7 +26,6 @@ ms.author: ashmaka
 > 
 > 
 
-## Data upload models in Azure search
 There are two ways to populate your Azure Search index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your Azure Search index and let Azure Search automatically pull your data into the search service.
 
 ## Push data to an index
