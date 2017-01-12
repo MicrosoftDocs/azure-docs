@@ -95,7 +95,7 @@ To create a replica in a remote data center, do the following steps:
 
    Configure this IP address as follows:
    
-   - Use the network from the remote datacenter.
+   - Use the network from the remote data center.
    - Assign the IP address from the new Azure load balancer. 
 
 1. In SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
@@ -122,11 +122,13 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Update applications for failover across multiple subnets
+## Failover across subnets
 
-When the replica in the remote region becomes the primary replica, application connections may time out. This behavior is the same as an on-premises availability group in a multi-subnet deployment. You can update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connections may time out. This behavior is the same as an on-premises availability group in a multi-subnet deployment. In order to allow connections from client applications, either upate the client connection or configure name resolution caching on the cluster network name resource.
 
-If you cannot modify the connection strings, you can [configure the availability group to prevent timeouts in multiple subnets](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+
+If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
 ## Failover to Remote Region 
 
@@ -151,7 +153,7 @@ For more information, see the following topics:
 - [Perform a Planned Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Perform a Forced Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
-## More Information
+## Additional Links
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
