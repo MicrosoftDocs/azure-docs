@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 12/22/2016
-ms.author: robmcm
+ms.author: robmcm;asirveda
 
 ---
 # Create a Hello World Web App for Azure in Eclipse
-This tutorial shows how to create and deploy a basic Hello World application to Azure as a Web App by using the [Azure Toolkit for Eclipse]. A basic JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
+This tutorial shows how to create and deploy a basic Hello World application to Azure as a Web App by using the [Azure Toolkit for Eclipse]. A basic JSP example is shown for simplicity, but similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
 
 When you have completed this tutorial, your application will look similar to the following illustration when you view it in a web browser:
 
@@ -27,9 +27,9 @@ When you have completed this tutorial, your application will look similar to the
 ## Prerequisites
 * A Java Developer Kit (JDK), v 1.8 or later.
 * Eclipse IDE for Java EE Developers, Luna or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
-* A distribution of a Java-based web server or application server, such as Apache Tomcat or Jetty.
+* A distribution of a Java-based web server or application server, such as [Apache Tomcat] or [Jetty].
 * An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
-* The Azure Toolkit for Eclipse. For more information, see [Installing the Azure Toolkit for Eclipse].
+* The [Azure Toolkit for Eclipse]. For information about installing the Azure Toolkit, see [Installing the Azure Toolkit for Eclipse].
 
 ## To Create a Hello World Application
 First, we'll start off with creating a Java project.
@@ -190,6 +190,8 @@ For additional information about creating Azure Web Apps, see the [Web Apps Over
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Web Apps Overview]: ./app-service-web-overview.md
+[Apache Tomcat]: http://tomcat.apache.org/
+[Jetty]: http://www.eclipse.org/jetty/
 
 <!-- IMG List -->
 
