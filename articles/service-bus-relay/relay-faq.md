@@ -96,7 +96,7 @@ Shared Access Signatures are an authentication mechanism based on SHA – 256 se
 [Relay exceptions]: relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
 
-## Is it possible to whitelist Relay endpoints?
+### Is it possible to whitelist Relay endpoints?
 Yes. The Relay client makes connections to the Relay service using fully qualified domain names. This allows customers to add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
 
 ## Next steps
