@@ -105,7 +105,6 @@ This article provides you an example of how you can use System Center Configurat
 
 > [!TIP]
 > To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or Software Updates window.
-
 9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
 You can monitor the deployment progress using the SCCM console by going to **Monitoring** > **Deployments** > *[your package name]*

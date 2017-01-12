@@ -450,7 +450,7 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 Make sure that machines you want to replicate are prepared for Mobility service installation, and then enable replication.
 
 ### Install the Mobility service
-  > [TIP]
+  > [!TIP]
   > Azure Site Recovery now supports installing Mobility Service using software deployment tools like System Center Configuration Manager. Read more on how to [Automate Mobility Service deployment](site-recovery-install-mobility-service-using-sccm.md) .  
 
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in a couple of ways:
