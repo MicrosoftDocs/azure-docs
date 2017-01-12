@@ -112,8 +112,8 @@ $serverResourceGroupName = $resourceGroupName
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -230,7 +230,7 @@ $storageKeyType = "StorageAccessKey"
 $storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
 $storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 
 Do {
@@ -383,8 +383,8 @@ $serverResourceGroupName = $myServerResourceGroupName
 $serverAdmin = $myServerAdmin
 $serverAdminPassword = $myServerAdminPassword
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -473,7 +473,7 @@ $storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

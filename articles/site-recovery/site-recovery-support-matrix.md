@@ -186,7 +186,7 @@ Multi-path (MPIO) | Yes | Yes
 **Storage (guest VM/physical server)** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
 VMDK | Yes | NA
-VHD/VHDX | NA | Yes (up to 64 disks)
+VHD/VHDX | NA | Yes (up to 16 disks)
 Gen 2 VM | NA | Yes
 Shared cluster disk | Yes  | No
 Encrypted disk | No | No
