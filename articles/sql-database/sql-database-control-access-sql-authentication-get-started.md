@@ -62,7 +62,7 @@ In this section of the tutorial, you view information about the security configu
 
    ![Server admin account in the Azure portal](./media/sql-database-control-access-sql-authentication-get-started/sql_admin_portal.png)
 
-2. Make note of the name of the `Server admin` account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
+2. Make note of the name of the Server admin account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
 
 > [!NOTE]
 > To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
@@ -87,11 +87,11 @@ In this section of the tutorial, you view information about the security configu
 ## View the Server admin account and its permissions 
 In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
 
-1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. Notice that a login appears for the `Server admin` account specified during provisioning - the `sqladmin` login for this tutorial series.
+1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. Notice that a login appears for the Server admin account specified during provisioning - the sqladmin login for this tutorial series.
 
    ![Server admin login](./media/sql-database-control-access-sql-authentication-get-started/server_admin_login.png)
 
-2. In Object Explorer, expand **Databases**, expand **System databases**, expand **`master`**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the `master` database for the `Server admin` login, with the same name for the user account as the login (the names do not have to match, but it is a best practice to avoid confusion).
+2. In Object Explorer, expand **Databases**, expand **System databases**, expand **master**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the master database for the Server admin login, with the same name for the user account as the login (the names do not have to match, but it is a best practice to avoid confusion).
 
    ![master database user account for server admin](./media/sql-database-control-access-sql-authentication-get-started/master_database_user_account_for_server_admin.png)
 
@@ -99,8 +99,8 @@ In this section of the tutorial, you view information about the server admin acc
    > For information about the other user accounts that appear, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
    >
 
-3. In Object Explorer, right-click **`master`** and then click **New Query** to open a query window connected to the `master` database.
-4. In the query window, execute the following query to return information about the user executing the query. Notice that `sqladmin` is returned for the user account executing this query (we see a different result when we query a user database later in this procedure).
+3. In Object Explorer, right-click **master** and then click **New Query** to open a query window connected to the master database.
+4. In the query window, execute the following query to return information about the user executing the query. Notice that sqladmin is returned for the user account executing this query (we see a different result when we query a user database later in this procedure).
 
    ```
    SELECT USER;
@@ -108,7 +108,7 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![select user query in the master database](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_master_database.png)
 
-5. In the query window, execute the following query to return information about the permissions of the `sqladmin` user. Notice that `sqladmin` has permissions to connect to the `master` database, create logins and users, select information from the `sys.sql_logins` table, and add users to the `dbmanager` and `dbcreator` database roles. These permissions are in addition to permissions granted to the `public` role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
+5. In the query window, execute the following query to return information about the permissions of the sqladmin user. Notice that sqladmin has permissions to connect to the master database, create logins and users, select information from the sys.sql_logins table, and add users to the dbmanager and dbcreator database roles. These permissions are in addition to permissions granted to the `public role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
 
    ```
    SELECT prm.permission_name
@@ -130,13 +130,13 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![server admin permissions in the master database](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_master_database.png)
 
-6. In Object Explorer, expand **`blankdb`**, expand **Security**, and then expand **Users**. Notice that there is no user account called `sqladmin` in this database.
+6. In Object Explorer, expand **blankdb**, expand **Security**, and then expand **Users**. Notice that there is no user account called sqladmin in this database.
 
    ![user accounts in blankdb](./media/sql-database-control-access-sql-authentication-get-started/user_accounts_in_blankdb.png)
 
 7. In Object Explorer, right-click **blankdb** and then click **New Query**.
 
-8. In the query window, execute the following query to return information about the user executing the query. Notice that `dbo` is returned for the user account executing this query (by default, the `Server admin` login is mapped to the `dbo` user account in each user database).
+8. In the query window, execute the following query to return information about the user executing the query. Notice that dbo is returned for the user account executing this query (by default, the Server admin login is mapped to the dbo user account in each user database).
 
    ```
    SELECT USER;
@@ -144,7 +144,7 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![select user query in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_blankdb_database.png)
 
-9. In the query window, execute the following query to return information about the permissions of the `dbo` user. Notice that `dbo` is a member of the `public` role and also a member of the `db_owner` fixed database role. See [Database-Level Roles](https://msdn.microsoft.com/library/ms189121.aspx) for more information.
+9. In the query window, execute the following query to return information about the permissions of the dbo user. Notice that dbo is a member of the public role and also a member of the db_owner fixed database role. See [Database-Level Roles](https://msdn.microsoft.com/library/ms189121.aspx) for more information.
 
    ```
    SELECT prm.permission_name
@@ -166,18 +166,18 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![server admin permissions in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
 
-10. Optionally, repeat the previous three steps for the `AdventureWorksLT` user database.
+10. Optionally, repeat the previous three steps for the AdventureWorksLT user database.
 
 ## Create a new user in the AdventureWorksLT database with SELECT permissions
 
-In this section of the tutorial, you create a user account in the `AdventureWorksLT` database, test this user's permissions as member of the public role, grant this user `SELECT` permissions, and then test this user's permissions again.
+In this section of the tutorial, you create a user account in the AdventureWorksLT database, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
 
 > [!NOTE]
 > Database-level users ([contained users](https://msdn.microsoft.com/library/ff929188.aspx)) increase the portability of your database, a capability that we explore in later tutorials.
 >
 
-1. In Object Explorer, right-click **`AdventureWorksLT`** and then click **New Query** to open a query window connected to the `AdventureWorksLT` database.
-2. Execute the following statement to create a user called `user1` in the `AdventureWorksLT` database.
+1. In Object Explorer, right-click **AdventureWorksLT** and then click **New Query** to open a query window connected to the AdventureWorksLT database.
+2. Execute the following statement to create a user called user1 in the AdventureWorksLT database.
 
    ```
    CREATE USER user1
@@ -185,7 +185,7 @@ In this section of the tutorial, you create a user account in the `AdventureWork
    ```
    ![new user user1 AdventureWorksLT](./media/sql-database-control-access-sql-authentication-get-started/new_user_user1_aw.png)
 
-3. In the query window, execute the following query to return information about the permissions of `user1`. Notice that the only permissions that `user1` has are the permissions inherited from the `public` role.
+3. In the query window, execute the following query to return information about the permissions of user1. Notice that the only permissions that user1 has are the permissions inherited from the public role.
 
    ```
    SELECT prm.permission_name
@@ -207,7 +207,7 @@ In this section of the tutorial, you create a user account in the `AdventureWork
 
    ![new user permissions in a user database](./media/sql-database-control-access-sql-authentication-get-started/new_user_permissions_in_user_database.png)
 
-4. Execute the following queries to attempt to query a table in the `AdventureWorksLT` database as `user1`.
+4. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
 
    ```
    EXECUTE AS USER = 'user1';  
@@ -217,7 +217,7 @@ In this section of the tutorial, you create a user account in the `AdventureWork
 
    ![no select permissions](./media/sql-database-control-access-sql-authentication-get-started/no_select_permissions.png)
 
-5. Execute the following statement to grant `SELECT` permissions on the `ProductCategory` table in the `SalesLT` schema to `user1`.
+5. Execute the following statement to grant SELECT permissions on the ProductCategory table in the SalesLT schema to user1.
 
    ```
    GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
@@ -225,7 +225,7 @@ In this section of the tutorial, you create a user account in the `AdventureWork
 
    ![grant select permissions](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
 
-6. Execute the following queries to attempt to query a table in the `AdventureWorksLT` database as `user1`.
+6. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
 
    ```
    EXECUTE AS USER = 'user1';  
@@ -237,7 +237,7 @@ In this section of the tutorial, you create a user account in the `AdventureWork
 
 ## Create a database-level firewall rule for AdventureWorksLT database users
 
-In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule as the `Server admin`, and then log in using this new database-level firewall rule. 
+In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then log in using this new database-level firewall rule. 
 
 > [!NOTE]
 > [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we explore in later tutorials.
@@ -249,11 +249,11 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
    > Always use the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). 
    >
 
-2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the 'user1' account. 
+2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the user1 account. 
     
    ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Click **Options** to specify the database to which you want to connect and then type **'AdventureWorksLT'** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
+3. Click **Options** to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
    ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
@@ -270,7 +270,7 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
 4. Copy the client IP address from this dialog box for use in step 7.
 5. Click **Cancel** but do not close the **Connect to Server** dialog box.
 6. Switch back to a computer for which you have already created a server-level firewall rule and connect to your server using the Server admin account.
-7. In a new query window connected to the `AdventureWorksLT` database as `Server admin`, execute the following statement to create a database-level firewall by executing `[sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx)' using the IP address from step 4:
+7. In a new query window connected to the AdventureWorksLT database as Server admin, execute the following statement to create a database-level firewall by executing [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) using the IP address from step 4:
 
    ```
    EXEC sp_set_database_firewall_rule @name = N'AdventureWorksLTFirewallRule', 
@@ -279,15 +279,15 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
 
    ![Connect as user1 without firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/user1_add_rule_aw.png)
 
-8. Switch computers again and click **Connect** in the **Connect to Server** dialog box to connect to `AdventureWorksLT` as `user1`. 
+8. Switch computers again and click **Connect** in the **Connect to Server** dialog box to connect to AdventureWorksLT as user1. 
 
    ![Connect as user1 with firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
 
-9. In Object Explorer, expand **Databases**, expand **AdventureWorksLT**, and then expand **Tables**. Notice that `user1` only has permission to view a single table, the `**SalesLT.ProductCategory**` table. 
+9. In Object Explorer, expand **Databases**, expand **AdventureWorksLT**, and then expand **Tables**. Notice that user1 only has permission to view a single table, the **SalesLT.ProductCategory** table. 
 
    ![Connect as user1 and view objects1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_view_objects1.png)
 
-10. In Object Explorer, right-click `**SalesLT.ProductCategory**` and click **Select Top 1000 Rows**.   
+10. In Object Explorer, right-click **SalesLT.ProductCategory** and click **Select Top 1000 Rows**.   
 
    ![user1 query1](./media/sql-database-control-access-sql-authentication-get-started/user1_query1.png)
 
@@ -295,31 +295,31 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
 
 ## Create a new user in the blankdb database with db_owner database role permissions and a database-level firewall rule
 
-In this section of the tutorial, you create a user in the `blankdb` database with `db_owner` database role permissions and create a database-level firewall for this database using the `Server admin` account. 
+In this section of the tutorial, you create a user in the blankdb database with db_owner database role permissions and create a database-level firewall for this database using the Server admin account. 
 
-1. Switch to your computer with a connection to SQL Database using the `Server admin` account.
-2. Open a query window connected to the `blankdb` database and execute the following statement to create a user called `blankdbadmin` in the `blankdb` database.
+1. Switch to your computer with a connection to SQL Database using the Server admin account.
+2. Open a query window connected to the blankdb database and execute the following statement to create a user called blankdbadmin in the blankdb database.
 
    ```
    CREATE USER blankdbadmin
    WITH PASSWORD = 'p@ssw0rd';
    ```
 
-3. In the same query window, execute the following statement to add the `blankdbadmin` user to the `db_owner` database role. This user can now perform all actions necessary to manage the `blankdb` database.
+3. In the same query window, execute the following statement to add the blankdbadmin user to the db_owner database role. This user can now perform all actions necessary to manage the blankdb database.
 
    ```
    ALTER ROLE db_owner ADD MEMBER blankdbadmin; 
    ```
 
-4. In the same query window, execute the following statement to create a database-level firewall by executing `[sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx)` using the IP address from step 4 in the previous procedure (or a range of IP addresses for users of this database):
+4. In the same query window, execute the following statement to create a database-level firewall by executing [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) using the IP address from step 4 in the previous procedure (or a range of IP addresses for users of this database):
 
    ```
    EXEC sp_set_database_firewall_rule @name = N'blankdbFirewallRule', 
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-5. Switch computers (to one for which you have created a database-level firewall rule) and connect to the `blankdb` database using the `blankdbadmin` user account.
-6. Open a query window to the `blankdb` database and execute the following statement to create a user called `blankdbuser1` in the `blankdb` database.
+5. Switch computers (to one for which you have created a database-level firewall rule) and connect to the blankdb database using the blankdbadmin user account.
+6. Open a query window to the blankdb database and execute the following statement to create a user called blankdbuser1 in the blankdb database.
 
    ```
    CREATE USER blankdbuser1
@@ -333,11 +333,11 @@ In this section of the tutorial, you create a user in the `blankdb` database wit
 In this section of the tutorial, you create a login and user in the master database with permissions to create and manage new user databases. You also create an additional server-level firewall rule using Transact-SQL using [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx).
 
 > [!NOTE]
-> Creating logins in the `master` database and creating a user account from a login is required for the `Server admin` account holder to delegate create database permissions to another user. However, creating logins and users from logins decreases the portability of your environment, the consequences of which we explore in later tutorials - including how to anticipate and handle as part of planning for disaster recovery.
+> Creating logins in the master database and creating a user account from a login is required for the Server admin account holder to delegate create database permissions to another user. However, creating logins and users from logins decreases the portability of your environment, the consequences of which we explore in later tutorials - including how to anticipate and handle as part of planning for disaster recovery.
 >
 
-1. Switch to your computer with a connection to SQL Database using the `Server admin` account.
-2. Open a query window connected to the `master` database and execute the following statement to create a login called `dbcreator` in the `master` database.
+1. Switch to your computer with a connection to SQL Database using the Server admin account.
+2. Open a query window connected to the master database and execute the following statement to create a login called dbcreator in the master database.
 
    ```
    CREATE LOGIN dbcreator
@@ -351,21 +351,21 @@ In this section of the tutorial, you create a login and user in the master datab
    FROM LOGIN dbcreator;
    ```
 
-3. In the same query window, execute the following query to add the `dbcreator` user to the `dbmanager` database role. This user can now create and manage databases created by the user.
+3. In the same query window, execute the following query to add the dbcreator user to the dbmanager database role. This user can now create and manage databases created by the user.
 
    ```
    ALTER ROLE dbmanager ADD MEMBER dbcreator; 
    ```
 
-4. In the same query window, execute the following query to create a server-level firewall by executing `[sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx)` using an IP address appropriate for your environment:
+4. In the same query window, execute the following query to create a server-level firewall by executing [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) using an IP address appropriate for your environment:
 
    ```
    EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule', 
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-5. Switch computers (to one for which you have created a server-level firewall rule) and connect to the `master` database using the `dbcreator` user account.
-6. Open a query window to the `master` database and execute the following query to create a database called `foo`.
+5. Switch computers (to one for which you have created a server-level firewall rule) and connect to the master database using the dbcreator user account.
+6. Open a query window to the master database and execute the following query to create a database called foo.
 
    ```
    CREATE DATABASE FOO (EDITION = 'basic');
@@ -381,7 +381,7 @@ In this section of the tutorial, you create a login and user in the master datab
 To create the logins and users, add them to roles, grant them permissions, create database-level firewall rules, and create server-level firewall rules, execute the following statements in the appropriate databases on your server.
 
 ### master database
-Execute these statements in the `master` database using the `Server admin` account, adding the appropriate IP addresses or range.
+Execute these statements in the master database using the Server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE LOGIN dbcreator WITH PASSWORD = 'p@ssw0rd';
@@ -392,7 +392,7 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
 ```
 
 ### AdventureWorksLT database
-Execute these statements in the `AdventureWorksLT` database using the `Server admin` account, adding the appropriate IP addresses or range.
+Execute these statements in the AdventureWorksLT database using the Server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE USER user1 WITH PASSWORD = 'p@ssw0rd';
@@ -402,7 +402,7 @@ EXEC sp_set_database_firewall_rule @name = N'AdventureWorksLTFirewallRule',
 ```
 
 ### blankdb database
-Execute these statements in the `blankdb` database using the `Server admin` account, adding the appropriate IP addresses or range.
+Execute these statements in the blankdb database using the Server admin account, adding the appropriate IP addresses or range.
 
 ```
 CREATE USER blankdbadmin
