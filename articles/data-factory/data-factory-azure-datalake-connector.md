@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 01/12/2017
 ms.author: jingwang
 
 ---
@@ -481,8 +481,8 @@ The **typeProperties** section is different for each type of dataset and provide
 | folderPath |Path to the container and folder in the Azure Data Lake store. |Yes |
 | fileName |Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the [Using partitionedBy property](#using-partitionedby-property) section for details and examples. |No |
-| format |The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), [Specifying OrcFormat](#specifying-orcformat), and [Specifying ParquetFormat](#specifying-parquetformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. |No |
-| compression |Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, the compression settings are not supported for data in **AvroFormat** or **OrcFormat**. For more information, see [Compression support](#compression-support) section. |No |
+| format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](#specifying-textformat), [Json Format](#specifying-jsonformat), [Avro Format](#specifying-avroformat), [Orc Format](#specifying-orcformat), and [Parquet Format](#specifying-parquetformat) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**; and supported levels are: **Optimal** and **Fastest**. For more information, see [Specifying compression](#specifying-compression) section. |No |
 
 ### Using partitionedBy property
 You can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros, and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -516,49 +516,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
 
-### Compression support
-Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. Currently, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
-
-To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
-
-```JSON
-{  
-    "name": "AzureDatalakeStoreDataSet",  
-      "properties": {  
-        "availability": {  
-            "frequency": "Day",  
-              "interval": 1  
-        },  
-        "type": "AzureDatalakeStore",  
-        "linkedServiceName": "DataLakeStoreLinkedService",  
-        "typeProperties": {  
-            "fileName": "pagecounts.csv.gz",  
-              "folderPath": "compression/file/",  
-              "compression": {  
-                "type": "GZip",  
-                "level": "Optimal"  
-              }  
-        }  
-      }  
-}  
-```
-The **compression** section has two properties:  
-
-* **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
-* **Level:** the compression ratio, which can be **Optimal** or **Fastest**.
-
-  * **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.
-  * **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.
-
-    For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic.
-
-Suppose the sample dataset is used as the output of a copy activity. The copy activity compresses the output data with GZIP codec using optimal ratio and then writes the compressed data into a file named pagecounts.csv.gz in the Azure Data Lake store.   
-
-When you specify compression property in an input dataset JSON, the pipeline reads compressed data from the source. When you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios:
-
-* Read GZIP compressed data from an Azure Data Lake Store, decompress it, and write result data to an Azure SQL database. You define the input Azure Data Lake Store dataset with the compression JSON property in this case.
-* Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure Data Lake Store. You define an output Azure Data Lake dataset with the compression JSON property in this case.  
-* Read a GZIP-compressed data from an Azure Data Lake Store, decompress it, compress it using BZIP2, and write result data to an Azure Data Lake Store. You set compression type set as GZIP and BZIP2 for input and output datasets respectively.   
+[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Azure Data Lake Copy Activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
