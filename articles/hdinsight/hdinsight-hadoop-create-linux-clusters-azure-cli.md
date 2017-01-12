@@ -28,7 +28,8 @@ Azure Resource Manager templates are JSON documents that describe a **resource g
 
 The steps in this document walk through the process of creating a new HDInsight cluster using the Azure CLI and a template.
 
-
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 
 ## Prerequisites

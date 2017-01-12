@@ -26,7 +26,8 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 * **EventHubWriter**: Randomly generates data and writes it to Event Hubs
 * **EventHubReader**: Reads data from Event Hubs and logs the data to the Storm logs
 
-> [!NOTE] For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+> [!NOTE] 
+> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## SCP.NET
 
