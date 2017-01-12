@@ -290,7 +290,7 @@ After the command returns, the account will be in the **Creating** state for a f
 ## <a id="quick-create-documentdb-with-mongodb-api-account"></a>Task: Create a Single Region DocumentDB with support for MongoDB account
 Use the instructions in this section to create a Single Region DocumentDB with support for MongoDB account. This can be accomplished using Azure CLI with Resource Manager templates.
 
-### <a id="create-single-documentdb-account-cli-arm"></a> Create a Single Region DocumentDB with support for MongoDB account using Azure CLI with Resource Manager templates
+### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Create a Single Region DocumentDB with support for MongoDB account using Azure CLI with Resource Manager templates
 The instructions in this section describe how to create a DocumentDB with support for MongoDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
 Create a local template file with the following content. Name the file azuredeploy.json.
