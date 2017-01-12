@@ -91,7 +91,7 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
    > 
 6. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
    
-    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{VNETname}
    
     ![Resource ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Login to the portal as UserB and follow above step to create peering link from VNET5 to VNet3.
