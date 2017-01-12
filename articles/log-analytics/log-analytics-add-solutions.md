@@ -64,32 +64,36 @@ All solutions in the following table are available from within the Azure portal 
 | Management Solution    		| Offer                                     | Pricing Tiers 										| Notes | 
 | ---                    		| ---                                       | ---           										| ---   |
 | Activity Log Analytics 		|  Insight&nbsp;and&nbsp;Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| 90 days of data are available free of charge |
-| AD Assessment          		|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| AD Replication Status  		|  Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| [AD Assessment](log-analytics-ad-assessment.md)          		|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| [AD Replication Status](log-analytics-ad-replication-status.md)  		|  Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
 | Agent Health 			 		|  Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Alert Management 	     		|  Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Antimalware Assessment 		| 	Security and Compliance				    | Free<br> OMS							   				| |
+| [Alert Management](log-analytics-solution-alert-management.md) 	     		|  Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
 | Application Insights Connector <br>(Preview) |  Insight and Analytics<br> Log Analytics| Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
 | Automation Hybrid Worker 		| Automation and Control					| Free<br> OMS 							   				| Requires your Log Analytics workspace to be linked to an Automation account |
-| Azure Networking Analytics <br>(Preview) |  Insight and Analytics<br> Log Analytics | Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| [Azure Networking Analytics](log-analytics-azure-networking-analytics.md) <br>(Preview) |  Insight and Analytics<br> Log Analytics | Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| Azure SQL Analytics <br>(Preview) |  Insight and Analytics<br> Log Analytics | Free<br>OMS | Requires your Log Analytics workspace to be linked to an Automation account|
 | Backup        				| Insight and Analytics 					| Free<br> OMS 							   				| Requires a classic Backup vault |
-| Capacity Management <br>(Preview) | Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Change Tracking		 		| Automation and Control					| Free<br> OMS 							   				| Requires your Log Analytics workspace to be linked to an Automation account |
-| Containers 			 		|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Key Vault Analytics <br>(Preview) |  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Network Performance Monitor 	| Insight and Analytics 					| Free<br> OMS 											| |
+| Capacity and Performance <br>(Preview) | Insight and Analytics<br> Log Analytics 	| Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| [Change Tracking](log-analytics/log-analytics-change-tracking.md)		 		| Automation and Control					| Free<br> OMS 							   				| Requires your Log Analytics workspace to be linked to an Automation account |
+| [Containers](log-analytics-containers.md) 			 		|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| HDInsight HBase Monitoring <br>(Preview) |  Insight and Analytics<br> Log Analytics | Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| [Key Vault Analytics](log-analytics-azure-key-vault.md) <br>(Preview) |  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| [Malware Assessment](log-analytics-malware.md) 		| 	Security and Compliance				    | Free<br> OMS							   				| |
+| [Network Performance Monitor](log-analytics-network-performance-monitor.md) <br>(Preview)	| Insight and Analytics 					| Free<br> OMS 											| |
 | Office 365 Analytics <br>(Preview)|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Security and Audit	 	  	| 	Security&nbsp;and&nbsp;Compliance				    | Free<br> OMS							   				| Collecting security event logs requires this solution |
-| Service Fabric Analytics <br>(Preview)| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Service Map <br>(Preview)	  	| Insight and Analytics 					|Free<br> OMS | Available in East US and West Europe 	|
+| [Security and Audit](../operations-management-suite/oms-security-getting-started.md)	 	  	| 	Security&nbsp;and&nbsp;Compliance				    | Free<br> OMS							   				| Collecting security event logs requires this solution |
+| [Service Fabric Analytics](log-analytics-service-fabric.md) <br>(Preview)| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| [Service Map](operations-management-suite/operations-management-suite-service-map.md) <br>(Preview)	  	| Insight and Analytics 					|Free<br> OMS | Available in East US and West Europe 	|
 | Site Recovery    				| Insight and Analytics 					| Free<br> OMS 							   				| Requires a classic Site Recovery vault |
-| SQL Assessment 		 	  	| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| SurfaceHub 			 	  	| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| No charge for data or nodes |
-| System Center Operations Manager Assessment <br>(Preview) |  Insight and Analytics <br> Log Analytics |Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
+| [SQL Assessment](log-analytics-sql-assessment.md) 		 	  	| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| Start/Stop VMs during off-hours<br>(Preview) |  Insight and Analytics<br> Log Analytics | Free<br> OMS | Requires your Log Analytics workspace to be linked to an Automation account |
+| [SurfaceHub](log-analytics-surface-hubs.md) 			 	  	| Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| [System Center Operations Manager Assessment](log-analytics-scom-assessment.md) <br>(Preview) |  Insight and Analytics <br> Log Analytics |Free<br> Standard<br> Premium<br> Standalone<br> OMS | |
 | Update Management		 	  	| Automation and Control					| Free<br> OMS 							   				| Requires your Log Analytics workspace to be linked to an Automation account |
-| Upgrade Analytics <br>(Preview) 	|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| VMware Monitoring <br>(Preview) 	|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
-| Wire Data <br>(Preview) 	  	|Insight and Analytics 					 	|Free<br> OMS 											| Available in East US and West Europe |
+| Upgrade Analytics <br>(Preview) 	|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| No charge for data or nodes |
+| [VMware Monitoring](log-analytics-vmware.md) <br>(Preview) 	|  Insight and Analytics<br> Log Analytics 	|Free<br> Standard<br> Premium<br> Standalone<br> OMS 	| |
+| Wire Data 2.0<br>(Preview) 	  	|Insight and Analytics 					 	|Free<br> OMS 											| Available in East US and West Europe |
+
 
 ### Community provided management solutions
 
