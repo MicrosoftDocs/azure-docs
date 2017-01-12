@@ -151,12 +151,12 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-    3. Create a new database user based on the server login
+3. Create a new database user based on the server login
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-    4. Grant user DB control
+4. Grant user DB control
     ```sql
     GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
     ```
@@ -164,12 +164,12 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     > If your database name has hyphens in it, be sure to wrap it in brackets! 
     >
 
-    5. Add your database user to the **xlargerc** resource class role
+5. Add your database user to the **xlargerc** resource class role
     ```sql
     EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
     ```
 
-    6. Log in to your database with your new credentials
+6. Log in to your database with your new credentials
 
     ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
@@ -593,7 +593,7 @@ Take note of the time it took to run this operation.
     on tr.DateID = dt.DateID
     ```
 
-As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this.
+    As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this.
 
 2. Let's see how this differs when we create statistics on the column we're joining by running the following:
 
@@ -602,13 +602,13 @@ As you might expect, the query takes much longer when you shuffle data among the
     CREATE STATISTICS [dbo.Trip DateID stats] ON dbo.Trip (DateID);
     ```
 
-> [!NOTE]
-> SQL DW does not automatically manage statistics for you. Statistics are important for query
-> performance and it is highly recommended you create and update statistics.
-> 
-> **You gain the most benefit by having statistics on columns involved in joins, columns
-> used in the WHERE clause and columns found in GROUP BY.**
->
+    > [!NOTE]
+    > SQL DW does not automatically manage statistics for you. Statistics are important for query
+    > performance and it is highly recommended you create and update statistics.
+    > 
+    > **You gain the most benefit by having statistics on columns involved in joins, columns
+    > used in the WHERE clause and columns found in GROUP BY.**
+    >
 
 3. Run the query from Prerequisites again and observe any performance differences. While the differences in
 query performance will not be as drastic as scaling up, you should notice a discernable speed-up. 
