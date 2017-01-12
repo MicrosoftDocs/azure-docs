@@ -1,5 +1,5 @@
 ---
-title: Installing Mobility Service (VMware/Physical to Azure)
+title: 'Installing Mobility Service (VMware/Physical to Azure) | Microsoft Docs'
 description: This article describes how to install the Mobility Service Agent on your on-premises machines to start protecting them.
 services: site-recovery
 documentationcenter: ''
@@ -71,8 +71,6 @@ To be able to perform push installation of Mobility Service using Azure Site Rec
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
-## Common issues
-- Need list from Ashish to complete this section.
 
 ## Next steps
-Once the Mobility Service is installedyou can use the **+Replicate** button in Azure Portal to start enabling protection for these VM
+Once the Mobility Service is installed you can use the **+Replicate** button in Azure Portal to start enabling protection for these VMs.

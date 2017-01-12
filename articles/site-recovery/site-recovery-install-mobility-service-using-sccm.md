@@ -1,5 +1,5 @@
 ---
-title: Automate Mobility Service installation using Software deployment tools.
+title: Automate Mobility Service installation for Azure Site Recovery using software deployment tools | Microsoft Docs.
 description: This article helps you automate Mobility Service Installation using Software deployment tools like System Center Configuration Manager
 services: site-recovery
 documentationcenter: ''
@@ -9,14 +9,14 @@ editor: ''
 
 ms.assetid:
 ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 1/10/2017
 ms.author: anoopkv
 ---
-# Automate Mobility Service installation using Software deployment tools
+# Automate Mobility Service installation using software deployment tools
 
 This article provides you an example of how you can use System Center Configuration Manager (SCCM) to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like SCCM gives you the following advantages
 * Scheduling deployment -fresh installs and upgrades, during your planned maintenance window for software updates.
@@ -57,7 +57,7 @@ This article provides you an example of how you can use System Center Configurat
 
   [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
 
-## Step 2: Create a Package
+### Step 2: Create a Package
 
 1. Log in to your System Center Configuration Manager Console
 2. Browse to **Software Library** > **Application Management** > **Packages**
@@ -87,7 +87,7 @@ This article provides you an example of how you can use System Center Configurat
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
-### Deploy the Package
+### Step 3: Deploy the Package
 1. In the SCCM Console, right-click your package and select **Distribute Content**
   ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[Distribution Points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied over to.
@@ -141,7 +141,7 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
 
   [!INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
 
-## Step 2: Create a Package
+### Step 2: Create a Package
 
 1. Log in to your System Center Configuration Manager Console
 2. Browse to **Software Library** > **Application Management** > **Packages**
@@ -171,7 +171,7 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
-### Deploy the Package
+### Step 3: Deploy the Package
 1. In the SCCM Console, right-click your package and select **Distribute Content**
   ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[Distribution Points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied over to.
@@ -186,8 +186,6 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
 
   ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx)
-
-
 9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
 Mobility Service gets installed on the Linux Server Device Collection as per the schedule you configured.

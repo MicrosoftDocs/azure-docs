@@ -1,5 +1,5 @@
 ---
-title: Set up the source environment (Physical Servers to Azure)
+title: 'Set up the source environment (Physical Servers to Azure) | Microsoft Docs'
 description: This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 12/9/2016
+ms.date: 1/10/2017
 ms.author: anoopkv
 ---
+
+# Set up the source environment (Physical Server to Azure)
 > [!div class="op_single_selector"]
 > * [VMware Virtual Machines](./site-recovery-set-up-vmware-to-azure.md)
 > * [Physical Servers](./site-recovery-set-up-physical-to-azure.md)
 
-# Set up the source environment (Physical Server to Azure)
 This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 
 ## Prerequisites
@@ -48,9 +49,9 @@ The following table lists out the minimum hardware, software, and network requir
 
 ## Set up the source environment
 
-1.In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
-  ![Set up source](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
+1. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
 
+  ![Set up source](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for **five** days after you generate it.
