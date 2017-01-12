@@ -1,0 +1,43 @@
+---
+title: App Service on Azure Stack Technical Preview 2 Enable FTP | Microsoft Docs
+description: Steps to complete to enable FTP in App Service on Azure Stack
+services: azure-stack
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
+
+ms.assetid: 
+ms.service: azure-stack
+ms.workload: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/11/2017
+ms.author: anwestg
+
+---
+# How to enable FTP in App Service on Azure Stack TP2
+
+Once you have successfully deployed App Service on Azure Stack TP2, if you wish to enable FTP publishing there are some additional steps which need to be completed.  In future releases this will be automated.
+
+## Enable FTP
+
+1.  Log in to the Azure Stack portal as the service administrator;
+2.  Browse to **Network interfaces** and select the **FTP-NIC** under **Resource Group** - **AppService-LOCAL**. ![Azure Stack Network Interfaces][1]
+3.  Note the **Public IP Address** of the **FTP-NIC** ![Azure Stack Network Interface Details][2]
+4.  Next Browse to **Virtual Machines** and select the **FTP0-VM** ![Azure Stack Virtual Machines][3]
+5.  Open a remote desktop session to the VM using the **Connect** button and login to the session using the Administrator credentials you set during App Service deployment ![Azure Stack Virtual Machine Details][4]
+6.  Open **Internet Information Service (IIS) Manager** ![IIS Manager on App Service FTP0-VM][5]
+7.  Under **Sites** select **Hosting FTP Site**
+8.  Open **FTP Firewall Support**
+9.  Enter the Public IP Address of the FTP-NIC and click **Apply** ![IIS Manager FTP Firewall Support][6]
+
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interfaces.png
+[2]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interface-details.png
+[3]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-virtual-machines.png
+[4]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-virtual-machines-FTP0-VM.png
+[5]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-IIS-Manager.png
+[6]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-IIS-Manager-FTP-Firewall-Support.png
