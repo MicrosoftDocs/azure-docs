@@ -161,7 +161,7 @@ The script files included are:
 3. **GetMappings.ps1** - top-level sample script that prints out the current state of the shard mappings.
 4. **ShardManagement.psm1**  - helper script that wraps the ShardManagement API
 5. **SqlDatabaseHelpers.psm1** - helper script for creating and managing SQL databases
-   ```
+   
    <table style="width:100%">
      <tr>
        <th>PowerShell file</th>
@@ -203,7 +203,7 @@ The script files included are:
        <td>4.    Polls the web frontend for the merge request status and waits until the request completes.</td>
      </tr>
    </table>
-   ```
+   
 ## Use PowerShell to verify your deployment
 1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
 2. Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
