@@ -1,4 +1,4 @@
-## Specify compression
+## Specifying compression
 Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. Currently, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
 
 > [!NOTE]
