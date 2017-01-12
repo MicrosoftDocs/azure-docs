@@ -4,7 +4,7 @@ description: This article describes how to implement a disaster recovery solutio
 services: site-recovery
 documentationcenter: ''
 author: prateek9us
-manager: abhiag
+manager: gauravd
 editor: ''
 
 ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
@@ -83,17 +83,16 @@ Most applications also require the presence of a domain controller and a DNS ser
 	**DNS in Azure Test Network**
 
 1. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
-
-
-	> [!TIP]
-	> The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
-	> 
-	> 
-
-
 1. Do a test failover of the domain controller virtual machine run in the isolated network. Use latest available **application consistent** recovery point of the domain controller virtual machine to do the test failover. 
 1. Run a test failover for the application recovery plan.
 1. After testing is complete, mark the test failover job of domain controller virtual machine and of the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
+
+
+> [!TIP]
+> The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
+> 
+> 
+
 
 ### Removing reference to other domain controllers
 When you are doing a test failover, you will not bring all of the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment you will need to [seize FSMO Active Directory roles and do metadata cleanup](http://aka.ms/ad_seize_fsmo) for missing domain controllers. 
