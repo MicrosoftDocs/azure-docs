@@ -516,49 +516,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
 
-### Compression support
-Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. Currently, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
-
-To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
-
-```JSON
-{  
-    "name": "AzureDatalakeStoreDataSet",  
-      "properties": {  
-        "availability": {  
-            "frequency": "Day",  
-              "interval": 1  
-        },  
-        "type": "AzureDatalakeStore",  
-        "linkedServiceName": "DataLakeStoreLinkedService",  
-        "typeProperties": {  
-            "fileName": "pagecounts.csv.gz",  
-              "folderPath": "compression/file/",  
-              "compression": {  
-                "type": "GZip",  
-                "level": "Optimal"  
-              }  
-        }  
-      }  
-}  
-```
-The **compression** section has two properties:  
-
-* **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
-* **Level:** the compression ratio, which can be **Optimal** or **Fastest**.
-
-  * **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.
-  * **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.
-
-    For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic.
-
-Suppose the sample dataset is used as the output of a copy activity. The copy activity compresses the output data with GZIP codec using optimal ratio and then writes the compressed data into a file named pagecounts.csv.gz in the Azure Data Lake store.   
-
-When you specify compression property in an input dataset JSON, the pipeline reads compressed data from the source. When you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios:
-
-* Read GZIP compressed data from an Azure Data Lake Store, decompress it, and write result data to an Azure SQL database. You define the input Azure Data Lake Store dataset with the compression JSON property in this case.
-* Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure Data Lake Store. You define an output Azure Data Lake dataset with the compression JSON property in this case.  
-* Read a GZIP-compressed data from an Azure Data Lake Store, decompress it, compress it using BZIP2, and write result data to an Azure Data Lake Store. You set compression type set as GZIP and BZIP2 for input and output datasets respectively.   
+[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Azure Data Lake Copy Activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
