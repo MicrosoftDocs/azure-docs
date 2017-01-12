@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/05/2016
+ms.date: 1/12/2017
 ms.author: helaw
 
 ---
@@ -34,4 +34,5 @@ Use [Visual Studio](azure-stack-install-visual-studio.md) to deploy Azure Resour
 
 ## Next steps
 [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
+[Develop templates for Azure Stack](azure-stack-develop-templates)
 
