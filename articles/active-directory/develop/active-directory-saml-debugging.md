@@ -28,8 +28,8 @@ You can view the SAML token by selecting this line and then selecting the **Insp
 **Note**: To see the contents of this HTTP request, Fiddler may prompt you to configure decryption of HTTPS traffic, which you will need to do.
 
 ## Related Articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md)
 * [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)
 
 <!--Image references-->

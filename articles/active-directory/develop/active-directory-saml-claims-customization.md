@@ -54,11 +54,11 @@ For example, if you need to send the department that the user belongs to in thei
 
 If for a given user there is no value stored for a selected attribute, then that claim with not be issued in the token.
 
-**Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premise Active Directory using the [Azure AD Connect tool](active-directory-aadconnect.md).
+**Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premise Active Directory using the [Azure AD Connect tool](../active-directory-aadconnect.md).
 
 ## Related Articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md)
 * [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md)
 
 <!--Image references-->

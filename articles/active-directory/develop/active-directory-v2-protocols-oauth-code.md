@@ -34,7 +34,7 @@ The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAu
 ## Protocol diagram
 At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
 
-![OAuth Auth Code Flow](../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
 ## Request an authorization code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:

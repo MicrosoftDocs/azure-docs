@@ -29,7 +29,7 @@ The v2.0 endpoint can use Azure AD for identity-as-a-service with industry stand
 ## The Basics
 In nearly all OAuth & OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0 Roles](../media/active-directory-v2-flows/protocols_roles.png)
+![OAuth 2.0 Roles](../../media/active-directory-v2-flows/protocols_roles.png)
 
 * The **Authorization Server** is the v2.0 endpoint.  It is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens.  It is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in an flow.
 * The **Resource Owner** is typically the end-user.  It is the party that owns the data, and has the power to allow third parties to access that data, or resource.

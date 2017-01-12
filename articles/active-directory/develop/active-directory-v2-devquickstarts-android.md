@@ -68,51 +68,51 @@ Clone the OIDCAndroidLib repo to your computer.
 git@github.com:kalemontes/OIDCAndroidLib.git
 ```
 
-![androidStudio](media/active-directory-android-native-oidcandroidlib-v2/emotes-url.png)
+![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/emotes-url.png)
 
 ## Set up your Android Studio environment
 1. Create a new Android Studio project and accept the defaults in the wizard.
    
-    ![Create new project in Android Studio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
+    ![Create new project in Android Studio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
    
-    ![Target Android devices](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
+    ![Target Android devices](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
    
-    ![Add an activity to mobile](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
+    ![Add an activity to mobile](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
 2. To set up your project modules, move the cloned repo to the project location. You can also create the project and then clone it directly to the project location.
    
-    ![Project modules](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
+    ![Project modules](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
 3. Open the project modules settings by using the context menu or by using the Ctrl+Alt+Maj+S shortcut.
    
-    ![Project modules settings](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
+    ![Project modules settings](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
 4. Remove the default app module because you only want the project container settings.
    
-    ![The default app module](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
+    ![The default app module](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. Import modules from the cloned repo to the current project.
    
-    ![Import gradle project](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-    ![Create new module page](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![Import gradle project](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
+    ![Create new module page](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. Repeat these steps for the `oidlib-sample` module.
 7. Check the oidclib dependencies on the `oidlib-sample` module.
    
-    ![oidclib dependencies on the oidlib-sample module](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
+    ![oidclib dependencies on the oidlib-sample module](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
 8. Click **OK** and wait for gradle sync.
    
     Your settings.gradle should look like:
    
-    ![Screenshot of settings.gradle](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
+    ![Screenshot of settings.gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
 9. Build the sample app to make sure that the sample running correctly.
    
     You won't be able to use this with Azure Active Directory yet. We'll need to configure some endpoints first. This is to ensure you don't have an Android Studio issues before we start customizing the sample app.
 10. Build and run `oidlib-sample` as the target in Android Studio.
     
-    ![Progress of oidlib-sample build](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
+    ![Progress of oidlib-sample build](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
 11. Delete the `app ` directory that was left when you removed the module from the project because Android Studio doesn't delete it for safety.
     
-    ![File structure that includes the app directory](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
+    ![File structure that includes the app directory](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
 12. Open the **Edit Configurations** menu to remove the run configuration that was also left when you removed the module from the project.
     
-    ![Edit configurations menu](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
-    ![Run configuration of app](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)
+    ![Edit configurations menu](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
+    ![Run configuration of app](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)
 
 ## Configure the endpoints of the sample
 Now that you have the `oidlib-sample` running successfully, let's edit some endpoints to get this working with Azure Active Directory.

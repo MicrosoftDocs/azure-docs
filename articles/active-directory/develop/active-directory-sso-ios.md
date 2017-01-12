@@ -33,7 +33,7 @@ This walkthrough applies to:
 * Azure Active Directory B2B
 * Azure Active Directory Conditional Access
 
-Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](develop/active-directory-how-to-integrate.md) as well as have integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) as well as have integrated your application with the [Microsoft Identity iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## SSO Concepts in the Microsoft Identity Platform
 ### Microsoft Identity Brokers
@@ -274,7 +274,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](develop/active-directory-how-to-integrate.md).
+This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate based authentication
 To support cert based authentication a second "msauth"  needs to be registered in your application and the [Azure classic portal](https://manage.windowsazure.com/) to handle certificate authentication if you wish to add that support in your application.

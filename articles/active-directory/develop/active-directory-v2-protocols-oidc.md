@@ -31,7 +31,7 @@ OpenID Connect is an authentication protocol built on OAuth 2.0 that you can use
 ## Protocol diagram: Sign-in
 The most basic sign-in flow has the steps shown in the next diagram. We describe each step in detail in this article.
 
-![OpenID Connect protocol: Sign-in](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![OpenID Connect protocol: Sign-in](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
 ## Fetch the OpenID Connect metadata document
 OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. For the v2.0 endpoint, this is the OpenID Connect metadata document you should use:
@@ -201,7 +201,7 @@ Many web apps need to not only sign the user in, but also to access a web servic
 
 The full OpenID Connect sign-in and token acquisition flow looks similar to the next diagram. We describe each step in detail in the next sections of the article.
 
-![OpenID Connect  protocol: Token acquisition](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
+![OpenID Connect  protocol: Token acquisition](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
 ## Get access tokens
 To acquire access tokens, modify the sign-in request:

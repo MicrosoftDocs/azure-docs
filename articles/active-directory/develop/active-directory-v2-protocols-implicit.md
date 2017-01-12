@@ -38,7 +38,7 @@ However, if you would prefer not to use a library in your single page app and se
 ## Protocol diagram
 The entire implicit sign in flow looks something like this - each of the steps are described in detail below.
 
-![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![OpenId Connect Swimlanes](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## Send the sign-in request
 To initially sign the user into your app, you can send an [OpenID Connect](active-directory-v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:

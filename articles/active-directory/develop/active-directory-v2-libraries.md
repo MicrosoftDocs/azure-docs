@@ -93,7 +93,7 @@ To help us refine and shape our content, please use the Disqus comments feature 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Model-V2-Overview]: active-directory-appmodel-v2-overview.md
+[AAD-App-Model-V2-Overview]: ../active-directory-appmodel-v2-overview.md
 [ClientLib-NET-Lib]: http://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
