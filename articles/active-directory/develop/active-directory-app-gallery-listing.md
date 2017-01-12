@@ -29,7 +29,7 @@ Listing requirements for each mode are below.
 To integrate your application with Azure AD, following the [developer instructions](active-directory-authentication-scenarios.md). Then complete the questions below and send to waadpartners@microsoft.com.
 
 * Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
-* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
+* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](develop/active-directory-integrating-applications.md#overview-of-the-consent-framework). 
 * Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
 * Provide the info below:
 
