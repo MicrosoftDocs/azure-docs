@@ -1,5 +1,5 @@
 ## Specifying formats
-Azure Data Factory supports the following format types: 
+Azure Data Factory supports the following format types:
 
 * [Text Format](#specifying-textformat)
 * [JSON Format](#specifying-jsonformat)
@@ -52,25 +52,9 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 
 
 ### Scenarios for using firstRowAsHeader and skipLineCount
-* You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify **firstRowAsHeader** as true in the output dataset for this scenario. 
+* You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify **firstRowAsHeader** as true in the output dataset for this scenario.
 * You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify **firstRowAsHeader** as true in the input dataset.
 * You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify **skipLineCount** to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify **firstRowAsHeader**. If both **skipLineCount** and **firstRowAsHeader** are specified, the lines are skipped first and then the header information is read from the input file
-
-### Specifying AvroFormat
-If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
-
-```json
-"format":
-{
-    "type": "AvroFormat",
-}
-```
-
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-Note the following points:  
-
-* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed)
 
 ### Specifying JsonFormat
 To import/export JSON files as-is into/from DocumentDB, see [Import/export JSON documents](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) section in DocumentDB connector with details.
@@ -86,7 +70,7 @@ If the format is set to **JsonFormat**, you can specify the following **optional
 #### setOfObjects file pattern
 Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy activity produces a single JSON file with each object per line (line-delimited).
 
-**single object** 
+**single object**
 
 ```json
 {
@@ -99,7 +83,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 }
 ```
 
-**line-delimited JSON** 
+**line-delimited JSON**
 
 ```json
     {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -139,7 +123,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
 ```
 
 #### arrayOfObjects file pattern.
-Each file contains an array of objects. 
+Each file contains an array of objects.
 
 ```json
 [
@@ -214,7 +198,7 @@ If you have a JSON file with the following content:
     "Tags": ["Data Factory”, "Azure"]
 }
 ```
-and you want to copy it into an Azure SQL table in the following format: 
+and you want to copy it into an Azure SQL table in the following format:
 
 | Id | Name.First | Name.Middle | Name.Last | Tags |
 | --- | --- | --- | --- | --- |
@@ -244,16 +228,32 @@ The input dataset with JsonFormat type is defined as follows: (partial definitio
     }
 }
 ```
-If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing. 
+If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing.
 
 #### Supported JSON structure
-Note the following points: 
+Note the following points:
 
 * Each object with a collection of name/value pairs is mapped to one row of data in a tabular format. Objects can be nested and you can define how to flatten the structure in a dataset with the nesting separator (.) by default. See the [JsonFormat example](#jsonformat-example) preceding section for an example.  
-* If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object. 
+* If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
 * If the JSON input has an array, the Copy Activity converts the entire array value into a string. You can choose to skip it by using [column mapping or filtering](#column-mapping-with-translator-rules).
 * If there are duplicate names at the same level, the Copy Activity picks the last one.
-* Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties. 
+* Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties.
+
+### Specifying AvroFormat
+If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
+
+To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+Note the following points:  
+
+* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed)
 
 ### Specifying OrcFormat
 If the format is set to OrcFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -267,13 +267,13 @@ If the format is set to OrcFormat, you do not need to specify any properties in 
 
 > [!IMPORTANT]
 > If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
-> 
-> 
+>
+>
 
 Note the following points:
 
 * Complex data types are not supported (STRUCT, MAP, LIST, UNION)
-* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior. 
+* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
 ### Specifying ParquetFormat
 If the format is set to ParquetFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -286,11 +286,10 @@ If the format is set to ParquetFormat, you do not need to specify any properties
 ```
 > [!IMPORTANT]
 > If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
-> 
-> 
+>
+>
 
 Note the following points:
 
 * Complex data types are not supported (MAP, LIST)
-* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior. 
-
+* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
