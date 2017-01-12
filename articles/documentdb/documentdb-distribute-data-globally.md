@@ -41,7 +41,7 @@ Azure is constantly growing its geographical presence by bringing new regions on
 ![DocumentDB available on all Azure regions](./media/documentdb-distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Associating unlimited number of regions with your DocumentDB database account
-DocumentDB allows you to associate any number of Azure regions with your DocumentDB database account. Outside of geo-fencing restrictions (e.g. China, Germany), there are no limitations on the number of regions that can be associated with your DocumentDB database account. Figure 3 shows a database account configured to span across 21 Azure regions.  
+DocumentDB allows you to associate any number of Azure regions with your DocumentDB database account. Outside of geo-fencing restrictions (e.g. China, Germany), there are no limitations on the number of regions that can be associated with your DocumentDB database account. The following figure shows a database account configured to span across 21 Azure regions.  
 
 **A tenant's DocumentDB database account spanning 21 Azure regions**
 
@@ -51,10 +51,10 @@ DocumentDB allows you to associate any number of Azure regions with your Documen
 DocumentDB is designed to have policy based geo-fencing capabilities. Geo-fencing is an important component to ensure data governance and compliance restrictions. Examples include (but not restricted to), scoping global distribution to the regions within a sovereign cloud (e.g. China and Germany), or within government taxation boundary (e.g. Australia) may prevent associating a specific region. The policies are controlled using the metadata of your Azure subscription. 
 
 ### <a id="DynamicallyAddRegions"></a>Dynamically add and remove regions
-DocumentDB allows you to add (associate) or remove (dissociate) regions to your database account at any point in time (Figure 3). By virtue of replicating data across partitions in parallel DocumentDB ensures that a new region comes online within 30 minutes anywhere in the world for up to 100TBs. 
+DocumentDB allows you to add (associate) or remove (dissociate) regions to your database account at any point in time (see [preceding figure](#UnlimitedRegionsPerAccount)). By virtue of replicating data across partitions in parallel DocumentDB ensures that a new region comes online within 30 minutes anywhere in the world for up to 100TBs. 
 
 ### <a id="FailoverPriorities"></a>Failover priorities
-For controlling the exact sequence of regional failover when there is a multi-regional outage, DocumentDB allows you to associate the priority to various regions associated with the database account (Figure 4). DocumentDB ensures that the automatically failover sequence is in the order of priority specified by you. 
+For controlling the exact sequence of regional failover when there is a multi-regional outage, DocumentDB allows you to associate the priority to various regions associated with the database account (see the following figure). DocumentDB ensures that the automatically failover sequence is in the order of priority specified by you. 
 
 **A tenant of DocumentDB can configure the failover priorities (right pane) for regions associated with a database account.**
 
@@ -188,9 +188,9 @@ DocumentDB allows you to scale throughput (as well as, storage), elastically acr
 A DocumentDB collection gets distributed using in two dimensions – within a region and then across regions. Here's how: 
 
 * Within a single region, a DocumentDB collection is scaled out in terms of resource partitions. Each resource partition manages a set of keys and are strongly consistent and highly available by virtue of state machine replication amongst a set of replicas. DocumentDB is fully resource governed system - a resource partition is responsible for delivering its share of throughput for the budget of system resources allocated to it. The scaling of a DocumentDB collection is completely transparent – DocumentDB manages the resource partitions and splits and merges it as needed. 
-* Each of the resource partition is then distributed across multiple regions. Resource partitions owning the same set of keys across various regions form Partition Set (Figure 6).  Resource partitions within a partition set are coordinated using state machine replication across the multiple regions. Depending on the consistency level configured, the resource partitions within a partition set are configured dynamically using different topologies (e.g. star, daisy-chain, tree etc). 
+* Each of the resource partition is then distributed across multiple regions. Resource partitions owning the same set of keys across various regions form Partition Set (see [preceding figure](#ThroughputGuarantees)).  Resource partitions within a partition set are coordinated using state machine replication across the multiple regions. Depending on the consistency level configured, the resource partitions within a partition set are configured dynamically using different topologies (e.g. star, daisy-chain, tree etc). 
 
-By virtue of a highly responsive partition management, load balancing and strict resource governance, DocumentDB allows you to elastically scale throughput across multiple Azure regions on a DocumentDB collection. Changing throughput on a collection is a runtime operation in DocumentDB - like with other database operations DocumentDB guarantees the absolute upper bound on latency for your request to change the throughput. As an example, Figure 7 shows a customer's collection with elastically provisioned throughput (ranging from 1M-10M requests/sec across two regions) based on the demand.
+By virtue of a highly responsive partition management, load balancing and strict resource governance, DocumentDB allows you to elastically scale throughput across multiple Azure regions on a DocumentDB collection. Changing throughput on a collection is a runtime operation in DocumentDB - like with other database operations DocumentDB guarantees the absolute upper bound on latency for your request to change the throughput. As an example, the following figure shows a customer's collection with elastically provisioned throughput (ranging from 1M-10M requests/sec across two regions) based on the demand.
  
 **A customer's collection with elastically provisioned throughput (1M-10M requests/sec)**
 
@@ -218,7 +218,7 @@ Same as [Throughput's relationship with availability](#ThroughputAndAvailability
 In DocumentDB, each partition (of a collection) is made highly available by a number of replicas which are spread across at least 10-20 fault domains. All writes are synchronously and durably committed by a majority quorum of replicas before they are acknowledged to the client. Asynchronous replication is applied only across coordination across partitions spread across multiple regions. DocumentDB guarantees that there is no data loss for a tenant-initiated manual failover. During automatic failover, DocumentDB guarantees an upper bound of 5 sec on the data loss window as part of its SLA. 
 
 ## <a id="CustomerFacingSLAMetrics"></a>Customer facing SLA Metrics
-DocumentDB transparently exposes the throughput, latency, consistency and availability metrics. These metrics are accessible programmatically as well as, via the Azure Portal (Figure 8). You can also set up alerts on various thresholds using Azure Application Insights. 
+DocumentDB transparently exposes the throughput, latency, consistency and availability metrics. These metrics are accessible programmatically as well as, via the Azure Portal (see follolwing figure). You can also set up alerts on various thresholds using Azure Application Insights. 
  
 **Consistency, Latency, Throughput and Availability metrics are transparently available to each tenant**
 
