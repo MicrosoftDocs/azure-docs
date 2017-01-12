@@ -41,7 +41,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
         "name" : "<Name of input parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -55,7 +55,7 @@ The Notification Hubs queue and topic triggers to a function use the following J
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -214,7 +214,7 @@ In C# and F#, Azure Functions can create a Service Bus queue message from any of
   Functions deserializes the object into a JSON message. If the output value is null when the function exits, Functions creates the message with a null object.
 * `string` - Parameter definition looks like `out string paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
 * `byte[]` - Parameter definition looks like `out byte[] paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
-* `BrokeredMessage` Parameter definition looks like `out byte[] paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
+* `BrokeredMessage` Parameter definition looks like `out BrokeredMessage paraName` (C#). If the parameter value is non-null when the function exits, Functions creates a message.
 
 For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
 
