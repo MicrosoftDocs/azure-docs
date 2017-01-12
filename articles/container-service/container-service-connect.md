@@ -20,13 +20,14 @@ ms.author: rogardle
 
 ---
 # Connect to an Azure Container Service cluster
-After [deploying an Azure Container Service cluster](container-service-deployment.md), you need to connect to the cluster to deploy and scale workloads. This article describes how to connect remotely to the cluster. The Kubernetes, DC/OS and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
-this endpoint is securely exposed on the internet, and you can access it directly from any machine connected to the internet. For DC/OS 
+After [deploying an Azure Container Service cluster](container-service-deployment.md), you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the cluster from a remote computer. The Kubernetes, DC/OS and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
+this endpoint is securely exposed on the internet, and you can use the `kubectl` command-line tool to access it directly from any machine connected to the internet. For DC/OS 
 and Docker Swarm, you must create a secure shell (SSH) tunnel to securely connect to the REST endpoint. This article describes each of these connections.
 
 > [!NOTE]
 > Kubernetes support in Azure Container Service is currently in preview.
 >
+
 
 ## Connect to a Kubernetes cluster
 
@@ -46,10 +47,11 @@ Alternatively, you can download the client directly from the [releases page](htt
 
 ### Download cluster credentials
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine. One way to do
-this is with the `az acs kubernetes get-credentials` command:
+this is with the `az acs kubernetes get-credentials` command. You need to pass the name of the resource group and the name of the container service cluster:
+
 
 ```azurecli
-az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
 This downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
@@ -70,6 +72,15 @@ for more information.  If this isn't working, you may need to
 [reset your SSH keys](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ### Connect to Kubernetes
+
+These commands assume that you have an appropriate SSH key in `$HOME/.ssh/id_rsa`. See these 
+instructions for [OS X and Linux] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)
+or [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-ssh-from-windows)
+for more information.  If this isn't working, you may need to 
+[reset your SSH keys](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection)
+
+
+### Using kubectl
 
 Once you have `kubectl` configured, you can test this by listing the nodes in your cluster:
 
