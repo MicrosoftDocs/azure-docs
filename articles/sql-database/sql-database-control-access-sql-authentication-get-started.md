@@ -100,7 +100,7 @@ In this section of the tutorial, you view information about the server admin acc
    >
 
 3. In Object Explorer, right-click **`master`** and then click **New Query** to open a query window connected to the `master` database.
-4. In the query window, execute the following query to return information about the user executing the query. Notice that `sqladmin` is returned for the user account executing this query (we will see a different result when we query a user database later in this procedure).
+4. In the query window, execute the following query to return information about the user executing the query. Notice that `sqladmin` is returned for the user account executing this query (we see a different result when we query a user database later in this procedure).
 
    ```
    SELECT USER;
@@ -166,18 +166,18 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![server admin permissions in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
 
-10. Optionally, repeat the previous 3 steps for the `AdventureWorksLT` user database.
+10. Optionally, repeat the previous three steps for the `AdventureWorksLT` user database.
 
 ## Create a new user in the `AdventureWorksLT` database with `SELECT` permissions
 
-In this section of the tutorial, you create a new user account in the `AdventureWorksLT` database, test this user's permissions as member of the public role, grant this user `SELECT` permissions, and then test this user's permissions again.
+In this section of the tutorial, you create a user account in the `AdventureWorksLT` database, test this user's permissions as member of the public role, grant this user `SELECT` permissions, and then test this user's permissions again.
 
 > [!NOTE]
-> Database-level users ([contained users](https://msdn.microsoft.com/library/ff929188.aspx)) increase the portability of your database, a capability that we will explore in later tutorials.
+> Database-level users ([contained users](https://msdn.microsoft.com/library/ff929188.aspx)) increase the portability of your database, a capability that we explore in later tutorials.
 >
 
 1. In Object Explorer, right-click **`AdventureWorksLT`** and then click **New Query** to open a query window connected to the `AdventureWorksLT` database.
-2. Execute the following statement to create a new user called `user1` in the `AdventureWorksLT` database.
+2. Execute the following statement to create a user called `user1` in the `AdventureWorksLT` database.
 
    ```
    CREATE USER user1
@@ -240,7 +240,7 @@ In this section of the tutorial, you create a new user account in the `Adventure
 In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule as the `Server admin`, and then log in using this new database-level firewall rule. 
 
 > [!NOTE]
-> [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we will explore in later tutorials.
+> [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we explore in later tutorials.
 >
 
 1. On another computer for which you have not already created a server-level firewall rule, open SQL Server Management Studio.
@@ -257,7 +257,7 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
    
    ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
-4. Click **Connect**. A dialog box appears informing you that the computer from which you are attempting to connect to SQL Database does not have a firewall rule enabling access to the database. The dialog box that you receive has two variations depending upon steps you have previously taken with firewalls, but you will usually get the first dialog box shown below.
+4. Click **Connect**. A dialog box appears informing you that the computer from which you are attempting to connect to SQL Database does not have a firewall rule enabling access to the database. The dialog box that you receive has two variations depending upon steps you have previously taken with firewalls, but you usually get the first dialog box shown.
 
    ![Connect as user1 without firewall rule3](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule3.png)
 
@@ -295,17 +295,17 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
 
 ## Create a new user in the `blankdb` database with `db_owner` database role permissions and a database-level firewall rule
 
-In this section of the tutorial, you create a new user in the `blankdb` database with `db_owner` database role permissions and create a database-level firewall for this database using the `Server admin` account. 
+In this section of the tutorial, you create a user in the `blankdb` database with `db_owner` database role permissions and create a database-level firewall for this database using the `Server admin` account. 
 
 1. Switch to your computer with a connection to SQL Database using the `Server admin` account.
-2. Open a query window connected to the `blankdb` database and execute the following statement to create a new user called `blankdbadmin` in the `blankdb` database.
+2. Open a query window connected to the `blankdb` database and execute the following statement to create a user called `blankdbadmin` in the `blankdb` database.
 
    ```
    CREATE USER blankdbadmin
    WITH PASSWORD = 'p@ssw0rd';
    ```
 
-3. In the same query window, execute the following statement to add the `blankdbadmin` user to the `db_owner` database role. This user will now be able to perform all actions necessary to manage the `blankdb` database.
+3. In the same query window, execute the following statement to add the `blankdbadmin` user to the `db_owner` database role. This user can now perform all actions necessary to manage the `blankdb` database.
 
    ```
    ALTER ROLE db_owner ADD MEMBER blankdbadmin; 
@@ -319,7 +319,7 @@ In this section of the tutorial, you create a new user in the `blankdb` database
    ```
 
 5. Switch computers (to one for which you have created a database-level firewall rule) and connect to the `blankdb` database using the `blankdbadmin` user account.
-6. Open a query window to the `blankdb` database and execute the following statement to create a new user called `blankdbuser1` in the `blankdb` database.
+6. Open a query window to the `blankdb` database and execute the following statement to create a user called `blankdbuser1` in the `blankdb` database.
 
    ```
    CREATE USER blankdbuser1
@@ -330,14 +330,14 @@ In this section of the tutorial, you create a new user in the `blankdb` database
 
 ## Create a new login and user in the master database with dbmanager permissions, and create a server-level firewall rule
 
-In this section of the tutorial, you create a new login and user in the master database with permissions to create and manage new user databases. You also create an additional server-level firewall rule using Transact-SQL using [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx).
+In this section of the tutorial, you create a login and user in the master database with permissions to create and manage new user databases. You also create an additional server-level firewall rule using Transact-SQL using [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx).
 
 > [!NOTE]
-> Creating logins in the `master` database and creating a user account from a login is required for the `Server admin` account holder to delegate create database permissions to another user. However, creating logins and users from logins makes decreases the portability of your environment, the consequences of which we will explore in later tutorials - including how to anticipate and handle as part of planning for disaster recovery.
+> Creating logins in the `master` database and creating a user account from a login is required for the `Server admin` account holder to delegate create database permissions to another user. However, creating logins and users from logins decreases the portability of your environment, the consequences of which we explore in later tutorials - including how to anticipate and handle as part of planning for disaster recovery.
 >
 
 1. Switch to your computer with a connection to SQL Database using the `Server admin` account.
-2. Open a query window connected to the `master` database and execute the following statement to create a new login called `dbcreator` in the `master` database.
+2. Open a query window connected to the `master` database and execute the following statement to create a login called `dbcreator` in the `master` database.
 
    ```
    CREATE LOGIN dbcreator
@@ -351,7 +351,7 @@ In this section of the tutorial, you create a new login and user in the master d
    FROM LOGIN dbcreator;
    ```
 
-3. In the same query window, execute the following query to add the `dbcreator` user to the `dbmanager` database role. This user will now be able to create and manage databases created by the user.
+3. In the same query window, execute the following query to add the `dbcreator` user to the `dbmanager` database role. This user can now create and manage databases created by the user.
 
    ```
    ALTER ROLE dbmanager ADD MEMBER dbcreator; 
@@ -365,7 +365,7 @@ In this section of the tutorial, you create a new login and user in the master d
    ```
 
 5. Switch computers (to one for which you have created a server-level firewall rule) and connect to the `master` database using the `dbcreator` user account.
-6. Open a query window to the `master` database and execute the following query to create a new database called `foo`.
+6. Open a query window to the `master` database and execute the following query to create a database called `foo`.
 
    ```
    CREATE DATABASE FOO (EDITION = 'basic');
