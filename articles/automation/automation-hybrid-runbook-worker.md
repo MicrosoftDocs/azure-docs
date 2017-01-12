@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2017
+ms.date: 01/12/2017
 ms.author: bwren
 
 ---
@@ -30,7 +30,7 @@ There are no inbound firewall requirements to support Hybrid Runbook Workers. Th
 
 > [!NOTE]
 > In order to manage the configuration of your servers supporting the Hybrid Runbook Worker role with Desired State Configuration (DSC), you will need to add them as DSC nodes.  For further information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).           
-><br><br>
+><br>
 >Currently if you enable the [Update Management solution](../operations-management-suite/oms-solution-update-management.md), any Windows computer connected to your OMS workspace will be automatically configured as a Hybrid Runbook Worker in order to support runbooks that are part of this solution.  However, it is not registered with any Hybrid Worker groups you have created in your Automation account, and you cannot add it to a Hybrid Worker group to run your own runbooks.  If a Windows computer is already designated as a Hybrid Runbook Worker and connected to the OMS workspace, you will need to remove it from the OMS workspace before adding the solution in order to prevent your runbooks from failing to function as expected.  
 
 
