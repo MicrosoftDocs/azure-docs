@@ -130,7 +130,7 @@ Preferably, update the client connection strings to set `MultiSubnetFailover=Yes
 
 If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
-## Fail over to Remote Region 
+## Fail over to remote region 
 
 To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, fail over is subject to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
