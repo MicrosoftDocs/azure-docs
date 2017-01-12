@@ -54,7 +54,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 ## Azure-AsyncOperation request and response
 
-To get the current status of the asynchronous operation, send a GET request to the URL in Azure-AsyncOperation header value.
+To get the status of the asynchronous operation, send a GET request to the URL in Azure-AsyncOperation header value.
 
 The body of the response from this operation contains information about the operation. 
 
