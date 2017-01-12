@@ -29,7 +29,7 @@ You can choose to stream your content live or deliver content on demand. This to
 
 To build Media Services solutions, you can use:
 
-* [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * One of the available client SDKs:
 	* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
 	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),

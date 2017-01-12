@@ -16,7 +16,9 @@
 ### [Notify users of data received from sensors](event-hubs-sensors-notify-users.md)
 ### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
 ### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+
 ## Manage
+### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### [Event Hubs Archive](event-hubs-archive-overview.md)
 ### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
