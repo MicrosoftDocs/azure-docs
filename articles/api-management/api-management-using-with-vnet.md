@@ -69,6 +69,11 @@ Click **Save** at the top of the screen.
 > The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
 > 
 
+
+> [!IMPORTANT] 
+> Once you change the VNET in which API Management was deployed, or remove APIM from a VNET, it can take up to 4 hours for the VNET to be freed by API Management. This will impact deleting the VNET or deploying a new resource in that VNET. 
+>  
+
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
 
