@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/11/2017
+ms.author: markvi
 
 ---
 # Windows Server Active Directory on Azure VMs
@@ -29,7 +29,7 @@ This navigation topic contains links to other topics about how to deploy Windows
 ## How to articles
 * [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
 * [Install a Replica Active Directory Domain Controller in Azure Virtual Networks](active-directory-install-replica-active-directory-domain-controller.md)
-* [Set up a hybrid cloud environment for testing](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
+* [Set up a hybrid cloud environment for testing](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Additional Resources
 * [Sign up for Azure as an organization](sign-up-organization.md)

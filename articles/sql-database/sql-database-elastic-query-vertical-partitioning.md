@@ -1,4 +1,4 @@
-﻿---
+---
 title: Query across cloud databases with different schema | Microsoft Docs
 description: how to set up cross-database queries over vertical partitions
 services: sql-database
@@ -8,6 +8,7 @@ author: torsteng
 
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -114,7 +115,7 @@ Using an external data source as outlined in the previous section, the syntax to
 
 The DATA_SOURCE clause defines the external data source (i.e. the remote database in case of vertical partitioning) that is used for the external table.  
 
-The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database – or any other situation where the remote table name is already taken locally.  
+The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database - or any other situation where the remote table name is already taken locally.  
 
 The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database. 
 

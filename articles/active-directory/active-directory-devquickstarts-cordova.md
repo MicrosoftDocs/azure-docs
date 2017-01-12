@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure AD Cordova Getting Started | Microsoft Docs
 description: How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: vittorib
 
 ---
@@ -38,7 +38,7 @@ In order to do this, you’ll need to:
 3. Add code to use the token for querying the Graph API and display results.
 4. Create the Cordova deployment project with all the platforms you want to target, and the Cordova ADAL plugin and test the solution in emulators.
 
-## *0.    Prerequisites*
+## 0.    Prerequisites
 To complete this tutorial you will need:
 
 * An Azure AD tenant where you have an account with app development rights
@@ -76,31 +76,31 @@ Each target platform has different prerequisites.
   
   Android sdk doesn't provide any default emulator instance. Create a new one by running `android avd` from terminal and then selecting *Create...* if you want to run Android app on emulator. Recommended *Api Level* is 19 or higher, see [AVD Manager](http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.
 
-## *1.    Register an application with Azure AD*
-Note: this **step is optional**. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
+## 1.    Register an application with Azure AD
+This step is optional. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
 
 Azure AD will only issue tokens to known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant.  To register a new application in your tenant,
 
-* Sign into the [Azure Management Portal](https://manage.windowsazure.com)
-* In the left hand nav, click on **Active Directory**
-* Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click **Add** in the bottom drawer.
-* Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work).
   * The **Name** of the application will describe your application to end-users
   * The **Redirect URI** is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
 
-Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the **Configure** tab of the newly created app.
+Once you’ve completed registration, AAD will assign your app a unique Application ID.  You’ll need this value in the next sections: you can find it in the application tab of the newly created app.
 
 In order to run `DirSearchClient Sample`, grant the newly created app permission to query the *Azure AD Graph API*:
 
-* In **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+6. From the **Settings** page, choose **Required Permissions** and choose **Add**.  For the "Azure Active Directory" application, select the **Microsoft Graph** as the API and add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
-## *2. Clone the sample app repository required for the tutorial*
+## 2. Clone the sample app repository required for the tutorial
 From your shell or command line, type the following command:
 
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
-## *3. Create the Cordova app*
+## 3. Create the Cordova app
 There are multiple ways of creating Cordova applications. In this tutorial we will use the Cordova command line interface (CLI).
 From your shell or command line, type the following command:
 
@@ -125,7 +125,7 @@ Finally, you can add the ADAL for Cordova plugin to your project.
 
     cordova plugin add cordova-plugin-ms-adal
 
-## *3. Add code to authenticate users and obtain tokens from AAD*
+## 4. Add code to authenticate users and obtain tokens from AAD
 The application you are developing in this tutorial will provide a bare-bone directory search feature, where the end user can type the alias of any user in the directory and visualize some basic attributes.  The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings and results display logic (in www/js/index.js). The only thing left out for you is to add the logic implementing identity tasks.
 
 The very first thing you need to do is to introduce in your code the protocol values that are used by AAD for identifying your app and the resources you target. Those values will be used to construct the token requests later on. Insert the snippet below at the very top of the index.js file.
@@ -222,7 +222,7 @@ Now that we have the token, we can finally invoke the Graph API and perform the 
 ```
 The starting point files supplied a barebone UX for entering a user's alias in a textbox. This method uses that value to construct a query, combine it with the access token, send it to the Graph, and parse the results. The renderData method, already present in the starting point file, takes care to visualize the results.
 
-## *4. Run*
+## 5. Run
 Your app is finally ready to run! Operating it is very simple: once the app starts, enter in the text box the alias of the user you want to look up - then click the button. You will be prompted for authentication. Upon successful authentication and successful search, the attributes of the searched user will be displayed. Subsequent runs will perform the search without showing any prompt, thanks to the presence in cache of the token previously acquired.
 The concrete steps for running the app vary by platform.
 

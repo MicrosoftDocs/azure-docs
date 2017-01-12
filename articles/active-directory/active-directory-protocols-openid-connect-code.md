@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/07/2017
 ms.author: priyamo
 
 ---
@@ -21,6 +21,8 @@ ms.author: priyamo
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use **access tokens** to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process, providing information about the end user in the form of an `id_token` that verifies the identity of the user as well as provides basic profile information about the user.
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
+
+[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
 
 ## Authentication flow using OpenID Connect
 The most basic sign-in flow contains the following steps - each of them is described in detail below.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse | Microsoft Docs
 description: Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
 services: sql-database
@@ -10,6 +10,7 @@ tags: ''
 
 ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -40,10 +41,10 @@ When the user account is configured for MFA the interactive authentication work 
 ## Configuration steps
 Implementing Multi-Factor Authentication requires four basic steps.
 
-1. **Configure an Azure Active Directory** – For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Configure MFA** – For step-by-step instructions, see [Configuring Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). 
-3. **Configure SQL Database or SQL Data Warehouse for Azure AD Authentication** – For step-by-step instructions, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
-4. **Download SSMS** – On the client computer, download the latest SSMS (at least August 2016), from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+1. **Configure an Azure Active Directory** - For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), and [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+2. **Configure MFA** - For step-by-step instructions, see [Configuring Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). 
+3. **Configure SQL Database or SQL Data Warehouse for Azure AD Authentication** - For step-by-step instructions, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
+4. **Download SSMS** - On the client computer, download the latest SSMS (at least August 2016), from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Connecting by using Universal Authentication with SSMS
 The following steps show how to connect to SQL Database or SQL Data Warehouse by using the latest SSMS.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Branding Guidelines for Applications | Microsoft Docs
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/23/2016
+ms.date: 01/07/2017
 ms.author: mbaldwin
 
 ---

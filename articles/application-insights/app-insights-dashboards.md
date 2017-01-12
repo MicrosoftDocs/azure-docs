@@ -31,7 +31,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 You can customize any of the other charts and pin them to a dashboard. That way, you can bring together the key charts from different apps.
 
 ## Dashboards
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](app-insights-overview.md).
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
@@ -111,7 +111,7 @@ The overview blade is the gateway to more information about your app.
 * **Overview** - Return to the app overview blade.
 * **Activity log** - Alerts and Azure administrative events.
 * [**Access control**](app-insights-resources-roles-access-control.md) - Provide access to team members and others.
-* [**Tags**](../resource-group-using-tags.md) - Use tags to group your app with others.
+* [**Tags**](../azure-resource-manager/resource-group-using-tags.md) - Use tags to group your app with others.
 
 INVESTIGATE
 
@@ -138,7 +138,7 @@ CONFIGURE
 
 SETTINGS
 
-* [**Locks**](../resource-group-lock-resources.md) - lock Azure resources
+* [**Locks**](../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
 * [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
 SUPPORT

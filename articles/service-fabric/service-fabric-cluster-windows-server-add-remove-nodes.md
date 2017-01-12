@@ -1,9 +1,9 @@
-﻿---
+---
 title: Add or remove nodes to a standalone Service Fabric cluster | Microsoft Docs
 description: Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2016
-ms.author: dkshir;chackdan
+ms.date: 12/06/2016
+ms.author: ryanwi;chackdan
 
 ---
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
@@ -26,20 +26,22 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster.
 4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to this VM/machine and unzip the package.
 5. Run Powershell as an administrator, and navigate to the location of the unzipped package.
-6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and FD1. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
+6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and fd:/dc1/r0. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```
-.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 ```
+You can check if the new node is added by running the cmdlet [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode).
+
 
 ## Remove nodes from your cluster
-1. Depending on the Reliablity level chosen for the cluster, you cannot remove the first n (3/5/7/9) nodes of the primary node type
-2. Running RemoveNode command on a dev cluster is not supported.
-3. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
-4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to this VM/machine.
-5. Run Powershell as an administrator, and navigate to the location of the unzipped package.
-6. Run *RemoveNode.ps1* in PowerShell. The example below removes the current node from the cluster. The *ExistingClientConnectionEndpoint* is a client connection endpoint for any node that will remain in the cluster. Choose the IP address and the endpoint port of *any* **other node** in the cluster. This **other node** will in turn update the cluster configuration for the removed node. 
+Depending on the Reliablity level chosen for the cluster, you cannot remove the first n (3/5/7/9) nodes of the primary node type. Also note that running RemoveNode command on a dev cluster is not supported.
+
+1. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
+2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to this VM/machine.
+3. Run Powershell as an administrator, and navigate to the location of the unzipped package.
+4. Run *RemoveNode.ps1* in PowerShell. The example below removes the current node from the cluster. The *ExistingClientConnectionEndpoint* is a client connection endpoint for any node that will remain in the cluster. Choose the IP address and the endpoint port of *any* **other node** in the cluster. This **other node** will in turn update the cluster configuration for the removed node. 
 
 ```
 .\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000

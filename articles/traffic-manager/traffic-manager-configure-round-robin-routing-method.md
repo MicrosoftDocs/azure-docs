@@ -1,10 +1,10 @@
-﻿---
+---
 title: Configure Traffic Manager round robin traffic routing method | Microsoft Docs
 description: This article will help you configure round robin load balancing for your Traffic Manager endpoints.
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: 0bd41a6c-8889-4dc8-bc7a-324b681b2959
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 
 ---
 <!-- repub for nofollow -->

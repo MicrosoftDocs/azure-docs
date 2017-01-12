@@ -1,23 +1,24 @@
 ---
 layout: LandingPage
+description: Learn how to develop logic apps that automate and simplify business workflows across on-premises and the cloud. Tutorials, templates, and API references.
 ---
-#Logic Apps Documentation
+# Logic Apps Documentation
 
-Logic Apps is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Logic Apps represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to develop Logic Apps that simplify and integrate scalable workflows in the cloud. Tutorials, templates, and API references help you design and deploy automated business workflows across on-premises and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/logic-apps.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Logic Apps Getting Started Samples</h3>
+                        <h3>Learn about Logic Apps</h3>
                     </div>
                 </div>
             </div>
@@ -25,17 +26,17 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Logic Apps Party Cluster</h3>
+                        <h3>App Service Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -43,17 +44,53 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
+        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Getting started with Logic Apps with .NET Core</h3>
+                        <h3>Get started creating a new Logic App connecting SaaS services</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started creating a Logic App using a template</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started creating a custom API to use with Logic Apps</h3>
                     </div>
                 </div>
             </div>
@@ -64,16 +101,49 @@ Logic Apps is a distributed systems platform that makes it easy to package, depl
 
 ---
 
-##Reference
-
-###REST
-[Logic Apps REST API Reference](/rest/api/)
-
-###.NET
-[Logic Apps Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Schema History</h3>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">GA</a></p>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Preview</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/logic/">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
         <div class="img"></div>
         <div class="text">
             Download Logic Apps Documentation

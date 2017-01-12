@@ -20,8 +20,8 @@ ms.author: huvalo
 ---
 # Django Hello World web application on a Linux VM
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md)
-> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
+> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -43,9 +43,9 @@ A screenshot of the completed application is below:
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Creating and configuring an Azure virtual machine to host Django
-1. Follow the instructions given [here](virtual-machines-linux-quick-create-portal.md) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
+1. Follow the instructions given [here](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
 2. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
-3. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](virtual-machines-linux-portal-create-fqdn.md).  This step is optional to complete this tutorial.
+3. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This step is optional to complete this tutorial.
 
 ## <a id="setup"> </a>Setting up the development environment
 **Note:** If you need to install Python or would like to use the Client Libraries, please see the [Python Installation Guide](../python-how-to-install.md).

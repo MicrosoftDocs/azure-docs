@@ -1,9 +1,9 @@
-﻿---
+---
 title: Monitor an Azure Container Service cluster with Sysdig | Microsoft Docs
 description: Monitor an Azure Container Service cluster with Sysdig.
 services: container-service
 documentationcenter: ''
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
-ms.author: t-ribhat
+ms.author: saudas
 
 ---
 # Monitor an Azure Container Service cluster with Sysdig

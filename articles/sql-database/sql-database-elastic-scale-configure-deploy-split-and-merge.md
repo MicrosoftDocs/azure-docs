@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy a split-merge service | Microsoft Docs
 description: Splitting and Merging with elastic database tools
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -146,9 +147,9 @@ The script files included are:
 
 1. **SetupSampleSplitMergeEnvironment.ps1** - sets up a test data tier for Split/Merge (see table below for detailed description)
 2. **ExecuteSampleSplitMerge.ps1** - executes test operations on the test data tier (see table below for detailed description)
-3. **GetMappings.ps1** – top-level sample script that prints out the current state of the shard mappings.
-4. **ShardManagement.psm1**  – helper script that wraps the ShardManagement API
-5. **SqlDatabaseHelpers.psm1** – helper script for creating and managing SQL databases
+3. **GetMappings.ps1** - top-level sample script that prints out the current state of the shard mappings.
+4. **ShardManagement.psm1**  - helper script that wraps the ShardManagement API
+5. **SqlDatabaseHelpers.psm1** - helper script for creating and managing SQL databases
 
 <table style="width:100%">
   <tr>
@@ -239,7 +240,7 @@ The script files included are:
    
    If it succeeded, the output should look like the below:
    
-   > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
+   > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
    > Sending split request
    > Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
    > Polling split-merge request status. Press Ctrl-C to end

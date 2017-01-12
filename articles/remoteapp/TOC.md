@@ -63,3 +63,9 @@
 ## Troubleshoot
 ### [Troubleshoot a hybrid collection](remoteapp-hybridtrouble.md)
 ### [Troubleshoot a cloud collection](remoteapp-cloudtrouble.md)
+
+# Resources
+## [Service updates](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Pricing](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

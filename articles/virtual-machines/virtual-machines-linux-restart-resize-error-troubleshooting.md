@@ -1,4 +1,4 @@
-﻿---
+---
 title: VM restarting or resizing issues | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
 services: virtual-machines-linux, azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
 
 ---
@@ -26,9 +26,9 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 ## Collect audit logs
 To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process:
 
-[Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+[Troubleshooting resource group deployments with Azure Portal](../azure-resource-manager/resource-manager-troubleshoot-deployments-portal.md)
 
-[Audit operations with Resource Manager](../resource-group-audit.md)
+[Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 
 ## Issue: Error when starting a stopped VM
 You try to start a stopped VM but get an allocation failure.
@@ -60,5 +60,5 @@ The request to resize the VM has to be attempted at the original cluster that ho
   3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
 ## Next steps
-If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

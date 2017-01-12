@@ -21,7 +21,7 @@ ms.author: davidmu
 # Common network Azure PowerShell commands for VMs
 If you want to create a virtual machine, you need to create a [virtual network](../virtual-network/virtual-networks-overview.md) or know about an existing virtual network in which the VM can be added. Typically, when you create a VM, you also need to consider creating the resources described in this article.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Create network resources
 | Task | Command |
@@ -61,6 +61,6 @@ See [How to install and configure Azure PowerShell](../powershell-install-config
 | Delete a public IP address |[Remove-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt619352.aspx)-Name "ip_address_name" -ResourceGroupName "resource_group_name"<BR><BR>Removes the specified public IP address from the resource group. |
 
 ## Next Steps
-* Use the network interface that you just created when you [create a VM](virtual-machines-windows-ps-create.md).
+* Use the network interface that you just created when you [create a VM](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Learn about how you can [create a VM with multiple network interfaces](../virtual-network/virtual-networks-multiple-nics.md).
 

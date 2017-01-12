@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure log integration FAQ | Microsoft Docs
 description: This FAQ answers questions about Azure log integration.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/07/2017
 ms.author: TomSh
 
 ---
@@ -69,14 +69,14 @@ Error:
 ## Where can I find the definition of the properties in audit log?
 See:
 
-* [Audit operations with Resource Manager](../resource-group-audit.md)
+* [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [List the management events in a subscription in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## Where can I find details on Azure Security Center alerts?
 See [Managing and responding to security alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## How can I modify what is collected with VM diagnostics?
-See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
+See [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for details on how to Get, Modify, and Set the Azure Diagnostics in Windows *(WAD)* configuration. Following is a sample:
 
 ### Get the WAD config
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient

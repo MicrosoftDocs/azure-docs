@@ -3,7 +3,7 @@ title: Azure AD Java Getting Started | Microsoft Docs
 description: How to build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
@@ -40,17 +40,17 @@ To get started, [download the app skeleton](https://github.com/Azure-Samples/act
 ## 1.  Register an Application with Azure AD
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-* Sign into the Azure Management Portal.
-* In the left hand nav, click on **Active Directory**.
-* Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click add in the bottom drawer.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
   * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
-* Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
-Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
+Once in the portal for your app create a **Key** for your application from the **Settings** page and copy it down.  You will need it shortly.
 
 ## 2. Set up your app to use ADAL4J library and prerequisities using Maven
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
@@ -232,9 +232,9 @@ The file should look like the following:
 ```
 
 
-    -    The `YOUR_CLIENT_ID` is the **Application Id** assigned to your app in the registration portal.
-    -    The `YOUR_CLIENT_SECRET` is the **Application Secret**  you created in the portal.
-    - The `YOUR_TENANT_NAME` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
+    -    YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
+    -    YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.
+    -    YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
 Leave the rest of the configuration parameters alone.
 
@@ -362,7 +362,7 @@ Let's write some Java files to do this work for us:
 
 We will be using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this (e.g. `/com/microsoft/aad/adal4jsample`). You are free to do this, but it is not necessary.
 
-1. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
+2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
 
 ```Java
 
@@ -585,7 +585,7 @@ public class JSONHelper {
 
 ```
 
-1. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
+3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
 
 ```Java
 
@@ -741,7 +741,7 @@ public class HttpClientHelper {
 
 ```
 
-## 6. Create the java Graph API Model files (for BasicFilter MVC)
+## 6. Create the Java Graph API Model files (for BasicFilter MVC)
 As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
 1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
@@ -799,7 +799,7 @@ public abstract class DirectoryObject {
 
 ```
 
-1. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
+2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
 
 ```Java
 
@@ -1374,7 +1374,7 @@ public final class AuthHelper {
 }
 ```
 
-1. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
+2. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
 
 ```Java
 package com.microsoft.aad.adal4jsample;
@@ -1392,7 +1392,7 @@ public final class AuthParameterNames {
 }
 ```
 
-1. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
+3. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
 
 Cut/paste the following:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Media Services fragmented MP4 live ingest specification | Microsoft Docs
 description: This specification describes the protocol and format for Fragmented MP4 based live streaming ingestion for Microsoft Azure Media Services. Microsoft Azure Media Services provides live streaming service which allows customers to stream live events and broadcast content in real-time using Microsoft Azure as the cloud platform. This document also discusses best practices in building highly redundant and robust live ingest mechanisms.
 services: media-services
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 
 ---
 # Azure Media Services fragmented MP4 live ingest specification
@@ -29,7 +29,7 @@ The diagram below shows the high level architecture of the live streaming servic
 1. Live Encoder pushes live feeds into Channels which are created and provisioned via the Microsoft Azure Media Services SDK.
 2. Channels, Programs and Streaming endpoint in Microsoft Azure Media Services handle all the live streaming functionalities including ingest, formatting, cloud DVR, security, scalability and redundancy.
 3. Optionally customers could choose to deploy a CDN layer between the Streaming endpoint and the client endpoints.
-4. Client endpoints stream from the Streaming endpoint using HTTP Adaptive Streaming protocols (e.g. Smooth Streaming, DASH, HDS or HLS).
+4. Client endpoints stream from the Streaming endpoint using HTTP Adaptive Streaming protocols (e.g. Smooth Streaming, DASH, or HLS).
 
 ![image1][image1]
 

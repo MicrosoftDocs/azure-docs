@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ that provides answers to questions in conjunction with accessing Azure and Azure Active Directory, password management and application access.
 services: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2016
-ms.author: markusvi
+ms.author: markvi
 
 ---
 # Azure Active Directory FAQ

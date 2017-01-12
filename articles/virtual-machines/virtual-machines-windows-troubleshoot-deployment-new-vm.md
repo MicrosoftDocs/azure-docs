@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot Windows VM deployment-RM | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows, azure-resource-manager
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/16/2016
 ms.author: cjiang
 
 ---
@@ -26,9 +26,9 @@ ms.author: cjiang
 ## Collect audit logs
 To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[Troubleshoot resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+[Troubleshoot resource group deployments with Azure Portal](../azure-resource-manager/resource-manager-troubleshoot-deployments-portal.md)
 
-[Audit operations with Resource Manager](../resource-group-audit.md)
+[Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -54,7 +54,7 @@ To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](ht
 
 **Resolution**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-vhd-copy.md) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/gallery/marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
@@ -80,5 +80,5 @@ This error arises in situations when the new VM request is pinned to a cluster t
   * Add the new VM to the same virtual network.
 
 ## Next steps
-If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
+If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

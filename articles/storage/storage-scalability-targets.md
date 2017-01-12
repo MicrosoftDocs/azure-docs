@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Stora
 services: storage
 documentationcenter: na
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
@@ -39,7 +39,7 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) for additional details.
+See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
 ### Standard storage accounts
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]

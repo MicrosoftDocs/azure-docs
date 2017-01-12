@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/28/2016
 ms.author: anhoh
 
 ---
@@ -23,6 +23,93 @@ To use these examples, you must:
 
 * [Create](documentdb-create-mongodb-account.md) an Azure DocumentDB account with protocol support for MongoDB.
 * Retrieve your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
+
+## Get started with a sample Node.js Getting Started app
+
+1. Create a *app.js* file and copy & paste the code below.
+
+         var MongoClient = require('mongodb').MongoClient;
+         var assert = require('assert');
+         var ObjectId = require('mongodb').ObjectID;
+         var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+
+         var insertDocument = function(db, callback) {
+            db.collection('families').insertOne( {
+                 "id": "AndersenFamily",
+                 "lastName": "Andersen",
+                 "parents": [
+                     { "firstName": "Thomas" },
+                     { "firstName": "Mary Kay" }
+                 ],
+                 "children": [
+                     { "firstName": "John", "gender": "male", "grade": 7 }
+                 ],
+                 "pets": [
+                     { "givenName": "Fluffy" }
+                 ],
+                 "address": { "country": "USA", "state": "WA", "city": "Seattle" }
+             }, function(err, result) {
+             assert.equal(err, null);
+             console.log("Inserted a document into the families collection.");
+             callback();
+           });
+         };
+
+         var findFamilies = function(db, callback) {
+            var cursor =db.collection('families').find( );
+            cursor.each(function(err, doc) {
+               assert.equal(err, null);
+               if (doc != null) {
+                  console.dir(doc);
+               } else {
+                  callback();
+               }
+            });
+         };
+
+         var updateFamilies = function(db, callback) {
+            db.collection('families').updateOne(
+               { "lastName" : "Andersen" },
+               {
+                 $set: { "pets": [
+                     { "givenName": "Fluffy" },
+                     { "givenName": "Rocky"}
+                 ] },
+                 $currentDate: { "lastModified": true }
+               }, function(err, results) {
+               console.log(results);
+               callback();
+            });
+         };
+
+         var removeFamilies = function(db, callback) {
+            db.collection('families').deleteMany(
+               { "lastName": "Andersen" },
+               function(err, results) {
+                  console.log(results);
+                  callback();
+               }
+            );
+         };
+
+         MongoClient.connect(url, function(err, db) {
+           assert.equal(null, err);
+           insertDocument(db, function() {
+             findFamilies(db, function() {
+               updateFamilies(db, function() {
+                 removeFamilies(db, function() {
+                     db.close();
+                 });
+               });
+             });
+           });
+         });
+
+2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](documentdb-connect-mongodb-account.md)):
+   
+         var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+     
+3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Get started with a sample ASP.NET MVC task list application
 You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB account with protocol support for MongoDB.  
@@ -161,11 +248,10 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
         }
 2. Modify the following variables in the Dal.cs file per your account settings:
    
-     private string userName = "<your user name>";
-     private string host = "<your host>";
-     private string password = "<your password>";
+         private string userName = "<your user name>";
+         private string host = "<your host>";
+         private string password = "<your password>";
 3. Use the app!
 
 ## Next steps
 * Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
-

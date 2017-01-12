@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting started with elastic database jobs
 description: how to use elastic database jobs
 services: sql-database
@@ -8,6 +8,7 @@ author: ddove
 
 ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -160,7 +161,7 @@ Retrieve all top level job executions, including inactive job executions:
 Retrieve all child job executions of a provided job execution ID, including inactive job executions:
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Retrieve all job executions created using a schedule / job combination, including inactive jobs:
 
@@ -174,13 +175,13 @@ Retrieve all jobs targeting a specified shard map, including inactive jobs:
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Retrieve all jobs targeting a specified custom collection, including inactive jobs:
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Retrieve the list of job task executions within a specific job execution:
 
@@ -285,7 +286,7 @@ To trigger job deletion, use the **Remove-AzureSqlJob** cmdlet and set the **Job
     Remove-AzureSqlJob -JobName $jobName
 
 ## Create a custom database target
-Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group. Since **Elastic Database pools** are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.
+Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group. Since **elastic pools** are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.
 
 Set the following variables to reflect the desired database information:
 
@@ -374,7 +375,7 @@ Set the following variables to correspond to the desired job and schedule:
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
-    $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName –JobName $jobName
+    $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
     Write-Output $jobTrigger
 
 ### Remove a scheduled association to stop job from executing on schedule

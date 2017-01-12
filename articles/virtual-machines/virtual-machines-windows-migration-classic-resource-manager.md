@@ -1,4 +1,4 @@
-﻿---
+---
 title: Platform-supported migration of IaaS resources from classic to Azure Resource Manager | Microsoft Docs
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-windows
@@ -186,7 +186,7 @@ No. The VMs (classic) are fully supported services in general availability. You 
 
 **What happens to my VMs if I don’t plan on migrating in the near future?**
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
+We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
 
 **What does this migration plan mean for my existing tooling?**
 
@@ -242,5 +242,5 @@ Now that you understand the migration of classic IaaS resources to Resource Mana
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md)
+* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](virtual-machines-migration-errors.md)

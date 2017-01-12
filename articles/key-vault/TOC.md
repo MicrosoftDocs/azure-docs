@@ -27,13 +27,12 @@
 ### [Create and Manage using CLI](key-vault-manage-with-cli.md)
 
 # Reference
-## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [.NET for Key Vault](https://msdn.microsoft.com/en-us/library/azure/mt430941)
-## [REST for Key Vault](https://msdn.microsoft.com/en-us/library/azure/dn903609)
-## [Node.js for Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-## [Key Vault cmdlets](https://msdn.microsoft.com/en-us/library/azure/dn868052)
-## [Microsoft Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI (Preview)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Related
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -42,6 +41,8 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
+## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Error During Authentication Detection
 description: The active directory connection wizard detected an incompatible authentication type
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 
 ---

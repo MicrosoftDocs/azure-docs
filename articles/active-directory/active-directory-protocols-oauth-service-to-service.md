@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/07/2017
 ms.author: priyamo
 
 ---
@@ -45,7 +45,7 @@ A service-to-service access token request contains the following parameters.
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| response_type |required |Specifies the requested response type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
+| grant_type |required |Specifies the requested response type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
 | client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |
 | client_secret |required |Enter a key registered for the calling web service in Azure AD. To create a key, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |
 | resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure Management Portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |

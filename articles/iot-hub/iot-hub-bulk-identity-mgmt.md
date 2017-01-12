@@ -1,6 +1,6 @@
-﻿---
-title: Import export of IoT Hub device identities | Microsoft Docs
-description: Concepts and .NET code snippets for bulk management of IoT Hub device identities
+---
+title: Import export of Azure IoT Hub device identities | Microsoft Docs
+description: How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 
 ---
-# Bulk management of IoT Hub device identities
-Each IoT hub has a device identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The device identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from a device identity registry.
+# Manage your IoT Hub device identities in bulk
+Each IoT hub has an identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
-The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub device registry.
+The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
 ## What are Jobs?
-Device identity registry operations use the **Job** system when the operation:
+Identity registry operations use the **Job** system when the operation:
 
-* Has a potentially long execution time compared to standard runtime operations, or
+* Has a potentially long execution time compared to standard run-time operations, or
 * Returns a large amount of data to the user.
 
 In these cases, instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.
@@ -61,7 +61,7 @@ while(true)
 ```
 
 ## Export devices
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub device registry to an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container using a [Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container using a [Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
@@ -72,7 +72,7 @@ The **ExportDevicesAsync** method requires two parameters:
    ```
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
-* A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output; otherwise, keys are exported as **null**.
+* A *boolean* that indicates if you want to exclude authentication keys from your export data. If **false**, authentication keys are included in export output. Otherwise, keys are exported as **null**.
 
 The following C# code snippet shows how to initiate an export job that includes device authentication keys in the export data and then poll for completion:
 
@@ -130,18 +130,18 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 > 
 
 ## Import devices
-The **ImportDevicesAsync** method in the **RegistryManager** class enables you to perform bulk import and synchronization operations in an IoT hub device registry. Like the **ExportDevicesAsync** method, the **ImportDevicesAsync** method uses the **Job** framework.
+The **ImportDevicesAsync** method in the **RegistryManager** class enables you to perform bulk import and synchronization operations in an IoT hub identity registry. Like the **ExportDevicesAsync** method, the **ImportDevicesAsync** method uses the **Job** framework.
 
-Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your device identity registry, it can also update and delete existing devices.
+Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your identity registry, it can also update and delete existing devices.
 
 > [!WARNING]
-> An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your device identity registry.
+> An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
 > 
 > 
 
 The **ImportDevicesAsync** method takes two parameters:
 
-* A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your device identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
   
    ```
    SharedAccessBlobPermissions.Read
@@ -164,7 +164,7 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 ```
 
 ## Import behavior
-You can use the **ImportDevicesAsync** method to perform the following bulk operations in your device identity registry:
+You can use the **ImportDevicesAsync** method to perform the following bulk operations in your identity registry:
 
 * Bulk registration of new devices
 * Bulk deletions of existing devices
@@ -196,7 +196,7 @@ The following C# code sample illustrates how to generate multiple device identit
 
 * Include authentication keys.
 * Write that device information to a block blob.
-* Import the devices into the device identity registry.
+* Import the devices into the identity registry.
 
 ```
 // Provision 1,000 more devices
@@ -337,14 +337,14 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ```
 
 ## Next steps
-In this article, you learned how to perform bulk operations against the device identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md

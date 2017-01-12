@@ -1,4 +1,4 @@
-﻿---
+---
 title: HPC Pack cluster for Excel and SOA | Microsoft Docs
 description: Get started running large-scale Excel and SOA workloads on an HPC Pack cluster in Azure
 services: virtual-machines-windows
@@ -83,12 +83,12 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 **Additional prerequisites**
 
-* **Azure PowerShell** - [Install and configure Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 or later) on your client computer.
+* **Azure PowerShell** - [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (version 0.8.10 or later) on your client computer.
 * **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.0 or later of the script.
 
 **Create the configuration file**
 
- The HPC Pack IaaS deployment script uses an XML configuration file as input that describes the infrastructure of the HPC cluster. To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+ The HPC Pack IaaS deployment script uses an XML configuration file as input that describes the infrastructure of the HPC cluster. To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file. For more information about the configuration file, see the Manual.rtf file in the script folder and [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Query Performance Insight
 description: Query performance monitoring identifies the most CPU-consuming queries for an Azure SQL Database.
 services: sql-database
@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -68,7 +69,7 @@ In the [portal](http://portal.azure.com) do the following:
    
     The bottom grid represents aggregated information for the visible queries.
    
-   * Query ID – unique identifier of query inside database.
+   * Query ID - unique identifier of query inside database.
    * CPU per query during observable interval (depends on aggregation function).
    * Duration per query (depends on aggregation function).
    * Total number of executions for a particular query.
@@ -169,14 +170,14 @@ Second case happens when Query Store is Off or parameters aren’t set optimally
 ### Recommended retention and capture policy
 There are two types of retention policies:
 
-* Size based – if set to AUTO it will clean data automatically when near max size is reached.
+* Size based - if set to AUTO it will clean data automatically when near max size is reached.
 * Time based - by default we will set it to 30 days, which means, if Query Store will run out of space, it will delete query information older than 30 days
 
 Capture policy could be set to:
 
-* **All** – Captures all queries.
-* **Auto** – Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
-* **None** – Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
+* **All** - Captures all queries.
+* **Auto** - Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
+* **None** - Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
 
 We recommend setting all policies to AUTO and clean policy to 30 days:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Web and Business Edition sunset FAQ | Microsoft Docs
 description: Find out when the Azure SQL Web and Business databases will be retired and learn about the features and functionality of the new service tiers.
 services: sql-database
@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: a63cf1e8-c058-4422-a944-00d6ff9c6391
 ms.service: sql-database
+ms.custom: V11
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
