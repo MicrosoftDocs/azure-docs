@@ -18,7 +18,7 @@ ms.author: brandwe
 
 ---
 # Java Web App Sign In & Sign Out with Azure AD
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../../includes/active-directory-devguide.md)]
 
 Azure AD makes it simple and straightforward to outsource your web app's identity management, providing single sign-in and sign-out with only a few lines of code.  In Java web apps, you can accomplish this using Microsoft's implementation of the community-driven ADAL4J.
 

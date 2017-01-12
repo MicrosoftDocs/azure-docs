@@ -234,7 +234,7 @@ node server.js
 
 In a browser navigate to `http://localhost:8080`.  Sign in using either a personal Microsoft account or a work/school account.  Add tasks to the user's to-do list, and sign out.  Try signing in with the other type of account. If you need an Azure AD tenant to create work/school users, [learn how to get one here](active-directory-howto-tenant.md) (it's free).
 
-To continue learning about the the v2.0 endpoint, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
+To continue learning about the the v2.0 endpoint, head back to our [v2.0 developer guide](../active-directory-appmodel-v2-overview.md).  For additional resources, check out:
 
 * [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

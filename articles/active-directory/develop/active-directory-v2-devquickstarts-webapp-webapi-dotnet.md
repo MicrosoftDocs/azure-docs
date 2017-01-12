@@ -190,7 +190,7 @@ For reference, the completed sample (without your configuration values) [is prov
 ## Next Steps
 For additional resources, check out:
 
-* [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
+* [The v2.0 developer guide >>](../active-directory-appmodel-v2-overview.md)
 * [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## Get security updates for our products

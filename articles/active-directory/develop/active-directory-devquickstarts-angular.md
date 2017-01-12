@@ -18,9 +18,9 @@ ms.author: dastrock
 
 ---
 # Securing AngularJS Single Page Apps with Azure AD
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+[!INCLUDE [active-directory-devquickstarts-switcher](../../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../../includes/active-directory-devguide.md)]
 
 Azure AD makes it simple and straightforward for you to add sign in, sign out, and secure OAuth API calls to your single page apps.  It enables your app to authenticate users with their Active Directory accounts and consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -148,5 +148,5 @@ For reference, the completed sample (without your configuration values) is provi
 
 [Call a CORS Web API from a SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

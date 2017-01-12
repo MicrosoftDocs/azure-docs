@@ -27,7 +27,7 @@ Any apps that have been written to use the v2.0 converged authentication endpoin
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 ```
 
-More information on the v2.0 endpoint can be found [here](active-directory-appmodel-v2-overview.md).
+More information on the v2.0 endpoint can be found [here](../active-directory-appmodel-v2-overview.md).
 
 If you have built an app using the v2.0 endpoint by coding directly to the v2.0 protocol, using any of our OpenID Connect or OAuth web middlewares, or using other 3rd party libraries to perform authentication, you should be prepared to test your projects and make changes if necessary.
 

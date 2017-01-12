@@ -207,7 +207,7 @@ Please use the Disqus comments section below to provide feedback and help us ref
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AAD-V2-Dev-Guide]: ./active-directory-appmodel-v2-overview.md
+[AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
 [AZURE-classic-portal]: https://manage.windowsazure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32

@@ -18,7 +18,7 @@ ms.author: dastrock
 
 ---
 # App types for the Azure Active Directory v2.0 endpoint
-The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
+The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](../active-directory-appmodel-v2-overview.md#getting-started).
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -66,7 +66,7 @@ In web server apps, the sign-in authentication flow takes these high-level steps
 
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the v2.0 endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web app sign-in code samples in our v2.0 [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+To see this scenario in action, try one of the web app sign-in code samples in our v2.0 [Getting Started](../active-directory-appmodel-v2-overview.md#getting-started) section.
 
 In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md). For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
@@ -91,7 +91,7 @@ A Web API can receive access tokens from all types of apps, including web server
 
 To learn more about authorization codes, refresh tokens, and the detailed steps of getting access tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols-oauth-code.md).
 
-To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](../active-directory-appmodel-v2-overview.md#getting-started) section.
 
 ## Mobile and native apps
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md).
@@ -107,7 +107,7 @@ In this flow, the app receives tokens directly from the v2.0 authorize endpoint,
 
 ![Implicit authentication flow](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-To see this scenario in action, try one of the single-page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+To see this scenario in action, try one of the single-page app code samples in our [Getting Started](../active-directory-appmodel-v2-overview.md#getting-started) section.
 
 ### Daemons and server-side apps
 Apps that have long-running processes or that operate without interaction with a user also need a way to access secured resources, such as Web APIs. These apps can authenticate and get tokens by using the app's identity, rather than a user's delegated identity, with the OAuth 2.0 client credentials flow.
@@ -116,7 +116,7 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain en
 
 ![Daemon app authentication flow](../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-To build a daemon app, see the client credentials documentation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+To build a daemon app, see the client credentials documentation in our [Getting Started](../active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
 ## Current limitations
 Currently, the types of apps in this section are not supported by the v2.0 endpoint, but they are on the roadmap for future development. For additional limitations and restrictions for the v2.0 endpoint, see [Should I use the v2.0 endpoint?](active-directory-v2-limitations.md).

@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 ---
 # Integrating with Azure Active Directory
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory provides organizations with enterprise-grade identity management for cloud applications.  Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
 

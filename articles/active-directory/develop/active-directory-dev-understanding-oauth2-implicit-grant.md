@@ -63,6 +63,6 @@ If you are developing a Web application which includes a backend, and consuming 
 <!--Reference style links in use-->
 [AAD-Developers-Guide]: active-directory-developers-guide.md
 [ACOM-How-And-Why-Apps-Added-To-AAD]: active-directory-how-applications-are-added.md
-[ACOM-How-To-Integrate]: ./develop/active-directory-how-to-integrate.md
+[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

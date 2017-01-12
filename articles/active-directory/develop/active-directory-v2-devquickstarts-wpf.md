@@ -251,7 +251,7 @@ You can now move onto more advanced topics.  You may want to try:
 
 For additional resources, check out:  
 
-* [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
+* [The v2.0 developer guide >>](../active-directory-appmodel-v2-overview.md)
 * [StackOverflow "msal" tag >>](http://stackoverflow.com/questions/tagged/msal)
 
 ## Get security updates for our products

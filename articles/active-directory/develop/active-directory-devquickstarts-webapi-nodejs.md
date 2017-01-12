@@ -18,7 +18,7 @@ ms.author: brandwe
 
 ---
 # Getting Started With WEB-API for Node
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../../../includes/active-directory-devguide.md)]
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
@@ -909,5 +909,5 @@ Simply clone down to your developer machine and configure as stated in the Walkt
 
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
