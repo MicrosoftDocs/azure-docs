@@ -260,7 +260,7 @@ The return for this sample should show **Status: Successful**.
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 
-### To verify the connection from your Resource Manager  VNet to your classic VNet
+###To verify the connection from your Resource Manager VNet to your classic VNet
 
 ####Verify your connection using PowerShell
 
