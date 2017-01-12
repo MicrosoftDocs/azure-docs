@@ -122,7 +122,7 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Fail over across subnets
+## Set connection for multi subnets
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
