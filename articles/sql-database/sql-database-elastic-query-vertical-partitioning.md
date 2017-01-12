@@ -27,7 +27,10 @@ Vertically-partitioned databases use different sets of tables on different datab
 * ALTER ANY EXTERNAL DATA SOURCE permissions are needed to refer to the underlying data source.
 
 ## Overview
-**NOTE**:  Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
+
+> [!NOTE]
+> Unlike with horizontal partitioning, these DDL statements do not depend on defining a data tier with a shard map through the elastic database client library.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -42,7 +45,9 @@ The credential is used by the elastic query to connect to your remote databases.
     SECRET = '<password>'
     [;]
 
-**Note**    Ensure that the *<username>* does not include any *"@servername"* suffix. 
+> [!NOTE]
+> Ensure that the `<username>` does not include any **"@servername"** suffix. 
+>
 
 ## Create external data sources
 Syntax:
@@ -55,7 +60,9 @@ Syntax:
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Important**   The TYPE parameter must be set to **RDBMS**. 
+> [!IMPORTANT]
+> The TYPE parameter must be set to **RDBMS**. 
+>
 
 ### Example
 The following example illustrates the use of the CREATE statement for external data sources. 
