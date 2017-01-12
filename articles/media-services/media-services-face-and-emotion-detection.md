@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 01/12/2017
 ms.author: milanga;juliako;
 
 ---
@@ -338,12 +338,12 @@ JSON output for aggregate emotion (truncated):
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with a face detection task based on a configuration file that contains the following json preset. 
+2. Create a job with a face detection task based on a configuration file that contains the following json preset. 
    
         {
             "version": "1.0"
         }
-3. Downloads the output JSON files. 
+3. Download the output JSON files. 
    
         using System;
         using System.Configuration;
