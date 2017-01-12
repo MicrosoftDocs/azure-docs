@@ -65,18 +65,18 @@ In this section of the tutorial, you view information about the security configu
 2. Make note of the name of the `Server admin` account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
 
 > [!NOTE]
-> To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md).
+> To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
 >
 
 ## Connect to SQL server using SQL Server Management Studio (SSMS)
 
 1. If you have not already done so, download and install the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). To stay up-to-date, the latest version of SSMS prompts you when there is a new version available to download.
 
-2. After installing, type **Microsoft SQL Server Management Studio** in the Windows search box and click **Enter** to open SSMS:
+2. After installing, type **Microsoft SQL Server Management Studio** in the Windows search box and click **Enter** to open SSMS.
 
    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
 
-3. In the **Connect to Server** dialog box, enter the necessary information to connect to your SQL server using SQL Server Authentication.
+3. In the **Connect to Server** dialog box, enter the necessary information to connect to your SQL server using SQL Server Authentication and the Server admin account.
 
    ![connect to server](./media/sql-database-get-started/connect-to-server.png)
 
@@ -234,6 +234,53 @@ In this section of the tutorial, you create a new user account in the `Adventure
 ## Create a database-level firewall rule for `AdventureWorksLT` database users
 
 In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule, and then log in using this new database-level firewall rule. 
+
+1. On another computer for which you have not already created a server-level firewall rule, open SQL Server Management Studio.
+
+   > [!IMPORTANT]
+   > Always use the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). 
+   >
+
+2. In the Connect to Server window, enter the server name and authentication information to connect using SQL Server authentication with the 'user1' account. 
+    
+   ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
+
+3. Click **Options** to specify the database to which you want to connect and then type **'AdventureWorksLT'** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
+   
+   ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
+
+4. Click **Connect**. A dialog box appears informing you that the computer from which you are attempting to connect to SQL Database does not have a firewall rule enabling access to the database. The dialog box that you receive has two variations depending upon steps you have previously taken with firewalls, but you will usually get the first dialog box shown below.
+
+   ![Connect as user1 without firewall rule3](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule3.png)
+
+   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
+
+   > [!NOTE]
+   > The newest versions of SSMS include the functionality to allow subscription owners and contributors to sign in to Microsoft Azure and create a server-level firewall rule.
+   > 
+
+4. Copy the client IP address from this dialog box for use in step 7.
+5. Click **Cancel** but do not close the **Connect to Server** dialog box.
+6. Switch back to a computer for which you have already created a server-level firewall rule and connect to your server using the Server admin account.
+7. Open a new query window connected to the `master` database and execute the following query to create a database-level firewall by executing `[sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx)` using the IP address from step 4:
+
+   ```
+   EXECUTE sp_set_firewall_rule @name = N'AdventureWorksLTFirewallRule',
+     @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x'
+   ```
+
+   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/user1_add_rule_aw.png)
+
+8. Switch computers again and click **Connect** in the **Connect to Server** dialog box to connect to `AdventureWorksLT` as `user1`. 
+
+   ![Connect as user1 with firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
+
+9. In Object Explorer, expand **Databases**, expand **AdventureWorksLT**, and then expand **Tables**. Notice that `user1` only has permission to view a single table, the `**SalesLT.ProductCategory**` table. 
+
+   ![Connect as user1 and view objects1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_view_objects1.png)
+
+   
+      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
 ## Create a new user in the blankdb database with db_owner permissions
 
