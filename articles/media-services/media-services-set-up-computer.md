@@ -21,7 +21,7 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)
 >   <a id="create_account"></a>
 > 
 > 
