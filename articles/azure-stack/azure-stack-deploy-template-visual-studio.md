@@ -34,5 +34,5 @@ Use [Visual Studio](azure-stack-install-visual-studio.md) to deploy Azure Resour
 
 ## Next steps
 [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
-[Develop templates for Azure Stack](azure-stack-develop-templates)
+[Develop templates for Azure Stack](azure-stack-develop-templates.md)
 
