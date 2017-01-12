@@ -264,6 +264,3 @@ Attributes:
 |Attribute|Type|Description|  
 |---------------|----------|-----------------|  
 |**name**|**string**|Required. An XPath expression specifying the log to collect.|  
-
-## See Also  
- [Schema Reference](../Topic/Schema%20Reference.md)
