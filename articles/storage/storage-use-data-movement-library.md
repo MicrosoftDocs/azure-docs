@@ -13,14 +13,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/24/2016
+ms.date: 01/12/2017
 ms.author: micurd
 
 ---
 # Transfer Data with the Microsoft Azure Storage Data Movement Library
 
 ## Overview
-The Microsoft Azure Storage Data Movement Library is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md).The Data Movement Library leverages the .Net Standard runtime library which allows you to build .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
+The Microsoft Azure Storage Data Movement Library is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md). Similar to AzCopy, The Data Movement Library provides convenient methods such as setting the number of parallel connections and viewing your transfer progress. This library also leverages the .Net Standard runtime library, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
+
+The Data Movement Library offers a variety of features which include (but aren't limited to):
+
+### Blobs
+- Download, upload, and copy blobs.
+- Copy blobs synchronously and asynchronously.
+- Define the number of concurrent operations for transferring blobs and blob chunks.
+- Download blob snapshot.
+
+### Files
+- Download, upload, and copy files.
+- Copy files synchronously and asynchronously.
+- Define the number of concurrent operations for transferring files and file ranges.
+
+### General
+- Track data transfer progress.
+- Resume paused or failed data transfer.
+- Set access condition.
+- Set user agent suffix.
+- Include subdirectories when doing directory transfer option. 
 
 This tutorial will demonstrate how to create a .NET Core console application that uses the Data Movement Library and can be run on Windows, Linux, or MacOS.  
 
