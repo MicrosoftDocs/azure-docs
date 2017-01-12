@@ -36,15 +36,11 @@ Refer to the [REST API documentation](/rest/api/) to see the responses for the o
 ## Monitor status of operation
 The asynchronous REST operations return header values, which you use to determine the status of the operation. There are potentially three header values to examine:
 
-* `Azure-AsyncOperation` - URL for checking the ongoing status of the operation. 
-* `Location` - URL for determining when an operation has completed. 
+* `Azure-AsyncOperation` - URL for checking the ongoing status of the operation. If your operation returns this value, always use it (instead of Location) to track the status of the operation.
+* `Location` - URL for determining when an operation has completed. Use this value only when Azure-AsyncOperation is not returned.
 * `Retry-After` - The number of seconds to wait before checking the status of the asynchronous operation.
 
 However, not every asynchronous operation returns all these values. For example, you may need to evaluate the Azure-AsyncOperation header value for one operation, and the Location header value for another operation. 
-
-> [!IMPORTANT]
-> If your operation returns the `Azure-AsyncOperation` value, always use that value (instead of Location) to track the status of the operation. Use Location only when Azure-AsyncOperation is not returned.
->
 
 You retrieve the header values as you would retrieve any header value for a request. For example, in C#, you retrieve the header value from an `HttpWebResponse` object named `response` with the following code:
 
@@ -56,7 +52,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 To get the status of the asynchronous operation, send a GET request to the URL in Azure-AsyncOperation header value.
 
-The body of the response from this operation contains information about the operation. 
+The body of the response from this operation contains information about the operation. The following example shows the possible values returned from the operation:
 
 ```json
 {
@@ -195,5 +191,5 @@ If the request is still running, you receive a status code 202. If the request h
 ## Next steps
 
 * For documentation about each REST operation, see [REST API documentation](/rest/api/).
-* For information about managing resources through the Resource Manager REST API, see [Using the Resource Manager REST API](resource-manager-rest-api).
+* For information about managing resources through the Resource Manager REST API, see [Using the Resource Manager REST API](resource-manager-rest-api.md).
 * for information about deploying templates through the Resource Manager REST API, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
