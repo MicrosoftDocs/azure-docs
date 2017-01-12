@@ -275,7 +275,7 @@ To send a message to a Service Bus topic, your application must use the
 Messages sent to Service Bus topics are **BrokeredMessage** objects.
 **BrokeredMessage** objects have a set of standard properties (such as
 **Label** and **TimeToLive**), a dictionary that is used to hold custom
-application specific properties, and a body of string data. An
+application-specific properties, and a body of string data. An
 application can set the body of the message by passing a string value to
 the **sendTopicMessage** and any required standard properties will be
 populated by default values.
