@@ -34,7 +34,7 @@ To perform the tasks listed in this article, you need:
 ## Task 1 - Provision a domain-joined virtual machine to remotely administer Group Policy for the managed domain
 Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Similarly, Group Policy for the managed domain can be administered remotely using the Group Policy administration tools.
 
-Administrators in your Azure AD directory do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer Group Policy for managed domains remotely using Group Policy tools from a Windows Server/client computer that is joined to the managed domain. Group Policy tools can be installed as part of the Group Policy Management optional feature on Windows Server and client machines joined to the managed domain.
+Administrators in your Azure AD directory do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer Group Policy for managed domains remotely. They can use Group Policy tools on a Windows Server/client computer joined to the managed domain. Group Policy tools can be installed as part of the Group Policy Management optional feature on Windows Server and client machines joined to the managed domain.
 
 The first task is to provision a Windows Server virtual machine that is joined to the managed domain. For instructions, refer to the article titled [join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 
@@ -67,7 +67,7 @@ Perform the following steps to install the Group Policy Administration tools on 
     ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
 
 ## Task 3 - Launch the Group Policy management console to administer Group Policy
-Now that the Group Policy Management feature is installed on the domain joined virtual machine, we can use the Group Policy management console to administer Group Policy on the managed domain.
+You can use the Group Policy management console on the domain-joined virtual machine to administer Group Policy on the managed domain.
 
 > [!NOTE]
 > You need to be a member of the 'AAD DC Administrators' group, to administer Group Policy on the managed domain.
@@ -83,14 +83,15 @@ Now that the Group Policy Management feature is installed on the domain joined v
 3. Click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain. There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain.
 
     ![Built-in GPOs](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. You can customize these built-in GPOs to configure group policies on your managed domain. Right click the GPO and click **Edit...** to customize the built-in GPO. This launches the Group Policy Configuration Editor and enables you to customize the GPO.
+4. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
 
     ![Edit built-in GPO](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 5. You can now use the **Group Policy Management Editor** console to edit the built-in GPO. For instance, the following screenshot shows how to customize the built-in 'AADDC Computers' GPO.
 
     ![Customize GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-See the [Group Policy Management Console article on Technet](https://technet.microsoft.com/library/cc753298.aspx) for more information about using Group Policy Management Console.
+
+More information about using [Group Policy Management Console](https://technet.microsoft.com/library/cc753298.aspx) is available on Technet.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
