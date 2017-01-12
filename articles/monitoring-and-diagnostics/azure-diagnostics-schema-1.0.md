@@ -17,6 +17,7 @@ ms.date: 01/15/2017
 ms.author: robb
 
 ---
+# Azure Diagnostics 1.0 Configuration Schema
 The Azure Diagnostics configuration file defines values that are used to initialize the Diagnostics Monitor. This file is used to initialize diagnostic configuration settings when the diagnostics monitor starts.  
 
  By default, the Azure Diagnostics configuration schema file is installed to the `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` directory. Replace `<version>` with the installed version of the [Azure SDK](http://www.windowsazure.com/develop/downloads/).  
@@ -95,8 +96,8 @@ The top-level element of the diagnostics configuration file.
 
 Attributes:
 
-|Attribute  |Type   |Required|Default | Description|  
-|-----------|-------|------------|  
+|Attribute  |Type   |Required| Default | Description|  
+|-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Optional | PT1M| Specifies the interval at which the diagnostic monitor polls for diagnostic configuration changes.|  
 |**overallQuotaInMB**|unsignedInt|Optional| 4000 MB. If you provide a value, it must not exceed this amount |The total amount of file system storage allocated for all logging buffers.|  
 
@@ -108,7 +109,7 @@ Parent Element: [DiagnosticMonitorConfiguration Element](#DiagnosticMonitorConfi
 Attributes:
 
 |Attribute|Type|Description|  
-|---------------|----------|-----------------|  
+|---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Optional. Specifies the maximum amount of file system storage that is available for the specified data.<br /><br /> The default is 0.|  
 |**scheduledTransferLogLevelFilter**|string|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**. Other possible values are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
 |**scheduledTransferPeriod**|duration|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
@@ -250,9 +251,9 @@ Attributes:
 
 |Attribute|Type|Description|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Optional. Specifies the maximum amount of file system storage that is available for the specified data.<br /><br /> The default is 0.|  
-|**scheduledTransferLogLevelFilter**|**string**|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**. Other possible values are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
-|**scheduledTransferPeriod**|**duration**|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Optional. Specifies the maximum amount of file system storage that is available for the specified data.<br /><br /> The default is 0.|  
+|**scheduledTransferLogLevelFilter**|string|Optional. Specifies the minimum severity level for log entries that are transferred. The default value is **Undefined**. Other possible values are **Verbose**, **Information**, **Warning**, **Error**, and **Critical**.|  
+|**scheduledTransferPeriod**|duration|Optional. Specifies the interval between scheduled transfers of data, rounded up to the nearest minute.<br /><br /> The default is PT0S.|  
 
 ## DataSource Element  
  Defines the event log to monitor.
@@ -263,4 +264,4 @@ Attributes:
 
 |Attribute|Type|Description|  
 |---------------|----------|-----------------|  
-|**name**|**string**|Required. An XPath expression specifying the log to collect.|  
+|**name**|string|Required. An XPath expression specifying the log to collect.|  

@@ -17,6 +17,7 @@ ms.date: 01/15/2017
 ms.author: robb
 
 ---
+# Azure Diagnostics 1.3, 1.4, 1.5 Configuration Schema
 The Azure Diagnostics configuration file is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
  This page is valid for versions 1.3, 1.4 and 1.5. Newer configuration sections are commented to show in what version they were added.  
@@ -190,7 +191,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Required. The following attribute is required:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account that to be used to store the log files.|  
+|**DirectoryConfiguration**|Required. Required attribute:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account that to be used to store the log files.|  
 
 ## DirectoryConfiguration Element  
  May include either the **Absolute** or **LocalResource** element but not both.  
@@ -205,23 +206,23 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). The following attribute is required:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|The following attribute is required:<br /><br /> **provider** - The GUID of the event provider<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Required attribute:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Required attribute:<br /><br /> **provider** - The GUID of the event provider<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
 ## EtwEventSourceProviderConfiguration Element  
  Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**DefaultEvents**|The following attribute is optional:<br/><br/> **eventDestination** - The name of the table to store the events in|  
-|**Event**|The following attribute is required:<br /><br /> **id** - The id of the event.<br /><br /> The following attribute is optional:<br /><br /> **eventDestination** - The name of the table to store the events in|  
+|**DefaultEvents**|Optional attribute:<br/><br/> **eventDestination** - The name of the table to store the events in|  
+|**Event**|Required attribute:<br /><br /> **id** - The id of the event.<br /><br /> Optional attribute:<br /><br /> **eventDestination** - The name of the table to store the events in|  
 
 ## EtwManifestProviderConfiguration Element  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**DefaultEvents**|The following attribute is optional:<br /><br /> **eventDestination** - The name of the table to store the events in|  
-|**Event**|The following attribute is required:<br /><br /> **id** - The id of the event.<br /><br /> The following attribute is optional:<br /><br /> **eventDestination** - The name of the table to store the events in|  
+|**DefaultEvents**|Optional attribute:<br /><br /> **eventDestination** - The name of the table to store the events in|  
+|**Event**|Required attribute:<br /><br /> **id** - The id of the event.<br /><br /> Optional attribute:<br /><br /> **eventDestination** - The name of the table to store the events in|  
 
 ## Metrics Element  
  Enables you to generate a performance counter table that is optimized for fast queries. Each performance counter that is defined in the **PerformanceCounters** element is stored in the Metrics table in addition to the Performance Counter table.  
@@ -230,18 +231,18 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**MetricAggregation**|The following attribute is required:<br /><br /> **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Required attribute:<br /><br /> **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
 ## PerformanceCounters Element  
  Enables the collection of performance counters.  
 
- The following attribute is optional:  
+ Optional attribute:  
 
  Optional **scheduledTransferPeriod** attribute. See explanation earlier.
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> The following attribute is optional:<br /><br /> **unit** - The unit of measure of the counter.|  
+|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|  
 
 ## WindowsEventLog Element  
  Enables the collection of Windows Event Logs.  
@@ -250,7 +251,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. The following attribute is required:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events specify “*”.|  
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events specify “*”.|  
 
 ## Logs Element  
  Present in version 1.0 and 1.1. Missing in 1.2. Added back in 1.3.  

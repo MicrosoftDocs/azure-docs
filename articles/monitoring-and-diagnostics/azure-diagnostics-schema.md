@@ -17,6 +17,7 @@ ms.date: 01/15/2017
 ms.author: robb
 
 ---
+# Overview of Azure Diagnostics
 This page is an index of the Azure Diagnostics Schemas shipped as part of the Microsoft Azure SDK.  
 
 ## Azure SDK and Diagnostics versions shipping chart  
