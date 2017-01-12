@@ -157,7 +157,8 @@ The code example below performs the following tasks:
    
             externalMediaBlobContainer.CreateIfNotExists();
    
-            // Upload files to the blob container.  
+            // Upload files to the block blob container. 
+			// Page blobs are not supported by Azure Media Services. 
             DirectoryInfo uploadDirectory = new DirectoryInfo(localPath);
             foreach (var file in uploadDirectory.EnumerateFiles())
             {
