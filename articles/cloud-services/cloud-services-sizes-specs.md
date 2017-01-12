@@ -55,9 +55,9 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 | SKU Family | ACU/Core |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
+| [ExtraSmall](#a-series) |50 |
+| [Small-ExtraLarge](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [Standard_A1-8v2](#av2-series) |100 |
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
