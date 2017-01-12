@@ -45,7 +45,7 @@ There are several ways for your application to integrate with Azure AD.  Take ad
 ### Promote Your Application in the Azure and Office 365 Marketplaces
 **Promote your application to the millions of organizations who are already using Azure AD.**  Users who search and browse these marketplaces are already using one or more cloud services, making them qualified cloud service customers.  Learn more about promoting your application in [the Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement.  Learn more about the [Azure AD access panel](active-directory-saas-access-panel-introduction.md).
+**When users sign up for your application, it will appear in their Azure AD access panel and Office 365 app launcher.**  Users will be able to quickly and easily return to your application later, improving user engagement.  Learn more about the [Azure AD access panel](../active-directory-saas-access-panel-introduction.md).
 
 ### Secure Device-to-Service and Service-to-Service Communication
 **Using Azure AD for identity management of services and devices reduces the code you need to write and enables IT to manage access.**  Services and devices can get tokens from Azure AD using OAuth and use those tokens to access web APIs.  Using Azure AD you can avoid writing complex authentication code.  Since the identities of the services and devices are stored in Azure AD, IT can manage keys and revocation in one place instead of having to do this separately in your application.
@@ -61,7 +61,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 ### Advanced Security Features
 **Multi-factor authentication.**  Azure AD provides native multi-factor authentication.  IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself.  Learn more about [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems.  By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](active-directory-view-access-usage-reports.md).
+**Anomalous sign in detection.**  Azure AD processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems.  By supporting Azure AD sign-in, your application gets the benefit of this protection. Learn more about [viewing Azure Active Directory access report](../active-directory-view-access-usage-reports.md).
 
 **Conditional access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application.  Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access.  Learn more about [Azure Active Directory conditional access](../active-directory-conditional-access.md).
 

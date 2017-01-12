@@ -48,7 +48,7 @@ To use this sample you will need a Azure Active Directory Tenant. If you're not 
 
 ## 2. Create an application
 Now you need to create an app in your directory, which gives Azure AD some information that it needs to securely communicate with your app.  Both the client app and web API will be represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
-follow [these instructions](active-directory-how-applications-are-added.md). If you are building a Line of Business app [these additional instructions may be useful](active-directory-applications-guiding-developers-for-lob-applications.md).
+follow [these instructions](active-directory-how-applications-are-added.md). If you are building a Line of Business app [these additional instructions may be useful](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 Be sure to:
 

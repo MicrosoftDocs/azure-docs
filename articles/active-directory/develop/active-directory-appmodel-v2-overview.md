@@ -31,7 +31,7 @@ Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft G
 Choose your favorite platform from the following list to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 
 <!-- TODO: Finalize this table  -->
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
 ## What's New
 The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
