@@ -88,7 +88,7 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 The returned **workspaceId** is used for the following subsequent API calls. Our application must retain this value.
 
 ## Import .pbix file into the workspace
-Each workspace can host a single Power BI Desktop file with a dataset \(including datasource settings) and reports. We can import our .pbix file to the workspace as shown in the code below. As you can see, we can upload the binary of .pbix file using MIME multipart in http.
+Each report in a workspace corresponds to a single Power BI Desktop file with a dataset \(including datasource settings). We can import our .pbix file to the workspace as shown in the code below. As you can see, we can upload the binary of .pbix file using MIME multipart in http.
 
 The uri fragment **32960a09-6366-4208-a8bb-9e0678cdbb9d** is the workspaceId, and query parameter **datasetDisplayName** is the dataset name to create. The created dataset holds all data related artifacts in .pbix file such as imported data, the pointer to the data source, etc..
 
