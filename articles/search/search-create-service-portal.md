@@ -68,7 +68,7 @@ After your service is provisioned, you can scale it to meet your needs. Because 
 
 ![](./media/search-create-service-portal/scale-service.png)
 
-## Next
+## Next steps
 After provisioning an Azure Search service, you will be ready to [define an Azure Search index](search-what-is-an-index.md) so you can upload and search your data.
 
 See [Get started with Azure Search in the portal](search-get-started-portal.md) for a quick tutorial.

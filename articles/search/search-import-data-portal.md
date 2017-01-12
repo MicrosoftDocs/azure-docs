@@ -96,7 +96,7 @@ The portal includes **Search Explorer** so that you can query an index without h
 
 The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). Results are returned in JSON so that you can inspect the entire document.
 
-## Next step
+## Next steps
 Review these links to learn more about indexers:
 
 * [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

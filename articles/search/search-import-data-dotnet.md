@@ -231,6 +231,6 @@ This is not just a hypothetical concern: Imagine a scenario where you add a new 
 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
 
-## Next
+## Next steps
 After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.
 

@@ -59,6 +59,6 @@ In the screenshots below, you can see how we have named and defined the fields f
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## Next
+## Next steps
 After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 

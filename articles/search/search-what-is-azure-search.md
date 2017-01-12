@@ -78,7 +78,7 @@ Once you have populated your Azure Search index, you can now [issue search queri
 
 ## Why use Azure Search (watch this 2-minute video)
 
-> [!VIDEO https://azure.microsoft.com/en-us/resources/videos/what-is-azure-search/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/What-is-Azure-Search/player]
 > 
 >
 

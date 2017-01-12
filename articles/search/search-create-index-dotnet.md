@@ -173,6 +173,6 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## Next
+## Next steps
 After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
 
