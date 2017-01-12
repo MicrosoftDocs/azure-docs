@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 01/13/2017
 ms.author: banders
 
 ---
@@ -57,11 +57,11 @@ You can easily remove a management solution when it is no longer needed. When yo
 
 ## Offers and pricing tiers
 
-The following table identifies which solutions belong to each Operations Management Suite offer. 
+The following table identifies which management solutions belong to each Operations Management and Security offer. 
 The table also identifies the pricing tiers that are available for each management solution. 
 All solutions in the following table are available from within the Azure portal and the solutions gallery in the Log Analytics portal.
 
-| Management Solution    																	| Offer                                     								| Pricing Tiers 																							| Notes | 
+| Management Solution    																	| Offer                                     								| Pricing Tiers<sup>1</sup>													| Notes | 
 | ---                    																	| ---                                       								| ---           																							| ---   |
 | Activity Log Analytics 																	| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| 90 days of data are available free of charge |
 | [AD Assessment](log-analytics-ad-assessment.md)          									| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
@@ -93,6 +93,8 @@ All solutions in the following table are available from within the Azure portal 
 | Upgrade Analytics <br>(Preview) 															| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| No charge for data or nodes |
 | [VMware Monitoring](log-analytics-vmware.md) <br>(Preview) 								| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Wire Data 2.0<br>(Preview) 	  															| <ul><li>Insight and Analytics</li></ul> 					 				| Free<br> Per&nbsp;Node&nbsp;(OMS) 																		| Available in East US and West Europe |
+
+1. The *Standard* and *Premium (OMS)* pricing tiers are only available for customers who created their Log Analytics workspace prior to September 21, 2016.
 
 ### Community provided management solutions
 
