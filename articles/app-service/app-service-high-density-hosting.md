@@ -49,7 +49,9 @@ App Service plan that hosts it. This way, an App Service plan
 can be configured to provide 10 instances, but an app can be set to scale to
 only 5 of them.
 
-Note: Per app scaling is available only for **Premium** SKU App Service plans
+   >[!NOTE]
+   >Per app scaling is available only for **Premium** SKU App Service plans
+   >
 
 ### Per app scaling using Powershell
 
