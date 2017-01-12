@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2017
 ms.author: cherylmc
-
 ---
 # ExpressRoute partners and peering locations
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
@@ -62,7 +61,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 ### Production Azure
 | **Location** | **Service Providers** |
 | --- | --- |
-| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Atlanta** |Equinix |
 | **Chennai** |SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -73,7 +72,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Las Vegas** |Level 3 Communications+, Megaport |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **New York** |Equinix, Megaport, Zayo Group |
+| **New York** |Coresite, Equinix, Megaport, Zayo Group |
 | **Newport(Wales)** |Next Generation Data |
 | **Montreal** |Cologix |
 | **Mumbai** |Tata Communications |
@@ -133,12 +132,14 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 | **Location** | **Exchange** | **Connectivity Providers** |
 | --- | --- | --- |
-| **London** | Equinix | Exponential E |
+| **Amsterdam** | Equinix | Eurofiber |
+| **London** | Equinix | Exponential E, HSO |
 | **New York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapore** |Equinix |1CLOUDSTAR |
-| **Sydney** | Megaport | Macquarie |
+| **Sydney** | Megaport | Macquarie Telecom Group|
+| **Tokyo** | Equinix | ARTERIA Networks Corporation |
 | **Washington DC** |Equinix | Lightower, Masergy |
 
 ## ExpressRoute system integrators
@@ -147,7 +148,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Continent** | **System integrators** |
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
-| **Europe** |Avanade Inc., Dotnet Solutions |
+| **Australia** | IT Consultancy |
+| **Europe** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
 | **US** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 
 ## Next steps
