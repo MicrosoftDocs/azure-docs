@@ -145,17 +145,17 @@ In either case, the process is identical and takes only a few seconds:
 
 A few seconds later, the **Azure Activity Log** view will show your updated deployment as **Published** and you will be able to verify your updated application in a web browser.
 
-## Stopping an Existing Web App
-To stop an existing Azure Web App container, (including all the deployed Java applications in it), you can use the **Azure Explorer** view.
+## Starting, Stopping, or Restarting an Existing Web App
+To start or stop an existing Azure Web App container, (including all the deployed Java applications in it), you can use the **Azure Explorer** view.
 
 If the **Azure Explorer** view is not already open, you can open it by clicking then **Window** menu in Eclipse, then click **Show View**, then **Other...**, then **Azure**, and then click **Azure Explorer**. If you have not previously logged in, it will prompt you to do so.
 
-When the **Azure Explorer** view is displayed, use follow these steps to stop your Web App: 
+When the **Azure Explorer** view is displayed, use follow these steps to start or stop your Web App: 
 
 1. Expand the **Azure** node.
 2. Expand the **Web Apps** node. 
 3. Right-click the desired Web App.
-4. When the context menu appears, click **Stop**.
+4. When the context menu appears, click **Start**, **Stop**, or **Restart**. Note that the menu choices are context-aware, so you can only stop a running web app or start a web app which is not currently running.
    
     ![Stopping an Existing Web App][13]
 
