@@ -89,7 +89,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. Create an IP address resource on the cluster. 
 
-   You can create the IP address resource in Failover Cluster Manager, right-click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
+   You can create the IP address resource in Failover Cluster Manager. Right-click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
 
    ![Create IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
@@ -102,22 +102,20 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
 
-   >[!NOTE]
-   >The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
+   The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 
 1. [Add a replica to the availability group on the new SQL Server](http://msdn.microsoft.com/library/hh213239.aspx).
 
-   >[!NOTE]
-   >For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
+   For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
 
 1. Add the IP address resource as a dependency for the listener client access point (network name) cluster. 
-
-   >[!NOTE]
-   >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
 
    The following screenshot shows a properly configured IP address cluster resource:
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+
+   >[!IMPORTANT]
+   >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
 
 1. [Set the cluster parameters in PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
