@@ -23,7 +23,7 @@ Use [Visual Studio](azure-stack-install-visual-studio.md) to deploy Azure Resour
 1. Open Visual Studio 2015 Update 1.
 2. Click **File**, click **New**, and in the **New Project** dialog box click **Azure Resource Group**.
 3. Enter a **Name** for the new project, and then click **OK**.
-4. In the **Select Azure Template** dialog box, change the *Show templates from this location* drop down to **Azure Stack Quickstart**
+4. In the **Select Azure Template** dialog box, change the *Show templates from this location* drop-down to **Azure Stack Quickstart**
 5. Click **101-Simple-Windows-VM**, and then click **OK**.  
 6. In your new project, you can see a list of the templates available by expanding the **Templates** node in the **Solution Explorer** pane.
 7. In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
