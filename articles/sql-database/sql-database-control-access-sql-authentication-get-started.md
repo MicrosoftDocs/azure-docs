@@ -168,7 +168,7 @@ In this section of the tutorial, you view information about the server admin acc
 
 10. Optionally, repeat the previous three steps for the `AdventureWorksLT` user database.
 
-## Create a new user in the `AdventureWorksLT` database with `SELECT` permissions
+## Create a new user in the AdventureWorksLT database with SELECT permissions
 
 In this section of the tutorial, you create a user account in the `AdventureWorksLT` database, test this user's permissions as member of the public role, grant this user `SELECT` permissions, and then test this user's permissions again.
 
@@ -235,7 +235,7 @@ In this section of the tutorial, you create a user account in the `AdventureWork
 
    ![select permissions](./media/sql-database-control-access-sql-authentication-get-started/select_permissions.png)
 
-## Create a database-level firewall rule for `AdventureWorksLT` database users
+## Create a database-level firewall rule for AdventureWorksLT database users
 
 In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule as the `Server admin`, and then log in using this new database-level firewall rule. 
 
@@ -293,7 +293,7 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
 
    ![user1 query1 results](./media/sql-database-control-access-sql-authentication-get-started/user1_query1_results.png)
 
-## Create a new user in the `blankdb` database with `db_owner` database role permissions and a database-level firewall rule
+## Create a new user in the blankdb database with db_owner database role permissions and a database-level firewall rule
 
 In this section of the tutorial, you create a user in the `blankdb` database with `db_owner` database role permissions and create a database-level firewall for this database using the `Server admin` account. 
 
@@ -380,7 +380,7 @@ In this section of the tutorial, you create a login and user in the master datab
 
 To create the logins and users, add them to roles, grant them permissions, create database-level firewall rules, and create server-level firewall rules, execute the following statements in the appropriate databases on your server.
 
-### `master` database
+### master database
 Execute these statements in the `master` database using the `Server admin` account, adding the appropriate IP addresses or range.
 
 ```
@@ -391,7 +391,7 @@ EXEC sp_set_firewall_rule @name = N'dbcreatorFirewallRule',
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
 ```
 
-### `AdventureWorksLT' database
+### AdventureWorksLT database
 Execute these statements in the `AdventureWorksLT` database using the `Server admin` account, adding the appropriate IP addresses or range.
 
 ```
@@ -401,7 +401,7 @@ EXEC sp_set_database_firewall_rule @name = N'AdventureWorksLTFirewallRule',
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
 ```
 
-### `blankdb' database
+### blankdb database
 Execute these statements in the `blankdb` database using the `Server admin` account, adding the appropriate IP addresses or range.
 
 ```
