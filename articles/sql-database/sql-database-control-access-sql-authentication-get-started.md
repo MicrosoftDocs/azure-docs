@@ -28,7 +28,7 @@ In this getting-started tutorial, you learn how to use SQL Server Management Stu
 - Log in to a user database as a non-admin user
 - Create database-level firewall rules for database users
 
-**Time estimate**: This tutorial takes approximately 30 minutes to complete (assuming you have already met the prerequisites).
+**Time estimate**: This tutorial takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
 
 ## Prerequisites
 
