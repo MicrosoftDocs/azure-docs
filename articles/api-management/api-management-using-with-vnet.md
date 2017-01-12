@@ -71,8 +71,7 @@ Click **Save** at the top of the screen.
 
 
 > [!IMPORTANT] 
-> Once you change the VNET in which API Management was deployed, or remove APIM from a VNET, it can take up to 4 hours for the VNET to be freed by API Management. This will impact deleting the VNET or deploying a new resource in that VNET. 
->  
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to 4 hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
