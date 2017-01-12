@@ -61,7 +61,7 @@
 ### [Predict HVAC performance](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analyze website logs](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-### [Use Zeppelin notebooks](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Use Zeppelin notebooks](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter notebook kernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [Packages for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

@@ -61,14 +61,13 @@
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET Management](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (Management)](/dotnet/api/microsoft.azure.management.search)
+## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Management)](/rest/api/searchmanagement)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
-## Using Search APIs
 ## [API versions](search-api-versions.md)
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)

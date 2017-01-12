@@ -39,6 +39,7 @@
 
 ## Deploy
 ### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+### [Deploy Functions using Infrastructure as Code](functions-infrastructure-as-code.md)
 
 ## Monitor
 ### [Monitoring Azure Functions](functions-monitoring.md)
