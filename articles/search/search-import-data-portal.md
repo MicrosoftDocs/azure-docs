@@ -74,7 +74,7 @@ A preliminary index is typically inferred from the dataset. Add, edit, or delete
 4. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
    
    * Click **Searchable** to designate full-text search on the field and enable the Analyzer drop-down list.
-   * Choose the analyzer you want. See [Create an index for documents in multiple language](search-language-support.md) for details.
+   * Choose the analyzer you want. See [Create an index for documents in multiple languages](search-language-support.md) for details.
 5. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
 
 ## Import your data

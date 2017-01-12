@@ -34,7 +34,7 @@ Note that all sample code in this article is written in C#. You can find the ful
 ## Identify your Azure Search service's query api-key
 Now that you have created an Azure Search index, you are almost ready to issue queries using the .NET SDK. First, you will need to obtain one of the query api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. To find your service's api-keys you must log into the [Azure portal](https://portal.azure.com/)
+1. To find your service's api-keys you can sign in to the [Azure portal](https://portal.azure.com/)
 2. Go to your Azure Search service's blade
 3. Click on the "Keys" icon
 
