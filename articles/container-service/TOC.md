@@ -22,6 +22,9 @@
 ### [Get started with Kubernetes](container-service-kubernetes-walkthrough.md)
 ### [Configure a service principal](container-service-kubernetes-service-principal.md)
 ### [Interact with the Kubernetes Web UI](container-service-kubernetes-ui.md)
+### [Monitor with OMS (Kubernetes)](container-service-kubernetes-oms.md)
+### [Monitor with Datadog (Kubernetes)](container-service-kubernetes-datadog.md)
+### [Monitor with Sysdig (Kubernetes)](container-service-kubernetes-sysdig.md)
 ## Manage with Docker Swarm
 ### [Docker and Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm continuous integration](container-service-docker-swarm-setup-ci-cd.md)
