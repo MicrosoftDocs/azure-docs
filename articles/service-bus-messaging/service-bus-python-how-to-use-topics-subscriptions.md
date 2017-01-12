@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 
 ---
@@ -24,7 +24,7 @@ This article describes how to use Service Bus topics and subscriptions. The samp
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**Note:** If you need to install Python or the [Python Azure package][Python Azure package], please see the [Python Installation Guide](../python-how-to-install.md).
+> [!NOTE] If you need to install Python or the [Python Azure package][Python Azure package], please see the [Python Installation Guide](../python-how-to-install.md).
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. Add the following near the top of any Python file in which you wish to programmatically access Service Bus:
