@@ -251,7 +251,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events specify “*”.|  
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> To collect all events, specify “*”.|  
 
 ## Logs Element  
  Present in version 1.0 and 1.1. Missing in 1.2. Added back in 1.3.  
@@ -310,7 +310,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Optional  
 
- Stores the private details of the storage account (name, key, and endpoint). This information is sent to the virtual machine, but cannot be retrieved from the it.  
+ Stores the private details of the storage account (name, key, and endpoint). This information is sent to the virtual machine, but cannot be retrieved from it.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  

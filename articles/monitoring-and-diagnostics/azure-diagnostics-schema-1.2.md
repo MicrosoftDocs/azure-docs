@@ -124,7 +124,7 @@ Defines configuration settings for the telemetry data to be collected. The follo
 
 |Element Name|Description|  
 |------------------|-----------------|  
-|**REF _Ref394650128 \h DataSources**|A list of directories to monitor.|  
+|**DataSources**|A list of directories to monitor.|  
 |**FailedRequestLogs**|Including this element in the configuration enables collection of logs about failed requests to an IIS site or application. You must also enable tracing options under **system.WebServer** in **Web.config**.|  
 |**IISLogs**|Including this element in the configuration enables the collection of IIS logs:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account that will be used to store the IIS logs.|  
 
@@ -133,10 +133,10 @@ Defines configuration settings for the telemetry data to be collected. The follo
 
 |Element Name|Description|  
 |------------------|-----------------|  
-|**REF _Ref394650194 \h DirectoryConfiguration**|Required. Required attribute:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account that will be used to store the log files.|  
+|**DirectoryConfiguration**|Required. Required attribute:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account that will be used to store the log files.|  
 
 ## DirectoryConfiguration Element  
- Note that the <DirectoryConfiguration\> may include either the **Absolute** or **LocalResource** element but not both. The following table describes child elements:  
+ **DirectoryConfiguration** may include either the **Absolute** or **LocalResource** element but not both. The following table describes child elements:  
 
 |Element Name|Description|  
 |------------------|-----------------|  
@@ -193,4 +193,4 @@ Defines configuration settings for the telemetry data to be collected. The follo
 
 |Element Name|Description|  
 |------------------|-----------------|  
-|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> To collect all events specify “*”.|
+|**DataSource**|The Windows Event logs to collect. Required attribute:<br /><br /> **name** - The XPath query describing the windows events to be collected. For example:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> To collect all events, specify “*”.|
