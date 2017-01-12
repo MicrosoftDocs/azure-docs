@@ -79,10 +79,8 @@ This article provides you an example of how you can use System Center Configurat
 | Name | Install Microsoft Azure Mobility Service (Windows) |
 | Command line | install.bat |
 | Program can run | Whether or not a user is logged on |
-
 9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
-
 10. Complete Next twice to complete the wizard.
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
@@ -102,10 +100,10 @@ This article provides you an example of how you can use System Center Configurat
 
   ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx)
+9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
 > [!TIP]
 > To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or Software Updates window.
-9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
 You can monitor the deployment progress using the SCCM console by going to **Monitoring** > **Deployments** > *[your package name]*
   ![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
@@ -166,7 +164,7 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
 9. In the next page, select the **This program can run on any platform**
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
 
-10. Complete Next twice to complete the wizard.
+10. Click **Next** twice to complete the wizard.
 > [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 

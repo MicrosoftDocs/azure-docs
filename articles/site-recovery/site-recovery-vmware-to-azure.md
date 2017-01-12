@@ -450,6 +450,7 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 Make sure that machines you want to replicate are prepared for Mobility service installation, and then enable replication.
 
 ### Install the Mobility service
+
   > [!TIP]
   > Azure Site Recovery now supports installing Mobility Service using software deployment tools like System Center Configuration Manager. Read more on how to [Automate Mobility Service deployment](site-recovery-install-mobility-service-using-sccm.md) .  
 
