@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/04/2016
+ms.date: 01/12/2017
 ms.author: billmath
 
 ---
@@ -42,14 +42,14 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
 * **AllowedSyncCycleInterval**. The most frequently Azure AD will allow synchronizations to occur. You cannot synchronize more frequently than this and still be supported.
-* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle.
+* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It will have the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this will take effect after next synchronization cycle. From build 1.1.281 the change will take effect immediately.
 * **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, you will configure this setting. In the picture above the scheduler has been set to run every hour instead. If you set this to a value lower than AllowedSyncInterval, the latter will be used.
 * **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync, which would also reprocess any new or changed rules.
 * **NextSyncCycleStartTimeInUTC**. Next time the scheduler will start the next sync cycle.
 * **PurgeRunHistoryInterval**. The time operation logs should be kept. These can be reviewed in the synchronization service manager. The default is to keep these for 7 days.
 * **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
 * **MaintenanceEnabled**. Shows if the maintenance process is enabled. It will update the certificates/keys and purge the operations log.
-* **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled.
+* **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled. This will suppress the exports from running, but still run import and synchronization.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
 
@@ -70,6 +70,15 @@ Will change the scheduler to run every 3 hours.
 
 Example: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 Will change the scheduler to run daily.
+
+### Disable the scheduler  
+If you need to make configuration changes, then you want to disable the scheduler. For example, when you [configuring filtering](active-directory-aadconnectsync-configure-filtering.md) or [make changes to synchronization rules](active-directory-aadconnectsync-change-the-configuration.md).
+
+Run `Set-ADSyncScheduler -SyncCycleEnabled $false` to disable the scheduler.
+
+![Disable the scheduler](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
+
+When you've made your changes, do not forget to enable the scheduler again with  `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 ## Start the scheduler
 The scheduler will by default run every 30 minutes. In some cases you might want to run a sync cycle in between the scheduled cycles or you need to run a different type.
@@ -106,7 +115,7 @@ If the scheduler is currently running a synchronization cycle you might need to 
 When a sync cycle is running, you cannot make configuration changes. You could wait until the scheduler has finished the process, but you can also stop it so you can make your changes immediately. Stopping the current cycle is not harmful and any changes still not processed will be processed with next run.
 
 1. Start by telling the scheduler to stop its current cycle with the PowerShell cmdlet `Stop-ADSyncSyncCycle`.
-2. Stopping the scheduler will not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
+2. If you use a build before 1.1.281, then stopping the scheduler will not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
    ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
    * Start **Sychronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running** and select **Stop** from the Actions.
 
@@ -128,7 +137,7 @@ The names to use for [Connector names](active-directory-aadconnectsync-service-m
 
 ![Invoke Run Profile](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)  
 
-The `Invoke-ADSyncRunProfile` cmdlet is synchronous, i.e. it will not return control until the Connector has completed the operation, either successfully or with an error.
+The `Invoke-ADSyncRunProfile` cmdlet is synchronous, that is, it will not return control until the Connector has completed the operation, either successfully or with an error.
 
 When you schedule your Connectors, the recommendation is to schedule them in the following order:
 
@@ -158,4 +167,3 @@ If you start the installation wizard, then the scheduler will be temporarily sus
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-
