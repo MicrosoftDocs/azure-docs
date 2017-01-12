@@ -20,7 +20,9 @@ ms.author: robmcm;asirveda
 # Download the Azure SDK for Java
 This article contains instructions for downloading and installing the Azure Management Libraries for Java.
 
-**Note:** The Azure Management Libraries for Java are distributed under the [Apache License, Version 2.0][license].
+> [!NOTE]
+> The Azure Management Libraries for Java are distributed under the [Apache License, Version 2.0][license].
+>
 
 ## Azure Libraries for Java - Manual Download
 To manually install the Azure Management Libraries for Java, click <http://go.microsoft.com/fwlink/?LinkId=690320> to download a ZIP file which contains all of the libraries and all dependencies.
@@ -30,7 +32,9 @@ Once you have downloaded the zip file to your computer, extract the contents and
 * Import the JAR files into your Java project in Eclipse or IntelliJ.
 * Configure the build paths for your Java projects in Eclipse or IntelliJ to include the path to the JAR files.
 
-**Note:** See the license.txt and ThirdPartyNotices.txt file inside the ZIP for license and other information.
+> [!NOTE]
+> See the license.txt and ThirdPartyNotices.txt file inside the ZIP for license and other information.
+>
 
 ## Azure Management Libraries for Java - Building with Maven
 ### Step 1 - Set up your project to use Maven for build
