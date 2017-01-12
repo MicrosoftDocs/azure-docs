@@ -41,7 +41,7 @@ The preceding diagram shows a new virtual machine called SQL-3. SQL-3 is in a di
 >[!NOTE]
 > An Azure availability set is required when more than one virtual machine is in the same region. If only one virtual machine is in the region, then the availability set is not required. You can only place a virtual machine in an availability set at creation time. If the virtual machine is already in an availability set, you can add a virtual machine for an additional replica later. 
 
-In this architecture, the replica in the remote region is normally configured with asynchronous commit and manual failover.
+In this architecture, the replica in the remote region is normally configured with asynchronous commit availability mode and manual failover mode.
 
 When availability group replicas are on Azure virtual machines in different Azure regions, each region requires:
 
@@ -89,7 +89,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. Create an IP address resource on the cluster. 
 
-   You can create the IP address resource in Failover Cluster Manager. Right-click the availability group role,  click **Add Resource**, **More Resources**, and click **IP Address**.
+   You can create the IP address resource in Failover Cluster Manager. Right-click the availability group role, click **Add Resource**, **More Resources**, and click **IP Address**.
 
    ![Create IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
@@ -122,17 +122,17 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Failover across subnets
+## Fail over across subnets
 
-The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connections may time out. This behavior is the same as an on-premises availability group in a multi-subnet deployment. In order to allow connections from client applications, either upate the client connection or configure name resolution caching on the cluster network name resource.
+The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connections will time out. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
 Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
 
 If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
-## Failover to Remote Region 
+## Fail over to Remote Region 
 
-To test listener connectivity to the remote region, you can failover the replica to the remote region. While the replica is asynchronous, failover is subject to potential data loss. To failover without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
+To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, fail over is subject to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
 1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and click **Properties**.
@@ -141,10 +141,19 @@ To test listener connectivity to the remote region, you can failover the replica
 1. Click OK.
 1. In **Object Explorer**, right-click the availability group, and click **Show Dashboard**.
 1. On the dashboard, verify that the replica on the DR site is synchronized. 
-1. In **Object Explorer**, right-click the availability group, and click **Failover...**. SQL Server Management Studios opens a wizard to failover SQL Server.  
+1. In **Object Explorer**, right-click the availability group, and click **Failover...**. SQL Server Management Studios opens a wizard to fail over SQL Server.  
 1. Click **Next**, and select the SQL Server instance in the DR site. Click **Next** again.
 1. Connect to the SQL Server instance in the DR site and click **Next**. 
 1. On the **Summary** page, verify the settings and click **Finish**.
+
+After testing connectivity, move the primary replica back to your primary data center and set the availability mode back to their normal operating settings. The following table shows the normal operational settings for the architecture described in this document:
+
+| Location | Server Instance | Role | Availability Mode | Failover Mode
+| ----- | ----- | ----- | ----- | ----- 
+| Primary data center | sql-1 | Primary | Synchronous | Automatic
+| Primary data center | sql-2 | Secondary | Synchronous | Automatic
+| Secondary or remote data center | sql-3 | Secondary | Asynchronous | Manual
+
 
 ### More information about planned and forced manual failover
 
