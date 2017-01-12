@@ -249,7 +249,7 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
    > Always use the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). 
    >
 
-2. In the Connect to Server window, enter the server name and authentication information to connect using SQL Server authentication with the 'user1' account. 
+2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the 'user1' account. 
     
    ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
