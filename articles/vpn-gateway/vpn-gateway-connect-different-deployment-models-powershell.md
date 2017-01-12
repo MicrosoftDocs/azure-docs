@@ -225,9 +225,7 @@ Creating a connection between the gateways requires PowerShell. You may need to 
 
     Add-AzureAccount
 
-1. In the PowerShell console, set your shared key by running the following sample.<br>In this example, `-VNetName` is the name of the classic VNet and `-LocalNetworkSiteName` is the name you specified for the local network site. The `-SharedKey` is a value that you generate and specify. For this example, we used 'abc123', but you can generate something more complex. The important thing is that the value you specify here must be the same value that you specify in the next step when you create your connection.<br><br>Before running this sample, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. When specifying the name of a VNet that contains spaces, use single quotation marks around the value.
-
-The return for this sample should show **Status: Successful**.
+1. In the PowerShell console, set your shared key by running the following sample.<br>In this example, `-VNetName` is the name of the classic VNet and `-LocalNetworkSiteName` is the name you specified for the local network site. The `-SharedKey` is a value that you generate and specify. For this example, we used 'abc123', but you can generate something more complex. The important thing is that the value you specify here must be the same value that you specify in the next step when you create your connection.<br><br>Before running this sample, refer to the network configuration file that you downloaded for the exact names that Azure expects to see. When specifying the name of a VNet that contains spaces, use single quotation marks around the value. The return for this sample should show **Status: Successful**.
    
         Set-AzureVNetGatewayKey -VNetName ClassicVNet `
         -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
@@ -270,8 +268,7 @@ The return for this sample should show **Status: Successful**.
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="faq"></a>VNet-to-VNet FAQ
-View the FAQ details for additional information about VNet-to-VNet connections.
+## <a name="faq"></a>VNet-to-VNet considerations
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
