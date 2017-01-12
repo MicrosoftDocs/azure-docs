@@ -970,10 +970,10 @@ Option|Description
 **Sample Scenario 1**
 
 In this example, we will demonstrate how to redirect an edge CNAME URL that resolves to this base CDN URL:
-http://wpc.0001.<Domain>/800001/marketing/brochures/
+http://marketing.azureedge.net/brochures/
 
 Qualifying requests will be redirected to this base edge CNAME URL:
-http://wpc.0001.<Domain>/800001/MyOrigin/resources/
+http://MyOrigin.azureedge.net/resources/
 
 This URL redirection may be achieved through the following configuration:
 ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
