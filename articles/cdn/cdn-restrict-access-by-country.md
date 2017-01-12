@@ -60,7 +60,7 @@ For example, the rule of blocking /Photos/Strasbourg/ will filter files includin
 The **Geo-Filtering** feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory. You will find the country codes in [Azure CDN  Country Codes](https://msdn.microsoft.com/library/mt761717.aspx). 
 
 ## <a id="considerations"></a>Considerations
-* It may take up to a 90 for Verizon, or a couple minutes with Akamai for changes to your country filtering configuration to take effect.
+* It may take up to 90 minutes for Verizon, or a couple minutes with Akamai, for changes to your country filtering configuration to take effect.
 * This feature does not support wildcard characters (for example, ‘*’).
 * The geo-filtering configuration associated with the relative path will be applied recursively to that path.
 * Only one rule can be applied to the same relative path (you cannot create multiple country filters that point to the same relative path. However, a folder may have multiple country filters. This is due to the recursive nature of country filters. In other words, a subfolder of a previously configured folder can be assigned a different country filter.
