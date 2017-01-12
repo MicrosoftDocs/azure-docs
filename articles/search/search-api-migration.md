@@ -21,6 +21,9 @@ If you're using version 2015-02-28 or 2015-02-28-Preview of the [Azure Search Se
 
 Version 2016-09-01 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new API version.
 
+> [!NOTE]
+> Your Azure Search service instance supports several REST API versions, including the latest one. You can continue to use a version when it is no longer the latest one, but we recommend that you migrate your code to use the newest version.
+
 <a name="WhatsNew"></a>
 
 ## What's new in version 2016-09-01

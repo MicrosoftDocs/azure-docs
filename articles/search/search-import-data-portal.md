@@ -90,6 +90,12 @@ In Azure Search, structural updates to an index will require a rebuild of that i
 
 Edits that don't require a rebuild include adding a new field, changing scoring profiles, changing suggesters, or changing language analyzers. See [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) for more information.
 
+## Query an index using Search Explorer
+
+The portal includes **Search Explorer** so that you can query an index without having to write any code. You can use Search Explorer on any index.
+
+The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). Results are returned in JSON so that you can inspect the entire document.
+
 ## Next step
 Review these links to learn more about indexers:
 
