@@ -1,6 +1,6 @@
 ---
 title: Service Bus and PHP with AMQP 1.0 | Microsoft Docs
-description: Using Service Bus from PHP with AMQP.
+description: Using Azure Service Bus from PHP with AMQP.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2016
+ms.date: 01/17/2016
 ms.author: sethm
 
 ---
@@ -31,12 +31,12 @@ You can download Proton-C and its associated bindings (including PHP) from [http
 > 
 
 ## Working with Service Bus queues, topics, and subscriptions from PHP
-The following code shows how to send and receive messages from a Service Bus messaging entity.
+This section shows how to send and receive messages from a Service Bus messaging entity.
 
 ### Sending messages using Proton-PHP
 The following code shows how to send a message to a Service Bus messaging entity.
 
-```
+```php
 $messenger = new Messenger();
 $message = new Message();
 $message->address = "amqps://[keyname]:[password]@[namespace].servicebus.windows.net/[entity]";
@@ -49,7 +49,7 @@ $messenger->send();
 ### Receiving messages using Proton-PHP
 The following code shows how to receive a message from a Service Bus messaging entity.
 
-```
+```php
 $messenger = new Messenger();
 $address = "amqps://[keyname]:[password]@[namespace].servicebus.windows.net/[entity]";
 $messenger->subscribe($address);
@@ -71,7 +71,7 @@ $messenger->stop();
 #### ProtonPHP to Service Bus .NET APIs
 Proton-PHP messages support application properties of the following types: **integer**, **double**, **Boolean**, **string**, and **object**. The following PHP code shows how to set properties on a message by using each of these property types.
 
-```
+```php
 $message->properties["TestInt"] = 1;    
 $message->properties["TestDouble"] = 1.5;      
 $message->properties["TestBoolean"] = False;
@@ -81,7 +81,7 @@ $message->properties["TestObject"] = new UUID("1234123412341234");
 
 In the Service Bus .NET APIs, message application properties are carried in the **Properties** collection of [BrokeredMessage][BrokeredMessage]. The following code shows how to read the application properties of a message received from a PHP client.
 
-```
+```csharp
 if (message.Properties.Keys.Count > 0)
 {
   foreach (string name in message.Properties.Keys)
@@ -114,7 +114,7 @@ The following table maps the PHP property types to the .NET property types.
 #### Service Bus .NET APIs to PHP
 The [BrokeredMessage][BrokeredMessage] type supports application properties of the following types: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, and **TimeSpan**. The following .NET code shows how to set properties on a [BrokeredMessage][BrokeredMessage] object using each of these property types.
 
-```
+```csharp
 message.Properties["TestByte"] = (byte)128;
 message.Properties["TestSbyte"] = (sbyte)-22;
 message.Properties["TestChar"] = (char) 'X';
@@ -138,7 +138,7 @@ message.Properties["TestTimeSpan"] = TimeSpan.FromMinutes(60);
 
 The following PHP code shows how to read the application properties of a message received from a Service Bus .NET client.
 
-```
+```php
 if ($message->properties != null)
 {
   foreach($message->properties as $key => $value)
@@ -218,6 +218,6 @@ Ready to learn more? Visit the following links:
 * [Service Bus AMQP overview]
 * [AMQP in Service Bus for Windows Server]
 
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
