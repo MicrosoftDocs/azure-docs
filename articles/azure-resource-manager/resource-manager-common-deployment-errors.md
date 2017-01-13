@@ -626,4 +626,4 @@ The following table lists troubleshooting topics for other Azure services. It fo
 
 ## Next steps
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-* To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
+* To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-deployment-operations.md).
