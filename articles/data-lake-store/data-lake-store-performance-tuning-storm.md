@@ -132,10 +132,8 @@ While your topology is running, you can monitor it in the storm UI. When looking
 ADLS throttling: if you hit the limits of bandwidth provided by ADLS, you would start to see task failures. This could be identified by observing throttling errors in task logs.  You can decrease the parallelism by increasing container size.  If you need more concurrency for your job, please contact us.   
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
 
-1. Change the following in the Ambari > Storm > Config > Advanced storm-worker-log4j.
-•	change <root level="info"> to <root level=”debug”>
-Restart all the nodes/service for the config to take effect.
-2. Monitor storm topology logs on worker nodes (under /var/log/storm/worker-artifacts/<TopologyName>/<port>/worker.log) for ADLS throttling exceptions.
+1. Change the following in the Ambari > Storm > Config > Advanced storm-worker-log4j.  Change &lt;root level="info"&gt; to &lt;root level=”debug”&gt;.  Restart all the nodes/service for the config to take effect.
+2. Monitor storm topology logs on worker nodes (under /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log) for ADLS throttling exceptions.
 
 ## Additional Tuning
 Additional performance tuning for Storm can be referenced in this [blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
