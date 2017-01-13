@@ -49,7 +49,8 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
   
  > [!NOTE]
  > There are two different SAP Connections, one for [Application Host](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) and another for [Messaging host](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm)
-
+ >
+ >
 
 3. Once you have provided all the details, click “Create”. Logic Apps configure and test the connection to make sure it's working properly. If everything checks out, you see options for the card you selected previously, use the file picker to find the right IDOC category or manually type in the path and select the HTTP response in the body field.    
 ![SAP ACTION](./media/app-service-logic-connector-sapconnector/picture3.png)
@@ -63,6 +64,8 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
 
  > [!TIP]
  > Check out how to [monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md).
+ >
+ >
 
 7. All done, now you have a working Logic App using the SAP connector. You can start exploring other functionalities it offers:
   - BAPI
