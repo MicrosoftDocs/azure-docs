@@ -119,7 +119,3 @@ Let’s say you currently have a cluster composed of 8 D4v2 nodes that is runnin
 	num-executors = Min (16, 16)
 	num-executors = 16    
 
-## Limitations
-
-**Increasing num-executors**
-Setting a higher number of num-executors does not necessarily increase performance.  Num-executors is bounded by the cluster resources.
