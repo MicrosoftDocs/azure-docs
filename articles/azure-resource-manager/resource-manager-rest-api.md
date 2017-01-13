@@ -29,8 +29,7 @@ ms.author: navale;tomfitz;
 Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there are one or 
 more calls to the Azure Resource Manager's RESTful API. 
 This topic is devoted to those APIs and how you can call them without using any SDK at all. This approach is useful if you want full 
-control of all requests to Azure or if the SDK for your preferred language is not available or doesn't support the operations you 
-want to perform.
+control of requests to Azure, or if the SDK for your preferred language is not available or doesn't support the operations you need.
 
 This article does not go through every API that is exposed in Azure, but rather uses some operations as examples of how you connect to them. After you understand the basics, you can read the [Azure Resource Manager REST API Reference](https://docs.microsoft.com/rest/api/resources/) to find detailed information on how to use the rest of the APIs.
 
@@ -215,9 +214,9 @@ With Resource Manager, you can deploy your resources using templates. A template
 
 Deployment of a template doesn't differ much to how you call other APIs. One important aspect is that deployment of a template can take quite a long time. The API call just returns, and it's up to you as developer to query for status of the deployment to find out when the deployment is done. For more information, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
 
-For this example, we use a publicly exposed template available on [GitHub](https://github.com/Azure/azure-quickstart-templates). The template we use deploys a Linux VM to the West US region. Even though this example uses a template available in a public repository like GitHub, you can instead pass the full template as part of the request. Note that we provide parameter values as part of the request that are used inside the deployed template.
+For this example, we use a publicly exposed template available on [GitHub](https://github.com/Azure/azure-quickstart-templates). The template we use deploys a Linux VM to the West US region. Even though this example uses a template available in a public repository like GitHub, you can instead pass the full template as part of the request. Note that we provide parameter values in the request that are used inside the deployed template.
 
-(Replace SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME,ADMIN_PASSWORD and DNS_NAME_FOR_PUBLIC_IP to values appropriate for your request)
+(Replace SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME, ADMIN_PASSWORD and DNS_NAME_FOR_PUBLIC_IP to values appropriate for your request)
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
@@ -253,7 +252,7 @@ Content-Type: application/json
 }
 ```
 
-The long JSON response for this request has been omitted in order to improve readability of this documentation. The response contains information about the templated deployment that you created.
+The long JSON response for this request has been omitted to improve readability of this documentation. The response contains information about the templated deployment that you created.
 
 ## Next steps
 
