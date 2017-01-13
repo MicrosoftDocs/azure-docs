@@ -20,7 +20,7 @@ ms.author: rogardle
 
 ---
 # Connect to an Azure Container Service cluster
-After [deploying an Azure Container Service cluster](container-service-deployment.md), you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the cluster from a remote computer. The Kubernetes, DC/OS, and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
+After creating an Azure Container Service cluster, you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the master VM of the cluster from a remote computer. The Kubernetes, DC/OS, and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
 this endpoint is securely exposed on the internet, and you can access it by running the `kubectl` command-line tool from any internet-connected machine. For DC/OS 
 and Docker Swarm, you must create a secure shell (SSH) tunnel to securely connect to the REST endpoint. 
 
@@ -28,18 +28,22 @@ and Docker Swarm, you must create a secure shell (SSH) tunnel to securely connec
 > Kubernetes support in Azure Container Service is currently in preview.
 >
 
+## Prerequisites
+
+* A Kubernetes, DC/OS, or Swarm cluster [deployed in Azure Container Service](container-service-deployment.md).
+* SSH private key file, corresponding to the public key added to the cluster during deployment. These commands assume that the private SSH key is in `$HOME/.ssh/id_rsa` on your computer. See these 
+instructions for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
+or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)
+for more information. If the SSH connection isn't working, you may need to 
+[reset your SSH keys](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ## Connect to a Kubernetes cluster
 
 Follow these steps to install and configure `kubectl` on your computer.
 
 > [!NOTE] 
-> * On Linux or OS X, you might need to run the commands in this section using `sudo`.
-> * These commands assume that you have an appropriate private SSH key for the cluster installed in `$HOME/.ssh/id_rsa`. See these 
-instructions for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
-or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)
-for more information. If the SSH connection isn't working, you may need to 
-[reset your SSH keys](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
+> On Linux or OS X, you might need to run the commands in this section using `sudo`.
+> 
 
 ### Install kubectl
 One way to install this
@@ -127,7 +131,7 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
     ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
     ```
     > [!NOTE]
-    > The SSH connection port is 2200--not the standard port 22.
+    > The SSH connection port is 2200--not the standard port 22. In a cluster with more than one master VM, this is the connection port to the first master VM.
     > 
 
 See the examples for DC/OS and Swarm in the following sections.    
