@@ -35,7 +35,7 @@ The CRM format is designed for utility and is conducive to focused documentation
 
 For example, control AC-1 requires documented access control policies and procedures for the system seeking an ATO. For this control, Microsoft has internal Azure-specific policies and procedures regarding access control mechanisms used to manage the Azure infrastructure and platform. Customers must also create their own access control policies and procedures used within their specific system built in Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on an annual basis.
 
-The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 baseline.
+The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines.
 
 To request a copy of the Azure Blueprint CRM or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
@@ -43,7 +43,7 @@ To request a copy of the Azure Blueprint CRM or to provide feedback, email [Azur
 
 The Azure Blueprint System Security Plan (SSP) template is customer-focused and designed for use in developing an SSP that documents both customer security control implementations as well as controls inherited from Azure. Controls which include a customer responsibility, contain guidance on documenting control implementation with a thorough and compliant response. Azure inheritance sections document how security controls are implemented by Azure on behalf of the customer.
 
-The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 baseline. 
+The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines. 
 
 To request a copy of the Azure Blueprint SSP or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
@@ -271,7 +271,7 @@ Azure Resource Manager templates, allow customers to define the configuration of
 
 ## Next steps
 
-For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide Blueprint feedback, email AzureBlueprint@microsoft.com.
+For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide Blueprint feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
 [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 
