@@ -23,7 +23,7 @@ ms.author: rickbyh
 To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
 
 > [!IMPORTANT]
-> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
+> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial using SQL Server authentication, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
 >
 
 ## Firewall and firewall rules
