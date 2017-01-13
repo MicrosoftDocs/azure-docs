@@ -270,17 +270,17 @@ In this section of the tutorial, you attempt to log in using the new user accoun
 
 2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the aaduser1@microsoft.com account. 
     
-   ![Connect as aaduser1@microsoft.com without firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect-aaduser1_no_rule1.png)
+   ![Connect as aaduser1@microsoft.com without firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
 3. Click **Options** to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
-   ![Connect as aaduser1 without firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect-aaduser1_no_rule2.png)
+   ![Connect as aaduser1 without firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 
 4. Click **Connect**. A dialog box appears informing you that the computer from which you are attempting to connect to SQL Database does not have a firewall rule enabling access to the database. The dialog box that you receive has two variations depending upon steps you have previously taken with firewalls, but you usually get the first dialog box shown.
 
-   ![Connect as user1 without firewall rule3](./media/sql-database-control-access-aad-authentication-get-started/connect-aaduser1_no_rule3.png)
+   ![Connect as user1 without firewall rule3](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule3.png)
 
-   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-aad-authentication-get-started/connect-aaduser1_no_rule4.png)
+   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule4.png)
 
    > [!NOTE]
    > The newest versions of SSMS include the functionality to allow subscription owners and contributors to sign in to Microsoft Azure and create a server-level firewall rule.
