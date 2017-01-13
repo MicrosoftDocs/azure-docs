@@ -1,5 +1,5 @@
 ---
-title: A.	Understand Azure AD Application Proxy connectors
+title: Understand Azure AD Application Proxy connectors
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
