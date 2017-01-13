@@ -2,7 +2,7 @@
 title: How to provide secure remote access to on-premises apps
 description: Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.
 services: active-directory
-documentationcenter: ''
+fdocumentationcenter: ''
 author: kgremban
 manager: femila
 editor: ''
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+nms.topic: article
 ms.date: 08/25/2016
 ms.author: kgremban
 
@@ -50,17 +50,19 @@ With Azure AD Application Proxy you can access different types of internal appli
 * Web APIs that you want to expose to rich applications on different devices  
 * Applications hosted behind a Remote Desktop Gateway  
 
-## How does it work?
+## How does the service work with connectors?
 Application Proxy works by installing a slim Windows Server service called a connector inside your network. With the connector, you don't have to open any inbound ports or put anything in the DMZ. If you have high traffic in your apps you can add more connectors, and the service takes care of the load balancing. The connectors are stateless and pull everything from the cloud as necessary.
 
 When users access applications remotely, they connect to the published endpoint. Users authenticate in Azure AD and then are routed through the connector to the on-premises application.
+
+For information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
 
  ![AzureAD Application Proxy diagram](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
 
 1. The user accesses the application through the Application Proxy and is directed to the Azure AD sign-in page to authenticate.
 2. After a successful sign-in, a token is generated and sent to the user.
 3. The user sends the token to Application Proxy, which retrieves the user principal name (UPN) and security principal name (SPN) from the token, then directs the request to the connector.
-4. On behalf of the user, the connector requests a Kerberos ticket that can be used for internal (Windows) authentication. This is known as Kerberos Constrained Delegation.
+4. On behalf of the user, the connector requests a [Kerberos](https://web.mit.edu/kerberos) ticket that can be used for internal (Windows) authentication. This is known as Kerberos Constrained Delegation.
 5. Active Directory retrieves the Kerberos ticket.
 6. The ticket is sent to the application server and verified.
 7. The response is sent through Application Proxy to the user.
@@ -73,13 +75,14 @@ Make sure you have an Azure AD basic or premium subscription and an Azure AD dir
 
 Setting up Application Proxy is accomplished in two steps:
 
-1. [Enable Application Proxy and configure the connector](active-directory-application-proxy-enable.md)    
+1. [Enable Application Proxy and configure the connector](active-directory-application-proxy-enable.md).    
 2. [Publish applications](active-directory-application-proxy-publish.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 There's a lot more you can do with Application Proxy:
 
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
+* [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md)
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 * [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
 * [Enable conditional access](active-directory-application-proxy-conditional-access.md)
