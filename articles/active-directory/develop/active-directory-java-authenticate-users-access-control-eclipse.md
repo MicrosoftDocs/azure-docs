@@ -337,7 +337,7 @@ At this point, your certificate would be included in your deployment. Note that 
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [project website]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[How to view SAML returned by the Azure Access Control Service]: ../active-directory-java-view-saml-returned-by-access-control
+[How to view SAML returned by the Azure Access Control Service]: ./active-directory-java-view-saml-returned-by-access-control
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
