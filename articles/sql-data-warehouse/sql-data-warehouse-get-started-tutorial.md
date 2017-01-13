@@ -394,7 +394,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     ;
     ```
 
- ### Create Table as Select (CTAS)
+### Create Table as Select (CTAS)
 
 5. Load your data from external tables into your SQL Data Warehouse instance. 
     ```sql
