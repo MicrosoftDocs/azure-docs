@@ -39,6 +39,10 @@ In this getting-started tutorial, you learn how to use SQL Server Management Stu
 
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md) of this tutorial. If not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) of this tutorial before continuing.
 
+   > [!NOTE]
+   > The completion of the related tutorial for SQL Server authtentication, [SQL Database tutorial: SQL authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md), is optional. The prcoedures in this tutorial related to server and database level firewalls are not required if you completed this related tutorial on the same computers (with the same IP addresses) and are marked as optional for that reason. Also, the screenshots in this tutorial assume that you have completed of this related tutorial. 
+   >
+
 * You have created and populated an Azure Active Directory. For more information, see For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), and [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
@@ -75,7 +79,7 @@ In this section of the tutorial, you view information about the security configu
 
 4. Click **Select** and then click **Save**.
 
-  ![Save selected AAD admin account](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
+   ![Save selected AAD admin account](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
 > To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
@@ -91,31 +95,27 @@ In this section of the tutorial, you view information about the security configu
 
 3. In the **Connect to Server** dialog box, select one of the Active Directory authentication methods and then provide the appropriate authentication information. For information on choosing a method, see [Azure Active Directory authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA](sql-database-ssms-mfa-authentication.md).
 
-enter the necessary information to connect to your SQL server using SQL Server Authentication and the Server admin account.
+   ![connect to server with aad](./media/sql-database-control-access-aad-authentication-get-started/connect_to_server_with_aad.png)
 
-   ![connect to server with aad](./mediasql-database-control-access-aad-authentication-get-started/connect_to_server_with_aad.png)
+4. Enter the necessary information to connect to your SQL server using SQL Server Authentication and the Server admin account.
 
-4. Click **Connect**.
+5. Click **Connect**.
 
-   ![connected to server with aad](./mediasql-database-control-access-aad-authentication-get-started/connected-to-server_with_aad.png)
+   ![connected to server with aad](./media/sql-database-control-access-aad-authentication-get-started/connected_to_server_with_aad.png)
 
 ## View the Server admin account and its permissions 
 In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
 
-1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. Notice that a login appears for the Server admin account specified during provisioning - the sqladmin login for this tutorial series.
+1. In Object Explorer, expand **Databases**, expand **System databases**, expand **master**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the master database for the Active Directory admin. Notice also that a login was not created for Active Directory admin user account.
 
-   ![Server admin login](./media/sql-database-control-access-aad-authentication-get-started/server_admin_login.png)
-
-2. In Object Explorer, expand **Databases**, expand **System databases**, expand **master**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the master database for the Server admin login, with the same name for the user account as the login (the names do not have to match, but it is a best practice to avoid confusion).
-
-   ![master database user account for server admin](./media/sql-database-control-access-aad-authentication-get-started/master_database_user_account_for_server_admin.png)
+   ![master database user account for AAD admin](./media/sql-database-control-access-aad-authentication-get-started/master_database_user_account_for_AAD_admin.png)
 
    > [!NOTE]
    > For information about the other user accounts that appear, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
    >
 
-3. In Object Explorer, right-click **master** and then click **New Query** to open a query window connected to the master database.
-4. In the query window, execute the following query to return information about the user executing the query. Notice that sqladmin is returned for the user account executing this query (we see a different result when we query a user database later in this procedure).
+2. In Object Explorer, right-click **master** and then click **New Query** to open a query window connected to the master database.
+3. In the query window, execute the following query to return information about the user executing the query. Notice that user@microsoft.com is returned for the user account executing this query (we see a different result when we query a user database later in this procedure).
 
    ```
    SELECT USER;
@@ -123,7 +123,7 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![select user query in the master database](./media/sql-database-control-access-aad-authentication-get-started/select_user_query_in_master_database.png)
 
-5. In the query window, execute the following query to return information about the permissions of the sqladmin user. Notice that sqladmin has permissions to connect to the master database, create logins and users, select information from the sys.sql_logins table, and add users to the dbmanager and dbcreator database roles. These permissions are in addition to permissions granted to the `public role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
+4. In the query window, execute the following query to return information about the permissions of the Active Directory admin user. Notice that the Active Directory admin user has permissions to connect to the master database, create logins and users, select information from the sys.sql_logins table, and add users to the dbmanager and dbcreator database roles. These permissions are in addition to permissions granted to the public role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
 
    ```
    SELECT prm.permission_name
@@ -140,12 +140,12 @@ In this section of the tutorial, you view information about the server admin acc
       ON p.principal_id = r.member_principal_id
       LEFT JOIN sys.database_principals p3
       ON r.role_principal_id = p3.principal_id
-   WHERE p.name = 'sqladmin';
+   WHERE p.name = 'user@microsoft.com';
    ```
 
-   ![server admin permissions in the master database](./media/sql-database-control-access-aad-authentication-get-started/server_admin_permissions_in_master_database.png)
+   ![aad admin permissions in the master database](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_permissions_in_master_database.png)
 
-6. In Object Explorer, expand **blankdb**, expand **Security**, and then expand **Users**. Notice that there is no user account called sqladmin in this database.
+6. In Object Explorer, expand **blankdb**, expand **Security**, and then expand **Users**. Notice that there is no user account called user@microsoft.com in this database.
 
    ![user accounts in blankdb](./media/sql-database-control-access-aad-authentication-get-started/user_accounts_in_blankdb.png)
 
@@ -179,26 +179,26 @@ In this section of the tutorial, you view information about the server admin acc
    WHERE p.name = 'dbo';
    ```
 
-   ![server admin permissions in the blankdb database](./media/sql-database-control-access-aad-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
+   ![server admin permissions in the blankdb database](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_permissions_in_blankdb_database.png)
 
 10. Optionally, repeat the previous three steps for the AdventureWorksLT user database.
 
 ## Create a new user in the AdventureWorksLT database with SELECT permissions
 
-In this section of the tutorial, you create a user account in the AdventureWorksLT database, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
+In this section of the tutorial, you create a user account in the AdventureWorksLT database based on a user's principal name of an Azure AD user or display name for an Azure AD group, test this user's permissions as member of the public role, grant this user SELECT permissions, and then test this user's permissions again.
 
 > [!NOTE]
 > Database-level users ([contained users](https://msdn.microsoft.com/library/ff929188.aspx)) increase the portability of your database, a capability that we explore in later tutorials.
 >
 
 1. In Object Explorer, right-click **AdventureWorksLT** and then click **New Query** to open a query window connected to the AdventureWorksLT database.
-2. Execute the following statement to create a user called user1 in the AdventureWorksLT database.
+2. Execute the following statement to create a user account in the AdventureWorksLT database for a user in the Microsoft domain called aaduser1.
 
    ```
-   CREATE USER user1
-   WITH PASSWORD = 'p@ssw0rd';
+   CREATE USER [aaduser1@microsoft.com]
+   FROM EXTERNAL PROVIDER;
    ```
-   ![new user user1 AdventureWorksLT](./media/sql-database-control-access-aad-authentication-get-started/new_user_user1_aw.png)
+   ![new user aaduser1@microsoft.com AdventureWorksLT](./media/sql-database-control-access-aad-authentication-get-started/new_user_aaduser1@microsoft.com_aw.png)
 
 3. In the query window, execute the following query to return information about the permissions of user1. Notice that the only permissions that user1 has are the permissions inherited from the public role.
 
@@ -217,7 +217,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
       ON p.principal_id = r.member_principal_id
       LEFT JOIN sys.database_principals AS p3
       ON r.role_principal_id = p3.principal_id
-   WHERE p.name = 'user1';
+   WHERE p.name = 'aaduser1@microsoft.com';
    ```
 
    ![new user permissions in a user database](./media/sql-database-control-access-aad-authentication-get-started/new_user_permissions_in_user_database.png)
@@ -225,7 +225,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 4. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
 
    ```
-   EXECUTE AS USER = 'user1';  
+   EXECUTE AS USER = 'aaduser1@microsoft.com';  
    SELECT * FROM [SalesLT].[ProductCategory];
    REVERT;
    ```
@@ -235,7 +235,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 5. Execute the following statement to grant SELECT permissions on the ProductCategory table in the SalesLT schema to user1.
 
    ```
-   GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
+   GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to [aaduser1@microsoft.com];
    ```
 
    ![grant select permissions](./media/sql-database-control-access-aad-authentication-get-started/grant_select_permissions.png)
@@ -243,7 +243,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 6. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
 
    ```
-   EXECUTE AS USER = 'user1';  
+   EXECUTE AS USER = 'aaduser1@microsoft.com';  
    SELECT * FROM [SalesLT].[ProductCategory];
    REVERT;
    ```
