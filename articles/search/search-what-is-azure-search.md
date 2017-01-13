@@ -78,12 +78,12 @@ Once you have populated your Azure Search index, you can now [issue search queri
 
 ## Why use Azure Search (watch this 2-minute video)
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/What-is-Azure-Search/]
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/What-is-Azure-Search]
 > 
 >
 
 ## Try it now (for free!)
-If you already have an Azure account, you can [provision a service in the Free tier](search-create-service-portal.md).
+Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 
