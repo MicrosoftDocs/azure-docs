@@ -57,10 +57,10 @@ Here are the most important settings to tune for improved ADLS performance:
 
 I/O intensive workloads can benefit from more parallelism by decreasing the Tez container size. This gives the user more containers which increases concurrency.  However, some Hive queries require a significant amount of memory (e.g. MapJoin).  If the task does not have enough memory, you will get an out of memory exception during runtime.  If you receive out of memory exceptions, then you should increase the memory.   
 
-The concurrent number of tasks running or parallelism will be bounded by the total YARN memory.  To find the YARN memory per node, you can go to Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
+The concurrent number of tasks running or parallelism will be bounded by the total YARN memory.  The number of YARN containers will dictate how many concurrent tasks can run.  To find the YARN memory per node, you can go to Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
 
 		Total YARN memory = nodes * YARN memory per node
-		Concurrency = Total YARN memory / Tez container size
+		# of YARN containers = Total YARN memory / Tez container size
 The key to improving performance using ADLS is to increase the concurrency as much as possible.  Tez automatically calculates the number of tasks that should be created so you do not need to set it.   
 
 ## Example Calculation
@@ -69,7 +69,7 @@ Let’s say you have an 8 node D14 cluster.
 
 	Total YARN memory = nodes * YARN memory per node
 	Total YARN memory = 8 nodes * 96GB = 768GB
-	Concurrency = 768GB / 3072MB = 256
+	# of YARN containers = 768GB / 3072MB = 256
 
 ## Limitations
 **ADLS throttling** 
