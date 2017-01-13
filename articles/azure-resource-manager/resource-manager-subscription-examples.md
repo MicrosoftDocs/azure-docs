@@ -194,4 +194,3 @@ To fulfill these requirements, Dave enables Azure Security Center. He ensures th
 ## Next steps
 * To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) contributed to this topic.*

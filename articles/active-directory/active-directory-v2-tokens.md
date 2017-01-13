@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> For practice, to inspect the claims in the sample ID token, paste the sample ID token into [calebb.net](https://calebb.net).
+> For practice, to inspect the claims in the sample ID token, paste the sample ID token into [calebb.net](http://calebb.net/).
 >
 >
 

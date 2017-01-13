@@ -81,7 +81,8 @@
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
 ## Manage
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Secure
 ### [Security guide](storage-security-guide.md)
@@ -159,7 +160,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Resource provider](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageimportexport)
 

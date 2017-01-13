@@ -192,7 +192,7 @@
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### APIs
-#### [Anomaly detection](machine-learning-apps-anomaly-detection.md)
+#### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
 #### [Text analytics](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Recommendations

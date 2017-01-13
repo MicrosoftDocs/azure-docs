@@ -87,7 +87,7 @@ A best practice in developing data access applications in the cloud is to ensure
 
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 
-### Example – data dependent routing with transient fault handling
+### Example - data dependent routing with transient fault handling
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 

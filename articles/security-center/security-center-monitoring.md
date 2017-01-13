@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/10/2017
 ms.author: yurid
 
 ---
@@ -30,7 +30,7 @@ For more information about how to apply recommendations, read [Implementing secu
 
 On the **Resources security health** tile, you can monitor the security state of your resources. In the following example, you can see that a number of issues have high and medium severity and require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
 
 If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](/virtual-network/virtual-networks-nsg.md), it will be listed here.
 
@@ -166,7 +166,8 @@ In this topology view, the first level has [virtual networks](../virtual-network
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
 ### Monitor data
-When you click **Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read Enable encryption for Azure storage account in Azure Security Center.
+
+When you click **SQL & Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 

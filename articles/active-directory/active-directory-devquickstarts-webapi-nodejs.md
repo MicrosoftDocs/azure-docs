@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
@@ -52,17 +52,16 @@ follow [these instructions](active-directory-how-applications-are-added.md). If 
 
 Be sure to:
 
-* Sign into the Azure Management Portal.
-* In the left hand nav, click on **Active Directory**.
-* Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click add in the bottom drawer.
-* Follow the prompts and create a new **Web Application and/or WebAPI**.
+1, Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The sample code's default is `https://localhost:8080`.
   * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-* Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the Configure tab.
-* REMINDER:Create an **Application Secret** for your application and copy it down.  You will need it shortly.
-* REMINDER: Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+6. Once you’ve completed registration, AAD will assign your app a unique Application ID.  You’ll need this value in the next sections, so copy it from the application page.
+7. Create a **Key** for your application from the **Settings** page and copy it down.  You will need it shortly.
 
 ## 3. Download node.js for your platform
 To successfully use this sample, you must have a working installation of Node.js.

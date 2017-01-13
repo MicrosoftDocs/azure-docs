@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
@@ -53,17 +53,14 @@ For information on how to set this up, visit our existing samples here:
 
 Steps to register a Web API with Microsoft Azure AD
 
-1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
-2. Click on Active Directory in the left hand nav.
-3. Click the directory tenant where you wish to register the sample application.
-4. Click the Applications tab.
-5. In the drawer, click Add.
-6. Click "Add an application my organization is developing".
-7. Enter a friendly name for the application, for example "TodoListService", select "Web Application and/or Web API", and click next.
-8. For the sign-on URL, enter the base URL for the sample, which is by default `https://localhost:8080`.
-9. For the App ID URI, enter `https://<your_tenant_name>/TodoListService`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.  Click OK to complete the registration.
-10. While still in the Azure portal, click the Configure tab of your application.
-11. **Find the Client ID value and copy it aside**, you will need this later when configuring your application.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Enter a friendly name for the application, for example "TodoListService", select "Web Application and/or Web API", and click next.
+6. For the sign-on URL, enter the base URL for the sample, which is by default `https://localhost:8080`.
+7. For the App ID URI, enter `https://<your_tenant_name>/TodoListService`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.  Click OK to complete the registration.
+8. While still in the Azure portal, go to your application page and find the Application ID value and copy it aside, you will need this later when configuring your application.
 
 ## Step 3: Register the sample Android Native Client application
 Registering your web application is the first step. Next, you'll need to tell Azure Active Directory about your application as well. This allows your application to communicate with the just registered Web API
@@ -78,17 +75,14 @@ Registering your web application is the first step. Next, you'll need to tell Az
 
 *As you might have guessed, you could build an app that accesses an external API that is registered in Azure Active Directory from another tenant. If you do that, your customers will be prompted to consent to the use of the API in the application. The nice part is, Active Directory Authentication Library for iOS takes care of this consent for you! As we get in to more advanced features, you'll see this is an important part of the work needed to access the suite of Microsoft APIs from Azure and Office as well as any other service provider. For now, because you registered both your Web API and application under the same tenant you won't see any prompts for consent. This is usually the case if you are developing an application just for your own company to use.*
 
-1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
-2. Click on Active Directory in the left hand nav.
-3. Click the directory tenant where you wish to register the sample application.
-4. Click the Applications tab.
-5. In the drawer, click Add.
-6. Click "Add an application my organization is developing".
-7. Enter a friendly name for the application, for example "TodoListClient-Android", select "Native Client Application", and click next.
-8. For the Redirect URI, enter `http://TodoListClient`.  Click finish.
-9. Click the Configure tab of the application.
-10. Find the Client ID value and copy it aside, you will need this later when configuring your application.
-11. In "Permissions to Other Applications", click "Add Application."  Select "Other" in the "Show" dropdown, and click the upper check mark.  Locate & click on the TodoListService, and click the bottom check mark to add the application.  Select "Access TodoListService" from the "Delegated Permissions" dropdown, and save the configuration.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Enter a friendly name for the application, for example "TodoListClient-Android", select "Native Client Application", and click next.
+6. For the Redirect URI, enter `http://TodoListClient`.  Click finish.
+7. From the application page, find the Application ID value and copy it aside, you will need this later when configuring your application.
+8. From the **Settings** page, choose **Required Permissions** and choose **Add**.  Locate and select the TodoListService and add the **Access TodoListService** permission under **Delegated Permissions** and choose **Done**.
 
 To build with Maven, you can use the pom.xml at top level
 
@@ -163,7 +157,6 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 2. Add the project dependency for debugging in to your project settings
 3. Update your project's AndroidManifest.xml file to include:
    
-    ```Java
       <uses-permission android:name="android.permission.INTERNET" />
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
       <application
@@ -179,28 +172,23 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
             </activity>
       ....
       <application/>
-    ```
-4. Create an instance of AuthenticationContext at your main Activity. The details of this call are beyond the scope of this README, but you can get a good start by looking at the [Android Native Client Sample](https://github.com/AzureADSamples/NativeClient-Android). Below is an example:
+
+4. Create an instance of AuthenticationContext at your main Activity. The details of this call are beyond the scope of this README, but you can get a good start by looking at the [Android Native Client Sample](https://github.com/AzureADSamples/NativeClient-Android). Below is an example, which uses SharedPreferences as default cache, and where Authority is in the form of `https://login.windows.net/yourtenant.onmicrosoft.com`:
    
-    ```Java
-    // Authority is in the form of https://login.windows.net/yourtenant.onmicrosoft.com
-    mContext = new AuthenticationContext(MainActivity.this, authority, true); // This will use SharedPreferences as            default cache
-    ```
-   * NOTE: mContext is a field in your activity
+    `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
+
 5. Copy this code block to handle the end of AuthenticationActivity after user enters credentials and receives authorization code:
    
-    ```Java
-     @Override
-     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-         super.onActivityResult(requestCode, resultCode, data);
-         if (mContext != null) {
-             mContext.onActivityResult(requestCode, resultCode, data);
+        @Override
+         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+             super.onActivityResult(requestCode, resultCode, data);
+             if (mContext != null) {
+                mContext.onActivityResult(requestCode, resultCode, data);
+             }
          }
-     }
-    ```
+
 6. To ask for a token, you define a callback
    
-    ```Java
     private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
    
             @Override
@@ -230,13 +218,11 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
                 }
             }
         };
-    ```
+
 7. Finally, ask for a token using that callback:
    
-   ```Java
-    mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
-                   callback);
-   ```
+   `mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
+                   callback);`
 
 Explanation of the parameters:
 
@@ -252,25 +238,18 @@ Optional:  **acquireTokenSilent**
 
 You can call **acquireTokenSilent** to handle caching, and token refresh. It provides sync version as well. It accepts userid as parameter.
 
-    ```java
-     mContext.acquireTokenSilent(resource, clientid, userId, callback );
-    ```
+    mContext.acquireTokenSilent(resource, clientid, userId, callback );
 
 1. **Broker**:
    Microsoft Intune's Company portal app will provide the broker component. ADAL will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it. Developer can skip the broker user with:
    
-   ```java
-    AuthenticationSettings.Instance.setSkipBroker(true);
-   ```
+   `AuthenticationSettings.Instance.setSkipBroker(true);`
    
-   Developer needs to register special redirectUri for broker usage. RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature. You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri. Signature is related to your signing certificates.
+   Developer needs to register special redirectUri for broker usage. RedirectUri is in the format of `msauth://packagename/Base64UrlencodedSignature`. You can get your redirecturi for your app using the script "brokerRedirectPrint.ps1" or use API call mContext.getBrokerRedirectUri. Signature is related to your signing certificates.
    
    Current broker model is for one user. AuthenticationContext provides API method to get the broker user.
    
-   ```java
-   String brokerAccount =  mContext.getBrokerUser();
-   ```
-   Broker user will be returned if account is valid.
+   `String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.`
    
    Your app manifest should have permissions to use AccountManager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html
    
@@ -295,14 +274,11 @@ Authority url needs STS instance and tenant name: https://login.windows.net/your
 ### Querying cache items
 ADAL provides Default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext with:
 
-```Java
- ITokenCacheStore cache = mContext.getCache();
-```
+    ITokenCacheStore cache = mContext.getCache();
+
 You can also provide your cache implementation, if you want to customize it.
 
-```Java
-mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
-```
+    mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 
 ### PromptBehavior
 ADAL provides option to specifiy prompt behavior. PromptBehavior.Auto will pop up UI if refresh token is invalid and user credentials are required. PromptBehavior.Always will skip the cache usage and always show UI.
@@ -310,9 +286,7 @@ ADAL provides option to specifiy prompt behavior. PromptBehavior.Auto will pop u
 ### Silent token request from cache and refresh
 This method does not use UI pop up and not require an activity. It will return token from cache if available. If token is expired, it will try to refresh it. If refresh token is expired or failed, it will return AuthenticationException.
 
-    ```Java
     Future<AuthenticationResult> result = mContext.acquireTokenSilent(resource, clientid, userId, callback );
-    ```
 
 You can also make sync call with this method. You can set null to callback or use acquireTokenSilentSync.
 
@@ -331,20 +305,18 @@ This is obviously the first diagnostic. We try to provide helpful error messages
 #### Logs
 You can configure the library to generate log messages that you can use to help diagnose issues. You configure logging by making the following call to configure a callback that ADAL will use to hand off each log message as it is generated.
 
- ```Java
- Logger.getInstance().setExternalLogger(new ILogger() {
-     @Override
-     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
-      ...
-      // You can write this to logfile depending on level or errorcode.
-      writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
-     }
- }
- ```
+    Logger.getInstance().setExternalLogger(new ILogger() {
+        @Override
+        public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
+        ...
+        // You can write this to logfile depending on level or errorcode.
+        writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
+        }
+    }
+
 Messages can be written to a custom log file as seen below. Unfortunately, there is no standard way of getting logs from a device. There are some services that can help you with this. You can also invent your own, such as sending the file to a server.
 
-```Java
-private syncronized void writeToLogFile(Context ctx, String msg) {
+    private syncronized void writeToLogFile(Context ctx, String msg) {
        File directory = ctx.getDir(ctx.getPackageName(), Context.MODE_PRIVATE);
        File logFile = new File(directory, "logfile");
        FileOutputStream outputStream = new FileOutputStream(logFile, true);
@@ -352,8 +324,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
        osw.write(msg);
        osw.flush();
        osw.close();
-}
-```
+    }
 
 ##### Logging Levels
 * Error(Exceptions)
@@ -363,16 +334,12 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 
 You set the log level like this:
 
-```Java
-Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
- ```
+    Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  All log messages are sent to logcat in addition to any custom log callbacks.
  You can get log to a file form logcat as shown belog:
 
- ```
-  adb logcat > "C:\logmsg\logfile.txt"
- ```
+    adb logcat > "C:\logmsg\logfile.txt"
  More examples about adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Network Traces
@@ -395,12 +362,11 @@ AuthenticationParameters class provides functionality to get the authorization_u
 ### Session cookies in Webview
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 
-```java
-CookieSyncManager.createInstance(getApplicationContext());
-CookieManager cookieManager = CookieManager.getInstance();
-cookieManager.removeSessionCookie();
-CookieSyncManager.getInstance().sync();
-```
+    CookieSyncManager.createInstance(getApplicationContext());
+    CookieManager cookieManager = CookieManager.getInstance();
+    cookieManager.removeSessionCookie();
+    CookieSyncManager.getInstance().sync();
+
 More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Resource Overrides
@@ -408,17 +374,13 @@ The ADAL library includes English strings for the following two ProgressDialog m
 
 Your application should overwrite them if localized strings are desired.
 
-```Java
-<string name="app_loading">Loading...</string>
-<string name="broker_processing">Broker is processing</string>
-<string name="http_auth_dialog_username">Username</string>
-<string name="http_auth_dialog_password">Password</string>
-<string name="http_auth_dialog_title">Sign In</string>
-<string name="http_auth_dialog_login">Login</string>
-<string name="http_auth_dialog_cancel">Cancel</string>
-```
-
-=======
+     <string name="app_loading">Loading...</string>
+     <string name="broker_processing">Broker is processing</string>
+     <string name="http_auth_dialog_username">Username</string>
+     <string name="http_auth_dialog_password">Password</string>
+     <string name="http_auth_dialog_title">Sign In</string>
+     <string name="http_auth_dialog_login">Login</string>
+     <string name="http_auth_dialog_cancel">Cancel</string>
 
 ### NTLM dialog
 Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient. Dialog layout and strings can be customized.

@@ -3,6 +3,8 @@
 ## [Is it right for you?](active-directory-ds-comparison.md)
 ## [Features](active-directory-ds-features.md)
 ## [Scenarios](active-directory-ds-scenarios.md)
+## [How synchronization works](active-directory-ds-synchronization.md)
+## [Compatible third-party software](active-directory-ds-compatible-software.md)
 
 # Get started
 ## [Create administrative group](active-directory-ds-getting-started.md)
@@ -21,8 +23,8 @@
 ## [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
 ## [Configure secure LDAP for a managed domain](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
+## [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
-## [Synchronize with you on-premises directory](active-directory-ds-synchronization.md)
 
 ## Troubleshoot
 ### [FAQs](active-directory-ds-faqs.md)
@@ -33,8 +35,8 @@
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources 
+# Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Contact us](active-directory-ds-contact-us.md)

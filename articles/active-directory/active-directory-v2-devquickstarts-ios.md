@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/28/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---

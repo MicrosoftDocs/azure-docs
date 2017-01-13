@@ -27,7 +27,7 @@ Azure Resource Manager templates help you define the resources to deploy for a s
 >
 >
 
-## Service Bus and Event Hubs Resource Manager templates
+## Service Bus Resource Manager templates
 These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub:
 
 * [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)

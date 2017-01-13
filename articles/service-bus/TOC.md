@@ -1,5 +1,5 @@
 # Overview
-## [Messaging](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
+## [Messaging](../service-bus-messaging/service-bus-messaging-overview.md)
 ## [Relay](../service-bus-relay/relay-what-is-it.md)
 # Reference
 ## [PowerShell Resource Manager Cmdlets](/powershell/resourcemanager)
