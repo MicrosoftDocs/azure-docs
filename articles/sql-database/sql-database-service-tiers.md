@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 
 ---
@@ -46,7 +46,6 @@ Once you have determined the minimum service tier, you are ready to determine th
 
 After initially picking a performance level, you can and then scale the [individual database](sql-database-scale-up.md) or your [elastic pool](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) up or down dynamically based on actual experience. For migration scenarios, you can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
