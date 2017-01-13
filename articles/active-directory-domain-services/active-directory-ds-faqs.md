@@ -73,7 +73,7 @@ This service is included in the free trial for Azure. You can sign up for a [fre
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
 #### Do I need Azure AD Premium to use Azure AD Domain Services?
-No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all editions of Azure AD (Free, Basic, and, Premium) and are billed on an hourly basis, depending on usage.
+No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free, Basic, and, Premium). You are billed on an hourly basis, depending on usage.
 
 #### What Azure regions is the service available in?
 Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.

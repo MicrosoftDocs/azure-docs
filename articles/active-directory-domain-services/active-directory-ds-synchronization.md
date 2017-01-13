@@ -33,7 +33,7 @@ If you configure write-back, changes occurring in your Azure AD directory are sy
 >
 
 ## Synchronization from your Azure AD tenant to your managed domain
-User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. After the one-time initial synchronization of your directory is complete, it typically takes about 20 minutes for changes made in Azure AD to be reflected in your managed domain. This includes password changes or changes to attributes made in Azure AD.
+User accounts, group memberships, and credential hashes are synchronized from your Azure AD tenant to your Azure AD Domain Services managed domain. This synchronization process is automatic. You do not need to configure, monitor, or manage this synchronization process. After the one-time initial synchronization of your directory is complete, it typically takes about 20 minutes for changes made in Azure AD to be reflected in your managed domain. This synchronization interval applies to password changes or changes to attributes made in Azure AD.
 
 The synchronization process is also one-way/unidirectional in nature. Your managed domain is largely read-only except for any custom OUs you create. Therefore, you cannot make changes to user attributes, user passwords, or group memberships within the managed domain. As a result, there is no reverse synchronization of changes from your managed domain back to your Azure AD tenant.
 
