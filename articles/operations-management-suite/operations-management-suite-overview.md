@@ -46,7 +46,7 @@ If you have an existing installation of System Center, you can integrate these c
 ## OMS services
 The core functionality of OMS is provided by a set of services that run in Azure.  Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
-
+| Service | Description |
 |:--|:--|
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) Log Analytics | Monitor and analyze the availability and performance of different resources including physical and virtual machines. |
 | ![Azure Automation](media/operations-management-suite-overview/icon-automation.png)  Automation | Automate manual processes and enforce configurations for physical and virtual machines. |
