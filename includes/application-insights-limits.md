@@ -4,7 +4,7 @@ Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/
 
 | **Resource** | **Default Limit** | **Note**
 | --- | --- | --- |
-| Total data per day | 100 GB | You can reduce by setting a cap. If you need more, mail AIDataCap@microsoft.com 
+| Total data per day | 500 GB | You can reduce by setting a cap. If you need more, mail AIDataCap@microsoft.com 
 | Free data per month<br/> (Basic price plan) | 1 GB | Additional data charged per GB
 | Data retention | 90 days | for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) and [Metrics explorer](../articles/application-insights/app-insights-metrics-explorer.md)
 | [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | Detailed results of each step
