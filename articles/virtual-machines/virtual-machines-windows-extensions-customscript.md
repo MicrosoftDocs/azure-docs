@@ -58,7 +58,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 	"properties": {
 		"publisher": "Microsoft.Compute",
 		"type": "CustomScriptExtension",
-		"typeHandlerVersion": "1.8",
+		"typeHandlerVersion": "1.*",
 		"autoUpgradeMinorVersion": true,
 		"settings": {
 			"fileUris": [
@@ -81,7 +81,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | extensions |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.* |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (e.g) | examplestorageacct |
@@ -124,7 +124,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 The script itself is downloaded into the following directory on the target virtual machine.
 
 ```cmd
-C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
 ```
 
 ### Support
