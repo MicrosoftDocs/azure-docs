@@ -296,7 +296,7 @@ In this section of the tutorial, you attempt to log in using the new user accoun
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-   ![Connect as aaduser1 without firewall rule4](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
+   ![add database level firewall rule4](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
 
 8. Switch computers again and click **Connect** in the **Connect to Server** dialog box to connect to AdventureWorksLT as aaduser1. 
 
