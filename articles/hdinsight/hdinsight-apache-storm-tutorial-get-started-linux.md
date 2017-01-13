@@ -77,7 +77,7 @@ In this section, you create an HDInsight version 3.5 cluster (Storm version 1.0.
      > * [Use SSH with Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. Select __I agree to the terms and conditions stated above__ and click on **OK**, and then select __Pin to dashbaord__
+3. Select __I agree to the terms and conditions stated above__ and click on **OK**, and then select __Pin to dashboard__
 
 6. Click **Purchase**. You will see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster.
 
