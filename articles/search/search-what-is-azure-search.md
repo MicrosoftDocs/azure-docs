@@ -76,12 +76,6 @@ The push model is provided through the SDK or REST APIs, used for sending update
 ### 4. Search
 Once you have populated your Azure Search index, you can now [issue search queries](https://msdn.microsoft.com/library/azure/dn798927.aspx) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
-## Why use Azure Search (watch this 2-minute video)
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/What-is-Azure-Search]
-> 
->
-
 ## Try it now (for free!)
 Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
 
