@@ -12,12 +12,12 @@
 # How to
 ## Configure High Availability
 ### [High availability options](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Configure Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Configure Always On availability group]
 #### [Configure availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Configure group automatically](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Configure availability group - automatically](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Configure availability group - prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Configure availability group - manually](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Configure an internal load balancer for an availability group](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Configure availability group load balancer](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Configure one or more availability group listeners](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Configure availability group in multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 
