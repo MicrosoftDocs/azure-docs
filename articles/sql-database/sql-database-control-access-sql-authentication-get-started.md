@@ -61,7 +61,7 @@ In this section of the tutorial, you view information about the security configu
 
 1. Open the **SQL Server** blade for your logical server and view the information in the **Overview** page.
 
-   ![Server admin account in the Azure portal](./media/sql-database-control-access-sql-authentication-get-started.md/sql_admin_portal.png)
+   ![Server admin account in the Azure portal](./media/sql-database-control-access-sql-authentication-get-started/sql_admin_portal.png)
 
 2. Make note of the name of the Server admin account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
 
@@ -90,11 +90,11 @@ In this section of the tutorial, you view information about the server admin acc
 
 1. In Object Explorer, expand **Security**, and then expand **Logins** to view the existing logins for your Azure SQL Database server. Notice that a login appears for the Server admin account specified during provisioning - the sqladmin login for this tutorial series.
 
-   ![Server admin login](./media/sql-database-control-access-sql-authentication-get-started.md/server_admin_login.png)
+   ![Server admin login](./media/sql-database-control-access-sql-authentication-get-started/server_admin_login.png)
 
 2. In Object Explorer, expand **Databases**, expand **System databases**, expand **master**, expand **Security**, and then expand **Users**. Notice that a user account has been created in the master database for the Server admin login, with the same name for the user account as the login (the names do not have to match, but it is a best practice to avoid confusion).
 
-   ![master database user account for server admin](./media/sql-database-control-access-sql-authentication-get-started.md/master_database_user_account_for_server_admin.png)
+   ![master database user account for server admin](./media/sql-database-control-access-sql-authentication-get-started/master_database_user_account_for_server_admin.png)
 
    > [!NOTE]
    > For information about the other user accounts that appear, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
@@ -107,7 +107,7 @@ In this section of the tutorial, you view information about the server admin acc
    SELECT USER;
    ```
 
-   ![select user query in the master database](./media/sql-database-control-access-sql-authentication-get-started.md/select_user_query_in_master_database.png)
+   ![select user query in the master database](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_master_database.png)
 
 5. In the query window, execute the following query to return information about the permissions of the sqladmin user. Notice that sqladmin has permissions to connect to the master database, create logins and users, select information from the sys.sql_logins table, and add users to the dbmanager and dbcreator database roles. These permissions are in addition to permissions granted to the public role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
 
@@ -129,11 +129,11 @@ In this section of the tutorial, you view information about the server admin acc
    WHERE p.name = 'sqladmin';
    ```
 
-   ![server admin permissions in the master database](./media/sql-database-control-access-sql-authentication-get-started.md/server_admin_permissions_in_master_database.png)
+   ![server admin permissions in the master database](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_master_database.png)
 
 6. In Object Explorer, expand **blankdb**, expand **Security**, and then expand **Users**. Notice that there is no user account called sqladmin in this database.
 
-   ![user accounts in blankdb](./media/sql-database-control-access-sql-authentication-get-started.md/user_accounts_in_blankdb.png)
+   ![user accounts in blankdb](./media/sql-database-control-access-sql-authentication-get-started/user_accounts_in_blankdb.png)
 
 7. In Object Explorer, right-click **blankdb** and then click **New Query**.
 
@@ -143,7 +143,7 @@ In this section of the tutorial, you view information about the server admin acc
    SELECT USER;
    ```
 
-   ![select user query in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started.md/select_user_query_in_blankdb_database.png)
+   ![select user query in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_blankdb_database.png)
 
 9. In the query window, execute the following query to return information about the permissions of the dbo user. Notice that dbo is a member of the public role and also a member of the db_owner fixed database role. See [Database-Level Roles](https://msdn.microsoft.com/library/ms189121.aspx) for more information.
 
@@ -165,7 +165,7 @@ In this section of the tutorial, you view information about the server admin acc
    WHERE p.name = 'dbo';
    ```
 
-   ![server admin permissions in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started.md/server_admin_permissions_in_blankdb_database.png)
+   ![server admin permissions in the blankdb database](./media/sql-database-control-access-sql-authentication-get-started/server_admin_permissions_in_blankdb_database.png)
 
 10. Optionally, repeat the previous three steps for the AdventureWorksLT user database.
 
@@ -184,7 +184,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
    CREATE USER user1
    WITH PASSWORD = 'p@ssw0rd';
    ```
-   ![new user user1 AdventureWorksLT](./media/sql-database-control-access-sql-authentication-get-started.md/new_user_user1_aw.png)
+   ![new user user1 AdventureWorksLT](./media/sql-database-control-access-sql-authentication-get-started/new_user_user1_aw.png)
 
 3. In the query window, execute the following query to return information about the permissions of user1. Notice that the only permissions that user1 has are the permissions inherited from the public role.
 
@@ -206,7 +206,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
    WHERE p.name = 'user1';
    ```
 
-   ![new user permissions in a user database](./media/sql-database-control-access-sql-authentication-get-started.md/new_user_permissions_in_user_database.png)
+   ![new user permissions in a user database](./media/sql-database-control-access-sql-authentication-get-started/new_user_permissions_in_user_database.png)
 
 4. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
 
@@ -216,7 +216,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
    REVERT;
    ```
 
-   ![no select permissions](./media/sql-database-control-access-sql-authentication-get-started.md/no_select_permissions.png)
+   ![no select permissions](./media/sql-database-control-access-sql-authentication-get-started/no_select_permissions.png)
 
 5. Execute the following statement to grant SELECT permissions on the ProductCategory table in the SalesLT schema to user1.
 
@@ -224,7 +224,7 @@ In this section of the tutorial, you create a user account in the AdventureWorks
    GRANT SELECT ON OBJECT::[SalesLT].[ProductCategory] to user1;
    ```
 
-   ![grant select permissions](./media/sql-database-control-access-sql-authentication-get-started.md/grant_select_permissions.png)
+   ![grant select permissions](./media/sql-database-control-access-sql-authentication-get-started/grant_select_permissions.png)
 
 6. Execute the following queries to attempt to query a table in the AdventureWorksLT database as user1.
 
@@ -234,9 +234,9 @@ In this section of the tutorial, you create a user account in the AdventureWorks
    REVERT;
    ```
 
-   ![select permissions](./media/sql-database-control-access-sql-authentication-get-started.md/select_permissions.png)
+   ![select permissions](./media/sql-database-control-access-sql-authentication-get-started/select_permissions.png)
 
-## Create a database-level firewall rule for AdventureWorksLT database users
+## Create a database-level firewall rule for an AdventureWorksLT database user
 
 In this section of the tutorial, you log attempt to log in from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then log in using this new database-level firewall rule. 
 
@@ -252,17 +252,17 @@ In this section of the tutorial, you log attempt to log in from a computer with 
 
 2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the user1 account. 
     
-   ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started.md/connect-user1_no_rule1.png)
+   ![Connect as user1 without firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
 3. Click **Options** to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
-   ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started.md/connect-user1_no_rule2.png)
+   ![Connect as user1 without firewall rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
 4. Click **Connect**. A dialog box appears informing you that the computer from which you are attempting to connect to SQL Database does not have a firewall rule enabling access to the database. The dialog box that you receive has two variations depending upon steps you have previously taken with firewalls, but you usually get the first dialog box shown.
 
-   ![Connect as user1 without firewall rule3](./media/sql-database-control-access-sql-authentication-get-started.md/connect-user1_no_rule3.png)
+   ![Connect as user1 without firewall rule3](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule3.png)
 
-   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-sql-authentication-get-started.md/connect-user1_no_rule4.png)
+   ![Connect as user1 without firewall rule4](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
 
    > [!NOTE]
    > The newest versions of SSMS include the functionality to allow subscription owners and contributors to sign in to Microsoft Azure and create a server-level firewall rule.
@@ -278,21 +278,21 @@ In this section of the tutorial, you log attempt to log in from a computer with 
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-   ![add firewall rule](./media/sql-database-control-access-sql-authentication-get-started.md/user1_add_rule_aw.png)
+   ![add firewall rule](./media/sql-database-control-access-sql-authentication-get-started/user1_add_rule_aw.png)
 
 8. Switch computers again and click **Connect** in the **Connect to Server** dialog box to connect to AdventureWorksLT as user1. 
 
-   ![Connect as user1 with firewall rule1](./media/sql-database-control-access-sql-authentication-get-started.md/connect-user1_rule1.png)
+   ![Connect as user1 with firewall rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
 
 9. In Object Explorer, expand **Databases**, expand **AdventureWorksLT**, and then expand **Tables**. Notice that user1 only has permission to view a single table, the **SalesLT.ProductCategory** table. 
 
-   ![Connect as user1 and view objects1](./media/sql-database-control-access-sql-authentication-get-started.md/connect-user1_view_objects1.png)
+   ![Connect as user1 and view objects1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_view_objects1.png)
 
 10. In Object Explorer, right-click **SalesLT.ProductCategory** and click **Select Top 1000 Rows**.   
 
-   ![user1 query1](./media/sql-database-control-access-sql-authentication-get-started.md/user1_query1.png)
+   ![user1 query1](./media/sql-database-control-access-sql-authentication-get-started/user1_query1.png)
 
-   ![user1 query1 results](./media/sql-database-control-access-sql-authentication-get-started.md/user1_query1_results.png)
+   ![user1 query1 results](./media/sql-database-control-access-sql-authentication-get-started/user1_query1_results.png)
 
 ## Create a new user in the blankdb database with db_owner database role permissions and a database-level firewall rule
 
