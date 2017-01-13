@@ -12,10 +12,14 @@
 # How to
 ## Configure High Availability
 ### [High availability options](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Configure Always On availability group automatically](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-### [Configure Always On availability group manually](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+### [Configure Always On availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Configure availability group](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Configure group automatically](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Configure availability group - prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Configure availability group - manually](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 ### [Configure an internal load balancer for an availability group](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-### [Configure one or more Always On Availability Group Listeners](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+### [Configure one or more availability group listeners](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+### [Configure availability group in multiple regions](virtual-machines-windows-portal-sql-availability-group-dr)
 ## Manage
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Automated Patching](virtual-machines-windows-sql-automated-patching.md)
