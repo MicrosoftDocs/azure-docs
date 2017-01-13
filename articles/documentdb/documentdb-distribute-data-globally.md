@@ -78,7 +78,6 @@ Learn more about the distributing data globally with DocumentDB in the following
 [createaccount]: documentdb-create-account.md
 [manageaccount]: documentdb-manage-account.md
 [manageaccount-consistency]: documentdb-manage-account.md#consistency
-[throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
 [serviceregions]: https://azure.microsoft.com/en-us/regions/#services 

@@ -337,7 +337,6 @@ In this article, we've described how partitioning works in Azure DocumentDB, how
 * Perform scale and performance testing with DocumentDB. See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) for a sample.
 * Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 * Learn about [provisioned throughput in DocumentDB](documentdb-performance-levels.md)
-* If you would like to customize how your application performs partitioning, you can plug in your own client-side partitioning implementation. See [Client-side partitioning support](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
