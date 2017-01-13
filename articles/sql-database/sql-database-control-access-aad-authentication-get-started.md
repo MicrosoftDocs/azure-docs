@@ -252,7 +252,11 @@ In this section of the tutorial, you create a user account in the AdventureWorks
 
 ## Create a database-level firewall rule for AdventureWorksLT database users
 
-In this section of the tutorial, you log in as the new AdventureWorksLT database user using the same computer for which you created a server-level firewall rule, attempt to log in from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then log in using this new database-level firewall rule. 
+> [!NOTE]
+> You do not need to complete this procedure if you completed the equivalent procedure in the related tutorial for SQL Server authtentication, [SQL Database tutorial: SQL authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md)
+>
+
+In this section of the tutorial, you attempt to log in using the new user account from a computer with a different IP address, create a database-level firewall rule as the Server admin, and then successfully log in using this new database-level firewall rule. 
 
 > [!NOTE]
 > [Database-level firewall rules](sql-database-firewall-configure.md) increase the portability of your database, a capability that we explore in later tutorials.
@@ -264,13 +268,13 @@ In this section of the tutorial, you log in as the new AdventureWorksLT database
    > Always use the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). 
    >
 
-2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the user1 account. 
+2. In the **Connect to Server** window, enter the server name and authentication information to connect using SQL Server authentication with the aaduser1@microsoft.com account. 
     
-   ![Connect as user1 without firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect-user1_no_rule1.png)
+   ![Connect as aaduser1@microsoft.com without firewall rule1](./media/sql-database-control-access-aad-authentication-get-started/connect-aaduser1_no_rule1.png)
 
 3. Click **Options** to specify the database to which you want to connect and then type **AdventureWorksLT** in the **Connect to Database** drop-down box on the **Connection Properties** tab.
    
-   ![Connect as user1 without firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect-user1_no_rule2.png)
+   ![Connect as aaduser1 without firewall rule2](./media/sql-database-control-access-aad-authentication-get-started/connect-user1_no_rule2.png)
 
 4. Click **Connect**. A dialog box appears informing you that the computer from which you are attempting to connect to SQL Database does not have a firewall rule enabling access to the database. The dialog box that you receive has two variations depending upon steps you have previously taken with firewalls, but you usually get the first dialog box shown.
 
