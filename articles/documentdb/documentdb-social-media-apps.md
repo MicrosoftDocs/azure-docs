@@ -61,7 +61,7 @@ There are special graph databases that can [run on Azure](http://neo4j.com/devel
 
 And it can be obtained with a single query, and with no joins. This is much more simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
-Azure DocumentDB makes sure that all the properties are indexed with its [automatic indexing](documentdb-indexing.md), which can even be [customized](documentdb-indexing-policies.md). The schema-free approach lets us store Documents with different and dynamic structures, maybe tomorrow we want posts to have a list of categories or hashtags associated with them, DocumentDB will handle the new Documents with the added attributes with no extra work required by us.
+Azure DocumentDB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](documentdb-indexing-policies.md). The schema-free approach lets us store Documents with different and dynamic structures, maybe tomorrow we want posts to have a list of categories or hashtags associated with them, DocumentDB will handle the new Documents with the added attributes with no extra work required by us.
 
 Comments on a post can be treated as just other posts with a parent property (this simplifies our object mapping). 
 
@@ -165,7 +165,7 @@ The middle step is called the user, it’s the full data that will be used on mo
 
 The largest is the Extended User. It includes all the critical user information plus other data that doesn’t really require to be read quickly or it’s usage is eventual (like the login process). This data can be stored outside of DocumentDB, in Azure SQL Database or Azure Storage Tables.
 
-Why would we split the user and even store this information in different places? Because storage space in DocumentDB is [not infinite](documentdb-limits.md) and from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network, and store the other extra information for eventual scenarios like, full profile edits, logins, even data mining for usage analytics and Big Data initiatives. We really don’t care if the data gathering for data mining is slower because it’s running on Azure SQL Database, we do have concern though that our users have a fast and slim experience. A user, stored on DocumentDB, would look like this:
+Why would we split the user and even store this information in different places? Because storage space in DocumentDB is not infinite and from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network, and store the other extra information for eventual scenarios like, full profile edits, logins, even data mining for usage analytics and Big Data initiatives. We really don’t care if the data gathering for data mining is slower because it’s running on Azure SQL Database, we do have concern though that our users have a fast and slim experience. A user, stored on DocumentDB, would look like this:
 
     {
         "id":"dse4-qwe2-ert4-aad2",
