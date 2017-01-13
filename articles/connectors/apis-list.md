@@ -148,7 +148,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [youtubedoc]: ./connectors-create-api-youtube.md "Connects to YouTube and can interact with videos and channels."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost and can be used for communication."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Use file system connector to communicate with on-premises file system."
-[sapconnector]: ..//app-service-logic-enterprise-connector-SAPconnector.md "Learn about SAP Connector"
+[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-SAPconnector.md "Learn about SAP Connector"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
