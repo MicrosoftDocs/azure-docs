@@ -20,6 +20,7 @@
 #### [Configure an internal load balancer for an availability group](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Configure one or more availability group listeners](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Configure availability group in multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
 ## Manage
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)
 ### [Automated Patching](virtual-machines-windows-sql-automated-patching.md)
