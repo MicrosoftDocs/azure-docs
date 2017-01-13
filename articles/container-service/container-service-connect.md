@@ -21,7 +21,7 @@ ms.author: rogardle
 ---
 # Connect to an Azure Container Service cluster
 After [deploying an Azure Container Service cluster](container-service-deployment.md), you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the cluster from a remote computer. The Kubernetes, DC/OS, and Docker Swarm clusters all expose REST endpoints. For Kubernetes,
-this endpoint is securely exposed on the internet, and you can access it by running the `kubectl` command-line tool from any machine connected to the internet. For DC/OS 
+this endpoint is securely exposed on the internet, and you can access it by running the `kubectl` command-line tool from any internet-connected machine. For DC/OS 
 and Docker Swarm, you must create a secure shell (SSH) tunnel to securely connect to the REST endpoint. 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Follow these steps to install and configure `kubectl` on your computer.
 > * These commands assume that you have an appropriate private SSH key for the cluster installed in `$HOME/.ssh/id_rsa`. See these 
 instructions for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)
-for more information. If this isn't working, you may need to 
+for more information. If the SSH connection isn't working, you may need to 
 [reset your SSH keys](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 ### Install kubectl
@@ -57,14 +57,14 @@ Alternatively, you can download the client directly from the [releases page](htt
 
 ### Download cluster credentials
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine. One way to do
-this is with the `az acs kubernetes get-credentials` command. Pass the name of the resource group and the name of the container service resource:
+get the credentials is with the `az acs kubernetes get-credentials` command. Pass the name of the resource group and the name of the container service resource:
 
 
 ```azurecli
 az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
-This downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
+This command downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
 
 Alternatively, you can use `scp` to securely copy the file from `$HOME/.kube/config` on the master VM to your local machine. For example:
 
@@ -115,9 +115,9 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
 
     ![Public DNS name](media/pubdns.png)
 
-3. Now open a shell and run `ssh' command by specifying the following values. 
+3. Now open a shell and run the `ssh` command by specifying the following values: 
 
-    **PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.  
+    **PORT** is the port of the endpoint that you want to expose. For Swarm, use port 2375. For DC/OS, use port 80.  
     **USERNAME** is the user name that was provided when you deployed the cluster.  
     **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
     **REGION** is the region in which your resource group is located.  
@@ -161,23 +161,23 @@ export DOCKER_HOST=:2375
 ```
 
 ### Create an SSH tunnel on Windows
-There are multiple options for creating SSH tunnels on Windows. This section describes how to use PuTTY to do this.
+There are multiple options for creating SSH tunnels on Windows. This section describes how to use PuTTY to create the tunnel.
 
 1. [Download PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to your Windows system.
 
 2. Run the application.
 
-3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** will look like this: `adminuser@PublicDNSName`. Enter 2200 for the **Port**.
+3. Enter a host name that is comprised of the cluster admin user name and the public DNS name of the first master in the cluster. The **Host Name** looks similar to `adminuser@PublicDNSName`. Enter 2200 for the **Port**.
 
     ![PuTTY configuration 1](media/putty1.png)
 
-4. Select **SSH > Auth**. Add your private key file for authentication. This must be a private key file (.ppk format). You can use a tool such as [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to generate this file if you haven't created one already.
+4. Select **SSH > Auth**. Add a path to your private key file (.ppk format) for authentication. You can use a tool such as [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to generate this file from the SSH key used to create the cluster.
 
     ![PuTTY configuration 2](media/putty2.png)
 
 5. Select **SSH > Tunnels** and configure the following forwarded ports:
 
-    * **Source Port:** Your preference--use 80 for DC/OS or 2375 for Swarm.
+    * **Source Port:** Use 80 for DC/OS or 2375 for Swarm.
     * **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
 
     The following example is configured for DC/OS, but will look similar for Docker Swarm.
