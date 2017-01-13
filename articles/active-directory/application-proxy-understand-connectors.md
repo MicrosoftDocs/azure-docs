@@ -51,7 +51,7 @@ The outbound traffic is sent to the Application Proxy service and to the publish
 
 As a result of having only outbound traffic, there is no need to setup load balancing between the connectors or configure inbound access through your firewalls.
 
-For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers]((https://azure.microsoft.com/en-us/documentation/articles/application-proxy-working-with-proxy-servers).
+For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](https://azure.microsoft.com/en-us/documentation/articles/application-proxy-working-with-proxy-servers).
 
 
 ## Network security
