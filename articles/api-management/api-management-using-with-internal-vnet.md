@@ -23,7 +23,7 @@ With Azure Virtual Networks (VNETs), API Management can manage APIs not accessib
 * Internal
 
 ## <a name="overview"> </a>Overview
-When API Management is deployed in an Internal Virtual network mode, all the service Endpoints (Gateway, Developer Portal, Publisher Portal, Direct Management and GIT) are only visible inside a Virtual network that you control access to. None of the Service Endpoints are registered on the Public DNS Server.
+When API Management is deployed in an Internal Virtual network mode, all the service endpoints (gateway, developer portal, publisher portal, direct management and Git) are only visible inside a Virtual network that you control access to. None of the service endpoints are registered on the Public DNS Server.
 
 Using API Management in Internal mode, you can achieve the following scenarios
 * Securely make APIs hosted in your private datacenter accessible by 3rd parties outside of it using Site-to-Site or ExpressRoute VPN connections.
@@ -34,7 +34,7 @@ Using API Management in Internal mode, you can achieve the following scenarios
 The API Management service in Internal Virtual network is hosted behind an Internal Load Balancer(ILB). The IP Address of the ILB is in the [RFC1918](http://www.faqs.org/rfcs/rfc1918.html) range.  
 
 ### Enable VNET connection using Azure portal
-First create the API Management service by following the steps [Create API Management service][Create API Management service]. Then set-up API Management to be deployed inside a virtual network.
+First create the API Management service by following the steps [Create API Management service][Create API Management service]. Then set-up API Management to be deployed inside a Virtual network.
 
 ![Menu for Setting up APIM in Internal Virtual Network][api-management-using-internal-vnet-menu]
 
