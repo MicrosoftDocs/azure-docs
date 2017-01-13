@@ -43,13 +43,21 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## [Storage](documentation-government-services-storage.md)
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
+* [Blob Storage](documentation-government-services-storage.md#azure-storage)
+* [Table Storage](documentation-government-services-storage.md#azure-storage)
+* [Queue Storage](documentation-government-services-storage.md#azure-storage)
+* [File Storage](documentation-government-services-storage.md#azure-storage)
+* [Hot/Cool Storage](documentation-government-services-storage.md#azure-storage)
+* [Storage Service Encryption](documentation-government-services-storage.md#azure-storage)
+* [Premium Storage](documentation-government-services-storage.md#azure-storage)
+* [Blob Import/Export](documentation-government-services-storage.md#azure-storage)
+* [StorSimple](documentation-government-services-storage.md)
+* [Backup](documentation-government-services-backup.md)
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Import/Export
-* StorSimple
-* Backup
-* Site Recovery
 
-## Web + Mobile
-* Web Apps
+## [Web + Mobile](documentation-government-services-webandmobile.md)
+* [App Services](documentation-government-services-webandmobile.md#app-services)
 * Media Services
 
 ## [Databases](documentation-government-services-database.md)
@@ -63,7 +71,7 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## Enterprise Integration
 * Service Bus
-* StorSimple
+* [StorSimple](documentation-government-services-storage.md)
 * SQL Server Stretch Database
 
 ## [Security + Identity](documentation-government-services-securityandidentity.md)
@@ -73,9 +81,9 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## [Monitoring + Management](documentation-government-services-monitoringandmanagement.md)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
-* Backup
+* [Backup](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* Site Recovery
+* [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Scheduler
 * Traffic Manager
 * Monitoring and Diagnostics
