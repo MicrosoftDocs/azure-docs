@@ -15,6 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
+
 
 ---
 # Understanding NoSQL on Microsoft Azure
