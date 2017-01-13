@@ -19,7 +19,7 @@ ms.author: padmavc
 # Get started with the SAP connector and add it to your Logic app
 > [!NOTE]
 > This SAP Connector supports the following SAP Systems
-> There is currently a limitation to timeout in Logic Apps that will block requests over 90 seconds
+> There is currently a limitation to time out in Logic Apps that block requests over 90 seconds
 > There is currently a limitation to how many fields to show in the file picker (paths may be added manually)
 >
 >
@@ -37,21 +37,21 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
 
 ## Use SAP Connector
 
-1. Let’s create a HTTP Request trigger, then, select the SAP connector action by typing “SAP” in the search field.
+1. Let’s create an HTTP Request trigger, then, select the SAP connector action by typing “SAP” in the search field.
  ![Search for SAP](./media/app-service-logic-connector-sapconnector/picture1.png)
 
 2. Choose “SAP” (ApplicationHost or MessagingHost based on your SAP setup) and create a connection for it by using the universal gateway.
- - If you don't have an existing connection, you will be prompted to create one.
- - Check “Connect via on-premises data gateway” option, you will see additional fields shows up once the checkbox is selected.
+ - If you don't have an existing connection, you are prompted to create one.
+ - Check “Connect via on-premises data gateway” option, you see additional fields shows up once the checkbox is selected.
  - Specify the connection name string
  - Select the gateway you installed from previous step or select “Install Gateway” to install a new gateway.
 ![Add connection string to SAP](./media/app-service-logic-connector-sapconnector/picture2.png)
   
  > [!NOTE]
- > Note that there is two different SAP Connections, one for [Application Host](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) and another for [Messageing host](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm)
+ > There are two different SAP Connections, one for [Application Host](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) and another for [Messaging host](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm)
 
 
-3. Once you have provided all the details, click “Create”. Logic Apps will configure and test the connection to make sure it's working properly. If everything checks out, you will see options for the card you selected previously, use the file picker to find the right IDOC category or manually type in the path and select the HTTP response in the body field.    
+3. Once you have provided all the details, click “Create”. Logic Apps configure and test the connection to make sure it's working properly. If everything checks out, you see options for the card you selected previously, use the file picker to find the right IDOC category or manually type in the path and select the HTTP response in the body field.    
 ![SAP ACTION](./media/app-service-logic-connector-sapconnector/picture3.png)
 
 4. Create an HTTP Response by adding a new action, the response message should be from the SAP output
