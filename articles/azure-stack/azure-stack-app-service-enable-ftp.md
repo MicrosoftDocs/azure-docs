@@ -33,7 +33,15 @@ Once you have successfully deployed App Service on Azure Stack TP2, if you wish 
 8.  Open **FTP Firewall Support**
 9.  Enter the Public IP Address of the FTP-NIC and click **Apply** ![IIS Manager FTP Firewall Support][6]
 
+## Validate the enabling of FTP
 
+1.  Log in to the Azure Stack portal as either the service administrator or as a tenant;
+2.  Browse to **App Services** and select a Web, Mobile or API App you have created; ![App Services][7]
+3.  In the application details note the **FTP Hostname** and **FTP/deployment username**. ![App Service App Details][8]
+> NOTE:
+> If you do not see an entry under **FTP/deployment username** you will need to set the Deployment credentials first using the **Deployment Credentials** Blade
+4.  Open Windows Explorer, enter the FTP hostname into the file address bar e.g. ftp://ftp.appservice.azurestack.local
+5.  When prompted enter the **Deployment credentials** you noted in step 3, if the feature has been enabled you will see a file listing of the application's contents ![FTP File Listing][9]
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interfaces.png
 [2]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-network-interface-details.png
@@ -41,3 +49,6 @@ Once you have successfully deployed App Service on Azure Stack TP2, if you wish 
 [4]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-virtual-machines-FTP0-VM.png
 [5]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-IIS-Manager.png
 [6]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-IIS-Manager-FTP-Firewall-Support.png
+[7]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-app-service.png
+[8]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-app-service-app-detail.png
+[9]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-ftp-file-listing.png
