@@ -4,7 +4,7 @@ description: Connection assets in Azure Automation contain the information requi
 services: automation
 documentationcenter: ''
 author: mgoedtel
-manager: stevenka
+manager: jwhit
 editor: tysonn
 
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
-ms.author: magoedte;bwren
+ms.author: magoedte; bwren
 ---
 
 # Connection assets in Azure Automation
