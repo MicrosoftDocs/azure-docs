@@ -26,6 +26,7 @@ ms.author: stewu
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 * **Using MapReduce on HDInsight**.  For more information, see [Use MapReduce in Hadoop on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-mapreduce)  
+* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
 
 ## Parameters
 
@@ -53,16 +54,9 @@ This will determine the maximum number of mappers or reducers to be created.  Th
 	Total YARN memory = nodes * YARN memory per node
 If you are using an empty cluster, then memory can be the total YARN memory for your cluster.  If other applications are using memory, then you can choose to only use a portion of your cluster’s memory by reducing the number of mappers or reducers to the number of containers you want to use.  
 
-**Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces** – mapreduce.job.maps is constrained either by memory or by CPU.  Take total YARN memory and divide that by mapreduce.map.memory.  
+**Step 4: Calculate number of YARN containers** – YARN containers dictate the amount of concurrency available for the job.  Take total YARN memory and divide that by mapreduce.map.memory.  
 
-	Memory constraint = total YARN memory / mapreduce.map.memory
-The CPU constraint is calculated as the total physical cores multiplied by the number of containers per core.  By default the number of containers per physical core is set to 2.
-
-	CPU constraint = total physical cores * containers per core
-Mapreduce.job.maps should be the minimum of these two numbers.
-
-	Mapreduce.job.maps = Min (total cores * containers per core, available YARN memory / mapreduce.map.memory)   
-This is a good starting point for mapreduce.job.maps and you can experiment with more or less mappers based on your data size to tune you performance.  The same calculation can be done for mapreduce.job.reduces.  
+	# of YARN containers = total YARN memory / mapreduce.map.memory
 
 ## Example Calculation
 
@@ -76,20 +70,13 @@ Let’s say you currently have a cluster composed of 8 D14 nodes and you want to
 **Step 3: Determine Total YARN memory** 
 
 	total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Step 4: Calculate mapreduce.job.maps/mapreduce.job.reduces**
+**Step 4: Calculate # of YARN containers**
 
-	memory constraint = 768GB of available memory / 3 GB of memory =   256
-	cores = nodes in cluster * # of cores in node = 8 nodes * 16 cores  = 128  
-	CPU constraint = 128 cores * 2 containers per core = 256
-	mapreduce.job.maps = Min (128 cores * 2 containers per core, 768GB of available YARN memory / 3GB of mapreduce.map.memory) = Min (256, 256) = 256
-
-A good starting point is 256 map/reduce tasks.  You can experiment further by increasing or decreasing the number of mappers to see if you get better performance.   
+	# of YARN containers = 768GB of available memory / 3 GB of memory =   256
+	
+You should use at least as many mappers and reducers as the # of YARN containers to get the most concurrency.  You can experiment further by increasing the number of mappers to see if you get better performance.   
 
 ## Limitations
-
-**Using more mappers/reducers**
-
-Using more mappers or reducers does not necessarily mean you will see better performance.  The number of mappers or reducers running concurrently depends on the available containers.  That is why we encourage you to tune the number of containers based on your available resources.   
 
 **ADLS throttling** 
 
@@ -118,8 +105,8 @@ For a starting point, here are some example commands to run MapReduce Teragen, T
 
 **Terasort**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 /example/data/1TB-sort-input /example/data/1TB-sort-output
+	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 /example/data/1TB-sort-output /example/data/1TB-sort-validate
+	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
