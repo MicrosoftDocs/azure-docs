@@ -46,12 +46,12 @@ If you have an existing installation of System Center, you can integrate these c
 ## OMS services
 The core functionality of OMS is provided by a set of services that run in Azure.  Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
-| Service | Description |
-|:--|:--|
-| ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) Log Analytics | Monitor and analyze the availability and performance of different resources including physical and virtual machines. |
-| ![Azure Automation](media/operations-management-suite-overview/icon-automation.png)  Automation | Automate manual processes and enforce configurations for physical and virtual machines. |
-| ![Azure Backup](media/operations-management-suite-overview/icon-backup.png)  Backup | Backup and restore critical data. |
-| ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) Site Recovery | Provide high availability for critical applications. |
+|| Service | Description |
+|:--|:--|:--|
+| ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | Monitor and analyze the availability and performance of different resources including physical and virtual machines. |
+| ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) | Automation | Automate manual processes and enforce configurations for physical and virtual machines. |
+| ![Azure Backup](media/operations-management-suite-overview/icon-backup.png) | Backup | Backup and restore critical data. |
+| ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | Provide high availability for critical applications. |
 
 ## Log Analytics
 Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
