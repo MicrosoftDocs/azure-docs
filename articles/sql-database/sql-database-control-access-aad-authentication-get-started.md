@@ -57,7 +57,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 
 <a name="create-logical-server-bk"></a>
 
-## View information about the security configuration for your logical server
+## Provision an Azure Active Directory admin for your SQL logical server
 
 In this section of the tutorial, you view information about the security configuration for your logical server in the Azure portal.
 
@@ -65,7 +65,17 @@ In this section of the tutorial, you view information about the security configu
 
    ![Server admin account in the Azure portal](./media/sql-database-control-access-aad-authentication-get-started/sql_admin_portal.png)
 
-2. Make note of the name of the Server admin account for the logical server. If you do not remember the password, click **Reset password** to set a new password.
+2. Click **Not configured** in the **Essentials** pane to open the **Active Directory admin** blade.
+
+   ![AAD blade](./media/sql-database-control-access-aad-authentication-get-started/aad_blade.png)
+
+3. Click **Set admin** to open the **Add admin** blade and then select an Active Directory user or group account as the Active Directory admin for your server.
+
+   ![Select AAD admin account](./media/sql-database-control-access-aad-authentication-get-started/aad_admin.png)
+
+4. Click **Select** and then click **Save**.
+
+  ![Save selected AAD admin account](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
 > To review connection information for this server, go to [View or update server settings](sql-database-view-update-server-settings.md). For this tutorial series, the fully qualified server name is 'sqldbtutorialserver.database.windows.net'.
@@ -79,13 +89,15 @@ In this section of the tutorial, you view information about the security configu
 
    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
 
-3. In the **Connect to Server** dialog box, enter the necessary information to connect to your SQL server using SQL Server Authentication and the Server admin account.
+3. In the **Connect to Server** dialog box, select one of the Active Directory authentication methods and then provide the appropriate authentication information. For information on choosing a method, see [Azure Active Directory authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA](sql-database-ssms-mfa-authentication.md).
 
-   ![connect to server](./media/sql-database-get-started/connect-to-server.png)
+enter the necessary information to connect to your SQL server using SQL Server Authentication and the Server admin account.
+
+   ![connect to server with aad](./mediasql-database-control-access-aad-authentication-get-started/connect_to_server_with_aad.png)
 
 4. Click **Connect**.
 
-   ![connected to server](./media/sql-database-get-started/connected-to-server.png)
+   ![connected to server with aad](./mediasql-database-control-access-aad-authentication-get-started/connected-to-server_with_aad.png)
 
 ## View the Server admin account and its permissions 
 In this section of the tutorial, you view information about the server admin account and its permissions in the master database and in user databases.
