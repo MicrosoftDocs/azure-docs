@@ -86,6 +86,7 @@ To check if you are getting throttled, you need to enable the debug logging on t
 
 1. Put the following property in the log4j properties in Ambari > YARN > Config > Advanced yarn-log4j.
 log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+
 Restart all the nodes/service for the config to take effect.
 
 2. If you are getting throttled, you’ll see the HTTP 429 error code in the YARN log file. The YARN log file is in /tmp/&lt;user&gt;/yarn.log
