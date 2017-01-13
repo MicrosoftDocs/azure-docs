@@ -4,7 +4,7 @@ description: With TTL, Microsoft Azure DocumentDB provides the ability to have d
 services: documentdb
 documentationcenter: ''
 keywords: time to live
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2016
-ms.author: kipandya
+ms.author: arramac
 
 ---
 # Expire data in DocumentDB collections automatically with time to live
