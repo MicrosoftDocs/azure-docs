@@ -44,7 +44,8 @@ The activities in the following table are used to access connections in a runboo
 |---|---|
 |[Get-AutomationConnection](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v1.6.1/Get-AzureAutomationConnection?redirectedfrom=msdn)|Gets a connection to use. Returns a hash table with the properties of the connection.|
 
->[!NOTE] You should avoid using variables with the –Name parameter of **Get- AutomationConnection** since this can complicate discovering dependencies between runbooks or DSC configurations, and connection assets at design time.
+>[!NOTE] 
+>You should avoid using variables with the –Name parameter of **Get- AutomationConnection** since this can complicate discovering dependencies between runbooks or DSC configurations, and connection assets at design time.
 
 ## Creating a New Connection
 
