@@ -30,9 +30,9 @@ The following image shows a common deployment of an availability group on Azure 
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
-In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. You can build this architecture [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
+In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
-This architecture is vulnerable downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
+This architecture is vulnerable to downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
 
    ![Availability Group DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
@@ -51,6 +51,11 @@ When availability group replicas are on Azure virtual machines in different Azur
 The following diagram shows how the networks communicate between data centers.
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
+
+
+### Cost
+
+The architecture that this topic describes will incur outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## Create remote replica
 
@@ -98,7 +103,7 @@ To create a replica in a remote data center, do the following steps:
    - Use the network from the remote data center.
    - Assign the IP address from the new Azure load balancer. 
 
-1. In SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
+1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
 
