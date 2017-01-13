@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/14/2016
+ms.date: 01/13/2016
 ms.author: nepeters
 
 ---
@@ -55,7 +55,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 	"properties": {
 		"publisher": "Microsoft.Compute",
 		"extension": "CustomScriptExtension",
-		"version": "1.*",
+		"version": "1.8",
 		"parameters": {
 			"public": {
 				"fileUris": "[myScriptLocation]"
@@ -75,7 +75,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | extension | CustomScriptExtension |
-| typeHandlerVersion | 1.* |
+| typeHandlerVersion | 1.8 |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 
