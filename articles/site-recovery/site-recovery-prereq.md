@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prerequisites for replication to Azure using Azure Site Recovery | Microsoft Docs
 description: This article summarizes prerequisites for replicating VMs and physical machines to Azure using the Azure Site Recovery service.
 services: site-recovery
@@ -38,7 +38,8 @@ Post any comments at the bottom of the article, or ask technical questions on th
 **Network limitations** | You can't move network accounts used in Site Recovery across resource groups, within or across subscriptions.
 **Network mapping** | If you replicate Hyper-V VMs in VMM clouds, you need to set up [network mapping](site-recovery-network-mapping.md), so that Azure VMs are connected to appropriate networks when they're created after failover.
 
->[Note!] The below sections describe the prerequisites for various components in the customer environment. For more information on support for specific configurations, please read the [support matrix.](site-recovery-support-matrix.md)
+>[!NOTE]
+>The below sections describe the prerequisites for various components in the customer environment. For more information on support for specific configurations, please read the [support matrix.](site-recovery-support-matrix.md)
 >
 
 ## Disaster Recovery of VMware virtual machines or physical Windows/Linux servers to Azure
