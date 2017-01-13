@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Binding Error Codes
+title: Azure Functions Binding Error Codes | Microsoft Docs
 description: Links to wrapped Azure Service SDKs to better diagnose issues with Bindings in Azure Functions
 services: functions
 cloud: 
