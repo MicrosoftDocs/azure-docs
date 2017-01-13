@@ -29,6 +29,9 @@
 ### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Performance
+### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+
 ## Integrate with Azure Services
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
