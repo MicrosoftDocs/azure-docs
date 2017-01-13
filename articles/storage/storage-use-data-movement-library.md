@@ -20,29 +20,21 @@ ms.author: micurd
 # Transfer Data with the Microsoft Azure Storage Data Movement Library
 
 ## Overview
-The Microsoft Azure Storage Data Movement Library is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md). Similar to AzCopy, The Data Movement Library provides convenient methods such as setting the number of parallel connections and viewing your transfer progress. This library also leverages the .Net Standard runtime library, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
+The Microsoft Azure Storage Data Movement Library is a cross-platform open source library that is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md). Everything that you can do with the Data Movement Library can be done with our standard .NET Azure Storage Client Library. However, if you're looking for a more convenient way to move data in parallel, track transfer progress, or easily resume a paused or failed transfer, then consider using the Data Movement Library.  
 
-The Data Movement Library offers a variety of features which include (but aren't limited to):
+This library also leverages the .Net Standard runtime library, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
 
-### Blobs
-- Download, upload, and copy blobs.
-- Copy blobs synchronously and asynchronously.
-- Define the number of concurrent operations for transferring blobs and blob chunks.
-- Download blob snapshot.
+This document will demonstrate how to create a .NET Core console application that that runs on Windows, Linux, and MacOS and performs the following:
 
-### Files
-- Download, upload, and copy files.
-- Copy files synchronously and asynchronously.
-- Define the number of concurrent operations for transferring files and file ranges.
-
-### General
+- Download, upload, and copy blobs and files.
+- Copy blobs and files synchronously and asynchronously.
+- Define the number of parallel operations when transferring data.
+- Download a specific blob snapshot.
 - Track data transfer progress.
 - Resume paused or failed data transfer.
 - Set access condition.
 - Set user agent suffix.
-- Include subdirectories when doing directory transfer option. 
-
-This tutorial will demonstrate how to create a .NET Core console application that performs all of the operations mentioned above, and runs on Windows, Linux, or MacOS.  
+- Include subdirectories when performing a directory transfer. 
 
 **What you'll need:**
 
