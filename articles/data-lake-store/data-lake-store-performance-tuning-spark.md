@@ -27,6 +27,7 @@ When tuning performance on Spark, you need to consider the number of apps that w
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 * **Running Spark cluster on Azure Data Lake Store**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Store](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
 
 ## Parameters
 
@@ -122,6 +123,3 @@ Let’s say you currently have a cluster composed of 8 D4v2 nodes that is runnin
 
 **Increasing num-executors**
 Setting a higher number of num-executors does not necessarily increase performance.  Num-executors is bounded by the cluster resources.
-
-**Increasing executor-cores**
-Because you are setting a high number of executor-cores, there is a chance that you will underutilize your memory when running I/O intensive jobs.  In these instances, you may save on costs by using an HDI type that has less memory.   
