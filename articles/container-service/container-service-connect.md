@@ -3,7 +3,7 @@ title: Connect to an Azure Container Service cluster | Microsoft Docs
 description: Connect to a Kubernetes, DC/OS, or Docker Swarm cluster in Azure Container Service from a remote computer
 services: container-service
 documentationcenter: ''
-author: danlep
+author: dlepow
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -43,7 +43,7 @@ for more information. If the SSH connection isn't working, you may need to
 
 ### Install kubectl
 One way to install this
-tool is to use the `az acs kubernetes install cli` Azure CLI 2.0 (Preview) command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 (Preview) and logged in to an azure account (`az login`).
+tool is to use the `az acs kubernetes install cli` Azure CLI 2.0 (Preview) command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 (Preview) and logged in to an Azure account (`az login`).
 
 ```azurecli
 # Linux or OS X
