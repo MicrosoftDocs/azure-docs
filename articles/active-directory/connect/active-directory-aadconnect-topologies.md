@@ -141,7 +141,7 @@ Before you plan to use multiple Azure AD tenants, these topics cover common scen
 
 Topic |  
 --------- | ---------
-Delegation using administrative units | [Administrative units management in Azure AD ](active-directory-administrative-units-management.md)
+Delegation using administrative units | [Administrative units management in Azure AD ](../active-directory-administrative-units-management.md)
 
 ![Multi Forest Multi tenant](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
