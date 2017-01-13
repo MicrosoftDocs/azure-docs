@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: mbaldwin
 
 ---
@@ -24,7 +24,7 @@ You can use Microsoft Azure Active Directory (Azure AD) to add authentication an
 
 To understand the basic scenario for each sample type, see Authentication Scenarios for Azure AD.
 
-Contribute to our samples on GitHub: [Microsoft Azure Active Directory Samples and Documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
+Contribute to our samples on GitHub: [Microsoft Azure Active Directory Samples and Documentation](https://github.com/Azure-Samples?query=active-directory).
 
 ## Web Browser to Web Application
 These samples show how to write a web application that directs the user’s browser to sign them in to Azure AD.

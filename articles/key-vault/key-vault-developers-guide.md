@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2016
+ms.date: 01/07/2017
 ms.author: bruceper
 
 ---
@@ -30,7 +30,7 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 ## Videos
 This video shows you how to create your own key vault and how to use it from the 'Hello Key Vault' sample application.
 
->[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player]
 
 
 Links to resources mentioned in the video:

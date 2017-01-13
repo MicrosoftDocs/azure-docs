@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 08/16/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 
 ---

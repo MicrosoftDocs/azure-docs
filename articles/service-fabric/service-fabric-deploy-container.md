@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
-ms.author: mfussell
+ms.date: 1/4/2017
+ms.author: msfussell
 
 ---
 # Preview: Deploy a Windows container to Service Fabric
@@ -27,9 +27,8 @@ ms.author: mfussell
 This article walks you through the process of building containerized services in Windows containers.
 
 > [!NOTE]
-> This feature is in preview for Linux and is not available for Windows Server 2016 (yet). The feature will be in preview for Windows Server 2016 in the upcoming release of Azure Service Fabric. 
-> 
-> 
+> This feature is in preview for Linux and Windows Server 2016.
+>  
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. 
 
@@ -45,17 +44,32 @@ The capabilities include:
 Let's look at how each of capabilities works when you're packaging a containerized service to be included in your application.
 
 ## Package a Windows container
-When you package a container, you can choose to use either a Visual Studio project template or [create the application package manually](#manually). When you use Visual Studio, the application package structure and manifest files are created by the New Project Template for you. The VS template will be released in a future release.
+When you package a container, you can choose to use either a Visual Studio project template or [create the application package manually](#manually).  When you use Visual Studio, the application package structure and manifest files are created by the New Project template for you.
+
+> [!TIP]
+> The easiest way to package an existing container image into a service is to use Visual Studio.
 
 ## Use Visual Studio to package an existing container image
-> [!NOTE]
-> In an upcoming release of Visual Studio for Service Fabric, you can add a container to an application in the same way that you can add a guest executable today. For more information, see [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to manually package a container as described in the next section.
-> 
-> 
+Visual Studio provides a Service Fabric service template to help you deploy a container to a Service Fabric cluster.
+
+1. Choose **File** > **New Project**, and create a Service Fabric application.
+2. Choose **Guest Container** as the service template.
+3. Choose **Image Name** and provide the path to the image in your container repository such as at https://hub.docker.com/ E.g. myrepo/myimage:v1 
+4. Give your service a name, and click **OK**.
+5. If your containerized service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: 
+     
+    `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
+    
+    By providing the `UriScheme` this automatically registers the container endpoint with the Service Fabric Naming service for discoverability. The port can either be fixed (as shown in the example above) or dynamically allocated (left blank and a port is allocated from the designated application port range) just as you would with any service.
+    You also need to configure the container port-to-host port mapping by specifying a `PortBinding` policy in the application manifest as described below.
+6. If your container needs resource governance then add a `ResourceGovernancePolicy`. See below for an example.
+8. If your container needs to authenticate with a private repository then add `RepositoryCredentials`. See below for an example.
+7. You can now use the package and publish action against your local cluster if this is Windows Server 2016 with container support activated. 
+8. When ready, you can publish the application to a remote cluster or check in the solution to source control. 
 
 <a id="manually"></a>
 
-## Manually package and deploy a container
+## Manually package and deploy a container image
 The process of manually packaging a containerized service is based on the following steps:
 
 1. Publish the containers to your repository.
@@ -260,7 +274,7 @@ An example service manifest (specified in the preceding application manifest) fo
         <DataPackage Name="FrontendService.Data" Version="1.0" />
         <Resources>
             <Endpoints>
-                <Endpoint Name="Endpoint1" Port="80"  UriScheme="http" />
+                <Endpoint Name="Endpoint1" UriScheme="http" Port="80" Protocol="http"/>
             </Endpoints>
         </Resources>
     </ServiceManifest>

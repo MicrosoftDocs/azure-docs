@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2016
+ms.date: 01/10/2017
 ms.author: arramac
 
 ---
@@ -59,11 +59,13 @@ You can decide to make your data locally or globally distributed by either assoc
 ## Next steps
 Learn more about the distributing data globally with DocumentDB in the following articles:
 
-* [Provisioning throughput and storage for a collection][throughputandstorage]
 * [Multi-homing APIs via REST. .NET, Java, Python, and Node SDKs][developingwithmultipleregions]
+* [Multi-region writer architectures with Azure DocumentDB](documentdb-multi-region-writers.md)
+* [Automatic and manual regional failovers in Azure DocumentDB](documentdb-regional-failovers.md)
 * [Consistency Levels in DocumentDB][consistency]
 * [Availability SLAs][sla]
 * [Managing database account][manageaccount]
+* [Provisioning throughput and storage for a collection][throughputandstorage]
 
 [1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
@@ -76,7 +78,6 @@ Learn more about the distributing data globally with DocumentDB in the following
 [createaccount]: documentdb-create-account.md
 [manageaccount]: documentdb-manage-account.md
 [manageaccount-consistency]: documentdb-manage-account.md#consistency
-[throughputandstorage]: documentdb-manage.md
 [arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
 [serviceregions]: https://azure.microsoft.com/en-us/regions/#services 

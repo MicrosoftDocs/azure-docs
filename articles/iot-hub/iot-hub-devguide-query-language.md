@@ -429,7 +429,7 @@ In routes conditions, the following string functions are supported:
 | LENGTH(x) | Returns the number of characters of the specified string expression.|
 | LOWER(x) | Returns a string expression after converting uppercase character data to lowercase. |
 | UPPER(x) | Returns a string expression after converting lowercase character data to uppercase. |
-| SUBSTRING(string, start [, end]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
+| SUBSTRING(string, start [, length]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
 | INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.|
 | STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/07/2016
+ms.date: 01/07/2017
 ms.author: ambapat
 
 ---
