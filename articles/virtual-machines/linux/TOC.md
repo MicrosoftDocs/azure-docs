@@ -113,7 +113,7 @@
 ### [Use a unique ID for your VM](../virtual-machines-linux-unique-vm-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Red Hat Enterprise Linux Update infrastructure](../virtual-machines-linux-update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Update Azure Linux agent](../virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Introduction to FreeBSD on Azure](../virtual-machines/virtual-machines-freebsd-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Introduction to FreeBSD on Azure](../virtual-machines-freebsd-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Automate](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Custom Script extension](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
