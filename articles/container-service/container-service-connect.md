@@ -57,11 +57,11 @@ Alternatively, you can download the client directly from the [releases page](htt
 
 ### Download cluster credentials
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine. One way to do
-this is with the `az acs kubernetes get-credentials` command. You need to pass the name of the resource group and the name of the container service resource:
+this is with the `az acs kubernetes get-credentials` command. Pass the name of the resource group and the name of the container service resource:
 
 
 ```azurecli
-az acs kubernetes get-credentials --resource-group=<container-service-resource-group> --name=<container-service-name>
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
 This downloads the cluster credentials to `$HOME/.kube/config`, where `kubectl` expects it to be located.
