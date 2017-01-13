@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store Storm Performance Tuning Guidelines | Microsoft Docs
-description: Data Lake Store Storm Performance Tuning Guidelines
+title: Azure Data Lake Store Storm Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Store Storm Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -21,7 +21,7 @@ ms.author: stewu
 
 There are a few factors that need to be considered when tuning the performance of a Storm topology.  It is important to understand the characteristics of the work done by the spouts and the bolts (whether the work is I/O or memory intensive).
 
-# Prerequisites 
+## Prerequisites 
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 * **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md) 
