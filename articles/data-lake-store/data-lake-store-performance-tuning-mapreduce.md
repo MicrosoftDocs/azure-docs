@@ -57,6 +57,10 @@ If you are using an empty cluster, then memory can be the total YARN memory for 
 **Step 4: Calculate number of YARN containers** – YARN containers dictate the amount of concurrency available for the job.  Take total YARN memory and divide that by mapreduce.map.memory.  
 
 	# of YARN containers = total YARN memory / mapreduce.map.memory
+	
+You should use at least as many mappers and reducers as the # of YARN containers to get the most concurrency.  You can experiment further by increasing the number of mappers and reducers to see if you get better performance.  Keep in mind that more mappers will have additional overhead so having too many mappers may degrade performance.  
+
+Note: CPU scheduling and CPU isolation are turned off by default so the number of YARN containers is constrained by memory.
 
 ## Example Calculation
 
@@ -73,8 +77,6 @@ Let’s say you currently have a cluster composed of 8 D14 nodes and you want to
 **Step 4: Calculate # of YARN containers**
 
 	# of YARN containers = 768GB of available memory / 3 GB of memory =   256
-	
-You should use at least as many mappers and reducers as the # of YARN containers to get the most concurrency.  You can experiment further by increasing the number of mappers to see if you get better performance.   
 
 ## Limitations
 
