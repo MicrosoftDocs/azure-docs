@@ -77,4 +77,4 @@ Learn to audit your NSG settings by visiting [Auditing Network Security Groups (
 
 Learn about NSG logging by visiting [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md).
 
-Find out if traffic is allowed or denied on a VM by visiting [Verify traffic with IP flow verify](network-watcher-ip-flow-verify-portal.md)
+Find out if traffic is allowed or denied on a VM by visiting [Verify traffic with IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
