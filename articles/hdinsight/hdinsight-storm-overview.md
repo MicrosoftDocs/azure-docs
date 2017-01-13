@@ -86,7 +86,7 @@ Within 15 minutes of submitting the request, you will have a new Storm cluster r
 
     * __Azure Data Lake Store__: Java-based topologies can access Data Lake Store by using the Storm-HDFS bolt with a URI scheme of `adl://`. For an example of using the Storm-HDFS bolt, see [Use Azure Data Lake Store with Apache Storm on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-write-data-lake-store).
 
-    * __Azure Blob storage__ (when used as storage for HDInsight): Java-based topologies can access Azure Blob storage associated with the cluster by using the Storm-HDFS bolt with a URI scheme of `wasb://`. For more information, see [tbd].
+    * __Azure Blob storage__ (when used as storage for HDInsight): Java-based topologies can access Azure Blob storage associated with the cluster by using the Storm-HDFS bolt with a URI scheme of `wasb://`.
 
     * __Azure Event Hubs__: Can be accessed using EventHubSpout and EventHubBolt components provided by Microsoft. These components are written in Java, and provided as a standalone .jar file.
 

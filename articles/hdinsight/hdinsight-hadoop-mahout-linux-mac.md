@@ -1,5 +1,5 @@
 ---
-title: Generate recommendations using Mahout and HDInsight | Microsoft Docs
+title: Generate recommendations using Mahout and HDInsight (SSH) | Microsoft Docs
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
 services: hdinsight
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
-# Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight
+# Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
