@@ -85,7 +85,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 
      For single-tenant applications, the URIs are not validated.
    
-     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
 3. Examine the new application object. 
    
    ```powershell
@@ -183,7 +183,7 @@ In this section, you perform the steps to:
 * create the service principal
 * assign the Reader role to the service principal
 
-To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Windows Server 2016 Technical Preview, see the following cmdlets. 
+To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Windows Server 2016 Technical Preview, see the following cmdlets:
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
@@ -248,7 +248,7 @@ You have your certificate and can proceed with creating your AD app.
    
     For single-tenant applications, the URIs are not validated.
    
-    If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+    If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
    
     Examine the new application object. 
    

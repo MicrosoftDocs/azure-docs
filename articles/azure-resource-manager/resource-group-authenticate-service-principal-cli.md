@@ -30,7 +30,7 @@ When you have an app or script that needs to access resources, you can set up an
 * You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
 * You do not have to change the app's credentials if your responsibilities change. 
 
-This topic shows you how to use [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md) to set up an application to run under its own credentials and identity.
+This topic shows you how to use [Azure CLI for Mac, Linux, and Windows](../xplat-cli-install.md) to set up an application to run under its own credentials and identity.
 
 With Azure CLI, you have two options for authenticating your AD application:
 
@@ -68,7 +68,12 @@ Let's go through these steps.
      ```azurecli
      azure ad sp create -n exampleapp -p {your-password}
      ```
-   * To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and a password, as shown in the following command:
+   * To create the AD application separately, provide:
+
+      * the name of the app
+      * a home page URI
+      * identifier URIs
+      * a password
      
      ```azurecli
      azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {Your_Password}
@@ -80,7 +85,7 @@ Let's go through these steps.
      azure ad sp create -a {AppId}
      ```
      
-     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
      
      For both options, the new service principal is returned. The `Object Id` is needed when granting permissions. The guid listed with the `Service Principal Names` is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
      
@@ -97,7 +102,7 @@ Let's go through these steps.
        info:    ad sp create command OK
       ```
 
-3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the `objectid` parameter, provide the **ObjectId** that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
+3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the `objectid` parameter, provide the `Object Id` that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
@@ -204,7 +209,12 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
      ```azurecli
      azure ad sp create -n exampleapp --cert-value {certificate data}
      ```
-   * To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and the certificate data, as shown in the following command:
+   * To create the AD application separately, provide:
+      
+      * the name of the app
+      * a home page URI
+      * identifier URIs
+      * the certificate data
      
      ```azurecli
      azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value {certificate data}
@@ -216,7 +226,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
      azure ad sp create -a {AppId}
      ```
      
-     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
+     If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context."
      
      For both options, the new service principal is returned. The Object Id is needed when granting permissions. The guid listed with the `Service Principal Names` is needed when logging in. This guid is the same value as the app id. In the sample applications, this value is referred to as the `Client ID`. 
      
@@ -231,7 +241,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
        data:                      https://www.contoso.org/example
        info:    ad sp create command OK
      ```
-6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the `objectid` parameter, provide the `ObjectId` that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
+6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the Reader role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the `objectid` parameter, provide the `Object Id` that you used when creating the application. Before running this command, you must allow some time for the new service principal to propagate throughout Active Directory. When you run these commands manually, usually enough time has elapsed between tasks. In a script, you should add a step to sleep between the commands (like `sleep 15`). If you see an error stating the principal does not exist in the directory, rerun the command.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
