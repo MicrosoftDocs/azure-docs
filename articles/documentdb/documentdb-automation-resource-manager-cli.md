@@ -597,7 +597,7 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 ## Next steps
 Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
 
-* The Azure portal, as described in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md).
+* The Azure portal, as described in [Create a DocumentDB collection and database using the Azure portal](documentdb-create-collection.md).
 * The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
 * The [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.
 
