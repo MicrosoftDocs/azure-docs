@@ -109,7 +109,7 @@ In this section of the tutorial, you view information about the server admin acc
 
    ![select user query in the master database](./media/sql-database-control-access-sql-authentication-get-started/select_user_query_in_master_database.png)
 
-5. In the query window, execute the following query to return information about the permissions of the sqladmin user. Notice that sqladmin has permissions to connect to the master database, create logins and users, select information from the sys.sql_logins table, and add users to the dbmanager and dbcreator database roles. These permissions are in addition to permissions granted to the `public role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
+5. In the query window, execute the following query to return information about the permissions of the sqladmin user. Notice that sqladmin has permissions to connect to the master database, create logins and users, select information from the sys.sql_logins table, and add users to the dbmanager and dbcreator database roles. These permissions are in addition to permissions granted to the public role from which all users inherit permissions (such as permissions to select information from certain tables). See [Permissions](https://msdn.microsoft.com/library/ms191291.aspx) for more information.
 
    ```
    SELECT prm.permission_name
