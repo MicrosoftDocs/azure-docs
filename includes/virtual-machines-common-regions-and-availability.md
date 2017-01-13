@@ -37,7 +37,7 @@ You can see the full [list of regional pairs here](../articles/best-practices-av
 Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or [Azure DNS](../articles/dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). 
 
 ## Storage availability
-Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the type of storage you use, you have different replication options.
+Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
 **Azure Managed Disks**
 * Locally redundant storage (LRS)
