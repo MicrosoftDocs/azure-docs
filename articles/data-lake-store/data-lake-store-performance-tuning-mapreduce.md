@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store MapReduce Performance Tuning Guidelines | Microsoft Docs
-description: Data Lake Store MapReduce Performance Tuning Guidelines
+title: Azure Data Lake Store MapReduce Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Store MapReduce Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -86,12 +86,11 @@ As a multi-tenant service, ADLS sets account level bandwidth limits.  If you hit
 
 To check if you are getting throttled, you need to enable the debug logging on the client side. Here’s how you can do that:
 
-1. Put the following property in the log4j properties in Ambari > YARN > Config > Advanced yarn-log4j.
-log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+1. Put the following property in the log4j properties in Ambari > YARN > Config > Advanced yarn-log4j: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Restart all the nodes/service for the config to take effect.
+2. Restart all the nodes/service for the config to take effect.
 
-2. If you are getting throttled, you’ll see the HTTP 429 error code in the YARN log file. The YARN log file is in /tmp/&lt;user&gt;/yarn.log
+3. If you are getting throttled, you’ll see the HTTP 429 error code in the YARN log file. The YARN log file is in /tmp/&lt;user&gt;/yarn.log
 
 ## Examples to Run
 
