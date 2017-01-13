@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 
 ---
@@ -36,7 +36,7 @@ Note that all sample code in this article is written in C#. You can find the ful
 ## Identify your Azure Search service's admin api-key
 Now that you have provisioned an Azure Search service, you are almost ready to issue requests against your service endpoint using the .NET SDK. First, you will need to obtain one of the admin api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. To find your service's api-keys you must log into the [Azure portal](https://portal.azure.com/)
+1. To find your service's api-keys, sign in to the [Azure portal](https://portal.azure.com/)
 2. Go to your Azure Search service's blade
 3. Click on the "Keys" icon
 

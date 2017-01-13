@@ -36,7 +36,7 @@ In order to push documents into your index using the REST API, you will issue an
 ## Identify your Azure Search service's admin api-key
 When issuing HTTP requests against your service using the REST API, *each* API request must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. To find your service's api-keys you can sign in to the [Azure portal](https://portal.azure.com/)
+1. To find your service's api-keys, you can sign in to the [Azure portal](https://portal.azure.com/)
 2. Go to your Azure Search service's blade
 3. Click on the "Keys" icon
 
