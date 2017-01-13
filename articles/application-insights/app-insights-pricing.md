@@ -95,9 +95,9 @@ Application Insights charges are added to your Azure bill. You can see details o
 ## Data rate
 There are three ways in which the volume you send data is limited:
 
-* Daily cap. By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. Change it through the Data Volume Management blade.
-* [Sampling](app-insights-sampling.md). This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* Throttling limits the data rate per minute. For the Basic pricing plan, the limit is 200 data points/second averaged over 5 minutes and for Enterprise it is 500/s averaged over 1 minute. 
+* **Daily cap.** By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. To change it, use the Data Volume Management blade.
+* **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
+* **Throttling** limits the data rate per minute. For the Basic pricing plan, the limit is 200 data points/second averaged over 5 minutes and for Enterprise it is 16 k/s averaged over 1 minute. 
 
 For throttling, three buckets are counted separately:
 
@@ -105,7 +105,7 @@ For throttling, three buckets are counted separately:
 * [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), limited to 50 points/s.
 * All other telemetry (page views, sessions, requests, dependencies, metrics, custom events, web test results).
 
-*What happens if my app exceeds the per-second rate?*
+*What happens if my app exceeds the throttling rate?*
 
 * The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend, spreading a surge out over several minutes. If your app consistently sends data at above the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend in this way; other SDKs might simply drop throttled data.)
 
