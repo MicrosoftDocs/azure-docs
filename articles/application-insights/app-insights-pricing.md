@@ -80,10 +80,10 @@ Open the Features + Pricing blade in the Application Insights resource for your 
 
 ![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
 
-1. Review your data volume for the month. This includes all the data received and retained (after any [sampling](app-insights-sampling.md) from your server and client apps, and from availability tests.
-2. A separate charge is made for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)
-3. Enable the additional features provided by the Enterprise plan. In this plan there is no free data allowance.
-4. Click through to data management options to set a daily cap or set ingestion sampling.
+a. Review your data volume for the month. This includes all the data received and retained (after any [sampling](app-insights-sampling.md) from your server and client apps, and from availability tests.
+b. A separate charge is made for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)
+c. Enable the Enterprise plan.
+d. Click through to data management options to view data volume for the last month, set a daily cap or set ingestion sampling.
 
 Application Insights charges are added to your Azure bill. You can see details of your Azure bill on the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions). 
 
