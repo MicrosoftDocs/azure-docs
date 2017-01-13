@@ -3,7 +3,7 @@ title: Manage VMs in a Virtual Machine Scale Set | Microsoft Docs
 description: Manage virtual machines in a virtual machine scale set using Azure PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 
 ---
 # Manage virtual machines in a virtual machine scale set
