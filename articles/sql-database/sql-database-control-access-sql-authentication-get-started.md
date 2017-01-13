@@ -19,14 +19,15 @@ ms.date: 01/17/2017
 ms.author: carlrab
 
 ---
-# SQL Database tutorial: SQL database logins and user accounts, database roles, permissions,  server-level firewall rules, and database-level firewall rules
+# SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules
 In this getting-started tutorial, you learn how to use SQL Server Management Studio to work with SQL Server authentication, logins, users, and database roles that grant access and permissions to Azure SQL Database servers and databases. You learn to:
 
 - View user permissions in the master database and in user databases
-- Create logins and users
+- Create logins and users based on SQL Server authentication
 - Grant server-wide and database-specific permissions to users
 - Log in to a user database as a non-admin user
 - Create database-level firewall rules for database users
+- Create server-level firewall rules for server admins
 
 **Time estimate**: This tutorial takes approximately 45 minutes to complete (assuming you have already met the prerequisites).
 

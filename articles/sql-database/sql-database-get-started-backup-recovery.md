@@ -19,7 +19,7 @@ ms.date: 12/08/2016
 ms.author: carlrab
 
 ---
-
+# Get Started with Backup and Restore for Data Protection and Recovery
 In this getting-started tutorial, you learn how to use the Azure portal to:
 
 - View existing backups of a database
