@@ -63,8 +63,27 @@ To control exact sequence of regional failovers when there is a multi-regional o
 ### <a id="OfflineRegions"></a>Dynamically taking a region "offline"
 DocumentDB enables you to take your database account offline in a specific region and bring it back online later. Regions marked offline do not actively participate in replication and are not part of the failover sequence. This enables you to freeze the last known good database image in one of the read regions before rolling out potentially risky upgrades to your application.
 
+<<<<<<< HEAD
 ### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for globally replicated databases
 DocumentDB exposes [multiple well-defined consistency levels](documentdb-consistency-levels.md) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios. 
+=======
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[pcolls]: documentdb-partition-data.md
+[consistency]: documentdb-consistency-levels.md
+[consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
+[developingwithmultipleregions]: documentdb-developing-with-multiple-regions.md
+[createaccount]: documentdb-create-account.md
+[manageaccount]: documentdb-manage-account.md
+[manageaccount-consistency]: documentdb-manage-account.md#consistency
+[arm]: documentdb-automation-resource-manager-cli.md
+[regions]: https://azure.microsoft.com/regions/
+[serviceregions]: https://azure.microsoft.com/en-us/regions/#services 
+[pricing]: https://azure.microsoft.com/pricing/details/documentdb/
+[sla]: https://azure.microsoft.com/support/legal/sla/documentdb/ 
+[vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
+[sqlqueries]: documentdb-sql-query.md
+[failovers]: documentdb-regional-failovers.md
+>>>>>>> 7883dc0b3fc0c0852f11cac29032d5fa0f75badc
 
 ### <a id="TunableConsistency"></a>Tunable consistency for globally replicated databases
 DocumentDB allows you to programmatically override and relax the default consistency choice on a per request basis, at runtime. 

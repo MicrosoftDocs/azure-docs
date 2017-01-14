@@ -1,12 +1,11 @@
 ---
 title: 'NoSQL tutorial: DocumentDB .NET Core SDK | Microsoft Docs'
 description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET Core SDK. DocumentDB is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, c# console application
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: ''
 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
@@ -45,6 +44,9 @@ We'll cover:
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Jump to the [Get the complete solution section](#GetSolution) for quick instructions.
 
 Afterwards, please use the voting buttons at the top or bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
+
+> [!NOTE]
+> The DocumentDB .NET Core SDK used in this tutorial is not yet compatible with Universal Windows Platform (UWP) apps. For a preview version of the .NET Core SDK that does support UWP apps, send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 Now let's get started!
 
@@ -553,5 +555,4 @@ To restore the references to the DocumentDB .NET Core SDK in Visual Studio, righ
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

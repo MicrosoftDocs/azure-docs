@@ -53,7 +53,7 @@ only 5 of them.
    >Per app scaling is available only for **Premium** SKU App Service plans
    >
 
-### Per app scaling using Powershell
+### Per app scaling using PowerShell
 
 You can create a new plan configured as a *Per app scaling* plan 
 by passing in the ```-perSiteScaling $true``` attribute to the 

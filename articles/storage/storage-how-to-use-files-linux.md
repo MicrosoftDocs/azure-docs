@@ -35,7 +35,7 @@ File storage is now generally available and supports both SMB 2.1 and SMB 3.0. F
 ## Video: Using Azure File storage with Linux
 Here's a video that demonstrates how to create and use Azure File shares on Linux.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Linux/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
 > 
 > 
 
