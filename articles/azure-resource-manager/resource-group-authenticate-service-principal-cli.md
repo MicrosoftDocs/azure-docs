@@ -47,7 +47,7 @@ You may be wondering - why do I need both objects? This approach makes more sens
 ## Required permissions
 To complete this topic, you must have sufficient permissions in both your Azure Active Directory and your Azure subscription. Specifically, you must be able to create an app in the Active Directory, and assign the service principal to a role. 
 
-The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](resource-group-create-service-principal-portal.md#required-permissions).
+The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission in portal](resource-group-create-service-principal-portal.md#required-permissions).
 
 Now, proceed to a section for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
 
@@ -70,10 +70,12 @@ Let's go through these steps.
      ```
    * To create the AD application separately, provide:
 
-      * the name of the app
-      * a home page URI
-      * identifier URIs
-      * a password
+      * name of the app
+      * URL for the app's home page
+      * comma-delimited list of URIs that identify the app
+      * password
+
+      As shown in the following command:
      
      ```azurecli
      azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {Your_Password}
@@ -211,11 +213,13 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
      ```
    * To create the AD application separately, provide:
       
-      * the name of the app
-      * a home page URI
-      * identifier URIs
+      * name of the app
+      * URL for the app's home page
+      * comma-delimited list of URIs that identify the app
       * the certificate data
-     
+
+      As shown in the following command:
+
      ```azurecli
      azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value {certificate data}
      ```
