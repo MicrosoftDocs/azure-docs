@@ -71,7 +71,7 @@ Following shows an example of a valid request:
  ```
 POST /twins/D001/methods?api-version=2016-11-14 HTTP/1.1
 Host: daenethub.azure-devices.net
-Authorization: SharedAccessSignature sr=daenethub.azure-devices.net&sig=ZgJIMJ7oefmo5crJqPIaPYxX3xuPse5SbzCyAKrc%2BDc%3D&se=1515923812&skn=iothubowner
+Authorization: SharedAccessSignature sr=myhub.azure-devices.net&sig=Zg**SbzCyAKrc%2BDc%3D&se=1515923812&skn=iothubowner
 Content-Type: application/json
 Cache-Control: no-cache
 Postman-Token: 9bccb14d-f291-527d-f6c3-8c79476e193d
