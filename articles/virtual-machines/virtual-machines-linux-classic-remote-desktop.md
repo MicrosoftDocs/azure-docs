@@ -39,25 +39,25 @@ We will use the default endpoint 3389 for Remote Desktop in this doc. So set up 
 
 ![image](./media/virtual-machines-linux-classic-remote-desktop/no1.png)
 
-if you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+If you didn't know how to set up endpoint to your VM, see [guidance](virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## Install Gnome Desktop
 Connect to your Linux VM through putty, and install `Gnome Desktop`.
 
 For Ubuntu, use:
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
+    sudo apt-get update
+    sudo apt-get install ubuntu-desktop
 
 
 For OpenSUSE, use:
 
-    #sudo zypper install gnome-session
+    sudo zypper install gnome-session
 
 ## Install xrdp
 For Ubuntu, use:
 
-    #sudo apt-get install xrdp
+    sudo apt-get install xrdp
 
 For OpenSUSE, use:
 
@@ -66,38 +66,38 @@ For OpenSUSE, use:
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+    sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0~git.1456906198.f422461-4.1.x86_64.rpm
+    sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
 
 ## Start xrdp and set xdrp service at boot-up
 For OpenSUSE, use:
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+    sudo systemctl start xrdp
+    sudo systemctl enable xrdp
 
-For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
+For Ubuntu, xrdp will be started and enabled at boot-up automatically after installation.
 
-## Using xfce if you are using Ubuntu version later than Ubuntu 12.04LTS
-Because current xrdp could not support the Gnome Desktop from Ubuntu version later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
+## Using xfce on Ubuntu versions later than Ubuntu 12.04LTS
+Because xrdp cannot currently support the Gnome Desktop for versions of Ubuntu later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.
 
 Install `xfce`, use:
 
-    #sudo apt-get install xubuntu-desktop
+    sudo apt-get install xubuntu-desktop
 
 Then enable `xfce`, use:
 
-    #echo xfce4-session >~/.xsession
+    echo xfce4-session > ~/.xsession
 
 Edit the config file `/etc/xrdp/startwm.sh`, use:
 
-    #sudo vi /etc/xrdp/startwm.sh   
+    sudo vi /etc/xrdp/startwm.sh   
 
 Add line `xfce4-session` before the line `/etc/X11/Xsession`.
 
 Restart xrdp service, use:
 
-    #sudo service xrdp restart
+    sudo service xrdp restart
 
 
 ## Connect your Linux VM from a Windows machine
@@ -108,5 +108,5 @@ In a Windows machine, start the remote desktop client, input your Linux VM DNS n
 Login with the `user` & `password` of your Linux VM, and enjoy the Remote Desktop from your Microsoft Azure Linux VM right now!
 
 ## Next
-For more information to use xrdp, you could refer [here](http://www.xrdp.org/).
+For more information on how to use xrdp, you could refer [here](http://www.xrdp.org/).
 
