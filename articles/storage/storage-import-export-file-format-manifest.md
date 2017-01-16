@@ -1,8 +1,8 @@
 ---
 title: Import-Export Service Manifest File Format | Microsoft Docs
 description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import-Export Service
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 
 ---
 
