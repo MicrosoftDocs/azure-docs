@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/09/2017
+ms.date: 01/16/2017
 ms.author: markgal; trinadhk
 
 ---
@@ -326,8 +326,13 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 Once you restore the disks, go to the next section for information on creating the VM.
 
-### Create a VM from restored disks
+## Create a VM from restored disks
 After you have restored the disks, use these steps to create and configure the virtual machine from disk.
+
+> [!NOTE]
+> If you are creating encrypted VMs using restored disks, your role should be allowed to perform **Microsoft.KeyVault/vaults/deploy/action**. If your role does not have this permission, create a custom role with this action. Refer [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) to get more details.
+> 
+> 
 
 1. Query the restored disk properties for the job details.
    
