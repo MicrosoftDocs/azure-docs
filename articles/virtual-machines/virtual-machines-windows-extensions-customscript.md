@@ -32,7 +32,7 @@ The Custom Script Extension for Windows can be run against Windows Server 2008 R
 
 ### Script Location
 
-The script that will be run on the virtual machine will need to be stored in Azure storage or on GitHub.
+The script that will be run needs to be stored in Azure storage, or any other location accessible through a valid URL.
 
 ### Internet Connectivity
 
