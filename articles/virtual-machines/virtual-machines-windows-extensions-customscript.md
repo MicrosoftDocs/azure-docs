@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/13/2017
+ms.date: 01/17/2017
 ms.author: nepeters
 
 ---
@@ -32,7 +32,7 @@ The Custom Script Extension for Windows can be run against Windows Server 2008 R
 
 ### Script Location
 
-The script that will be run needs to be stored in Azure storage, or any other location accessible through a valid URL.
+The script to be run needs to be stored in Azure storage, or any other location accessible through a valid URL.
 
 ### Internet Connectivity
 
@@ -40,7 +40,7 @@ The Custom Script Extension for Windows requires that the target virtual machine
 
 ## Extension schema
 
-The following JSON shows the schema for the Custom Script Extension. The extension will require a script location (GitHub or in Azure Storage), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key will be required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
+The following JSON shows the schema for the Custom Script Extension. The extension requires a script location (Azure Storage or other location with valid URL), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key is required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
