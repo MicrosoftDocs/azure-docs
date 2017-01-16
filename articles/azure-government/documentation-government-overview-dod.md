@@ -37,7 +37,7 @@ Security is another key area, and although any cloud deployment requires proper 
 ## DoD Region Q&A
 
 ### What are the Azure Government DoD Regions? 
-The US DoD East and US DoD Central regions are physically separated regions of Microsoft Azure architected to meet US Department of Defense (DoD) security requirements for cloud computing, specifically for data designated as DoD Impact Level 5 per the<a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> DoD Cloud Computing Security Requirements Guide (SRG).   
+The US DoD East and US DoD Central regions are physically separated regions of Microsoft Azure architected to meet US Department of Defense (DoD) security requirements for cloud computing, specifically for data designated as DoD Impact Level 5 per the DoD Cloud Computing Security Requirements Guide (SRG).   
 
 ### What is the difference between Azure Government and the Azure Government DoD Regions? 
 Azure Government is a US government community cloud providing services for Federal, State and Local government customers, tribal, entities subject to ITAR, and solution providers performing work on their behalf. All Azure Government regions are architected and operated to meet the security requirements for DoD Impact Level 5 data and FedRAMP High standards.
@@ -85,7 +85,7 @@ The DoD mandates that commercial cloud services used for CUI must be connected t
 General Availability means that the DoD regions in Azure Government may be used to support production workloads and that financially backed SLAs for all services deployed in the regions and also generally available will be supported.
 
 ### How does a DoD customer acquire Azure Government DoD services? 
-Azure Government DoD services may be purchased by qualified entities through the same<a href="https://azure.microsoft.com/en-us/offers/azure-government/"> reseller channels as Azure Government.  In keeping with Microsoft’s commitment to make cloud services acquisition planning and cost estimation simple, pricing for Azure Government DoD regions will be included in the Azure Pricing calculator at the time of general availability.  Azure Government DoD services can quickly scale up or down to match demand, so you only pay for what you use.
+Azure Government DoD services may be purchased by qualified entities through the same reseller channels as Azure Government.  In keeping with Microsoft’s commitment to make cloud services acquisition planning and cost estimation simple, pricing for Azure Government DoD regions will be included in the Azure Pricing calculator at the time of general availability.  Azure Government DoD services can quickly scale up or down to match demand, so you only pay for what you use.
 No contractual modifications will be required for Enterprise Agreement customers already using Azure Government.  
 
 ### How are the DoD regions priced? 
@@ -101,7 +101,7 @@ Solution providers with cloud service offerings built on Azure may operate DoD-o
 Microsoft is providing Office 365 services for the DoD at Impact Level 5 in conjunction with this offering.  Dynamics 365 is planning to offer Impact Level 5 services from the Azure DoD regions at a future date.
 
 ### How do I connect to the DoD Regions once I have a subscription? 
-The DoD regions for Azure Government are available through the<a href="https://portal.azure.us"> Azure Government management portal.  DoD customers approved for use will see the regions listed as available options when deploying available services.  For general guidance on managing your Azure Government subscriptions please consult our documentation.
+The DoD regions for Azure Government are available through the Azure Government management portal.  DoD customers approved for use will see the regions listed as available options when deploying available services.  For general guidance on managing your Azure Government subscriptions please consult our documentation.
 
 ### What services are part of your Impact Level 5 accreditation scope? 
 Azure is an evergreen service where new services and capabilities are being added every week, the number of services in scope is regularly expanding.  For the most up-to-date information, please visit our<a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center.
@@ -111,6 +111,8 @@ Azure is an evergreen service where new services and capabilities are being adde
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center - DoD web page </a>
 
 <a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
+
+<a href="https://azure.microsoft.com/en-us/offers/azure-government/"> Azure Government Reseller Channels
 
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 
