@@ -122,12 +122,12 @@ If the above conditions are satisfied, it is likely that the domain controller w
 	* If you are using DFSR replication then follow the steps available [here](https://support.microsoft.com/en-us/kb/2218556) to do an authoritative restore. You can also use Powershell functions available on this [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) for this purpose. 
 	
 * Bypass initial synchronization requirement by setting following registry key to 0. If this DWORD doesn't exist then you can create it under node 'Parameters'. You can read more about it [here](https://support.microsoft.com/en-us/kb/2001093)
-	
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
 
-* Disable the requirement that a global catalog server be available to validate user logon by setting following registry key to 1. If this DWORD doesn't exist then you can create it under node 'Control'. You can read more about it [here](http://support.microsoft.com/kb/241789/EN-US)
+	    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
 
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa IgnoreGCFailures
+* Disable the requirement that a global catalog server be available to validate user logon by setting following registry key to 1. If this DWORD doesn't exist then you can create it under node 'Lsa'. You can read more about it [here](http://support.microsoft.com/kb/241789/EN-US)
+
+    	HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
 
 
 
