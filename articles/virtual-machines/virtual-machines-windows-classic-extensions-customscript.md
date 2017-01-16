@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/13/2017
+ms.date: 01/17/2017
 ms.author: nepeters
 
 ---
@@ -36,7 +36,7 @@ The Custom Script Extension for Windows can be run against Windows Server 2008 R
 
 ### Script Location
 
-The script that will be run on the virtual machine will need to be stored in Azure storage or on GitHub.
+The script needs to be stored in Azure storage, or any other location accessible through a valid URL.
 
 ### Internet Connectivity
 
@@ -44,7 +44,7 @@ The Custom Script Extension for Windows requires that the target virtual machine
 
 ## Extension schema
 
-The following JSON shows the schema for the Custom Script Extension. The extension will require a script location (GitHub or in Azure Storage), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key will be required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
+The following JSON shows the schema for the Custom Script Extension. The extension requires a script location (Azure Storage or other location with valid URL), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key is required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
 ```json
 {
@@ -85,7 +85,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 ## PowerShell deployment
 
-The `Set-AzureVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machines. For more information, see [Set-AzureRmVMCustomScriptExtension
+The `Set-AzureVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
 ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
 ```powershell
@@ -103,7 +103,7 @@ $vm | Update-AzureVM
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command..
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command.
 
 ```powershell
 Get-AzureVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
