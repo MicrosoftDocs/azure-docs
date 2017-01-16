@@ -267,26 +267,29 @@ namespace IngestionClient
             Stream requestStream = request.GetRequestStream(); 
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
+            
+            try
+            {
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
+            }
+            catch (WebException e)
+            {
+                HttpWebResponse httpResponse = e.Response as HttpWebResponse;
+                if (httpResponse != null)
+                {
+                    Console.WriteLine(
+                        "Ingestion request failed with status code: {0}. Error: {1}",
+                        httpResponse.StatusCode,
+                        httpResponse.StatusDescription);
 
-            HttpWebResponse response; 
-            try 
-            { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
-            } 
-            catch (WebException e) 
-            { 
-                HttpWebResponse httpResponse = e.Response as HttpWebResponse; 
-                if (httpResponse != null) 
-                { 
-                    Console.WriteLine( 
-                        "Ingestion request failed with status code: {0}. Error: {1}", 
-                        httpResponse.StatusCode, 
-                        httpResponse.StatusDescription); 
-                } 
-                return false; 
-            } 
+                    return false;
+                }
 
-            return response.StatusCode == HttpStatusCode.OK; 
+                throw;
+            }
         } 
         #endregion Public 
 
