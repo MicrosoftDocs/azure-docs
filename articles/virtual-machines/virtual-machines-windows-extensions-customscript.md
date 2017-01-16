@@ -32,7 +32,7 @@ The Custom Script Extension for Windows can be run against Windows Server 2008 R
 
 ### Script Location
 
-The script to be run needs to be stored in Azure storage, or any other location accessible through a valid URL.
+The script needs to be stored in Azure storage, or any other location accessible through a valid URL.
 
 ### Internet Connectivity
 
@@ -93,7 +93,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machines. For more information, see [Set-AzureRmVMCustomScriptExtension
+The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
 ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
 ```powershell
