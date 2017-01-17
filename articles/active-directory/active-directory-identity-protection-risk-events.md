@@ -21,7 +21,7 @@ ms.author: markvi
 Azure Active Directory helps you to protect your identities. One part of the protection process is the detection of suspicious actions that are related to your user accounts. The detection is based on adaptive machine learning algorithms and heuristics. Each detected suspicious action is stored in a record called *risk event*. 
 
 
-![Risk event](./media/active-directory-identityprotection-risk-events/1003.png)
+![Risk event](./media/active-directory-identity-protection-risk-events/1003.png)
 
 
 ## Risk level
@@ -36,7 +36,7 @@ The severity of the risk event represents the strength of the signal as a predic
 
 * **Low**: Low confidence and low severity risk event. This event may not require an immediate action, but when combined with other risk events, may provide a strong indication that the identity is compromised.
 
-![Risk Level](./media/active-directory-identityprotection-risk-events/01.png)
+![Risk Level](./media/active-directory-identity-protection-risk-events/01.png)
 
 
 ## Detection type
