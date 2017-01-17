@@ -121,8 +121,18 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Set the cluster parameters in PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
-   >[!IMPORTANT]
-   >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
+Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
+
+   ```PowerShell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
+   $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
+   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
+   
+   Import-Module FailoverClusters
+   
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
 ## Set connection for multiple subnets
 
