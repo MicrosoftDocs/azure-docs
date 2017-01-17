@@ -19,16 +19,16 @@ ms.author: eugenesh
 ---
 # Connecting DocumentDB with Azure Search using indexers
 
-If you're looking to implement great search experiences over your DocumentDB data, you can configure and run an Azure Search indexer that extracts data and pulls it into an Azure Search index. In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure.
+If you're looking to implement great search experiences over your DocumentDB data, you can configure and run an Azure Search indexer that extracts data and pulls it into an Azure Search index. In this article, we show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure.
 
 To set this up, you must have an [Azure Search service](search-create-service-portal.md). Next, create the index and configure an indexer using one these approaches: [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/) for all non-.NET languages. 
 
-You will need three components for this workload in Azure Search: index, indexer, and a data source connection. If you use the portal, the [Import Data wizard](search-import-data-portal.md) guides you through the creation of all these objects. In most cases, a default index can be generated for you.
+You need three components for this workload in Azure Search: index, indexer, and a data source connection. If you use the portal, the [Import Data wizard](search-import-data-portal.md) guides you through the creation of all these objects. Usually, a default index can be generated for you.
 
 ## <a id="Concepts"></a>Azure Search indexer concepts
 Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
 
-A **data source** specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
+A **data source** specifies the data to index, credentials, and policies for identifying changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
 
 An **indexer** describes how the data flows from your data source into a target search index. You should plan on creating one indexer for every target index and data source combination. While you can have multiple indexers writing into the same index, an indexer can only write into a single index. An indexer is used to:
 
@@ -37,7 +37,7 @@ An **indexer** describes how the data flows from your data source into a target 
 * Invoke on-demand updates to an index as needed.
 
 ## <a id="CreateDataSource"></a>Step 1: Create a data source
-Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
+Issue an HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
 
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -83,7 +83,7 @@ When rows are deleted from the source table, you should delete those rows from t
     }
 
 > [!NOTE]
-> You will need to include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
+> You should include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
 > 
 > 
 
@@ -151,7 +151,7 @@ The following example creates a data source with a custom query and policy hints
 You will receive an HTTP 201 Created response if the data source was successfully created.
 
 ## <a id="CreateIndex"></a>Step 2: Create an index
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](search-create-index-portal.md) or by using the [Create Index REST API](/rest/api/searchservice/create-index) or [Index class](/dotnet/api/microsoft.azure.search.models.index).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure portal UI](search-create-index-portal.md) or by using the [Create Index REST API](/rest/api/searchservice/create-index) or [Index class](/dotnet/api/microsoft.azure.search.models.index).
 
     POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
     Content-Type: application/json
@@ -161,7 +161,7 @@ Create a target Azure Search index if you don’t have one already. You can do t
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
 > [!NOTE]
-> For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys; therefore, the `_rid` values are Base64 encoded.
+> For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys. For this reason, the `_rid` values are Base64 encoded.
 > 
 > 
 
@@ -243,13 +243,13 @@ In addition to running periodically on a schedule, an indexer can also be invoke
 You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.
 
 ## <a name="GetIndexerStatus"></a>Step 5: Get indexer status
-You can issue a HTTP GET request to retrieve the current status and execution history of an indexer:
+You can issue an HTTP GET request to retrieve the current status and execution history of an indexer:
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
     api-key: [Search service admin key]
 
 ### Response
-You will see a HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).
+You will see an HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).
 
 The response should look similar to the following:
 
