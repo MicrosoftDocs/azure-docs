@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 01/17/2017
 ms.author: cynthn
 
 ---
@@ -103,7 +103,7 @@ The following usernames are not allowed:
 </table>
 
 ## What are the password requirements when creating a VM?
-Passwords must be 8 - 123 characters in length and meet 3 out of the following 4 complexity requirements:
+Passwords must be 12 - 123 characters in length and meet 3 out of the following 4 complexity requirements:
 
 * Have lower characters
 * Have upper characters
