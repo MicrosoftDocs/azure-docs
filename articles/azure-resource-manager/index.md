@@ -145,12 +145,4 @@ Learn how to use Resource Manager to deploy, monitor, and manage solution resour
     </li>
 </ul>
 
----
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-resource-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Resource Manager Documentation
-        </div>
-    </a>
-</div>
+
