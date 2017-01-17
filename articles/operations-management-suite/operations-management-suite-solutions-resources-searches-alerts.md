@@ -267,208 +267,209 @@ Following is a sample of a solution that include that includes the following res
 The sample uses [standard solution parameters](operations-management-suite-solutions-creating.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 	{
-		"$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
-		"contentVersion": "1.0",
-		"parameters": {
-			"workspaceName": {
-			"type": "string",
-			"metadata": {
-				"Description": "Name of Log Analytics workspace"
-				}
-			},
-			"accountName": {
-				"type": "string",
-				"metadata": {
-					"Description": "Name of Automation account"
-				}
-			},
-			"workspaceregionId": {
-				"type": "string",
-				"metadata": {
-					"Description": "Region of Log Analytics workspace"
-				}
-			},
-			"regionId": {
-				"type": "string",
-				"metadata": {
-					"Description": "Region of Automation account"
-				}
-			},
-			"pricingTier": {
-				"type": "string",
-				"metadata": {
-					"Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-				}
-			},
-			"recipients": {
-				"type": "string",
-				"metadata": {
-					"Description": "List of recipients for the email alert separated by semicolon"
-				}
-			}
-		},
-		"variables": {
-			"solutionName": "MySolution",
-			"solutionVersion": "1.0",
-			"solutionPublisher": "Contoso",
-			"productName": "SampleSolution",
+	    "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+	    "contentVersion": "1.0",
+	    "parameters": {
+	      "workspaceName": {
+	        "type": "string",
+	        "metadata": {
+	          "Description": "Name of Log Analytics workspace"
+	        }
+	      },
+	      "accountName": {
+	        "type": "string",
+	        "metadata": {
+	          "Description": "Name of Automation account"
+	        }
+	      },
+	      "workspaceregionId": {
+	        "type": "string",
+	        "metadata": {
+	          "Description": "Region of Log Analytics workspace"
+	        }
+	      },
+	      "regionId": {
+	        "type": "string",
+	        "metadata": {
+	          "Description": "Region of Automation account"
+	        }
+	      },
+	      "pricingTier": {
+	        "type": "string",
+	        "metadata": {
+	          "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
+	        }
+	      },
+	      "recipients": {
+	        "type": "string",
+	        "metadata": {
+	          "Description": "List of recipients for the email alert separated by semicolon"
+	        }
+	      }
+	    },
+	    "variables": {
+	      "SolutionName": "MySolution",
+	      "SolutionVersion": "1.0",
+	      "SolutionPublisher": "Contoso",
+	      "ProductName": "SampleSolution",
 	
-			"logAnalyticsApiVersion": "2015-11-01-preview",
+	      "LogAnalyticsApiVersion": "2015-11-01-preview",
 	
-			"mySearch": {
-				"displayName": "Error records by hour",
-				"query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
-				"category": "Samples",
-				"name": "Samples Count of data"
-			},
-			"myAlert": {
-				"name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
-				"displayName": "My alert rule",
-				"description": "Sample alert.  Fires when 3 error records found over hour interval.",
-				"severity": "Critical",
-				"thresholdOperator": "gt",
-				"thresholdValue": 3,
-				"schedule": {
-					"name": "[toLower(concat('myschedule-',uniqueString(resourceGroup().id, deployment().name)))]",
-					"interval": 15,
-					"timeSpan": 60
-				},
-				"metricsTrigger": {
-					"triggerCondition": "Consecutive",
-					"operator": "gt",
-					"value": 3
-				},
-				"throttleMinutes": 60,
-				"notification": {
-					"recipients": [
-						"[parameters('recipients')]"
-					],
-					"subject": "Sample alert"
-				},
-				"remediation": {
-					"runbookName": "MyRemediationRunbook",
-					"webhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-				},
-				"webhook": {
-					"name": "MyWebhook",
-					"uri": "https://MyService.com/webhook",
-					"payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
-				}
-			}
-		},
-		"resources": [
-			{
-				"name": "[concat(variables('solutionName'), '[' ,parameters('workspacename'), ']')]",
-				"location": "[parameters('workspaceRegionId')]",
-				"tags": { },
-				"type": "Microsoft.OperationsManagement/solutions",
-				"apiVersion": "[variables('logAnalyticsApiVersion')]",
-				"dependsOn": [
-					"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('mySearch').name)]",
-					"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name)]",
-					"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name, variables('myAlert').name)]",
-					"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name, variables('myAlert').webhook.name)]"
-				],
-				"properties": {
-					"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
-					"referencedResources": [
-					],
-					"containedResources": [
-						"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('mySearch').name)]",
-						"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name)]",
-						"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name, variables('myAlert').name)]",
-						"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name, variables('myAlert').webhook.name)]"
-					]
-				},
-				"plan": {
-					"name": "[concat(variables('solutionName'), '[' ,parameters('workspaceName'), ']')]",
-						"Version": "[variables('solutionVersion')]",
-						"product": "[variables('productName')]",
-						"publisher": "[variables('solutionPublisher')]",
-						"promotionCode": ""
-				}
-			},
-			{
-				"name": "[concat(parameters('workspaceName'), '/', variables('mySearch').name)]",
-				"type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-				"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-				"dependsOn": [ ],
-				"tags": { },
-				"properties": {
-					"etag": "*",
-					"query": "[variables('mySearch').query]",
-					"displayName": "[variables('mySearch').displayName]",
-					"category": "[variables('mySearch').category]"
-				}
-			},
-			{
-				"name": "[concat(parameters('workspaceName'), '/', variables('mySearch').name, '/', variables('myAlert').schedule.name)]",
-				"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-				"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-				"dependsOn": [
-					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('mySearch').name)]"
-				],
-				"properties": {
-					"etag": "*",
-					"interval": "[variables('myAlert').schedule.Interval]",
-					"queryTimeSpan": "[variables('myAlert').schedule.TimeSpan]",
-					"enabled": true
-				}
-			},
-			{
-				"name": "[concat(parameters('workspaceName'), '/', variables('mySearch').name, '/',  variables('myAlert').schedule.name, '/',  variables('myAlert').name)]",
-				"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-				"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-				"dependsOn": [
-					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('mySearch').name, '/schedules/', variables('myAlert').schedule.name)]"
-				],
-				"properties": {
-					"etag": "*",
-					"type": "Alert",
-					"name": "[variables('myAlert').DisplayName]",
-					"description": "[variables('myAlert').Description]",
-					"severity": "[variables('myAlert').Severity]",
-					"threshold": {
-						"operator": "[variables('myAlert').thresholdOperator]",
-						"value": "[variables('myAlert').thresholdValue]",
-						"metricsTrigger": {
-		 					"triggerCondition": "[variables('myAlert').metricsTrigger.triggerCondition]",
-							"operator": "[variables('myAlert').metricsTrigger.operator]",
-							"value": "[variables('myAlert').metricsTrigger.value]"
-						}
-					},
-					"throttling": {
-						"DurationInMinutes": "[variables('myAlert').throttleMinutes]"
-					},
-					"emailNotification": {
-						"recipients": "[variables('myAlert').notification.recipients]",
-						"subject": "[variables('myAlert').notification.subject]",
-						"attachment": "None"
-					},
-					"remediation": {
-						"runbookName": "[variables('myAlert').remediation.runbookName]",
-						"webhookUri": "[variables('myAlert').remediation.webhookUri]"
-					}
-				}
-			},
-			{
-				"name": "[concat(parameters('workspaceName'), '/', variables('mySearch').name, '/', variables('myAlert').schedule.name, '/', variables('myAlert').webhook.name)]",
-				"type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-				"apiVersion": "[variables('LogAnalyticsApiVersion')]",
-				"dependsOn": [
-					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('mySearch').name, '/schedules/', variables('myAlert').schedule.name)]",
-					"[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('mySearch').name, '/schedules/', variables('myAlert').schedule.name, '/actions/',variables('myAlert').name)]"
-				],
-				"properties": {
-					"etag": "*",
-					"Type": "Webhook",
-					"Name": "[variables('myAlert').webhook.name]",
-					"WebhookUri": "[variables('myAlert').webhook.uri]",
-					"CustomPayload": "[variables('myAlert').webhook.payload]"
-				}
-			}
-		]
+	      "MySearch": {
+	        "displayName": "Error records by hour",
+	        "query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
+	        "category": "Samples",
+	        "name": "Samples-Count of data"
+	      },
+	      "MyAlert": {
+	        "Name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
+	        "DisplayName": "My alert rule",
+	        "Description": "Sample alert.  Fires when 3 error records found over hour interval.",
+	        "Severity": "Critical",
+	        "ThresholdOperator": "gt",
+	        "ThresholdValue": 3,
+	        "Schedule": {
+	          "Name": "[toLower(concat('myschedule-',uniqueString(resourceGroup().id, deployment().name)))]",
+	          "Interval": 15,
+	          "TimeSpan": 60
+	        },
+	        "MetricsTrigger": {
+	          "TriggerCondition": "Consecutive",
+	          "Operator": "gt",
+	          "Value": 3
+	        },
+	        "ThrottleMinutes": 60,
+	        "Notification": {
+	          "Recipients": [
+	            "[parameters('recipients')]"
+	          ],
+	          "Subject": "Sample alert"
+	        },
+	        "Remediation": {
+	          "RunbookName": "MyRemediationRunbook",
+	          "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
+	        },
+	        "Webhook": {
+	          "Name": "MyWebhook",
+	          "Uri": "https://MyService.com/webhook",
+	          "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+	        }
+	      }
+	    },
+	    "resources": [
+	      {
+	        "name": "[concat(variables('SolutionName'), '[' ,parameters('workspacename'), ']')]",
+	        "location": "[parameters('workspaceRegionId')]",
+	        "tags": { },
+	        "type": "Microsoft.OperationsManagement/solutions",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "dependsOn": [
+	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
+	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
+	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
+	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+	        ],
+	        "properties": {
+	          "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+	          "referencedResources": [
+	          ],
+	          "containedResources": [
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+	          ]
+	        },
+	        "plan": {
+	          "name": "[concat(variables('SolutionName'), '[' ,parameters('workspaceName'), ']')]",
+	          "Version": "[variables('SolutionVersion')]",
+	          "product": "[variables('ProductName')]",
+	          "publisher": "[variables('SolutionPublisher')]",
+	          "promotionCode": ""
+	        }
+	      },
+	      {
+	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
+	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "dependsOn": [ ],
+	        "tags": { },
+	        "properties": {
+	          "etag": "*",
+	          "query": "[variables('MySearch').query]",
+	          "displayName": "[variables('MySearch').displayName]",
+	          "category": "[variables('MySearch').category]"
+	        }
+	      },
+	      {
+	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
+	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "dependsOn": [
+	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
+	        ],
+	        "properties": {
+	          "etag": "*",
+	          "interval": "[variables('MyAlert').Schedule.Interval]",
+	          "queryTimeSpan": "[variables('MyAlert').Schedule.TimeSpan]",
+	          "enabled": true
+	        }
+	      },
+	      {
+	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
+	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "dependsOn": [
+	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
+	        ],
+	        "properties": {
+	          "etag": "*",
+	          "Type": "Alert",
+	          "Name": "[variables('MyAlert').DisplayName]",
+	          "Description": "[variables('MyAlert').Description]",
+	          "Severity": "[variables('MyAlert').Severity]",
+	          "Threshold": {
+	            "Operator": "[variables('MyAlert').ThresholdOperator]",
+	            "Value": "[variables('MyAlert').ThresholdValue]",
+	            "MetricsTrigger": {
+	              "TriggerCondition": "[variables('MyAlert').MetricsTrigger.TriggerCondition]",
+	              "Operator": "[variables('MyAlert').MetricsTrigger.Operator]",
+	              "Value": "[variables('MyAlert').MetricsTrigger.Value]"
+	            }
+	          },
+	          "Throttling": {
+	            "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
+	          },
+	          "EmailNotification": {
+	            "Recipients": "[variables('MyAlert').Notification.Recipients]",
+	            "Subject": "[variables('MyAlert').Notification.Subject]",
+	            "Attachment": "None"
+	          },
+	          "Remediation": {
+	            "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
+	            "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
+	          }
+	        }
+	      },
+	      {
+	        "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
+	        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
+	        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+	        "dependsOn": [
+	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
+	          "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
+	        ],
+	        "properties": {
+	          "etag": "*",
+	          "Type": "Webhook",
+	          "Name": "[variables('MyAlert').Webhook.Name]",
+	          "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
+	          "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+	        }
+	      }
+	    ]
 	}
+
 
 The following parameter file provides samples values for this solution.
 
@@ -496,6 +497,7 @@ The following parameter file provides samples values for this solution.
 			}
 		}
 	}
+
 
 ## Next steps
 * [Add a view to your solution](operations-management-suite-solutions-resources-views.md) to visualize collected data.
