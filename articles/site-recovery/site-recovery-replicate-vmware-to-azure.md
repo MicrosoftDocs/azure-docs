@@ -25,11 +25,13 @@ ms.author: asgang
 This article describes how to set up replication of virtual machines running on VMware into Azure.
 ## Prerequisites
 
-The article assumes that you have already setup source and target environment  
+The article assumes that you have already 
 
-[!INCLUDE [site-recovery-install-mobility-agent](../../includes/site-recovery-install-mobility-agent.md)]
+1.  [Setup on-premise source environment](site-recovery-set-up-vmware-to-azure.md)
+2. Setup target environment in Azure 
 
-### Enable replication
+
+## Enable replication
 #### Before you start
 If you're replicating VMware virtual machines, note that:
 
@@ -83,7 +85,7 @@ If you're replicating VMware virtual machines, note that:
 >
 >
 
-### View and manage VM properties
+## View and manage VM properties
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
