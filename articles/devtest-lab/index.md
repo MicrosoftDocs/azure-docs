@@ -99,13 +99,4 @@ Learn how to use Devtest Labs to quickly create application test environments us
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Devtest Lab Documentation
-        </div>
-    </a>
-</div>

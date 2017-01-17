@@ -117,11 +117,4 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
     </li>     
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Mobile Apps Documentation
-        </div>
-    </a>
-</div>
+
