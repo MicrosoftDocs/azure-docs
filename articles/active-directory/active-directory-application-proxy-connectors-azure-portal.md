@@ -53,11 +53,11 @@ For applications installed on IaaS for cloud access, connector groups provide a 
 
 In this case, the organization has number of virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premise. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure, as you can see in the diagram below:
 
- ![AzureAD Iaas Network](./media/application-proxy-understand-connectors/application-proxy-iaas-network.png)
+ ![AzureAD Iaas Network](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
 The can become an issue as many organizations use multiple cloud vendors, as their applications reside in numerous datacenters. With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
 
- ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-understand-connectors/application-proxy-multiple-cloud-vendors.png)
+ ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 
 ### Multi-forest – different connector groups for each forest
 
@@ -84,7 +84,7 @@ Some examples that you can implement, include the followiong connector groups.
 
 If you don’t use connector groups, your configuration would look like this:
 
- ![AzureAD No Connector Groups](./media/application-proxy-understand-connectors/application-proxy-sample-config-1.png)
+ ![AzureAD No Connector Groups](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-1.png)
  
  This configuration is sufficient for small deployments and tests. It will also work well if your organization has a flat network topology.
  
@@ -92,7 +92,7 @@ If you don’t use connector groups, your configuration would look like this:
 
 This configuration is an evolution of the default one, in which there is a specific app that runs in an isolated network such as IaaS virtual network: 
 
-![AzureAD No Connector Groups](./media/application-proxy-understand-connectors/application-proxy-sample-config-2.png)
+![AzureAD No Connector Groups](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-2.png)
  
 ### Recommended configuration – several specific groups and a default group for idle
 
@@ -100,7 +100,7 @@ The recommended configuration for large and complex organizations is to have the
 
 In the example below, the company has two datacenters, A and B, with two connectors that serve each site. Each site has different applications that run on it. 
 
-![AzureAD No Connector Groups](./media/application-proxy-understand-connectors/application-proxy-sample-config-3.png)
+![AzureAD No Connector Groups](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
 ## Prerequisite: Create your connector groups
 To group your connectors, you have to make sure you [installed multiple connectors](active-directory-application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
