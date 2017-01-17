@@ -27,13 +27,12 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [What you need to know about Hadoop on Linux-based HDInsight](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
 
-* A Hadoop on HDInsight cluster (Linux or Windows-based)
+* A Hadoop on HDInsight cluster
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -146,14 +145,17 @@ To complete the steps in this article, you will need the following:
    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
    * **SELECT** - Selects all rows from the new **errorLogs** table.
-6. Use the job ID returned to check the status of the job. Once it has succeeded, use Azure CLI for Mac, Linux and Windows as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
+
+6. Use the job ID returned to check the status of the job. Once it has succeeded, use the Azure CLI as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
 
 ## <a id="summary"></a>Summary
+
 As demonstrated in this document, you can use a raw HTTP request to run, monitor, and view the results of Hive jobs on your HDInsight cluster.
 
 For more information on the REST interface used in this article, see the <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat Reference</a>.
 
 ## <a id="nextsteps"></a>Next steps
+
 For general information on Hive with HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
