@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/06/2017
+ms.date: 01/17/2017
 ms.author: rickbyh
 
 ---
@@ -129,7 +129,7 @@ To give additional users full control of the database, make them a member of the
 
 > [!NOTE]
 > The most common reason to create database users based on logins, is when you have SQL Server authentication users that need access to multiple databases. Users based on logins are tied to the login, and only one password that is maintained for that login. Contained database users in individual databases are each individual entities and each maintains its own password. This can confuse contained database users if they do not maintain their passwords as identical.
- 
+ corresponding
 
 ### Configuring the database-level firewall
 As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
@@ -155,9 +155,10 @@ There are over 100 permissions that can be individually granted or denied in SQL
 ### Considerations and restrictions
 When managing logins and users in SQL Database, consider the following:
 
-* You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements. The database user in the master database corresponding to the **Server admin** login cannot be altered or dropped. 
+* You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements.   
+* The database user corresponding to the **Server admin** login cannot be altered or dropped. 
 * US-English is the default language of the **Server admin** login.
-* Only the administrators (s**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
+* Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
 * You must be connected to the master database when executing the `CREATE/ALTER/DROP LOGIN` statements. However using logins is discouraged. Use contained database users instead.
 * To connect to a user database, you must provide the name of the database in the connection string.
 * Only the server-level principal login and the members of the **loginmanager** database role in the **master** database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
