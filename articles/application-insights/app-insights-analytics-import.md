@@ -125,7 +125,7 @@ You can perform the following process manually, or set up an automated system to
 The placeholders are:
 
 * `Blob URI with Shared Access Key`: You get this from the procedure for creating a key. It is specific to the blob.
-* `Data source name`: The schema ID generated for your defined schema. The data in this blob should conform to the schema you defined for this source.
+* `Schema ID`: The schema ID generated for your defined schema. The data in this blob should conform to the schema you defined for this source.
 * `DateTime`: The time at which the request is submitted, UTC. We accept these formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` of your Application Insights resource.
 
