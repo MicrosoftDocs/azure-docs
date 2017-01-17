@@ -32,7 +32,7 @@ The following diagram outlines the logical components of the preconfigured solut
 
 The blue items are Azure services that are provisioned in the region you select when you provision the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
 
-Depending on the region you choose to provision the solution, you may be offered a choice between using Azure Machine Learning or an R Server instance to run the prediction model. In some regions you are not offered a choice.
+Depending on the region you select, you may be offered a choice between using Azure Machine Learning or an R Server instance to run the prediction model. In some regions you are not offered a choice.
 
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
 
@@ -44,7 +44,7 @@ In the preconfigured solution, a simulated device represents an aircraft engine.
 
 *Cycle count*. A cycle represents a completed flight with a duration between two and ten hours. During the flight, telemetry data is captured every half hour.
 
-*Telemetry*. There are four sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to obtain useful results from the RUL model. The model used in the preconfigured solution is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+*Telemetry*. There are four sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These four sensors represent telemetry sufficient to obtain useful results from the RUL model. The model used in the preconfigured solution is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
 The simulated devices can handle the following commands sent from the IoT hub in the solution:
 
