@@ -39,7 +39,7 @@ The severity of the risk event represents the strength of the signal as a predic
 ![Risk Level](./media/active-directory-identityprotection-risk-events/01.png)
 
 
-## Detection Type
+## Detection type
 
 The detection type property is an indicator (Real-time, Offline) for the detection timeframe of a risk event.  
 Currently, most risk events are detected offline in a post-processing operation after the risk event has occurred.
@@ -104,11 +104,7 @@ Unfamiliar locations can provide a strong indication that an attacker is able at
 
 
 
-
-
-
-
-## Azure AD Anomalous Activity reports
+## Azure AD anomalous activity reports
 
 In the Azure classic portal, some of the risk events already have been made available through the Azure AD Anomalous Activity reports. 
 
@@ -134,6 +130,6 @@ The following Azure AD Anomalous Activity reports are not included as risk event
 
 
 
-## See also
+## Next steps
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
