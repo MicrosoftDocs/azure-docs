@@ -52,7 +52,8 @@ The following diagram shows how the networks communicate between data centers.
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
->[!IMPORTANT]This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
+>[!IMPORTANT]
+>This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## Create remote replica
 
