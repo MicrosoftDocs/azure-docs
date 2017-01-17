@@ -54,6 +54,11 @@ Depending on the Reliablity level chosen for the cluster, you cannot remove the 
 
 Even after removing a node, if it shows up as being down in queries and SFX, please note that this is a known defect. It will be fixed in an upcoming release. 
 
+
+## Replace primary nodes of your cluster
+The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.
+
+
 ## Next steps
 * [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
 * [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
