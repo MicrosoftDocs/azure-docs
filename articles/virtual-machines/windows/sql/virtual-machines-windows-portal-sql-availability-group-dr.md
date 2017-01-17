@@ -52,10 +52,7 @@ The following diagram shows how the networks communicate between data centers.
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
-
-### Cost
-
-The architecture that this topic describes will incur outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
+>[!IMPORTANT]This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## Create remote replica
 
@@ -127,7 +124,7 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
 
-## Set connection for multi subnets
+## Set connection for multiple subnets
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
