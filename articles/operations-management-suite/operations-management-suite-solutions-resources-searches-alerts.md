@@ -67,6 +67,8 @@ Each of the properties of a saved search are described in the following table.
 | displayname | Name to display for the saved search in the portal. |
 | query | Query to run. |
 
+> [!NOTE]
+> You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **Type:AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **Type:AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## Alerts
 [Log Analytics alerts](../log-analytics/log-analytics-alerts.md) are created by alert rules that run a saved search on a regular interval.  If the results of the query match specified criteria, an alert record is created and one or more actions are run.  
@@ -94,8 +96,8 @@ A saved search can have one or more schedules with each schedule representing a 
       ],
       "properties": {  
         "etag": "*",               
-        "interval": "<schedule-interval-in-minutes>",
-        "queryTimeSpan": "<query-timespan-in-minutes>",
+        "interval": <schedule-interval-in-minutes>,
+        "queryTimeSpan": <query-timespan-in-minutes>,
         "enabled": <schedule-interval-in-minutes>       
       }
     }
@@ -368,7 +370,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 					"[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('mySearch').name, variables('myAlert').schedule.name, variables('myAlert').webhook.name)]"
 				],
 				"properties": {
-					"workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+					"workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
 					"referencedResources": [
 					],
 					"containedResources": [
