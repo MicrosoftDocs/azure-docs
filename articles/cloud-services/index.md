@@ -112,11 +112,4 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Cloud Services Documentation
-        </div>
-    </a>
-</div>
+
