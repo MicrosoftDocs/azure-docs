@@ -27,8 +27,7 @@ The Pig Latin programming language allows you to describe transformations that a
 
 > [!NOTE]
 > If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following.

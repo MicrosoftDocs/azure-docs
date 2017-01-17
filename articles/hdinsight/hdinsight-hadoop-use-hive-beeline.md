@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 
 ---
@@ -25,8 +25,6 @@ In this article, you will learn how to use Secure Shell (SSH) to connect to a Li
 
 > [!NOTE]
 > Beeline uses JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md).
-> 
-> 
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
