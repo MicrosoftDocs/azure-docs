@@ -142,7 +142,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 
 ## Appx-A: Resource Manager template
-The following Azure Resource Manger template creates a Windows-based Hadoop cluster with the dependent Azure storage account.
+The following Azure Resource Manager template creates a Windows-based Hadoop cluster with the dependent Azure storage account.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
