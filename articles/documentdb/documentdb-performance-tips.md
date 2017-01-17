@@ -28,25 +28,26 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 1. **Connection policy: Use direct connection mode**
 
-    How a client connects to Azure DocumentDB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
+How a client connects to Azure DocumentDB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
 
-   1. Gateway Mode (default)
-   2. Direct Mode
+1. Gateway Mode (default)
+2. Direct Mode
 
-      Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
+Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
+
 <a id="use-tcp"></a>
 2. **Connection policy: Use the TCP protocol**
 
-    When leveraging Direct Mode, there are two protocol options available:
+When using Direct Mode, there are two protocol options available:
 
-   * TCP
-   * HTTPS
+* TCP
+* HTTPS
 
-     DocumentDB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
+DocumentDB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-     When using TCP in Gateway Mode, TCP Port 443 is the DocumentDB port, and 10250 is the MongoDB API port. When using TCP in Direct Mode, in addition to the Gateway ports, you'll need to ensure the port range between 10000 and 20000 is open because DocumentDB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you will receive a 503 Service Unavailable error.
+When using TCP in Gateway Mode, TCP Port 443 is the DocumentDB port, and 10250 is the MongoDB API port. When using TCP in Direct Mode, in addition to the Gateway ports, you'll need to ensure the port range between 10000 and 20000 is open because DocumentDB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you will receive a 503 Service Unavailable error.
 
-     The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
+The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
          var serviceEndpoint = new Uri("https://contoso.documents.net");
          var authKey = new "your authKey from Azure Mngt Portal";
