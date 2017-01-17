@@ -182,7 +182,8 @@ When managing logins and users in SQL Database, consider the following:
 
 - To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 - For an overview of all the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
-- For a tutorial, see [Get started with SQL security](sql-database-get-started-security.md)
+- For a tutorial, see [Get started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
 - For information about views and stored procedures, see [Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
 - For information about granting access to a database object, see [Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
-
+- For a tutorial using SQL Server authentication, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
