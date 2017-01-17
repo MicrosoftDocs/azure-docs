@@ -28,8 +28,8 @@ The Azure Diagnostics configuration file defines values that are used to initial
 ## Example of the diagnostics configuration file  
  The following example shows a typical diagnostics configuration file:  
 
-```  
-
+```xml  
+<?xml version="1.0" encoding="utf-8"?> 
 <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"  
       configurationChangePollInterval="PT1M"  
       overallQuotaInMB="4096">  

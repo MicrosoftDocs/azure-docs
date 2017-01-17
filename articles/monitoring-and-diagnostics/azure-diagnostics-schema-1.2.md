@@ -31,7 +31,7 @@ The Azure Diagnostics 1.2 configuration file defines values that are used to ini
 ## Example of the diagnostics configuration file  
  The following example shows a typical diagnostics configuration file:  
 
-```  
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">  
   <WadCfg>  
