@@ -179,7 +179,7 @@ If the feature is not enabled in Azure AD or if the sync channel status is not e
 
 If the script shows that there is no heartbeat, then run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords). This script can also be used for other scenarios where the configuration is correct but passwords are not synchronized.
 
-If you installed Azure AD Connect with customized settings, make sure you have granted the account used by the AD Connector the permissions "Replicate Directory Changes" and "Replicate Directory Changes All". See [accounts and permissions]([active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) for all permissions needed by this account. Without those permissions, the account will not have permissions to read password hashes in Active Directory.
+If you installed Azure AD Connect with customized settings, make sure you have granted the account used by the AD Connector the permissions "Replicate Directory Changes" and "Replicate Directory Changes All". See [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) for all permissions needed by this account. Without those permissions, the account will not have permissions to read password hashes in Active Directory.
 
 Then look into the application eventlog. If there is a global problem with password synchronization and the service is operational, as verified by the previous steps, there should be an error with more details.
 
