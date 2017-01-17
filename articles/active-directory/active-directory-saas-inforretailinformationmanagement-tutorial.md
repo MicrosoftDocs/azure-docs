@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 01/17/2017
 ms.author: jeedes
 
 ---
@@ -91,7 +91,7 @@ To configure and test Azure AD single sign-on with Infor Retail – Information 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an Infor Retail – Information Management test user](#creating-an-infor-retail-information-management-user)** - to have a counterpart of Britta Simon in Infor Retail – Information Management that is linked to the Azure AD representation of her.
+3. **[Creating an Infor Retail – Information Management test user](#creating-an-infor-retail---information-management-user)** - to have a counterpart of Britta Simon in Infor Retail – Information Management that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -128,23 +128,27 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	> [!NOTE] 
 	> Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL.Contact [Infor Retail – Information Management support team](http://www.infor.com/contact/) to get these values.
 
-5. On the **Infor Retail – Information Management Configuration** section, click **Configure Infor Retail – Information Management** to open **Configure sign-on** dialog. Then click **SAML XML Metadata** and then save the metadata file on your computer.
+5. On the **SAML Signing Certificate** section, click **Create new certificate**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png) 	
+
+6. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_300.png)
+
+7. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_05.png)
 
-6. To get SSO configured for your application, contact [Infor Retail – Information Management support team](http://www.infor.com/contact/) and provide them with the following.
+8. On the pop-up **Rollover certificate** window, click **OK**.
 
-	a. The downloaded **metadata**
+	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-	b. The **SAML Single Sign-On Service URL**
+9. On the **SAML Signing Certificate** section, click **Download** and then save the metadata file on your computer.
 
-	c. The **SAML Entity ID**
+	![Configure Single Sign-On](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-	d. The **Sign-Out URL**
-
-7. In the Azure Management portal, click **Save** button.  
+10. To get SSO configured for your application, contact [Infor Retail – Information Management support team](http://www.infor.com/contact/) and provide them with the downloaded **metadata**.
   
 
 ### Creating an Azure AD test user
