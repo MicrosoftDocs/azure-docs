@@ -564,7 +564,7 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## Next steps
 Now that you've completed this first getting started tutorial and created a database with some sample data, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-get-started-security.md).
+* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-control-access-sql-authentication-get-started.md).
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).

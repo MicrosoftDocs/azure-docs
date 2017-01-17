@@ -1,6 +1,6 @@
 ---
 title: Service Bus and Python with AMQP 1.0 | Microsoft Docs
-description: Using Service Bus from Python with AMQP.
+description: Using Azure Service Bus from Python with AMQP.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2016
+ms.date: 01/13/2017
 ms.author: sethm
 
 ---
@@ -23,9 +23,9 @@ ms.author: sethm
 Proton-Python is a Python language binding to Proton-C; that is, Proton-Python is implemented as a wrapper around an engine implemented in C.
 
 ## Download the Proton client library
-You can download Proton-C and its associated bindings (including Python) from [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). The download is in source code form. To build the code, follow the instructions contained within the downloaded package.
+You can download Proton-C and its associated bindings (including Python) from [here](http://qpid.apache.org/download.html). The download is in source code form. To build the code, follow the instructions contained within the downloaded package.
 
-Note that at the time of this writing, the SSL support in Proton-C is only available for Linux operating systems. Because Azure Service Bus requires the use of SSL, Proton-C (and the language bindings) can only be used to access Service Bus from Linux at this time. Work to enable Proton-C with SSL on Windows is underway so check back frequently for updates.
+At the time of this writing, the SSL support in Proton-C is only available for Linux operating systems. Because Azure Service Bus requires the use of SSL, Proton-C (and the language bindings) can only be used to access Service Bus from Linux at this time. Work to enable Proton-C with SSL on Windows is underway so check back frequently for updates.
 
 ## Working with Service Bus queues, topics, and subscriptions from Python
 The following code shows how to send and receive messages from a Service Bus messaging entity.
@@ -33,7 +33,7 @@ The following code shows how to send and receive messages from a Service Bus mes
 ### Send messages using Proton-Python
 The following code shows how to send a message to a Service Bus messaging entity.
 
-```
+```python
 messenger = Messenger()
 message = Message()
 message.address = "amqps://[username]:[password]@[namespace].servicebus.windows.net/[entity]"
@@ -46,7 +46,7 @@ messenger.send()
 ### Receive messages using Proton-Python
 The following code shows how to receive a message from a Service Bus messaging entity.
 
-```
+```python
 messenger = Messenger()
 address = "amqps://[username]:[password]@[namespace].servicebus.windows.net/[entity]"
 messenger.subscribe(address)
@@ -64,7 +64,7 @@ messenger.stop()
 #### Proton-Python to Service Bus .NET APIs
 Proton-Python messages support application properties of the following types: **int**, **long**, **float**, **uuid**, **bool**, **string**. The following Python code shows how to set properties on a message by using each of these property types.
 
-```
+```python
 message.properties[u"TestString"] = u"This is a string"    
 message.properties[u"TestInt"] = 1
 message.properties[u"TestLong"] = 1000L
@@ -74,7 +74,7 @@ message.properties[u"TestGuid"] = uuid.uuid1()
 
 In the Service Bus .NET API, message application properties are carried in the **Properties** collection of [BrokeredMessage][BrokeredMessage]. The following code shows how to read the application properties of a message received from a Python client.
 
-```
+```csharp
 if (message.Properties.Keys.Count > 0)
 {
   foreach (string name in message.Properties.Keys)
@@ -100,7 +100,7 @@ The following table maps the Python property types to the .NET property types.
 #### Service Bus .NET APIs to Proton-Python
 The [BrokeredMessage][BrokeredMessage] type supports application properties of the following types: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, and **TimeSpan**. The following .NET code shows how to set properties on a [BrokeredMessage][BrokeredMessage] object using each of these property types.
 
-```
+```csharp
 message.Properties["TestByte"] = (byte)128;
 message.Properties["TestSbyte"] = (sbyte)-22;
 message.Properties["TestChar"] = (char) 'X';
@@ -125,7 +125,7 @@ message.Properties["TestTimeSpan"] = TimeSpan.FromMinutes(60);
 
 The following Python code shows how to read the application properties of a message received from a Service Bus .NET client.
 
-```
+```python
 if message.properties != None:
    for k,v in message.properties.items():         
          print "--   %s : %s (%s)" % (k, str(v), type(v))         
@@ -201,7 +201,6 @@ Ready to learn more? Visit the following links:
 * [Service Bus AMQP overview]
 * [AMQP in Service Bus for Windows Server]
 
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
