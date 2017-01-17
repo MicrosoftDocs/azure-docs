@@ -117,11 +117,4 @@ Learn how to use App Service to develop and host web and mobile apps for any pla
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download App Service Documentation
-        </div>
-    </a>
-</div>
+
