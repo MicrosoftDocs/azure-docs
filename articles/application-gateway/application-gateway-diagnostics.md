@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2016
+ms.date: 01/17/2017
 ms.author: amitsriva
 
 ---
@@ -30,11 +30,14 @@ Azure provides the capability to monitor resource with logging and metrics
 
 ## Backend health
 
-Application gateway provides the ability to find out the health of the servers that are in the backend pools. The backend health will show whether a backend server is considered healthy, unhealthy, or unknown. Through diagnostic logging, application gateway also provides the number of healthy and unhealthy servers are in the backend pools.
+Appplication gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. Aggregated health summary of backend pools can also be found through the performance diagnostic logs. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.
 
 ### View backend health through the portal
 
-There is nothing that is needed to be done to view backend health. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each server in the backend pools is listed on this page, its IP or FQDN, backend http settings and health are shown.
+There is nothing that is needed to be done to view backend health. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each member in the backend pool is listed on this page (whether it is a NIC, IP or FQDN). Backend pool name, port, backend http settings name and health status are shown. Valid values for health status are "Healthy", "Unhealthy" and "Unknown".
+
+> [!WARNING]
+> If you see a backend health status as **Unknown**, ensure that the access to backend is not blocked by a Network Security Group (NSG) rule or by a custom DNS in the VNet.
 
 ![backend health][10]
 
