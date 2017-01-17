@@ -54,11 +54,11 @@ To deploy the Diagnostics extension to the VMs in the cluster as part of cluster
 
 The Azure support team *requires* support logs to help resolve any support requests that you create. These logs are collected in real time and are stored in one of the storage accounts created in the resource group. The Diagnostics settings configure application-level events. These events include [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) events, [Reliable Services](service-fabric-reliable-services-diagnostics.md) events, and some system-level Service Fabric events to be stored in Azure Storage.
 
-![Note] Destionation tables are not created until the first event is delivered.
+![NOTE] Destionation tables are not created until the first event is delivered.
 
 Products such as [Elasticsearch](https://www.elastic.co/guide/index.html) or your own process can get the events from the storage account. There is currently no way to filter or groom the events that are sent to the table. If you don't implement a process to remove events from the table, the table will continue to grow.
 
-When you're creating a cluster by using the portal, we highly recommend that you download the template *before you click **OK*** to create the cluster. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You'll need the template to make changes later, because you can't make some changes by using the portal.
+When you're creating a cluster by using the portal, we highly recommend that you download the template **before you click OK** to create the cluster. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You'll need the template to make changes later, because you can't make some changes by using the portal.
 
 You can export templates from the portal by using the following steps. However, these templates can be more difficult to use because they might have null values that are missing required information.
 
