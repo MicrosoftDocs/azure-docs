@@ -87,27 +87,29 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 
 > [!WARNING]
 > Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) article.
-> 
-> 
+
 
 ### Enable logging with PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps:
 
 1. Note your storage account's Resource ID, where the log data is stored. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
-   
-    ![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
-2. Note your application gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
-   
-    ![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
-3. Enable diagnostics logging using the following powershell cmdlet:
-   
-        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
 
-> [!TIP] 
+    ![Preview portal - Application Gateway Diagnostics][diag1]
+
+2. Note your application gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
+
+    ![Preview portal - Application Gateway Diagnostics][diag2]
+
+3. Enable diagnostics logging using the following powershell cmdlet:
+
+    ```powershell
+        Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true
+    ```
+
+> [!TIP]
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
-> 
-> 
+
 
 ### Enable logging with Azure portal
 
@@ -300,3 +302,5 @@ To understand more about webhooks and how you can use them with alerts, visit [C
 [8]: ./media/application-gateway-diagnostics/figure8.png
 [9]: ./media/application-gateway-diagnostics/figure9.png
 [10]: ./media/application-gateway-diagnostics/figure10.png
+[diag1]: ./media/application-gateway-diagnostics/diagnostics1.png
+[diag2]: ./media/application-gateway-diagnostics/diagnostics2.png
