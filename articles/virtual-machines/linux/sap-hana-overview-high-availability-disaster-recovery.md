@@ -39,7 +39,7 @@ For more information on SAP HANA high availability, see the following SAP inform
 
 ## Disaster recovery
 
-SAP HANA on Azure (large instances) is offered in two Azure regions in a geo-political region. Between the two large-instance stamps of two different regions is a direct network connectivity for replicating data during disaster recovery. The replication of the data is storage-infrastructure based. The replication is not done by default. It is done for the customer configurations that ordered the disaster recovery. In the current design, HANA system replication can't be used for disaster recovery.
+SAP HANA on Azure (large instances) is offered in two Azure regions in a geopolitical region. Between the two large-instance stamps of two different regions is a direct network connectivity for replicating data during disaster recovery. The replication of the data is storage-infrastructure based. The replication is not done by default. It is done for the customer configurations that ordered the disaster recovery. In the current design, HANA system replication can't be used for disaster recovery.
 
 However, to take advantage of the disaster recovery, you need to start to design the network connectivity to the two different Azure regions. To do so, you need an Azure ExpressRoute circuit connection from on-premises in your main Azure region and another circuit connection from on-premises to your disaster-recovery region. This measure would cover a situation in which a complete Azure region, including a Microsoft enterprise edge router (MSEE) location, has an issue.
 
@@ -49,13 +49,13 @@ The following figure shows the optimal configuration for disaster recovery:
 
 ![Optimal configuration for disaster recovery](./media/sap-hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
-The optimal case for a disaster-recovery configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances (this is important if an entire Azure region, including the MSEE and large-instance stamp, goes off the grid).
+The optimal case for a disaster-recovery configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances. (This is important if an entire Azure region, including the MSEE and large-instance stamp, goes off the grid.)
 
 As a second measure, the various virtual networks are connected to the various ExpressRoute circuits that are connected to SAP HANA on Azure (large instances). You can bypass the location where an MSEE is failing, or you can lower the recovery point objective for disaster recovery, as we discuss later.
 
 The next requirements for a disaster-recovery setup are:
 
-- You must order SAP HANA on Azure (large instances) SKUs of the same size as your production SKUs and deploy them in the disaster-recovery region. These instances can be used to run test, sandbox or QA HANA instances.
+- You must order SAP HANA on Azure (large instances) SKUs of the same size as your production SKUs and deploy them in the disaster-recovery region. These instances can be used to run test, sandbox, or QA HANA instances.
 - You must order a disaster-recovery profile for each of your SAP HANA on Azure (large instances) SKUs that you want to recover in the disaster-recovery site, if necessary. This action leads to the allocation of storage volumes, which are the target of the storage replication from your production region into the disaster-recovery region.
 
 After you meet the preceding requirements, it is your responsibility to start the storage replication. In the storage infrastructure used for SAP HANA on Azure (large instances), the basis of storage replication is storage snapshots. To start the disaster-recovery replication, you need to perform:
@@ -134,7 +134,7 @@ The following sections provide information for performing these snapshots, inclu
 
 - Though the hardware can sustain 255 snapshots per volume, we highly recommend that you stay well below this number.
 - Before you perform storage snapshots, monitor and keep track of free space.
-- Lower the number of storage snapshots based on free space. You might need to lower the number of snapshots that you keep, or you might need to extend the volumes (you can order additional storage in 1-TB units).
+- Lower the number of storage snapshots based on free space. You might need to lower the number of snapshots that you keep, or you might need to extend the volumes. (You can order additional storage in 1-TB units.)
 - During activities such as moving data into SAP HANA with system migration tools (with R3load, or by restoring SAP HANA databases from backups), we highly recommended that you not perform any storage snapshots. (If a system migration is being done on a new SAP HANA system, storage snapshots would not need to be performed.)
 - During larger reorganizations of SAP HANA tables, storage snapshots should be avoided if possible.
 - Storage snapshots are a prerequisite to engaging the disaster-recovery capabilities of SAP HANA on Azure (large instances).
@@ -342,7 +342,7 @@ Or
 ./removeTestStorageSnapshot.pl <hana instance>
 ```
 
-**Step 7:** Perform on-demand snapshots
+###Step 7: Perform on-demand snapshots
 
 Perform on-demand snapshots (as well as schedule regular snapshots by using cron) as described here.
 
@@ -379,7 +379,7 @@ hana_log_<hana instance>_prod_t020_vol
 hana_log_backup_<hana instance>_prod_t020_vol
 hana_shared_<hana instance>_prod_t020_vol
 ```
-The retention period is strictly administered, with the number of snapshots submitted as a parameter when you execute the script (such as 20, shown previously). So the amount of time is a function of the period of execution and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of this label (in our previous case, _custom_), is deleted before a new snapshot is executed. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots.
+The retention period is strictly administered, with the number of snapshots submitted as a parameter when you execute the script (such as 20, shown previously). So the amount of time is a function of the period of execution and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of this label (in our previous case, _custom_) is deleted before a new snapshot is executed. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots.
 
 >[!NOTE]
 >As soon as you change the label, the counting starts again.
@@ -403,7 +403,7 @@ The default cron scheduling in /etc/crontab is as follows:
 ```
 In the previous cron instructions, the HANA volumes (without boot volume) get an hourly snapshot with the label. Of these snapshots, 66 are retained. Additionally, 14 snapshots with the 12-hour label are retained. You potentially get hourly snapshots for three days, plus 12-hour snapshots for another four days, which gives you an entire week of snapshots.
 
-Scheduling within cron can be tricky, because only one script should be executed at any particular time, unless the scripts are staggered by several minutes. If you want daily backups for long-term retention, either a daily snapshot is kept along with a 12-hour snapshot (with a retention count of seven each), or the hourly snapshot is staggered to take place ten minutes later. Only one daily snapshot is kept in the production volume.
+Scheduling within cron can be tricky, because only one script should be executed at any particular time, unless the scripts are staggered by several minutes. If you want daily backups for long-term retention, either a daily snapshot is kept along with a 12-hour snapshot (with a retention count of seven each), or the hourly snapshot is staggered to take place 10 minutes later. Only one daily snapshot is kept in the production volume.
 ```
 10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
 10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 7
