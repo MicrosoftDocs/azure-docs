@@ -55,6 +55,10 @@ Depending on the Reliablity level chosen for the cluster, you cannot remove the 
 Even after removing a node, if it shows up as being down in queries and SFX, please note that this is a known defect. It will be fixed in an upcoming release. 
 
 
+## Remove node types from your cluster
+Removing a node type requires extra caution. Before removing a node type, please double check if there is any node referencing the node type.
+
+
 ## Replace primary nodes of your cluster
 The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.
 
