@@ -54,28 +54,27 @@ The properties that can be defined on a packet capture are:
 - **Subscription** - This value is the subscription that is used, network watcher can span multiple subscriptions
 - **Resource group** - The resource group of the virtual machine that is being targeted.
 - **Target virtual machine** - The virtual machine that is running the packet capture
-- **Storage account** - The storage account that is being used to store the packet capture results.
 - **Packet capture name** - This value is the name of the packet capture.
 
 **Storage**
 
 - **Storage** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
-- **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap.
-- **Local file path** - The local path on a virtual machine to save the packet capture.
+- **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)
+- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected)
 
-**Filter (Optional)**
+**Filtering (Optional)**
 
-- **Protocol** - The protocol to filter for the packet capture. The available values are TCP, UDP, and all.
+- **Protocol** - The protocol to filter for the packet capture. The available values are TCP, UDP, and Any.
 - **Local IP address** - This value filters the packet capture to packets where the local IP address matches this filter value.
 - **Local port** - This value filters the packet capture to packets where the local port matches this filter value.
 - **Remote IP address** - This value filters the packet capture to packets where the remote IP matches this filter value.
 - **Remote port** - This value filters the packet capture to packets where the remote port matches this filter value.
 
-**Advanced settings**
+**Advanced**
 
-- **Maximum bytes per packet (bytes)** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
-- **Maximum bytes per session (bytes)** - Total number of bytes in (MB) that are captured, once the value is reached old packets drop.
+- **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
+- **Maximum bytes per session** - Total number of bytes in (MB) that are captured, once the value is reached old packets drop.
 - **Time limit (seconds)** - Sets a time limit for the packet capture to stop.
 
 Once the values are filled out, click **Create** to create the packet capture.
@@ -94,7 +93,7 @@ You are asked to confirm you want to delete the packet capture, click **Yes**
 
 ## Stop a packet capture
 
-In the packet capture view, click the **context menu** (...) or right click, and click **Stop** to delete the packet capture
+In the packet capture view, click the **context menu** (...) or right click, and click **Stop** to stop the packet capture
 
 ## Download a packet capture
 

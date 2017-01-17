@@ -40,7 +40,7 @@ This scenario will:
 * Create an alert rule on a virtual machine
 * Configure the alert rule to call the Azure function
 
-## Creating an Azure Function and configuring the alert to call it. 
+## Creating an Azure Function and overview
 
 The first step is to create an Azure function to process the alert and create a packet capture. 
 
@@ -52,7 +52,7 @@ The following is an overview of the workflow that takes place.
 1. Packet capture runs on the VM and collects traffic. 
 1. The capture file is uploaded to a storage account for review and diagnosis 
 
-Creating an Azure Function can be accomplished in the portal by following [Create your first Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function). For this example, we chose an HttpTrigger-CSharp type function. 
+Creating an Azure Function can be accomplished in the portal by following [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). For this example, we chose an HttpTrigger-CSharp type function. 
 
 > [!NOTE]
 > Other languages are provided with Azure functions but may be experimental and not have full support like PowerShell and Python.
@@ -304,7 +304,7 @@ Once you have created your function, you need to configure your alert to call th
 
 ![finding the function url][2]
 
-If you require custom properties in the payload of the webhook POST request, refer [Configure a webhook on an Azure metric alert](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-webhooks-alerts)
+If you require custom properties in the payload of the webhook POST request, refer [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## Configure an alert on a VM
 
@@ -313,12 +313,12 @@ When the alert is triggered you and others can elect to receive email notificati
 
 ### Create the alert rule
 
-Navigate to an existing virtual machine and add an alert rule. More detailed documentation about configuring alerts can be found at [User Azure portal to create alerts for Azure services](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal). 
+Navigate to an existing virtual machine and add an alert rule. More detailed documentation about configuring alerts can be found at [User Azure portal to create alerts for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). 
 
 ![add vm alert rule to a virtual machine][1]
 
 > [!NOTE]
-> Some Metrics are not enabled by default, learn more about how to enable addition metrics by visiting [Enable monitoring and diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics)
+> Some Metrics are not enabled by default, learn more about how to enable addition metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
 Finally paste the url from the preceding step in to the webhook textbox on your alert. Click **OK** to save the alert rule.
 
@@ -326,9 +326,9 @@ Finally paste the url from the preceding step in to the webhook textbox on your 
 
 ## Downloading and viewing the Capture File
 
-If you save your capture to a storage account, then the capture file can be downloaded via the portal or programmatically. 
+If you save your capture to a storage account, then the capture file can be downloaded via the portal or programmatically. If the capture file was stored locally the capture file can be retrieve by logging into the virtual machine. 
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs) 
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md) 
 
 Once your capture is downloaded, you can view it using any tool that can read a **.cap** file. The following are links to two of these tools:
 
