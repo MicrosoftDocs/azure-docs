@@ -342,7 +342,7 @@ Or
 ./removeTestStorageSnapshot.pl <hana instance>
 ```
 
-###Step 7: Perform on-demand snapshots
+### Step 7: Perform on-demand snapshots
 
 Perform on-demand snapshots (as well as schedule regular snapshots by using cron) as described here.
 
