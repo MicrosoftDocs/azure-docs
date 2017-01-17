@@ -45,6 +45,10 @@ We recommend migrating to Premium Storage by using Site Recovery because this op
 * An Azure virtual network (VNet) that VMs will connect to when they’re created at failover. The Azure virtual network must be in the same region as the region that Site Recovery runs
 * An Azure Standard Storage account to store replication logs, can be the same storage account with the VM disks under migration
 
+The graphic shows how these components interact.
+
+![][15]
+
 > [!NOTE]
 > Site Recovery does not support the migration of Storage Spaces disks.
 
@@ -164,3 +168,4 @@ You can choose a post-failover deployment model according to your need. If you c
 [12]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-12.PNG
 [13]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
+[15]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-15.png
