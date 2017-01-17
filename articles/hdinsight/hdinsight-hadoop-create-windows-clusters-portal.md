@@ -1,6 +1,6 @@
 ---
 title: Create Windows-based Hadoop clusters in HDInsight | Microsoft Docs
-description: Learn how to create Windows-based Hadoop in HDInsight by using the Azure Portal.
+description: Learn how to create Windows-based Hadoop in HDInsight by using the Azure portal.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -18,9 +18,9 @@ ms.date: 01/17/2017
 ms.author: jgao
 
 ---
-# Create Windows-based Hadoop clusters in HDInsight using the Azure Portal
+# Create Windows-based Hadoop clusters in HDInsight using the Azure portal
 
-Learn how to create Windows-based Hadoop cluster in HDInsight using Azure Portal. 
+Learn how to create Windows-based Hadoop cluster in HDInsight using Azure portal. 
 
 The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -40,14 +40,14 @@ Before you begin the instructions in this article, you must have the following:
 ## Create clusters
 **To create an HDInsight cluster**
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
    
-    ![Creating a new cluster in the Azure Portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
+    ![Creating a new cluster in the Azure portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure portal")
 3. Type or select the following values:
    
    * **Cluster Name**: Enter a name for the cluster. A green check will appear beside the cluster name if the name is available.
-   * **Cluster Type**: Select **Hadoop**. Other options inclue **HBase**, **Storm**, and **Spark**.
+   * **Cluster Type**: Select **Hadoop**. Other options include **HBase**, **Storm**, and **Spark**.
      
      > [!IMPORTANT]
      > HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
@@ -80,7 +80,7 @@ Before you begin the instructions in this article, you must have the following:
 
         ![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-        For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+        For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 
 
@@ -143,5 +143,5 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 * [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
-* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
+* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md)
 

@@ -175,7 +175,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 
 ## Appx-A Create dependent components
-The following Azure PowerShell script can be use to create the dependent components needed by the .NET application in this tutorial.
+The following Azure PowerShell script can be used to create the dependent components needed by the .NET application in this tutorial.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 

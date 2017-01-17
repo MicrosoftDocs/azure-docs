@@ -63,7 +63,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
   > [!NOTE]
   > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
   >
-  > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
+  > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
   >
   >
 
@@ -92,7 +92,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
      > This *only* affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
      >
      >
-   * **Tags (![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))**: Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
+   * **Tags (![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))**: Tags allow you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
    * **Ambari Views**: Links to Ambari Web.
 
      > [!IMPORTANT]
@@ -122,7 +122,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
      >
 6. Click **Properties**:
 
-    The properties lists the following:
+    The properties section lists the following:
 
    * **Hostname**: Cluster name.
    * **Cluster URL**.

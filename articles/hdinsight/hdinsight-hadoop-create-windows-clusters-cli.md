@@ -47,7 +47,7 @@ Use the following command to connect to Azure:
 
 For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 
-Use the following command to switch to the ARM mode:
+Use the following command to switch to the Azure Resource Manager mode:
 
     azure config mode arm
 
@@ -56,9 +56,9 @@ To get help, use the **-h** switch.  For example:
     azure hdinsight cluster create -h
 
 ## Create clusters
-You must have a Azure Resource Management (ARM), and a Azure Blob storage account before you can create an HDInsight cluster. To create an HDInsight cluster, you must specify the following:
+You must have a Resource Management group, and an Azure Blob storage account before you can create an HDInsight cluster. To create an HDInsight cluster, you must specify the following:
 
-* **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.
+* **Azure Resource Group**: A Data Lake Analytics account must be created within an Azure Resource group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation.
   
     To list the resource groups in your subscription:
   
@@ -81,7 +81,7 @@ You must have a Azure Resource Management (ARM), and a Azure Blob storage accoun
   > 
   > 
   
-    For information on creating an Azure Storage account by using the Azure Portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
+    For information on creating an Azure Storage account by using the Azure portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
   
     If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
   
@@ -92,7 +92,7 @@ You must have a Azure Resource Management (ARM), and a Azure Blob storage accoun
         -- Lists the keys for a Storage account
         azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
   
-    For details on getting the information by using the Azure Portal, see the "Manage your storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md#manage-your-storage-account).
+    For details on getting the information by using the Azure portal, see the "Manage your storage account" section of [About Azure storage accounts](../storage/storage-create-storage-account.md#manage-your-storage-account).
 * **(Optional) Default Blob container**: The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
   
     azure storage container create --account-name "<Storage Account Name>" --account-key <Storage Account Key> [ContainerName]
@@ -128,7 +128,7 @@ Create a cluster with a script action
 
 For general script action information, see [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster.md).
 
-## Create clusters using ARM templates
+## Create clusters using Resource Manager templates
 You can use CLI to create clusters by calling ARM templates. See [Deploy with Azure CLI](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## See also
