@@ -1,5 +1,5 @@
 ---
-title: Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates | Microsoft Docs
+title: Create Hadoop clusters in HDInsight using Azure Resource Manager templates | Microsoft Docs
 description: Learn how to create clusters for Azure HDInsight using Azure Azure Resource Manager templates.
 services: hdinsight
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 
 ---
-# Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates
+# Create Hadoop clusters in HDInsight using Azure Resource Manager templates
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
@@ -58,7 +58,7 @@ To find out the JSON schema for certain elements, you can follow the following p
 
    ## Deploy with PowerShell
 
-The following procedure creates Linux-based HDInsight cluster.
+The following procedure creates Hadoop cluster in HDInsight:
 
 **To deploy a cluster using Resource Manager template**
 

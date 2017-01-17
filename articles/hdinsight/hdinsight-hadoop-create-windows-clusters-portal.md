@@ -1,6 +1,6 @@
 ---
-title: Create Hadoop clusters in HDInsight | Microsoft Docs
-description: Learn how to create clusters for Azure HDInsight by using the Azure Portal.
+title: Create Windows-based Hadoop clusters in HDInsight | Microsoft Docs
+description: Learn how to create Windows-based Hadoop in HDInsight by using the Azure Portal.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 
 ---
 # Create Windows-based Hadoop clusters in HDInsight using the Azure Portal
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Learn how to create an Hadoop cluster in HDInsight using Azure Portal. The Microsoft [Azure portal](../azure-portal-overview.md) is a central place where you can provision and manage your Azure resources. Azure Portal is one of the tools you can use to create either Linux-based or Windows-based Hadoop cluster in HDInsight. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create Windows-based Hadoop cluster in HDInsight using Azure Portal. 
+
+The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

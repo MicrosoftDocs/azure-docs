@@ -1,6 +1,6 @@
 ---
 title: Create Windows-based Hadoop clusters in HDInsight using Azure CLI
-description: Learn how to create clusters for Azure HDInsight by using Azure CLI.
+description: Learn how to create Windows-based Hadoop clusters for Azure HDInsight by using Azure CLI.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -19,9 +19,13 @@ ms.author: jgao
 
 ---
 # Create Windows-based Hadoop clusters in HDInsight using Azure CLI
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Learn how to create HDInsight clusters using Azure CLI. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create Windows-based Hadoop clusters in HDInsight using Azure CLI. 
+
+The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
