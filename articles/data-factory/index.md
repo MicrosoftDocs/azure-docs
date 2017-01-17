@@ -124,13 +124,3 @@ Learn how to use Data Factory, a cloud data integration service, to compose data
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Factory Documentation
-        </div>
-    </a>
-</div>
