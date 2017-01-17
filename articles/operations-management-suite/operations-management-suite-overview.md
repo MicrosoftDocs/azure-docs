@@ -165,12 +165,12 @@ Solutions are regularly being added to OMS by Microsoft and partners allowing yo
 ## OMS Offerings
 In addition to the option of subscribing to each OMS service individually, you can subscribe to one or more OMS offerings that each include a combination of services and solutions.  If you purchase an annual commitment for an offering then it also includes rights to one or more System Center products.
 
-| Offering | OMS Services | Management solutions | System Center |
-|:--|:--|:--|:--|
-| ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png)  Insight and Analytics | Log Analytics | Network Performance Monitor<br>Service Map | Operations Manager |
-| ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control | Azure Automation | Change Tracking<br>Update Management | Orchestrator<br>Configuration Manager<br>Service Manager |
-| ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) Protection and Disaster Recovery | Azure Backup<br>Azure Site Recovery | | Data Protection Manager |
-| ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) Security and Compliance | Log Analytics |Security & Audit<br>Malware Assessment |
+|| Offering | OMS Services | Management solutions | System Center |
+|:--|:--|:--|:--|:--|
+| ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) | Insight and Analytics | Log Analytics | Network Performance Monitor<br>Service Map | Operations Manager |
+| ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) | Automation & Control | Azure Automation | Change Tracking<br>Update Management | Orchestrator<br>Configuration Manager<br>Service Manager |
+| ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) | Protection and Disaster Recovery | Azure Backup<br>Azure Site Recovery | | Data Protection Manager |
+| ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) | Security and Compliance | Log Analytics |Security & Audit<br>Malware Assessment |
 
 
 ## ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
