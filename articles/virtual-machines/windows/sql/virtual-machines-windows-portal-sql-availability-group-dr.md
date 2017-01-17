@@ -80,7 +80,7 @@ To create a replica in a remote data center, do the following steps:
    
    - Be in the same network and subnet as the new virtual machine.
    - Have a static IP address for the Availability Group listener.
-   - Include backend pool consisting of only the virtual machines in the same region as the load balancer.
+   - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
 
@@ -137,7 +137,7 @@ If you cannot modify the connection strings, you can configure name resolution c
 
 ## Fail over to remote region 
 
-To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, fail over is subject to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
+To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, failover is vulnerable to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
 1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and click **Properties**.
