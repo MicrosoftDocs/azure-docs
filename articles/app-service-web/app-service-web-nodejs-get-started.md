@@ -112,14 +112,14 @@ You can complete the task using one of the following CLI versions:
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this PHP tutorial, you don't really need to know
+3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this node.js tutorial, you don't really need to know
 what it is.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 
-3. Create a new "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For this PHP tutorial, just 
+3. Create a new "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For this node.js tutorial, just 
 know that you won't be charged for web apps in this plan.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
