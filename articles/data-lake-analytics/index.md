@@ -234,13 +234,4 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Lake Analytics Documentation
-        </div>
-    </a>
-</div>
