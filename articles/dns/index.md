@@ -128,11 +128,4 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
 </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download DNS Documentation
-        </div>
-    </a>
-</div>
+
