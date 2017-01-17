@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store Performance Tuning Guidelines | Microsoft Docs
-description: Data Lake Store Performance Tuning Guidelines
+title: Azure Data Lake Store Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Store Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: nitinme

@@ -31,6 +31,10 @@
 
 ## Performance
 ### [Performance tuning guidance for Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Performance tuning guidance for Spark on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
+### [Performance tuning guidance for Hive on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
+### [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
+### [Performance tuning guidance for Storm on HDInsight and Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Integrate with Azure Services
 ### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
