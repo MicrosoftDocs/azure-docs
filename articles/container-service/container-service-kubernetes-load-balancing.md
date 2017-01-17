@@ -1,6 +1,6 @@
 ---
 title: Load balance Kubernetes containers in Azure | Microsoft Docs
-description: Load balance across multiple containers in a Kubernetes cluster in Azure Container Service .
+description: Load balance across multiple containers in a Kubernetes cluster in Azure Container Service.
 services: container-service
 documentationcenter: ''
 author: dlepow
@@ -20,10 +20,10 @@ ms.author: danlep
 
 ---
 # Load balance containers in a Kubernetes cluster in Azure Container Service 
-In this article, we'll explore how to create an internal load balancer in a Kubernetes cluster in Azure Container Service using Marathon-LB. 
+In this article, we'll explore how to create an internal load balancer in a Kubernetes cluster in Azure Container Service. 
 
 ## Prerequisites
-[Deploy a Kubernetes cluster in Azure Container Service](container-service-kubernetes-walkthrough/container-service-kubernetes-walk>.md) with orchestrator type DC/OS and [ensure that your client can connect to your cluster](container-service-connect.md). 
+[Deploy a Kubernetes cluster in Azure Container Service](container-service-kubernetes-walkthrough.md) and [ensure that your client can connect to your cluster](container-service-connect.md). 
 
 ## Load balancing
 There are two load-balancing layers in the Container Service cluster we will build: 
