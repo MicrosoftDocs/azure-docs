@@ -44,7 +44,7 @@ The following error codes are described in this topic:
 * [AccountNameInvalid](#accountnameinvalid)
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
-* [DeploymentFailed](#deploymetfailed)
+* [DeploymentFailed](#deploymentfailed)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
