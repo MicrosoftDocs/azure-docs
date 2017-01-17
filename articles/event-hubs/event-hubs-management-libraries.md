@@ -32,7 +32,7 @@ The Event Hubs management libraries can dynamically provision Event Hubs namespa
 
 In order to get started using the Event Hubs management libraries, you must authenticate with Azure Active Directory (AAD). AAD requires that you authenticate as a Service Principal, which provides access to your Azure resources. For information about creating a Service Principal, see one of these articles:  
 
-* [Use the Azure Portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Use the Azure portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
