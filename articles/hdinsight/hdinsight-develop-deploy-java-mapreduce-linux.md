@@ -28,8 +28,8 @@ Before you begin this tutorial, you must have the following:
 * [Apache Maven](http://maven.apache.org/)
 * **An Azure subscription**
 * **Azure CLI**
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## Configure environment variables
 The following environment variables may be set when you install Java and the JDK. However, you should check that they exist and that they contain the correct values for your system.

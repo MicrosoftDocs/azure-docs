@@ -23,7 +23,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 [Maven](http://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects. In this article, you learn how to use it to create a basic Java application that that creates, queries, and deletes an HBase table on an Azure HDInsight cluster.
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Requirements
@@ -31,7 +31,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 * [Maven](http://maven.apache.org/)
 * [A Windows-based HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
-    > [AZURE.NOTE] The steps in this document have been tested with HDInsight cluster versions 3.2 and 3.3. The default values provided in examples are for a HDInsight 3.3 cluster.
+    > [!note] The steps in this document have been tested with HDInsight cluster versions 3.2 and 3.3. The default values provided in examples are for a HDInsight 3.3 cluster.
 
 ## Create the project
 1. From the command line in your development environment, change directories to the location where you want to create the project, for example, `cd code\hdinsight`.

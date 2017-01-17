@@ -26,7 +26,7 @@ Heap dumps contain a snapshot of the application's memory, including the values 
 
 
 > [!IMPORTANT]
-> The steps in this document only work with Linux-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="whichServices"></a>Services
 You can enable heap dumps for the following services:

@@ -31,7 +31,7 @@ This document provides an example of using Azure PowerShell to submit Pig jobs t
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following.
 
-* **An Azure HDInsight cluster**: It does not matter whether the cluster is Windows or Linux-based.
+* **An Azure HDInsight cluster**
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).

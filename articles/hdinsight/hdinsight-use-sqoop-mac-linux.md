@@ -24,7 +24,7 @@ ms.author: larryfr
 Learn how to use Sqoop to import and export between an HDInsight cluster and Azure SQL Database or SQL Server database.
 
 > [!IMPORTANT]
-> The steps in this document only work with Linux-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
