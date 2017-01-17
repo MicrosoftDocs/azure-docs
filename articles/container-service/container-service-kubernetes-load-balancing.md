@@ -20,12 +20,19 @@ ms.author: danlep
 
 ---
 # Load balance containers in a Kubernetes cluster in Azure Container Service 
-In this article, we'll explore how to create an internal load balancer in a Kubernetes cluster in Azure Container Service. 
+In this article, we'll explore how to load balance container workloads in a Kubernetes cluster in Azure Container Service. 
 
 ## Prerequisites
-[Deploy a Kubernetes cluster in Azure Container Service](container-service-kubernetes-walkthrough.md) and [ensure that your client can connect to your cluster](container-service-connect.md). 
+* [Deploy a Kubernetes cluster in Azure Container Service](container-service-kubernetes-walkthrough.md)
+* [Ensure that your client can connect to your cluster](container-service-connect.md)
 
-## Load balancing
+## Use the Azure load balancer
+
+You can dynamically provision  an Azure load balancer for container wokloadss running on the agent VMs in a Kubernetes cluster. The load balancer provides an externally accessible IP address that sends traffic to the correct port on the agent nodes (which the load balancer targets by private IP addresses). 
+
+As shown in the [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md), 
+
+
 There are two load-balancing layers in the Container Service cluster we will build: 
 
 1. Azure Load Balancer provides public entry points (the ones that end users will hit). This is provided automatically by Azure Container Service and is, by default, configured to expose port 80, 443 and 8080.
