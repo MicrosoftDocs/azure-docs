@@ -21,9 +21,9 @@ ms.author: eugenesh
 
 If you're looking to implement great search experiences over your DocumentDB data, you can configure and run an Azure Search indexer that extracts data and pulls it into an Azure Search index. In this article, we show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure.
 
-To set this up, you must have an [Azure Search service](search-create-service-portal.md). Next, create the index and configure an indexer using one these approaches: [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/) for all non-.NET languages. 
+To set this up, you must have an [Azure Search service](search-create-service-portal.md), plus an index, indexer, and datasource. You can create these objects using one these approaches: [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), or [REST API](/rest/api/searchservice/) for all non-.NET languages. 
 
-You need three components for this workload in Azure Search: index, indexer, and a data source connection. If you use the portal, the [Import Data wizard](search-import-data-portal.md) guides you through the creation of all these objects. Usually, a default index can be generated for you.
+If you opt for the portal, the [Import Data wizard](search-import-data-portal.md) guides you through the creation of all these objects. Usually, a default index can be generated for you.
 
 ## <a id="Concepts"></a>Azure Search indexer concepts
 Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.
