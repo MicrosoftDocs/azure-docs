@@ -177,9 +177,10 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.59_201701-01 |Jan 10 2017 |Post 2.61 |TBD |
 | WA-GUEST-OS-2.58_201612-01 |Jan 10 2017 |Post 2.60 |TBD |
 | WA-GUEST-OS-2.57_201611-01 |Dec 14 2016 |Post 2.59 |TBD |
-| WA-GUEST-OS-2.56_201610-01 |Nov 16 2016 |Post 2.58 |TBD |
+| WA-GUEST-OS-2.56_201610-01 |Nov 16 2016 |Feb 10 2017 |TBD |
 | WA-GUEST-OS-2.55_201609-01 |Oct 13 2016 |Jan 14 2017 |TBD |
 | WA-GUEST-OS-2.54_201608-01 |Sept 13 2016 |Dec 16 2016 |TBD |
 | WA-GUEST-OS-2.53_201607-01 |Aug 8 2016 |Nov 13 2016 |TBD |

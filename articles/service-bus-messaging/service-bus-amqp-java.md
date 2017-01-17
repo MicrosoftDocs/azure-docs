@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2016
+ms.date: 01/12/2017
 ms.author: sethm
 
 ---
@@ -23,7 +23,7 @@ ms.author: sethm
 The Java Message Service (JMS) is a standard API for working with message-oriented middleware on the Java platform. Microsoft Azure Service Bus has been tested with the AMQP 1.0 based JMS client library developed by the Apache Qpid project. This library supports the full JMS 1.1 API and can be used with any AMQP 1.0 compliant messaging service. This scenario is also supported in [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (on-premises Service Bus). For more information, see [AMQP in Service Bus for Windows Server][AMQP in Service Bus for Windows Server].
 
 ## Download the Apache Qpid AMQP 1.0 JMS client library
-For information about downloading the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+For information about downloading the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit the [Apache site](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH when building and running JMS applications with Service Bus:
 
@@ -81,7 +81,7 @@ Where `[namespace]`, `[username]`, and `[password]` have the following meanings:
 | `[password]` |URL-encoded form of the Service Bus SAS key obtained from the [Azure portal][Azure portal]. | | | | |
 
 > [!NOTE]
-> You must URL-encode the password manually. A useful URL encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> You must URL-encode the password manually. A useful URL encoding utility is available [here](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 
@@ -129,7 +129,7 @@ topic.TOPIC = topic1
 ### Send messages using JMS
 The following code shows how to send a message to a Service Bus topic. It is assumed that `SBCONNECTIONFACTORY` and `TOPIC` are defined in a **servicebus.properties** configuration file as described in the previous section.
 
-```
+```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, 
         "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
@@ -147,9 +147,9 @@ producer.send(message);
 ```
 
 ### Receive messages using JMS
-The following code shows `how` to receive a message from a Service Bus topic subscription. It is assumed that `SBCONNECTIONFACTORY` and TOPIC are defined in a **servicebus.properties** configuration file as described in the previous section. It is also assumed that the subscription name is `subscription1`.
+The following code shows how to receive a message from a Service Bus topic subscription. It is assumed that `SBCONNECTIONFACTORY` and TOPIC are defined in a **servicebus.properties** configuration file as described in the previous section. It is also assumed that the subscription name is `subscription1`.
 
-```
+```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, 
         "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
@@ -185,7 +185,7 @@ The following sections show how to consume messages of each of the JMS message t
 ##### BytesMessage
 The following code shows how to consume the body of a **BytesMessage** object by using the Service Bus .NET APIs.
 
-```
+```csharp
 Stream stream = message.GetBody<Stream>();
 int streamLength = (int)stream.Length;
 
@@ -202,7 +202,7 @@ for (int i = 0; i < stream.Length; i++)
 ##### MapMessage
 The following code shows how to consume the body of a **MapMessage** object by using the Service Bus .NET APIs. This code iterates through the elements of the map, displaying the name and value of each element.
 
-```
+```csharp
 Dictionary<String, Object> dictionary = message.GetBody<Dictionary<String, Object>>();
 
 foreach (String mapItemName in dictionary.Keys)
@@ -218,7 +218,7 @@ foreach (String mapItemName in dictionary.Keys)
 ##### StreamMessage
 The following code shows how to consume the body of a **StreamMessage** object by using the Service Bus .NET APIs. This code lists each of the items from the stream, together with their types.
 
-```
+```csharp
 List<Object> list = message.GetBody<List<Object>>();
 
 foreach (Object item in list)
@@ -230,7 +230,7 @@ foreach (Object item in list)
 ##### TextMessage
 The following code shows how to consume the body of a **TextMessage** object by using the Service Bus .NET APIs. This code displays the text string contained in the body of the message.
 
-```
+```csharp
 Console.WriteLine("Text: " + message.GetBody<String>());
 ```
 
@@ -240,7 +240,7 @@ The following sections show how a .NET application can create a message that is 
 ##### BytesMessage
 The following code shows how to create a [BrokeredMessage][BrokeredMessage] object in .NET that is received by a JMS client as a **BytesMessage**.
 
-```
+```csharp
 byte[] bytes = { 33, 12, 45, 33, 12, 45, 33, 12, 45, 33, 12, 45 };
 message = new BrokeredMessage(bytes);
 ```
@@ -248,7 +248,7 @@ message = new BrokeredMessage(bytes);
 ##### StreamMessage
 The following code shows how to create a [BrokeredMessage][BrokeredMessage] object in .NET that is received by a JMS client as a **StreamMessage**.
 
-```
+```csharp
 List<Object> list = new List<Object>();
 list.Add("String 1");
 list.Add("String 2");
@@ -260,7 +260,7 @@ message = new BrokeredMessage(list);
 ##### TextMessage
 The following code shows how to consume the body of a **TextMessage** using the Service Bus .NET API. This code displays the text string contained in the body of the message.
 
-```
+```csharp
 message = new BrokeredMessage("this is a text string");
 ```
 
@@ -268,7 +268,7 @@ message = new BrokeredMessage("this is a text string");
 #### JMS to Service Bus .NET APIs
 JMS messages support application properties of the following types: **boolean**, **byte**, **short**, **int**, **long**, **float**, **double**, and **String**. The following Java code shows how to set properties on a message by using each of these property types.
 
-```
+```java
 message.setBooleanProperty("TestBoolean", true); 
 message.setByteProperty("TestByte", (byte) 33); 
 message.setDoubleProperty("TestDouble", 3.14159D); 
@@ -279,7 +279,7 @@ message.setStringProperty("TestString", "Service Bus");
 
 In the Service Bus .NET APIs, message application properties are carried in the **Properties** collection of [BrokeredMessage][BrokeredMessage]. The following code shows how to read the application properties of a message received from a JMS client.
 
-```
+```csharp
 if (message.Properties.Keys.Count > 0)
 {
   foreach (string name in message.Properties.Keys)
@@ -304,7 +304,7 @@ The following table shows how the JMS property types map to the .NET property ty
 
 The [BrokeredMessage][BrokeredMessage] type supports application properties of the following types: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, and **TimeSpan**. The following .NET code shows how to set properties on a [BrokeredMessage][BrokeredMessage] object using each of these property types.
 
-```
+```csharp
 message.Properties["TestByte"] = (byte)128;
 message.Properties["TestSbyte"] = (sbyte)-22;
 message.Properties["TestChar"] = (char) 'X';
@@ -328,7 +328,7 @@ message.Properties["TestTimeSpan"] = TimeSpan.FromMinutes(60);
 
 The following Java code shows how to read the application properties of a message received from a Service Bus .NET client.
 
-```
+```java
 Enumeration propertyNames = message.getPropertyNames(); 
 while (propertyNames.hasMoreElements()) 
 { 
@@ -411,7 +411,6 @@ Ready to learn more? Visit the following links:
 * [AMQP in Service Bus for Windows Server]
 
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [Azure portal]: https://portal.azure.com

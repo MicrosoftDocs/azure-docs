@@ -63,7 +63,6 @@ Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentatio
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
 ## Next steps

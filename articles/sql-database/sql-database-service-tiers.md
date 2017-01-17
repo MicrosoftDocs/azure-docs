@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 
 ---
@@ -38,7 +38,7 @@ The following table provides examples of the tiers best suited for different app
 First decide if you want to run a single database or if you want to group databases that shares resources. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
 
 * Max database size for individual databases (2 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium in the high end performance levels)
-* Maximum total storage in case of an elastic pool (117 GB for Basic, 1200 for Standard, and 750 for Premium)
+* Maximum total storage in case of an elastic pool (117 GB for Basic, 1200 GB for Standard, and 750 GB for Premium)
 * Maximum number of databases per pool (400 for Basic, 400 for Standard, and 50 for Premium)
 * Database backup retention period (7 days for Basic, 35 days for Standard and Premium)
 
@@ -46,8 +46,7 @@ Once you have determined the minimum service tier, you are ready to determine th
 
 After initially picking a performance level, you can and then scale the [individual database](sql-database-scale-up.md) or your [elastic pool](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) up or down dynamically based on actual experience. For migration scenarios, you can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## Single database service tiers and performance levels
