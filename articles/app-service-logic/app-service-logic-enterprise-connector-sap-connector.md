@@ -1,5 +1,5 @@
 ---
-title: Use the sap Connector With On-Premises Data Gateway in Azure Logic Apps | Microsoft Docs
+title: Use the SAP Connector With On-Premises Data Gateway in Azure Logic Apps | Microsoft Docs
 description: Logic Apps lets you easily connect to on-premises SAP system as part of your workflow.
 services: logic-apps
 documentationcenter: dev-center-name
@@ -16,7 +16,7 @@ ms.date: 01/10/2017
 ms.author: padmavc
 
 ---
-# Get started with the sap connector 
+# Get started with the SAP Connector 
 
 Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gateway enables you to manage data and securely access resources that are on-premises from Logic Apps. In this article, we demonstrate how to connect to an on-premises SAP system with a simple scenario: Request an IDOC over HTTP and send the response back.    
 
