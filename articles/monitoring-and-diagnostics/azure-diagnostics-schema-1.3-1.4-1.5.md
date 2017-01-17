@@ -227,7 +227,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## Metrics Element  
  Enables you to generate a performance counter table that is optimized for fast queries. Each performance counter that is defined in the **PerformanceCounters** element is stored in the Metrics table in addition to the Performance Counter table.  
 
- The **resourceId** attribute is required.  This is the resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure classic portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
+ The **resourceId** attribute is required.  This is the resource ID of the Virtual Machine you are deploying Azure Diagnostics to. Get the **resourceID** from the [Azure portal](https://portal.azure.com). Select **Browse** -> **Resource Groups** -> **<Name\>**. Click the **Properties** tile and copy the value from the **ID** field.  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
