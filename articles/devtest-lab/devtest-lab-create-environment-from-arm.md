@@ -96,4 +96,4 @@ Once an Azure Resource Manager template repository has been configured in the la
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
 * Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
-* Explore the [DevTest Labs ARM QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
