@@ -31,7 +31,7 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
 > [!TIP]
 > For help with debugging an error during deployment, see:
 > 
-> * [View deployment operations with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) to learn about getting information that helps you troubleshoot your error
+> * [View deployment operations](resource-manager-deployment-operations.md) to learn about getting information that helps you troubleshoot your error
 > * [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 > 
 > 
@@ -124,7 +124,7 @@ These commands create a resource group, and deploy a template to that resource g
    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
    ```
    
-     For more information about using this debugging content to troubleshoot deployments, see [Troubleshooting resource group deployments with Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     For more information about using this debugging content to troubleshoot deployments, see [View deployment operations](resource-manager-deployment-operations.md).
 
 ## Deploy private template with SAS token
 You can add your templates to a storage account and link to them during deployment with a SAS token.

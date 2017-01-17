@@ -101,10 +101,10 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
     ![_Layout.cshtml in Solution Explorer][newapp004]
 2. Replace the ActionLink in the *Layout.cshtml* file with the following code.
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Make sure you change the third parameter from "Home" to "Contacts". The markup above will create a "Contacts" link on each page to the Index method of the Contacts controller. Change the application name in the header and the footer from "My ASP.NET Application" and "Application name" to "Contact Manager" and "CM Demo". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Make sure you change the third parameter from "Home" to "Contacts". The markup above will create a "Contacts" link on each page to the Index method of the Contacts controller. Change the application name in the header and the footer from "My ASP.NET Application" and "Application name" to "Contact Manager" and "CM Demo". 
 
 ### Run the application locally
 1. Press CTRL+F5 to run the app.
