@@ -1,6 +1,6 @@
 ---
 title: Hadoop components & versions - Azure HDInsight | Microsoft Docs
-description: HDInsight supports multiple deployable Hadoop cluster components and versions. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported.
+description: Learn the Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of HortonWorks Data Platform.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -20,9 +20,9 @@ ms.author: saurinsh
 ---
 # What are the different Hadoop components and versions available with HDInsight?
 
-Find out about the different service levels offered by HDInsight, as well as the versions of different Hadoop components included.
+Learn about the service levels offered for Azure HDInsight, as well as the Hadoop ecosystem components and versions included. Each HDInsight version is a cloud distribution of a version of the HortonWorks Data Platform (HDP).
 
-## HDInsight Standard and HDInsight Premium
+## HDInsight Standard and HDInsight Premium service levels
 
 Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only as part of Premium**. Features that are not explicitly called out in the table here are available as part of Standard.
 
