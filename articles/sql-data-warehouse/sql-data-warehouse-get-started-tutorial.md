@@ -138,7 +138,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 
 ### Creating a user of a larger resource class
 
-1. Create a new query on the **master** database of your server
+1. Query the **master** database of your server
 
     ![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
@@ -151,7 +151,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-3. Querying your SQL DataWarehouse, create a new database user based on the server login 
+3. Querying the SQL DataWarehouse database, create a new database user based on the server login 
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
