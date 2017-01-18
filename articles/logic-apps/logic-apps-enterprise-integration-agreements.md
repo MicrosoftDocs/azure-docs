@@ -26,7 +26,7 @@ An agreement, as far as the Enterprise Integration Pack is concerned, is a commu
 
 Enterprise integration supports three protocol/transport standards:  
 
-* [AS2](app-service-logic-enterprise-integration-as2.md)
+* [AS2](logic-apps-enterprise-integration-as2.md)
 * [X12](app-service-logic-enterprise-integration-x12.md)
 * [EDIFACT](app-service-logic-enterprise-integration-edifact.md)
 
@@ -38,7 +38,7 @@ Some of the common benefits of using agreements are:
 * Easy to create, manage and use them when creating enterprise integration apps  
 
 ## How to create agreements
-* [Create an AS2 agreement](app-service-logic-enterprise-integration-as2.md)   
+* [Create an AS2 agreement](logic-apps-enterprise-integration-as2.md)   
 * [Create an X12 agreement](app-service-logic-enterprise-integration-x12.md)   
 
 ## How to use an agreement
@@ -63,5 +63,5 @@ You can delete any agreement by following these steps from within the integratio
 5. Notice that the agreement is no longer listed on the Agreements blade  
 
 ## Next steps
-* [Create an AS2 agreement](app-service-logic-enterprise-integration-as2.md)  
+* [Create an AS2 agreement](logic-apps-enterprise-integration-as2.md)  
 

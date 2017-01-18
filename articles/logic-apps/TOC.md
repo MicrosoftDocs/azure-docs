@@ -41,7 +41,7 @@
 ### [Using certificates](../app-service-logic/app-service-logic-enterprise-integration-certificates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Add partners](../app-service-logic/app-service-logic-enterprise-integration-partners.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Add schemas](../app-service-logic/app-service-logic-enterprise-integration-schemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [AS2 integration](../app-service-logic/app-service-logic-enterprise-integration-as2.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [AS2 integration](logic-apps-enterprise-integration-as2.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [AS2 encoding](../app-service-logic/app-service-logic-enterprise-integration-as2-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [AS2 decoding](../app-service-logic/app-service-logic-enterprise-integration-as2-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [EDIFACT integration](../app-service-logic/app-service-logic-enterprise-integration-edifact.md?toc=%2fazure%2flogic-apps%2ftoc.json)
