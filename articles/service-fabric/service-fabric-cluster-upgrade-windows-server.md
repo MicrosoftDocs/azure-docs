@@ -182,6 +182,24 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
 
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
+
+## Cluster Configuration Upgrade
+To perform cluster config upgrade, run Start-ServiceFabricClusterConfigurationUpgrade. The configuration upgrade is processed upgrade domain by upgrade domain.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+### Cluster Certificate Config Upgrade (PLS HOLD ON TILL v5.5 is released, because cluster cert upgrade doesn't work till v5.5)
+Cluster certificate is used for authentication between cluster nodes, so the certificate roll over should be performed with extra caution because failure will block the communication among cluster nodes.
+Technically, two options are supported:
+
+1. Single certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) -> ...'. 
+2. Double certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) -> ...'
+
+
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
 * Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
