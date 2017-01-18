@@ -19,7 +19,7 @@ ms.author: elbutter
 ---
 # Get started with SQL Data Warehouse
 
-Get Started Tutorial with Azure SQL Data Warehouse. This tutorial will teach you the basics 
+Get Started Tutorial with Azure SQL Data Warehouse. This tutorial teaches you the basics 
 of provisioning and loading data into a SQL Data Warehouse, as well as some basics on scaling, 
 pausing, and tuning. 
 
@@ -63,7 +63,7 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 3. Fill out deployment details
 
-    **Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your name include details such as its region, environment, etc., 
+    **Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your names include details such as its region, environment, etc., 
     e.g. *mydw-westus-1-test*
 
     **Subscription**: Your Azure Subscription
@@ -121,7 +121,7 @@ create separate logins and users for each database. We shall explore user creati
 
 ### Why create a separate user?
 
-We use the connection to the SQL Server (logical server) ,with server credentials from the previous step, 
+We use the connection to the SQL Server (logical server), with server credentials from the previous step, 
 to create a new user for our SQL Data Warehouse. There are two primary reasons why you may want to create a separate 
 user/login for your SQL DW.
 
@@ -595,9 +595,9 @@ Take note of the time it took to run this operation.
     on tr.DateID = dt.DateID
     ```
 
-    As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this.
+    As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this query.
 
-2. Let's see how this differs when we create statistics on the column we're joining by running the following:
+2. Let's see how this query differs when we create statistics on the column we're joining by running the following:
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
