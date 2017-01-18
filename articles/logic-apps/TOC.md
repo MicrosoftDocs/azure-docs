@@ -26,7 +26,7 @@
 ### [Handling content types](logic-apps-content-type.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Workflow definition](logic-apps-author-definitions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Troubleshooting tips](logic-apps-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Limits and config](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Limits and config](logic-apps-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 
 ## Use Enterprise Integration Pack (EIP)

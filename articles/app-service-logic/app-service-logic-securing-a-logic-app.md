@@ -252,7 +252,7 @@ When working with an HTTP, HTTP + Swagger (Open API), or Webhook action, you can
 
 ### Restricting access to logic app IP addresses
 
-All calls from logic apps come from a specific set of IP addresses per region.  You can add additional filtering to only accept requests from those designated IP addresses.  A list of those IP addresses can be found [in this article](app-service-logic-limits-and-config.md#configuration).
+All calls from logic apps come from a specific set of IP addresses per region.  You can add additional filtering to only accept requests from those designated IP addresses.  A list of those IP addresses can be found [in this article](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### On-premises connectivity
 
