@@ -28,7 +28,7 @@ The information in this article only applies to Window-based HDInsight clusters.
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 
-**Prerequisites**
+## Prerequisites
 
 Before you begin this article, you must have the following:
 
