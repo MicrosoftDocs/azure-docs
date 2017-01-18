@@ -65,7 +65,7 @@ You can use this telemetry from the Event Hub or Storage into other services lik
 ## Supported Tracking Schema
 We are supporting following tracking schema types.  All of them has fixed schemas except Custom type.
 
-* [Custom Tracking Schema](app-service-logic-track-integration-account-custom-tracking-shema.md)   
+* [Custom Tracking Schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)   
 * [AS2 Tracking Schema](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
 * [X12 Tracking Schema](app-service-logic-track-integration-account-x12-tracking-shemas.md)  
 

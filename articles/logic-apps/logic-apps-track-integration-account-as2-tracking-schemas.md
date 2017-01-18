@@ -130,6 +130,6 @@ You can use these AS2 tracking schemas in your Azure integration account to help
 ## Next steps
 * Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).    
 * Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
-* Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
+* Learn more about [B2B custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md).   
 * Learn more about [X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).   
 * Learn about [tracking B2B messages in the Operations Management Suite portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
