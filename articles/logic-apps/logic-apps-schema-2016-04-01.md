@@ -153,4 +153,4 @@ Actions can now have an additional property (sibling to `runAfter` and `type`) c
 * [Create a logic app deployment template](../logic-apps/logic-apps-create-deploy-template.md)
 
 <!-- Image references -->
-[1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png
+[1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

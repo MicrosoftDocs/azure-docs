@@ -79,4 +79,4 @@ A common scenario for deploying and managing an environment is to use a tool lik
 5. Continue to build out steps in the release process for any other environment, automated test, or approvers as needed.
 
 <!-- Image References -->
-[1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
+[1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png
