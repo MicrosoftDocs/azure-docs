@@ -53,7 +53,7 @@
 
 
 ## Use Gateway
-### [Connect on-premises](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Connect on-premises](logic-apps-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Install](../app-service-logic/app-service-logic-gateway-install.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ## Automate

@@ -200,7 +200,7 @@ The Data Management Gateway and PowerBIGateway logs are present under **Applicat
 [Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic.  You can see the back and forth with the Power BI service from the client machine. This may show errors and other related information.
 
 ## Next Steps
-* [Create an on-premises connection to Logic Apps](app-service-logic-gateway-connection.md)
+* [Create an on-premises connection to Logic Apps](../logic-apps/logic-apps-gateway-connection.md)
 * [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Logic Apps connectors](../connectors/apis-list.md)
 

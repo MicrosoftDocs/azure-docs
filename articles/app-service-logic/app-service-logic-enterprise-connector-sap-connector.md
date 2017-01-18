@@ -71,4 +71,4 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
 
 ## Next steps
 - Learn about [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- Create an [on-premises connection](app-service-logic-gateway-connection.md) to Logic Apps.
+- Create an [on-premises connection](../logic-apps/logic-apps-gateway-connection.md) to Logic Apps.
