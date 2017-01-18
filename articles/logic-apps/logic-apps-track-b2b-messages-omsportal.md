@@ -76,7 +76,7 @@ On the search page, you can create a query, and then when you search, you can fi
 
 ### How to create a query
 
-1. In the log search, write a query and select **Save**.  [Here](app-service-logic-track-b2b-messages-omsportal-query-filter-control-number.md) are the steps to write a query 
+1. In the log search, write a query and select **Save**.  [Here](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md) are the steps to write a query 
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
 
 2. **Save Search** opens.  Give a **name**, **category**, and click **Save**   
