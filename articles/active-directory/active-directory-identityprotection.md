@@ -23,7 +23,7 @@ Azure Active Directory Identity Protection is a feature of the Azure AD Premium 
 
 - Detect potential vulnerabilities affecting your organization’s identities
 
-- Configure automated responses to suspicious incidents related to your organization’s identities  
+- Configure automated responses to detected suspicious actions that are related to your organization’s identities  
 
 - Investigate suspicious incidents and take appropriate action to resolve them   
 
