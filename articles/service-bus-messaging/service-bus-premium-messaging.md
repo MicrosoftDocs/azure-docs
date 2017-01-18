@@ -18,7 +18,7 @@ ms.author: darosa;sethm;jotaub
 
 ---
 # Service Bus Premium and Standard messaging tiers
-Service Bus Messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
+Service Bus Messaging, which includes entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
 
 The *Premium* tier of Service Bus Messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus Messaging are designed to serve different use cases.
 
