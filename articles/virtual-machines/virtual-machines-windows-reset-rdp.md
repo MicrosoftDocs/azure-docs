@@ -105,7 +105,7 @@ For virtual machines created using the classic deployment model, you can use the
 
 ![Browse for your Azure VM](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
 
-Select your Windows virtual machine and then click **Reset Remote...**. The following dialog will appear to reset the Remote Desktop configuration:
+Select your Windows virtual machine and then click **Reset Remote...**. The following dialog appears to reset the Remote Desktop configuration:
 
 ![Reset RDP configuration page](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
