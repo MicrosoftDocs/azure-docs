@@ -162,11 +162,4 @@ Learn how to use Automation to save time and increase the reliability of regular
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Automation Documentation
-        </div>
-    </a>
-</div>
+

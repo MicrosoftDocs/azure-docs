@@ -126,13 +126,6 @@ Learn how to use API Management to publish APIs to external, partner, and employ
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download API Management Documentation
-        </div>
-    </a>
-</div>
+
+
