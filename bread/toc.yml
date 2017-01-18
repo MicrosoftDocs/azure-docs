@@ -66,7 +66,7 @@
     topicHref: /azure/azure-functions/functions-overview
   - name: Government
     tocHref: /azure/azure-government/
-    topicHref: /azure/azure-government/documentation-government-overview
+    topicHref: /azure/azure-government-overview
   - name: Portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview
