@@ -21,7 +21,7 @@ ms.author: deonhe
 # Get started with the SMTP connector
 Connect to SMTP to send email.
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Connect to SMTP
 Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service. For example, in order to connect to SMTP, you first need an SMTP *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the SMTP example, you would need the credentials to your connection name, SMTP server address, and user login information in order to create the connection to SMTP. [Learn more about connections]()  
@@ -113,5 +113,5 @@ The actions and triggers above can return one or more of the following HTTP stat
 | default |Operation Failed. |
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

@@ -18,7 +18,7 @@ ms.author: jehollan
 
 ---
 # Author Logic App definitions
-This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](app-service-logic-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
+This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](logic-apps-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
 
 ## Several steps that repeat over a list
 You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.

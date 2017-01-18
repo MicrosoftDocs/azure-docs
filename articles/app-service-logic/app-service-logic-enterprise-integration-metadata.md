@@ -34,7 +34,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 ## Call **Integration Account Artifact LookUp** from a logic app
 
-1. Create a [Logic App](app-service-logic-create-a-logic-app.md)
+1. Create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md)
 
 2. [Link](app-service-logic-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
 

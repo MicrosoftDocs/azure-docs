@@ -209,7 +209,7 @@ Applies to version: 1.0.
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 
 -->

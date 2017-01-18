@@ -22,7 +22,7 @@ ms.author: jehollan
 # Get started with the HTTP + Swagger action
 With the HTTP + Swagger action, you can create a first-class connector to any REST endpoint through a [Swagger document](https://swagger.io). You can also extend a logic app to call any REST endpoint with a first-class Logic App Designer experience.
 
-To get started with the HTTP + Swagger action in a logic app, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started with the HTTP + Swagger action in a logic app, see [Create a new logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 - - -
 ## Use HTTP + Swagger as a trigger or an action
@@ -114,5 +114,5 @@ When making calls to various actions, you might get certain responses. Following
 
 - - -
 ## Next steps
-Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [list of APIs](apis-list.md).
+Try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [list of APIs](apis-list.md).
 

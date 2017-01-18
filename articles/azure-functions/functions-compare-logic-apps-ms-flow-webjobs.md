@@ -127,7 +127,7 @@ technologies is worthwhile.
 Get started with each of the services by creating your first flow, logic app, function app, or WebJob. Click any of the following links:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Create your first Azure Function](functions-create-first-azure-function.md)
 * [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
 

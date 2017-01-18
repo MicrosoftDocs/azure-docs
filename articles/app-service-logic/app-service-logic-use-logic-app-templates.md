@@ -63,5 +63,5 @@ If you wish to return to the template viewer, select the *Templates* button in t
 Once you have loaded your template and made any desired changes, select the save button in the upper left corner. This saves and publishes your logic app.  
  ![](../../includes/media/app-service-logic-templates/template6.png)  
 
-If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](app-service-logic-create-a-logic-app.md).
+If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 

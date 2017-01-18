@@ -147,4 +147,4 @@ Webhook request
 Below are details on how to move forward with logic apps and our community.
 
 ## Create a logic app
-Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).

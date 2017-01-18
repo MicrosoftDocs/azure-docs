@@ -18,7 +18,7 @@ ms.author: jehollan
 
 ---
 # Monitor your Logic apps
-After you [create a Logic app](app-service-logic-create-a-logic-app.md), you can see the full history of its execution in the Azure portal.  You can also set up services like Azure Diagnostics and Azure Alerts to monitor events real-time, and alert you for events like "when more than 5 runs fail within an hour."
+After you [create a Logic app](../logic-apps/logic-apps-create-a-logic-app.md), you can see the full history of its execution in the Azure portal.  You can also set up services like Azure Diagnostics and Azure Alerts to monitor events real-time, and alert you for events like "when more than 5 runs fail within an hour."
 
 ## Monitor in the Azure Portal
 To view the history, select **Browse**, and select **Logic Apps**. A list of all logic apps in your subscription is displayed.  Select the logic app you want to monitor.  You will see a list of all actions and triggers that have occurred for this logic app.

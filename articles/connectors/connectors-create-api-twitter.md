@@ -25,7 +25,7 @@ With the Twitter connector you can:
 * Access timelines, friends and followers
 * Perform any of the other actions and triggers described below  
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).  
+To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).  
 
 ## Connect to Twitter
 Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
@@ -381,5 +381,5 @@ The actions and triggers above can return one or more of the following HTTP stat
 | default |Operation Failed. |
 
 ## Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

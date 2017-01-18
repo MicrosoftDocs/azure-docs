@@ -63,7 +63,7 @@ Double-clicking on one of the run instances shows the run history for that insta
 ![History](./media/app-service-logic-manage-from-vs/history.png)
 
 ## Next steps
-* To get started with Logic Apps, follow the [create a Logic App](app-service-logic-create-a-logic-app.md) tutorial.  
+* To get started with Logic Apps, follow the [create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) tutorial.  
 * [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
 * [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

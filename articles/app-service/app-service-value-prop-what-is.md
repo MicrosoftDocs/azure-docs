@@ -86,5 +86,5 @@ Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/),
 * [Tutorial: Create a web app](../app-service-web/app-service-web-get-started.md)
 * [Tutorial: Create a mobile app](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Tutorial: Create an API app](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Tutorial: Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Tutorial: Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

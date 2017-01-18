@@ -26,7 +26,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 * An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md), [partners](app-service-logic-enterprise-integration-partners.md) and [X12 agreement](app-service-logic-enterprise-integration-x12.md)
 
 ### Connect to Decode X12 Message using the following steps:
-1. [Create a Logic App](app-service-logic-create-a-logic-app.md) provides an example
+1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) provides an example
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message
    
     ![search x12](./media/app-service-logic-enterprise-integration-x12connector/x12decodeimage1.png)  

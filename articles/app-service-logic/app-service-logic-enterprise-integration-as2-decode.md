@@ -26,7 +26,7 @@ Connect to Decode AS2 Message to establish security and reliability while transm
 * An Integration Account is required to use Decode AS2 message connector. See details on how to create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md), [partners](app-service-logic-enterprise-integration-partners.md) and an [AS2 agreement](app-service-logic-enterprise-integration-as2.md)
 
 ### Connect to Decode AS2 Message using the following steps:
-1. [Create a Logic App](app-service-logic-create-a-logic-app.md) provides an example.
+1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) provides an example.
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Decode AS2 Message
    
     ![Search AS2](./media/app-service-logic-enterprise-integration-AS2connector/as2decodeimage1.png)

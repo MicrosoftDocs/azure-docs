@@ -79,7 +79,7 @@ There are two types of triggers:
 Connectors can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the connectors. Actions map to operations that are defined in the Swagger metadata.
 
 ## Next Steps
-* [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+* [Build a logic app now](../logic-apps/logic-apps-create-a-logic-app.md)  
 * [Create a custom connector](../app-service-logic/app-service-logic-create-api-app.md)
 * [Monitor your logic apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 

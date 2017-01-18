@@ -23,7 +23,7 @@ B2B communication involves message exchanges between two running business proces
 ## Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account; you can create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md)
-* A Logic App; you can create a [Logic App](app-service-logic-create-a-logic-app.md) and enable logging; you can find steps [here](app-service-logic-monitor-your-logic-apps.md)
+* A Logic App; you can create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md) and enable logging; you can find steps [here](app-service-logic-monitor-your-logic-apps.md)
 
 ## Enable logging for an integration account
 You can enable logging for an integration account either with **Azure portal** or with **Monitor**

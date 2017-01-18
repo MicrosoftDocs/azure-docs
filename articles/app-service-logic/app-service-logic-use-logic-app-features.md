@@ -18,13 +18,13 @@ ms.author: stepsic
 
 ---
 # Use Logic Apps features
-In the [previous topic](app-service-logic-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
+In the [previous topic](../logic-apps/logic-apps-create-a-logic-app.md), you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
 
 * Conditional logic, which executes an action only when a certain condition is met.
 * Code view to edit an existing logic app.
 * Options for starting a workflow.
 
-Before you complete this topic, you should complete the steps in [Create a new logic app](app-service-logic-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
+Before you complete this topic, you should complete the steps in [Create a new logic app](../logic-apps/logic-apps-create-a-logic-app.md). In the [Azure portal], browse to your logic app and click **Triggers and Actions** in the summary to edit the logic app definition.
 
 ## Reference material
 You may find the following documents useful:
