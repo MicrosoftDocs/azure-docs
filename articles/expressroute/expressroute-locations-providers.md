@@ -58,11 +58,9 @@ The table below provides information on regions and geopolitical boundaries for 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
 
 ## <a name="locations"></a>Connectivity provider locations
-> [!div class="op_single_selector"]
-> * [Locations By Provider](expressroute-locations.md#locations)
-> * [Providers By Location](expressroute-locations-providers.md#locations)
-> 
-> 
+
+The following table shows connectivity locations and the available providers for each location. If you want to view connectivity providers and the locations to which they can provide service, see [Locations by connectivity provider](expressroute-locations.md#locations). 
+
 
 ### Production Azure
 | **Location** | **Service Providers** |
