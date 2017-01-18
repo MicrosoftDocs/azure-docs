@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/18/17 -->
+<!--author=alkohli last changed: 11/07/16 -->
 
 #### To install updates via the Azure portal
 
@@ -12,7 +12,7 @@
 
 3. You see a message if the software updates are available. To check for updates, you can also click **Scan**.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m1.png)
+    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
 
     You will be notified when the scan starts and completes successfully.
 
@@ -32,7 +32,7 @@
 
 5. In the **Device updates** blade, click **Install**.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m1.png)   
+     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
 
 6. In the **New updates** blade, you are warned that the update is disruptive. As virtual array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click **OK** to install the updates. 
 
@@ -44,12 +44,12 @@
 
 8.  After the install job completes successfully, click **View Job** link in the **Device updates** blade to monitor the installation. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m1.png)
+    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
 
     This takes you to the **Install Updates** blade. You can view detailed information about the job here.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m1.png)
+    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. After the updates are successfully installed, you see a message to this effect in the **Device updates** blade. The software version also changes to **10.0.10289.0**.
+9. After the updates are successfully installed, you see a message to this effect in the Device updates blade. The software version also changes to **10.0.10288.0**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m1.png)
+    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
