@@ -44,7 +44,7 @@ In this tutorial, you will:
    > 
    > 
 2. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
-3. In the **New** blade, click **Compute**.
+3. In the **New** blade, click **Compute** and then click **See all**.
 4. In the **Filter** text box type SQL Server, and press the ENTER key.
 5. Review the available SQL Server templates.
 6. Each template identifies a SQL Server version and an operating system. Select one of these images from the list. Then review the details blade that provides a description of the virtual machine image.
@@ -209,6 +209,8 @@ When you enable SQL automated backup, you can configure the following:
 * Retention period (days) for backups
 * Storage account to use for backups
 * Encryption option and password for backups
+* Backup system databases
+* Configure backup schedule
 
 To encrypt the backup, click **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate.
 
