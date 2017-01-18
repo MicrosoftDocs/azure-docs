@@ -61,7 +61,7 @@ Enterprise Integration supports these industry standards:
 * [Flat file encoding/decoding](app-service-logic-enterprise-integration-flatfile.md "Learn how to encode and decode flat file contents")  
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn about integration accounts")
 * [Maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Learn about enterprise integration maps")
-* [Partners](app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
+* [Partners](logic-apps-enterprise-integration-partners.md "Learn about enterprise integration partners")
 * [Schemas](app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
 * [XML message validation](app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
 * [XML transform](app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")

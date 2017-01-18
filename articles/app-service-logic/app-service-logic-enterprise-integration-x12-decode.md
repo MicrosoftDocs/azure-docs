@@ -23,7 +23,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 ## Create the connection
 ### Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](app-service-logic-enterprise-integration-partners.md) and [X12 agreement](app-service-logic-enterprise-integration-x12.md)
+* An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [X12 agreement](app-service-logic-enterprise-integration-x12.md)
 
 ### Connect to Decode X12 Message using the following steps:
 1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) provides an example

@@ -23,7 +23,7 @@ Connect to Encode AS2 Message to establish security and reliability while transm
 ## Create the connection
 ### Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](app-service-logic-enterprise-integration-partners.md) and an [AS2 agreement](../logic-apps/logic-apps-enterprise-integration-as2.md)
+* An Integration Account is required to use Encode AS2 message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and an [AS2 agreement](../logic-apps/logic-apps-enterprise-integration-as2.md)
 
 ### Connect to Encode AS2 Message using the following steps:
 1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) provides an example

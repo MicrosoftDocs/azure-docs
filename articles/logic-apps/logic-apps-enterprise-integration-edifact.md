@@ -28,14 +28,14 @@ Before you can exchange EDIFACT messages, you need to create an EDIFACT agreemen
 
 ### Here's what you need before you get started
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
-* At least two [partners](app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
+* At least two [partners](logic-apps-enterprise-integration-partners.md) already defined in your integration account  
 
 > [!NOTE]
 > When creating an agreement, the content in the messages you will receive/send to and from the partner must match the agreement type.    
 > 
 > 
 
-After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) and [added partners](app-service-logic-enterprise-integration-partners.md), you can create an EDIFACT agreement by following these steps:  
+After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) and [added partners](logic-apps-enterprise-integration-partners.md), you can create an EDIFACT agreement by following these steps:  
 
 ### From the Azure portal home page
 After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
