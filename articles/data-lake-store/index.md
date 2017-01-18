@@ -199,10 +199,3 @@ Learn how to use Data Lake Store to create a hyper-scale, Hadoop-compatible repo
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Data Lake Store Documentation
-        </div>
-    </a>
