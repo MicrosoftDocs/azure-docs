@@ -29,7 +29,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.7 preview
 - [Azure Storage Explorer 0.8.7 Preview for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 0.8.7 Preview for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### New Updates
+### New updates
 * You can choose how to resolve conflicts at the beginning of an update, download, or copy session in the **Activities** window.
 * Hover over a tab to see the full path of the storage resource.
 * When you click a tab, it synchronizes with its location in the left side navigation pane.
@@ -52,7 +52,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.7 preview
 
 ## Previous releases
 ### Features
-#### Main Features
+#### Main features
 * macOS, Linux, and Windows versions
 * Sign in to view your Storage Accounts grouped by subscription:
     * Use your Org Account, Microsoft Account, 2FA, etc.
@@ -112,11 +112,11 @@ This article contains the release notes for Azure Storage Explorer 0.8.7 preview
 * View file properties
 * Rename files and directories
 
-### Bug Fixes
+### Bug fixes
 * Fixed: Screen freezing problems
 * Fixed: Enhanced security
 
-### Known Issues
+### Known issues
 * Search handles searching across roughly 50,000 nodes - after this, performance may be impacted
 macOS install may require elevated permissions
 * Account settings panel may show that you need to reenter credentials to filter subscriptions
@@ -132,7 +132,7 @@ sudo apt-get dist-upgrade
 ```
 
 ### Previous versions
-#### October 2016 Release (Version 0.8.5)
+#### October 2016 release (version 0.8.5)
 * [Download for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
 * [Download for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
 * [Download for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
