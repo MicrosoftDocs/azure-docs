@@ -64,7 +64,7 @@
 ### [Use Visual Studio Cloud Explorer](../app-service-logic/app-service-logic-manage-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Monitor B2B messages](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [AS2 tracking schema](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [X12 tracking schema](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Custom tracking schema](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Track B2B messages](logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
