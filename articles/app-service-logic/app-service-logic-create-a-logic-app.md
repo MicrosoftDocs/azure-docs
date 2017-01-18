@@ -51,7 +51,7 @@ Now your logic app is up and running. It will periodically check for tweets with
 5. To turn off the app, click **Disable** in the command bar.
 6. View run and trigger histories to monitor when your logic app is running.  You can click **Refresh** to see the latest data.
 
-In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](app-service-logic-author-definitions.md).
+In less than 5 minutes you were able to set up a simple logic app running in the cloud. To learn more about using Logic Apps features, see [Use logic app features]. To learn about the Logic App definitions themselves, see [author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com

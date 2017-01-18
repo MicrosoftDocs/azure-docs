@@ -22,7 +22,7 @@ Use an Azure Resource Manager template to create an empty logic app that can be 
 
 For more details on the Logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
 
-For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
+For examples of the definition itself, see [Author Logic App definitions](logic-apps-author-definitions.md). 
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 

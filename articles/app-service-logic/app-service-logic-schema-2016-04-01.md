@@ -149,7 +149,7 @@ Actions can now have an additional property (sibling to `runAfter` and `type`) c
 ```
 
 ## Next Steps
-* [Use the logic app workflow definition](app-service-logic-author-definitions.md)
+* [Use the logic app workflow definition](../logic-apps/logic-apps-author-definitions.md)
 * [Create a logic app deployment template](app-service-logic-create-deploy-template.md)
 
 <!-- Image references -->

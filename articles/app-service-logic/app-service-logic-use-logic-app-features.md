@@ -85,7 +85,7 @@ Parameters are a good way to pull out values that you are likely to change a lot
 
 Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
 
-To learn more about Logic App definitions, see [author Logic App definitions](app-service-logic-author-definitions.md).
+To learn more about Logic App definitions, see [author Logic App definitions](../logic-apps/logic-apps-author-definitions.md).
 
 ## Starting a logic app workflow
 There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].
