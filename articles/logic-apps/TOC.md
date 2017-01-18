@@ -35,7 +35,7 @@
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [XML processing](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Flat file processing](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Add XSLT maps](../app-service-logic/app-service-logic-enterprise-integration-maps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Add XSLT maps](logic-apps-enterprise-integration-maps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Transform XML](../app-service-logic/app-service-logic-enterprise-integration-transform.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Validate XML](../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Using certificates](../app-service-logic/app-service-logic-enterprise-integration-certificates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
