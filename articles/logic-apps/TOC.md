@@ -30,7 +30,7 @@
 
 
 ## Use Enterprise Integration Pack (EIP)
-### [Integration accounts overview](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Integration accounts overview](logic-apps-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Agreements](logic-apps-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [XML processing](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)

@@ -25,7 +25,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 ## How to Store metadata 
 
-1. Create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md)   
+1. Create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)   
 
 2. Add a [partner](app-service-logic-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](app-service-logic-enterprise-integration-schemas.md) in integration account
 
@@ -36,7 +36,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 1. Create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md)
 
-2. [Link](app-service-logic-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
+2. [Link](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
 
 3. Create a trigger, for example using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp** 
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image2.png) 
