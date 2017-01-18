@@ -18,7 +18,7 @@ ms.author: jehollan
 
 ---
 # Create a new logic app connecting SaaS services
-This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a simple workflow that lets you send interesting tweets to your email.
+This topic demonstrates how, in just a few minutes, you can get started with [Azure Logic Apps](logic-apps-what-are-logic-apps.md). We'll walk through a simple workflow that lets you send interesting tweets to your email.
 
 To use this scenario, you need:
 

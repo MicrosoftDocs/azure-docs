@@ -42,7 +42,7 @@ Some of the common benefits of using agreements are:
 * [Create an X12 agreement](logic-apps-enterprise-integration-x12.md)   
 
 ## How to use an agreement
-After creating an agreement, you can use it via the Azure portal to create [Logic apps](app-service-logic-what-are-logic-apps.md "Learn about Logic apps") with B2B features.
+After creating an agreement, you can use it via the Azure portal to create [Logic apps](logic-apps-what-are-logic-apps.md "Learn about Logic apps") with B2B features.
 
 ## How to edit an agreement
 You can edit any agreement by following these steps:  

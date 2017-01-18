@@ -46,7 +46,7 @@ App Service offers several *app types*, each of which is intended to host a spec
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) For hosting mobile app back ends.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - For hosting RESTful APIs.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating business processes and integrating systems and data across clouds without writing code.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) - For automating business processes and integrating systems and data across clouds without writing code.
 
 The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. 
 

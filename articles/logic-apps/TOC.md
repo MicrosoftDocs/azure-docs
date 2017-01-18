@@ -1,5 +1,5 @@
 # Overview
-## [Logic App overview](../app-service-logic/app-service-logic-what-are-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Logic App overview](logic-apps-what-are-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Connectors list](../connectors/apis-list.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
