@@ -19,7 +19,7 @@ ms.author: jonfan
 ---
 # Enterprise integration with EDIFACT
 > [!NOTE]
-> This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](app-service-logic-enterprise-integration-x12.md).
+> This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](logic-apps-enterprise-integration-x12.md).
 > 
 > 
 

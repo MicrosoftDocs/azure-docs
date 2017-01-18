@@ -27,7 +27,7 @@ An agreement, as far as the Enterprise Integration Pack is concerned, is a commu
 Enterprise integration supports three protocol/transport standards:  
 
 * [AS2](logic-apps-enterprise-integration-as2.md)
-* [X12](app-service-logic-enterprise-integration-x12.md)
+* [X12](logic-apps-enterprise-integration-x12.md)
 * [EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
 ## Why use agreements
@@ -39,7 +39,7 @@ Some of the common benefits of using agreements are:
 
 ## How to create agreements
 * [Create an AS2 agreement](logic-apps-enterprise-integration-as2.md)   
-* [Create an X12 agreement](app-service-logic-enterprise-integration-x12.md)   
+* [Create an X12 agreement](logic-apps-enterprise-integration-x12.md)   
 
 ## How to use an agreement
 After creating an agreement, you can use it via the Azure portal to create [Logic apps](app-service-logic-what-are-logic-apps.md "Learn about Logic apps") with B2B features.
