@@ -90,30 +90,29 @@ Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure
 2. On the **Overview** blade, in the **VPN connections** section, click the **Gateway** graphic to create a gateway.
 
 	![Configure a VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configure a VPN gateway")
-3. On the **New VPN Connection** blade, select **Site-to-site**.
-4. In the **Local site** section of the blade, click **Configure required settings**. This will open the **Local site** blade.
-5. On the **Local site** blade, create a name that you will use to refer to the Resource Manager VNet.
+3. On the **New VPN Connection** blade, for **Connection type**, select **Site-to-site**.
+4. For **Local site**, click **Configure required settings**. This will open the **Local site** blade.
+5. On the **Local site** blade, create a name that you will use to refer to the Resource Manager VNet. For example, RMVNetLocal.
 6. If the VPN gateway for the Resource Manager VNet already has a public IP address, use the value for the **VPN gateway IP address** field. If you have not yet created a virtual network gateway for your Resource Manager VNet, you can use a placeholder IP address. Make sure that the placeholder IP address uses a valid format. Later, you must replace the placeholder IP address with the public IP address of the Resource Manager virtual network gateway.
 7. For **Client Address Space**, use the values for the virtual network IP address spaces for the Resource Manager VNet. This setting is used to specify the address spaces to route to the RM VNet.
-8. Click **OK** to save the values.
+8. Click **OK** to save the values and return to the **New VPN Connection** blade.
 
 ### Part 2 - Create the virtual network gateway
-1. On the **New VPN Connection** blade, select the **Create gateway immediately** checkbox.
+1. On the **New VPN Connection** blade, select the **Create gateway immediately** checkbox and click **Optional gateway configuration** to open the **Gateway configuration** blade. 
 
 	![Open gateway configuration blade](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration blade")
-2. Click **Optional gateway configuration** to open the **Gateway configuration** blade.
-3. Click **Subnet - Configure required settings** to open the **Add subnet** blade. On this blade, you'll see that the Name is already configured with the required value **GatewaySubnet**.
-4. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more available IP addresses to accommodate possible future configurations that require more available IP addresses. If possible, use /27 or /28. Click **OK** to create the gateway subnet.
-5. On the **Gateway configuration** blade, **Gateway size** refers to the gateway SKU. Select the gateway SKU for your VPN gateway.
-6. Verify the **Routing type** is **Dynamic**, then click **OK**.
-7. On the **New VPN Connection** blade, click **OK** to begin creating your VPN gateway. Creating a VPN gateway can take up to 45 minutes to complete.
+2. Click **Subnet - Configure required settings** to open the **Add subnet** blade. On this blade, you'll see that the Name is already configured with the required value **GatewaySubnet**.
+3. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more available IP addresses to accommodate possible future configurations that require more available IP addresses. If possible, use /27 or /28. Click **OK** to create the gateway subnet.
+4. On the **Gateway configuration** blade, **Size** refers to the gateway SKU. Select the gateway SKU for your VPN gateway.
+5. Verify the **Routing Type** is **Dynamic**, then click **OK** to return to the **New VPN Connection** blade.
+6. On the **New VPN Connection** blade, click **OK** to begin creating your VPN gateway. This can take up to 45 minutes to complete.
 
 
 ### <a name="ip"></a>Part 3 - Copy the virtual network gateway public IP address
 After the virtual network gateway has been created, you can view the gateway IP address. 
 
 1. Navigate to your classic VNet, and click **Overview**.
-2. Click **VPN connections** to open the VPN connections blade. On the VPN connections blade, you can view the public IP address. This is the public IP address assigned to your virtual network gateway. Write down or copy the IP address. You will use it in later steps when you create the local network for your Resource Manager VNet configuration. You can also view the status of your gateway connections on this blade. Notice the local network site you created is listed as 'Connecting'. The status will change after you have created your connections.
+2. Click **VPN connections** to open the VPN connections blade. On the VPN connections blade, you can view the public IP address. This is the public IP address assigned to your virtual network gateway. Write down or copy the IP address. You will use it in later steps when you work with your Resource Manager local network gateway configuration settings. You can also view the status of your gateway connections on **VPN connections** blade. Notice the local network site you created is listed as 'Connecting'. The status will change after you have created your connections.
 
 ## <a name="creatermgw"></a>Section 2: Configure Resource Manager VNet settings
 In this section, we will create the virtual network gateway and the local network for your Resource Manager VNet. Screenshots are provided as examples. Be sure to replace the values with your own. If you are creating this configuration as an exercise, refer to these [values](#values).
