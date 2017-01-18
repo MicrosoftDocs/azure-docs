@@ -284,7 +284,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 Configure the mode for WAF, acceptable values are **Prevention** and **Detection**.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### Step 21

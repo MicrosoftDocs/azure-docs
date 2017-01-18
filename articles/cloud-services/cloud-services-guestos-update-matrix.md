@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/10/2017
+ms.date: 1/17/2017
 ms.author: raiye
 
 ---
@@ -36,7 +36,7 @@ Unsure about what the Guest OS is or how the Guest OS releases work? Read [this]
 
 ## News updates
 ###### **January 10 2017**
-January Guest OS rollout is starting January 10 2017, and projected to be released on February 9 2017.
+The January Guest OS contains patches that only impact OS family 2 (Windows 2008 Server R2). We have therefore released only the OS Family 2 image (WA-GUEST-OS-2.59_201701-01) for this month. For all other OS families, the December OS (201612-01) remains the latest.
 
 ###### **December 14 2016**
 December Guest OS rollout is starting December 14 2016, and projected to be released on January 13 2017.

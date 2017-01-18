@@ -70,6 +70,7 @@ Monitoring of AD DS is supported while installed on the following OS Versions:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 ## Operations Questions
 **Q: Do I need to enable auditing on my AD FS Application Proxy Servers or my Web Application Proxy Servers?**
