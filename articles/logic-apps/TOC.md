@@ -20,7 +20,7 @@
 ### [Visual Studio tools](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Using Azure functions](logic-apps-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Logic apps as callable endpoints](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Using your custom API](../app-service-logic/app-service-logic-custom-hosted-api.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Using your custom API](logic-apps-custom-hosted-api.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Exception handling](../app-service-logic/app-service-logic-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Exception handling scenario](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Handling content types](logic-apps-content-type.md?toc=%2fazure%2flogic-apps%2ftoc.json)
