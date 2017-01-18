@@ -151,7 +151,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-3. Create a new database user based on the server login
+3. Querying your SQL DataWarehouse, create a new database user based on the server login 
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
@@ -166,7 +166,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 
 5. Add your database user to the **xlargerc** resource class role
     ```sql
-    EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
     ```
 
 6. Log in to your database with your new credentials
@@ -177,9 +177,11 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 ## Loading data
 
 ### Defining external data
-1. Define an external data source
+1. Create a Master Key and define an external data source
 
     ```sql
+    CREATE MASTER KEY;
+
     CREATE EXTERNAL DATA SOURCE NYTPublic
     WITH
     (
