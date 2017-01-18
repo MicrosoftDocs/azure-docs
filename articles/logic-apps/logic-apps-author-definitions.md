@@ -21,7 +21,7 @@ ms.author: jehollan
 This topic demonstrates how to use [Azure Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](logic-apps-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](http://aka.ms/logicappsdocs).
 
 ## Several steps that repeat over a list
-You can leverage the [foreach type](app-service-logic-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
+You can leverage the [foreach type](logic-apps-loops-and-scopes.md) to repeat over an array of up to 10k items and perform an action for each.
 
 ## A failure-handling step if something goes wrong
 You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  

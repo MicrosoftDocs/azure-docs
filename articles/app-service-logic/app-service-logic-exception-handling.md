@@ -99,7 +99,7 @@ Notice the `runAfter` property is set to fire if the `Insert_Row` action is `Fai
 > 
 
 ## Scopes and results to evaluate actions
-Similar to how you can run after individual actions, you can also group actions together inside a [scope](app-service-logic-loops-and-scopes.md) - which act as a logical grouping of actions.  Scopes are useful both for organizing your logic app actions, and for performing aggregate evaluations on the status of a scope.  The scope itself will receive a status after all the actions within a scope have completed.  The scope status is determined with the same criteria as a run -- if the final action in an execution branch is `Failed` or `Aborted` the status is `Failed`.
+Similar to how you can run after individual actions, you can also group actions together inside a [scope](../logic-apps/logic-apps-loops-and-scopes.md) - which act as a logical grouping of actions.  Scopes are useful both for organizing your logic app actions, and for performing aggregate evaluations on the status of a scope.  The scope itself will receive a status after all the actions within a scope have completed.  The scope status is determined with the same criteria as a run -- if the final action in an execution branch is `Failed` or `Aborted` the status is `Failed`.
 
 You can `runAfter` a scope has been marked `Failed` to fire specific actions for any failures that occurred within the scope.  Running after a scope fails allows you to create a single action to catch failures if *any* actions within the scope fail.
 
@@ -108,7 +108,7 @@ Catching failures from a scope is very useful, but you may also want the context
 
 `@result()` takes a single parameter, scope name, and returns an array of all the action results from within that scope.  These action objects include the same attributes as the `@actions()` object, including action start time, action end time, action status, action inputs, action correlation IDs, and action outputs.  You can easily pair an `@result()` function with a `runAfter` to send context of any actions that failed within a scope.
 
-If you want to execute an action *for each* action in a scope that `Failed`, you can pair `@result()` with a **[Filter Array](../connectors/connectors-native-query.md)** action and a **[ForEach](app-service-logic-loops-and-scopes.md)** loop.  This allows you to filter the array of results to actions that failed.  You can take the filtered result array and perform an action for each failure using the **ForEach** loop.  Here's an example below, followed by a detailed explanation.  This example will send an HTTP POST request with the response body of any actions that failed within the scope `My_Scope`.
+If you want to execute an action *for each* action in a scope that `Failed`, you can pair `@result()` with a **[Filter Array](../connectors/connectors-native-query.md)** action and a **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)** loop.  This allows you to filter the array of results to actions that failed.  You can take the filtered result array and perform an action for each failure using the **ForEach** loop.  Here's an example below, followed by a detailed explanation.  This example will send an HTTP POST request with the response body of any actions that failed within the scope `My_Scope`.
 
 ```json
 "Filter_array": {

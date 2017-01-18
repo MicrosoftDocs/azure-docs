@@ -53,9 +53,9 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 * [Workflow definition language reference](http://aka.ms/logicappsdocs)
 
 ## Batches and looping
-* [SplitOn](app-service-logic-loops-and-scopes.md)
-* [ForEach](app-service-logic-loops-and-scopes.md)
-* [Until](app-service-logic-loops-and-scopes.md)
+* [SplitOn](logic-apps-loops-and-scopes.md)
+* [ForEach](logic-apps-loops-and-scopes.md)
+* [Until](logic-apps-loops-and-scopes.md)
 
 ## Integrating with Azure Functions
 * [Azure Functions integration](../logic-apps/logic-apps-azure-functions.md)
