@@ -86,8 +86,22 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
+## Support for Load Balancer
+Load Balancer is generally available in Azure Government. 
+
+> [!NOTE]
+> Define what is different in Azure Gov and dhow devs should connect to Azure Storage
+
+For more information, see the [Load Balancer public documentation](../virtual-network/virtual-network-peering-overview.md). 
+
+## Support for Traffic Manger
+Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../virtual-network/virtual-network-peering-overview.md). 
+
 ## Support for VNet Peering 
 VNet Peering is generally available in Azure Government. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
+
+## Support for VPN Gateway 
+VPN Gateway is generally available in Azure Government. For more information, see the [VPN Gateway public documentation](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Next Steps
 For supplemental information and updates please subscribe to the
