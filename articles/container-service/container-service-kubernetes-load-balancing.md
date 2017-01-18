@@ -23,12 +23,14 @@ ms.author: danlep
 In this article, we'll explore how to load balance container workloads in a Kubernetes cluster in Azure Container Service. 
 
 ## Prerequisites
-* [Deploy a Kubernetes cluster in Azure Container Service](container-service-kubernetes-walkthrough.md)
-* [Ensure that your client can connect to your cluster](container-service-connect.md)
+* [Deploy a Kubernetes cluster](container-service-kubernetes-walkthrough.md) in Azure Container Service
+* [Connect your client](container-service-connect.md) to your cluster
 
 ## Azure load balancer
 
-You can dynamically provision an [Azure load balancer](../load-balancer/load-balancer-overview.md), a Layer 4 (TCP, UDP) load balancer, for container wrokloads running on the agent VMs in a Kubernetes cluster. Azure load balancer maps the public IP address and port number of incoming traffic to the private IP addresses and port numbers of the agent VMs and vice versa for the response traffic from the VMs. 
+A Kubernetes cluster deployed in Azure Container Service includes an [Azure load balancer](../load-balancer/load-balancer-overview.md), a Layer 4 (TCP, UDP) load balancer, for the agent VMs. (A separate load balancer resource is configured for the master VMs.) 
+
+You can dynamically configure the the load balancer for container workloads running on the agent VMs. Azure load balancer maps the public IP address and port number of incoming traffic to the private IP addresses and port numbers of the agent VMs and vice versa for the response traffic from the VMs. 
 
 As shown in the [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md), you configure the Azure load balancer by exposing a service with the `kubectl expose` command and its `--type=LoadBalancer` flag.
 
@@ -44,3 +46,4 @@ For example you can use the [Nginx ingress controller](https://github.com/kubern
 ## Next steps
 
 
+* [Kubernetes examples](https://github.com/kubernetes/kubernetes/tree/master/examples)
