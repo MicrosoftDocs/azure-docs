@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="1/12/2017"
+	 ms.date="1/18/2017"
 	 ms.author="gangan"/>
 
 # Resource Manager core quota increase requests
@@ -34,7 +34,7 @@ To request an increase, create a Quota support case for Cores in the Azure porta
 
 ![Quota Problem blade](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-- •	Select the SKU Families that require an increase
+- Select the SKU Families that require an increase
 
 ![SKU series selected](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
@@ -42,4 +42,4 @@ To request an increase, create a Quota support case for Cores in the Azure porta
 
 ![SKU new quota request](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-- To remove a line, uncheck the SKU from the SKU family dropdown or click the recycle bin icon.
+- To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon.
