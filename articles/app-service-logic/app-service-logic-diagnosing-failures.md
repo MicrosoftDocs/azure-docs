@@ -57,7 +57,7 @@ When you are looking at a run history, you can drill in for more details.
 Trigger outputs show the data that was received from the trigger. This can help you determine whether all properties returned as expected.
 
 > [!NOTE]
-> It might be helpful to understand how the Logic Apps feature [handles different content types](app-service-logic-content-type.md) if you see any content that you don't understand.
+> It might be helpful to understand how the Logic Apps feature [handles different content types](../logic-apps/logic-apps-content-type.md) if you see any content that you don't understand.
 > 
 > 
 

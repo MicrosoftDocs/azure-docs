@@ -48,7 +48,7 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 ## Content types, conversions, and transformations
 The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) contains many functions to allow you to convert and work with different content types. In addition, the engine will do all it can to preserve content-types as data flows through the workflow.
 
-* [Handling of content-types](app-service-logic-content-type.md) such as application/json, application/xml, and text/plain
+* [Handling of content-types](../logic-apps/logic-apps-content-type.md) such as application/json, application/xml, and text/plain
 * [Authoring workflow definitions](../logic-apps/logic-apps-author-definitions.md)
 * [Workflow definition language reference](http://aka.ms/logicappsdocs)
 

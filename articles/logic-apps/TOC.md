@@ -23,7 +23,7 @@
 ### [Using your custom API](../app-service-logic/app-service-logic-custom-hosted-api.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Exception handling](../app-service-logic/app-service-logic-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Exception handling scenario](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Handling content types](../app-service-logic/app-service-logic-content-type.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Handling content types](logic-apps-content-type.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Workflow definition](logic-apps-author-definitions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Troubleshooting tips](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Limits and config](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
