@@ -23,9 +23,9 @@ Azure Active Directory Identity Protection is a feature of the Azure AD Premium 
 
 - Detect potential vulnerabilities affecting your organization’s identities
 
-- Configure automated responses to detected suspicious incidents related to your organization’s identities  
+- Configure automated responses to suspicious incidents related to your organization’s identities  
 
-- Investigate detected suspicious incidents and take appropriate action to resolve them   
+- Investigate suspicious incidents and take appropriate action to resolve them   
 
 
 ## Getting started
@@ -47,11 +47,12 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 #### Identity Protection capabilities
 
-**Detecting risk events and risky accounts:**  
+**Detecting vulnerabilities and risky accounts:**  
 
-* Detecting 6 risk event types using machine learning and heuristic rules
-* Calculating user risk levels
 * Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
+* Calculating sign-in risk levels
+* Calculating user risk levels
+
 
 **Investigating risk events:**
 
@@ -75,9 +76,8 @@ For more details, see [risk events](active-directory-identity-protection-risk-ev
 
 ### Vulnerabilities
 
-Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. 
+Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
 
-![Vulnerabilities](./media/active-directory-identityprotection/1100.png)
 
 
 
@@ -372,12 +372,21 @@ For an overview of the related user experience, see:
 
 ## Next steps
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-* [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
-* [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md)
-* [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
-* [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
-* [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
-* [Sign-in experiences with Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+
 * [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+
+* [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+
+* [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md)
+
+* [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
+
+* [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
+
+* [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+
+* [Sign-in experiences with Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+
 * [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
+
 * [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
