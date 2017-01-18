@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 01/17/2016
 ms.author: chackdan
 
 ---
@@ -122,8 +122,14 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
 ```
 
 #### Cluster Upgrade workflow.
-1. Download the latest version of the package from [Create service fabric cluster for windows server](service-fabric-cluster-creation-for-windows-server.md) document 
-2. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
+1. Run Get-ServiceFabricClusterUpgrade from one of the nodes in the cluster and note the TargetCodeVersion.
+2. Run the following from an internet connected machine to list all upgrade compatible versions with the current version and download the corresponding package from the associated download links.
+   ```powershell
+   
+    ###### Get list of all upgrade compatible packages
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1>
+    ```
+3. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster 
    
     ```powershell
    
@@ -138,7 +144,7 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-3. Copy the downloaded package into the cluster image store.
+4. Copy the downloaded package into the cluster image store.
    
     ```powershell
    
@@ -150,7 +156,7 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
 
     ```
 
-1. Register the copied package 
+5. Register the copied package 
    
     ```powershell
    
@@ -161,7 +167,7 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Kick off a cluster upgrade to one of the versions that is available. 
+6. Kick off a cluster upgrade to one of the versions that is available. 
    
     ```Powershell
    
