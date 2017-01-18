@@ -77,7 +77,7 @@ You can view changes to your infrastructure and then drill-into details for the 
 
 ![image of Change Tracking dashboard](./media/log-analytics-change-tracking/change-tracking-dash01.png)
 
-![image of Change Tracking dashboard](./media/log-analytics-change-tracking/change-tracking-dash01.png)
+![image of Change Tracking dashboard](./media/log-analytics-change-tracking/change-tracking-dash02.png)
 
 ### To view changes for any change type
 1. On the **Overview** page, click the **Change Tracking** tile.
