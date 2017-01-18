@@ -34,7 +34,7 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 * [Request Response with SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Error handling and logging
-* [Exception and error handling](app-service-logic-exception-handling.md)
+* [Exception and error handling](logic-apps-exception-handling.md)
 * [Configure Azure Alerts and diagnostics](logic-apps-monitor-your-logic-apps.md)
 
 ### Scenarios

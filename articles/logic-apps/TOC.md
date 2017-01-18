@@ -21,7 +21,7 @@
 ### [Using Azure functions](logic-apps-azure-functions.md)
 ### [Logic apps as callable endpoints](logic-apps-http-endpoint.md)
 ### [Using your custom API](logic-apps-custom-hosted-api.md)
-### [Exception handling](../app-service-logic/app-service-logic-exception-handling.md)
+### [Exception handling](logic-apps-exception-handling.md)
 ### [Exception handling scenario](logic-apps-scenario-error-and-exception-handling.md)
 ### [Handling content types](logic-apps-content-type.md)
 ### [Workflow definition](logic-apps-author-definitions.md)
