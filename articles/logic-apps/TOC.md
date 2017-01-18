@@ -45,7 +45,7 @@
 ### [AS2 encoding](../app-service-logic/app-service-logic-enterprise-integration-as2-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [AS2 decoding](logic-apps-enterprise-integration-as2-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [EDIFACT integration](logic-apps-enterprise-integration-edifact.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [EDIFACT encoding](../app-service-logic/app-service-logic-enterprise-integration-edifact-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [EDIFACT decoding](../app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [X12 integration](../app-service-logic/app-service-logic-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [X12 encoding](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
