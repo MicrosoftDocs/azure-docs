@@ -43,7 +43,7 @@
 ### [Add schemas](../app-service-logic/app-service-logic-enterprise-integration-schemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [AS2 integration](logic-apps-enterprise-integration-as2.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [AS2 encoding](../app-service-logic/app-service-logic-enterprise-integration-as2-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [AS2 decoding](../app-service-logic/app-service-logic-enterprise-integration-as2-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [AS2 decoding](logic-apps-enterprise-integration-as2-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [EDIFACT integration](../app-service-logic/app-service-logic-enterprise-integration-edifact.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [EDIFACT encoding](../app-service-logic/app-service-logic-enterprise-integration-edifact-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [EDIFACT decoding](../app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
