@@ -173,7 +173,8 @@
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md)
 
 # Reference
-## [PowerShell](machine-learning-powershell-module.md)
+## [PowerShell module (New)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell module (Classic)](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
