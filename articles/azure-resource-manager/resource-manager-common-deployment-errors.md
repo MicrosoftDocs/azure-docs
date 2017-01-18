@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/17/2017
 ms.author: tomfitz
 
 ---
@@ -38,15 +38,13 @@ Both types of errors return an error code that you use to troubleshoot the deplo
 
 
 ## Error codes
-Deployment errors return the code **DeploymentFailed**. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
-
-![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
 
 The following error codes are described in this topic:
 
 * [AccountNameInvalid](#accountnameinvalid)
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
+* [DeploymentFailed](#deploymentfailed)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -60,6 +58,12 @@ The following error codes are described in this topic:
 * [SkuNotAvailable](#skunotavailable)
 * [StorageAccountAlreadyExists](#storagenamenotunique)
 * [StorageAccountAlreadyTaken](#storagenamenotunique)
+
+### DeploymentFailed
+
+This error code indicates a general deployment error, but it is not the error code you need to start troubleshooting. The error code that actually helps you resolve the issue is usually one level below this error. For example, the following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
+
+![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
 
 ### InvalidTemplate
 This error can result from several different types of errors.
