@@ -17,6 +17,12 @@ ms.author: cherylmc
 
 ---
 # ExpressRoute partners and peering locations
+
+> [!div class="op_single_selector"]
+> * [Locations By Provider](expressroute-locations.md)
+> * [Providers By Location](expressroute-locations-providers.md)
+
+
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
