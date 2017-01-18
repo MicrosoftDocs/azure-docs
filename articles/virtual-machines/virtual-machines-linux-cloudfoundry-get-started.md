@@ -17,7 +17,6 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: seanmck
-
 ---
 
 # Cloud Foundry on Azure
@@ -27,6 +26,10 @@ Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deplo
 ## Cloud Foundry offerings
 
 There are two forms of Cloud Foundry available to run on Azure: open-source Cloud Foundry (OSS CF) and Pivotal Cloud Foundry (PCF). OSS CF is an entirely [open-source](https://github.com/cloudfoundry) version of Cloud Foundry managed by the Cloud Foundry Foundation. Pivotal Cloud Foundry is an enterprise distribution of Cloud Foundry from Pivotal Software Inc. We look at some of the differences between the two offerings.
+
+## Cloud Foundry offerings
+
+There are two forms of Cloud Foundry available to run on Azure: open-source Cloud Foundry (OSS CF) and Pivotal Cloud Foundry (PCF). As the name suggests, OSS CF is an entirely [open-source](https://github.com/cloudfoundry) version of Cloud Foundry managed by the Cloud Foundry Foundation. Pivotal Cloud Foundry is an enterprise distribution of Cloud Foundry from Pivotal Inc. We look at some of the differences between the two offerings.
 
 ### Open-source Cloud Foundry
 
