@@ -28,7 +28,10 @@ In this document, you will learn how to use the Ambari Web UI with an HDInsight 
 ## <a id="whatis"></a>What is Ambari?
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> makes Hadoop management simpler by providing an easy-to-use web UI that can be used to provision, manage, and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST APIs</a>.
 
-The Ambari Web UI is provided by default with Linux-based HDInsight clusters. 
+The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 
 ## Connectivity
 The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.azurehdidnsight.net, where **CLUSTERNAME** is the name of your cluster. 
