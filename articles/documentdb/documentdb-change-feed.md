@@ -44,7 +44,7 @@ Change Feed allows for efficient processing of large datasets with a high volume
 
 ![Azure DocumentDB based lambda pipeline for ingestion and query](./media/documentdb-change-feed/lambda.png)
 
-You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](../search/search-howto-index-documentdb.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 Within web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can, for example, use Change Feed to implement real-time leaderboards based on scores from completed games.
 
@@ -53,6 +53,7 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 
 * Changes are persistent in DocumentDB and can be processed asynchronously.
 * Changes to documents within a collection are available immediately in the change feed.
+* 
 * Each change to a document appears only once in the change feed. Only the most recent change for a given document is included in the change log. Intermediate changes may not be available.
 * The change feed is sorted by order of modification within each partition key value. There is no guaranteed order across partition-key values.
 * Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.

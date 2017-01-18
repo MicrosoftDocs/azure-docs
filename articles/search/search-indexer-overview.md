@@ -24,7 +24,7 @@ ms.author: heidist
 > * [Overview](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](../documentdb/documentdb-search-indexer.md)
+> * [DocumentDB](search-howto-index-documentdb.md)
 > * [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (preview)](search-howto-indexing-azure-tables.md)
 >
