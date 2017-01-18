@@ -18,9 +18,9 @@ ms.date: 01/17/2017
 ms.author: amitsriva
 
 ---
-# Backend health, diagnostics logging and Metrics for Application Gateway
+# Backend health, diagnostics logging and metrics for Application Gateway
 
-Azure provides the capability to monitor resource with logging and metrics
+Azure provides the capability to monitor resources with logging and metrics. Application Gateway provides these capabilities with backend health, logging, and metrics.
 
 [**Backend health**](#backend-health) - Appplication gateway provides the capability to monitor the health of the servers in the backend pools through the portal and through powershell. The health of the backend pools can also be found through the performance diagnostic logs.
 
@@ -290,7 +290,7 @@ To learn more about alert notifications, visit [Receive alert notifications](../
 
 To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-### Next steps
+## Next steps
 
 * Visualize counter and event logs with [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 * [Visualize your Azure Activity Log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
