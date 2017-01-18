@@ -54,7 +54,7 @@ To prevent these cases from generating misleading risk events, you should add na
 
 	![Known Networks](./media/active-directory-known-networks-azure-portal/03.png)
 
-5. On the **Add* blade, do:
+5. On the **Add** blade, do:
 
 	![Known Networks](./media/active-directory-known-networks-azure-portal/04.png)
 
