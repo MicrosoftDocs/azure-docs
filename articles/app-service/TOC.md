@@ -1,24 +1,30 @@
-# Overview
-## [What is App Service](app-service-value-prop-what-is.md)
-## [App Service on Linux](app-service-linux-readme.md)
-
 # Quickstarts
-## Web
+## C#/.NET
+## ASP.NET Core
+## Java
+## Node.js
+## PHP
+## Python
+## Docker Containers
 
-## Mobile
-
-## API
-
-# How-To Guides
-
-# APIs and Reference
+# Overview
 
 # Concepts
-## Platform as a Service
-
+## App Service
 ## App Service Plan
+## App Service Environment
+## Deployment Slots
+## Extensibility
+### API
+### Site Extensions
 
-## Site
+# How-To Guides
+## Developing on App Service
+## Deploying to Azure
+## Configure Runtime
+## Configure Web Server
+## Application Configuration
+## Administrating an App Service
 
 # Tutorials
 

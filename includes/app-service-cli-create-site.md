@@ -1,9 +1,9 @@
 ## Create an App Service Site with Azure CLI 2.0
 
-> [NOTE]
+> [!NOTE]
 > This article assumes that you have followed the [installation steps](https://github.com/azure/azure-cli#installation) for the Azure CLI 2.0.
 
-> [TIP]
+> [!TIP]
 > If you are familiar with Docker, you can use the [Azure CLI 2.0 Docker container](https://github.com/azure/azure-cli#docker-versioned) to complete these steps.
 
 ### Configuring Azure CLI 2.0
@@ -45,7 +45,7 @@ az login
 To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code ######### to authenticate.
 ```
 
-> [TIP]
+> [!TIP]
 > There is a possible scenario where you may have multiple Azure Subscriptions in your account. You can list these subscriptions using the following command:
 > ```cli
 > az account list --query '[].{Name:name,SubscriptionId:id}' -o table
@@ -58,7 +58,7 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 
 ### Create a Resource Group
 
-> [Tip]
+> [!TIP]
 > In order to successfully deploy an Resource Group, ensure that you are selecting a valid region. You can list available regions using the following command:
 >
 > ```cli
@@ -76,7 +76,7 @@ az group create -n <resource-group-name> -l <resource-group-location>
 
 ### Create an App Service Plan
 
-> [Tip]
+> [!TIP]
 > In order to successfully deploy an App Service App, ensure that you are selecting a valid region. You can list available regions using the following command:
 >
 > ```cli
