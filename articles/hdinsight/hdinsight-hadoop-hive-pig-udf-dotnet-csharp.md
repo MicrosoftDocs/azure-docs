@@ -189,12 +189,10 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
     The `DEFINE` statement creates an alias of `streamer` for the pigudf.exe applications, and `SHIP` distributes it across the nodes in the cluster. Later, `streamer` is used with the `STREAM` operator to process the single lines contained in LOG and return the data as a series of columns.
 
-> [!NOTE]
-> The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and ' (single quote) when used with `SHIP`.
->
->
+    > [!NOTE]
+    > The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and ' (single quote) when used with `SHIP`.
 
-1. After entering the last line, the job should start. Eventually it will return output similar to the following:
+4. After entering the last line, the job should start. Eventually it will return output similar to the following:
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)

@@ -30,8 +30,6 @@ Before you begin this tutorial, you must have the following:
 * **An HDInsight cluster**. See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md) for steps on creating a new Linux-based HDInsight cluster.
 * **Azure SQL Database**. You will use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 * **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## Download the flight data
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].

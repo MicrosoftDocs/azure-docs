@@ -34,8 +34,6 @@ To complete the steps in this article, you will need the following:
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **A workstation with Azure PowerShell**.
-  
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a id="powershell"></a>Run a MapReduce job using Azure PowerShell
 

@@ -95,8 +95,6 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 * Are ran with **root level privileges** on the cluster nodes.
 * Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
 
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
-
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
 
 > [!IMPORTANT]
