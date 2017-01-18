@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/17/2017
 ms.author: bwren
 
 ---
@@ -54,28 +54,26 @@ The core functionality of OMS is provided by a set of services that run in Azure
 | ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | Provide high availability for critical applications. |
 
 ## Log Analytics
-Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
-
- ![Log Analytics](media/operations-management-suite-overview/overview-log-analytics.png) 
+[Log Analytics](../log-analytics/log-analytics-overview.md) provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
 
 ### Collecting data
 There are a variety of ways that you can get data into the repository for Log Analytics to analyze.
 
-- **Windows or Linux computers and virtual machines.**  You install the Microsoft Monitoring Agent on Windows and Linux computers or virtual machines that you want to collect data from.  The agent will automatically download from Log Analytics configuration that defines events and performance data to collect.  You can easily install the agent on virtual machines running in Azure using the Azure portal.  If you have an existing Operations Manager environment, you can connect the management group to Log Analytics and automatically start collecting data from all existing agents.
-- **Azure services.**  Log Analytics collects telemetry from Azure Diagnostics and Azure Monitoring into the repository so that you can monitor Azure resources.
-- **Data Collector API.**  Log Analytics has a REST API for populating data from any client.  This allows you to collect data from third party applications or implement custom management scenarios.  A common method is to use a runbook in Azure Automation to collect data and then use the Data Collector API to write it to the repository.
+- **Windows or Linux computers and virtual machines.**  You install the Microsoft Monitoring Agent on [Windows](h../log-analytics/log-analytics-windows-agents.md) and [Linux](../log-analytics/log-analytics-linux-agents) computers or virtual machines that you want to collect data from.  The agent will automatically download from Log Analytics configuration that defines events and performance data to collect.  You can easily install the agent on virtual machines running in Azure using the Azure portal.  If you have an existing Operations Manager environment, you can connect the management group to Log Analytics and automatically start collecting data from all existing agents.
+- **Azure services.**  Log Analytics collects telemetry from [Azure Diagnostics and Azure Monitoring](../log-analytics/log-analytics-azure-storage.md) into the repository so that you can monitor Azure resources.
+- **Data Collector API.**  Log Analytics has a [REST API for populating data from any client](../log-analytics/log-analytics-data-collector-api.md).  This allows you to collect data from third party applications or implement custom management scenarios.  A common method is to use a runbook in Azure Automation to collect data and then use the Data Collector API to write it to the repository.
 
 ### Analyzing Data
 Log Analytics includes a powerful query language to extract data stored in the repository.  Since data from all sources are stored as records, you can analyze data from multiple sources in a single query.
   
 In addition to ad hoc analysis, Log Analytics provides multiple ways to leverage data from a query.
 
-- **Views and dashboards.**  Views and dashboards visualize the results of a query in the portal.  Management solutions will typically include views that analyze the data from the solution.  You can also create your own custom views to analyze data and make it readily available in your custom portal.
-- **Export.**  You have the option to export the results of any query so that you can analyze it outside of Log Analytics.  You can even schedule a regular export to Power BI which provides significant visualization and analysis capabilities.
-- **Log Search API.**  Log Analytics has a REST API for collecting data from any client.  This allows you to programmatically work with data collected in the repository or access it from another monitoring tool.
+- **Views and dashboards.**  [Views](..log-analytics/log-analytics-view-designer.md) and [dashboards](../log-analytics/log-analytics-dashboards.md) visualize the results of a query in the portal.  Management solutions will typically include views that analyze the data from the solution.  You can also create your own custom views to analyze data and make it readily available in your custom portal.
+- **Export.**  You have the option to export the results of any query so that you can analyze it outside of Log Analytics.  You can even schedule a regular export to [Power BI](../log-analytics/log-analytics-powerbi.md) which provides significant visualization and analysis capabilities.
+- **Log Search API.**  Log Analytics has a [REST API for collecting data from any client](../log-analytics/log-analytics-log-search-api.md).  This allows you to programmatically work with data collected in the repository or access it from another monitoring tool.
 
 ### Alerting
-Log Analytics can proactively alert you or take corrective action when it detects an issue.  Like all other analysis in Log Analytics, this is done with a log search.  This search runs on a regular schedule, and an alert is created if the results match particular criteria.
+Log Analytics can [proactively alert](../log-analytics/log-analytics-alerts.md) you or take corrective action when it detects an issue.  Like all other analysis in Log Analytics, this is done with a log search.  This search runs on a regular schedule, and an alert is created if the results match particular criteria.
 
 ![Log Analytics alerts](media/operations-management-suite-overview/overview-alerts.png)
 
@@ -86,23 +84,23 @@ In addition to creating an alert record in the Log Analytics repository, alerts 
 - **Webhook.**  An alert can start a webhook and pass it data from the results of the log search.  This allows integration with external services such as an alternate alerting system, or it may attempt to take corrective action for an external web site.
 
 ## Azure Automation
-Azure Automation provides process automation and configuration management to OMS.  It automates manual processes and helps to enforce configurations for physical and virtual computers.  
+[Azure Automation](../automation/automation-intro.md) provides process automation and configuration management to OMS.  It automates manual processes and helps to enforce configurations for physical and virtual computers.  
 
 ### Process Automation
-Azure Automation automates manual processes using runbooks which are based on PowerShell script or PowerShell workflow.  It also includes assets supporting runbooks such as variables that can be shared between multiple runbooks and credentials and connections that allow you to store encrypted information that might be required for a runbook for authentication.
+Azure Automation automates manual processes using [runbooks](../automation/automation-runbook-types.md) which are based on PowerShell script or PowerShell workflow.  It also includes assets supporting runbooks such as variables that can be shared between multiple runbooks and credentials and connections that allow you to store encrypted information that might be required for a runbook for authentication.
 Runbooks offer process automation for the other services in the suite.  Since each of the other services can be accessed with PowerShell or through a REST API, you can create runbooks to perform such functions as collecting management data in Log Analytics or initiating a backup with Azure Backup.
 
 #### Accessing resources
-Since runbooks are based on PowerShell, they can manage any resource that can be accessed with PowerShell cmdlets.  When you load a module into your Automation account, it becomes available to all runbooks in that account. 
+Since runbooks are based on PowerShell, they can manage any resource that can be accessed with PowerShell cmdlets.  When you [load a module](../automation/automation-integration-modules.md) into your Automation account, it becomes available to all runbooks in that account. 
  
 When runbooks run in the cloud, they can access any resources accessible from the cloud.  This could be resources in your Azure subscription, in another cloud such as Amazon Web Services (AWS), or a service accessible through a REST API.  Runbooks in the cloud don’t run under any credentials, but they can leverage Automation assets such as credentials, connections, and certificates to authenticate to resources they access.
 
-Resources in your data center most likely cannot be accessed from a runbook running in the cloud.  You can install one or more Hybrid Runbook Workers in your data center though to run runbooks that require access to local resources.  When you start a runbook, you specify whether it should run in the cloud or on a specific worker.
+Resources in your data center most likely cannot be accessed from a runbook running in the cloud.  You can install one or more [Hybrid Runbook Workers](../automation/automation-hybrid-runbook-worker.md) in your data center though to run runbooks that require access to local resources.  When you start a runbook, you specify whether it should run in the cloud or on a specific worker.
 
 ![Azure Automation runbooks](media/operations-management-suite-overview/overview-runbooks.png)
 
 #### Starting a runbook
-Runbooks can be started through a number of methods so that they can be included in a variety of management scenarios.  
+Runbooks can be [started through a number of methods](../automation/automation-starting-a-runbook.md) so that they can be included in a variety of management scenarios.  
 
 - **Azure Portal.**  Like other Azure services, Azure Automation can be managed from the Azure Portal.  In addition to starting runbooks, you can import them or author your own.
 - **Scheduled.**  You can schedule runbooks to start at regular intervals.  This allows you to automatically repeat a regular management process or collect data to Log Analytics.
@@ -116,7 +114,7 @@ PowerShell Desired State Configuration (DSC) is a management platform in Windows
 ![Azure Automation DSC](media/operations-management-suite-overview/overview-dsc.png)
 
 ## Azure Backup and Azure Site Recovery
-Azure Backup and Azure Site Recovery contribute to business continuity and disaster recovery.  They each have unique features that help you to ensure that applications remain available when outages occur and return to normal operations when systems come back online.  Both services contribute to the RPOs (recovery point objective) RTOs (recovery time objective) defined for your organization. Your RPO defines the acceptable limit in which data isn’t available during an outage, and the RTO limits the acceptable amount of time in which a service or app isn’t available during an outage.
+Azure Backup and Azure Site Recovery contribute to business continuity and disaster recovery.  They each have features that help you to ensure that applications remain available when outages occur and return to normal operations when systems come back online.  Both services contribute to therecovery point objectives (RPOs) and recovery time objectives (RTOs) defined for your organization. Your RPO defines the acceptable limit in which data isn’t available during an outage, and the RTO limits the acceptable amount of time in which a service or app isn’t available during an outage.
 
 ### Azure Backup
 Azure Backup provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
@@ -215,4 +213,5 @@ The Security & Compliance offering allows you to prevent, detect, and respond to
 * Learn about [Azure Automation](../automation/automation-intro.md).
 * Learn about [Azure Backup](http://azure.microsoft.com/documentation/services/backup).
 * Learn about [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery).
+* Discover the [solutions that are available](../log-analytics/log-analytics-add-solutions.md) in the different OMS offerings. 
 
