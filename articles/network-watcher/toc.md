@@ -2,6 +2,7 @@
 ## [What is Network Watcher?](network-watcher-monitoring-overview.md)
 ## [Packet capture](network-watcher-packet-capture-overview.md)
 ## [Security group view](network-watcher-security-group-view-overview.md)
+## [Topology](network-wtcher-topology-overview.md)
 ## [IP flow verify](network-watcher-ip-flow-verify-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [NSG Flow logging](network-watcher-nsg-flow-logging-overview.md)
@@ -21,6 +22,7 @@
 ## [Analyze packet captures](network-watcher-deep-packet-inspection.md)
 ## [Monitor with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Automate NSG auditing](network-watcher-nsg-auditing.md)
+## [Review your network topology with Visio](network-watcher-topology-visio-rest.md)
 ## [Troubleshoot VPN Gateway and connections](network-watcher-troubleshoot-manage-rest.md)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
