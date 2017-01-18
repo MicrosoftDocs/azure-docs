@@ -61,7 +61,7 @@ The following table identifies which management solutions belong to each Operati
 The table also identifies the pricing tiers that are available for each management solution. 
 All solutions in the following table are available from within the Azure portal and the solutions gallery in the Log Analytics portal.
 
-| Management Solution    																	| Offer                                     								| Pricing Tiers<sup>1</sup>													| Notes | 
+| Management solution    																	| Offer                                     								| Pricing tiers<sup>1</sup>													| Notes | 
 | ---                    																	| ---                                       								| ---           																							| ---   |
 | Activity Log Analytics 																	| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| 90 days of data are available free of charge |
 | [AD Assessment](log-analytics-ad-assessment.md)          									| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
@@ -94,13 +94,13 @@ All solutions in the following table are available from within the Azure portal 
 | [VMware Monitoring](log-analytics-vmware.md) <br>(Preview) 								| <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;Node&nbsp;(OMS) 	| |
 | Wire Data 2.0<br>(Preview) 	  															| <ul><li>Insight and Analytics</li></ul> 					 				| Free<br> Per&nbsp;Node&nbsp;(OMS) 																		| Available in East US and West Europe |
 
-1. The *Standard* and *Premium (OMS)* pricing tiers are only available for customers who created their Log Analytics workspace prior to September 21, 2016.
+<sup>1</sup> The *Standard* and *Premium (OMS)* pricing tiers are only available for customers who created their Log Analytics workspace prior to September 21, 2016.
 
 ### Community provided management solutions
 
 Community provided solutions are available from the [Azure template gallery](https://azure.microsoft.com/resources/templates/?term=Per&nbsp;Node&nbsp;(OMS)) and direct from the authors.
 
-| Management Solution         		| Offer 																	| Pricing Tiers 						| Notes | 
+| Management solution         		| Offer 																	| Pricing tiers 						| Notes | 
 | ---                         		| ---       																| ---           						| ---   |
 | All community provided solutions  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul> 	| Free<br> Per&nbsp;Node&nbsp;(OMS) 	|	Requires your Log Analytics workspace to be linked to an Automation account |
 
@@ -121,7 +121,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 
 ### Insight & Analytics / Log Analytics 
 
-| solution | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
+| Management solution | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Activity Log Analytics | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | on notification |
 | AD Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 days |
@@ -149,7 +149,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 
 ### Automation & Control
 
-| solution | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
+| Management solution | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 | Change Tracking |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
@@ -158,7 +158,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 
 ### Security & Compliance
 
-| solution type | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
+| Management solution | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Antimalware Assessment |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |hourly |
 | Security and Audit<sup>1</sup> | Windows and Linux | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Some](./media/log-analytics-add-solutions/oms-bullet-yellow.png) | various |
@@ -174,7 +174,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 
 ### Protection & Recovery
 
-| solution | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
+| Management solution | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Backup | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
 | Azure Site Recovery | Azure | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | n/a |
@@ -183,7 +183,7 @@ The Log Analytics Windows agent and System Center Operations Manager agent are e
 ### Data sources
 
 
-| data source | platform | Windows Agent | Operations Manager agent | Azure Storage | Operations Manager required? | Operations Manager agent data sent via management group | collection frequency |
+| Data source | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ETW |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutes |
 | IIS Logs |Windows |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Yes](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minutes |
