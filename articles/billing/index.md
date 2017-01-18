@@ -95,13 +95,4 @@ Learn how to understand your Azure billing, and monitor usage and costs. Tutoria
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Billing Documentation
-        </div>
-    </a>
-</div>

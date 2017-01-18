@@ -110,7 +110,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
 
-The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight.
+The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31st 2017, you cannot resize a cluster after it's deprecation date. 
 
 > [!NOTE]
 > Windows-based HDInsight cluster (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.

@@ -41,17 +41,22 @@ When you finish this tutorial, you will have a sample database and a blank datab
 
 **Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
 
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
+>
+
 ## Prerequisites
 
 * You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> This tutorial helps you to learn the content of these learn topics: [SQL Database server overview](sql-database-server-overview.md), [SQL database overview](sql-database-overview.md), and [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md).
+>  
 
-### Sign in by using your existing account
+
+### Sign in to the Azure portal using your Azure account
 Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
@@ -100,7 +105,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![server location](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-get-started-security.md).
+    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Click **Create**.
@@ -180,7 +185,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![query master database system objects](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > To explore SQL security, see [Get Started with SQL security](sql-database-get-started-security.md)
+    > To explore SQL security, see [Get Started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## Create new database in the Azure portal using Adventure Works LT sample
@@ -288,7 +293,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 ## Next steps
 Now that you've completed this tutorial, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-get-started-security.md).
+* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-control-access-sql-authentication-get-started.md).
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).

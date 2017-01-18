@@ -74,7 +74,7 @@ A preliminary index is typically inferred from the dataset. Add, edit, or delete
 4. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
    
    * Click **Searchable** to designate full-text search on the field and enable the Analyzer drop-down list.
-   * Choose the analyzer you want. See [Create an index for documents in multiple language](search-language-support.md) for details.
+   * Choose the analyzer you want. See [Create an index for documents in multiple languages](search-language-support.md) for details.
 5. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
 
 ## Import your data
@@ -96,7 +96,7 @@ The portal includes **Search Explorer** so that you can query an index without h
 
 The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). Results are returned in JSON so that you can inspect the entire document.
 
-## Next step
+## Next steps
 Review these links to learn more about indexers:
 
 * [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

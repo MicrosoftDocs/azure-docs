@@ -100,13 +100,3 @@ Learn how to use Functions to develop and deploy small pieces of code in the lan
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Functions Documentation
-        </div>
-    </a>
-</div>
