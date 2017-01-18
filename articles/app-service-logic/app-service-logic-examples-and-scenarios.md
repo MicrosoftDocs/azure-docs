@@ -58,7 +58,7 @@ The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) conta
 * [Until](app-service-logic-loops-and-scopes.md)
 
 ## Integrating with Azure Functions
-* [Azure Functions integration](app-service-logic-azure-functions.md)
+* [Azure Functions integration](../logic-apps/logic-apps-azure-functions.md)
 
 ### Scenarios
 * [Azure Function as a Service Bus trigger](app-service-logic-scenario-function-sb-trigger.md)
