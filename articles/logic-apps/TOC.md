@@ -5,7 +5,7 @@
 
 # Get started
 ## [Create a logic app](logic-apps-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Use logic app features](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Use logic app features](logic-apps-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Templates overview](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Create an app using a template](logic-apps-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Examples and scenarios](logic-apps-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
