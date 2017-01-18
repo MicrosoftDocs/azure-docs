@@ -85,7 +85,7 @@ A valid IP range takes the format `192.168.1.1/255`.  If you want the logic app 
 
 #### Setting IP ranges on the resource definition
 
-If you are using a [deployment template](app-service-logic-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
+If you are using a [deployment template](../logic-apps/logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
 
 ``` json
 {
@@ -138,7 +138,7 @@ This setting can be configured within the resource settings of the Azure portal:
 
 #### Setting IP ranges on the resource definition
 
-If you are using a [deployment template](app-service-logic-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
+If you are using a [deployment template](../logic-apps/logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
 
 ``` json
 {
@@ -271,7 +271,7 @@ Many of the managed connectors from logic apps provide secure connectivity to on
 You can use the on-premises hybrid connection feature for Azure API and Web apps to communicate on-premises.  Details on hybrid connections and how to configure can be found [in this article](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## Next steps
-[Create a deployment template](app-service-logic-create-deploy-template.md)  
+[Create a deployment template](../logic-apps/logic-apps-create-deploy-template.md)  
 [Exception handling](app-service-logic-exception-handling.md)  
 [Monitor your logic apps](app-service-logic-monitor-your-logic-apps.md)  
 [Diagnosing logic app failures and issues](app-service-logic-diagnosing-failures.md)  

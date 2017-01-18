@@ -132,6 +132,6 @@ You can leverage this telemetry from the Event Hub or Storage into other service
 
 ## Next Steps
 * [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
-* [Creating a Logic App Deployment Template](app-service-logic-create-deploy-template.md)
+* [Creating a Logic App Deployment Template](../logic-apps/logic-apps-create-deploy-template.md)
 * [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
 

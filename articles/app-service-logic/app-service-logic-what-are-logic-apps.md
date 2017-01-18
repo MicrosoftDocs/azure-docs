@@ -39,7 +39,7 @@ As mentioned, with Logic Apps, you can automate business processes. Here are a c
 * Process and route orders across on-premises and cloud systems
 * Monitor all tweets about a certain topic, analyze the sentiment, and create alerts and tasks for items needing followup.
 
-Scenarios such as these can be configured all from the visual designer and without writing a single line of code. Get started [building your logic app now][create].  Once written - a logic app can be [quickly deployed and reconfigured](app-service-logic-create-deploy-template.md) across multiple environments and regions.
+Scenarios such as these can be configured all from the visual designer and without writing a single line of code. Get started [building your logic app now][create].  Once written - a logic app can be [quickly deployed and reconfigured](../logic-apps/logic-apps-create-deploy-template.md) across multiple environments and regions.
 
 ## Why Logic Apps?
 Logic Apps brings speed and scalability into the enterprise integration space.  The ease of use of the designer, variety of available triggers and actions, and powerful management tools make centralizing your APIs simpler than ever.  As businesses move towards digitalization, Logic Apps allows you to connect legacy and cutting-edge systems together.

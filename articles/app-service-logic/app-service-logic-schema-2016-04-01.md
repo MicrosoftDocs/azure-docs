@@ -150,7 +150,7 @@ Actions can now have an additional property (sibling to `runAfter` and `type`) c
 
 ## Next Steps
 * [Use the logic app workflow definition](../logic-apps/logic-apps-author-definitions.md)
-* [Create a logic app deployment template](app-service-logic-create-deploy-template.md)
+* [Create a logic app deployment template](../logic-apps/logic-apps-create-deploy-template.md)
 
 <!-- Image references -->
 [1]: ./media/app-service-logic-schema-2016-04-01/upgradeButton.png

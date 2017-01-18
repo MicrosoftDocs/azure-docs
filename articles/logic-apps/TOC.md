@@ -57,7 +57,7 @@
 ### [Install](../app-service-logic/app-service-logic-gateway-install.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ## Automate
-### [Automation template](../app-service-logic/app-service-logic-create-deploy-template.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Automation template](logic-apps-create-deploy-template.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Publish from VS](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ## Manage
