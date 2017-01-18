@@ -54,6 +54,7 @@ To enable your app to authenticate users and get tokens, you'll first need to re
   * Click the application and choose **Manifest** to open the inline manifest editor.
   * Locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
   * Click **Save** to save the manifest.
+8. Grant permissions across your tenant for your application. Go to Settings -> Properties -> Required Permissions, and click the **Grant Permissions** button in the top bar. Click **Yes** to confirm.
 
 ## 2. Install ADAL & Configure the SPA
 Now that you have an application in Azure AD, you can install adal.js and write your identity-related code.
