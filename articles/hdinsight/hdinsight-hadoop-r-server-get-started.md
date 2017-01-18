@@ -519,37 +519,34 @@ Microsoft R Server is currently not managed through Yarn. If the worker nodes ar
  
 Steps to decommissioning worker nodes:
  
-•	Login to HDI cluster's Ambari console and click on "hosts" tab
-•	Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.
-•	![decommision worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)
-•	Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
-•	Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
-•	Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
-•	Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Stop"
-•	Select "Actions" > "Selected Hosts" > "Hosts" > click on "Stop All Components"
-•	Unselect the worker nodes and Select the head nodes
-•	Select "Actions" > "Selected Hosts" > "Hosts" > "Restart All Components
+* Login to HDI cluster's Ambari console and click on "hosts" tab
+* Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.
+![decommision worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)
+* Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
+* Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
+* Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
+* Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Stop"
+* Select "Actions" > "Selected Hosts" > "Hosts" > click on "Stop All Components"
+* Unselect the worker nodes and Select the head nodes
+* Select "Actions" > "Selected Hosts" > "Hosts" > "Restart All Components
  
  
 2.	Configure Compute nodes on each decommissioned worker node(s)
  
-SSH into each decommissioned worker node
-Run admin utility using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`
-Enter "1" to select option "1. Configure R Server for Operationalization"
-Enter "c" to select option "C. Compute node". This will configure compute node on the worker node.
-Exit the Admin Utility
+* SSH into each decommissioned worker node
+* Run admin utility using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`
+* Enter "1" to select option "1. Configure R Server for Operationalization"
+* Enter "c" to select option "C. Compute node". This will configure compute node on the worker node.
+* Exit the Admin Utility
  
 3.	Add compute nodes details on Web Node
 Once all decommissioned worker nodes have been configured to run compute node, come back on the Edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
  
-SSH into the Edge node
-Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`
-Look for the "Uris" section, and add worker node's IP and port details.
+* SSH into the Edge node
+* Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`
+* Look for the "Uris" section, and add worker node's IP and port details.
 
 ![decommision worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
-
-
-    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
 
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
