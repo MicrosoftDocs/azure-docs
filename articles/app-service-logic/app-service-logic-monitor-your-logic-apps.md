@@ -131,7 +131,7 @@ Tracked properties can be added onto actions in the workflow definition to track
 You can leverage this telemetry from the Event Hub or Storage into other services like [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), and [Power BI](https://powerbi.com) to have real time monitoring of your integration workflows.
 
 ## Next Steps
-* [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
+* [Common examples and scenarios for logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Creating a Logic App Deployment Template](../logic-apps/logic-apps-create-deploy-template.md)
 * [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

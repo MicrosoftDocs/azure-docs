@@ -54,7 +54,7 @@ Connections can be viewed and managed in Azure by clicking **Browse** and select
 
 ## Next Steps
 * [Create your first logic app](../logic-apps/logic-apps-create-a-logic-app.md)
-* [Learn common uses and examples of logic apps](../app-service-logic/app-service-logic-examples-and-scenarios.md)
+* [Learn common uses and examples of logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Get started with enterprise integration triggers and actions](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!--Image References -->

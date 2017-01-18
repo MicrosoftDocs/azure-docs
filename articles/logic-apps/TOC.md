@@ -8,7 +8,7 @@
 ## [Use logic app features](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Templates overview](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Create an app using a template](logic-apps-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Examples and scenarios](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Examples and scenarios](logic-apps-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Service Bus scenario](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [B2B processing](logic-apps-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [XML processing](logic-apps-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)

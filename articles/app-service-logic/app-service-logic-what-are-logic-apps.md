@@ -63,7 +63,7 @@ The following are some of the key pieces that comprise the Logic Apps experience
 
 ## Getting Started
 * To get started with Logic Apps, follow the [create a Logic App][create] tutorial.  
-* [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+* [View common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 

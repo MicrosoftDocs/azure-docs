@@ -116,7 +116,7 @@ If you have an existing Resource Group project, then adding a logic app to it, o
 
 ## Next Steps
 * To get started with Logic Apps, follow the [create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) tutorial.  
-* [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
+* [View common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Learn How to Integrate your systems with Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
 

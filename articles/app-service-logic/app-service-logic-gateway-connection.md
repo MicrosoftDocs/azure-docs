@@ -54,7 +54,7 @@ Now that your Azure subscription is associated with an instance of the on-premis
 The connection should now be successfully configured for use in your logic app.  
 
 ## Next Steps
-* [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
+* [Common examples and scenarios for logic apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!-- Image references -->

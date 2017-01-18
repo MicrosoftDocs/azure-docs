@@ -466,7 +466,7 @@ The expression in the preceding code sample is checking for the *Create_NewPatie
 The source code for the Logic Apps exception management API application is available in this [GitHub repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
 
 ## Next steps
-* [View more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
+* [View more Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn about Logic Apps monitoring tools](app-service-logic-monitor-your-logic-apps.md)
 * [Create a Logic App automated deployment template](../logic-apps/logic-apps-create-deploy-template.md)
 
