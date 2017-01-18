@@ -31,7 +31,6 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
 
-* **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
     > [!IMPORTANT]
@@ -40,6 +39,10 @@ Before you begin this tutorial, you must have the following:
     > Please follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 * **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+
+  > [!IMPORTANT]
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **An Azure SQL database**: This will be created using the steps in this document
 
 ## Example workflow

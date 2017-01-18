@@ -23,6 +23,9 @@ Hive and Pig are great for working with data in Azure HDInsight, but sometimes y
 
 In this document, learn how to use C# with Hive and Pig.
 
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## Prerequisites
 * Windows 7 or newer.
 * Visual Studio with the following versions:
@@ -38,8 +41,7 @@ The .NET common language runtime (CLR) and frameworks are installed by default o
 
 > [!NOTE]
 > Currently there is no support for running .NET Framework UDFs on Linux-based HDInsight clusters.
->
->
+
 
 ## .NET and streaming
 Streaming involves Hive and Pig passing data to an external application over stdout, and receiving the results over stdin. For C# applications, this is most easily accomplished via `Console.ReadLine()` and `Console.WriteLine()`.
