@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: elioda
 
 ---
-# How to send cloud-to-device messages with IoT Hub (.NET)
+# Send cloud-to-device messages with IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 
 ---
 # Update Media Services after rolling storage access keys
@@ -40,7 +40,7 @@ Update Media Services to use the secondary storage access key. You can use one o
 * Use the Azure portal: To find the Name and Key values, go to the Azure portal and select your account. The Settings window appears on the right. In the Settings window, select Keys. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
 * Use Media Services management REST API.
 
-The following code example shows how to construct the https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+The following code example shows how to construct the https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](https://docs.microsoft.com/rest/api/media/management/how-to-use-media-services-management-rest-api).
 
     public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
     {
@@ -100,20 +100,20 @@ Note that when you update (or recreate) a SAS locator, the URL will always chang
 
 The .NET example below shows how to recreate a locator with the same ID.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
-{
-// Save properties of existing locator.
-var asset = locator.Asset;
-var accessPolicy = locator.AccessPolicy;
-var locatorId = locator.Id;
-var startDate = locator.StartTime;
-var locatorType = locator.Type;
-var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// Delete old locator.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-if (locator.ExpirationDateTime <= DateTime.UtcNow)
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
         {
             throw new Exception(String.Format(
                 "Cannot recreate locator Id={0} because its locator expiration time is in the past",

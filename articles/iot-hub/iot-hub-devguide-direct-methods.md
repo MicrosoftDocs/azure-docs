@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 
 ---
-# Understand direct methods
+# Direct methods
 ## Overview
 IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 
@@ -57,7 +57,7 @@ Direct method invocations on a device are HTTP calls which comprise:
 ```
 {
     "methodName": "reboot",
-    "timeoutInSeconds": 200,
+    "responseTimeoutInSeconds": 200,
     "payload": {
         "input1": "someInput",
         "input2": "anotherInput"
@@ -65,7 +65,7 @@ Direct method invocations on a device are HTTP calls which comprise:
 }
 ```
 
-  Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
 
 ### Response
 The back-end app receives a response which comprises:

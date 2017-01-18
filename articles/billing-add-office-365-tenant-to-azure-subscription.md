@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use an Office 365 tenant with an Azure subscription | Microsoft Docs
 description: Learn how to add an Office 365 directory (tenant) to an Azure subscription to make the association.
 services: ''
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/16/2016
 ms.author: cjiang
 
 ---

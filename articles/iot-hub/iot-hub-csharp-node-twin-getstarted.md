@@ -17,7 +17,7 @@ ms.date: 09/13/2016
 ms.author: elioda
 
 ---
-# How to get started with device twins (.NET/Node)
+# Get started with device twins (.NET/Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 At the end of this tutorial, you will have a .NET and a Node.js console app:
@@ -191,5 +191,5 @@ Use the following resources to learn how to:
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

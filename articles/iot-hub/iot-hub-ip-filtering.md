@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/05/2017
 ms.author: boltean
 
 ---
 
-# How to use IP filters
+# Use IP filters
 
 Security is an important aspect of any IoT solution based on Azure IoT Hub. Sometimes you need to blacklist or whitelist certain IP addresses as part of your security configuration. The _IP filter_ feature enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
 

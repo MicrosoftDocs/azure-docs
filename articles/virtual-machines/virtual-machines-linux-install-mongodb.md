@@ -1,5 +1,5 @@
 ---
-title: Install MongoDB on a Linux VM | Microsoft Docs
+title: Install MongoDB on a Linux VM in Azure | Microsoft Docs
 description: Learn how to install and configure MongoDB on a Linux virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 
 ---
@@ -32,10 +32,10 @@ This article requires the following:
 * the Azure CLI *must be* in Azure Resource Manager mode using `azure config mode arm`
 
 ## Manually install and configure MongoDB on a VM
-MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a `CoreOS` VM using an SSH key stored at `.ssh/azure_id_rsa.pub`. Answer the prompts for storage account name, DNS name, and admin credentials:
+MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a `CentOS` VM using an SSH key stored at `~/.ssh/id_rsa.pub`. Answer the prompts for storage account name, DNS name, and admin credentials:
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
+azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
 ```
 
 Log on to the VM using the public IP address displayed at the end of the preceding VM creation step:
@@ -124,7 +124,7 @@ azure group create --name myResourceGroup --location WestUS \
 Once the deployment is complete, SSH to the VM. Obtain the IP address of your VM using the `azure vm show` command as in the following example:
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
+azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
 Near the end of the output, the `Public IP address` is displayed. SSH to your VM with the IP address of your VM:

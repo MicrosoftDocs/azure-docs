@@ -34,14 +34,6 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
-## [Key Vault Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
-## [Key Vault Classic PowerShell Cmdlets](/powershell/servicemanagement/)
-## [Key Vault using Azure CLI](/cli/azure/)
-## [Key Vault in Java Reference](/java/api/)
-## [Key Vault Managed Reference API](/dotnet/api/) 
-## [Key Vault REST API Reference](/rest/api/keyvault) 
-## [Node.js for Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-
 # Related
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 ## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)

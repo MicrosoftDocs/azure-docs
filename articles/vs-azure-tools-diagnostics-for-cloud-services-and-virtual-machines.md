@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuring Diagnostics for Azure Cloud Services and Virtual Machines | Microsoft Docs
 description: Describes how to configure diagnostics information for debugging Azure cloude services and virtual machines (VMs) in Visual Studio.
 services: visual-studio-online
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---

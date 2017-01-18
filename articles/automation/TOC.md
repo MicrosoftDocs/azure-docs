@@ -23,6 +23,7 @@
 ### [Schedule a runbook](automation-scheduling-a-runbook.md)
 ### [Run runbooks in your datacenter](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
+### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
@@ -52,6 +53,7 @@
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
+### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Monitor](automation-manage-send-joblogs-log-analytics.md)
 ## Migrate
 ### [Migrate from Orchestrator](automation-orchestrator-migration.md)
@@ -61,10 +63,10 @@
 ### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [Classic PowerShell](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Classic REST](https://msdn.microsoft.com/library/azure/mt163781)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
 ## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  

@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: nberdy
 
 ---
-# Operations monitoring
+# IoT Hub operations monitoring
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
-IoT Hub monitors five categories of events:
+IoT Hub monitors six categories of events:
 
 * Device identity operations
 * Device telemetry
 * Cloud-to-device messages
 * Connections
 * File uploads
+* Message routing
 
 ## How to enable operations monitoring
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
@@ -139,6 +140,22 @@ Note that this category cannot catch errors that directly occur while the device
          "deviceId": "device-ID",
          "blobUri": "http//bloburi.com",
          "durationMs": 1234
+    }
+
+### Message routing
+The message routing category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as when a rule evaluates to "undefined", when IoT Hub marks an endpoint as dead, and any other errors received from an endpoint. Note that this category does not include specific errors about the messages themselves (such as device throttling errors), which are reported under the "device telemetry" category.
+		
+    {
+        "messageSizeInBytes": 1234,
+        "time": "UTC timestamp",
+        "operationName": "ingress",
+        "category": "routes",
+        "level": "Error",
+        "deviceId": "device-ID",
+        "messageId": "ID of message",
+        "routeName": "myroute",
+        "endpointName": "myendpoint",
+        "details": "ExternalEndpointDisabled"
     }
 
 ## Next steps

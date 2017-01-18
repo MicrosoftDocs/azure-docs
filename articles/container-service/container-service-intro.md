@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 12/20/2016
 ms.author: rogardle
 
 ---
@@ -26,7 +26,11 @@ preconfigured to run containerized applications. It uses an optimized configurat
 
 ![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster-new.png)
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm or Kubernetes so that you can scale these applications to thousands of containers, or even tens of thousands.
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS, Docker Swarm, or Kubernetes so that you can scale these applications to thousands of containers, or even tens of thousands.
+
+>[!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
 
 By using Azure Container Service, you can take advantage of the
 enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
@@ -96,11 +100,11 @@ Kubernetes is a popular open-source production grade container orchestrator tool
 
 It has a rich set of features including:
 * Horizontal scaling
-* Service dicscovery and load balancing
-* Secrets and configuration managment
+* Service discovery and load balancing
+* Secrets and configuration management
 * API based automated rollouts and rollbacks
 * Self-healing 
-* and many more..
+* and many more.
 
 
 

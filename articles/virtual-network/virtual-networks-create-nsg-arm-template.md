@@ -98,7 +98,7 @@ The sample template available in the public repository uses a parameter file con
 ## Deploy the ARM template by using PowerShell
 To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, follow the instructions in the [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) to install and configure it.
+1. If you have never used Azure PowerShell, follow the instructions in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install and configure it.
 2. Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 
 	```powershell

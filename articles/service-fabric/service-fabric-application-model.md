@@ -1,4 +1,4 @@
-﻿---
+---
 title: Service Fabric application model | Microsoft Docs
 description: How to model and describe applications and services in Service Fabric.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 1/05/2017
 ms.author: ryanwi
 
 ---
@@ -49,7 +49,7 @@ The following diagram shows the relationship between applications and service in
 ## Describe a service
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
@@ -67,11 +67,15 @@ The service manifest declaratively defines the service type and version. It spec
         <Program>MyServiceHost.exe</Program>
       </ExeHost>
     </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
   </CodePackage>
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
-~~~
+```
 
 **Version** attributes are unstructured strings and not parsed by the system. These are used to version each component for upgrades.
 
@@ -79,18 +83,20 @@ The service manifest declaratively defines the service type and version. It spec
 
 **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
+**EnvironmentVariables** provides a list of environment variables that are set for this code package. These can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
+
 **DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
 **ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
 
-~~~
+```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
-~~~
+```
 
 > [!NOTE]
 > A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
@@ -112,7 +118,7 @@ The application manifest declaratively describes the application type and versio
 
 Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ApplicationManifest
       ApplicationTypeName="MyApplicationType"
@@ -122,6 +128,8 @@ Thus, an application manifest describes elements at the application level and re
   <Description>An example application manifest</Description>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
+    <ConfigOverrides/>
+    <EnvironmentOverrides CodePackageRef="MyCode"/>
   </ServiceManifestImport>
   <DefaultServices>
      <Service Name="MyService">
@@ -131,11 +139,13 @@ Thus, an application manifest describes elements at the application level and re
      </Service>
   </DefaultServices>
 </ApplicationManifest>
-~~~
+```
 
 Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. These are also used to version each component for upgrades.
 
-**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type.
+**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type. 
+Within the ServiceManifestImport you can override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. 
+
 
 **DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
@@ -158,7 +168,7 @@ For more information about other features supported by application manifests, re
 ### Package layout
 The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -175,7 +185,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-~~~
+```
 
 The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with the names **MyCodeA** and **MyCodeB**, then two folders with the same names would contain the necessary binaries for each code package.
 
@@ -185,6 +195,9 @@ Typical scenarios for using **SetupEntryPoint** are when you need to run an exec
 * Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 * Setting up access control by installing security certificates.
 
+For more details on how to configure the **SetupEntryPoint** see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)  
+
+### Configure 
 ### Build a package by using Visual Studio
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
@@ -194,19 +207,26 @@ To create a package, right-click the application project in Solution Explorer an
 
 When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
+### Build a package by command line
+It is also possible to programmatically package up your application using `msbuild.exe`. Under the hood this is what Visual Studio is running so the output will be the same.
+
+```shell
+D:\Temp> msbuild HelloWorld.sfproj /t:Package
+```
+
 ### Test the package
 You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 
-~~~
+```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-~~~
+```
 
 This error shows that the *MySetup.bat* file referenced in the service manifest **SetupEntryPoint** is missing from the code package. After the missing file is added, the application verification passes:
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -228,16 +248,16 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 PS D:\temp>
-~~~
+```
 
 Once the application is packaged correctly and passes verification, then it's ready for deployment.
 
 ## Next steps
-[Deploy and remove applications][10]
+[Deploy and remove applications][10] describes how to use PowerShell to manage application instances
 
-[Managing application parameters for multiple environments][11]
+[Managing application parameters for multiple environments][11] describes how to configure parameters and environment variables for different application instances.
 
-[RunAs: Running a Service Fabric application with different security permissions][12]
+[Configure security policies for your application][12] describes how to run services under security policies to restrict access.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

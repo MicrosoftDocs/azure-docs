@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to quickly create application test environments using reusable artifacts. Tutorials, videos, and more show you how to create, manage, and secure labs.
 ---
 #Devtest Labs Documentation
 
-Azure Devtest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.
+Learn how to use Devtest Labs to quickly create application test environments using reusable artifacts. Tutorials, videos, and other documentation show you how to create, manage, and secure labs, and add and manage artifacts.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +26,7 @@ Azure Devtest Labs is a service that helps developers and testers quickly create
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=devtest-lab">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,13 +99,4 @@ Azure Devtest Labs is a service that helps developers and testers quickly create
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Devtest Lab Documentation
-        </div>
-    </a>
-</div>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure and Linux VM Storage | Microsoft Docs
 description: Describes Azure Standard and Premium Storage with Linux virtual machines.
 services: virtual-machines-linux

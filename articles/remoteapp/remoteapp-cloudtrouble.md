@@ -1,4 +1,3 @@
-
 ---
 title: Troubleshoot RemoteApp cloud collections - creation | Microsoft Docs
 description: Learn how to troubleshoot RemoteApp cloud collection creation failures

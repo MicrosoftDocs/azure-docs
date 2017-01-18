@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Development and test environments](solution-dev-test-environments.md)
+### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Manage
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -41,7 +42,7 @@
 ### [Create service principal with PowerShell](resource-group-authenticate-service-principal.md)
 ### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Create service principal with portal](resource-group-create-service-principal-portal.md)
-### [App access to subscriptions](resource-manager-api-authentication.md)
+### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Set management policies](resource-manager-policy.md)
 ### [Lock resources](resource-group-lock-resources.md)
 ### [Security considerations](best-practices-resource-manager-security.md)
@@ -64,6 +65,7 @@
 
 # Resources
 ## [Throttling requests](resource-manager-request-limits.md)
+## [Track asynchronous operations](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)

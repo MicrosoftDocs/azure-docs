@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 12/13/2016
 ms.author: mimig
 
 ---
@@ -34,7 +34,7 @@ DocumentDB supports both **user-defined** performance levels and **pre-defined**
 
 |Performance type|Details|Throughput|Storage|Version|APIs|
 |----------------|-------|----------|-------|-------|----|
-|User-defined performance|User sets throughput in units of 100 RU/s|Unlimited. <br><br>400 - 250,000 request units/s by default (higher by request)|Unlimited. <br><br>250 GB by default (higher by request)|V2|API 2015-12-16 and newer|
+|User-defined performance|User sets throughput in units of 100 RU/s|Unlimited|Unlimited|V2|API 2015-12-16 and newer|
 |Pre-defined performance|10 GB reserved storage.<br><br>S1 = 250 RU/s<br>S2 = 1000 RU/s<br>S3 = 2500 RU/s|2500 RU/s|10 GB|V1|Any|
 
 Throughput is reserved per collection, and is available for use by that collection exclusively. Throughput is measured in [request units (RUs)](documentdb-request-units.md), which identify the amount of resources required to perform various DocumentDB database operations.
@@ -166,7 +166,6 @@ Once you change a collection from S1, S2, or S3 to Standard, you cannot move bac
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
 
 * [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Managing DocumentDB capacity](documentdb-manage.md)
 * [Modeling data in DocumentDB](documentdb-modeling-data.md)
 * [Partitioning data in DocumentDB](documentdb-partition-data.md)
 * [Request units](http://go.microsoft.com/fwlink/?LinkId=735027)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to enable publishing of native client apps with proxy applications | Microsoft Docs
 description: Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
@@ -22,7 +22,7 @@ Azure Active Directory Application Proxy is widely used to publish browser appli
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-The recommended method to publish such applications is to use the Azure AD Authentication Library, which takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](active-directory-authentication-scenarios.md#native-application-to-web-api). The process for accomplishing this is as follows:
+The recommended method to publish such applications is to use the Azure AD Authentication Library, which takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). The process for accomplishing this is as follows:
 
 ## Step 1: Publish your application
 Publish your proxy application as you would any other application, assign users and give them premium or basic licenses. For more information see  [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
@@ -71,7 +71,7 @@ The variables should be replaced as follows:
 
 ![New native application configure page screenshot](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-For more information about the native application flow, see [Native application to web API](active-directory-authentication-scenarios.md#native-application-to-web-api).
+For more information about the native application flow, see [Native application to web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 ## See also
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)

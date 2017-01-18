@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: syamk
 
 ---
@@ -27,27 +27,11 @@ ms.author: syamk
 > 
 > 
 
-This Node.js tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
-
-We recommend getting started by watching the following video, where you will learn how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-Getting-started-with-Azure-DocumentDB-on-Nodejs-in-Linux/player]
-> 
-> 
-
-Then, return to this Node.js tutorial, where you'll learn the answers to the following questions:
-
-* How do I work with DocumentDB using the documentdb npm module?
-* How do I deploy the web application to Azure Websites?
-
-By following this database tutorial, you will build a simple web-based
-task-management application that allows creating, retrieving and
-completing of tasks. The tasks will be stored as JSON documents in Azure
-DocumentDB.
+This Node.js tutorial shows you how to use Azure DocumentDB to store and access data from a Node.js Express application hosted on Azure Websites. You build a simple web-based task-management application, a ToDo app, that allows creating, retrieving, and completing tasks. The tasks are stored as JSON documents in Azure DocumentDB. This tutorial walks you through the creation and deployment of the app and explains what's happening in each snippet.
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub].
+Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub]. Just read the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
 
 ## <a name="_Toc395783176"></a>Prerequisites
 > [!TIP]
@@ -58,7 +42,7 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
    OR
 
@@ -77,27 +61,26 @@ Let's start by creating a DocumentDB account. If you already have an account or 
 ## <a name="_Toc395783178"></a>Step 2: Learn to create a new Node.js application
 Now let's learn to create a basic Hello World Node.js project using the [Express](http://expressjs.com/) framework.
 
-1. Open your favorite terminal.
-2. Use the express generator to generate a new application called **todo**.
+1. Open your favorite terminal, such as the Node.js command prompt.
+2. Navigate to the directory in which you'd like to store the new application.
+3. Use the express generator to generate a new application called **todo**.
    
         express todo
-3. Open your new **todo** directory and install dependencies.
+4. Open your new **todo** directory and install dependencies.
    
         cd todo
         npm install
-4. Run your new application.
+5. Run your new application.
    
         npm start
-5. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
+6. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
+    Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
+
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
-The **package.json** file is one of the files created in the root of the
-project. This file contains a list of additional modules that are
-required for your Node.js application. Later, when you deploy this
-application to an Azure Websites, this file is used to determine
-which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
+The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to an Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
 
 1. Back in the terminal, install the **async** module via npm.
    
@@ -107,7 +90,25 @@ which modules need to be installed on Azure to support your application. We stil
         npm install documentdb --save
 3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
    
-    ![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
+        {
+          "name": "todo",
+          "version": "0.0.0",
+          "private": true,
+          "scripts": {
+            "start": "node ./bin/www"
+          },
+          "dependencies": {
+            "async": "^2.1.4",
+            "body-parser": "~1.15.2",
+            "cookie-parser": "~1.4.3",
+            "debug": "~2.2.0",
+            "documentdb": "^1.10.0",
+            "express": "~4.14.0",
+            "jade": "~1.11.0",
+            "morgan": "~1.7.0",
+            "serve-favicon": "~2.3.0"
+          }
+        }
    
     This tells Node (and Azure later) that your application depends on these additional modules.
 
@@ -115,7 +116,7 @@ which modules need to be installed on Azure to support your application. We stil
 That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure DocumentDB.
 
 ### Create the model
-1. In the project directory, create a new directory named **models**.
+1. In the project directory, create a new directory named **models** in the same directory as the package.json file.
 2. In the **models** directory, create a new file named **taskDao.js**. This file will contain the model for the tasks created by our application.
 3. In the same **models** directory, create another new file named **docdbUtils.js**. This file will contain some useful, reusable, code that we will use throughout our application. 
 4. Copy the following code in to **docdbUtils.js**
@@ -392,7 +393,7 @@ That takes care of all the initial setup and configuration, now let’s get down
         config.collectionId = "Items";
    
         module.exports = config;
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Portal](https://portal.azure.com):
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure portal](https://portal.azure.com).
 4. Save and close the **config.js** file.
 
 ### Modify app.js
@@ -403,10 +404,10 @@ That takes care of all the initial setup and configuration, now let’s get down
         var config = require('./config');
         var TaskList = require('./routes/tasklist');
         var TaskDao = require('./models/taskDao');
-3. This code defines the config file to be used, and proceeds to read values out of this file in to some variables we will use soon.
+3. This code defines the config file to be used, and proceeds to read values out of this file into some variables we will use soon.
 4. Replace the following two lines in **app.js** file:
    
-        app.use('/', routes);
+        app.use('/', index);
         app.use('/users', users); 
    
       with the following snippet:
@@ -429,64 +430,63 @@ That takes care of all the initial setup and configuration, now let’s get down
 Now let’s turn our attention to building the user interface so a user can actually interact with our application. The Express application we created uses **Jade** as the view engine. For more information on Jade please refer to [http://jade-lang.com/](http://jade-lang.com/).
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website. 
-2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following;
+2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following:
    
         doctype html
         html
-          head
-            title= title
-            link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-            link(rel='stylesheet', href='/stylesheets/style.css')
-          body
-            nav.navbar.navbar-inverse.navbar-fixed-top
-              div.navbar-header
-                a.navbar-brand(href='#') My Tasks
-            block content
-            script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-            script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+           head
+             title= title
+             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+             link(rel='stylesheet', href='/stylesheets/style.css')
+           body
+             nav.navbar.navbar-inverse.navbar-fixed-top
+               div.navbar-header
+                 a.navbar-brand(href='#') My Tasks
+             block content
+             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
     This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
     Save and close this **layout.jade** file.
 
-1. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
+3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
    
         extends layout
-   
         block content
-          h1 #{title}
-          br
-   
-          form(action="/completetask", method="post")
-            table.table.table-striped.table-bordered
-              tr
-                td Name
-                td Category
-                td Date
-                td Complete
-              if (typeof tasks === "undefined")
-                tr
-                  td
-              else
-                each task in tasks
-                  tr
-                    td #{task.name}
-                    td #{task.category}
-                    - var date  = new Date(task.date);
-                    - var day   = date.getDate();
-                    - var month = date.getMonth() + 1;
-                    - var year  = date.getFullYear();
-                    td #{month + "/" + day + "/" + year}
-                    td
-                      input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-            button.btn(type="submit") Update tasks
-          hr
-          form.well(action="/addtask", method="post")
-            label Item Name:
-            input(name="name", type="textbox")
-            label Item Category:
-            input(name="category", type="textbox")
-            br
-            button.btn(type="submit") Add item
+           h1 #{title}
+           br
+        
+           form(action="/completetask", method="post")
+             table.table.table-striped.table-bordered
+               tr
+                 td Name
+                 td Category
+                 td Date
+                 td Complete
+               if (typeof tasks === "undefined")
+                 tr
+                   td
+               else
+                 each task in tasks
+                   tr
+                     td #{task.name}
+                     td #{task.category}
+                     - var date  = new Date(task.date);
+                     - var day   = date.getDate();
+                     - var month = date.getMonth() + 1;
+                     - var year  = date.getFullYear();
+                     td #{month + "/" + day + "/" + year}
+                     td
+                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+             button.btn(type="submit") Update tasks
+           hr
+           form.well(action="/addtask", method="post")
+             label Item Name:
+             input(name="name", type="textbox")
+             label Item Category:
+             input(name="category", type="textbox")
+             br
+             button.btn(type="submit") Add item
    
     This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
@@ -495,7 +495,7 @@ Now let’s turn our attention to building the user interface so a user can actu
     The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
    
     This should be all that we need for our application to work.
-2. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
+4. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
    
         body {
           padding: 50px;
@@ -518,17 +518,22 @@ Now let’s turn our attention to building the user interface so a user can actu
     Save and close this **style.css** file.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
-1. To test the application on your local machine, run `npm start` in a terminal to start your application, and launch a browser with a page that looks like the image below:
+1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
    
     ![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
-2. Use the provided fields for Item, Item Name and Category to enter
-   information, and then click **Add Item**.
+
+    > [!TIP]
+    > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files is left justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, then refresh your browser window. 
+
+2. Use the Item, Item Name and Category fields to enter a new task and then click **Add Item**. This creates a document in DocumentDB with those properties. 
 3. The page should update to display the newly created item in the ToDo
    list.
    
     ![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
 4. To complete a task, simply check the checkbox in the Complete column,
-   and then click **Update tasks**.
+   and then click **Update tasks**. This updates the document you already created.
+
+5. To stop the application, press CTRL+C in the terminal window and then click **Y** to terminate the batch job.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application development project to Azure Websites
 1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) topic.
@@ -542,13 +547,16 @@ Now let’s turn our attention to building the user interface so a user can actu
    application and launch a browser where you can see your handy work
    running in Azure!
 
+    Congratulations! You have just built your first Node.js Express Web Application using Azure DocumentDB and published it to Azure Websites.
+
+    If you want to download or refer to the complete reference application for this tutorial, it can be downloaded from [GitHub][GitHub].
+
 ## <a name="_Toc395637775"></a>Next steps
-Congratulations! You have just built your first Node.js Express Web
-Application using Azure DocumentDB and published it to Azure Websites.
 
-The source code for the complete reference application can be downloaded from [GitHub][GitHub].
-
-For more information, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
+* Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
+* Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
+* Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+* Explore the [DocumentDB documentation](https://docs.microsoft.com/en-us/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

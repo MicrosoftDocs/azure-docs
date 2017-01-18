@@ -26,6 +26,10 @@
 ### [3: Ask the right question](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Predict an answer](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Copy other people's work](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [R quick start](machine-learning-r-quickstart.md)
+
+
 # How To
 ## Set up tools and utilities
 ### [Set up environments](machine-learning-data-science-environment-setup.md)
@@ -167,14 +171,14 @@
 #### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
 #### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md)
+
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell module for Machine Learning](machine-learning-powershell-module.md)
-## [Algorithm reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [R quick start](machine-learning-r-quickstart.md)
-## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [Management REST APIs](/rest/api/machinelearning/index)
+## [PowerShell](machine-learning-powershell-module.md)
+## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Related
+
 ## Cortana Intelligence Gallery
 ### [Overview](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Industries](machine-learning-gallery-industries.md)
@@ -188,7 +192,7 @@
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### APIs
-#### [Anomaly detection](machine-learning-apps-anomaly-detection.md)
+#### [Anomaly detection](machine-learning-apps-anomaly-detection-api.md)
 #### [Text analytics](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### Recommendations
@@ -205,7 +209,10 @@
 ##### [Overview](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Resources
+## [Machine Learning REST Error Codes](/machine-learning/machine-learning-web-service-error-codes)
+## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)

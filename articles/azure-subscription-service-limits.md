@@ -14,19 +14,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
-ms.author: btardif
+ms.date: 12/19/2016
+ms.author: byvinyal
 
 ---
 # Azure subscription and service limits, quotas, and constraints
-## Overview
-This document specifies some of the most common Microsoft Azure limits. This does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
+This document lists some of the most common Microsoft Azure limits, which are also sometimes called quotas. This document doesn't currently cover all Azure services. Over time, the list will be expanded and updated to cover more of the platform.
 
 Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
 
 > [!NOTE]
-> If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
+> If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
 > 
+> Free Trial subscriptions are not eligible for limit or quota increases. If you have a Free Trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](billing-upgrade-azure-subscription.md).
 > 
 
 ## Limits and the Azure Resource Manager
@@ -167,9 +167,7 @@ The following table shows the limits for Azure Biztalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### DocumentDB limits
-[!INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
-
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb/documentdb-increase-limits.md).
+DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale DocumentDB provides, please send email to askdocdb@microsoft.com.
 
 ### Mobile Engagement limits
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

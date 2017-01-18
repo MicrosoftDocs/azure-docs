@@ -1,4 +1,4 @@
-﻿---
+---
 title: Score Spark-built machine learning models | Microsoft Docs
 description: How to score learning models that have been stored in Azure Blob Storage (WASB).
 services: machine-learning
@@ -573,7 +573,7 @@ If you prefer a code free client experience, use the [Azure Logic Apps](https://
 * To bring up the **Logic Apps Designer**, enter the name of the Logic App and App Service Plan .
 * Select an HTTP action and enter the parameters shown in the following figure:
 
-![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
+![Logic Apps Designer](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
 ## What's next?
 **Cross-validation and hyperparameter sweeping**: See [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) on how models can be trained using cross-validation and hyper-parameter sweeping.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 
 ---
@@ -79,23 +79,35 @@ Each resource provider offers a set of resources and operations for working with
 
 Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources helps you define resources you want to deploy to Azure.
 
+You can see all resource providers through the portal. In the blade for your subscription, select **Resource providers**:
+
+![view resource providers](./media/resource-group-overview/view-resource-providers.png)
+
 You retrieve all resource providers with the following PowerShell cmdlet:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Or, with Azure CLI, you retrieve all resource providers with the following command:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 You can look through the returned list for the resource providers that you need to use.
 
 To get details about a resource provider, add the provider namespace to your command. The command returns the supported resource types for the resource provider, and the supported locations and API versions for each resource type. The following PowerShell cmdlet gets details about Microsoft.Compute:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Or, with Azure CLI, retrieve the supported resource types, locations, and API versions for Microsoft.Compute, with the following command:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 For more information, see [Resource Manager providers, regions, API versions, and schemas](resource-manager-supported-services.md).
 
@@ -106,35 +118,39 @@ To learn more about the format of the template and how you construct it, see [Au
 
 Resource Manager processes the template like any other request (see the image for [Consistent management layer](#consistent-management-layer)). It parses the template and converts its syntax into REST API operations for the appropriate resource providers. For example, when Resource Manager receives a template with the following resource definition:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 It converts the definition to the following REST API operation, which is sent to the Microsoft.Storage resource provider:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 How you define templates and resource groups is entirely up to you and how you want to manage your solution. For example, you can deploy your three tier application through a single template to a single resource group.
 
@@ -174,26 +190,32 @@ Resources do not need to reside in the same resource group to share a tag. You c
 
 The following example shows a tag applied to a virtual machine.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 To retrieve all the resources with a tag value, use the following PowerShell cmdlet:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Or, the following Azure CLI command:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 You can also view tagged resources through the Azure portal.
 
@@ -235,7 +257,7 @@ In some cases, you want to run code or script that accesses resources, but you d
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 ## Activity logs
-Resource Manager logs all operations that create, modify, or delete a resource. You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. To see the logs, select **Activity logs** in the **Settings** blade for a resource group. You can filter the logs by many different values including which user initiated the operation. For information about working with the activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
+Resource Manager logs all operations that create, modify, or delete a resource. You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. To see the logs, select **Activity logs** in the **Settings** blade for a resource group. You can filter the logs by many different values including which user initiated the operation. For information about working with the activity logs, see [View activity logs to manage Azure resources](resource-group-audit.md).
 
 ## Customized policies
 Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include diverse scenarios. You can enforce a naming convention on resources, limit which types and instances of resources can be deployed, or limit which regions can host a type of resource. You can require a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. 
@@ -244,17 +266,19 @@ You define policies with JSON and then apply those policies either across your s
 
 The following example shows a policy that ensures tag consistency by specifying that all resources include a costCenter tag.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 There are many more types of policies you can create. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 

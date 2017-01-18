@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: suchiagicha
+ms.author: suchia
 
 ---
 # Configuring FabricTransport settings for Reliable Actors
@@ -69,7 +69,7 @@ You can modify the default configuration of FabricTransport in following ways.
     If the client is not running as part of a service, you can create a "&lt;Client Exe Name&gt;.settings.xml" xml file in the same location where the client exe is present. Then add a TransportSettings section in that file. SectionName should be "TransportSettings."
 
   ```xml
-  <<?xml version="1.0" encoding="utf-8"?>
+  <?xml version="1.0" encoding="utf-8"?>
   <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Section Name="TransportSettings">
       <Parameter Name="SecurityCredentialsType" Value="X509" />

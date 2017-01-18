@@ -1,5 +1,5 @@
-﻿---
-title: Networking Infrastructure Guidelines | Microsoft Docs
+---
+title: Azure Networking Infrastructure Guidelines | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---
-# Networking infrastructure guidelines
+# Azure networking infrastructure guidelines
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 12/22/2016
 ms.author: jingwang
 
 ---
@@ -77,33 +77,33 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 
 | Geography of the destination data store | Region of the destination data store | Region used for data movement |
 |:--- |:--- |:--- |
-| United States | East US |East US |
-| . | East US 2 |East US 2 |
-| . | Central US |Central US |
-| . | North Central US |North Central US |
-| . | South Central US |South Central US |
-| . | West Central US |Central US |
-| . | West US |West US |
-| . | West US 2 |West US |
+| United States | East US | East US |
+| . | East US 2 | East US 2 |
+| . | Central US | Central US |
+| . | North Central US | North Central US |
+| . | South Central US | South Central US |
+| . | West Central US | West Central US |
+| . | West US | West US |
+| . | West US 2 | West US |
 | Canada | Canada East | Canada Central |
 | . | Canada Central | Canada Central |
-| Brazil | Brazil South |Brazil South |
-| Europe | North Europe |North Europe |
-| . | West Europe |West Europe |
-| Asia Pacific | Southeast Asia |Southeast Asia |
-| . | East Asia |Southeast Asia |
-| Australia | Australia East |Australia East |
-| . | Australia Southeast |Australia Southeast |
-| Japan | Japan East |Japan East |
-| . | Japan West |Japan East |
-| India | Central India |Central India |
-| . | West India |Central India |
-| . | South India |Central India |
+| Brazil | Brazil South | Brazil South |
+| Europe | North Europe | North Europe |
+| . | West Europe | West Europe |
+| Asia Pacific | Southeast Asia | Southeast Asia |
+| . | East Asia | Southeast Asia |
+| Australia | Australia East | Australia East |
+| . | Australia Southeast | Australia Southeast |
+| Japan | Japan East | Japan East |
+| . | Japan West | Japan East |
+| India | Central India | Central India |
+| . | West India | Central India |
+| . | South India | Central India |
 
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `executionLocation` as "North Europe" to route through North Europe.
 
 > [!NOTE]
-> If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
->
+> If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region, unless `executionLocation` is specified. The supported region list will be expanded over time.
 >
 
 ### Copy data between an on-premises data store and a cloud data store
@@ -124,47 +124,48 @@ For Copy Activity, the `typeProperties` section varies depending on the types of
 
 Here's a sample JSON definition:
 
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from Azure blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from Azure blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputBlobTable"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputSQLTable"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputBlobTable"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputSQLTable"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+}
+```
 The schedule that is defined in the output dataset determines when the activity runs (for example: **daily**, frequency as **day**, and interval as **1**). The activity copies data from an input dataset (**source**) to an output dataset (**sink**).
 
 You can specify more than one input dataset to Copy Activity. They are used to verify the dependencies before the activity is run. However, only the data from the first dataset is copied to the destination dataset. For more information, see [Scheduling and execution](data-factory-scheduling-and-execution.md).  

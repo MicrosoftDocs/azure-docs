@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

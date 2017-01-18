@@ -55,7 +55,7 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
     **HTTP response**: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
 
-    **Content match**: a string, like "Welcome!" We test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
 * **Alerts** are, by default, sent to you if there are failures in three locations over five minutes. A failure in one location is likely to be a network problem, and not a problem with your site. But you can change the threshold to be more or less sensitive, and you can also change who the emails should be sent to.
 
     You can set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
@@ -236,7 +236,7 @@ From the Overview blade, open **Settings**, **Performance Tests**. When you crea
 When the test is complete, you are shown response times and success rates.
 
 ## Automation
-* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically.
+* [Use PowerShell scripts to set up a web test](app-insights-powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## Questions? Problems?

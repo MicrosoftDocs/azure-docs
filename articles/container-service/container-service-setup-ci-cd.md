@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2016
-ms.author: johnstallo
+ms.author: johnsta
 
 ---
 
@@ -52,9 +52,9 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	`az login`
 
-1. Create a resource group in which we place our cluster using [az resource group create](/cli/azure/resource/group#create):
+1. Create a resource group in which we place our cluster using [az group create](/cli/azure/group#create):
 	
-	`az resource group create --name myacs-rg --location westus`
+	`az group create --name myacs-rg --location westus`
 
 	You may want to specify the [Azure datacenter region](https://azure.microsoft.com/regions) closest to you. 
 

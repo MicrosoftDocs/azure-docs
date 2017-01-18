@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 
 ---
@@ -24,7 +24,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 * Azure CLI 2.0 (preview): See [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) for more information.
 
-* Azure PowerShell: See [Install and Configure Azure PowerShell](../powershell-install-configure.md) for more information.
+* Azure PowerShell: See [Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information.
 
 > [!NOTE]
 > The steps in this document require the latest version of the Azure CLI and Azure PowerShell. If you are using an older version, the commands may be different. For best results, use the previous links to install the latest versions.
@@ -90,6 +90,31 @@ The HDInsight service is a managed service, and requires Internet access during 
 
 If you need to install HDInsight into a secured Virtual Network, you must allow inbound access over port 443 for the following IP addresses, which allow Azure to manage the HDInsight cluster.
 
+> [!IMPORTANT]
+> The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following to find the IP addresses for the region you are using.
+
+__Canada East__ region:
+
+* 52.229.127.96
+* 52.229.123.172
+
+__Canada Central__ region:
+
+* 52.228.37.66
+* 52.228.45.222
+
+__West Central US__ region:
+
+* 52.161.23.15
+* 52.161.10.167
+
+__West US 2__ region:
+
+* 52.175.211.210
+* 52.175.222.222
+
+__All other regions__:
+
 * 168.61.49.99
 * 23.99.5.239
 * 168.61.48.131
@@ -100,7 +125,9 @@ Allowing inbound access from port 443 for these addresses will allow you to succ
 > [!IMPORTANT]
 > HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, only use inbound rules.
 
-The following examples demonstrate how to create a new Network Security Group that allows the required addresses, and applies the security group to a subnet within your Virtual Network. These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
+The following examples demonstrate how to create a new Network Security Group that allows required addresses, and applies the security group to a subnet within your Virtual Network. The addresses used in this example are from the __All other regions__ list above. If you are in one of the regions specifically listed, such as __West Central US__, modify the script to use the IP addresses for your region.
+
+These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into.
 
 > [!IMPORTANT]
 > Note the `priority` value used in these examples; rules are tested against network traffic in order by priority. Once a rule matches the test criteria and is applied, no more rules are tested.
@@ -108,7 +135,6 @@ The following examples demonstrate how to create a new Network Security Group th
 > If you have custom rules that broadly block inbound traffic (such as a **deny all** rule), you may need to adjust the priority values in these examples or your custom rules so that the rules in the examples occur before the rules that block access. Otherwise, the **deny all** rule will be tested first and the rules in this example will never apply. You must also take care not block the default rules for an Azure Virtual Network. For example, you should not create a **deny all** rule that is applied before the default **ALLOW VNET INBOUND** rule (which has a priority of 65000.)
 > 
 > For more information on how rules are applied and the default inbound and outbound rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).
-
 
 **Using Azure PowerShell**
 
@@ -241,7 +267,7 @@ You must specify the cluster name and a service and component running on the clu
 
 For example, to return the FQDN from an HDInsight Hadoop cluster, you can use one of the following methods to retrieve the data for the YARN resource manager:
 
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
   
         $ClusterDnsName = <clustername>
         $Username = <cluster admin username>
@@ -268,7 +294,7 @@ To connect to HBase remotely by using the Java API, you must determine the ZooKe
 
 To get the ZooKeeper quorum address, use one of the following methods to query the Ambari management service:
 
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
   
         $ClusterDnsName = <clustername>
         $Username = <cluster admin username>

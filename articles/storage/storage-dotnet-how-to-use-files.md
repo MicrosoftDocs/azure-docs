@@ -115,7 +115,7 @@ The [Azure Portal](https://portal.azure.com) provides a user interface for custo
 Alternatively, you can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.
 
 > [!NOTE]
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.

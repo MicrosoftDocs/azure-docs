@@ -3,7 +3,7 @@ title: Linux nodes in Azure Batch pools | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Provision Linux compute nodes in Azure Batch pools

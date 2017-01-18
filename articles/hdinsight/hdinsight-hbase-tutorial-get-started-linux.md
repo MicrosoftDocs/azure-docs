@@ -42,7 +42,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
 
 1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Custom deployment** blade, enter the following:
    
    * **Subscription**: Select your Azure subscription that will be used to create the cluster.
@@ -140,7 +140,7 @@ You can create a text file and upload the file to your own storage account if yo
 You can query data in HBase tables by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
 > [!NOTE]
-> If Hive and HBase are on different cluters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
+> If Hive and HBase are on different clusters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
 >
 >       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
 >

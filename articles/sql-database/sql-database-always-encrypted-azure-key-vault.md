@@ -1,6 +1,6 @@
-﻿---
-title: 'Always Encrypted: Protect sensitive data in Azure SQL Database with database encryption | Microsoft Docs'
-description: Protect sensitive data in your SQL database in minutes.
+---
+title: 'Always Encrypted: Azure SQL Database with database encryption | Microsoft Docs'
+description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 documentationcenter: ''
@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -46,7 +47,7 @@ For this tutorial, you'll need:
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](../powershell-install-configure.md), version  1.0 or later. Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs), version  1.0 or later. Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
 
 ## Enable your client application to access the SQL Database service
 You must enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the following code.
@@ -58,7 +59,7 @@ You must enable your client application to access the SQL Database service by se
 5. For the **SIGN-ON URL** and **APP ID URI** you can type a valid URL (for example, *http://myClientApp*) and continue.
 6. Click **CONFIGURE**.
 7. Copy your **CLIENT ID**. (You will need this value in your code later.)
-8. In the **keys** section, select **1 year** from the  **Select duration** drop-down list. (You will copy the key after you save in step 14.)
+8. In the **keys** section, select **1 year** from the  **Select duration** drop-down list. (You will copy the key after you save in step 13.)
 9. Scroll down and click **Add application**.
 10. Leave **SHOW** set to **Microsoft Apps** and select **Microsoft Azure Service Management**. Click the checkmark to continue.
 11. Select **Access Azure Service Management** from the **Delegated Permissions** drop-down list.
@@ -82,7 +83,7 @@ You can quickly create a key vault by running the following script. For a detail
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName

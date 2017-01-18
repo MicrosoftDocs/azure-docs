@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
 ---
 #Service Fabric Documentation
 
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. 
+Learn how to use Service Fabric to package, deploy, and manage scalable and reliable microservices. Tutorials, API references, and code samples show how to use this middleware platform to build and manage cloud-scale applications.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -102,64 +103,44 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Service Fabric PowerShell Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">Java API</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Managed Reference API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	<li>
-        <a href="/rest/api/servicefabric">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Service Fabric REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicefabric">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>	
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Secure your app's custom domain with HTTPS | Microsoft Docs
 description: Learn how secure the custom domain name for your app in Azure App Service by configuring an SSL certificate binding. You will also learn how to get an SSL certificate from multiple tools.
 services: app-service
@@ -118,7 +118,7 @@ to generate it:
         KeyLength = 2048              ; Required minimum is 2048
         KeySpec = 1
         KeyUsage = 0xA0
-        MachineKeySet = True
+        MachineKeySet = FALSE
         ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
         ProviderType = 12
         HashAlgorithm = SHA256
@@ -604,7 +604,7 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 
 ## More Resources
 * [Microsoft Azure Trust Center](/support/trust-center/security/)
-* [Configuration options unlocked in Azure Web Sites](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+* [Configuration options unlocked in Azure Web Sites](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
 * [Configure web apps in Azure App Service](web-sites-configure.md)
 * [Azure Management Portal](https://manage.windowsazure.com)

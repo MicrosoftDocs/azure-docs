@@ -4,7 +4,7 @@ description: Learn how to use the Azure file service to upload, download, list, 
 services: storage
 documentationcenter: java
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

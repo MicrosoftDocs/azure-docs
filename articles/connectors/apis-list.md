@@ -14,7 +14,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 12/07/2016
 ms.author: deonhe
 
 ---
@@ -25,39 +25,46 @@ Select a connector to learn how to build workflows quickly.
 | Connectors |  |  |  |
 | --- | --- | --- | --- |
 |[![API Icon][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc]|![API Icon][appFiguresicon]<br/>**appFigures**|![API Icon][Asanaicon]<br/>**Asana**|![API Icon][Azure-DocumentDBicon]<br/>**Azure DocumentDB**|
-|![API Icon][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API Icon][Basecamp-3icon]<br/>**Basecamp 3**|
+|![API Icon][Azure-MLicon]<br/>**Azure ML**|[![API Icon][Azure-Functionsicon]<br/>**Azure<br/>Functions**][Azure-Functionsdoc]|[![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc]|![API Icon][Basecamp-3icon]<br/>**Basecamp 3**|
 |![API Icon][Bitlyicon]<br/>**Bitly**|![API Icon][BizTalk-Servericon]<br/>**BizTalk Server**|![API Icon][Bloggericon]<br/>**Blogger**|[![API Icon][Boxicon]<br/>**Box**][boxDoc]|
-|![API Icon][Campfireicon]<br/>**Campfire**|![API Icon][Cognitive-Services~Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![API Icon][Common-Data~Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
-|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API Icon][Dynamics-365~for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
-|![API Icon][Dynamics-365~for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![API Icon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
+|![API Icon][Campfireicon]<br/>**Campfire**|![API Icon][Cognitive-Services-Text-Analyticsicon]<br/>**Cognitive Services<br/>Text Analytics**|![API Icon][Common-Data-Serviceicon]<br/>**Common Data<br/>Service**|[![API Icon][DB2icon]<br/>**DB2**][db2doc]|
+|[![API Icon][Delayicon]<br/>**Delay**][Delaydoc]|[![API Icon][Dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][Dynamics-365icon]<br/>**Dynamics 365**][Dynamics-365doc]|![API Icon][Dynamics-365-for-Financialsicon]<br/>**Dynamics 365<br/>for Financials**|
+|![API Icon][Dynamics-365-for-Operationsicon]<br/>**Dynamics 365<br/>for Operations**|![API Icon][Easy-Redmineicon]<br/>**Easy Redmine**|[![API Icon][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API Icon][FTPicon]<br/>**FTP**][FTPdoc]|
 |![API Icon][GitHubicon]<br/>**GitHub**|![API Icon][Google-Calendaricon]<br/>**Google Calendar**|[![API Icon][Google-Driveicon]<br/>**Google Drive**][Google-Drivedoc]|![API Icon][Google-Sheetsicon]<br/>**Google Sheets**|
 |![API Icon][Google-Tasksicon]<br/>**Google Tasks**|![API Icon][HideKeyicon]<br/>**HideKey**|![API Icon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
-|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP~Requesticon]<br/>**HTTP<br/>Request**][HTTP~Requestdoc]|[![API Icon][HTTP~Responseicon]<br/>**HTTP<br/>Response**][HTTP~Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
+|[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP<br/>Request**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP<br/>Response**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
 |![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|![API Icon][Instapapericon]<br/>**Instapaper**|![API Icon][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|![API Icon][MQicon]<br/>**MQ**|
-|[![API Icon][Nested~Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested~Logic-Appdoc]|[![API Icon][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365~Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365~Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|
-|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for~Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for~Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|
-|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|
-|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
-|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|
-|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
+|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested-Logic-Appdoc]|
+[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|
+[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
 |![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio~Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|
+|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|
 |[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API Icon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
+
+### Integration account connectors 
+
+| integration account<br/>connectors |  |  |  |
+| --- | --- | --- | --- |
+| [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc] |
+| [![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode] |[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode] |[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode] |
+| [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
 
 > [!NOTE]
 > If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 > 
 > 
 
-## Enterprise Integration Pack (EIP) connectors
-Use the EIP connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
+## Enterprise connectors
+Use the enterprise connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
 
-| EIP connectors |  |  |  |
-| --- | --- | --- | --- |
-| [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc] |
-| [![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode] |[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode] |[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode] |
-| [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
+| enterprise<br/>connectors |  |
+| --- | --- |
+|![API Icon][MQicon]<br/>**MQ**|![API Icon][SAPicon]<br/>**SAP**<br/>[sapconnector]|
+
+
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connectors can be triggers
@@ -91,7 +98,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [office365-usersdoc]: ./connectors-create-api-office365-users.md
 [office365-videodoc]: ./connectors-create-api-office365-video.md
 [onedrivedoc]: ./connectors-create-api-onedrive.md "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
-[onedrive-for~businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connects to your business Microsoft OneDrive and uploads, deletes, lists your files, and more."
+[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "Connects to your business Microsoft OneDrive and uploads, deletes, lists your files, and more."
 [outlook.comdoc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox and access your email and more."
 [project-onlinedoc]: ./connectors-create-api-projectonline.md "Connects to Microsoft Project Online."
 [rssdoc]: ./connectors-create-api-rss.md "RSS connector allows the users to publish and retrieve feed items. It also allows the users to trigger operations when a new item is published to the feed."
@@ -123,24 +130,25 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
 [EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
 [httpdoc]: ./connectors-native-http.md "HTTP connector to make HTTP calls."
-[http~requestdoc]: ./connectors-native-reqres.md "Request and Response actions."
-[http~responsedoc]: ./connectors-native-reqres.md "Request and Response actions."
+[http-requestdoc]: ./connectors-native-reqres.md "Request and Response actions."
+[http-responsedoc]: ./connectors-native-reqres.md "Request and Response actions."
 [delaydoc]: ./connectors-native-delay.md "Learn about the delay action."
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger connector to make HTTP calls."
 [querydoc]: ./connectors-native-query.md "Query action to select and filter arrays."
 [webhookdoc]: ./connectors-native-webhook.md "Webhook action and trigger for logic apps."
-[azure~functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions."
+[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions."
 [api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integrate logic apps with App Service API Apps."
-[nested~logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrate logic apps with a nested workflow."
+[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrate logic apps with a nested workflow."
 [recurrencedoc]:  ./connectors-native-recurrence.md "Recurrence trigger for logic apps."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Connects to Google Sheets and can modify sheets."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks and can manage tasks."
-[google~calendardoc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar."
+[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar."
 [instagramdoc]: ./connectors-create-api-instagram.md "Connects to Instagram and can trigger or act on events."
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Connects to Mandrill and can be used for communication."
 [youtubedoc]: ./connectors-create-api-youtube.md "Connects to YouTube and can interact with videos and channels."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost and can be used for communication."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Use file system connector to communicate with on-premises file system."
+[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Learn about SAP Connector"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -153,11 +161,11 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [Bloggericon]: ./media/apis-list/blogger.png
 [Boxicon]: ./media/apis-list/box.png
 [Campfireicon]: ./media/apis-list/campfire.png
-[Cognitive-Services~Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
+[Cognitive-Services-Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
 [DB2icon]: ./media/apis-list/db2.png
 [Azure-DocumentDBicon]: ./media/apis-list/documentdb.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
-[Dynamics-365~for-Operationsicon]: ./media/apis-list/dynamicsax.png
+[Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
 [Dynamics-365icon]: ./media/apis-list/dynamicscrmonline.png
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Facebookicon]: ./media/apis-list/facebook.png
@@ -174,24 +182,25 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [Instagramicon]: ./media/apis-list/instagram.png
 [Instapapericon]: ./media/apis-list/instapaper.png
 [JIRAicon]: ./media/apis-list/jira.png
-[Dynamics-365~for-Financialsicon]: ./media/apis-list/madeira.png
+[Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
 [Mandrillicon]: ./media/apis-list/mandrill.png
 [Microsoft-Translatoricon]: ./media/apis-list/microsofttranslator.png
 [MQicon]: ./media/apis-list/mq.png
-[Office-365~Outlookicon]: ./media/apis-list/office365.png
-[Office-365~Usersicon]: ./media/apis-list/office365users.png
-[Office-365~Videoicon]: ./media/apis-list/office365video.png
+[Office-365-Outlookicon]: ./media/apis-list/office365.png
+[Office-365-Usersicon]: ./media/apis-list/office365users.png
+[Office-365-Videoicon]: ./media/apis-list/office365video.png
 [OneDriveicon]: ./media/apis-list/onedrive.png
-[OneDrive-for~Businessicon]: ./media/apis-list/onedriveforbusiness.png
+[OneDrive-for-Businessicon]: ./media/apis-list/onedriveforbusiness.png
 [Outlook.comicon]: ./media/apis-list/outlook.png
 [PagerDutyicon]: ./media/apis-list/pagerduty.png
 [Pinteresticon]: ./media/apis-list/pinterest.png
 [Project-Onlineicon]: ./media/apis-list/projectonline.png
 [Redmineicon]: ./media/apis-list/redmine.png
 [RSSicon]: ./media/apis-list/rss.png
-[Common-Data~Serviceicon]: ./media/apis-list/runtimeservice.png
+[Common-Data-Serviceicon]: ./media/apis-list/runtimeservice.png
 [Salesforceicon]: ./media/apis-list/salesforce.png
+[SAPicon]: ./media/apis-list/sap.png
 [SendGridicon]: ./media/apis-list/sendgrid.png
 [Service-Busicon]: ./media/apis-list/servicebus.png
 [SFTPicon]: ./media/apis-list/sftp.png
@@ -206,7 +215,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [Twilioicon]: ./media/apis-list/twilio.png
 [Twittericon]: ./media/apis-list/twitter.png
 [Vimeoicon]: ./media/apis-list/vimeo.png
-[Visual-Studio~Team-Servicesicon]: ./media/apis-list/visualstudioteamservices.png
+[Visual-Studio-Team-Servicesicon]: ./media/apis-list/visualstudioteamservices.png
 [WordPressicon]: ./media/apis-list/wordpress.png
 [Wunderlisticon]: ./media/apis-list/wunderlist.png
 [Yammericon]: ./media/apis-list/yammer.png
@@ -215,15 +224,15 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 
 <!-- Primitive Icons -->
 [HTTPicon]: ./media/apis-list/http.png
-[HTTP~Requesticon]: ./media/apis-list/request.png
-[HTTP~Responseicon]: ./media/apis-list/response.png
+[HTTP-Requesticon]: ./media/apis-list/request.png
+[HTTP-Responseicon]: ./media/apis-list/response.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
-[Azure~Functionsicon]: ./media/apis-list/function.png
+[Azure-Functionsicon]: ./media/apis-list/function.png
 [API/Web-Appicon]: ./media/apis-list/api.png
-[Nested~Logic-Appicon]: ./media/apis-list/workflow.png
+[Nested-Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
 [FileSystemIcon]: ./media/apis-list/filesystem.png
 

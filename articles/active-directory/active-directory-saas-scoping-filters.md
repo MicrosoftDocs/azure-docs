@@ -1,11 +1,10 @@
-﻿---
+---
 title: Attribute-based app provisioning with scoping filters | Microsoft Docs
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from actually being provisioned if an object doesn’t satisfy your business requirements.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
@@ -13,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
 
 ---
 # Attribute-based app provisioning with scoping filters

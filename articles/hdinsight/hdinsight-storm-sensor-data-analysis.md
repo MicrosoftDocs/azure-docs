@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -24,8 +24,8 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 
 > [!NOTE]
 > The information in this document, and the example provided, have been tested using Linux-based HDInsight 3.3 and 3.4 cluster versions.
-> 
-> 
+>
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -269,7 +269,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 3. After verifying that this works, stop the topology using Ctrl+C. You can use Ctrl+C to stop the local web server also.
 
 ## Create a Storm and HBase cluster
-In order to run the topology on HDInsight, and to enable the HBase bolt, you must create a new Storm cluster and HBase cluster. The steps in this section use an [Azure Resource Manager template](../resource-group-template-deploy.md) to create a new Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
+In order to run the topology on HDInsight, and to enable the HBase bolt, you must create a new Storm cluster and HBase cluster. The steps in this section use an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) to create a new Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
 
 > [!NOTE]
 > A virtual network is used so that the topology running on the Storm cluster can directly communicate with the HBase cluster using the HBase Java API.
@@ -280,7 +280,7 @@ The Resource Manager template used in this document is located in a public blob 
 
 1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Parameters** blade, enter the following:
    
     ![HDInsight parameters](./media/hdinsight-storm-sensor-data-analysis/parameters.png)

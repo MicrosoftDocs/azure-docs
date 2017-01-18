@@ -1,4 +1,3 @@
-
 ---
 title: Manage Resource Manager-deployed virtual machine backups | Microsoft Docs
 description: Learn how to manage and monitor Resource Manager-deployed virtual machine backups

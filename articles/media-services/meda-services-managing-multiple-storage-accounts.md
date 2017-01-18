@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing Media Services Assets across Multiple Storage Accounts | Microsoft Docs
 description: This articles give you guidance on how to manage media services assets across multiple storage accounts.
 services: media-services
@@ -37,7 +37,7 @@ Other considerations:
 Media Services uses the value of the **IAssetFile.Name** property when building URLs for the streaming content (for example, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the Name property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
 
 ## To attach a Storage Account with Azure Service Management REST API
-Currently, the only way to attach multiple storage accounts is by using [Azure Service Management REST API](http://msdn.microsoft.com/library/azure/dn167014.aspx). The code sample in the [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) topic defines the **AttachStorageAccountToMediaServiceAccount** method that attaches a storage account to the specified Media Services account. The code in the same topic defines the **ListStorageAccountDetails** method that lists all the storage accounts attached to the specified Media Services account.
+Currently, the only way to attach multiple storage accounts is by using [Azure Service Management REST API](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest). The code sample in the [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) topic defines the **AttachStorageAccountToMediaServiceAccount** method that attaches a storage account to the specified Media Services account. The code in the same topic defines the **ListStorageAccountDetails** method that lists all the storage accounts attached to the specified Media Services account.
 
 ## To manage Media Services assets across multiple Storage Accounts
 The following code uses the latest Media Services SDK to perform the following tasks:

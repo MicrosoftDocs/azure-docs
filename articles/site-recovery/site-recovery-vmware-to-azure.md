@@ -54,7 +54,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 ## Site recovery in the Azure portal
 Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal.
 
-This article describes how to deploy in the Azure portal, which provides new features and a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal. 
+This article describes how to deploy in the Azure portal, which provides new features and a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
 
 
 ## Site recovery in your business
@@ -450,6 +450,10 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 Make sure that machines you want to replicate are prepared for Mobility service installation, and then enable replication.
 
 ### Install the Mobility service
+
+  > [!TIP]
+  > Azure Site Recovery now supports installing Mobility Service using software deployment tools like System Center Configuration Manager. Read more on how to [Automate Mobility Service deployment](site-recovery-install-mobility-service-using-sccm.md) .  
+
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in a couple of ways:
 
 * **Process server push**: When you enable replication on a machine, push and install the Mobility service component from the process server. Note that push installation won't occur if machines are already running an up-to-date version of the component.
@@ -576,7 +580,8 @@ When you enable replication, by default all disks on a machine are replicated. Y
 * Only basic disks can be excluded from replication. You can't exclude OS or dynamic disks.
 * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you'll need to disable protection for the machine and then reenable it.
 * If you exclude a disk that's needed for an application to operate, after failover to Azure you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-* Disks you create manually in Azure will be failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
+* Window VM :Disks you create manually in Azure will be not be  failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks which were failed over will be failed back. You can't include disks created manually in failback or in re-protect from On-prem to Azure.
+* Linux VM: Disks you create manually in Azure will be failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
 
 **Now enable replication as follows**:
 

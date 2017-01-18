@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 
 ---
@@ -21,63 +21,48 @@ ms.author: hascipio
 This article is provided to help a developer create,  deploy, and manage their solutions listed in the Azure Marketplace for other Azure customers and partners to purchase and utilize.
 
 ## What is the Azure Marketplace?
-The Azure Marketplace is where an Azure subscriber can find services to facilitate the development of on-premise or cloud based solutions and applications. And use [Azure Certified](http://azure.com/certified) services as building blocks to rapidly develop an innovative application or service for your line of business and other Azure subscribers.
+As an Azure publisher, the Azure Marketplace is how you can distribute and sell your innovative solution or service to other developers, ISVs, and IT professionals who want to quickly develop their cloud-based applications and mobile solutions. If your solution targets business users, then you may want to consider the [AppSource](http://appsource.microsoft.com) marketplace.
 
-As an Azure publisher, the Azure Marketplace is how you can distribute and sell your innovative solution or service to other developers, ISVs, and IT professionals who want to quickly develop their cloud-based applications and mobile solutions.
 
-## Supported Types of Offers
-The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports three types of offers:
+## Supported types of solutions
+The first thing you would want to do as a publisher is to define what kind of solution your company is offering. The Azure Marketplace supports the following types of offers:
 
-* **Virtual Machine images** are pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.
+|Solution Type|Virtual Machine|Solution Template|
+|---|---|---|
+|Definition|Pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.|A data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.|
+|Example|**For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.|**For example,** as an Azure publisher, you've bundled a set of services from across Azure that make it quick to deploy cloud services with load balancing, enhanced security and high availability. Other Azure subscribers can save time by procuring the solution template that meets their objective rather manually locating, procuring, deploying and configuring the same or similar Azure services.|
 
-  > [!NOTE]
-  > **For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.
-  >
-  >
-* **Developer Services** are fully managed services to use in application development or system management. They provide functionality that enable rapid development of cloud scale applications on Azure.
-
-  > [!NOTE]
-  > **For example,** as an Azure publisher, you developed an API accessible service (hosted on Azure or elsewhere) that provides predictions based on historical data. And this is a service that other Azure subscribers who are building solutions may want to utilize. You can deploy this service to the Azure Marketplace for other find, procure and user in their respective service.
-  >
-  >
-* **Solution template** is a data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.
-
-  > [!NOTE]
-  > **For example,** as an Azure publisher, you've bundles a set of services from across Azure that makes it quick to deploy a secure, high availability cloud service with load balancing in a few clicks. Other Azure subscribers could fine value in saving time by procuring this solution template rather manually identifying and configuring the same or similar Azure services.
-  >
-  >
-
-Some steps are shared between the different types of solutions. This article provides a short overview of what steps you will need to complete for any type of solution.
-
-## 1. Pre-requisites
 > [!NOTE]
-> Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
->
->
+> Please note some steps are shared between the different types of solutions and others are distinct to the respective type of solution. This article provides a short overview of what steps you will need to complete for any type of solution.
 
-1. [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
-2. [Create and register a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)
-3. [Fulfill non-technical pre-requisites](marketplace-publishing-pre-requisites.md)
+## How to publish a solution
+![draw](media/marketplace-publishing-getting-started/img01.png)
 
-## 2. Publishing your offer
-### 2.1 Complete offer specific technical pre-requisites
-* [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
-* [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
+### 1. Nominate your solution for pre-approval
+- Complete the solution nomination form for **Microsoft Azure Certified for Virtual Machines** [here](https://createopportunity.azurewebsites.net)
 
-### 2.2 Create your offer
-1. Create your offer using the offer specific guides below.
-   * [Create your VM offer](marketplace-publishing-vm-image-creation.md)
-   * [Create your Solution Template offer](marketplace-publishing-solution-template-creation.md)
-2. [Create your offer marketing content](marketplace-publishing-push-to-staging.md)
+>[!NOTE]
+> If you are working with a Partner Account Manager or a DX Partner Manager, please ask them to nominate your solution for the Azure Certified program OR go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage, fill out the application form and enter the email of your Partner Account Manager or DX Partner Manager in the Microsoft Sponsor Contact field.
 
-### 2.3 Test your offer in staging
-* [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
-* [Test your Solution Template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
+If the eligibility criteria is met per the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833) and your application is approved, we will start working with you to onboard your solution to the Azure Marketplace.
 
-### 2.4 Deploy your offer to the Marketplace
-* [Deploy your offer to the Azure Marketplace](marketplace-publishing-push-to-production.md)
-* [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
-* To learn more about the portals used, see [Portals you will need](marketplace-publishing-portals.md).
+### 2. Register your account as a Microsoft seller
+- [Register your Microsoft account as a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)
+
+### 3. Publish your solution
+1. Fulfill non-technical requirements
+  - [Fulfill non-technical pre-requisites](marketplace-publishing-pre-requisites.md)
+  - [VM technical pre-requisites](marketplace-publishing-vm-image-creation-prerequisites.md)
+  - [Solution Template technical pre-requisites](marketplace-publishing-solution-template-creation-prerequisites.md)
+2. Create your offer
+  - [Virtual machine](marketplace-publishing-vm-image-creation.md)
+  - [Solution Template](marketplace-publishing-solution-template-creation.md)
+3. [Create your offer marketing content](marketplace-publishing-push-to-staging.md)
+4. Test your offer in staging
+  - [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md)
+  - [Test your Solution Template offer in staging](marketplace-publishing-solution-template-test-in-staging.md)
+5. [Deploy your offer to the Azure Marketplace](marketplace-publishing-push-to-production.md)
+
 
 ### Virtual Machine Image specific
 * [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
@@ -85,7 +70,7 @@ Some steps are shared between the different types of solutions. This article pro
 * [Create a virtual machine running Linux in the Azure portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshooting common issues encountered during VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
-## 3. Post-Publishing management of your offer
+## How to manage your solution
 * [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
 * [How to update the non-technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
 * [How to update the technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)

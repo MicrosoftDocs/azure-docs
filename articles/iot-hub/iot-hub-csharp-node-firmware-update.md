@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# How to do a firmware update (.NET/Node)
+# Use device management to initiate a device firmware update (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## Introduction
@@ -343,8 +343,8 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
+[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

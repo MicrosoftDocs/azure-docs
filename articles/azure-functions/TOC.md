@@ -16,6 +16,7 @@
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [Work with triggers and bindings](functions-triggers-bindings.md)
+#### [DocumentDB bindings](functions-bindings-documentdb.md)
 #### [Event Hub bindings](functions-bindings-event-hubs.md)
 #### [HTTP and webhook bindings](functions-bindings-http-webhook.md)
 #### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
@@ -38,6 +39,7 @@
 
 ## Deploy
 ### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+### [Deploy Functions using Infrastructure as Code](functions-infrastructure-as-code.md)
 
 ## Monitor
 ### [Monitoring Azure Functions](functions-monitoring.md)

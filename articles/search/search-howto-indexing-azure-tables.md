@@ -1,4 +1,4 @@
-﻿---
+---
 title: Indexing Azure Table Storage with Azure Search
 description: Learn how to index data stored in Azure Tables with Azure Search
 services: search
@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 ---
 
@@ -31,7 +31,7 @@ To set up table indexing:
 
 1. Create a data source
    * Set the `type` parameter to `azuretable`
-   * Pass in your storage account connection string as the `credentials.connectionString` parameter
+   * Pass in your storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure portal by navigating to the storage account blade > **Settings** > **Keys** (for Classic storage accounts) or **Settings** > **Access keys** (for ARM storage accounts). Note that Azure Search does not currently support Shared Access Signature credentials. If you'd like to use SAS, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
    * Specify the table name using the `container.name` parameter
    * Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.
 2. Create a search index with the schema that corresponds to the columns in the table that you want to index.
@@ -45,7 +45,7 @@ To set up table indexing:
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 

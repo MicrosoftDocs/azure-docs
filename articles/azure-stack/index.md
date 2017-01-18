@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
 ---
 #Azure Stack Documentation
 
-Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 2 is being made available through a Proof of Concept (POC). The POC is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
+Learn how to use Azure Stack technical preview to deliver Azure services from your organization's datacenter. Tutorials and other documentation show you how to use the proof of concept environment to learn and demonstrate Azure Stack features.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -80,13 +81,6 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Stack Documentation
-        </div>
-    </a>
-</div>
+
+

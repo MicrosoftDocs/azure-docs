@@ -33,12 +33,10 @@
 ### [Security best practices and patterns](security-best-practices-and-patterns.md)
 ### [Architecting resilient applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Reference
+# Related
 ## [Trust Center](security-microsoft-trust-center.md)
 ## [Microsoft Security Response Center](azure-security-response-center.md)
 ## [Pen testing](azure-security-pen-testing.md)
-
-# Related
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: 'SQL Database tutorial: Create a server, a server-level firewall rule, a sample database, a database-level firewall rule and connect with SQL Server Management Studio | Microsoft Docs'
-description: Learn how to set up a SQL Database logical server, server firewall rule, SQL database, and sample data. Also, learn how to connect with client tools, configure users, and set up a database firewall rule.
+title: 'Azure portal: Get started with Azure SQL Database | Microsoft Docs'
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases using the Azure portal. You also learn to query databases using SQL Server Management Studio.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,7 +19,7 @@ ms.date: 11/23/2016
 ms.author: carlrab
 
 ---
-# Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio
+# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules using the Azure portal and SQL Server Management Studio
 
 In this getting-started tutorial, you learn how to use the Azure portal to:
 
@@ -26,19 +27,23 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 * Create an Azure SQL logical server
 * View Azure SQL logical server properties
 * Create a server-level firewall rule
-* Create the Adventure Works LT sample database
+* Create the Adventure Works LT sample database as a single database
 * View Adventure Works LT sample database properties in Azure
 
 In this tutorial, you also use the most recent version of SQL Server Management Studio to:
 
 * Connect to the logical server and its master database
-* View master database properties
+* Query the master database
 * Connect to the sample database
-* View user database properties
+* Query the sample database
 
 When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
 
 **Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
+
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
+>
 
 ## Prerequisites
 
@@ -46,11 +51,12 @@ When you finish this tutorial, you will have a sample database and a blank datab
 
 * You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
+> [!NOTE]
+> This tutorial helps you to learn the content of these learn topics: [SQL Database server overview](sql-database-server-overview.md), [SQL database overview](sql-database-overview.md), and [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md).
+>  
 
-### Sign in by using your existing account
+
+### Sign in to the Azure portal using your Azure account
 Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
@@ -99,7 +105,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![server location](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-get-started-security.md).
+    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Click **Create**.
@@ -179,7 +185,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![query master database system objects](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > To explore SQL security, see [Get Started with SQL security](sql-database-get-started-security.md)
+    > To explore SQL security, see [Get Started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## Create new database in the Azure portal using Adventure Works LT sample
@@ -204,7 +210,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![server credentials](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > When adding a database to a server, it can be added as a single database (this is the default) or to a SQL elastic pool. For more information on elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+    > When adding a database to a server, it can be added as a single database (this is the default) or added to an elastic pool. For more information on elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
     >
 
 7. Under Pricing tier, change the pricing tier to **Basic** (you can increase the pricing tier later if desired, but for learning purposes, we recommend you use the lowest cost tier).
@@ -287,7 +293,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 ## Next steps
 Now that you've completed this tutorial, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-get-started-security.md).
+* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-control-access-sql-authentication-get-started.md).
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).
@@ -295,5 +301,7 @@ Now that you've completed this tutorial, there are number of additional tutorial
 * If you want to start creating tables and other objects, see the "To create a table" topic in [Creating a table](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## Additional resources
-[What is SQL Database?](sql-database-technical-overview.md)
+
+- For a technical overview see [What is SQL Database?](sql-database-technical-overview.md).
+- For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 

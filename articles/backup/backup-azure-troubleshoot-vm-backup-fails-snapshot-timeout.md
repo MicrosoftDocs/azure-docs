@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out | Microsoft Docs'
 description: Symptoms causes and resolutions for Azure VM backup failures related to could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out error
 services: backup
@@ -62,7 +62,8 @@ Learn how to [set up an HTTP proxy for VM backups](backup-azure-vms-prepare.md#u
 ### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an old VM agent. As a general guideline, the first steps to troubleshoot this issue are the following:
 
-1. [Install the latest Azure VM agent](https://github.com/Azure/WALinuxAgent).
+1. Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md).
+We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository. 
 2. Make sure that the Azure agent is running on the VM. To do this, run the following command:     ```ps -e```
    
     If this process is not running, use the following commands to restart it.

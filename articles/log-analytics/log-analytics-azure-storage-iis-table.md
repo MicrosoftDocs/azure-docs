@@ -4,16 +4,15 @@ description: Log Analytics can read the logs for Azure services that write diagn
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
@@ -44,8 +43,8 @@ For Log Analytics to collect these Azure Diagnostics logs, the logs must be in t
 
 > [!NOTE]
 > IIS logs from Azure Websites are not currently supported.
-> 
-> 
+>
+>
 
 For virtual machines, you have the option of installing the [Log Analytics agent](log-analytics-azure-vm-extension.md) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
 
@@ -54,12 +53,12 @@ Use the following procedure to enable Azure diagnostics in a virtual machine for
 
 ### To enable Azure diagnostics in a virtual machine with the Azure portal
 1. Install the VM Agent when you create a virtual machine. If the virtual machine already exists, verify that the VM Agent is already installed.
-   
+
    * In the Azure portal, navigate to the virtual machine, select **Optional Configuration**, then **Diagnostics** and set **Status** to **On**.
-     
+
      Upon completion, the VM has the Azure Diagnostics extension installed and running. This extension is responsible for collecting your diagnostics data.
 2. Enable monitoring and configure event logging on an existing VM. You can enable diagnostics at the VM level. To enable diagnostics and then configure event logging, perform the following steps:
-   
+
    1. Select the VM.
    2. Click **Monitoring**.
    3. Click **Diagnostics**.
@@ -140,8 +139,8 @@ In approximately 30 minutes, you are able to see data from the storage account i
 
 > [!NOTE]
 > The portal does not validate that the Source exists in the storage account or if new data is being written.
-> 
-> 
+>
+>
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection using PowerShell
 Use the steps in [Configuring Log Analytics to index Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
@@ -192,4 +191,3 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 * [Use JSON files in blob storage](log-analytics-azure-storage-json.md) to read the logs from Azure services that write diagnostics to blob storage in JSON format.
 * [Enable Solutions](log-analytics-add-solutions.md) to provide insight into the data.
 * [Use search queries](log-analytics-log-searches.md) to analyze the data.
-

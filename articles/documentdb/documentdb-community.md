@@ -4,7 +4,7 @@ description: Join the Azure DocumentDB community to build relationships, showcas
 services: documentdb
 documentationcenter: ''
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/30/2016
+ms.date: 01/10/2017
 ms.author: andrl
 
 ---
@@ -93,7 +93,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 ### Recent and upcoming events
 | Event Name | Speaker | Location | Date | Hashtag |
 | --- | --- | --- | --- | --- |
-| [Wintellect webinar: An Introduction to Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|Online|December 15, 2016 1pm EST|n/a|
+| [Wintellect webinar: An Introduction to Azure DocumentDB](http://www.wintellect.com/software-development-training/register/webinar/30)| [Josh Lane](https://twitter.com/jplane)|Online|January 12, 2017 1pm EST|n/a|
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
 
@@ -193,7 +193,6 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 | Forum provider | Description |
 | --- | --- |
 | [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb) |A language-independent collaboratively edited question and answer site for programmers. Follow our tag: [azure-documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
-| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655) |A good place for support and feedback on Microsoft Azure features and services like Web Sites, DocumentDB, etc. |
 
 ## Contact the team
 ![Team](./media/documentdb-community/documentdb-team.png)

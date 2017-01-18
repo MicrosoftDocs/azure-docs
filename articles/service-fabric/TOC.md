@@ -3,6 +3,7 @@
 ## [Understand microservices](service-fabric-overview-microservices.md)
 ## [Application scenarios](service-fabric-application-scenarios.md)
 ## [Architecture](service-fabric-architecture.md)
+## [Terminology](service-fabric-technical-overview.md)
 
 # Get Started
 ## Set up your development environment
@@ -176,21 +177,13 @@
 ### [Load test your application](service-fabric-vso-load-test.md)
 
 # Reference
-## [Terminology](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Data](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Data Interfaces](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [System](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Sample code](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [Java API](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [Java API](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Resources
+## [Sample code](http://aka.ms/servicefabricsamples)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Service Updates](https://azure.microsoft.com/updates/?product=service-fabric)
