@@ -69,16 +69,14 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 ## Detection
 
-### Risk events
-
-Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events.  
-For more details, see [risk events](active-directory-identity-protection-risk-events.md). 
-
 ### Vulnerabilities
 
 Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
 
+### Risk events
 
+Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events.  
+For more details, see [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md). 
 
 
 ## Investigation
@@ -100,12 +98,14 @@ The following sections provide you with more details and the steps that are rela
 
 ## Risky sign-ins
 
-Aure Active Directory detects some of the supported [risk event types](active-directory-identity-protection-risk-events.md#risk-event-types) in real-time. All detected real-time risk events that have been detected during a sign-in of a user contribute to a logical concept called *risky sign-in*. Each risky sign-in has an associated sign-in risk level. The lifecycle of a risky sign-in ends when a user signs out.
+Aure Active Directory detects some [risk event types](active-directory-identity-protection-risk-events.md#risk-event-types) in real-time. All real-time risk events that have been detected during a sign-in of a user contribute to a logical concept called *risky sign-in*. A risky sign-in is an indicator for a sign-in attempt that might not have been performed by the legitimate owner of a user account. The lifecycle of a risky sign-in ends when a user signs out.
 
 ### Sign-in risk level
-A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to authenticate with the user’s identity. The sign-in risk level is evaluated at the time of a sign-in and considers risk events and indicators detected in real-time for that specific sign-in.
+
+A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. 
 
 ### Mitigating sign-in risk events
+
 A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
 
 To mitigate risky sign-ins automatically, you can configure sign-in risk security policicies. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity.
@@ -188,14 +188,14 @@ For an overview of the related user experience, see:
 
 ## Users flagged for risk
 
-All [risk events](active-directory-identity-protection-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called *users flagged for risk*.   
+All [risk events](active-directory-identity-protection-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called *users flagged for risk*. A *user flag for risk* or *risky user* is an indicator for a user account that might have been compromised.   
 
 ![Users flagged for risk](./media/active-directory-identityprotection/1200.png)
 
 
 ### User risk level
 
-A user risk level is an indication (High, Medium, or Low) of the likelihood that the user’s identity has been compromised. It is calculated based on the user risk events that are associated with the user's identity.
+A user risk level is an indication (High, Medium, or Low) of the likelihood that the user’s identity has been compromised. It is calculated based on the user risk events that are associated with a user's identity.
 
 The status of a risk event is either **Active** or **Closed**. Only risk events that are **Active** contribute to the user risk level calculation.
 
@@ -207,9 +207,10 @@ The user risk level is calculated using the following inputs:
 
 ![User risks](./media/active-directory-identityprotection/1031.png "User risks")
 
-You can use the user risk levels to create conditional access policies to block risky users from signing in, or force them to securely change their password.
+You can use the user risk levels to create conditional access policies that block risky users from signing in, or force them to securely change their password.
 
 ### Closing risk events manually
+
 In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible.  
 This is, for example, the case, when:
 
@@ -246,6 +247,7 @@ Instead of manually closing risk events for a user individually, Azure Active Di
 When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk.
 
 ### Remediating user risk events
+
 A remediation is an action to secure an identity or a device that was previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
 
 To remediate user risk events, you can:
