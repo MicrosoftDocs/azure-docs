@@ -36,7 +36,7 @@
 ### [XML processing](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Flat file processing](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Add XSLT maps](logic-apps-enterprise-integration-maps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Transform XML](../app-service-logic/app-service-logic-enterprise-integration-transform.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Transform XML](logic-apps-enterprise-integration-transform.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Validate XML](../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Using certificates](../app-service-logic/app-service-logic-enterprise-integration-certificates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Add partners](logic-apps-enterprise-integration-partners.md?toc=%2fazure%2flogic-apps%2ftoc.json)
