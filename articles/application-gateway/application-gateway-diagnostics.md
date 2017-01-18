@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-
 ms.date: 01/17/2017
 ms.author: amitsriva
 
@@ -23,10 +22,9 @@ ms.author: amitsriva
 
 Azure provides the capability to monitor resource with logging and metrics
 
-
 [**Backend health**](#backend-health) - Appplication gateway provides the capability to monitor the health of the servers in the backend pools through the portal and through powershell. The health of the backend pools can also be found through the performance diagnostic logs.
 
-[**Logging**](#enable-logging-with-powershell) - Logging allows for performance, access and other logs to be saved or consumed from a resource for monitoring purposes.
+[**Logging**](#enable-logging-with-powershell) - Logging allows for performance, access, and other logs to be saved or consumed from a resource for monitoring purposes.
 
 [**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
 
@@ -238,7 +236,6 @@ You can view and analyze activity log data using any of the following methods:
 * **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Activity Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
 
 ## View and analyze the access, performance, and firewall log
-
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account and includes visualizations and powerful search capabilities to analyze your logs.
 
