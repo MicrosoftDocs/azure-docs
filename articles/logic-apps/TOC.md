@@ -67,7 +67,7 @@
 #### [AS2 tracking schema](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [X12 tracking schema](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [Custom tracking schema](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-#### [Track B2B messages](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+#### [Track B2B messages](logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ### [Integration accounts](logic-apps-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Pricing](logic-apps-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)

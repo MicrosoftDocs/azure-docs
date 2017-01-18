@@ -79,5 +79,5 @@ For information about B2B protocol tracking schemas, see:
 
 ## Next steps
 * Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
-* Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).
+* Learn about [tracking B2B messages in the Operations Management Suite portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).

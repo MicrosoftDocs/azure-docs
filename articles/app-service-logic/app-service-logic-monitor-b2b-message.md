@@ -70,6 +70,6 @@ We are supporting following tracking schema types.  All of them has fixed schema
 * [X12 Tracking Schema](app-service-logic-track-integration-account-x12-tracking-shemas.md)  
 
 ## Next steps
-[Tracking B2B messages in OMS Portal](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")   
+[Tracking B2B messages in OMS Portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Tracking B2B messages")   
 [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
 
