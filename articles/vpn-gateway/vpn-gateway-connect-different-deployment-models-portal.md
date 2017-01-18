@@ -112,7 +112,7 @@ Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure
 After the virtual network gateway has been created, you can view the gateway IP address. 
 
 1. Navigate to your classic VNet, and click **Overview**.
-2. Click **VPN connections** to open the VPN connections blade. On the VPN connections blade, you can view the public IP address. This is the public IP address assigned to your virtual network gateway. Write down or copy the IP address. You will use it in later steps when you work with your Resource Manager local network gateway configuration settings. You can also view the status of your gateway connections on **VPN connections** blade. Notice the local network site you created is listed as 'Connecting'. The status will change after you have created your connections.
+2. Click **VPN connections** to open the VPN connections blade. On the VPN connections blade, you can view the public IP address. This is the public IP address assigned to your virtual network gateway. Write down or copy the IP address. You will use it in later steps when you work with your Resource Manager local network gateway configuration settings. You can also view the status of your gateway connections. Notice the local network site you created is listed as 'Connecting'. The status will change after you have created your connections. Close the blade after copying the gateway IP address.
 
 ## <a name="creatermgw"></a>Section 2: Configure Resource Manager VNet settings
 In this section, we will create the virtual network gateway and the local network for your Resource Manager VNet. Screenshots are provided as examples. Be sure to replace the values with your own. If you are creating this configuration as an exercise, refer to these [values](#values).
@@ -133,7 +133,11 @@ Creating a virtual network gateway can take up to 45 minutes. You can wait for t
 
 ### <a name="createlng"></a>Part 3 - Create a local network gateway
 
-The local network gateway specifies the address range and the public IP address associated with your classic VNet and its virtual network gateway. Use the public IP address that was assigned to your classic VNet gateway in the [previous section](#ip). Give the local network gateway a name by which Azure can refer to it. For example, 'ClassicVNetLocal'.
+The local network gateway specifies the address range and the public IP address associated with your classic VNet and its virtual network gateway.
+
+- Use the public IP address that was assigned to your classic VNet gateway in the [previous section](#ip). 
+- Give the local network gateway a name by which Azure can refer to it. For example, 'ClassicVNetLocal'.
+- Use the address space that you assigned to your classic VNet (not just the subnet).
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
@@ -166,7 +170,7 @@ In this section, you will create the connection between the VNets. These steps r
 
 ### Log in to your Azure Account
 
-1. Log in to your Azure account in the PowerShell console. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
+1. Open the PowerShell console with elevated rights and log in to your Azure account. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
    
         Login-AzureRmAccount 
    
@@ -182,20 +186,35 @@ In this section, you will create the connection between the VNets. These steps r
    
         Add-AzureAccount
 
+### Download your network configuration file
+
+Sometimes the names for classic VNets and Local network sites are changed in the network configuration file when creating classic VNet settings in the Azure portal due to the differences in the deployment models. For example, using the Azure portal, we named the classic VNet 'Classic VNet' and created it in a resource group named 'ClassicRG'. The name that is contained in the network configuration file is converted to 'Group ClassicRG Classic VNet'. When specifying the name of a VNet that contains spaces, use quotation marks around the value.
+
+1. Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary.
+   
+        Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+3. Use a text editor, such as Notepad, to open the .xml file and view the contents. Verify the name of your classic virtual network.
+
 ### Set the shared key
 
-1. Set the shared key for the connection from the classic VNet to the Resource Manager VNet.<br><br>Before running this sample, you may want to download and view network configuration file for your classic deployment model VNet. Sometimes the names for classic VNets are changed in the network configuration file when creating classic VNet settings in the Azure portal due to the differences in the deployment models. For example, using the Azure portal, we named the classic VNet 'Classic VNet' and created it in a resource group named 'ClassicRG'. The name that is contained in the network configuration file is converted to 'Group ClassicRG Classic VNet'. When specifying the name of a VNet that contains spaces, use quotation marks around the value. You can use the classic (Service Management) PowerShell cmdlet `Get-AzureVNetConfig` or the classic portal to download the file.<br><br>In this example, `-VNetName` is the name of the classic VNet and `-LocalNetworkSiteName` is the name you specified for the local site. The `-SharedKey` is a value that you generate and specify. For this example, we used abc123, but you can generate something more complex. The important thing is that the value you specify here must be the same value that you specify in the next step when you create your connection.<br><br>In the PowerShell console, set your shared key by running the following sample. The return for this sample should show **Status: Successful**.<br>
+Set the shared key for the connection from the classic VNet to the Resource Manager VNet. When using these cmdlets, be sure to verify the values for -VNetName and -LocalNetworkSiteName using the network configuration file. When specifying names that contains spaces, use quotation marks around the value. 
+
+- In this example, `-VNetName` is the name of the classic VNet. 
+- `-LocalNetworkSiteName` is the name you specified for the local site.
+- The `-SharedKey` is a value that you generate and specify. For this example, we used abc123, but you can generate something more complex. The important thing is that the value you specify here must be the same value that you specify in the next step when you create your connection.
+
+In the PowerShell console, set your shared key by running the following sample, making sure to replace the values with your own. The return for this sample should show **Status: Successful**.
    
         Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
-        -LocalNetworkSiteName RMVNetLocal -SharedKey abc123
-2. Create the VPN connection by running the following commands:
+        -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
+### Create the VPN connection by running the following commands:
    
-    **Set the variables**
+1. Set the variables.
    
         $vnet01gateway = Get-AzureRMLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
         $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
    
-    **Create the connection**<br> Notice that the `-ConnectionType` is 'IPsec', not 'Vnet2Vnet'. In this example, `-Name` is the name that you want to name your connection, not something that you have already created. The following example creates a connection named 'RM-Classic'.
+2. Create the connection. Notice that the `-ConnectionType` is 'IPsec', not 'Vnet2Vnet'. In this example, `-Name` is the name that you want to name your connection, not something that you have already created. The following example creates a connection named 'RM-Classic'. Notice that the `-SharedKey` matches the key you set earlier.
    
         New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
         -Location "East US" -VirtualNetworkGateway1 `
@@ -203,7 +222,7 @@ In this section, you will create the connection between the VNets. These steps r
         $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 ## Section 5: Verify your connections
-You can verify your connections by using the Azure portal or PowerShell.
+You can verify your connections by using the Azure portal or PowerShell. When verifying, you may need to wait a minute or two as the connection is being created. When a connection is successful, the connectivity state will go from 'Connecting' to 'Connected'.
 
 ### To verify the connection from your classic VNet to your Resource Manager VNet
 
