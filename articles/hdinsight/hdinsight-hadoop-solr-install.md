@@ -18,7 +18,7 @@ ms.date: 02/05/2016
 ms.author: nitinme
 
 ---
-# Install and use Solr on HDInsight Windows-based clusters
+# Install and use Solr on Windows-based HDInsight clusters
 
 Learn how to customize Windows-based HDInsight cluster with Solr using Script Action, and how to use Solr to search data. 
 

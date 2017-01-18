@@ -18,7 +18,7 @@ ms.date: 02/05/2016
 ms.author: nitinme
 
 ---
-# Install and use Giraph on HDInsight Windows-based clusters
+# Install and use Giraph on Windows-based HDInsight clusters
 
 Learn how to customize Windows based HDInsight cluster with Giraph using Script Action, and how to use Giraph to process large-scale graphs. For information on using Giraph with a Linux-based cluster, see [Install Giraph on HDInsight Hadoop clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
