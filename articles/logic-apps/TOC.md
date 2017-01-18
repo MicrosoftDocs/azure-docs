@@ -70,7 +70,7 @@
 #### [Track B2B messages](../app-service-logic/app-service-logic-track-b2b-messages-omsportal.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ### [Integration accounts](logic-apps-enterprise-integration-accounts.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Pricing](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Pricing](logic-apps-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
