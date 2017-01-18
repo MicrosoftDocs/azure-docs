@@ -55,7 +55,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Audience |office workers, business users |IT pros, developers |
 | Scenarios |Self-service |Mission-critical |
 | Design Tool |In-browser, UI only |In-browser and [Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md), [Code view](../app-service-logic/app-service-logic-author-definitions.md) available |
-| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../app-service-logic/app-service-logic-arm-provision.md) |
+| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-arm-provision.md) |
 | Admin Experience |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Security |Standard practices: [data sovereignty](https://wikipedia.org/wiki/Technological_Sovereignty), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
