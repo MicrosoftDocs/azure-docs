@@ -121,7 +121,7 @@ This article contains the release notes for Azure Storage Explorer 0.8.7 preview
 macOS install may require elevated permissions
 * Account settings panel may show that you need to reenter credentials to filter subscriptions
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename
-* Azure Stack doesn't currently support files, so trying to expand the **Files** note results in an error
+* Azure Stack doesn't currently support files, so trying to expand the **Files** node results in an error
 * Linux 14.04 install needs gcc version updated or upgraded. The following steps illustrate how to upgrade:
 
 ```
