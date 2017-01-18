@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/09/2017
+ms.date: 01/18/2017
 ms.author: jeffstok
 
 ---
@@ -483,6 +483,73 @@ Script Actions are Bash scripts that are used to make configuration changes to t
      ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
      
 4. Select **Create** to run the script. Once the script completes, the R packages will be available on all worker nodes.
+
+## Using Microsoft R Server Operationalization
+When your data modeling is complete, you can operationalize the model to make predictions. To configure for Microsoft R Server operationalization perform the steps below.
+
+First, ssh into the Edge node on port 12800. For example, ```ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
+
+After using ssh, change directory to the following directory and sudo the dotnet dll as shown below.
+
+```
+    cd /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil
+    sudo dotnet Microsoft.DeployR.Utils.AdminUtil.dll
+```
+
+To configure Microsoft R Server operationalization with a One-box configuration do the following;
+
+Select “1. Configure R Server for Operationalization”
+Select “A. One-box (web + compute nodes)”
+Enter a password for the **admin** user
+
+As an optional step you can perform Diagnostic checks by running a diagnostics test as shown below.
+
+Select “6. Run diagnostic tests”
+Select “A. Test configuration”
+Enter Username = “admin” and password from configuration step above
+Confirm Overall Health = pass
+Exit the Admin Utility
+Exit SSH
+
+## How to scale Microsoft R Server Operationalization compute nodes on HDinsight worker nodes?
+ 
+ 
+1.	Decommission the worker node(s)
+Microsoft R Server is currently not managed through Yarn. If the worker nodes are not decommissioned, Yarn resource manager will not work as expected because it will not be aware of the resources being taken up by the server. In order to avoid that, we recommend decommissioning the worker nodes where you want to scale the compute nodes to.
+ 
+Steps to decommissioning worker nodes:
+ 
+•	Login to HDI cluster's Ambari console and click on "hosts" tab
+•	Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.
+•	![decommision worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)
+•	Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
+•	Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
+•	Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
+•	Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Stop"
+•	Select "Actions" > "Selected Hosts" > "Hosts" > click on "Stop All Components"
+•	Unselect the worker nodes and Select the head nodes
+•	Select "Actions" > "Selected Hosts" > "Hosts" > "Restart All Components
+ 
+ 
+2.	Configure Compute nodes on each decommissioned worker node(s)
+ 
+SSH into each decommissioned worker node
+Run admin utility using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`
+Enter "1" to select option "1. Configure R Server for Operationalization"
+Enter "c" to select option "C. Compute node". This will configure compute node on the worker node.
+Exit the Admin Utility
+ 
+3.	Add compute nodes details on Web Node
+Once all decommissioned worker nodes have been configured to run compute node, come back on the Edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
+ 
+SSH into the Edge node
+Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`
+Look for the "Uris" section, and add worker node's IP and port details.
+
+![decommision worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+
+    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
 
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
