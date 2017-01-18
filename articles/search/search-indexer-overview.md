@@ -24,7 +24,7 @@ ms.author: heidist
 > * [Overview](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](../documentdb/documentdb-search-indexer.md) 
+> * [DocumentDB](../documentdb/documentdb-search-indexer.md)
 > * [Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
 > * [Table Storage (preview)](search-howto-indexing-azure-tables.md)
 >
@@ -53,7 +53,7 @@ An indexer will automate some tasks related to data ingestion, but creating an i
 An indexer pulls data from a **data source** which holds information such as a connection string. Currently the following data sources are supported:
 
 * [Azure SQL Database or SQL Server on an Azure virtual machine](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md) 
+* [DocumentDB](../documentdb/documentdb-search-indexer.md)
 * [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), used to extract text from PDF, Office documents, HTML, or XML
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
