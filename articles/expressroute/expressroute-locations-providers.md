@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/18/2017
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -150,8 +150,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | IT Consultancy |
 | **Europe** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
-| **US** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
-
+| **North America** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
+| **South America** |Avanade Inc. |
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
