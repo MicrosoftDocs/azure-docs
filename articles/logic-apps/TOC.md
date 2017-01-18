@@ -75,7 +75,7 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema History
-### [GA](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [GA](logic-apps-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Preview](logic-apps-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [REST](/rest/api/logic/)
 
