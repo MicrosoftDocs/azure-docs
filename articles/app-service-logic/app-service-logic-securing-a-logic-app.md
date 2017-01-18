@@ -274,4 +274,4 @@ You can use the on-premises hybrid connection feature for Azure API and Web apps
 [Create a deployment template](../logic-apps/logic-apps-create-deploy-template.md)  
 [Exception handling](app-service-logic-exception-handling.md)  
 [Monitor your logic apps](app-service-logic-monitor-your-logic-apps.md)  
-[Diagnosing logic app failures and issues](app-service-logic-diagnosing-failures.md)  
+[Diagnosing logic app failures and issues](../logic-apps/logic-apps-diagnosing-failures.md)  
