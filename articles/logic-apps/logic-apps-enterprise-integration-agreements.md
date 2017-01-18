@@ -28,7 +28,7 @@ Enterprise integration supports three protocol/transport standards:
 
 * [AS2](logic-apps-enterprise-integration-as2.md)
 * [X12](app-service-logic-enterprise-integration-x12.md)
-* [EDIFACT](app-service-logic-enterprise-integration-edifact.md)
+* [EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
 ## Why use agreements
 Some of the common benefits of using agreements are:
