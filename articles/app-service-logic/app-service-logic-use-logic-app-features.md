@@ -94,7 +94,7 @@ There are several different options for starting the workflow defined in you log
 A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
 
 ### Callback using REST APIs
-Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](app-service-logic-http-endpoint.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
+Services can call a logic app endpoint to start a workflow. See [Logic apps as callable endpoints](../logic-apps/logic-apps-http-endpoint.md) for more information. To start that kind of logic app on-demand, click the **Run now** button on the command bar. 
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com

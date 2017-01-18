@@ -25,12 +25,12 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 
 * [Creating a custom trigger or action](../logic-apps/logic-apps-create-api-app.md)
 * [Long-running actions](../logic-apps/logic-apps-create-api-app.md)
-* [HTTP request trigger (POST)](app-service-logic-http-endpoint.md)
+* [HTTP request trigger (POST)](logic-apps-http-endpoint.md)
 * [Webhook triggers and actions](../logic-apps/logic-apps-create-api-app.md)
 * [Polling triggers](../logic-apps/logic-apps-create-api-app.md)
 
 ### Scenarios
-* [Request synchronous response](app-service-logic-http-endpoint.md)
+* [Request synchronous response](logic-apps-http-endpoint.md)
 * [Request Response with SMS](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Error handling and logging
