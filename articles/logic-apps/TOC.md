@@ -49,7 +49,7 @@
 ### [EDIFACT decoding](../app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [X12 integration](logic-apps-enterprise-integration-x12.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [X12 encoding](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [X12 decoding](../app-service-logic/app-service-logic-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 
 ## Use Gateway
