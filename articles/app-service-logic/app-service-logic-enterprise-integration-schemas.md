@@ -85,5 +85,5 @@ The process for this depends on the blob container access level: **Public** or *
    ![Screenshot of EIP Integration Account, with "Schemas" highlighted](./media/app-service-logic-enterprise-integration-schemas/delete-31.png)    
 
 ## Next steps
-* [Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about the enterprise integration pack").  
+* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about the enterprise integration pack").  
 

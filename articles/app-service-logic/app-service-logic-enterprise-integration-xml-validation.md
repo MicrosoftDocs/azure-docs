@@ -43,5 +43,5 @@ At this point, you are finished setting up your validation connector. In a real 
 You can now test your validation action by making a request to the HTTP endpoint.  
 
 ## Next steps
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
+[Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")   
 

@@ -190,5 +190,5 @@ After you select **OK** on the open blade:
    ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-4.png)   
 
 ## Learn more
-* [Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 

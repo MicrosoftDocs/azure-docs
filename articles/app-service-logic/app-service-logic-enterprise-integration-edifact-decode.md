@@ -76,5 +76,5 @@ Validates EDI and partner-specific properties, generates XML document for each t
   * A functional acknowledgment acknowledges accept or reject a received interchange or a group
 
 ## Next steps
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+[Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
 

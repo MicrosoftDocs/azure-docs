@@ -55,4 +55,4 @@ For debugging and for more detailed diagnostics information, turn on diagnostics
 * Learn more about [custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
 * Learn more about [AS2 tracking schemas](app-service-logic-track-integration-account-as2-tracking-shemas.md).    
 * Learn more about [X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).  
-* Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).
+* Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).

@@ -91,6 +91,6 @@ You can easily move an integration account to a new subscription and a new resou
 5. Confirm your choice    
 
 ## Next Steps
-* [Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 * [Learn more about agreements](logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 

@@ -19,7 +19,7 @@ ms.author: deonhe
 ---
 # Learn about receiving data using the B2B features of the Enterprise Integration Pack
 ## Overview
-This document is part of the Logic Apps Enterprise Integration Pack. Check out the overview to learn more about the [capabilities of the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).
+This document is part of the Logic Apps Enterprise Integration Pack. Check out the overview to learn more about the [capabilities of the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 To use the AS2 and X12 actions you will need an Enterprise Integration Account
@@ -78,5 +78,5 @@ At this point, you are finished setting up your B2B Logic app. In a real world a
 * By extending your Logic app with other actions you can send and receive data to and from other applications and services such as SalesForce  
 
 ## Learn more
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md)  
+[Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)  
 

@@ -81,5 +81,5 @@ At this point, you are finished setting up your flat file decoding connector. In
 You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
 
 ## Next steps
-* [Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack").  
+* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack").  
 

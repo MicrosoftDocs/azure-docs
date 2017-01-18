@@ -202,5 +202,5 @@ After you select **OK** on the open blades:
    ![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)   
 
 ## Learn more
-* [Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 

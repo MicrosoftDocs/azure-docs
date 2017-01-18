@@ -55,7 +55,7 @@ The connection should now be successfully configured for use in your logic app.
 
 ## Next Steps
 * [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
-* [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
+* [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!-- Image references -->
 [1]: ./media/app-service-logic-gateway-connection/createblade.PNG

@@ -201,6 +201,6 @@ The Data Management Gateway and PowerBIGateway logs are present under **Applicat
 
 ## Next Steps
 * [Create an on-premises connection to Logic Apps](app-service-logic-gateway-connection.md)
-* [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
+* [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Logic Apps connectors](../connectors/apis-list.md)
 

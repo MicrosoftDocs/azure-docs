@@ -29,5 +29,5 @@ The Enterprise Integration Pack makes it easy to validate and process XML docume
 Why not give it a try. Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) to deploy a fully operational logic app of your own using the XML features of Logic Apps 
 
 ## Learn more
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+[Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 
