@@ -24,7 +24,7 @@ You may want to encode XML content before you send it to a business partner in a
 ## How to create the flat file encoding connector
 Follow these steps to add a flat file encoding connector to your logic app.
 
-1. Create a logic app and [link it to your integration account](app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
+1. Create a logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
 2. Add a **Request - When an HTTP request is received** trigger to your logic app.  
    ![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
 3. Add the flat file encoding action, as follows:

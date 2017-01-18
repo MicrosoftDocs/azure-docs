@@ -38,7 +38,7 @@ After you upload the transform/map into your integration account, you can use it
 
 Now that you've taken care of the prerequisites, it's time to create your Logic app:  
 
-1. Create a Logic app and [link it to your integration account](app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
+1. Create a Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
 2. Add a **Request** trigger to your Logic app  
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)    
 3. Add the **Transform XML** action by first selecting **Add an action**   

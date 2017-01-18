@@ -24,14 +24,14 @@ This document is part of the Logic Apps Enterprise Integration Pack. Check out t
 ## Prerequisites
 To use the AS2 and X12 actions you will need an Enterprise Integration Account
 
-[How to create an Enterprise Integration Account](app-service-logic-enterprise-integration-accounts.md)
+[How to create an Enterprise Integration Account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 
 ## How to use the Logic Apps B2B connectors
 Once you have created an integration account and added partners and agreements to it you are ready to create a Logic App that implements a business to business (B2B) workflow.
 
 In this walkthru you'll see how to use the AS2 and X12 actions to create a business to business Logic App that receives data from a trading partner.
 
-1. Create a new Logic app and [link it to your integration account](app-service-logic-enterprise-integration-accounts.md).  
+1. Create a new Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).  
 2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
    ![](./media/app-service-logic-enterprise-integration-b2b/flatfile-1.png)  
 3. Add the **Decode AS2** action by first selecting **Add an action**  

@@ -22,7 +22,7 @@ ms.author: deonhe
 In order to use the enterprise features in Logic apps, you must first create agreements. 
 
 ### Here's what you need before you get started
-* An [integration account](app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
 * At least two [partners](app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
 
 > [!NOTE]
@@ -30,7 +30,7 @@ In order to use the enterprise features in Logic apps, you must first create agr
 > 
 > 
 
-After you've [created an integration account](app-service-logic-enterprise-integration-accounts.md) and [added partners](app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps:  
+After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) and [added partners](app-service-logic-enterprise-integration-partners.md), you can create an agreement by following these steps:  
 
 ### From the Azure portal home page
 After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
@@ -46,7 +46,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 
 1. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
    ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-2. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
+2. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
    ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 3. Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
    ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)   
