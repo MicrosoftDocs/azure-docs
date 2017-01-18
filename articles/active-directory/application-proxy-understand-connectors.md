@@ -146,7 +146,7 @@ In order to see them, you have to enable “show analytic and debug logs” on t
 
 You can examine the state of the service in the Services window. The connector is comprised of two Windows Services; one is the actual connector, and another is one that takes care of the update. Both of them are required to run all the time.
 
- ![AzureAD Services Local](./media/application-proxy-understand-connectors/AAD-connector-services.png)
+ ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 For information about resolving errors  the Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
