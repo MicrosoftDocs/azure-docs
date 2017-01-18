@@ -18,8 +18,9 @@ ms.author: nitinme
 
 ---
 # Install and use Spark on HDInsight Hadoop clusters using Script Action
+
 > [!IMPORTANT]
-> This article is now deprecated. HDInsight now provides Spark as a first-class cluster type for Windows-based clusters, which means you can now directly create a Spark cluster without modifying a Hadoop cluster using Script action. Using the Spark cluster type, you get an HDInsight version 3.2 cluster with Spark version 1.3.1.  To install different versions of Spark, you can use Script action. HDInsight provides a sample Script Action script.
+> This article is now deprecated. HDInsight now provides Spark as a first-class cluster type for Linux-based clusters, which means you can now directly create a Spark cluster without modifying a Hadoop cluster using Script action. Also, the steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Learn how to install Spark on Windows based HDInsight using Script Action, and how to run Spark queries on HDInsight clusters.
 

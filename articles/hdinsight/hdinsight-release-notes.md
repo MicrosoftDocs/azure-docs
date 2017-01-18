@@ -14,11 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 1/18/2017
 ms.author: nitinme
 
 ---
 # Release notes for Hadoop components on Azure HDInsight
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ##Notes for 11/18/2016 release of Spark 2.0.1 on HDInsight 3.5
 Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
