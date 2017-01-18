@@ -81,7 +81,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 ## Next Steps
 * [Build a logic app now](../logic-apps/logic-apps-create-a-logic-app.md)  
 * [Create a custom connector](../logic-apps/logic-apps-create-api-app.md)
-* [Monitor your logic apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."

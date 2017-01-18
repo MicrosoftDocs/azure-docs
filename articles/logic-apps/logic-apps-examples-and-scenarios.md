@@ -35,7 +35,7 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 
 ## Error handling and logging
 * [Exception and error handling](app-service-logic-exception-handling.md)
-* [Configure Azure Alerts and diagnostics](app-service-logic-monitor-your-logic-apps.md)
+* [Configure Azure Alerts and diagnostics](logic-apps-monitor-your-logic-apps.md)
 
 ### Scenarios
 * [Use Case: Error and exception handling](app-service-logic-scenario-error-and-exception-handling.md)
@@ -43,7 +43,7 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 ## Deploying and managing
 * [Create an automated deployment](../logic-apps/logic-apps-create-deploy-template.md)
 * [Build and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)
-* [Monitor logic apps](app-service-logic-monitor-your-logic-apps.md)
+* [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 
 ## Content types, conversions, and transformations
 The Logic Apps [workflow definition language](http://aka.ms/logicappsdocs) contains many functions to allow you to convert and work with different content types. In addition, the engine will do all it can to preserve content-types as data flows through the workflow.

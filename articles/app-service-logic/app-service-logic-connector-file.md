@@ -85,7 +85,7 @@ Now that the connector is created, you can add it to a business workflow using a
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Monitor your Logic apps](app-service-logic-monitor-your-logic-apps.md).
+You can also review performance statistics and control security to the connector. See [Monitor your Logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG

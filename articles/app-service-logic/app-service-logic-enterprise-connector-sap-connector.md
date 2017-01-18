@@ -61,7 +61,7 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
 6. Once the IDOC is sent, wait for the response from the Logic App   
 
   > [!TIP]
-  > Check out how to [monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md).
+  > Check out how to [monitor your Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
   >
   >
 

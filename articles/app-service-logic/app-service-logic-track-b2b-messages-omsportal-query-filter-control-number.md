@@ -22,7 +22,7 @@ To track business-to-business (B2B) messages in the Operations Management Suite 
 
 ## Prerequisites
 
-For debugging and for more detailed diagnostics information, turn on diagnostics in your [integration account](app-service-logic-monitor-b2b-message.md) for your [logic apps](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors. Then, do the steps to [publish diagnostic data](app-service-logic-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
+For debugging and for more detailed diagnostics information, turn on diagnostics in your [integration account](app-service-logic-monitor-b2b-message.md) for your [logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors. Then, do the steps to [publish diagnostic data](app-service-logic-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
 
 ## To create a query to search for a specific interchange control number
 
