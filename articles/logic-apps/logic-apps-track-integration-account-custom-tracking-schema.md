@@ -75,7 +75,7 @@ You can use a custom tracking schema in your Azure integration account to help y
 ## B2B protocol tracking schemas
 For information about B2B protocol tracking schemas, see:
 * [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
-* [X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md)
+* [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
 
 ## Next steps
 * Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
