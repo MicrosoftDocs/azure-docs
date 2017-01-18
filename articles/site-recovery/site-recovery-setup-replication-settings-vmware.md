@@ -28,50 +28,50 @@ ms.author: sutalasi
 3. Click on '+Replicaton policy' on the top.
 
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Create-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Create-Policy.png)
 
 
 4. Enter the policy name.
 5. In RPO threshold, specify the RPO limit. Alerts will be generated when continuous replication exceeds this limit.
 6. In Recovery point retention, specify in hours how long the retention window will be for each recovery point. Protected machines can be recovered to any point within a window. 
 
-	> [!NOTE] 
-    > Up to 24 hours retention is supported for machines replicated to premium storage and 72 hours retention is supported for machines replicated to standard storage.
+> [!NOTE] 
+> Up to 24 hours retention is supported for machines replicated to premium storage and 72 hours retention is supported for machines replicated to standard storage.
 
-	> [!NOTE] 
-    > A replicaiton policy for failback will be automatically created.
+> [!NOTE] 
+> A replicaiton policy for failback will be automatically created.
 
 7. In App-consistent snapshot frequency, specify how often (in minutes) recovery points containing application-consistent snapshots will be created.
 
 8. Click 'OK'. The policy should be created in about 30 seconds to 1 minute.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Creating-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Creating-Policy.png)
 
 ## Associate Configuration server with replication policy
 1. Click on the replication policy to which you want to associate the configuration server.
 2. Click on 'Associate' on top.
 
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-1.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-1.png)
 
 3. Select the 'Configuration server' from the list of servers.
 4. Click OK. The confgiration server should be associated in about 1 to 2 minutes.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-2.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-2.png)
 
 ## Edit replication policy
 1. Click on the replication policy for which you want to edit replication settings.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Select-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Select-Policy.png)
 
 2. Click 'Edit Settings' on top.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Edit-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Edit-Policy.png)
 
 2. Change the settings based on your need.
 3. Click 'Save' on top. The policy should be saved in about 2 to 5 minutes depending on how many VMs are using that replication policy.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Save-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Save-Policy.png)
 
 ## Dissociate Configuration server from replication policy
 1. Click on the replication policy to which you want to associate the configuration server.
@@ -79,13 +79,13 @@ ms.author: sutalasi
 3. Select the 'Configuration server' from the list of servers.
 4. Click OK. The confgiration server should be dissociated in about 1 to 2 minutes.
 
-	> [!NOTE] 
-    > You cannot dissociate a Configuration server if there is atleast one replicated item using the policy. Make sure there are no replicated items using the policy before dissociating the Configuration server.
+> [!NOTE] 
+> You cannot dissociate a Configuration server if there is atleast one replicated item using the policy. Make sure there are no replicated items using the policy before dissociating the Configuration server.
 
 ## Delete replication policy 
 
 1. Click on the replication policy which you want to delete.
 2. Click on Delete. The policy should be deleted in about 30 seconds to 1 minute.
 
-	> [!NOTE] 
-    > You cannot delete a replication policy if it has atleast 1 Configuration server associted to it. Make sure there are no replicated items using the policy and delete all the associated configuration servers before deleting the policy.
+> [!NOTE] 
+> You cannot delete a replication policy if it has atleast 1 Configuration server associted to it. Make sure there are no replicated items using the policy and delete all the associated configuration servers before deleting the policy.
