@@ -99,7 +99,7 @@ Following are the detailed steps for uploading your private certificates into yo
 After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md).  
 
 ## Next steps
-* [Create a logic app that uses B2B features](app-service-logic-enterprise-integration-b2b.md)  
+* [Create a logic app that uses B2B features](../logic-apps/logic-apps-enterprise-integration-b2b.md)  
 * [Create a B2B agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md)  
 * [Learn more about Key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
 
