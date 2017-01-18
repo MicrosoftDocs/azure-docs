@@ -180,7 +180,7 @@ For an overview of the related user experience, see:
 
 **To open the related configuration dialog**:
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Sign-in risk policy**.
+- On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Sign-in risk policy**.
 
     ![User ridk policy](./media/active-directory-identityprotection/1014.png "User ridk policy")
 
@@ -319,7 +319,7 @@ For an overview of the related user experience, see:
 
 **To open the related configuration dialog**:
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
+- On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
 
     ![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
 
@@ -366,7 +366,7 @@ For an overview of the related user experience, see:
 
 **To open the related configuration dialog**:
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Multi-factor authentication registration**.
+- On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Multi-factor authentication registration**.
 
     ![MFA policy](./media/active-directory-identityprotection/1019.png "MFA policy")
 
