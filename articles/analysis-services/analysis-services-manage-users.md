@@ -8,13 +8,13 @@ manager: erikre
 editor: ''
 tags: ''
 
-ms.assetid: cc43ac56-1d16-42a7-a175-ae88119d179b
+ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 01/18/2016
 ms.author: owend
 
 ---
