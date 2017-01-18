@@ -31,7 +31,7 @@ These are limits for a single HTTP request and/or connector call
 
 |Name|Limit|Notes|
 |----|----|----|
-|Request Timeout|90 Seconds|An [async pattern](app-service-logic-create-api-app.md) or [until loop](app-service-logic-loops-and-scopes.md) can compensate as needed|
+|Request Timeout|90 Seconds|An [async pattern](../logic-apps/logic-apps-create-api-app.md) or [until loop](app-service-logic-loops-and-scopes.md) can compensate as needed|
 
 #### Message size
 

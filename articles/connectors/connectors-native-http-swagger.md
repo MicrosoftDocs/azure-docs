@@ -26,7 +26,7 @@ To get started with the HTTP + Swagger action in a logic app, see [Create a new 
 
 - - -
 ## Use HTTP + Swagger as a trigger or an action
-The HTTP + Swagger trigger and action function the same as the [HTTP action](connectors-native-http.md) but provide a better design experience by showing the shape of the API and outputs in the designer from the [Swagger metadata](https://swagger.io). In addition, you can use HTTP + Swagger as a trigger. If you want to implement a polling trigger, it should follow the polling pattern that's described in [Creating a custom API to use with logic apps](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
+The HTTP + Swagger trigger and action function the same as the [HTTP action](connectors-native-http.md) but provide a better design experience by showing the shape of the API and outputs in the designer from the [Swagger metadata](https://swagger.io). In addition, you can use HTTP + Swagger as a trigger. If you want to implement a polling trigger, it should follow the polling pattern that's described in [Creating a custom API to use with logic apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 [Learn more about logic app triggers and actions.](connectors-overview.md)
 

@@ -28,7 +28,7 @@ Connectors are hosted services you can access as part of a logic app to integrat
 
 Each connector action or trigger will have its set of properties to configure.  You can click on the info buttons to learn more about action, or reference its documentation [to learn more](apis-list.md).
 
-If you want to integrate with a service or API that isn't yet a connector, you can also extend logic apps through a [custom connector](../app-service-logic/app-service-logic-create-api-app.md) or just call directly to the service over a protocol like HTTP.
+If you want to integrate with a service or API that isn't yet a connector, you can also extend logic apps through a [custom connector](../logic-apps/logic-apps-create-api-app.md) or just call directly to the service over a protocol like HTTP.
 
 ## Triggers
 Some connectors have a trigger, which means an event from that connector will fire a logic app and pass in any data as part of the trigger.  A trigger is always the first step in a logic app.  Popular triggers include operations like:

@@ -23,11 +23,11 @@ This document details common scenarios and examples to help you to understand so
 ## Custom Triggers and Actions
 There are several ways you can trigger a Logic app from another app. Here's a few common examples:
 
-* [Creating a custom trigger or action](app-service-logic-create-api-app.md)
-* [Long-running actions](app-service-logic-create-api-app.md)
+* [Creating a custom trigger or action](../logic-apps/logic-apps-create-api-app.md)
+* [Long-running actions](../logic-apps/logic-apps-create-api-app.md)
 * [HTTP request trigger (POST)](app-service-logic-http-endpoint.md)
-* [Webhook triggers and actions](app-service-logic-create-api-app.md)
-* [Polling triggers](app-service-logic-create-api-app.md)
+* [Webhook triggers and actions](../logic-apps/logic-apps-create-api-app.md)
+* [Polling triggers](../logic-apps/logic-apps-create-api-app.md)
 
 ### Scenarios
 * [Request synchronous response](app-service-logic-http-endpoint.md)

@@ -15,7 +15,7 @@
 
 # How To
 ## Build
-### [Create a connector](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Create a connector](logic-apps-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Use File System connector](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Visual Studio tools](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Using Azure functions](logic-apps-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
