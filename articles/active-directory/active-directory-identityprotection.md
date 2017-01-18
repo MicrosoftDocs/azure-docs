@@ -102,15 +102,15 @@ The following sections provide you with more details and the steps that are rela
 
 Aure Active Directory detects some of the supported [risk event types](active-directory-identity-protection-risk-events.md#risk-event-types) in real-time. All detected real-time risk events that have been detected during a sign-in of a user contribute to a logical concept called *risky sign-in*. Each risky sign-in has an associated sign-in risk level. The lifecycle of a risky sign-in ends when a user signs out.
 
-## What is a sign-in risk level?
+### Sign-in risk level
 A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to authenticate with the user’s identity. The sign-in risk level is evaluated at the time of a sign-in and considers risk events and indicators detected in real-time for that specific sign-in.
 
-## Mitigating sign-in risk events
+### Mitigating sign-in risk events
 A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
 
 To mitigate risky sign-ins automatically, you can configure sign-in risk security policicies. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity.
 
-## Sign-in risk security policy
+### Sign-in risk security policy
 A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
 ![Sign-in risk policy](./media/active-directory-identityprotection/1014.png "Sign-in risk policy")
@@ -133,7 +133,7 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 
     ![Sign-in risk policy](./media/active-directory-identityprotection/1018.png "Sign-in risk policy")
 
-### What you need to know
+#### What you need to know
 You can configure a sign-in risk security policy to require multi-factor authentication:
 
 ![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
@@ -147,7 +147,7 @@ As a best practice, if you want to require multi-factor authentication for risky
 
 Completing these steps ensures that multi-factor authentication is required for a risky sign-in.
 
-### Best practices
+#### Best practices
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
 
 However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity.
@@ -193,7 +193,7 @@ All [risk events](active-directory-identity-protection-risk-events.md) that were
 ![Users flagged for risk](./media/active-directory-identityprotection/1200.png)
 
 
-## User risk level
+### User risk level
 
 A user risk level is an indication (High, Medium, or Low) of the likelihood that the user’s identity has been compromised. It is calculated based on the user risk events that are associated with the user's identity.
 
@@ -209,7 +209,7 @@ The user risk level is calculated using the following inputs:
 
 You can use the user risk levels to create conditional access policies to block risky users from signing in, or force them to securely change their password.
 
-## Closing risk events manually
+### Closing risk events manually
 In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible.  
 This is, for example, the case, when:
 
@@ -245,7 +245,7 @@ Instead of manually closing risk events for a user individually, Azure Active Di
 
 When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk.
 
-## Remediating user risk events
+### Remediating user risk events
 A remediation is an action to secure an identity or a device that was previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
 
 To remediate user risk events, you can:
@@ -254,7 +254,7 @@ To remediate user risk events, you can:
 * Configure a user risk security policy to mitigate or remediate user risk events automatically
 * Re-image the infected device  
 
-### Manual secure password reset
+#### Manual secure password reset
 A secure password reset is an effective remediation for many risk events, and when performed, automatically closes these risk events and recalculates the user risk level. You can use the Identity Protection dashboard to initiate a password reset for a risky user.
 
 The related dialog provides two different methods to reset a password:
@@ -277,7 +277,7 @@ The related dialog provides two different methods to reset a password:
 
     ![Manual password reset](./media/active-directory-identityprotection/1008.png "Manual password reset")
 
-## User risk security policy
+### User risk security policy
 A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
 
 ![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
@@ -323,7 +323,7 @@ For an overview of the related user experience, see:
 
     ![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
 
-## Mitigating user risk events
+### Mitigating user risk events
 Administrators can set a user risk security policy to block users upon sign-in depending on the risk level.
 
 Blocking a sign-in:
