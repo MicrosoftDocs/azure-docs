@@ -53,17 +53,17 @@ The core functionality of OMS is provided by a set of services that run in Azure
 | ![Azure Backup](media/operations-management-suite-overview/icon-backup.png) | Backup | Backup and restore critical data. |
 | ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | Provide high availability for critical applications. |
 
-## Log Analytics
+### Log Analytics
 [Log Analytics](../log-analytics/log-analytics-overview.md) provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
 
-### Collecting data
+#### Collecting data
 There are a variety of ways that you can get data into the repository for Log Analytics to analyze.
 
 - **Windows or Linux computers and virtual machines.**  You install the Microsoft Monitoring Agent on [Windows](h../log-analytics/log-analytics-windows-agents.md) and [Linux](../log-analytics/log-analytics-linux-agents) computers or virtual machines that you want to collect data from.  The agent will automatically download from Log Analytics configuration that defines events and performance data to collect.  You can easily install the agent on virtual machines running in Azure using the Azure portal.  If you have an existing Operations Manager environment, you can connect the management group to Log Analytics and automatically start collecting data from all existing agents.
 - **Azure services.**  Log Analytics collects telemetry from [Azure Diagnostics and Azure Monitoring](../log-analytics/log-analytics-azure-storage.md) into the repository so that you can monitor Azure resources.
 - **Data Collector API.**  Log Analytics has a [REST API for populating data from any client](../log-analytics/log-analytics-data-collector-api.md).  This allows you to collect data from third party applications or implement custom management scenarios.  A common method is to use a runbook in Azure Automation to collect data and then use the Data Collector API to write it to the repository.
 
-### Analyzing Data
+#### Analyzing Data
 Log Analytics includes a powerful query language to extract data stored in the repository.  Since data from all sources are stored as records, you can analyze data from multiple sources in a single query.
   
 In addition to ad hoc analysis, Log Analytics provides multiple ways to leverage data from a query.
@@ -72,7 +72,7 @@ In addition to ad hoc analysis, Log Analytics provides multiple ways to leverage
 - **Export.**  You have the option to export the results of any query so that you can analyze it outside of Log Analytics.  You can even schedule a regular export to [Power BI](../log-analytics/log-analytics-powerbi.md) which provides significant visualization and analysis capabilities.
 - **Log Search API.**  Log Analytics has a [REST API for collecting data from any client](../log-analytics/log-analytics-log-search-api.md).  This allows you to programmatically work with data collected in the repository or access it from another monitoring tool.
 
-### Alerting
+#### Alerting
 Log Analytics can [proactively alert](../log-analytics/log-analytics-alerts.md) you or take corrective action when it detects an issue.  Like all other analysis in Log Analytics, this is done with a log search.  This search runs on a regular schedule, and an alert is created if the results match particular criteria.
 
 ![Log Analytics alerts](media/operations-management-suite-overview/overview-alerts.png)
@@ -83,14 +83,14 @@ In addition to creating an alert record in the Log Analytics repository, alerts 
 - **Runbook.**  An alert in Log Analytics can start a runbook in Azure Automation.  This is typically done to attempt to correct the detected issue.  The runbook can be started in the cloud in the case of an issue in Azure or another cloud, or it could be started on a local agent for an issue on a physical or virtual machine.
 - **Webhook.**  An alert can start a webhook and pass it data from the results of the log search.  This allows integration with external services such as an alternate alerting system, or it may attempt to take corrective action for an external web site.
 
-## Azure Automation
+### Azure Automation
 [Azure Automation](../automation/automation-intro.md) provides process automation and configuration management to OMS.  It automates manual processes and helps to enforce configurations for physical and virtual computers.  
 
-### Process Automation
+#### Process Automation
 Azure Automation automates manual processes using [runbooks](../automation/automation-runbook-types.md) which are based on PowerShell script or PowerShell workflow.  It also includes assets supporting runbooks such as variables that can be shared between multiple runbooks and credentials and connections that allow you to store encrypted information that might be required for a runbook for authentication.
 Runbooks offer process automation for the other services in the suite.  Since each of the other services can be accessed with PowerShell or through a REST API, you can create runbooks to perform such functions as collecting management data in Log Analytics or initiating a backup with Azure Backup.
 
-#### Accessing resources
+##### Accessing resources
 Since runbooks are based on PowerShell, they can manage any resource that can be accessed with PowerShell cmdlets.  When you [load a module](../automation/automation-integration-modules.md) into your Automation account, it becomes available to all runbooks in that account. 
  
 When runbooks run in the cloud, they can access any resources accessible from the cloud.  This could be resources in your Azure subscription, in another cloud such as Amazon Web Services (AWS), or a service accessible through a REST API.  Runbooks in the cloud don’t run under any credentials, but they can leverage Automation assets such as credentials, connections, and certificates to authenticate to resources they access.
@@ -99,7 +99,7 @@ Resources in your data center most likely cannot be accessed from a runbook runn
 
 ![Azure Automation runbooks](media/operations-management-suite-overview/overview-runbooks.png)
 
-#### Starting a runbook
+##### Starting a runbook
 Runbooks can be [started through a number of methods](../automation/automation-starting-a-runbook.md) so that they can be included in a variety of management scenarios.  
 
 - **Azure Portal.**  Like other Azure services, Azure Automation can be managed from the Azure Portal.  In addition to starting runbooks, you can import them or author your own.
@@ -108,15 +108,15 @@ Runbooks can be [started through a number of methods](../automation/automation-s
 - **Webhook.**  A webhook can be created for any runbook that allows it to be started from external applications or web sites.
 - **Log Analytics Alert.**  An alert in Log Analytics can automatically start a runbook to attempt to correct the issue identified by the alert.
 
-### Configuration Management
+#### Configuration Management
 PowerShell Desired State Configuration (DSC) is a management platform in Windows PowerShell that allows you to deploy and enforce the configuration of physical and virtual machines.  Azure Automation manages DSC configurations and provides a pull server in the cloud that agents can access to retrieve required configurations.
 
 ![Azure Automation DSC](media/operations-management-suite-overview/overview-dsc.png)
 
-## Azure Backup and Azure Site Recovery
+### Azure Backup and Azure Site Recovery
 Azure Backup and Azure Site Recovery contribute to business continuity and disaster recovery.  They each have features that help you to ensure that applications remain available when outages occur and return to normal operations when systems come back online.  Both services contribute to therecovery point objectives (RPOs) and recovery time objectives (RTOs) defined for your organization. Your RPO defines the acceptable limit in which data isn’t available during an outage, and the RTO limits the acceptable amount of time in which a service or app isn’t available during an outage.
 
-### Azure Backup
+#### Azure Backup
 Azure Backup provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
 
 Azure Backup has three fundamental scenarios.
@@ -129,7 +129,7 @@ Azure Backup has three fundamental scenarios.
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further redundancy .
 
-### Azure Site Recovery
+#### Azure Site Recovery
 Azure Site Recovery provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. 
 
 Azure Site Recovery provides high availability for servers and applications.  It contributes to your business continuity and a disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of on-premises Hyper-V virtual machines, VMware virtual machines, and physical Windows/Linux servers. You can replicate machines to a secondary data center or extend your data center by replicating them to Azure. Site Recovery also provides simple failover and recovery for workloads. It integrates with disaster recovery mechanisms such as SQL Server AlwaysOn, and provides recovery plans for easy failover of workloads that are tiered across multiple machines.
@@ -171,7 +171,7 @@ In addition to the option of subscribing to each OMS service individually, you c
 | ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) | Security and Compliance | Log Analytics |Security & Audit<br>Malware Assessment |
 
 
-## ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
+### ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
 The Insight & Analytics offering allows you to collect and analyze operations data to ensure that applications and systems are available and performing with required parameters.  The primary service in this offering is **Log Analytics** which provides collection and analysis of operations data.  You can configure any of the available data sources and leverage any management solutions that aren’t included in another offering.
 
 **Service Map**.  This solution automatically discovers application components on Windows and Linux systems and maps the communication between services.  This solution is based on technology acquired from Bluestripe Software.  You can interact with the included console or analyze inventory data that’s stored in the Log Analytics repository.
@@ -180,7 +180,7 @@ The Insight & Analytics offering allows you to collect and analyze operations da
 
 **System Center 2016 Operations Manager**.  The Insight & Analytics offering includes licensing for System Center Operations Manager.  This allows you to quickly manage your existing Operations Manager agents by connecting your management group to Log Analytics and to maintain your existing investment to maintain a hybrid management environment.
 
-## ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
+### ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
 The Automation & Control offering allows you to automate operational issues and manage change across your Azure and on-premise environments.  The central component of this offering is **Azure Automation** which provides runbooks for automation and PowerShell DSC for enforcing configurations.  You can create your own runbooks to automate various processes across your environment, including automating other OMS services, or install the following solutions that are included with the offering.
 
 **Update Management**.  This solution identifies missing system updates and orchestrates their installation across Windows and Linux servers in any public cloud or your on-premise environment. 
@@ -194,13 +194,13 @@ The Automation & Control offering allows you to automate operational issues and 
 **System Center 2016 Service Manager**.  The Automation & Control offering includes licensing for System Center 2016 Service Manager which provides service delivery for incident resolution, change control, and asset lifecycle management for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
 
 
-## ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) Protection and Disaster Recovery
+### ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) Protection and Disaster Recovery
 The Protection & Recovery offering provides integrated cloud backup and disaster recovery to protect enterprise applications and data irrespective of its location.  The primary services for this offering are ******Azure Backup** which backs up data from physical and virtual Windows servers in addition to application workloads and **Azure Site Recovery** which orchestrates replication, failover, and recovery of critical systems and applications.
 
 **System Center 2016 Data Protection Manager**.   The Protection & Recovery offering includes licensing for System Center 2016 Data Protection Manager which provides backup and restore of on-premise data.  Data Protection Manager can integrate with Azure Backup to use the cloud 
 
 
-## ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) Security and Compliance
+### ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) Security and Compliance
 The Security & Compliance offering allows you to prevent, detect, and respond to threats with increased visibility.  The primary service in this offering is Log Analytics which provides collection and analysis of security data for the included solutions.
 
 **Security and Audit**.  This solution provides a comprehensive view into your organization’s security posture.  It provides search queries for identifying notable security issues and helps you perform forensic analysis, security breach pattern investigations, and audit scenarios.
