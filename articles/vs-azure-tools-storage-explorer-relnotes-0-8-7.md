@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Storage Explorer 0.8.7 (Preview)| Microsoft Docs
-description: release notes for Azure Storage Explorer 0.8.7 (Preview)
+description: Release notes for Microsoft Azure Storage Explorer 0.8.7 (Preview)
 services: storage
 documentationcenter: na
 author: cawa
