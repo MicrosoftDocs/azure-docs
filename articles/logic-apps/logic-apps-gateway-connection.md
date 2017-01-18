@@ -23,12 +23,12 @@ Supported logic apps connectors allow you to configure your connection to access
 ## Prerequisites
   * Must be using a work or school email address in Azure to associate the on-premises data gateway with your account (Azure Active Directory based account)
   * If you are using a Microsoft Account (e.g. @outlook.com, @live.com) you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
-  * Must have the on-premises data gateway [installed on a local machine](app-service-logic-gateway-install.md).
+  * Must have the on-premises data gateway [installed on a local machine](logic-apps-gateway-install.md).
   * Gateway must not have been claimed by another Azure on-premises data gateway ([claim happens with creation of step 2 below](#2-create-an-azure-on-premises-data-gateway-resource)) - an installation can only be associated to one gateway resource.
 
 ## Installing and configuring the connection
 ### 1. Install the on-premises data gateway
-Information on installing the on-premises data gateway can be found [in this article](app-service-logic-gateway-install.md).  The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
+Information on installing the on-premises data gateway can be found [in this article](logic-apps-gateway-install.md).  The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
 ### 2. Create an Azure on-premises data gateway resource
 Once installed, you must associate your Azure subscription with the on-premises data gateway.

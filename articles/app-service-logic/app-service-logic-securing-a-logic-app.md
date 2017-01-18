@@ -260,7 +260,7 @@ Logic apps provides integration with a number of services to provide secure and 
 
 #### On-premises data gateway
 
-Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway leverages encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](app-service-logic-gateway-install.md#how-the-gateway-works).
+Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway leverages encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](../logic-apps/logic-apps-gateway-install.md#how-the-gateway-works).
 
 #### Azure API Management
 
