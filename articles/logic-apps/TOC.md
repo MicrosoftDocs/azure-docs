@@ -11,7 +11,7 @@
 ## [Examples and scenarios](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Service Bus scenario](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [B2B processing](logic-apps-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [XML processing](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [XML processing](logic-apps-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # How To
 ## Build
@@ -33,7 +33,7 @@
 ### [Integration accounts overview](logic-apps-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Agreements](logic-apps-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [XML processing](../app-service-logic/app-service-logic-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [XML processing](logic-apps-enterprise-integration-xml.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Flat file processing](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Add XSLT maps](logic-apps-enterprise-integration-maps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Transform XML](logic-apps-enterprise-integration-transform.md?toc=%2fazure%2flogic-apps%2ftoc.json)
