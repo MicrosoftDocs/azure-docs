@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/06/2016
-ms.author: darosa,sethm,jotaub
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 
 ---
 # Service Bus Premium and Standard messaging tiers
@@ -47,7 +47,7 @@ Because Premium Messaging runs in a completely isolated runtime environment, exp
 
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straight forward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md). Make sure you select *Premium* under 'Pricing tier'.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md). Make sure you select **Premium** under **Pricing tier**.
 
 ![create-premium-namespace][create-premium-namespace]
 

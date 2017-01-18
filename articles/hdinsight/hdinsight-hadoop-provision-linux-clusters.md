@@ -18,7 +18,7 @@ ms.date: 12/07/2016
 ms.author: jgao
 
 ---
-# Create Linux-based Hadoop clusters in HDInsight
+# Create Hadoop clusters in HDInsight
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. In this article,  you learn about these configuration settings.

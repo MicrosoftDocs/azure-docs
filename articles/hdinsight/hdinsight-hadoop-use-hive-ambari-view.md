@@ -31,6 +31,9 @@ Ambari is a management and monitoring utility provided with Linux-based HDInsigh
 ## Prerequisites
 * A Linux-based HDInsight cluster. For information on creating a new cluster, see [Get started with Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## Open the Hive view
 You can Ambari Views from the Azure Portal; select your HDInsight cluster and then select **Ambari Views** from the **Quick Links** section.
 

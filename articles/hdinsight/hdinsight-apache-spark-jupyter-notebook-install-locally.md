@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 
 ---
@@ -86,7 +86,7 @@ In this section you configure the Spark magic that you installed earlier to conn
 
         python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
 
-5. Configure the right Heartbeat settings in `config.json`:
+5. Configure the right Heartbeat settings in `config.json`. You should add these settings at the same level as the `kernel_python_credentials` and `kernel_scala_credentials` snippets your added earlier. For an example on how and where to add the heartbeat settings, see this [sample config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
     * For `sparkmagic 0.5.0` (clusters v3.4), include:
 
