@@ -128,7 +128,7 @@ The Daily usage section of the file shows usage details that affect the billing 
 |Service Info 1 |The project name that the service belongs to on your subscription. |
 |Service Info 2 |This is a legacy field that captures optional service-specific metadata. |
 
-## Bill too high? Check out these tips.
+## Tips for cost management
 It's good to be proactive about controlling your costs:
 
 - Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and when you add a service
