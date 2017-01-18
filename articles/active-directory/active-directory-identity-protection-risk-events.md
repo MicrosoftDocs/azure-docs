@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 01/18/2017
 ms.author: markvi
 
 ---
@@ -21,8 +21,19 @@ ms.author: markvi
 Azure Active Directory helps you to protect your identities. One part of the protection process is the detection of suspicious actions that are related to your user accounts. The detection is based on adaptive machine learning algorithms and heuristics. Each detected suspicious action is stored in a record called *risk event*. 
 
 
-![Risk event](./media/active-directory-identity-protection-risk-events/1003.png)
+![Risk event](./media/active-directory-identity-protection-risk-events/91.png)
 
+
+Currently, Azure Active Directory detects six types of risk events.
+
+| Risk Event Type | Risk Level | Detection Type |
+| :-- | --- | --- |
+| Users with leaked credentials | High | Offline |
+| Sign-ins from anonymous IP addresses | Medium | Real-time |
+| Impossible travel to atypical locations | Medium | Offline |
+| Sign-ins from unfamiliar locations | Medium | Real-time |
+| Sign-ins from infected devices | Low | Offline |
+| Sign-ins from IP addresses with suspicious activity | Medium | Offline|
 
 ## Risk level
 
