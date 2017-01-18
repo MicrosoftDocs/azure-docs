@@ -196,7 +196,7 @@ You can use the expressions above to perform different exception handling patter
 The patterns above are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself.  [Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) provides a simple way to send all workflow events (including all run and action statuses) to an Azure Storage account or an Azure Event Hub.  You can monitor the logs and metrics, or publish them into any monitoring tool you prefer, to evaluate run statuses.  One potential option is to stream all the events through Azure Event Hub into [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).  In Stream Analytics you can write live queries off of any anomalies, averages, or failures from the diagnostic logs.  Stream Analytics can easily output to other data sources like queues, topics, SQL, DocumentDB, and Power BI.
 
 ## Next Steps
-* [See how one customer built robust error handling with Logic Apps](app-service-logic-scenario-error-and-exception-handling.md)
+* [See how one customer built robust error handling with Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Find more Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn how to create automated deployments of logic apps](../logic-apps/logic-apps-create-deploy-template.md)
 * [Design and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)

@@ -38,7 +38,7 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 * [Configure Azure Alerts and diagnostics](logic-apps-monitor-your-logic-apps.md)
 
 ### Scenarios
-* [Use Case: Error and exception handling](app-service-logic-scenario-error-and-exception-handling.md)
+* [Use Case: Error and exception handling](logic-apps-scenario-error-and-exception-handling.md)
 
 ## Deploying and managing
 * [Create an automated deployment](../logic-apps/logic-apps-create-deploy-template.md)
