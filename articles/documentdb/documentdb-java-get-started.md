@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 12/27/2016
+ms.date: 01/05/2017
 ms.author: arramac
 
 ---
@@ -60,9 +60,9 @@ Let's create a DocumentDB account. If you already have an account you want to us
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="GitClone"></a>Step 2: Clone the Github project
-You can get started by cloning the Github repository for [Get Started with DocumentDB and Java](https://github.com/arramac/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
+You can get started by cloning the Github repository for [Get Started with DocumentDB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
 
-    git clone git@github.com:arramac/documentdb-java-getting-started.git
+    git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
 
     cd documentdb-java-getting-started
 
@@ -188,5 +188,4 @@ Congratulations! You've completed this NoSQL tutorial and have a working Java co
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

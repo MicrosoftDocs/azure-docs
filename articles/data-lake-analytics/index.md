@@ -158,11 +158,29 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Get started with Azure Data Lake Analytics using REST APIs</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Azure Data Lake Store using Python</h3>
                     </div>
                 </div>
             </div>
@@ -216,13 +234,4 @@ Learn how to use Data Lake Analytics to run big data analysis jobs that scale to
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Lake Analytics Documentation
-        </div>
-    </a>
-</div>

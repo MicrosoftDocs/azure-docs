@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 01/05/2017
 ms.author: dobett
 
 ---
@@ -39,11 +39,11 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-As a final step, make a note of the **Primary key** value, and then click **Messaging**. On the **Messaging** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint**. You need these three values when you create your **read-d2c-messages** app.
+As a final step, make a note of the **Primary key** value. Then click **Endpoints** and the **Events** built-in endpoint. On the **Properties** blade, make a note of the **Event Hub-compatible name** and the **Event Hub-compatible endpoint** address. You need these three values when you create your **read-d2c-messages** app.
 
 ![Azure portal IoT Hub Messaging blade][6]
 
-You have now created your IoT hub, and you have the IoT Hub host name, IoT Hub connection string, IoT Hub Primary Key, Event Hub-compatible name, and Event Hub-compatible endpoint you need to complete this tutorial.
+You have now created your IoT hub. You have the IoT Hub host name, IoT Hub connection string, IoT Hub Primary Key, Event Hub-compatible name, and Event Hub-compatible endpoint you need to complete this tutorial.
 
 ## Create a device identity
 In this section, you create a Java console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
@@ -437,7 +437,7 @@ You are now ready to run the apps.
 ## Next steps
 In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
 
-To continue getting started with IoT Hub and to explore other IoT scenarios see:
+To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
@@ -458,7 +458,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

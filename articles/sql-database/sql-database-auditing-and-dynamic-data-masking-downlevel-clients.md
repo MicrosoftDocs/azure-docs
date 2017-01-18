@@ -1,6 +1,6 @@
 ---
-title: SQL Database downlevel clients support and IP endpoint changes for Auditing| Microsoft Docs
-description: Learn about SQL Database downlevel clients support and IP endpoint changes for Auditing.
+title: Auditing, TDS redirection, and IP endpoints for Azure SQL Database | Microsoft Docs
+description: Learn about auditing, TDS redirctioni and IP endpoint changes when implementing table auditing in Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: ronitr

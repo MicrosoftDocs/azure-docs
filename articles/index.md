@@ -1586,7 +1586,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PowerBI Embedded</h3>
+                                                    <h3>Power BI Embedded</h3>
                                                     <p>Embed fully interactive, stunning data visualizations in your applications</p>
                                                 </div>
                                             </div>

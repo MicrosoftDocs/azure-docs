@@ -61,7 +61,7 @@ The following example shows how to use several functions when constructing value
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```

@@ -56,7 +56,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Create a storage account
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
+2. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
 3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
    
    > [!NOTE]

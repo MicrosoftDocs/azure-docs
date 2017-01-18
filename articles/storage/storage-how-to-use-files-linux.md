@@ -35,7 +35,7 @@ File storage is now generally available and supports both SMB 2.1 and SMB 3.0. F
 ## Video: Using Azure File storage with Linux
 Here's a video that demonstrates how to create and use Azure File shares on Linux.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Linux/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
 > 
 > 
 
@@ -101,6 +101,17 @@ azureuser@AzureconSuse:~> sudo zypper install samba*
 azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
 azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 azureuser@AzureconSuse:~> df -h /mnt/mountpoint
+Filesystem  Size  Used Avail Use% Mounted on
+//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+```
+
+If you use RHEL 7.3, you can mount the file as below:
+
+```
+azureuser@AzureconRedhat:~> sudo yum install cifs-utils
+azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
+azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
 Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 ```

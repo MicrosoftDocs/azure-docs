@@ -276,6 +276,7 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 	```powershell
 	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
 	```
+
 ## Rerun failures in a pipeline
 ### Using Azure portal
 Once you troubleshoot and debug failures in a pipeline, you can rerun failures by navigating to the error slice and clicking the **Run** button on the command bar.

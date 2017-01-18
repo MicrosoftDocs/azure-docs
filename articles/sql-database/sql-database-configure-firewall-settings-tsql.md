@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database server-level and database-level firewall rules using T-SQL | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: 'T-SQL: Azure SQL Database firewall rules | Microsoft Docs'
+description: Learn how to configure server-level and database-level firewall rules for IP addresses that access Azure SQL databases using Transact-SQL.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
@@ -72,6 +72,11 @@ Only a database user with the **CONTROL** permission on the database (such as th
         EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
 For more information on these stored procedures, see [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) and [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
+
+> [!NOTE]
+> For a tutorial that demonstrates the use of database-level firewalls, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
+>
+
 
 ## Next steps
 For how to articles on creating server-level firewall rules using other methods, see: 

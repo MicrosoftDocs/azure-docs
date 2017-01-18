@@ -22,8 +22,10 @@ ms.author: larryfr
 
 HDInsight provides a configuration option called **Script Action** that invokes custom scripts that customize the cluster. These scripts can be used during cluster creation, or on an already running cluster, and are used to install additional components or change configuration settings.
 
-> [!NOTE]
-> The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters. For information on using script actions with Windows-based clusters, see [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md).
+> [!IMPORTANT]
+> The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
+>
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK. For more information on HDInsight applications, see [Publish HDInsight applications into the Azure Marketplace](hdinsight-apps-publish-applications.md).
@@ -92,8 +94,6 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 * Can accept **parameters** that are used by the script during execution.
 * Are ran with **root level privileges** on the cluster nodes.
 * Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI**, or **HDInsight .NET SDK**
-
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 To assist in understanding what scripts have been applied to a cluster, and in determining the ID of scripts for promotion or demotion, the cluster keeps a history of all scripts that have been ran.
 

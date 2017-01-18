@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---
@@ -34,7 +34,7 @@ GEP also needed a way to overcome regulatory barriers that kept it out of some g
 Nagalkar knew that a cloud solution might be the answer to this dilemma. If GEP could move to a cloud provider with a global presence, it could better meet its customers’ regulatory and performance needs by storing data closer to the customers’ physical locations.
 
 ## Finding smooth skies in the cloud
-Nagalkar and his team explored several cloud options, but most were infrastructure-as-a-service (IaaS)–based solutions that would have required GEP to invest heavily in IT resources to configure and manage the service. The Azure platform-as-a-service (PaaS) solution turned out to be a much better fit.
+Nagalkar and his team explored several cloud options, but most were infrastructure-as-a-service (IaaS)-based solutions that would have required GEP to invest heavily in IT resources to configure and manage the service. The Azure platform-as-a-service (PaaS) solution turned out to be a much better fit.
 
 “With Azure, GEP doesn’t need to deal with database management, virtual-machine configuration, patching, or other infrastructure-management tasks,” stated Nagalkar. “Instead, we can focus our resources on what we do best: leveraging our expertise in procurement to write software that truly delivers results for our customers.” 
 
