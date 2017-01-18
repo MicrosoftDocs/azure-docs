@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/27/2016
+ms.date: 01/18/2017
 ms.author: markgal; jimpark; trinadhk
 
 ---
@@ -78,7 +78,7 @@ Use the following steps to set backup goal, define policy, configure items and t
 Use the steps mentioned in the article [Backup Azure VMs to recovery services vault](backup-azure-arm-vms.md) to trigger backup job.
 
 ## Restore encrypted VM
-Restore experience for encrypted and non-encrypted virtual machines is the same. Use the steps mentioned in [restore virtual machines in Azure portal](backup-azure-arm-restore-vms.md) to restore the encrypted VM. In case you need to restore keys and secrets, you must ensure that key vault to restore them should already exist.
+To restore encrypted VM, first Restore Disks using steps mentioned in section **Restore backed up disks** in [Choosing VM restore configuration](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration) . After that, use the PowerShell steps mentioned in [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create full VM from restored disks.
 
 ## Troubleshooting errors
 | Operation | Error details | Resolution |
