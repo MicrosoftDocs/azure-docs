@@ -65,7 +65,7 @@ To prevent these cases from generating misleading risk events, you should add na
     c. Click **Create**.
 
 
-**Next steps**
+**Additional resources:**
 
 * [View your access and usage reports](active-directory-view-access-usage-reports.md)
 * [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
