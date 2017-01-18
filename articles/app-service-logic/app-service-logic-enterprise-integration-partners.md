@@ -71,5 +71,5 @@ Follow these steps to edit a partner that already exists in your integration acc
    ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)   
 
 ## Next steps
-* [Learn more about agreements](app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+* [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 

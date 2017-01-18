@@ -55,7 +55,7 @@ Enterprise Integration supports these industry standards:
 [Try it now](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy a fully operational sample AS2 send & receive logic app that uses the B2B features of Logic Apps.
 
 ## Learn more about:
-* [Agreements](app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
+* [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
 * [Business to Business (B2B) scenarios](app-service-logic-enterprise-integration-b2b.md "Learn how to create Logic apps with B2B features ")  
 * [Certificates](app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
 * [Flat file encoding/decoding](app-service-logic-enterprise-integration-flatfile.md "Learn how to encode and decode flat file contents")  

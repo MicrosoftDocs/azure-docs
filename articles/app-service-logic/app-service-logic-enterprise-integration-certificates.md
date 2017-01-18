@@ -38,7 +38,7 @@ Sometimes B2B communications must be kept confidential. Enterprise integration u
 ### Public certificates
 To use a *public certificate* in your logic apps with B2B capabilities, you first need to upload the certificate into your integration account. To use a *self-signed certificate*, on the other hand, you must first upload it to [Azure Key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault").
 
-After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in the [agreements](app-service-logic-enterprise-integration-agreements.md) that you create.  
+After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in the [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md) that you create.  
 
 Here are the detailed steps for uploading your public certificates into your integration account after you sign in to the Azure portal:
 
@@ -96,10 +96,10 @@ Following are the detailed steps for uploading your private certificates into yo
 11. Select the **Certificates** tile. You should see the newly added certificate.
     ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 
-After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in [agreements](app-service-logic-enterprise-integration-agreements.md).  
+After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in [agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md).  
 
 ## Next steps
 * [Create a logic app that uses B2B features](app-service-logic-enterprise-integration-b2b.md)  
-* [Create a B2B agreement](app-service-logic-enterprise-integration-agreements.md)  
+* [Create a B2B agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md)  
 * [Learn more about Key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
 
