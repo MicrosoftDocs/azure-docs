@@ -46,7 +46,7 @@
 ### [AS2 decoding](logic-apps-enterprise-integration-as2-decode.md)
 ### [EDIFACT integration](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md)
-### [EDIFACT decoding](../app-service-logic/app-service-logic-enterprise-integration-edifact-decode.md)
+### [EDIFACT decoding](logic-apps-enterprise-integration-edifact-decode.md)
 ### [X12 integration](logic-apps-enterprise-integration-x12.md)
 ### [X12 encoding](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
