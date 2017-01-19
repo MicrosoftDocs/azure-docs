@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 01/19/2017
 ms.author: tomfitz
 
 ---
 # Apply resource policies to Azure storage accounts
-Azure Resource Manager enables you to control access through custom policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
+Through Azure Resource Manager policies, you define consistent rules for how resources are deployed in your organization. You create customized policies to ensure users in your organization do not break conventions that are needed to manage your organization's resources. This topic shows several policies that define rules for Azure Storage Accounts. For more information about policies, see [Use resource policies to manage resources](resource-manager-policy.md).
 
 ## Ensure storage account type
 
-For more information about the storge account types, see [Azure Storage replication](../storage/storage-redundancy.md).
+The following policy restricts which [storage account types](../storage/storage-redundancy.md) can be deployed:
 
 ```json
 {
@@ -55,7 +55,7 @@ For more information about the storge account types, see [Azure Storage replicat
 
 ## Ensure access tier
 
-For more information about access tiers, see [Azure Blob Storage: Hot and cool storage tiers](../storage/storage-blob-storage-tiers.md).
+The following policy specifies the type of [access tier](../storage/storage-blob-storage-tiers.md) that can be specified for storage accounts:
 
 ```json
 {
@@ -83,7 +83,7 @@ For more information about access tiers, see [Azure Blob Storage: Hot and cool s
 }
 ```
 
-Or, you can use a parameter to pass in permitted values.
+Or, you can provide a parameter to specify the permitted access tier, as shown in the following example:
 
 ```json
 {
@@ -122,7 +122,7 @@ Or, you can use a parameter to pass in permitted values.
 
 ## Ensure encryption is on
 
-For more information about encryption and storage accounts, see [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md).
+The following policy requires all storage accounts to enable [Storage service encryption](../storage/storage-service-encryption.md):
 
 ```json
 {
@@ -149,6 +149,10 @@ For more information about encryption and storage accounts, see [Azure Storage S
   }
 }
 ```
+
+## Create and assign policies
+
+After defining a policy rule (as shown in the preceding examples), you need to create the policy and assign it to a scope. The scope can be a subscription, resource group, or resource. For examples on creating and assigning policies, see [Create and assign a policy](resource-manager-policy.md#create-and-assign-policy). 
 
 ## Next steps
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
