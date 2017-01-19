@@ -4,7 +4,7 @@ description: Learn how to use maps with the Enterprise Integration Pack and Logi
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289

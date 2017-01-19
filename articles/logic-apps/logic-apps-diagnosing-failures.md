@@ -4,7 +4,7 @@ description: Common approaches to understanding where logic apps are failing
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e

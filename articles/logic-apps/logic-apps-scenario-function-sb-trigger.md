@@ -4,7 +4,7 @@ description: Use Azure Functions to create a Service Bus trigger for a logic app
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: dwrede
+manager: anneta
 editor: ''
 
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef

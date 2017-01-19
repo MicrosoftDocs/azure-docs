@@ -4,7 +4,7 @@ description: See how to use Azure Functions with Logic Apps
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: dwrede
+manager: anneta
 editor: ''
 
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856

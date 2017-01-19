@@ -4,7 +4,7 @@ description: Learn patterns for error and exception handling with Azure Logic Ap
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4

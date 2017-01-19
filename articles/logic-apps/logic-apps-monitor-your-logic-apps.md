@@ -2,7 +2,7 @@
 title: Monitor your Logic apps in Azure App Service | Microsoft Docs
 description: How to see what your Logic apps have done
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

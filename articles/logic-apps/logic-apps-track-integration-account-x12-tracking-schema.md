@@ -2,7 +2,7 @@
 title: X12 tracking schemas | Microsoft Docs
 description: Learn more about X12 tracking schemas
 author: padmavc
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

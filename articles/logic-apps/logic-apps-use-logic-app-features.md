@@ -2,7 +2,7 @@
 title: Use Logic App features | Microsoft Docs
 description: Learn how to use the advanced features of logic apps.
 author: stepsic-microsoft-com
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

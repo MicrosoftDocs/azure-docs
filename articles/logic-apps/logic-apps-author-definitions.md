@@ -2,7 +2,7 @@
 title: Author Logic App definitions | Microsoft Docs
 description: Learn how to write the JSON definition for Logic apps
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

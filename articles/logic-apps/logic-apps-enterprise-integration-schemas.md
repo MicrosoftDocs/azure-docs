@@ -4,7 +4,7 @@ description: Learn how to use schemas with the Enterprise Integration Pack and l
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b

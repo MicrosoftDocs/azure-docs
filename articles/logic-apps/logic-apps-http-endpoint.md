@@ -4,7 +4,7 @@ description: How to create and configure trigger endpoints and use them in a Log
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2

@@ -2,7 +2,7 @@
 title: New schema version 2016-06-01 | Microsoft Docs
 description: Learn how to write the JSON definition for the latest version of Logic apps
 author: jeffhollan
-manager: dwrede
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

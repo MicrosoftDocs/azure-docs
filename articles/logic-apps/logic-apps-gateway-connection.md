@@ -4,7 +4,7 @@ description: Information on how to create a connection to the on-premises data g
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a

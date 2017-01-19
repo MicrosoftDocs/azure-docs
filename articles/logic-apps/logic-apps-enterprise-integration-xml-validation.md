@@ -4,7 +4,7 @@ description: Learn how validation works in the Enterprise Integration Pack and L
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760

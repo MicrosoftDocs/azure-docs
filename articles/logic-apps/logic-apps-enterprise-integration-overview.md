@@ -4,7 +4,7 @@ description: Use the features of Enterprise Integration to enable business proce
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae

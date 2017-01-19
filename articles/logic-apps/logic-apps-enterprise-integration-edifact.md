@@ -4,7 +4,7 @@ description: Learn how to use EDIFACT agreements to create Logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc

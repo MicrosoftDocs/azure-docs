@@ -4,7 +4,7 @@ description: Logic Apps lets you easily connect to on-premises file system as pa
 services: logic-apps
 documentationcenter: dev-center-name
 author: derek1ee
-manager: erikre
+manager: anneta
 
 
 ms.service: logic-apps

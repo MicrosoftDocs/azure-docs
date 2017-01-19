@@ -2,7 +2,7 @@
 title: What are Logic Apps?
 description: Learn more about App Service Logic Apps
 author: kevinlam1
-manager: dwrede
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

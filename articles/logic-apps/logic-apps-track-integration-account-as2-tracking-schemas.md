@@ -2,7 +2,7 @@
 title: AS2 tracking schemas | Microsoft Docs
 description: Learn more about AS2 tracking schemas
 author: padmavc
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

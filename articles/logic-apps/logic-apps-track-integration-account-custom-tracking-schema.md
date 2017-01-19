@@ -2,7 +2,7 @@
 title: Custom tracking schemas | Microsoft Docs
 description: Learn more about custom tracking schemas
 author: padmavc
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

@@ -4,7 +4,7 @@ description: Use the features of Enterprise Integration Pack to enable business 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde

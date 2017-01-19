@@ -4,7 +4,7 @@ description: Overview of different ways to handle loops and scopes in a logic ap
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: dwrede
+manager: anneta
 editor: ''
 
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc

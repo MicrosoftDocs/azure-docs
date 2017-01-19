@@ -4,7 +4,7 @@ description: Information on how to install the on-premises data gateway for use 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d

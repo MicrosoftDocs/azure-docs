@@ -4,7 +4,7 @@ description: See common Logic apps examples and learn how to implement common sc
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c

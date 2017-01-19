@@ -4,7 +4,7 @@ description: Understand how Logic Apps deals with content-types at design and ru
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: dwrede
+manager: anneta
 editor: ''
 
 ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288

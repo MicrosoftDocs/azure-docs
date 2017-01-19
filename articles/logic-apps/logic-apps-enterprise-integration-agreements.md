@@ -4,7 +4,7 @@ description: Learn how to use partners with the Enterprise Integration Pack and 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d

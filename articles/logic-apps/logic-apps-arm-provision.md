@@ -4,7 +4,7 @@ description: Use an Azure Resource Manager template to deploy an empty Logic App
 services: logic-apps
 documentationcenter: ''
 author: MSFTMan
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536

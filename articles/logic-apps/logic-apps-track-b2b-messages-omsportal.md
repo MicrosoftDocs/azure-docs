@@ -2,7 +2,7 @@
 title: Track B2B messages in OMS portal | Microsoft Docs
 description: How to track B2B messages in OMS portal
 author: padmavc
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''

@@ -4,7 +4,7 @@ description: Learn how to use X12 agreements to create Logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164

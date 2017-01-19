@@ -4,7 +4,7 @@ description: Learn to create an AS2 agreement for the Enterprise Integration Pac
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f

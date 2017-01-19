@@ -4,7 +4,7 @@ description: Learn how to process and validate XML messages using the Enterprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc

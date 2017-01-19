@@ -2,13 +2,13 @@
 title: Logic App templates | Microsoft Docs
 description: Learn how to use pre-created Logic app templates to help you get started
 author: kevinlam1
-manager: dwrede
+manager: anneta
 editor: ''
-services: app-service\logic
+services: logic-apps
 documentationcenter: ''
 
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na

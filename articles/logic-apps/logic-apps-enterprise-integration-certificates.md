@@ -5,7 +5,7 @@ description: Learn how to use certificates with the Enterprise Integration Pack 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d

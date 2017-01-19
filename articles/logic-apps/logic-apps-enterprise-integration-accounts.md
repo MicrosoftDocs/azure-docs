@@ -4,7 +4,7 @@ description: Learn all about Integration accounts, the Enterprise Integration Pa
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
+manager: anneta
 editor: cgronlun
 
 ms.assetid: dec91134-8c21-4d86-92f2-da6c131d2ccf
