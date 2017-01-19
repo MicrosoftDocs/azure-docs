@@ -216,18 +216,20 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 
 ## Troubleshooting
 
-If the local emulator crashes during startup in DocumentDB.StartupEntryPoint.exe, first confirm the cause of the error in the [trace files](#trace-files). This issue occurs when the performance counter registration on the machine misconfigured. To fix this, run lodctr /r from an administrative command prompt, which refreshes the performance counter registration. 
+Use the following tips to help troubleshoot issues you encounter with the local emulator:
 
-If you encounter a port conflict, the emulator displays the port conflict message and suggests a command line option to override the defaults.
+- If the local emulator crashes during startup in DocumentDB.StartupEntryPoint.exe, first confirm the cause of the error in the [trace files](#trace-files). This issue occurs when the performance counter registration on the machine misconfigured. To fix this, run `lodctr /r` from an administrative command prompt, which refreshes the performance counter registration. 
 
-If you receive a **ServiceUnavailableException**, start [collecting traces](#trace-files), then review the trace files. If the trace file contain WSAEOPNOTSUPP, then the emulator is failing to listen correctly on the network. This is caused by some network filter drivers that cause the registered IO APIs to fail. To fix this, uninstall the network filter driver.
+- If you encounter a port conflict, the emulator displays the port conflict message and suggests a command line option to override the defaults and fix the issue.
 
-If you need additional assistance determining the cause of the error, [turn on tracing](#trace-files), reproduce the issue, compress the files, and then send mail to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+- If you receive a **ServiceUnavailableException**, start [collecting traces](#trace-files), then review the trace files. If the trace file contains `WSAEOPNOTSUPP`, then the emulator is failing to listen to the network correctly. This is caused by some network filter drivers that cause the registered IO APIs to fail. To fix this, uninstall the network filter driver.
+
+- If you need additional assistance determining the cause of the error, [turn on tracing](#trace-files), reproduce the issue, compress the files, and then send mail to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 
 ### <a id="trace-files"></a>Collect trace files
 
-First, check to see if any trace files exist in the c:\Users\user_name\AppData\Local\CrashDumps folder. If there are any .dmp files, compress them and send them along for debugging.
+First, check to see if any trace files exist in the c:\Users\user_name\AppData\Local\CrashDumps folder. If there are any .dmp files, compress them and send them in your email for debugging.
 
 To collect debugging traces, shut down the emulator, then do the following from an administrative command prompt:
 
