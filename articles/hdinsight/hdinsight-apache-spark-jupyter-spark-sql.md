@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/18/2017
 ms.author: nitinme
 
 ---
 # Get started: Create Apache Spark cluster in Azure HDInsight and run interactive queries using Spark SQL
+
 Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
    ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
@@ -27,7 +28,8 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 
 ## Prerequisites
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
-* **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows systems, see [Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+* **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 > [!NOTE]
 > This article uses an Azure Resource Manager template to create a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as an additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
