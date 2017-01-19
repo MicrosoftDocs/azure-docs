@@ -21,11 +21,6 @@ ms.author: cjiang
 # Associate an Office 365 tenant with an Azure subscription
 If you acquired both Azure and Office 365 subscriptions separately in the past, and now you want to be able to access the Office 365 tenant from the Azure subscription, it's easy to do so. This article shows you how.
 
-> [!NOTE]
-> This article doesn’t apply to Enterprise Agreement (EA) customers.
-> 
-> 
-
 ## Quick guidance
 To associate your Office 365 tenant with your Azure subscription, use your Azure account to add your Office 365 tenant, and then associate your Azure subscription with the Office 365 tenant.
 
