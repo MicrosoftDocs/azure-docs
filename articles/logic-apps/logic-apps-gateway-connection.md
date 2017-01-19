@@ -58,6 +58,6 @@ The connection should now be successfully configured for use in your logic app.
 * [Enterprise integration features](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!-- Image references -->
-[1]: ./media/app-service-logic-gateway-connection/createblade.PNG
-[2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
-[3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
+[1]: ./media/logic-apps-gateway-connection/createblade.png
+[2]: ./media/logic-apps-gateway-connection/blankconnection.png
+[3]: ./media/logic-apps-logic-gateway-connection/checkbox.png

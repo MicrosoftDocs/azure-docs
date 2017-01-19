@@ -61,5 +61,5 @@ Next, you need to create a function that will act as the trigger and listen to t
 To test, add a queue message via a tool like [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer). See the logic app fire immediately after the function receives the message.
 
 <!-- Image References -->
-[1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
-[2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
+[1]: ./media/logic-apps-scenario-function-sb-trigger/manualtrigger.png
+[2]: ./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png

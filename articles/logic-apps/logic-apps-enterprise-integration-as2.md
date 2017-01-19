@@ -42,18 +42,18 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 > 
 > 
 
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
 
 1. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-   ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+   ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
 2. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
-   ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+   ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
 3. Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-   ![](./media/app-service-logic-enterprise-integration-agreements/agreement-1.png)   
+   ![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
 4. Select the **Add** button in the Agreements blade that opens.  
-   ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
+   ![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
 5. Enter a **Name** for your agreement then select the **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-   ![](./media/app-service-logic-enterprise-integration-agreements/agreement-3.png)  
+   ![](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
 Here are a few details you may find useful when configuring the settings for your agreement: 
 
@@ -74,7 +74,7 @@ Let's continue:
    * Select the **Message should be signed** checkbox if you'd like to require all incoming messages to be signed. If you select this option, you will also need to select the **Certificate** that will be used to validate the signature on the messages.
    * Optionally, you can require messages to be encrypted as well. To do this, select the **Message should be encrypted** checkbox. You would then need to select the **Certificate** that will be used to decode the incoming messages.
    * You can also require messages to be compressed. To do this, select the **Message should be compressed** checkbox.  
-     ![](./media/app-service-logic-enterprise-integration-agreements/agreement-4.png)  
+     ![](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
 
 See the table below if you would like to learn more about what the receive settings enable.  
 
@@ -94,7 +94,7 @@ See the table below if you would like to learn more about what the receive setti
 Now, let's continue:  
 
 1. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
-   ![](./media/app-service-logic-enterprise-integration-agreements/agreement-5.png)  
+   ![](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
 
 See the table below if you would like to learn more about what the send settings enable.  
 
@@ -115,5 +115,5 @@ See the table below if you would like to learn more about what the send settings
 We are almost done!  
 
 1. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-   ![](./media/app-service-logic-enterprise-integration-agreements/agreement-6.png)
+   ![](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
 

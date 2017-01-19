@@ -33,41 +33,41 @@ In this walkthru you'll see how to use the AS2 and X12 actions to create a busin
 
 1. Create a new Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).  
 2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
-   ![](./media/app-service-logic-enterprise-integration-b2b/flatfile-1.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)  
 3. Add the **Decode AS2** action by first selecting **Add an action**  
-   ![](./media/app-service-logic-enterprise-integration-b2b/transform-2.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/transform-2.png)  
 4. Enter the word **as2** in the search box in order to filter all the actions to the one that you want to use  
-   ![](./media/app-service-logic-enterprise-integration-b2b/b2b-5.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-5.png)  
 5. Select the **AS2 - Decode AS2 message** action  
-   ![](./media/app-service-logic-enterprise-integration-b2b/b2b-6.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)  
 6. As shown, add the **Body** that you will take as input. In this example, select the body of the HTTP request that triggered the Logic app. You can alternatively enter an expression to input the headers in the**HEADERS** field:
    
     @triggerOutputs()['headers']
 7. Add the **Headers** that are required for AS2. These will be in the HTTP request headers. In this example, select the headers of the HTTP request that triggered the Logic app.
 8. Now add the Decode X12 message action by again selecting **Add an action**  
-   ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)   
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)   
 9. Enter the word **x12** in the search box in order to filter all the actions to the one that you want to use  
-   ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/b2b-10.png)  
 10. Select the **X12 - Decode X12 message** action to add it to the Logic app  
-    ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)  
+    ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)  
 11. You now need to specify the input to this action which will be the output of the AS2 action above. The actual message content is in a JSON object and is base64 encoded. You therefore need to specify an expression as the input so enter the following expression in the **X12 FLAT FILE MESSAGE TO DECODE** input field  
     
     @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])  
 12. This step will decode the X12 data received from the trading partner and will output a number of items in a JSON object. In order to let the partner know of the receipt of the data you can send back a response containing the AS2 Message Disposition Notification (MDN) in an HTTP Response Action  
 13. Add the **Response** action by selecting **Add an action**   
-    ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)  
+    ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)  
 14. Enter the word **response** in the search box in order to filter all the actions to the one that you want to use  
-    ![](./media/app-service-logic-enterprise-integration-b2b/b2b-15.png)  
+    ![](./media/logic-apps-enterprise-integration-b2b/b2b-15.png)  
 15. Select the **Response** action to add it  
-    ![](./media/app-service-logic-enterprise-integration-b2b/b2b-16.png)  
+    ![](./media/logic-apps-enterprise-integration-b2b/b2b-16.png)  
 16. Set the response **BODY** field by using the following expression to access the MDN from the output of the **Decode X12 message** action  
     
     @base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])  
 
-![](./media/app-service-logic-enterprise-integration-b2b/b2b-17.png)  
+![](./media/logic-apps-enterprise-integration-b2b/b2b-17.png)  
 
 1. Save your work  
-   ![](./media/app-service-logic-enterprise-integration-b2b/transform-5.png)  
+   ![](./media/logic-apps-enterprise-integration-b2b/transform-5.png)  
 
 At this point, you are finished setting up your B2B Logic app. In a real world application, you may want to store the decoded X12 data in an LOB application or data store. You can easily add further actions to do this or write custom APIs to connect to your own LOB applications and use these APIs in your Logic app.
 

@@ -148,6 +148,6 @@ This functionality is available through **API management**:
 | Reference the incoming body via  `@triggerOutputs().body.Content` |Reference via `@triggerOutputs().body` |
 | **Send HTTP response** action on the HTTP Listener |Click on **Respond to HTTP request** (no API app required) |
 
-[1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
-[2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
-[3]: ./media/app-service-logic-http-endpoint/response.png
+[1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
+[2]: ./media/logic-apps-http-endpoint/manualtrigger.png
+[3]: ./media/logic-apps-http-endpoint/response.png

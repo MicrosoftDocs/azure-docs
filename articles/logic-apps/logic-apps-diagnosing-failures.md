@@ -72,7 +72,7 @@ You can drill into the inputs and outputs that an action received. This is usefu
 In addition to monitoring the inputs, outputs, and triggers of a run, it could be useful to add some steps within a workflow to help with debugging. [RequestBin](http://requestb.in) is a powerful tool that you can add as a step in a workflow. By using RequestBin, you can set up an HTTP request inspector to determine the exact size, shape, and format of an HTTP request. You can create a new RequestBin and paste the URL in a logic app HTTP POST action along with body content you want to test (for example, an expression or another step output). After you run the logic app, you can refresh your RequestBin to see how the request was formed as it was generated from the Logic Apps engine.
 
 <!-- image references -->
-[1]: ./media/app-service-logic-diagnosing-failures/triggerHistory.PNG
-[2]: ./media/app-service-logic-diagnosing-failures/runHistory.PNG
-[3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
-[4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
+[1]: ./media/logic-apps-diagnosing-failures/triggerhistory.png
+[2]: ./media/logic-apps-diagnosing-failures/runhistory.png
+[3]: ./media/logic-apps-diagnosing-failures/triggeroutputslink.png
+[4]: ./media/logic-apps-diagnosing-failures/actionoutputs.png

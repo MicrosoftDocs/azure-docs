@@ -8,7 +8,7 @@ manager: erikre
 editor: cgronlun
 
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -47,25 +47,25 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 > 
 > 
 
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
 
 1. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-   ![](./media/app-service-logic-enterprise-integration-x12/x12-1-3.png)    
+   ![](./media/logic-apps-enterprise-integration-x12/x12-1-3.png)    
 2. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
-   ![](./media/app-service-logic-enterprise-integration-x12/x12-1-4.png)  
+   ![](./media/logic-apps-enterprise-integration-x12/x12-1-4.png)  
 3. Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-   ![](./media/app-service-logic-enterprise-integration-x12/x12-1-5.png)     
+   ![](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)     
 4. Select the **Add** button in the Agreements blade that opens.  
-   ![](./media/app-service-logic-enterprise-integration-agreements/agreement-2.png)  
+   ![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
 5. Enter a **Name** for your agreement then select the **Agreement type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-   ![](./media/app-service-logic-enterprise-integration-x12/x12-1.png)  
+   ![](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 6. After you have set the receive settings properties, select the **OK** button  
    Let's continue:  
 7. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
 8. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations and Internal Settings. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-   ![](./media/app-service-logic-enterprise-integration-x12/x12-2.png)  
+   ![](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-3.png)  
+![](./media/logic-apps-enterprise-integration-x12/x12-3.png)  
 
 1. Select the **OK** button to save your settings.  
 
@@ -131,11 +131,11 @@ To configure the settings that handle messages you send to partners:
 The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and  Validation. 
 
 Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-x12/x12-4.png)  
+![](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-5.png)  
+![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-![](./media/app-service-logic-enterprise-integration-x12/x12-6.png)  
+![](./media/logic-apps-enterprise-integration-x12/x12-6.png)  
 
 1. Select the **OK** button to save your settings.  
 
@@ -199,7 +199,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 After you select **OK** on the open blades:  
 
 1. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-   ![](./media/app-service-logic-enterprise-integration-x12/x12-7.png)   
+   ![](./media/logic-apps-enterprise-integration-x12/x12-7.png)   
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

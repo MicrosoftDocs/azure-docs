@@ -63,5 +63,5 @@ To generate a template based on the data that you want to compute, specify the c
 The designer then generates a function template that you can create inline. Variables are pre-created based on the context that you plan to pass into the function.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-azure-functions/callFunction.png
-[2]: ./media/app-service-logic-azure-functions/createFunction.png
+[1]: ./media/logic-apps-azure-functions/callfunction.png
+[2]: ./media/logic-apps-azure-functions/createfunction.png

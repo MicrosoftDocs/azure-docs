@@ -8,7 +8,7 @@ manager: erikre
 editor: cgronlun
 
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,7 +19,7 @@ ms.author: jonfan
 ---
 # Enterprise integration with EDIFACT
 > [!NOTE]
-> This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](logic-apps-enterprise-integration-x12.md).
+> This page covers the EDIFACT features of Logic Apps. See [X12](logic-apps-enterprise-integration-x12.md) for more information.
 > 
 > 
 
@@ -47,21 +47,21 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 > 
 > 
 
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-0.png)    
+![](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)    
 
 1. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-3.png)    
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)    
 2. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-4.png)  
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)  
 3. Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-5.png)     
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)     
 4. Select the **Add** button in the Agreements blade that opens.  
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-agreement-2.png)  
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)  
 5. Enter a **Name** for your agreement then select the **Agreement type** for EDIFACT, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1.png)  
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)  
 6. After you have set the agreement properties, select **Receive Settings** to configure how messages received via this agreement are to be handled.  
 7. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Control Numbers, Validation, Internal Settings and Batch processing. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-2.png)  
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 8. Select the **OK** button to save your settings.  
 
 ### Identifiers
@@ -121,7 +121,7 @@ To configure the settings that handle messages you send to partners:
 The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers and Validation. 
 
 Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-3.png)    
+![](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
 1. Select the **OK** button to save your settings.  
 
@@ -187,7 +187,7 @@ Other than the character set, you can enter a different set of delimiters to be 
 After you select **OK** on the open blade:  
 
 1. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-   ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-4.png)   
+   ![](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

@@ -40,17 +40,17 @@ Now that you've taken care of the prerequisites, it's time to create your Logic 
 
 1. Create a Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
 2. Add a **Request** trigger to your Logic app  
-   ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)    
+   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Add the **Transform XML** action by first selecting **Add an action**   
-   ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)   
+   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Enter the word *transform* in the search box to filter all the actions to the one that you want to use  
-   ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)  
+   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Select the **Transform XML** action   
 6. Add the XML **CONTENT** that you transform. You can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
 7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.      
-   ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png) 
+   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Save your work  
-    ![](./media/app-service-logic-enterprise-integration-transforms/transform-5.png) 
+    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 At this point, you are finished setting up your map. In a real world application, you may want to store the transformed data in an LOB application such as SalesForce. You can easily as an action to send the output of the transform to Salesforce. 
 
