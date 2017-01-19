@@ -18,15 +18,15 @@ ms.author: jeffstok
 ---
 
 # Azure Stream Analytics JavaScript User-Defined Functions
-Azure Stream Analytics supports User-Defined Functions (UDFs) written in JavaScript. With the rich set of String, RegExp, Math, Array, and Date methods that JavaScript provided, complex data transformations with Stream Analtyics jobs becomes easier to create.
+Azure Stream Analytics supports User-Defined Functions (UDFs) written in JavaScript. With the rich set of String, RegExp, Math, Array, and Date methods that JavaScript provided, complex data transformations with Stream Analytics jobs becomes easier to create.
 
-## Feature Overwiew
-JavaScript UDFs supports stateless, compute-only scalar functions which do not require external connectivity. The return value of a function can only be a scalar (single) value. Once added to a job the function can be used at any place in the query like a built-in scalar function.
+## Overview
+JavaScript UDFs support stateless, compute-only scalar functions which do not require external connectivity. The return value of a function can only be a scalar (single) value. Once added to a job the function can be used at any place in the query like a built-in scalar function.
 
 Here are some example scenarios where you will find JavaScript UDFs useful:
 * Parsing and manipulating string with regular expression functions, for example, Regexp_Replace() and Regexp_Extract()
 * Decoding an encoding data, for example, binary to hex conversion
-* Mathimatic computations with JavaScript Math functions
+* Mathematic computations with JavaScript Math functions
 * Array operations like sorting, joining, find, and fill
 
 Below are things that you cannot do with a JavaScript UDF in Stream Analytics:
@@ -34,14 +34,14 @@ Below are things that you cannot do with a JavaScript UDF in Stream Analytics:
 * Custom event format serialization or deserialization on inputs/outputs
 * Custom aggregates
 
-Although they are not blocked in the functions definition, you should avoid using functions like Date.GetDate(), or Math.random(). These functions **do not** return the same result every time you call them and Azure Stream Analytics service does not keep a journal of function invocations and returned results. Therefore if a function returns different result on the same event(s), repeatability will not be guarenteed when a job is restarted by you or by the Stream Analytics service.
+Although they are not blocked in the functions definition, you should avoid using functions like Date.GetDate(), or Math.random(). These functions **do not** return the same result every time you call them and Azure Stream Analytics service does not keep a journal of function invocations and returned results. Therefore if a function returns different result on the same event(s), repeatability will not be guaranteed when a job is restarted by you or by the Stream Analytics service.
 
 ## Adding a JavaScript UDF from Azure portal
 To create a simple JavaScript User-Defined Function under an existing Stream Analytics job follow these steps.
 
 1.	Open the Azure portal.
 
-2.	Locate your Stream Analytics job, then click on functions  link under **JOB TOPOLOGY**.
+2.	Locate your Stream Analytics job, then click on functions link under **JOB TOPOLOGY**.
  
 3.	You will see an empty list of existing functions, click on the **Add** icon to add a new UDF.
 
@@ -114,7 +114,7 @@ Null, Undefined | NULL
 any other type, e.g. Function, Error, etc. | Not supported – runtime error
 
 ## Troubleshooting
-JavaScript runtime errors will be considered fatal and surfaced to the you through Activity log. To retrieve the log from Azure portal, go to your job and click on **Activity log**.
+JavaScript runtime errors will be considered fatal and surfaced through the Activity log. To retrieve the log from Azure portal, go to your job and click on **Activity log**.
  
 
 ## Other JavaScript UDF usage patterns
