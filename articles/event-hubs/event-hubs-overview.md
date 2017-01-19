@@ -1,3 +1,3 @@
 ---
-redirect_url: /event-hubs-what-is-event-hubs
+redirect_url: /azure/event-hubs/event-hubs-what-is-event-hubs
 ---
