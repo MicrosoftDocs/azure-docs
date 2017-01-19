@@ -51,21 +51,21 @@ Media Services depends on a storage key provided to it. Specifically, the locato
  
  ## Steps to add storage accounts to your AMS account
   
- The following sample shows how to use [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media) to add two storage accounts to the AMS account.
+The following sample shows how to use [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media) to add two storage accounts to the AMS account.
 
-     $regionName = "West US"
-     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
-     $resourceGroupName = "SkyMedia-USWest-App"
-     $mediaAccountName = "sky"
-     $storageAccount1Name = "skystorage1"
-     $storageAccount2Name = "skystorage2"
-     $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-     $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-     $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-     $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-     $storageAccounts = @($storageAccount1, $storageAccount2)
-
-     Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+	$regionName = "West US"
+	$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+	$resourceGroupName = "SkyMedia-USWest-App"
+	$mediaAccountName = "sky"
+	$storageAccount1Name = "skystorage1"
+	$storageAccount2Name = "skystorage2"
+	$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+	$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+	$storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+	$storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+	$storageAccounts = @($storageAccount1, $storageAccount2)
+	
+	Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
