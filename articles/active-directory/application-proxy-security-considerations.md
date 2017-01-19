@@ -110,7 +110,7 @@ The following flow happens when users access a published application.
  * App Proxy redirects the user back to the originally requested URL.
  * **NOTE:** If any part of the pre-authentication steps fails, the user’s request is denied, and the user is shown a message indicating the source of the problem.
 2. App Proxy, upon receiving the request from the client, validates that the pre-authentication condition has been meet and that the cookie is still valid (as required). It then places a request in the appropriate queue for an on-premises connector to handle. 
-**Note** All requests from the connector are outbound to the App Proxy service. Connectors keep an outbound connection open to App Proxy. When a request comes in, the App Proxy queues up the request on one of the open connections for the connector to pick up.
+ * **Note** All requests from the connector are outbound to the App Proxy service. Connectors keep an outbound connection open to App Proxy. When a request comes in, the App Proxy queues up the request on one of the open connections for the connector to pick up.
  * The request includes items from the application, such as the headers of the request and data from the encrypted cookie, the user making the request, and the request ID.  But, the encrypted authentication cookie is not sent to the connector.
 3. The connector receives the request from the queue, based on a long-lived outbound connection. App Proxy will do one of the following based on the request:
  * The connector confirms whether it can identify the application.  If not, the connector establishes a connection to the App Proxy service to gather details about the application, and caches it locally.
