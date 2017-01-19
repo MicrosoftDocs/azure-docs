@@ -79,7 +79,7 @@ If you need more scalability and network isolation, you can run your apps in an 
 For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Test-drive App Service
-[Create a sample web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) and play with it for one hour, with no credit card required, no commitments, no hassles.
+[Create a sample web app, mobile app, or logic app](https://azure.microsoft.com/try/app-service/) and play with it for one hour, with no credit card required, no commitments, no hassles.
 
 Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
 
