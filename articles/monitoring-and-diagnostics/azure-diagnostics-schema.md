@@ -22,14 +22,14 @@ This page is an index of the Azure Diagnostics Schemas shipped as part of the Mi
 
 ## Azure SDK and Diagnostics versions shipping chart  
 
-|Azure SDK version|Azure Diagnostics version|Model|  
-|-----|----|-----------|  
-|1.x|1.0|plug-in|  
-|2.0 - 2.4|1.0|"|  
-|2.5|1.2|extension|  
-|2.6|1.3|"|  
-|2.7|1.4|"|  
-|2.8|1.5|"|  
+|Azure SDK version | Azure Diagnostics version | Model|  
+|------------------|---------------------------|------|  
+|1.x               | 1.0              | plug-in|  
+|2.0 - 2.4         |1.0               |"|  
+|2.5               |1.2               |extension|  
+|2.6               |1.3               |"|  
+|2.7               |1.4               |"|  
+|2.8               |1.5               |"|  
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model, meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
 
@@ -38,8 +38,8 @@ This page is an index of the Azure Diagnostics Schemas shipped as part of the Mi
  For example, anyone still using SDK 2.5 would be loading Diagnostics 1.5, whether or not they were using the newer features.  
 
 ## Azure Diagnostics schemas index  
-[Diagnostics 1.0 Configuration Schema](azure-diagnostics-schema-1.0.md)  
+[Diagnostics 1.0 Configuration Schema](azure-diagnostics-schema-1dot0.md)  
 
-[Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1.2.md)  
+[Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1dot2.md)  
 
-[Diagnostics 1.3 to 1.5 Configuration Schema](azure-diagnostics-schema-1.3-1.4-1.5.md)  
+[Diagnostics 1.3 to 1.5 Configuration Schema](azure-diagnostics-schema-1dot3-to-1dot5.md)  
