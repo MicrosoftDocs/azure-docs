@@ -40,7 +40,7 @@ Azure AD Application Proxy offers the following security benefits:
 
 * The Azure AD App Proxy is a reverse-proxy, so all traffic to backend applications is terminated at the service. The session can only get reestablished with the backend server. This means that your backend servers are not exposed to direct HTTP traffic. For example, you can more easily mitigate targeted attacks.
 
-** All access is outbound:** No inbound connections need be opened to the corporate network
+**All access is outbound:** No inbound connections need be opened to the corporate network
 
 * Azure AD connectors maintain outbound connections to the Azure AD App proxy service. This means there is no need to open firewall ports for incoming connections. 
 * Traditional approaches required a DMZ and opening access to unauthenticated connections at the network edge. This resulted in the need for lot of additional investment in WAF products to analyze traffic and offer addition protections to the environment. With App Proxy, you can avoid this scenario. You can even consider going without your DMZ, as all connections are outbound and over a secure channel.
