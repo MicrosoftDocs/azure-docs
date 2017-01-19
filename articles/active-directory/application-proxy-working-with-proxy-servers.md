@@ -156,7 +156,7 @@ Do not use SSL Inspection for the Connector traffic as it will cause issues for 
 
 So that’s it. Now you should see all traffic flowing through the proxy. If you run into issues, the following troubleshooting steps should help.
 
-## Troubleshooting Connector Proxy problems and service connectivity issues
+### Troubleshooting Connector Proxy problems and service connectivity issues
 
 The single best way of identifying and troubleshooting Connector connectivity issues is to take a Network capture on the Connector service while starting the Connector service. This can be a daunting task, so let’s look at quick tips on capturing and filtering network traces.
 
@@ -164,7 +164,7 @@ You can use the monitoring tool of your choice. For the purposes of this article
 
 The examples and filters we use below are specific to Network Monitor, but the principles can be applied to any analysis tool.
 
-## Taking a capture using Microsoft Network Monitor
+### Taking a capture using Microsoft Network Monitor
 
 To start a capture, open Network Monitor and click New Capture. Then press the Start button to begin.
 
@@ -172,7 +172,7 @@ To start a capture, open Network Monitor and click New Capture. Then press the S
 
 After completing a capture, click the Stop button to end the capture.
 
-## Taking a capture of Connector traffic
+### Taking a capture of Connector traffic
 
 For initial troubleshooting, perform the following steps: 
 
@@ -183,7 +183,7 @@ For initial troubleshooting, perform the following steps:
 
  ![AzureAD Network Monitor](./media/application-proxy-working-with-proxy-servers/services-local.png)
 
-## Looking at the Connector to proxy server requests
+### Looking at the Connector to proxy server requests
 
 Now that you’ve got a network capture, youre ready to filter it. The key to looking at the trace is understanding how to filter the capture.
 
@@ -201,7 +201,7 @@ You now are specifically looking for the CONNECT requests that shows we are talk
 
 If you see other response codes, such as 407 or 502, this indicates that the proxy is requiring authentication or not allowing the traffic for some other reason. At this point you would engage your proxy server support team.
 
-## Identifying failed TCP connection attempts
+### Identifying failed TCP connection attempts
 
 The other common scenario you may be interested in is when the Connector is trying to connect directly, but it is failing. 
 
