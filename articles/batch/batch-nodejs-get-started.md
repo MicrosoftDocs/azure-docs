@@ -29,7 +29,7 @@ If you haven't gone through the overview of Azure Batch service before, I would 
 
 I also know some of you will still skip it :), so I have tried to cover the basics of Azure Batch along with the instructions to create it.
 
-
+n
 ### Step 1: Create an Azure Batch Account
 
 As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
@@ -56,7 +56,7 @@ You can print the account keys from the variable `$acc_keys` by using the follow
 
 Now that we have an Azure Batch account, next step will be to setup Batch pools , jobs and tasks. We want to do this programmatically each time files are uploaded into the storage container.
 
-Hence, I created a Azure function app and created a Azure Blob Trigger function. Please refer to the links below on details of how to do this. We will straight jump to the code.
+Hence, I created an Azure function app and an Azure Blob Trigger function. Please refer to the links below on details of how to do this. We will straight jump to the code.
 
 - [Create function app](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)
 - [Create Storage Blob trigger function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#storage-blob-trigger)
@@ -181,7 +181,7 @@ Now that my job is created along with my preparation task, I will create tasks f
 
 I have accordingly modified the processcsv.py file to accept parameters including the storage keys, folder name(s), year, month, day and hour etc.
 
->[AZURE.NOTE] It is unsafe to send storage account keys, please do use Azure key vault instead. This code is for demo purposes only
+>[AZURE.NOTE] It is unsafe to send storage account keys, please do use Azure key vault instead. It's a much secured way of storing and retrieving secret keys. This code is limited to a demonstration of creation of Batch jobs on Azure.
 
 Following is the code
 
