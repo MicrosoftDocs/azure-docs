@@ -106,7 +106,7 @@ For more answers to password related questions, see [Password Management Frequen
 
 **Q:  What can I do if I cannot remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation there are a couple of options.  If your organization has enabled self-service password reset then you can try this.  This may or may not work depending on how self-serive password reset has been configured.  For more information see [How does the password reset portal work.](active-directory-passwords-learn-more#how-does-the-password-reset-portal-work.md)
+**A:** For this type of situation there are a couple of options.  If your organization has enabled self-service password reset then you can try this.  This may or may not work depending on how self-serive password reset has been configured.  For more information see [How does the password reset portal work.](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work)
 
 For Office 365 users, your administrator can reset the password using the steps outlined [here.](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)
 
