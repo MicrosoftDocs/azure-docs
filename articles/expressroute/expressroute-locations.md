@@ -59,7 +59,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 ## <a name="locations"></a>Connectivity provider locations
 
-The following table shows locations by connectivity provider. If you want to view available providers by location, see [Connectivity providers by location](expressroute-locations-providers.md#locations)
+The following table shows locations by service provider. If you want to view available providers by location, see [Service providers by location](expressroute-locations-providers.md#locations)
 
 
 ### Production Azure
