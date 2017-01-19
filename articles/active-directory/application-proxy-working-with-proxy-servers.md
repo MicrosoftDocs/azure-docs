@@ -42,11 +42,10 @@ Fill in the necessary proxy settings as shown in the options box below.
 
  ![AzureAD Bypass local addresses](./media/application-proxy-working-with-proxy-servers/proxy-bypass-local-addresses.png)
  
-
 ## Bypassing outbound proxies
 By default, the underlying OS components used by the Connector for making outbound requests automatically attempt to locate a proxy server on the network using Web Proxy Auto-Discovery (WPAD), if it is enabled in the environment.
 
-This typically works by carrying out a DNS lookup for wpad.domainsuffix. If this resolves in DNS, an HTTP request will then be made to the IP address for wpad.dat which will be the proxy configuration script in your environment. The Connector will then use this to select an outbound proxy server. However, connector traffic may still not go through, because of additional configuration settings needed on the proxy. 
+vThis typically works by carrying out a DNS lookup for wpad.domainsuffix. If this resolves in DNS, an HTTP request will then be made to the IP address for wpad.dat which will be the proxy configuration script in your environment. The Connector will then use this to select an outbound proxy server. However, connector traffic may still not go through, because of additional configuration settings needed on the proxy. 
 
 In the next section, we cover the configuration steps needed on the outbound proxy to make the traffic flow through it. But first, let’s address how you can configure the connector to bypass your on-premises proxy to ensure it uses direct connectivity to the Azure services. This is the recommended way to go (as long as your network policy allows for it), as it means that you have one less configuration to maintain.
 
@@ -56,7 +55,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
  <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
 <system.net>
-<defaultProxy enabled="false"></defaultProxy>
+v<defaultProxy enabled="false"></defaultProxy>
 </system.net>
  <runtime>
 <gcServer enabled="true"/>
@@ -66,7 +65,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
   </appSettings>
 </configuration>
 ```
-To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+vTo ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
 Please be sure that you make copies of the original files, in the event that you need to revert to the default .config files. 
 
@@ -76,7 +75,7 @@ As mentioned above, in some customer environments there is a requirement for all
 
 You can configure the connector traffic to go through the outbound proxy as shown below.
 
- ![AzureAD Bypass local addresses](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
+v ![AzureAD Bypass local addresses](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
 As a result of having only outbound traffic, there is no need to setup load balancing between the connectors or configure inbound access through your firewalls.
 
@@ -86,7 +85,7 @@ In any case, you will need to perform the following steps:
 
 ### Step 1: Configure the connector and related services to go through the outbound proxy
 
-As covered above, if WPAD is enabled in the environment and configured appropriately, the connector will automatically discover the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy. 
+vAs covered above, if WPAD is enabled in the environment and configured appropriately, the connector will automatically discover the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy. 
 
 To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the [system.net] section shown in the code sample below:
 
@@ -96,7 +95,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 <system.net>  
     <defaultProxy>   
       <proxy proxyaddress="http://proxyserver:8080" bypassonlocal="True" usesystemdefault="True"/>   
-    </defaultProxy>  
+v    </defaultProxy>  
 </system.net>
   <runtime>
      <gcServer enabled="true"/>
@@ -106,7 +105,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
   </appSettings>
 </configuration>
 ```
-**Note**  Change _proxyserver:8080_ to reflect your local proxy server name or IP address and the port it is listening on.
+v**Note**  Change _proxyserver:8080_ to reflect your local proxy server name or IP address and the port it is listening on.
 
 Then you need to configure the Connector updater service to use the proxy, by making a similar change to the file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
@@ -146,8 +145,9 @@ The Connector makes outbound SSL based connections using the CONNECT method. Thi
 
 Configure the proxy server to allow tunneling to non-standard SSL ports 8080, 9090, 9091 and 10100-10120.
 
-#### Special service bus considerations                                                    
-When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus will attempt direct TCP connections and will fall back to HTTPS only if direct connectivity fails.
+> [!NOTE]
+> When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus will attempt direct TCP connections and will fall back to HTTPS only if direct connectivity fails.> 
+> 
 
 To ensure that the Service Bus traffic is also sent through the outbound proxy server you need to ensure that the Connector cannot directly connect to the Azure services for ports 9350, 9352 and 5671.
 
