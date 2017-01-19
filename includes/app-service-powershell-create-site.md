@@ -1,14 +1,11 @@
-## Create an App Service Site with Azure CLI 2.0
+## Create an App Service Site with Azure PowerShell
 
-> [NOTE]
-> This article assumes that you have followed the [installation steps](https://github.com/azure/azure-cli#installation) for the Azure CLI 2.0.
+> [!NOTE]
+> This article assumes that you have followed the [installation](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) of Azure PowerShell.
 
-> [TIP]
-> If you are familiar with Docker, you can use the [Azure CLI 2.0 Docker container](https://github.com/azure/azure-cli#docker-versioned) to complete these steps.
+### Configuring Azure PowerShell
 
-### Configuring Azure CLI 2.0
-
-After you have installed the Azure CLI 2.0 commandline, you must configure it and select which subscription to use when running the commands.
+After you have installed the Azure PowerShell, you must configure it and select which subscription to use when running the commands.
 
 #### Login
 
@@ -24,7 +21,7 @@ Sign in using the dialogue box which opens.
 
 ![Azure PowerShell login window](media/app-service-powershell-create-site/app-service-powershell-login-screen.png)
 
-> [TIP]
+> [!TIP]
 > There is a possible scenario where you may have multiple Azure Subscriptions in your account. You can list these subscriptions using the following command:
 > ```powershell
 > Get-AzureRmSubscription | Format-Table SubscriptionName, SubscriptionId
@@ -37,7 +34,7 @@ Sign in using the dialogue box which opens.
 
 ### Create a Resource Group
 
-> [Tip]
+> [!TIP]
 > In order to successfully deploy an Resource Group, ensure that you are selecting a valid region. You can list available regions using the following command:
 >
 > ```powershell

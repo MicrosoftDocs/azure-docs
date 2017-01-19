@@ -23,7 +23,7 @@ ms.author: cfowler
 
 In less than 5 minutes, this quickstart will have you create an App Service Site and Traffic Manager Profile. Once created you will add the App Service to the Endpoint to the Profile for Load Balancing.
 
-[!INCLUDE [App Service CLI Create Site](../../includes/app-service-cli-create-site.md)]
+[!INCLUDE [App Service CLI Create Site](../../includes/app-service-powershell-create-site.md)]
 
 ## Upgrade App Service Plan to Standard
 
