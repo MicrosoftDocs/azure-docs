@@ -49,7 +49,7 @@ New-AzureRMResourceGroup -Name <resource-group-name> -Location <resource-group-l
 
 ### Create an App Service Plan
 
-> [Tip]
+> [!TIP]
 > In order to successfully deploy an App Service App, ensure that you are selecting a valid region. You can list available regions using the following command:
 >
 > ```powershell
