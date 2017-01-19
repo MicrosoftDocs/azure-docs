@@ -31,6 +31,7 @@ When attaching multiple storage accounts to your Media Services account, the fol
 * All storage accounts attached to a Media Services account must be in the same data center as the Media Services account.
 * Currently, once a storage account is attached to the specified Media Services account, it cannot be detached.
 * Primary storage account is the one indicated during Media Services account creation time. Currently, you cannot change the default storage account. 
+* Currently, if you want to add a Cool Storage account to the AMS account, the storage account must be a Blob type and set to non-primary.
 
 Other considerations:
 
@@ -53,6 +54,10 @@ To attach storage accounts to your AMS account, use [ARM APIs](https://docs.micr
 	$storageAccounts = @($storageAccount1, $storageAccount2)
 	
 	Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+
+### Support for Cool Storage
+
+Currently, if you want to add a Cool Storage account to the AMS account, the storage account must be a Blob type and set to non-primary.
 
 ## To manage Media Services assets across multiple Storage Accounts
 The following code uses the latest Media Services SDK to perform the following tasks:
