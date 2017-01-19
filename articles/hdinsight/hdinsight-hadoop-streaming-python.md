@@ -21,17 +21,16 @@ ms.author: larryfr
 # Develop Python streaming programs for HDInsight
 Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. In this article, you will learn how to use Python to perform MapReduce operations.
 
-> [!NOTE]
-> While the Python code in this document can be used with a Windows-based HDInsight cluster, the steps in this document are specific to Linux-based clusters.
-> 
-> 
-
 This article is based on information and examples published by Michael Noll at [Writing an Hadoop MapReduce Program in Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
 ## Prerequisites
 To complete the steps in this article, you will need the following:
 
 * A Linux-based Hadoop on HDInsight cluster
+
+  > [!IMPORTANT]
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * A text editor
   
   > [!IMPORTANT]

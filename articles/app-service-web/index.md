@@ -216,11 +216,4 @@ Learn how to use App Service Web Apps to build and host websites and web applica
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Web Apps Documentation
-        </div>
-    </a>
-</div>
+
