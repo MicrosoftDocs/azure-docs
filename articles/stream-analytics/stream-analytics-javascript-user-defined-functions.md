@@ -104,7 +104,8 @@ NULL | Null
 JavaScript to ASA conversions are listed as well.
 
 ---
-JavaScript | ASA
+JavaScript | Stream Analytics
+--- | ---
 Number | Bigint if number is round and between long.MinValue and long.MaxValue, double otherwise
 Date | DateTime
 String | nvarchar(MAX)
