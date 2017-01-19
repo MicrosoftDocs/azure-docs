@@ -30,7 +30,7 @@ If your device doesn't appear in the [Validated VPN devices](#devicetable) table
 
 **Items to note when viewing the tables:**
 
-* There has been a terminology change for static and dynamic routing. You'll likely run into both terms. There is no functionality change, only the names are changing. 
+* There has been a terminology change for static and dynamic routing. You'll likely run into both terms. There is no functionality change, only the names are changing.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
