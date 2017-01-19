@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 01/20/2017
 ms.author: micurd
 
 ---
@@ -31,10 +31,9 @@ This document will demonstrate how to create a .NET Core console application tha
 - Define the number of parallel operations when transferring data.
 - Download a specific blob snapshot.
 - Track data transfer progress.
-- Resume paused or failed data transfer.
+- Resume cancelled data transfer.
 - Set access condition.
-- Set user agent suffix.
-- Include subdirectories when performing a directory transfer. 
+- Set user agent suffix. 
 
 **What you'll need:**
 
@@ -89,8 +88,10 @@ Your `project.json` should look like the following:
       }
     }
 
-## Upload, copy, and download a blob
-Next, you'll add some code to the shared class `Program.cs` that creates a container, uploads a blob into this container, copies the blob, then downloads that blob to your local directory. `Program.cs` should look like the following:
+## Set up skeleton of your application
+The first thing we'll do is set up a "skeleton" of our application. This application will prompt us for a Storage account name and account key and use those credentials to create a `CloudStorageAccount` object. This object will be used to interact with our Storage account in all transfer scenarios. The application will then prompt us to choose the type of transfer operation we would like to execute. 
+
+`Program.cs` should look like the following:
 
 ```csharp
 using System;
@@ -105,65 +106,119 @@ namespace DMLibSample
     {
         public static void Main()
         {
-            // Setup Storage context
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here";
+            Console.WriteLine("Enter Storage account name:");           
+            string accountName = Console.ReadLine();
+
+            Console.WriteLine("Enter Storage account key:");           
+            string accountKey = Console.ReadLine();
+
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + accountName + ";AccountKey=" + accountKey;
             CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-            CloudBlobClient blobClient = account.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference("mycontainer");
-            CloudBlockBlob blob = blobContainer.GetBlockBlobReference("blob1");
-            CloudBlockBlob otherBlob = blobContainer.GetBlockBlobReference("blob2");
 
-            string sourcePath = "C:\\path\\for\\upload\\file.extension";
-            string destPath = "C:\\path\\for\\download\\file.extension";
+            Console.WriteLine("What type of transfer would you like to execute?\n1.  Local file --> Azure Blob\n2.  Azure Blob --> local file\n3.  Azure Blob --> Azure Blob\n4.  Local directory --> Azure Blob directory\n5.  Azure Blob directory --> local directory\n6.  Azure Blob directory --> Azure Blob directory\n7.  Local file --> Azure File\n8.  Azure File --> local file \n9.  Azure File --> Azure File\n10. Local directory --> Azure File directory\n11. Azure File directory --> local directory\n12. Azure File directory --> Azure File directory\n13. Public URL (e.g. Public Amazon S3 file) --> Azure Blob");
+            string choice = Console.ReadLine();
+            executeChoice(choice, account);
+        }
 
-            // Setup the number of the concurrent operations
-            TransferManager.Configurations.ParallelOperations = 64;
+        public static void executeChoice(string choice, CloudStorageAccount account){
+            if(choice == "1"){
+                transferLocalFileToAzureBlob(account);
+            }
+            else if(choice == "2"){
+                transferAzureBlobToLocalFile(account);
+            }
+            else if(choice == "3"){
+                transferAzureBlobToAzureBlob(account);
+            }
+            else if(choice == "4"){
+                transferLocalDirectoryToAzureBlobDirectory(account);
+            }
+            else if(choice == "5"){
+                transferAzureBlobDirectoryToLocalDirectory(account);
+            }
+            else if(choice == "6"){
+                transferAzureBlobDirectoryToAzureBlobDirectory(account);
+            }
+            else if(choice == "7"){
+                transferLocalFileToAzureFile(account);
+            }
+            else if(choice == "8"){
+                transferAzureFileToLocalFile(account);
+            }
+            else if(choice == "9"){
+                transferAzureFileToAzureFile(account);
+            }
+            else if(choice == "10"){
+                transferLocalDirectoryToAzureFileDirectory(account);
+            }
+            else if(choice == "11"){
+                transferAzureFileDirectoryToLocalDirectory(account);
+            }
+            else if(choice == "12"){
+                transferAzureFileDirectoryToAzureFileDirectory(account);
+            }
+            else if(choice == "13"){
+                transferPublicUrlToAzureBlob(account);
+            }
+        }
 
-            // Setup the transfer context to track upload and download progress
-            SingleTransferContext uploadContext = new SingleTransferContext();
-            uploadContext.ProgressHandler = new Progress<TransferStatus>((progress) =>
-            {
-                Console.WriteLine("Bytes uploaded: {0}", progress.BytesTransferred);
-            });
+        public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
+            
+        }
 
-            SingleTransferContext downloadContext = new SingleTransferContext();
-            downloadContext.ProgressHandler = new Progress<TransferStatus>((progress) =>
-            {
-                Console.WriteLine("Bytes downloaded: {0}", progress.BytesTransferred);
-            });
+        public static void transferAzureBlobToLocalFile(CloudStorageAccount account){ 
+            
+        }
 
-            // Upload blob
-            Console.WriteLine("\nUploading blob...");
-            var task = TransferManager.UploadAsync(sourcePath, blob, null, uploadContext, CancellationToken.None);
-            task.Wait();
-            Console.WriteLine("Upload operation completed.");
+        public static void transferAzureBlobToAzureBlob(CloudStorageAccount account){ 
+            
+        }
 
-            // Copy blob
-            Console.WriteLine("\nCopying blob...");
-            task = TransferManager.CopyAsync(blob, otherBlob, true);
-            task.Wait();
-            Console.WriteLine("Copy operation completed.");
+        public static void transferLocalDirectoryToAzureBlobDirectory(CloudStorageAccount account){ 
+            
+        }
 
-            // Download blob
-            Console.WriteLine("\nDownloading blob...");
-            task = TransferManager.DownloadAsync(otherBlob, destPath, null, downloadContext, CancellationToken.None);
-            task.Wait();
-            Console.WriteLine("Download operation completed.");
+        public static void transferAzureBlobDirectoryToLocalDirectory(CloudStorageAccount account){ 
+            
+        }
 
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
+        public static void transferAzureBlobDirectoryToAzureBlobDirectory(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferLocalFileToAzureFile(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferAzureFileToLocalFile(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferAzureFileToAzureFile(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferLocalDirectoryToAzureFileDirectory(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferAzureFileDirectoryToLocalDirectory(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferAzureFileDirectoryToAzureFileDirectory(CloudStorageAccount account){ 
+            
+        }
+
+        public static void transferPublicUrlToAzureBlob(CloudStorageAccount account){
+            
         }
     }
 }
 ```
 
-Make sure to replace "your_account_name_here" and "your_account_key_here" with your actual account name and key. Futhermore, replace `"C:\\path\\for\\upload\\file.extension"` with a path to a file that exists locally. Escaping the backslash is required, hence the reason for the `\\`. Replace `"C:\\path\\for\\download\\file.extension"` with the path to the file that doesn't exist yet. 
-
-## Run the application
-Hit `F5` to run the application. As you'll see, your program will create the container `mycontainer` (if it doesn't exist already). It will then upload the file you provided in `sourcePath` as a blob, named `blob1`, into `mycontainer`. Next, `blob1` will be copied to a new blob, `blob2`. Then `blob2` will be downloaded to the path and file name you provided in `destPath`. You can verify all of this by using the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) to view your storage account. 
-
 ## Next steps
-In this getting started, you learned how to create an application that interacts with Azure Storage and runs on Windows, Linux and MacOS. This getting started specifically focused on a few scenarios in Blob Storage. However, this same knowledge can be applied to File Storage. Please check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement) to learn more.
+In this getting started, you learned how to create an application that interacts with Azure Storage and runs on Windows, Linux and MacOS. Please check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement) to learn more.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
