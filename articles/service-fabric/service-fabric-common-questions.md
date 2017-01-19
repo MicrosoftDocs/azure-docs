@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 01/19/2017
 ms.author: seanmck
 ---
 
@@ -100,9 +100,17 @@ Note that this calculation also assumes:
 
 As with reliable services, the amount of data that you can store in an actor service is only limited by the total disk space and memory available across the nodes in your cluster. However, individual actors are most effective when they are used to encapsulate a small amount of state and associated business logic. As a general rule, an individual actor should have state that is measured in kilobytes.
 
+## Other questions
+
 ### How does Service Fabric relate to containers?
 
 Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](service-fabric-containers-overview.md).
+
+### Are you planning to open source Service Fabric?
+
+We intend to open source the reliable services and reliable actors frameworks on GitHub and will accept community contributions to those projects. Please follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for more details as they're announced.
+
+The are currently no plans to open source the Service Fabric runtime.
 
 ## Next steps
 
