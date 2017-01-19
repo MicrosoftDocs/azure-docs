@@ -56,7 +56,7 @@ To find out the JSON schema for certain elements, you can follow the following p
 
     The portal creates a Resource Manager template based on your configurations.
 
-   ## Deploy with PowerShell
+## Deploy with PowerShell
 
 The following procedure creates Hadoop cluster in HDInsight:
 

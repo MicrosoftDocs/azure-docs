@@ -115,7 +115,7 @@ You can now register data assets from the Adventure Works sample database by usi
 In this exercise, you use the registration tool to register data assets from the Adventure Works database with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
 ### Register a data source
-1. Go to the [Azure Data Catalog home page](https://azuredatacatalog.com) and click **Publish Data**.
+1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and click **Publish Data**.
    
    ![Azure Data Catalog--Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Click **Launch Application** to download, install, and run the registration tool on your computer.
