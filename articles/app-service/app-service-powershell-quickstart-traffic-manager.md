@@ -21,7 +21,6 @@ ms.author: cfowler
 
 ## Summary
 
-
 In less than 5 minutes, you will execute a series of command-line tools to generation the following in Azure:
 
 * Resource Group
