@@ -34,13 +34,11 @@ In this scenario, Kelley Wall is a user who has an Azure subscription under the 
 ### Prerequisites
 For the association to work properly, the following prerequisites are necessary:
 
-* You need the credentials of the service administrator of the Azure subscription. Co-administrators cannot execute a subset of the steps.
+* You need the credentials of the service administrator of the Azure subscription. Co-administrators cannot execute a subset of the steps. To change your service administrator, see [How to add or change Azure administrator roles](./billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
 * You need the credentials of a global administrator of the Office 365 tenant.
 * The email address of the service administrator must not be contained in the Office 365 tenant.
 * The email address of the service administrator must not match that of any global administrator of the Office 365 tenant.
 * If you are currently using an email address that is both a Microsoft account and an organizational account, temporarily change the service administrator of your Azure subscription to use another Microsoft account. You can create a new Microsoft account at the [Microsoft account signup page](https://signup.live.com/).
-
-To change your service administrator, see [How to add or change Azure administrator roles](./billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
 
 ### Associate the Office 365 tenant with the Azure subscription
 To associate the Office 365 tenant with the Azure subscription, follow these steps:
