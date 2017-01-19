@@ -18,7 +18,7 @@ ms.author: priyamo
 
 ---
 # Service to service calls using client credentials (shared secret or certificate)
-The OAuth 2.0 Client Credentials Grant Flow permits a web service (*confidential client*) to use its own credentials instead of impersonating a user, to authenticate when calling another web service, In this scenario, the client is typically a middle-tier web service, a daemon service, or web site. For a higher level of assurance, Azure AD also allows the calling service to use a certificate (instead of a shared secret) as a credential.
+The OAuth 2.0 Client Credentials Grant Flow permits a web service (*confidential client*) to use its own credentials instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or web site. For a higher level of assurance, Azure AD also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
 ## Client credentials grant flow diagram
 The following diagram explains how the client credentials grant flow works in Azure Active Directory (Azure AD).
@@ -75,7 +75,7 @@ A service-to-service access token request with a certificate contains the follow
 | client_assertion |required | An assertion (a Jason Web Token) that you need to create and sign with the certificate you registered as credentials for your application. See the following details on how to register your certificate and the format of the assertion.|
 | resource | required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |
 
-You will have noticed that the parameters are almost the same as in the case of the request by shared secret except that 
+You noticed that the parameters are almost the same as in the case of the request by shared secret except that 
 the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
 
 #### Format of the assertion
@@ -133,7 +133,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 #### How to register your certificate with Azure AD?
-To associate the certificate credential with the client application in Azure AD, you need to make use of the application manifest. 
+To associate the certificate credential with the client application in Azure AD, you need to edit the application manifest. 
 Having hold of a certificate, you need to compute:
 - `$base64Thumbprint`, which is the base64 encoding of the certificate Hash
 - `$base64Value`, which is the base64 encoding of the certificate raw data
@@ -153,7 +153,7 @@ Open the manifest if your favorite text editor, and replace the *keyCredentials*
     }
 ],
 ```
-Save the edits to the application manifest, and upload it back into Azure AD by clicking **Manifest** and then **Upload**. Note that the keyCredentials property is multi-valued, so you may upload multiple certificates for richer key management.
+Save the edits to the application manifest, and upload it back into Azure AD by clicking **Manifest** and then **Upload**. The keyCredentials property is multi-valued, so you may upload multiple certificates for richer key management.
 
 
 #### Example of request
