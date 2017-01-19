@@ -18,7 +18,8 @@ ms.date: 01/06/2017
 ms.author: nitinme
 
 ---
-# Use BI tools with Apache Spark cluster on HDInsight Linux
+# Use BI tools with Apache Spark cluster on HDInsight
+
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 
 * Take raw sample data and save it as a Hive table
@@ -31,7 +32,7 @@ This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * A computer with Microsoft Spark ODBC driver installed (required for Spark on HDInsight to work with Tableau). You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 * BI tools such as [Power BI](http://www.powerbi.com/) or [Tableau Desktop](http://www.tableau.com/products/desktop). You can get a free preview subscription of Power BI from [http://www.powerbi.com/](http://www.powerbi.com/).
 
