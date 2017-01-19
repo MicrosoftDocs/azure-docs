@@ -347,7 +347,7 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | ak9Segment | String | Whether the functional group identified in the AK1 segment is accepted or rejected, and why. (Optional) |
 
 ## Next steps
-* Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).
+* Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).
 * Learn more about [AS2 tracking schemas](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md).
 * Learn more about [B2B custom tracking schemas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md).
 * Learn about [tracking B2B messages in the Operations Management Suite portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

@@ -28,7 +28,7 @@ B2B communication involves message exchanges between two running business proces
 
 ## Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account; you can create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and enable logging; you can find steps [here](app-service-logic-monitor-b2b-message.md)
+* An Integration Account; you can create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and enable logging; you can find steps [here](logic-apps-monitor-b2b-message.md)
 * A Logic App; you can create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md) and enable logging; you can find steps [here](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics-and-alerts)
 
 ## Adding Logic Apps B2B solution to OMS portal

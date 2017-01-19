@@ -63,7 +63,7 @@
 ## Manage
 ### [Use Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 ### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
-### [Monitor B2B messages](../app-service-logic/app-service-logic-monitor-b2b-message.md)
+### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)

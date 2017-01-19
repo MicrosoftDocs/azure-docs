@@ -78,6 +78,6 @@ For information about B2B protocol tracking schemas, see:
 * [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md)
 
 ## Next steps
-* Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
+* Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).   
 * Learn about [tracking B2B messages in the Operations Management Suite portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 * Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
