@@ -20,7 +20,7 @@ ms.author: marsma
 # How to use Blob storage from Node.js
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## Overview
 This article shows you how to perform common scenarios using Blob storage. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.

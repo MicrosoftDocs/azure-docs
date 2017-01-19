@@ -20,7 +20,7 @@ ms.author: marsma
 # How to use Azure Table storage from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## Overview
 This topic shows how to perform common scenarios using the Azure Table service in a Node.js application.
