@@ -46,12 +46,12 @@ Once you have the prerequisites installed,
 ## Browsing Logic Apps
 To browse Logic Apps in Cloud Explorer open the cloud explorer under View > Cloud Explorer and you can either browse by resource group or by resource type.  If browsing by resource type, select a subscription and then expand the Logic Apps section then select a Logic App.  You can either right-click one of your Logic Apps or use the Actions menu at the bottom of the cloud explorer to perform the desired action.
 
-![Browse](../active-directory-b2c/media/active-directory-b2c-get-started/browse.png)
+![Browse](./media/logic-apps-manage-from-vs/browse.png)
 
 ## Edit Logic App with the designer
 To open the currently deployed Logic App in the same designer that is in the Azure portal, right-click on the Logic App and select "Open with Logic App Editor".  With the designer, you can edit the Logic App and save it back to the cloud and start a new run with "Run Trigger" button.
 
-![Designer](../active-directory/connect/media/active-directory-aadconnectsync-service-manager-ui/designer.png)
+![Designer](./media/logic-apps-manage-from-vs/designer.png)
 
 ## Browse Logic App run history
 To list the run history for a Logic App, right-click on the Logic App and select "Open run history".  In this view you can order by any of the shown properties by selecting the column header.  
@@ -60,7 +60,7 @@ To list the run history for a Logic App, right-click on the Logic App and select
 
 Double-clicking on one of the run instances shows the run history for that instance where you can see the results of the run including the inputs and outputs of each step.
 
-![History](../active-directory/media/role-based-access-control-configure/history.png)
+![History](./media/logic-apps-manage-from-vs/history.png)
 
 ## Next steps
 * To get started with Logic Apps, follow the [create a Logic App](logic-apps-create-a-logic-app.md) tutorial.  
