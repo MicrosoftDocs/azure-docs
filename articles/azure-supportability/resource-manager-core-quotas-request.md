@@ -3,7 +3,7 @@ title: Azure Resource Manager core quota increase requests | Microsoft Docs
 description: Azure Resource Manager core quota increase requests
 author: gangan
 ms.author: gangan
-ms.date: 1/18/2016
+ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
