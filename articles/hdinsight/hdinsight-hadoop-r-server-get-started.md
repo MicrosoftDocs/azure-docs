@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/18/2017
+ms.date: 01/19/2017
 ms.author: jeffstok
 
 ---
@@ -498,18 +498,22 @@ After using ssh, change directory to the following directory and sudo the dotnet
 
 To configure Microsoft R Server operationalization with a One-box configuration do the following;
 
-Select “1. Configure R Server for Operationalization”
-Select “A. One-box (web + compute nodes)”
-Enter a password for the **admin** user
+* Select “1. Configure R Server for Operationalization”
+* Select “A. One-box (web + compute nodes)”
+* Enter a password for the **admin** user
+
+![one box op](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
 
 As an optional step you can perform Diagnostic checks by running a diagnostics test as shown below.
 
-Select “6. Run diagnostic tests”
-Select “A. Test configuration”
-Enter Username = “admin” and password from configuration step above
-Confirm Overall Health = pass
-Exit the Admin Utility
-Exit SSH
+* Select “6. Run diagnostic tests”
+* Select “A. Test configuration”
+* Enter Username = “admin” and password from configuration step above
+* Confirm Overall Health = pass
+* Exit the Admin Utility
+* Exit SSH
+
+![Diagnostics for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
 
 ## How to scale Microsoft R Server Operationalization compute nodes on HDinsight worker nodes?
  
