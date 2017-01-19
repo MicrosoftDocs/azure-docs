@@ -487,7 +487,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 ## Using Microsoft R Server Operationalization
 When your data modeling is complete, you can operationalize the model to make predictions. To configure for Microsoft R Server operationalization perform the steps below.
 
-First, ssh into the Edge node on port 12800. For example, ```ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
+First, ssh into the Edge node. For example, ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```.
 
 After using ssh, change directory to the following directory and sudo the dotnet dll as shown below.
 
@@ -514,6 +514,36 @@ As an optional step you can perform Diagnostic checks by running a diagnostics t
 * Exit SSH
 
 ![Diagnostics for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
+
+At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on Edge node and start using its features like remote execution and web-services. Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login, as explained below:
+
+### RServer Cluster on virtual network
+
+Make sure you allow traffic through port 12800 to the Edge node. That way, you can use the Edge node to connect to the Operationalization feature.
+
+````
+library(mrsdeploy)
+
+remoteLogin(
+    deployr_endpoint = "http://[your-cluster-name]-ed-ssh.azurehdinsight.net:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+````
+
+If the remoteLogin() cannot connect to the Edge node, but if you can SSH to the Edge node, you need to verify if the rule to allow traffic on port 12800 has been set properly or not. If you continue to face the issue, you can use a workaround by setting up port forward tunneling through SSH.
+
+### RServer Cluster not set up on virtual network
+
+If your cluster is not set up on vnet OR if you are having troubles with connectivity through vnet, you can use SSH port forward tunneling as below:
+
+```
+ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
+```
+
+On Putty, you can set it up as well.
+
+![putty ssh connection](./media/hdinsight-hadoop-r-server-get-started/putty.png)
 
 ## How to scale Microsoft R Server Operationalization compute nodes on HDinsight worker nodes?
  
