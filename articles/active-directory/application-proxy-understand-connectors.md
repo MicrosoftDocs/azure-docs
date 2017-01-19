@@ -81,8 +81,6 @@ All connectors are assumed to be identical to each other and every incoming requ
 
 All connector-to-service communication is protected by a client certificate that is issued and then installed on the connector machine. For information about renewing connector certificates, see [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md).
 
-Our team is working on introducing new way to group the connectors so they can serve different sets of applications, installed on different networks or joined to several different forests. Stay tuned for future updates.
-
 ## Connector authentication
 
 In order to provide a secure service, connectors have to authenticate toward the service, and the service has to authenticate toward the connector. This is done using client and server certificates when the connectors initiate the connection. This way the administrator’s username and password are not stored on the connector machine.
