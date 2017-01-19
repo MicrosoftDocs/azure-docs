@@ -8,8 +8,7 @@ manager: femila
 editor: ''
 
 ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
-ms.service: active-directory
-ms.workload: identity
+ms.service: active-directoryms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -32,6 +31,24 @@ The basic concept is that each Application Proxy Connector is assigned to a conn
 By default, all applications are assigned to a default connector group. If your admin doesn’t change anything, the system continues to behave like it did before. If you change nothing, all the applications assigned to the default connector group include all the connectors. But if you organize your connectors into groups, you can set each application to work with a specific connector group. In this case, only the connectors in that group will serve the application upon request.
 
 **Note** Because new connectors are automatically assigned to a default connector group, for large deployments we recommend that you do not have applications assigned to the default group. Therefore once installed, new connectors will not receive any live traffic. Only after you assign the connector to one of the active groups, it can start serving live traffic. This also enables you to put connectors in an idle mode in order to enable maintenance. 
+
+ ## Prerequisite: Create your connector groups
+To group your connectors, you have to make sure you [installed multiple connectors](active-directory-application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
+
+## Step 1: Create connector groups
+You can create as many connector groups as you want. Connector group creation is accomplished in the [Azure portal](https://portal.azure.com).
+
+1. Select **Azure Active Directory** to go to the management dashboard for your directory. From there, select **Enterprise applications** > **Application proxy**.
+2. Select the **Connector Groups** button. The New Connector Group blade appears.
+3. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
+4. Select **Save** when your connector Group is complete.
+
+## Step 2: Assign applications to your connector groups
+The last step is to set each application to the connector group that will serve it.
+
+1. From the management dashboard for your directory, select **Enterprise applications** > **All applications** > the application you want to assign to a connector group > **Application Proxy**.
+2. Under **Connector group**, use the dropdown menu to select the group you want the application to use.
+3. Select **Save** to apply the change.
 
 ## Use cases for connector groups 
 
@@ -102,24 +119,6 @@ In the example below, the company has two datacenters, A and B, with two connect
 
 ![AzureAD No Connector Groups](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## Prerequisite: Create your connector groups
-To group your connectors, you have to make sure you [installed multiple connectors](active-directory-application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
-
-## Step 1: Create connector groups
-You can create as many connector groups as you want. Connector group creation is accomplished in the [Azure portal](https://portal.azure.com).
-
-1. Select **Azure Active Directory** to go to the management dashboard for your directory. From there, select **Enterprise applications** > **Application proxy**.
-2. Select the **Connector Groups** button. The New Connector Group blade appears.
-3. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
-4. Select **Save** when your connector Group is complete.
-
-## Step 2: Assign applications to your connector groups
-The last step is to set each application to the connector group that will serve it.
-
-1. From the management dashboard for your directory, select **Enterprise applications** > **All applications** > the application you want to assign to a connector group > **Application Proxy**.
-2. Under **Connector group**, use the dropdown menu to select the group you want the application to use.
-3. Select **Save** to apply the change.
-
 ## See also
 * [Enable Application Proxy](active-directory-application-proxy-enable.md)
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
