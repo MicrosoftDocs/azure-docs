@@ -1,6 +1,6 @@
 ---
-title: Shared Access Signatures overview | Microsoft Docs
-description: What are Shared Access Signatures, details about SAS authentication with Azure Service Bus.
+title: Service Bus authentication with Shared Access Signatures | Microsoft Docs
+description: Overview of Service Bus Authentication using Shared Access Signatures overview, details about SAS authentication with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -18,9 +18,9 @@ ms.author: sethm
 
 ---
 
-# Shared Access Signatures
+# Service Bus authentication with Shared Access Signatures
 
-*Shared Access Signatures* (SAS) are the primary security mechanism for Service Bus, including Event Hubs, brokered messaging (queues and topics), and relayed messaging. This article discusses Shared Access Signatures, how they work, and how to use them in a platform-agnostic way.
+*Shared Access Signatures* (SAS) are the primary security mechanism for Service Bus messaging. This article discusses Shared Access Signatures, how they work, and how to use them in a platform-agnostic way.
 
 SAS authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the messaging entity (queue or topic) with which specific rights are associated. You can then use this key to generate a SAS token that clients can in turn use to authenticate to Service Bus.
 
@@ -90,113 +90,6 @@ It is recommended that you periodically regenerate the keys used in the [SharedA
 
 If a key is compromised and you have to revoke the keys, you can regenerate both the [PrimaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) and the [SecondaryKey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) of a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), replacing them with new keys. This procedure invalidates all tokens signed with the old keys.
 
-## Generating a signature from a policy
-
-How do you actually do this in code? Let's take a look at a few of these.
-
-### NodeJS
-
-```node
-function createSharedAccessToken(uri, saName, saKey) { 
-    if (!uri || !saName || !saKey) { 
-            throw "Missing required parameter"; 
-        } 
-    var encoded = encodeURIComponent(uri); 
-    var now = new Date(); 
-    var week = 60*60*24*7;
-    var ttl = Math.round(now.getTime() / 1000) + week;
-    var signature = encoded + '\n' + ttl; 
-    var signatureUTF8 = utf8.encode(signature); 
-    var hash = crypto.createHmac('sha256', saKey).update(signatureUTF8).digest('base64'); 
-    return 'SharedAccessSignature sr=' + encoded + '&sig=' +  
-        encodeURIComponent(hash) + '&se=' + ttl + '&skn=' + saName; 
-}
-``` 
-
-### Java
-
-```java
-private static String GetSASToken(String resourceUri, String keyName, String key)
-  {
-      long epoch = System.currentTimeMillis()/1000L;
-      int week = 60*60*24*7;
-      String expiry = Long.toString(epoch + week);
-
-      String sasToken = null;
-      try {
-          String stringToSign = URLEncoder.encode(resourceUri, "UTF-8") + "\n" + expiry;
-          String signature = getHMAC256(key, stringToSign);
-          sasToken = "SharedAccessSignature sr=" + URLEncoder.encode(resourceUri, "UTF-8") +"&sig=" +
-                  URLEncoder.encode(signature, "UTF-8") + "&se=" + expiry + "&skn=" + keyName;
-      } catch (UnsupportedEncodingException e) {
-
-          e.printStackTrace();
-      }
-
-      return sasToken;
-  }
-
-
-public static String getHMAC256(String key, String input) {
-    Mac sha256_HMAC = null;
-    String hash = null;
-    try {
-        sha256_HMAC = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secret_key = new SecretKeySpec(key.getBytes(), "HmacSHA256");
-        sha256_HMAC.init(secret_key);
-        Encoder encoder = Base64.getEncoder();
-
-        hash = new String(encoder.encode(sha256_HMAC.doFinal(input.getBytes("UTF-8"))));
-
-    } catch (InvalidKeyException e) {
-        e.printStackTrace();
-    } catch (NoSuchAlgorithmException e) {
-        e.printStackTrace();
-   } catch (IllegalStateException e) {
-        e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
-        e.printStackTrace();
-    }
-
-    return hash;
-}
-```
-
-### PHP
-
-```php
-function generateSasToken($uri, $sasKeyName, $sasKeyValue) 
-{ 
-$targetUri = strtolower(rawurlencode(strtolower($uri))); 
-$expires = time();     
-$expiresInMins = 60; 
-$week = 60*60*24*7;
-$expires = $expires + $week; 
-$toSign = $targetUri . "\n" . $expires; 
-$signature = rawurlencode(base64_encode(hash_hmac('sha256',             
- $toSign, $sasKeyValue, TRUE))); 
-
-$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires .         "&skn=" . $sasKeyName; 
-return $token; 
-}
-```
-
-### C&#35;
-
-```csharp
-private static string createToken(string resourceUri, string keyName, string key)
-{
-    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
-    var week = 60 * 60 * 24 * 7;
-    var expiry = Convert.ToString((long)sinceEpoch.TotalSeconds + week);
-    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
-    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
-    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
-    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
-    return sasToken;
-}
-```
-
 ## How to use Shared Access Signature authentication with Service Bus
 
 The following scenarios include configuration of authorization rules, generation of SAS tokens, and client authorization.
@@ -205,7 +98,7 @@ For a full working sample of a Service Bus application that illustrates the conf
 
 ## Access Shared Access Authorization rules on a namespace
 
-Operations on the Service Bus namespace root require certificate authentication. You must upload a management certificate for your Azure subscription. To upload a management certificate, click **Settings** in the left-hand pane of the [Azure classic portal][Azure classic portal]. For more information about Azure management certificates, see the [Azure certificates overview](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Operations on the Service Bus namespace root require certificate authentication. You must upload a management certificate for your Azure subscription. To upload a management certificate, follow the steps [here](../cloud-services/cloud-services-configure-ssl-certificate-portal#step-3-upload-a-certificate), using the [Azure portal][Azure portal]. For more information about Azure management certificates, see the [Azure certificates overview](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 The endpoint for accessing shared access authorization rules on a Service Bus namespace is as follows:
 
@@ -404,7 +297,6 @@ The following table shows the access rights required for various operations on S
 | Configure authorization rule on a namespace |Manage |Any namespace address |
 | **Service Registry** | | |
 | Enumerate Private Policies |Manage |Any namespace address |
-| WCF Relay | | |
 | Begin listening on a namespace |Listen |Any namespace address |
 | Send messages to a listener at a namespace |Send |Any namespace address |
 | **Queue** | | |
@@ -444,9 +336,11 @@ The following table shows the access rights required for various operations on S
 
 ## Next steps
 
-See the [Service Bus REST API reference](https://docs.microsoft.com/rest/api/servicebus/) for more information about what you can do with SAS tokens.
+To learn more about Service Bus messaging, see the following topics.
 
-More examples of SAS in C# and Java Script are in [this blog post](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
+* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
+* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[Azure classic portal]: http://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
