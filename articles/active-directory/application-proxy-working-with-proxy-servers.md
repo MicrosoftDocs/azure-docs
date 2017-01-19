@@ -43,7 +43,6 @@ Fill in the necessary proxy settings as shown in the options box below.
  ![AzureAD Bypass local addresses](./media/application-proxy-working-with-proxy-servers/proxy-bypass-local-addresses.png)
  
 
-
 ## Bypassing outbound proxies
 By default, the underlying OS components used by the Connector for making outbound requests automatically attempt to locate a proxy server on the network using Web Proxy Auto-Discovery (WPAD), if it is enabled in the environment.
 
@@ -85,7 +84,7 @@ In any case, you will need to perform the following steps:
 1. Configure the Connector and Updater service to go through the outbound proxy.
 2. Configure the proxy settings to permit connections to the Azure AD App proxy service.
 
-## Step 1: Configure the connector and related services to go through the outbound proxy
+### Step 1: Configure the connector and related services to go through the outbound proxy
 
 As covered above, if WPAD is enabled in the environment and configured appropriately, the connector will automatically discover the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy. 
 
@@ -111,7 +110,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 
 Then you need to configure the Connector updater service to use the proxy, by making a similar change to the file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-##Step 2: Configure the Proxy to allow traffic from the Connector and related services to flow through
+###Step 2: Configure the Proxy to allow traffic from the Connector and related services to flow through
 
 There are 4 aspects to consider at the outbound proxy:
 * Proxy outbound rules
@@ -119,7 +118,7 @@ There are 4 aspects to consider at the outbound proxy:
 * Proxy ports
 * SSL inspection
 
-### 2.A: Proxy outbound rules
+#### 2.A: Proxy outbound rules
 Allow access to the following endpoints for Connector service access:
 
 * *.msappproxy.net 
@@ -137,11 +136,11 @@ The underlying Service Bus control channels used by the connector service additi
 
 **Note**  The challenge with using the Azure Datacenter IP Ranges list is that it gets updated weekly, so you will need to put a process in place to ensure your access rules are updated accordingly.
 
-### 2.B: Proxy authentication
+#### 2.B: Proxy authentication
 
 Proxy authentication is not currently supported. Our current recommendation is to allow the Connector anonymous access to the Internet destinations.
 
-### 2.C: Proxy ports
+#### 2.C: Proxy ports
 
 The Connector makes outbound SSL based connections using the CONNECT method. This essentially sets up a tunnel through the outbound proxy. Some proxy servers by default only allow outbound tunneling to standard SSL ports such as 443. If this is the case, the proxy server will need to be configured to allow tunneling to additional ports.
 
@@ -152,7 +151,7 @@ When Service Bus runs over HTTPS, it uses port 443. However, by default, Service
 
 To ensure that the Service Bus traffic is also sent through the outbound proxy server you need to ensure that the Connector cannot directly connect to the Azure services for ports 9350, 9352 and 5671.
 
-### 2.D: SSL inspection
+#### 2.D: SSL inspection
 Do not use SSL Inspection for the Connector traffic as it will cause issues for the Connector traffic. 
 
 So that’s it. Now you should see all traffic flowing through the proxy. If you run into issues, the following troubleshooting steps should help.
