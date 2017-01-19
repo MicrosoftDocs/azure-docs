@@ -16,6 +16,8 @@ ms.date: 01/18/2017
 ms.author: alok
 
 ROBOTS: NOINDEX, NOFOLLOW
+# When the Azure Datamarket is gone, uncomment the following redirect:
+# redirect_url: machine-learning-apps-anomaly-detection-api
 
 ---
 # Machine Learning Anomaly Detection Service (deprecated)

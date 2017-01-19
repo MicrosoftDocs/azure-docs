@@ -10,14 +10,11 @@ editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/18/2017
+ms.date: 01/05/2017
 ms.author: garye
-
-ROBOTS: NOINDEX, NOFOLLOW
-redirect_url: machine-learning-connect-to-azure-machine-learning-web-service
 
 ---
 # How to consume an Azure Machine Learning Web service that has been deployed from a Machine Learning experiment
