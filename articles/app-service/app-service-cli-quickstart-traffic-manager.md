@@ -25,12 +25,7 @@ In less than 5 minutes, this quickstart will have you create an App Service Site
 
 [!INCLUDE [App Service CLI Create Site](../../includes/app-service-cli-create-site.md)]
 
-## Upgrade App Service Plan to Standard
-
-| Token | Description |
-|---|---|
-| plan-name | The name to give to the App Service Site |
-| resource-group-name | The region you wish to deploy the App Service |
+## Step 1: Upgrade App Service Plan to Standard
 
 **Command**
 
@@ -70,14 +65,7 @@ az appservice plan update -n <plan-name> -g <resource-group-name> --sku S1
 }
 ```
 
-## Create Traffic Manager Profile
-
-| Token | Description |
-|---|---|
-| profile-name | The friendly name to be provided to the Profile |
-| resource-group-name | The region you wish to deploy the Traffic Manager Profile |
-| routing-method | One of the following options [performance \| priority \| weighted] |
-| unique-dns-name | The (globally) unique dns prefix for the traffic manager profile |
+## Step 2: Create Traffic Manager Profile
 
 **Command**
 
@@ -108,15 +96,7 @@ az network traffic-manager profile create -n <profile-name> -g <resource-group-n
 }
 ```
 
-## Add the App Service Traffic Manager Endpoint
-
-| Token | Description |
-|---|---|
-| endpoint-name | The friendly name to provide to the Endpoint |
-| profile-name | The friendly name provided to the Profile |
-| resource-group-name | The region you wish to deploy the Traffic Manager Endpoint |
-| endpoint-type | The type of endpoint which is to be configured. Options: [azureEndpoints \| externalEndpoints \| nestedEndpoints] |
-| target-resource-id | The ResourceId of the App Service which is to be added as an endpoint. |
+## Step 3: Add Traffic Manager Endpoint
 
 **Command**
 
@@ -143,7 +123,7 @@ az network traffic-manager endpoint create -n <endpoint-name> --profile-name <pr
 }
 ```
 
-## Verify
+## Step 4: Validate
 
 **Command**
 
@@ -156,3 +136,23 @@ az network traffic-manager profile show -n <profile-name> -g <resource-group-nam
 Paste the resulting URL into your favourite web browser.
 
 ![App Service CLI Quickstart Traffic Manager](../../includes/media/app-service-cli-quickstart-traffic-manager/start-page.png)
+
+## Glossary
+
+| Token | Service | Description | Data Type |
+|---|---|---|---|
+| resource-group-name | Resource Group | The name of the Resource Group to deploy the services | string |
+| resource-group-location | Resource Group | The region in which to create your resource group | string |
+| plan-name | App Service | The name to give to the App Service Site | string |
+| app-name | App Service | The name to give to the App Service Site | string |
+| profile-name | Traffic Manager | The friendly name provided to the Profile | string |
+| routing-method | Traffic Manager | One of the following | Enum: [Performance \| Priority \| Weighted] |
+| unique-dns-name | Traffic Manager | The (globally) unique dns prefix for the traffic manager profile | string |
+| endpoint-name | Traffic Manager | The friendly name to provide to the Endpoint | string |
+| endpoint-type | Traffic Manager | The type of endpoint which is to be configured | Enum: [azureEndpoints \| externalEndpoints \| nestedEndpoints] |
+| target-resource-id | Traffic Manager | The ResourceId of the App Service which is to be added as an endpoint. | relative uri |
+
+## Related documentation
+
+* [App Service](index.md)
+* [Traffic Manager](../traffic-manager/index.md)

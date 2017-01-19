@@ -67,11 +67,6 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 > ```
 >
 
-| Token | Description |
-|---|---|
-| resource-group-name | The name to provide to the resource group |
-| resource-group-location | The region in which to create your resource group.  |
-
 ```cli
 az group create -n <resource-group-name> -l <resource-group-location>
 ```
@@ -87,11 +82,6 @@ az group create -n <resource-group-name> -l <resource-group-location>
 >
 
 **Command**
-
-| Token | Description |
-|---|---|
-| plan-name | The name to give the App Service Plan |
-| resource-group-name | The region you wish to deploy the App Service  |
 
 ```cli
 az appservice plan create -g <resource-group-name> -n <plan-name>
@@ -130,12 +120,6 @@ az appservice plan create -g <resource-group-name> -n <plan-name>
 ```
 
 ### Create an App Service Site
-
-| Token | Description |
-|---|---|
-| app-name | The name to give to the App Service Site |
-| plan-name | The name to give the App Service Plan |
-| resource-group-name | The region you wish to deploy the App Service |
 
 **Command**
 

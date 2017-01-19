@@ -40,11 +40,7 @@ Sign in using the dialogue box which opens.
 > ```powershell
 > Get-AzureRMLocation | Format-Table DisplayName
 > ```
-
-| Token | Description |
-|---|---|
-| resource-group-name | The name to provide to the resource group |
-| resource-group-location | The region in which to create your resource group.  |
+>  
 
 ```powershell
 New-AzureRMResourceGroup -Name <resource-group-name> -Location <resource-group-location>
@@ -58,14 +54,9 @@ New-AzureRMResourceGroup -Name <resource-group-name> -Location <resource-group-l
 > ```powershell
 > Get-AzureRMLocation | ? { $_.Providers -contains "Microsoft.Web" } | Format-Table DisplayName
 > ```
+>  
 
 **Command**
-
-| Token | Description |
-|---|---|
-| plan-name | The name to give the App Service Plan |
-| resource-group-name | The region you wish to deploy the App Service |
-| resource-group-location | The region in which to create your resource group. |
 
 ```powershell
 New-AzureRmAppServicePlan -Name <plan-name> -ResourceGroupName <resource-group-name> -Location <resource-group-location>
@@ -95,13 +86,6 @@ Tags                      :
 ```
 
 ### Create an App Service Site
-
-| Token | Description |
-|---|---|
-| app-name | The name to give to the App Service Site |
-| plan-name | The name to give the App Service Plan |
-| resource-group-name | The region you wish to deploy the App Service |
-| resource-group-location | The region in which to create your resource group. |
 
 **Command**
 
