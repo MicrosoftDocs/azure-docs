@@ -63,7 +63,7 @@
 ### [Analyze website logs](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 ### [Use Zeppelin notebooks](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter notebook kernels](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Packages for Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Develop apps using Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
