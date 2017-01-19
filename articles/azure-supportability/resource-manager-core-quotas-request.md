@@ -1,4 +1,4 @@
-
+---
 title: Azure Resource Manager core quota increase requests | Microsoft Docs
 description: Azure Resource Manager core quota increase requests
 author: gangan
@@ -7,6 +7,7 @@ ms.date: 1/18/2016
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
+---
 
 # Resource Manager core quota increase requests
 
@@ -16,8 +17,9 @@ Learn more about how quotas are enforced on the [Azure subscription and service 
 To learn more about SKU Families, you may compare cost and performance on the [Virtual Machines Pricing](http://aka.ms/pricingcompute) page.
 
 To request an increase, create a Quota support case for Cores in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
-[!NOTE]
-Learn how to [create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) in the Azure portal
+
+> [!NOTE]
+> Learn how to [create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) in the Azure portal
 
 1. On the new support request page, select Issue type as "Quota" and Quota type as "Cores"
 
