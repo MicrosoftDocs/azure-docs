@@ -56,7 +56,7 @@ If you already had a Startup class in your project, the **Configuration** method
 The following configuration entries have been added.
 
 ```
-    `<appSettings>
+    <appSettings>
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
             <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
             <add key="ida:Audience" value="The App ID Uri from the wizard" />
