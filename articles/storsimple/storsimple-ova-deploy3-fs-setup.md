@@ -175,7 +175,7 @@ You will now need to connect to the share(s) that you created in the previous st
 
 Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
