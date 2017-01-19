@@ -1,3 +1,3 @@
 ---
-redirect_url: /service-bus-python-how-to-use-queues
+redirect_url: /articles/service-bus-messaging/service-bus-python-how-to-use-queues
 ---

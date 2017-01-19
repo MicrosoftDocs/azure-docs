@@ -1,3 +1,3 @@
 ---
-redirect_url: /service-bus-amqp-dotnet
+redirect_url: /articles/service-bus-messaging/service-bus-amqp-dotnet
 ---
