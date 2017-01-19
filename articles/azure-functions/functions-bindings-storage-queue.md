@@ -15,15 +15,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
+ms.date: 01/18/2017
+ms.author: chrande, glenga
 
 ---
 # Azure Functions Storage queue bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Storage queue bindings in Azure Functions. 
-Azure Functions supports trigger and output bindings for Azure Storage queues.
+This article explains how to configure and code Azure Storage queue bindings in Azure Functions. Azure Functions supports trigger and output bindings for Azure Storage queues.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -44,9 +43,7 @@ The Storage queue trigger to a function use the following JSON objects in the `b
 }
 ```
 
-`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-one. To manually create this app setting, see [configure this app setting manually]().
+`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, you can configure this app setting in the **Integrate** tab when you create a storage account or select an existing one. To manually create this app setting, see [manage App Service settings](functions-how-to-use-azure-function-app-settings#manage-app-service-settings).
 
 [Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune storage queue triggers.  
 
@@ -155,7 +152,7 @@ public static void Run(string myQueueItem,
 
 ```javascript
 module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -197,16 +194,16 @@ where `T` is the data type that you want to serialize the message into, and `par
 
 You can output a queue message using any of the data types in your code:
 
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialization.
-  If you declare a custom output type (e.g. `out FooType paramName`), Azure Functions attempts to serialize object 
-  into JSON. If the output parameter is null when the function exits, the Functions runtime creates a queue message as 
-  a null object.
-* String - (`out string paramName`) useful for test messages. the Functions runtime creates message only if the 
-  string parameter is non-null when the function exits.
-* Byte array - (`out byte[]`) 
-* `out CloudQueueMessage` - C# only 
+* Any [Object](https://msdn.microsoft.com/library/system.object.aspx): `out MyCustomType paramName`  
+Used for JSON serialization.  When you declare a custom output type, the runtime tries to serialize the object into JSON. If the output parameter is null when the function exits, the runtime creates a queue message as a null object.
+* String: `out string paramName`  
+Used for test messages. The runtime creates message only when the string parameter is non-null when the function exits.
+* Byte array: `out byte[]` 
 
-In C#, you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+These additional output types are supported a C# function:
+
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx): `out CloudQueueMessage` 
+* `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
 
 <a name="outputsample"></a>
 
@@ -214,23 +211,21 @@ In C#, you can also bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is
 Suppose you have the following function.json, that defines a [Storage queue trigger](functions-bindings-storage-queue.md), 
 a Storage blob input, and a Storage blob output:
 
-Example *function.json* for a storage queue output binding that uses a queue trigger and writes a queue message:
+Example *function.json* for a storage queue output binding that uses a manual trigger and writes the input to a queue message:
 
 ```json
 {
   "bindings": [
     {
-      "name": "myQueueItem",
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "type": "queueTrigger",
-      "direction": "in"
+      "type": "manualTrigger",
+      "direction": "in",
+      "name": "input"
     },
     {
-      "name": "myQueue",
-      "queueName": "samples-workitems-out",
-      "connection": "MyStorageConnection",
       "type": "queue",
+      "name": "myQueueItem",
+      "queueName": "myqueue",
+      "connection": "my_storage_connection",
       "direction": "out"
     }
   ],
@@ -248,19 +243,19 @@ See the language-specific sample that writes an output queue message for each in
 ### Output sample in C# #
 
 ```cs
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+public static void Run(string input, out string myQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myQueueItem = "New message: " + input;
 }
 ```
 
 Or, to send multiple messages,
 
 ```cs
-public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+public static void Run(string input, ICollector<string> myQueueItem, TraceWriter log)
 {
-    myQueue.Add(myQueueItem + "(step 1)");
-    myQueue.Add(myQueueItem + "(step 2)");
+    myQueueItem.Add("Message 1: " + input);
+    myQueueItem.Add("Message 2: " + "Some other message.");
 }
 ```
 
@@ -278,7 +273,8 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+    // Define a new message for the myQueueItem output binding.
+    context.bindings.myQueueItem = "new message";
     context.done();
 };
 ```
@@ -287,10 +283,8 @@ Or, to send multiple messages,
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = [];
-
-    context.bindings.myQueueItem.push("(step 1)");
-    context.bindings.myQueueItem.push("(step 2)");
+	// Define a message array for the myQueueItem output binding. 
+    context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
 ```
