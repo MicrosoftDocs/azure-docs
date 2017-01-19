@@ -18,7 +18,8 @@ ms.date: 10/05/2016
 ms.author: nitinme
 
 ---
-# Kernels available for Jupyter notebooks with Apache Spark clusters on HDInsight Linux
+# Kernels available for Jupyter notebooks with Apache Spark clusters on HDInsight
+
 Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
 1. **PySpark** (for applications written in Python)
@@ -31,7 +32,7 @@ In this article, you will learn about how to use these kernels and what are the 
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## How do I use the kernels?
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   

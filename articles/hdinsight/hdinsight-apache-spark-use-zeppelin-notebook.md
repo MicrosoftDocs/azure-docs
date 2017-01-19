@@ -17,7 +17,8 @@ ms.date: 01/04/2017
 ms.author: nitinme
 
 ---
-# Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux
+# Install Zeppelin notebooks for Apache Spark cluster on HDInsight
+
 Learn how to install Zeppelin notebooks on Apache Spark clusters and how to use the Zeppelin notebooks to run Spark jobs.
 
 > [!IMPORTANT]
@@ -28,7 +29,7 @@ Learn how to install Zeppelin notebooks on Apache Spark clusters and how to use 
 **Prerequisites:**
 
 * Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
   > [!NOTE]
