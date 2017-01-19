@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/01/2017
-ms.author: jeffstok
+ms.author: jeffstokes72
 ---
 
 # Azure Stream Analytics JavaScript User-Defined Functions
