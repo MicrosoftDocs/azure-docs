@@ -12,7 +12,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.date: 01/18/2017
 ms.author: zhangya;bradsev
 
