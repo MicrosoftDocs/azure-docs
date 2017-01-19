@@ -111,6 +111,7 @@
 
 ### Standalone clusters
 #### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
+#### [Create a standalone cluster on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Scale a cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade-windows-server.md)
 #### [Secure a cluster](service-fabric-windows-cluster-x509-security.md)
