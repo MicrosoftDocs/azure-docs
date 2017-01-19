@@ -52,7 +52,6 @@ As a result of having only outbound traffic, there is no need to setup load bala
 
 For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers).
 
-
 ## Network security
 
 Connectors can be installed anywhere on the network that allows them to send requests to both the service and the backend applications. They will work fine if you install them inside the corpnet, within a DMZ (demilitarized zone) or even on virtual machine that is running in the cloud that has access to apps.
@@ -66,7 +65,6 @@ Connectors can run on a machine that is not domain joined. However, a domain-joi
 In this case, the connector machines must be joined to a domain that can perform [Kerberos](https://web.mit.edu/kerberos) Constrained Delegation on behalf of the relevant users for the published applications.
 
 Connectors can also be joined to domains or forests that have a partial trust or to read-only domain controllers (RODC).
-
 
 ## Connectors on hardened environments
 
@@ -93,8 +91,10 @@ The certificates used are specific to the Application Proxy service. They get cr
 
 If a connector is not connected to the service for a period of several months, it may have outdated certificates. In this case registration is required, so you have to uninstall and reinstall the connector to trigger registration. You can run the following PowerShell commands:
 
+```
 * Import-module AppProxyPSModule
 * Register-AppProxyConnector
+```
 
 ## Performance and scalability
 
