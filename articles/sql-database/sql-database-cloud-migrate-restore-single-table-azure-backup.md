@@ -31,7 +31,7 @@ You may encounter a situation in which you accidentally modified some data in a 
 2. Restore a backup of your database to a point in time that you want to recover to using the [Point-In_Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) steps.
    
    > [!NOTE]
-   > The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
+   > The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step doesn't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
    
 ## Copying the table from the restored database by using the SQL Database Migration tool
 
