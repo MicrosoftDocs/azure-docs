@@ -96,7 +96,7 @@ Each of following files was backed up before being replaced. Backup files are lo
 The following additional configuration entries have been added.
 
 ```
-    `<appSettings>
+    <appSettings>
         <add key="ida:Password" value="Your Azure AD App's new password" />
     </appSettings>`
 ```
