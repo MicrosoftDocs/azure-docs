@@ -1,11 +1,11 @@
 ---
-title: Learn to encode or decode flat files using the Enterprise Integration Pack and Logic apps| Microsoft Docs
+title: Learn to encode or decode flat files using the Enterprise Integration Pack in Azure Logic Apps| Microsoft Docs
 description: Use the features of Enterprise Integration Pack and Logic apps to encode or decode flat files
-services: app-service\logic
+services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: erikre
-editor: cgronlun
+manager: anneta
+editor: 
 
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
@@ -26,7 +26,7 @@ Follow these steps to add a flat file encoding connector to your logic app.
 
 1. Create a logic app and [link it to your integration account](logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
 2. Add a **Request - When an HTTP request is received** trigger to your logic app.  
-   ![Screenshot of trigger to select](../app-service-logic/media/app-service-logic-enterprise-integration-b2b/flatfile-1.png)    
+   ![Screenshot of trigger to select](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 3. Add the flat file encoding action, as follows:
    
     a. Select the **plus** sign.
@@ -57,7 +57,7 @@ You can now test your connector by making a request to the HTTP endpoint, and in
 > 
 
 1. Add a **Request - When an HTTP request is received** trigger to your logic app.  
-   ![Screenshot of trigger to select](../app-service-logic/media/app-service-logic-enterprise-integration-b2b/flatfile-1.png)    
+   ![Screenshot of trigger to select](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 2. Add the flat file decoding action, as follows:
    
     a. Select the **plus** sign.

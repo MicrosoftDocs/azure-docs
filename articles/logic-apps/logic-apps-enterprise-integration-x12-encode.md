@@ -1,11 +1,11 @@
 ---
-title: Learn about Enterprise Integration Pack Encode X12 Message Connctor | Microsoft Docs
+title: Learn about Enterprise Integration Pack Encode X12 Message Connector in Azure | Microsoft Docs
 description: Learn how to use partners with the Enterprise Integration Pack and Logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: erikre
-editor: ''
+manager: anneta
+editor: 
 
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
@@ -23,16 +23,16 @@ Validates EDI and partner-specific properties, converts XML-encoded messages int
 ## Create the connection
 ### Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An Integration Account is required to use Encode x12 message connector. See details on how to create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and [X12 agreement](logic-apps-enterprise-integration-x12.md)
+* An Integration Account is required to use Encode x12 message connector. See details on how to create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md), and [X12 agreement](logic-apps-enterprise-integration-x12.md)
 
 ### Connect to Encode X12 Message using the following steps:
 1. [Create a Logic App](logic-apps-create-a-logic-app.md) provides an example
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select either X12 - Encode X12 Message by agreement name or X12 - Encode to X 12 message by identities.  
    
-    ![search x12](../app-service-logic/media/app-service-logic-enterprise-integration-x12-encode/x12decodeimage1.png) 
+    ![search x12](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
    
-    ![integration account connection](../app-service-logic/media/app-service-logic-enterprise-integration-x12-encode/x12encodeimage1.png) 
+    ![integration account connection](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png) 
 4. Enter the Integration Account details.  Properties with an asterisk are required
    
    | Property | Details |
@@ -42,21 +42,21 @@ Validates EDI and partner-specific properties, converts XML-encoded messages int
    
     Once complete, your connection details look similar to the following
    
-    ![integration account connection created](../app-service-logic/media/app-service-logic-enterprise-integration-x12-encode/x12encodeimage2.png) 
+    ![integration account connection created](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png) 
 5. Select **Create**
 6. Notice the connection has been created.
    
-    ![integration account connection details](../app-service-logic/media/app-service-logic-enterprise-integration-x12-encode/x12encodeimage3.png) 
+    ![integration account connection details](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### X12 - Encode X12 Message by agreement name
 1. Select X12 agreement from the drop-down and xml message to encode.
    
-    ![provide mandatory fields](../app-service-logic/media/app-service-logic-enterprise-integration-x12-encode/x12encodeimage4.png) 
+    ![provide mandatory fields](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png) 
 
 #### X12 - Encode X12 Message by identities
 1. Provide sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the X12 agreement.  Select xml message to encode
    
-   ![provide mandatory fields](../app-service-logic/media/app-service-logic-enterprise-integration-x12-encode/x12encodeimage5.png) 
+   ![provide mandatory fields](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
 
 ## X12 Encode does following:
 * Agreement resolution by matching sender and receiver context properties.

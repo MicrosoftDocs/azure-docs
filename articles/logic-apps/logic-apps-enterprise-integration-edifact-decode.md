@@ -4,7 +4,7 @@ description: Learn how to use partners with the Enterprise Integration Pack and 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
@@ -29,10 +29,10 @@ Validates EDI and partner-specific properties, generates XML document for each t
 1. [Create a Logic App](logic-apps-create-a-logic-app.md) provides an example.
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select Decode EDIFACT Message
    
-    ![search EDIFACT](media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
+    ![search EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
    
-    ![create integration account](media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)  
+    ![create integration account](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)  
 4. Enter the Integration Account details.  Properties with an asterisk are required
    
    | Property | Details |
@@ -42,14 +42,14 @@ Validates EDI and partner-specific properties, generates XML document for each t
    
     Once complete, your connection details look similar to the following
    
-    ![integration account created](media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
+    ![integration account created](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 5. Select **Create**
 6. Notice the connection has been created
    
-    ![integration account connection details](media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+    ![integration account connection details](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 7. Select EDIFACT flat file message to decode
    
-    ![provide mandatory fields](media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+    ![provide mandatory fields](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
 ## EDIFACT Decode does following
 * Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier & identifier

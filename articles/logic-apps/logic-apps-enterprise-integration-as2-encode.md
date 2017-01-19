@@ -29,10 +29,10 @@ Connect to Encode AS2 Message to establish security and reliability while transm
 1. [Create a Logic App](logic-apps-create-a-logic-app.md) provides an example
 2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “AS2” in the search box.  Select AS2 – Encode AS2 Message
    
-    ![search AS2](../app-service-logic/media/app-service-logic-enterprise-integration-as2-encode/as2decodeimage1.png)
+    ![search AS2](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
    
-    ![create connection to integration account](../app-service-logic/media/app-service-logic-enterprise-integration-as2-encode/as2encodeimage1.png)  
+    ![create connection to integration account](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage1.png)  
 4. Enter the Integration Account details.  Properties with an asterisk are required
    
    | Property | Details |
@@ -42,11 +42,11 @@ Connect to Encode AS2 Message to establish security and reliability while transm
    
       Once complete, your connection details look similar to the following
    
-      ![integration connection established](../app-service-logic/media/app-service-logic-enterprise-integration-as2-encode/as2encodeimage2.png)  
+      ![integration connection established](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)  
 5. Select **Create**
 6. Notice the connection has been created.  Provide AS2-From, AS2-To identifiers (as configured in agreement) and Body (the message payload) details. 
    
-    ![provide mandatory fields](../app-service-logic/media/app-service-logic-enterprise-integration-as2-encode/as2encodeimage3.png)
+    ![provide mandatory fields](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
 
 ## The AS2 Encode does the following
 * Applies AS2/HTTP headers
