@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/27/2016
+ms.date: 01/19/2017
 ms.author: iainfou
 
 ---
@@ -22,9 +22,14 @@ ms.author: iainfou
 You have the flexibility in Azure to create a Linux virtual machine (VM) using tools and workflows comfortable to you. This article summarizes these differences and examples for creating your Linux VMs.
 
 ## Azure CLI
-The Azure CLI is available across platforms via an npm package, distro-provided packages, or Docker container. You can read more about [how to install and configure the Azure CLI](../xplat-cli-install.md). The following tutorials provide examples on using the Azure CLI. Read each article for more details on the CLI quick-start commands shown:
+You can create VMs in Azure using one of the following CLI versions:
 
-* [Create a Linux VM from the Azure CLI for dev and test](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- Azure CLI 1.0 – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0 (Preview)](virtual-machines-linux-creation-choices.md) - our next generation CLI for the resource management deployment model (this article)
+
+The Azure CLI 1.0 is available across platforms via an npm package, distro-provided packages, or Docker container. You can read more about [how to install and configure the Azure CLI](../xplat-cli-install.md). The following tutorials provide examples on using the Azure CLI 1.0. Read each article for more details on the CLI quick-start commands shown:
+
+* [Create a Linux VM from the Azure CLI for dev and test](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * The following example creates a CoreOS VM using a public key named `azure_id_rsa.pub`:
     
@@ -40,7 +45,7 @@ The Azure CLI is available across platforms via an npm package, distro-provided 
     azure group create --name myResourceGroup --location WestUS 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
-* [Create a complete Linux environment using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a complete Linux environment using the Azure CLI](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Includes creating a load balancer and multiple VMs in an availability set.
 * [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
