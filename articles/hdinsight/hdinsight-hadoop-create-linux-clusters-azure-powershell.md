@@ -36,7 +36,7 @@ You must have the following before starting this procedure:
 * Azure PowerShell. For more information about using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+	[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
