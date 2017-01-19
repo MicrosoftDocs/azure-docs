@@ -25,14 +25,14 @@ I was thinking of using a Nodejs blob trigger function. That could deploy a batc
 
 ## Azure Batch with Nodejs client
 
-If you haven't gone through the overview of Azure Batch service before, I would recommend you read this [detailed overview](service-fabric-get-started.md) document before proceeding further.
+If you haven't gone through the overview of Azure Batch service before, I would recommend you read this [detailed overview](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview) document before proceeding further.
 
 I also know some of you will still skip it :), so I have tried to cover the basics of Azure Batch along with the instructions to create it.
 
 
 ### Step 1: Create an Azure Batch Account
 
-As a first step, let's create an Azure Batch account. You can create it from the [portal](batch-account-create-portal.md) or from commandline ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](batch-cli-get-started.md)).
+As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
 
 Following are the commands to create one through Powershell.
 
@@ -58,8 +58,8 @@ Now that we have an Azure Batch account, next step will be to setup Batch pools 
 
 Hence, I created a Azure function app and created a Azure Blob Trigger function. Please refer to the links below on details of how to do this. We will straight jump to the code.
 
-- [Create function app](functions-create-first-azure-function)
-- [Create Storage Blob trigger function](functions-bindings-storage-blob.md#storage-blob-trigger)
+- [Create function app](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)
+- [Create Storage Blob trigger function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#storage-blob-trigger)
 
 ![Azure Batch Architecture](./media/batch-nodejs-get-started/azurebatcharchitecture.png)
 
@@ -115,7 +115,7 @@ Following code snippet shows creation of Azure Batch pool of VMs. I am creating 
 
        });
 
-We are using Linux VMs, you can get the complete list of VM image options from this [link](batch-linux-nodes.md#list-of-virtual-machine-images).
+We are using Linux VMs, you can get the complete list of VM image options from this [link](https://docs.microsoft.com/en-us/azure/batch/batch-linux-nodes#list-of-virtual-machine-images).
 
 The Azure Batch URI can be found in the Overview tab of the Azure portal. It will be of the format:
 
