@@ -1,5 +1,5 @@
 ---
-title: Working with existing on-premise Proxy servers
+title: Working with existing on-premise Proxy servers | Microsoft Docs
 description: Covers how to work with existing on-premise Proxy servers.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,6 @@ ms.author: kgremban
 
 ---
 # Working with existing on-premise Proxy servers
-> [!NOTE]
-> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-> 
-> 
 
 This article explains how to configure the Application Proxy Connector to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
