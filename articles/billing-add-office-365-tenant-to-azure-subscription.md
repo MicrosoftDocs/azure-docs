@@ -40,16 +40,7 @@ For the association to work properly, the following prerequisites are necessary:
 * The email address of the service administrator must not match that of any global administrator of the Office 365 tenant.
 * If you are currently using an email address that is both a Microsoft account and an organizational account, temporarily change the service administrator of your Azure subscription to use another Microsoft account. You can create a new Microsoft account at the [Microsoft account signup page](https://signup.live.com/).
 
-To change your service administrator, follow these steps:
-
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/subscriptions).
-2. Select the subscription you want to change.
-3. Select **Edit subscription details**.
-   
-    ![Screenshot of Azure subscription information, with "Edit subscription details" highlighted](./media/billing-add-office-365-tenant-to-azure-subscription/s33_azure-edit-subscription-details.png)
-4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new service administrator.
-   
-    ![Screenshot of "Edit your subscription" dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s34_change-subscription-service-admin.png)
+To change your service administrator, see [How to add or change Azure administrator roles](./billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
 
 ### Associate the Office 365 tenant with the Azure subscription
 To associate the Office 365 tenant with the Azure subscription, follow these steps:
