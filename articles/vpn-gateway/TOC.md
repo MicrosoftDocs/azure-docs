@@ -24,7 +24,7 @@
 ### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Classic portal (classic)](virtual-networks-configure-vnet-to-vnet-connection.md)
-## Configure a VNet-to-VNet connection between Resource Manager and classic deployment models
+## Configure a VNet-to-VNet connection between deployment models
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Create Site-to-Site and ExpressRoute coexisting connections
