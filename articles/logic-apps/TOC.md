@@ -48,7 +48,7 @@
 ### [EDIFACT encoding](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT decoding](logic-apps-enterprise-integration-edifact-decode.md)
 ### [X12 integration](logic-apps-enterprise-integration-x12.md)
-### [X12 encoding](../app-service-logic/app-service-logic-enterprise-integration-x12-encode.md)
+### [X12 encoding](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 decoding](logic-apps-enterprise-integration-x12-decode.md)
 
 
