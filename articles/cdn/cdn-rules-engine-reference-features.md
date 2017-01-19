@@ -204,9 +204,11 @@ Disabled|Causes edge servers to cache assets according to the cache policy defin
 **Default Behavior:**
 
 - **HTTP Large:** Disabled
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###Cache Control Header Treatment
 **Purpose:** Controls the generation of Cache-Control headers by the edge server when External Max-Age Feature is active.
 
