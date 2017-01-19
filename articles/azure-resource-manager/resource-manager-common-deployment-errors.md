@@ -75,11 +75,11 @@ Message: The requested tier for resource '<resource>' is currently not available
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
-You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. To resolve this issue, you need to determine which SKUs are available in a region. You can use either the portal or a REST operation to find avaiable SKUs.
+You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. To resolve this issue, you need to determine which SKUs are available in a region. You can use either the portal or a REST operation to find available SKUs.
 
 - To use the [portal](https://portal.azure.com), log in to the portal and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
-    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
+    ![available SKUs](./media/resource-manager-common-deployment-errors/view-sku.png)
 
 - To use the REST API for virtual machines, send the following request:
 
