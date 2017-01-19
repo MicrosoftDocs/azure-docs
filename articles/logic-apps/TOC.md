@@ -40,7 +40,7 @@
 ### [Validate XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [Using certificates](logic-apps-enterprise-integration-certificates.md)
 ### [Add partners](logic-apps-enterprise-integration-partners.md)
-### [Add schemas](../app-service-logic/app-service-logic-enterprise-integration-schemas.md)
+### [Add schemas](logic-apps-enterprise-integration-schemas.md)
 ### [AS2 integration](logic-apps-enterprise-integration-as2.md)
 ### [AS2 encoding](../app-service-logic/app-service-logic-enterprise-integration-as2-encode.md)
 ### [AS2 decoding](logic-apps-enterprise-integration-as2-decode.md)

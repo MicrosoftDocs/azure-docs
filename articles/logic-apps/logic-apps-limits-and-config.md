@@ -103,7 +103,7 @@ These are limits for artifacts added to integration Account
 
 |Name|Limit|Notes|
 |----|----|----|
-|Schema|8MB|You can use [blob URI](app-service-logic-enterprise-integration-schemas.md) to upload files larger than 2 MB |
+|Schema|8MB|You can use [blob URI](logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB |
 |Map (XSLT file)|2MB| |
 
 ### B2B protocols (AS2, X12, EDIFACT) message size

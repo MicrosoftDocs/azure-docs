@@ -27,7 +27,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 1. Create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)   
 
-2. Add a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](app-service-logic-enterprise-integration-schemas.md) in integration account
+2. Add a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](logic-apps-enterprise-integration-schemas.md) in integration account
 
 3. Select a parter or an agreement, or a schema. select **Edit as JSON** and enter metadata details    
 ![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)  
