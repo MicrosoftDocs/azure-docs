@@ -34,7 +34,7 @@
 ### [Agreements](logic-apps-enterprise-integration-agreements.md)
 ### [B2B processing](logic-apps-enterprise-integration-b2b.md)
 ### [XML processing](logic-apps-enterprise-integration-xml.md)
-### [Flat file processing](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md)
+### [Flat file processing](logic-apps-enterprise-integration-flatfile.md)
 ### [Add XSLT maps](logic-apps-enterprise-integration-maps.md)
 ### [Transform XML](logic-apps-enterprise-integration-transform.md)
 ### [Validate XML](logic-apps-enterprise-integration-xml-validation.md)
