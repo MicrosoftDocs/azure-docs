@@ -3,7 +3,7 @@ title: Azure Stream Analytics JavaScript User-Defined Functions | Microsoft Docs
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
 keywords: iot solution, get started with iot, tools
 services: stream-analytics
-author: jeffstok
+author: jeffstokes72
 manager: 
 editor: 
 
