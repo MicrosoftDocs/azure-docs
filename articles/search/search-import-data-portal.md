@@ -100,7 +100,7 @@ The search experience is based on default settings, such as the [simple syntax](
 Review these links to learn more about indexers:
 
 * [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexing DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [Indexing DocumentDB](search-howto-index-documentdb.md)
 * [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
 * [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md)
 
