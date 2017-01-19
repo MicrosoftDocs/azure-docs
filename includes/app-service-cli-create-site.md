@@ -55,6 +55,7 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 > ```cli
 > az account set --subscription <subscription-id>
 > ```
+>
 
 ### Create a Resource Group
 
@@ -64,6 +65,7 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 > ```cli
 > az account list-locations --query '[].{Name:name}' -o table
 > ```
+>
 
 | Token | Description |
 |---|---|
@@ -82,6 +84,7 @@ az group create -n <resource-group-name> -l <resource-group-location>
 > ```cli
 > az appservice list-locations --query '[].{Name:name}' -o table
 > ```
+>
 
 **Command**
 
