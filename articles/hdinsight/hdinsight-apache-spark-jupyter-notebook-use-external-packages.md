@@ -38,13 +38,13 @@ You must have the following:
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-   
-   > [!NOTE]
-   > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   > 
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
+	> [!NOTE]
+	> You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+	> 
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+	> 
 
+   
 
 3. Create a new notebook. Click **New**, and then click **Spark**.
    
