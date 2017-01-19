@@ -19,7 +19,7 @@ ms.author: elbutter
 ---
 # Get started with SQL Data Warehouse
 
-Get Started Tutorial with Azure SQL Data Warehouse. This tutorial will teach you the basics 
+Get Started Tutorial with Azure SQL Data Warehouse. This tutorial teaches you the basics 
 of provisioning and loading data into a SQL Data Warehouse, as well as some basics on scaling, 
 pausing, and tuning. 
 
@@ -63,7 +63,7 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 3. Fill out deployment details
 
-    **Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your name include details such as its region, environment, etc., 
+    **Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your names include details such as its region, environment, etc., 
     e.g. *mydw-westus-1-test*
 
     **Subscription**: Your Azure Subscription
@@ -121,7 +121,7 @@ create separate logins and users for each database. We shall explore user creati
 
 ### Why create a separate user?
 
-We use the connection to the SQL Server (logical server) ,with server credentials from the previous step, 
+We use the connection to the SQL Server (logical server), with server credentials from the previous step, 
 to create a new user for our SQL Data Warehouse. There are two primary reasons why you may want to create a separate 
 user/login for your SQL DW.
 
@@ -138,7 +138,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 
 ### Creating a user of a larger resource class
 
-1. Create a new query on the **master** database of your server
+1. Query the **master** database of your server
 
     ![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
@@ -151,7 +151,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-3. Create a new database user based on the server login
+3. Querying the SQL DataWarehouse database, create a new database user based on the server login 
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
@@ -166,7 +166,7 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 
 5. Add your database user to the **xlargerc** resource class role
     ```sql
-    EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
     ```
 
 6. Log in to your database with your new credentials
@@ -177,9 +177,11 @@ is part of a larger resource class. Read more about resource classes [here](./sq
 ## Loading data
 
 ### Defining external data
-1. Define an external data source
+1. Create a Master Key and define an external data source
 
     ```sql
+    CREATE MASTER KEY;
+
     CREATE EXTERNAL DATA SOURCE NYTPublic
     WITH
     (
@@ -593,9 +595,9 @@ Take note of the time it took to run this operation.
     on tr.DateID = dt.DateID
     ```
 
-    As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this.
+    As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this query.
 
-2. Let's see how this differs when we create statistics on the column we're joining by running the following:
+2. Let's see how this query differs when we create statistics on the column we're joining by running the following:
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);

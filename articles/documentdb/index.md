@@ -206,13 +206,4 @@ Learn how to use DocumentDB in high-performance applications for web, mobile, ga
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download DocumentDB Documentation
-        </div>
-    </a>
-</div>

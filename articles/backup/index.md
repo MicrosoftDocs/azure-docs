@@ -129,11 +129,4 @@ Learn how to use Azure Backup in the cloud to protect data for long-term retenti
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Backup Documentation
-        </div>
-    </a>
-</div>
+
