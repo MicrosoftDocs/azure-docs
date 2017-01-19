@@ -28,10 +28,6 @@ For more information about how connectors work, see [How to provide secure remot
 
 ## Configuring your connectors
 
-In many organizations, network policies do not allow internal machines to access the Internet directly. Therefore, going through an on-premises proxy to connect to the Azure service is a requirement to make their scenario work.
-
-This is why we get a large number of queries from customers asking about configuring the Azure AD app proxy connector to work with existing on-premise proxies.
-
 The core connector service uses Azure Service Bus to handle some of the underlying communications to the Azure AD Application Proxy service. Service Bus brings with it additional configuration requirements.
 
 For information about resolving Azure AD connectivity problems, see [How to troubleshoot Azure AD Application Proxy connectivity problems](https://blogs.technet.microsoft.com/applicationproxyblog/2015/03/24/how-to-troubleshoot-azure-ad-application-proxy-connectivity-problems). 
