@@ -45,7 +45,7 @@ The Storage queue trigger to a function use the following JSON objects in the `b
 
 `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, you can configure this app setting in the **Integrate** tab when you create a storage account or select an existing one. To manually create this app setting, see [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
-[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune storage queue triggers.  
+[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine-tune storage queue triggers.  
 
 ### Handling poison queue messages
 When a queue trigger function fails, Azure Functions retries that function up to five times for a given queue message, including the first try. If all five attempts fail, Functions adds a message to a Storage queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed. 
