@@ -43,19 +43,14 @@ The Storage queue trigger to a function use the following JSON objects in the `b
 }
 ```
 
-`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, you can configure this app setting in the **Integrate** tab when you create a storage account or select an existing one. To manually create this app setting, see [manage App Service settings](functions-how-to-use-azure-function-app-settings#manage-app-service-settings).
+`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, you can configure this app setting in the **Integrate** tab when you create a storage account or select an existing one. To manually create this app setting, see [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
 [Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune storage queue triggers.  
 
 ### Handling poison queue messages
-When a queue trigger function fails, Azure Functions retries that function up to 5 times by default (including the first try) for a given queue
-message. 
-If all 5 tries fail, Functions adds a message to a Storage queue named *&lt;originalqueuename>-poison*. 
-You can write a function to process messages from the poison queue by logging them or sending a notification 
-that manual attention is needed. 
+When a queue trigger function fails, Azure Functions retries that function up to five times for a given queue message, including the first try. If all five attempts fail, Functions adds a message to a Storage queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed. 
 
-If you want to handle poison messages manually, you can get the number of times a message has been picked up 
-for processing by checking `dequeueCount` (see [Queue trigger metadata](#meta)).
+To handle poison messages manually, you can get the number of times a message has been picked up for processing by checking `dequeueCount` (see [Queue trigger metadata](#meta)).
 
 <a name="triggerusage"></a>
 
@@ -66,12 +61,10 @@ Where `T` is the data type that you want to deserialize the data into, and `para
 
 The queue message can be deserialized to any of the following types:
 
-* Any [Object](https://msdn.microsoft.com/library/system.object.aspx) - useful for JSON-serialized messages.
-  If you declare a custom input type (e.g. `FooType`), Azure Functions attempts to deserialize the JSON data
-  into your specified type.
+* [Object](https://msdn.microsoft.com/library/system.object.aspx) - used for JSON serialized messages. When you declare a custom input type, the runtime tries to deserialize the JSON object. 
 * String
-* Byte array 
-* `CloudQueueMessage` (C#) 
+* Byte array
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx) (C# only)
 
 <a name="meta"></a>
 
@@ -181,15 +174,12 @@ The Storage queue output for a function uses the following JSON objects in the `
 }
 ```
 
-`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing 
-one. To manually create this app setting, see [configure this app setting manually]().
+`connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a storage account or selects an existing one. To manually create this app setting, see [Manage App Service settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
 <a name="outputusage"></a>
 
 ## Output usage
-In C# functions, you write a queue message by using the named `out` parameter in your function signature, like `out <T> <name>`,
-where `T` is the data type that you want to serialize the message into, and `paramName` is the name you specified in the 
+In C# functions, you write a queue message by using the named `out` parameter in your function signature, like `out <T> <name>`. In this case, `T` is the data type that you want to serialize the message into, and `paramName` is the name you specified in the 
 [output binding](#output). In Node.js functions, you access the output using `context.bindings.<name>`.
 
 You can output a queue message using any of the data types in your code:
@@ -291,7 +281,7 @@ module.exports = function(context) {
 
 ## Next steps
 
-For an example of a function that uses a Storage queue triggers and bindings, see [Create an Azure Function connected to an Azure service](functions-create-an-azure-connected-function.md).
+For an example of a function that uses aStorage queue triggers and bindings, see [Create an Azure Function connected to an Azure service](functions-create-an-azure-connected-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
