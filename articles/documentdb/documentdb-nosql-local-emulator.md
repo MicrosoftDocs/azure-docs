@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/19/2017
 ms.author: arramac
 
 ---
@@ -213,6 +213,32 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 * The DocumentDB Emulator does not simulate [multi-region replication](documentdb-distribute-data-globally.md).
 * The DocumentDB Emulator does not support the service quota overrides that are available in the Azure DocumentDB service (e.g. document size limits, increased partitioned collection storage).
 * As your copy of the DocumentDB Emulator might not be up to date with the most recent changes with the Azure DocumentDB service, please [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
+
+## Troubleshooting
+
+If the local emulator crashes during startup in DocumentDB.StartupEntryPoint.exe, first confirm the cause of the error in the [trace files](#trace-files). This issue occurs when the performance counter registration on the machine misconfigured. To fix this, run lodctr /r from an administrative command prompt, which refreshes the performance counter registration. 
+
+If you encounter a port conflict, the emulator displays the port conflict message and suggests a command line option to override the defaults.
+
+If you receive a **ServiceUnavailableException**, start [collecting traces](#trace-files), then review the trace files. If the trace file contain WSAEOPNOTSUPP, then the emulator is failing to listen correctly on the network. This is caused by some network filter drivers that cause the registered IO APIs to fail. To fix this, uninstall the network filter driver.
+
+If you need additional assistance determining the cause of the error, [turn on tracing](#trace-files), reproduce the issue, compress the files, and then send mail to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+
+### <a id="trace-files"></a>Collect trace files
+
+First, check to see if any trace files exist in the c:\Users\user_name\AppData\Local\CrashDumps folder. If there are any .dmp files, compress them and send them along for debugging.
+
+To collect debugging traces, shut down the emulator, then do the following from an administrative command prompt:
+
+1. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
+2. `DocumentDB.Emulator.exe /starttraces`
+3. `DocumentDB.Emulator.exe`
+4. Reproduce the problem. If Document Explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
+5. `DocumentDB.Emulator.exe /stoptraces`
+6. Navigate to Program Files\DocumentDB Emulator and find the docdbemulator_000001.etl file.
+7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
+
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
