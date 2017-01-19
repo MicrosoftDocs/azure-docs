@@ -32,11 +32,11 @@ Update 0.4 corresponds to the software version **10.0.10289.0**.
 
 
 ## What's new in the Update 0.4
-Update 0.4 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous version have been addressed. The main enhancements and bug-fixes are as follows:
+Update 0.4 is primarily a bug-fix build coupled with a few enhancements. In this version, several bugs resulting in backup failures in the previous version have been addressed. The main enhancements and bug-fixes are as follows:
 
 - Backup and restore performance enhancements - This release has made several key enhancements to improve the backup performance. As a result, the backups that involve a large number of files will see a significant reduction in the time to complete, for full and incremental backups. 
 
-- Improvements to Support package - Disk, CPU, memory, network, and cloud statistics are logged into the Support package in this release thereby helping troubleshoot the device effectively in case of issues.
+- Improvements to Support package - The improvements included logging in the statistics for disk, CPU, memory, network, and cloud into the Support package thereby improving the process of diagnosing/debugging device issues.
 
 - Limit locally pinned iSCSI volumes to 200 GB - For a locally pinned volume, we recommend that you limit to a 200 GB iSCSI volume on your StorSimple Virtual Array. The local reservation for tiered volumes is also reduced to 200 GB. 
 
@@ -49,10 +49,14 @@ The following table provides a summary of issues fixed in this release.
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-| 1 |Backups |A problem was seen in the earlier release where the backups would fail to complete for a file share. If this issue occured, the backup job would fail and a critical alert was raised on the StorSimple Manager service to notify the user. This issue did not affect the data on the shares or access to the data. The root cause was identified and fixed in this release. <br></br> The fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.4, then contact Microsoft Support to perform a full system backup to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for the affected shares. |
-| 2 |iSCSI |An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online via the Azure classic portal, perform a backup for these volumes, and then restore these volumes to new volumes. |
+| 1 |Backup performance|In the earlier releases, the backups involving large number of files would take a long time to complete (in the order of days). In this release, both the full and incremental backups see a significant reduction in the time to completion (few hours). |
+| 2 |Support package|Disk, CPU, memory, network, and cloud statistics are now logged into the Support logs making the Support packages very effective in troubleshooting any device issues.|
+| 3 |Backup |In earlier releases, long running backups could result in a space crunch on the device resulting in backup failures. This bug is addressed in this release by allowing no more than 5 backups to queue at one time.|
+| 4 |iSCSI | In earlier releases, the local reservation for tiered or locally pinned volumes was 10% of the provisioned volume size. In this release, the local reservation for all iSCSI volumes (locally pinned or tiered) is limited to 10 % with a maxmimum of upto 200 GB (for tiered volumes larger than 2 TB) thereby freeing up more space on the local disk. We recommend that the locally pinned volumes in this release be limited to 200 GB.|
+
 
 ## Known issues in the Update 0.4
+
 The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. 
 
 | No. | Feature | Issue | Workaround/comments |
