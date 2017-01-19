@@ -17,12 +17,13 @@ ms.author: kgremban
 
 ---
 # Understand Azure AD Application Proxy connectors
+
+This article discusses connectors, which are the secret sauce of Azure AD Application Proxy. They are simple, easy to deploy and maintain, and super powerful.
+
 > [!NOTE]
 > Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 > 
 > 
-
-This article discusses connectors, which are the secret sauce of Azure AD Application Proxy. They are simple, easy to deploy and maintain, and super powerful.
 
 ## What are Azure AD Application Proxy connectors?
 
