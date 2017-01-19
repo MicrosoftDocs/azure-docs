@@ -3,8 +3,7 @@ title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: kgrembanmanager: femila
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +13,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
-
 ---
 # Understand Azure AD Application Proxy connectors
 
@@ -26,7 +24,6 @@ This article discusses connectors, which are the secret sauce of Azure AD Applic
 > 
 
 ## What are Azure AD Application Proxy connectors?
-
 Application Proxy works after you install the Windows Server service, called a connector, on your network. You can install connectors based on your high availability and scalability needs. Start with one and add more as needed. Each time a connector is installed, it is added to the pool of connectors that serves your tenant.
 
 We recommend that you do not to install the connectors on the application servers themselves; though it is possible, especially for small deployments.
@@ -48,11 +45,12 @@ You can monitor your connectors from the machine they are running on, using eith
 ## All networking is outbound
 Connectors only send outbound requests, so the connection is always initiated by the connector(s). There is no need to open inbound ports, because once a session has been established, the traffic will flow both ways.
 
-The outbound traffic is sent to the Application Proxy service and to the published applications. The traffic to the service is sent to Azure datacenters to several different ports numbers. Look [here](https://msdn.microsoft.com/en-us/library/azure/dn768214.aspx) for more details.
+The outbound traffic is sent to the Application Proxy service and to the published applications. The traffic to the service is sent to Azure datacenters to several different ports numbers. For more information, see [
+Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md) for more details.
 
 As a result of having only outbound traffic, there is no need to setup load balancing between the connectors or configure inbound access through your firewalls.
 
-For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](https://azure.microsoft.com/en-us/documentation/articles/application-proxy-working-with-proxy-servers).
+For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers).
 
 
 ## Network security
@@ -83,7 +81,7 @@ In most cases, connector deployment is very straight forward and requires no spe
 
 All connectors are assumed to be identical to each other and every incoming request may arrive to each one of the connectors. This means that all of them should have the same network connectivity and [Kerberos](https://web.mit.edu/kerberos) settings.
 
-All connector-to-service communication is protected by a client certificate that is issued and then installed on the connector machine. For information about renewing connector certificates, see [Enable Application Proxy in the Azure portal](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-enable).
+All connector-to-service communication is protected by a client certificate that is issued and then installed on the connector machine. For information about renewing connector certificates, see [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md).
 
 Our team is working on introducing new way to group the connectors so they can serve different sets of applications, installed on different networks or joined to several different forests. Stay tuned for future updates.
 
@@ -121,7 +119,7 @@ Azure AD supports automatic updates for all connectors that you deploy. As long 
 
 ### Updater impact
 
-_Tenants with One Connector:_ If you have only one connector, that connector will be updated as part of the latest group. Because there is no other connector to reroute traffic through, the service will be unavailable during the update. To avoid this downtime and more easily ensure high availability, we recommend you install a second connector and create a connector group. For details on how to do this, see the [documentation on connector groups](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-connectors.md).
+_Tenants with One Connector:_ If you have only one connector, that connector will be updated as part of the latest group. Because there is no other connector to reroute traffic through, the service will be unavailable during the update. To avoid this downtime and more easily ensure high availability, we recommend you install a second connector and create a connector group. For details on how to do this, see the [documentation on connector groups](https://azure.microsoft.com/en-us/documentation/articlesactive-directory-application-proxy-connectors.md).
 
 _Other Tenants:_ During the connector update, traffic is rerouted to your other connectors for minimal disruption. However, any transactions in progress when the update starts may be dropped. Your browser should automatically retry the operation, making this potential drop transparent to you. Otherwise you may need to refresh your page to work around this.
 
