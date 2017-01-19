@@ -57,7 +57,7 @@ Enterprise Integration supports these industry standards:
 ## Learn more about:
 * [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
 * [Business to Business (B2B) scenarios](../logic-apps/logic-apps-enterprise-integration-b2b.md "Learn how to create Logic apps with B2B features ")  
-* [Certificates](app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
+* [Certificates](logic-apps-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
 * [Flat file encoding/decoding](app-service-logic-enterprise-integration-flatfile.md "Learn how to encode and decode flat file contents")  
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn about integration accounts")
 * [Maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Learn about enterprise integration maps")

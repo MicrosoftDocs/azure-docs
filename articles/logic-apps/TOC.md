@@ -38,7 +38,7 @@
 ### [Add XSLT maps](logic-apps-enterprise-integration-maps.md)
 ### [Transform XML](logic-apps-enterprise-integration-transform.md)
 ### [Validate XML](logic-apps-enterprise-integration-xml-validation.md)
-### [Using certificates](../app-service-logic/app-service-logic-enterprise-integration-certificates.md)
+### [Using certificates](logic-apps-enterprise-integration-certificates.md)
 ### [Add partners](logic-apps-enterprise-integration-partners.md)
 ### [Add schemas](../app-service-logic/app-service-logic-enterprise-integration-schemas.md)
 ### [AS2 integration](logic-apps-enterprise-integration-as2.md)
