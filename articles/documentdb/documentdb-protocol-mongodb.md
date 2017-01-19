@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/16/2017
 ms.author: anhoh
 
 ---
@@ -30,6 +30,12 @@ DocumentDB databases can now be used as the data store for apps written for Mong
 **Enterprise grade** - DocumentDB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. DocumentDB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 
 **MongoDB Compatibility** - DocumentDB protocol support for MongoDB is designed for compatability with MongoDB. You can use your existing code, applications, drivers, and tools to work with DocumentDB. 
+
+Learn more in this Azure Friday video with Scott Hanselman and DocumentDB Principal Engineering Manager, Kirill Gavrylyuk.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
+> 
+
 
 ## How to get started?
 Create a DocumentDB account with protocol support for MongoDB in the [Azure Portal](https://portal.azure.com) and swap the connection to your new account. 
