@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/18/2017
 ms.author: juliako
 
 ---
@@ -23,7 +23,7 @@ Starting with Microsoft Azure Media Services 2.2, you can attach multiple storag
 * Load balancing your assets across multiple storage accounts.
 * Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
 
-This topic demonstrates how to attach multiple storage accounts to a Media Services account using Azure Service Management REST API. It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
+This topic demonstrates how to attach multiple storage accounts to a Media Services account using [ARM APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
 
 ## Considerations
 When attaching multiple storage accounts to your Media Services account, the following considerations apply:
@@ -36,8 +36,23 @@ Other considerations:
 
 Media Services uses the value of the **IAssetFile.Name** property when building URLs for the streaming content (for example, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the Name property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
 
-## To attach a Storage Account with Azure Service Management REST API
-Currently, the only way to attach multiple storage accounts is by using [Azure Service Management REST API](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest). The code sample in the [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) topic defines the **AttachStorageAccountToMediaServiceAccount** method that attaches a storage account to the specified Media Services account. The code in the same topic defines the **ListStorageAccountDetails** method that lists all the storage accounts attached to the specified Media Services account.
+## To attach storage accounts  
+
+To attach storage accounts to your AMS account, use [ARM APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), as shown in the following example.
+
+	$regionName = "West US"
+	$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+	$resourceGroupName = "SkyMedia-USWest-App"
+	$mediaAccountName = "sky"
+	$storageAccount1Name = "skystorage1"
+	$storageAccount2Name = "skystorage2"
+	$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+	$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+	$storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+	$storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+	$storageAccounts = @($storageAccount1, $storageAccount2)
+	
+	Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ## To manage Media Services assets across multiple Storage Accounts
 The following code uses the latest Media Services SDK to perform the following tasks:
