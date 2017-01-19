@@ -1,5 +1,5 @@
 ---
-title: Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Docs
+title: Create a Logic App using Azure Resource Manager templates | Microsoft Docs
 description: Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows.
 services: logic-apps
 documentationcenter: ''

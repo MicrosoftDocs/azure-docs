@@ -1,6 +1,6 @@
 ---
 title: What are Logic Apps?
-description: Learn more about App Service Logic Apps
+description: Learn more about Azure Logic Apps
 author: kevinlam1
 manager: anneta
 editor: ''

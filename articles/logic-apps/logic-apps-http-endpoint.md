@@ -1,6 +1,6 @@
 ---
-title: Logic apps as callable endpoints
-description: How to create and configure trigger endpoints and use them in a Logic app in Azure App Service
+title: Logic apps as callable endpoints | Microsoft Docs
+description: How to create and configure trigger endpoints and use them in an Azure Logic app
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan

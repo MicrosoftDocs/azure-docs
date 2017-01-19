@@ -1,10 +1,10 @@
 ---
 title: Use the SharePoint Online Connector in your Logic Apps | Microsoft Docs
-description: Get started using the Azure App Service SharePoint Online Connector  in your Logic apps.
+description: Get started using the the SharePoint Online Connector  in your Logic apps
 services: ''
 documentationcenter: ''
 author: msftman
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 

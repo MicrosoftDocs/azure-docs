@@ -67,7 +67,7 @@ You can upload private certificates into your integration account by taking the 
 1. [Upload your private key to Key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault").  
    
    > [!TIP]
-   > You must authorize the Logic Apps feature of Azure App Service to perform operations on Key Vault. You can grant access to the Logic Apps service principal by using the following PowerShell command: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > You must authorize Logic Apps to perform operations on Key Vault. You can grant access to the Logic Apps service principal by using the following PowerShell command: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 2. Create a private certificate.  

@@ -22,7 +22,7 @@ ms.author: b-hoedid
 This article describes how you can extend a logic app to better support exception handling. It is a real-life use case and our answer to the question of, "Does Logic Apps support exception and error handling?"
 
 > [!NOTE]
-> The current version of the Logic Apps feature of Microsoft Azure App Service provides a standard template for action responses.
+> The current Logic Apps schema provides a standard template for action responses.
 > This includes both internal validation and error responses returned from an API app.
 > 
 > 

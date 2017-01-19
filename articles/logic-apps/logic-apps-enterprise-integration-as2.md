@@ -1,11 +1,11 @@
 ---
-title: Learn to create an AS2 agreement for the Enterprise Integration Pack
-description: Learn to create an AS2 agreement for the Enterprise Integration Pack| Microsoft Azure App Service
+title: Learn to create an AS2 agreement for the Enterprise Integration Pack | Microsoft Docs
+description: Learn to create an AS2 agreement for the Enterprise Integration Pack| Azure logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: anneta
-editor: cgronlun
+editor: 
 
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps

@@ -1,5 +1,5 @@
 ---
-title: Diagnosing logic apps failures | Microsoft Docs
+title: Diagnosing failures in Azure logic apps | Microsoft Docs
 description: Common approaches to understanding where logic apps are failing
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -18,7 +18,7 @@ ms.author: jehollan
 
 ---
 # Diagnosing logic app failures
-If you experience issues or failures with the Logic Apps feature of Azure App Service, a few approaches can help you better understand where the failures are coming from.  
+If you experience issues or failures with your logic apps, there are a few approaches can help you better understand where the failures are coming from.  
 
 ## Azure portal tools
 The Azure portal provides many tools to diagnose each logic app at each step.
@@ -49,7 +49,7 @@ A run displays one of the following statuses:
 * **Succeeded**. All actions succeeded, or, if there was a failure, it was handled by an action that occurred later in the workflow. That is, it was handled by an action that was set to run after a failed action.
 * **Failed**. At least one action had a failure that was not handled by an action later in the workflow.
 * **Cancelled**. The workflow was running but received a cancel request.
-* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current App Service plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
+* **Running**. The workflow is currently running. This may occur for workflows that are being throttled, or because of the current pricing plan. Please see action limits on the [pricing page](https://azure.microsoft.com/pricing/details/app-service/plans/) for details. Configuring diagnostics (the charts listed below the run history) also can provide information about any throttle events that are occurring.
 
 When you are looking at a run history, you can drill in for more details.  
 

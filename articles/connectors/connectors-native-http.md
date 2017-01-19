@@ -4,7 +4,7 @@ description: Overview of the HTTP action with properties
 services: ''
 documentationcenter: ''
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -122,7 +122,7 @@ The following are output details for the HTTP response.
 | Status Code |int |HTTP status code |
 
 ## Authentication
-The Logic Apps feature of Azure App Service allows you to use different types of authentication against HTTP endpoints. You can use this authentication with the **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)**, and **[HTTP Webhook](connectors-native-webhook.md)** connectors. The following types of authentication are configurable:
+The Logic Apps feature allows you to use different types of authentication against HTTP endpoints. You can use this authentication with the **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)**, and **[HTTP Webhook](connectors-native-webhook.md)** connectors. The following types of authentication are configurable:
 
 * [Basic authentication](#basic-authentication)
 * [Client certificate authentication](#client-certificate-authentication)

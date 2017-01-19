@@ -1,10 +1,10 @@
 ---
 title: " Use the Slack Connector in your Logic apps| Microsoft Docs"
-description: Get started using the Slack Connector in your Microsoft Azure App Service Logic apps
+description: Get started using the Slack Connector in your logic apps
 services: ''
 documentationcenter: ''
 author: msftman
-manager: erikre
+manager: anneta
 editor: ''
 tags: connectors
 
