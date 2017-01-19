@@ -15,11 +15,9 @@
 ## App Service Environment
 ## Deployment Slots
 ## Extensibility
-### API
-### Site Extensions
 
 # How-To Guides
-## Developing on App Service
+## Develop on App Service
 ## Deploying to Azure
 ## Configure Runtime
 ## Configure Web Server
@@ -28,4 +26,15 @@
 
 # Tutorials
 
+# Reference
+## API Reference
+## Learning Paths
+## Cookbooks
+
 # Resources
+## Pricing
+## Quota Information
+## Service Updates & Release Notes
+## Community Content
+## Samples
+## Videos
