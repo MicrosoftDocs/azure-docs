@@ -42,7 +42,7 @@ There are several ways you can trigger a Logic app from another app. Here's a fe
 
 ## Deploying and managing
 * [Create an automated deployment](../logic-apps/logic-apps-create-deploy-template.md)
-* [Build and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)
+* [Build and deploy logic apps from Visual Studio](logic-apps-deploy-from-vs.md)
 * [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 
 ## Content types, conversions, and transformations

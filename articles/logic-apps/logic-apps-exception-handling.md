@@ -199,7 +199,7 @@ The patterns above are great way to handle errors and exceptions within a run, b
 * [See how one customer built robust error handling with Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Find more Logic Apps examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn how to create automated deployments of logic apps](../logic-apps/logic-apps-create-deploy-template.md)
-* [Design and deploy logic apps from Visual Studio](app-service-logic-deploy-from-vs.md)
+* [Design and deploy logic apps from Visual Studio](logic-apps-deploy-from-vs.md)
 
 <!-- References -->
 [retryPolicyMSDN]: https://msdn.microsoft.com/library/azure/mt643939.aspx#Anchor_9

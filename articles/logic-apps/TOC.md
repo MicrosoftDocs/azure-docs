@@ -17,7 +17,7 @@
 ## Build
 ### [Create a connector](logic-apps-create-api-app.md)
 ### [Use File System connector](logic-apps-using-file-connector.md)
-### [Visual Studio tools](../app-service-logic/app-service-logic-deploy-from-vs.md)
+### [Visual Studio tools](logic-apps-deploy-from-vs.md)
 ### [Using Azure functions](logic-apps-azure-functions.md)
 ### [Logic apps as callable endpoints](logic-apps-http-endpoint.md)
 ### [Using your custom API](logic-apps-custom-hosted-api.md)
@@ -58,7 +58,7 @@
 
 ## Automate
 ### [Automation template](logic-apps-create-deploy-template.md)
-### [Publish from VS](../app-service-logic/app-service-logic-deploy-from-vs.md)
+### [Publish from VS](logic-apps-deploy-from-vs.md)
 
 ## Manage
 ### [Use Visual Studio Cloud Explorer](../app-service-logic/app-service-logic-manage-from-vs.md)
