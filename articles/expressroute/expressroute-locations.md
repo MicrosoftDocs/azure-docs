@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2017
+ms.date: 01/18/2017
 ms.author: cherylmc
 
 ---
@@ -38,7 +38,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Japan** |Japan West, Japan East |Osaka, Tokyo |
 | **Australia** |Australia Southeast, Australia East |Melbourne, Sydney |
 | **India** |India West, India Central, India South |Chennai, Mumbai |
-| **South Korea** | Korea Central, Korea South |
+| **South Korea** | Korea Central, Korea South | Busan, Seoul |
 
 ### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
@@ -82,7 +82,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Supported |Supported |Amsterdam, London, Paris |
 | **Jisc** |Supported |Supported |London |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supported | Supported | Amsterdam | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Singapore, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Supported |Supported |London |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supported |Supported |Newport(Wales) |
@@ -171,15 +171,15 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 | **System integrator** | **Continent** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Asia, Europe, US |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europe |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |US |
+| **[Avanade Inc.](http://www.avanade.com/)** | Asia, Europe, North America, South America |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europe |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
 | **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
-| **[Nelite](http://nelite.com/)** |Europe |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asia |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |US |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |US |
+| **[Nelite](http://nelite.com/)** | Europe |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | North America |
 
 
 ## Next steps

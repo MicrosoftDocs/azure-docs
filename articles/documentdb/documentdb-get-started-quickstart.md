@@ -4,7 +4,7 @@ description: A NoSQL tutorial that creates an online database and C# console app
 keywords: nosql tutorial, online database, c# console application
 services: documentdb
 documentationcenter: .net
-author: AndrewHoh
+author: mimig1
 manager: jhubbard
 editor: monicar
 
@@ -14,8 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/01/2016
-ms.author: anhoh
+ms.date: 01/05/2016
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
+
 
 ---
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -596,6 +599,5 @@ Congratulations! You've completed this NoSQL tutorial and have a working C# cons
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 

@@ -138,9 +138,10 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API (Resource Provider)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST API (Device Identities)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API (Device Messaging)</a></p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (Resource Provider)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (Device Identities)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (Device Messaging)</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (Jobs)</a></p>
                     </div>
                 </div>
             </div>

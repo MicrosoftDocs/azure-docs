@@ -23,6 +23,7 @@
 ## [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
 ## [Configure secure LDAP for a managed domain](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
+## [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
 
 ## Troubleshoot

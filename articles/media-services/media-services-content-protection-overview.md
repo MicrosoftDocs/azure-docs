@@ -87,6 +87,10 @@ The following topics demonstrate how to protect content in storage, deliver dyna
 * [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 * [Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
 
+>[!NOTE]
+>A scenario in which you use an external DRM server(technology) and stream from AMS is currently not supported.
+
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
