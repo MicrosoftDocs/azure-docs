@@ -13,7 +13,7 @@ Now, let's understand the batch scenario we want to work with in more detail and
 ## The scenario
 I was working with a customer, helping them process large number of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a /json pattern. Following figure explains the flow of the processor.
 
-![processcsv.py flow](./media/nodejs-client/processcsvflow.png)
+![processcsv.py flow](./media/batch-nodejs-get-started/processcsvflow.png)
 
 Now, I needed to scale this processor to be able to process a large number of files on a daily basis. The files would be uploaded every four hours or so.
 
@@ -61,7 +61,7 @@ Hence, I created a Azure function app and created a Azure Blob Trigger function.
 - [Create function app](functions-create-first-azure-function)
 - [Create Storage Blob trigger function](functions-bindings-storage-blob.md#storage-blob-trigger)
 
-![Azure Batch Architecture](./media/nodejs-client/azurebatcharchitecture.png)
+![Azure Batch Architecture](./media/batch-nodejs-get-started/azurebatcharchitecture.png)
 
 Also, you can go to "Kudu Console" in the Azure function's Settings tab to run the npm install commands. In this case to install Azure Batch SDK for Nodejs.
 
@@ -90,7 +90,6 @@ Following code snippet shows creation of Azure Batch pool of VMs. I am creating 
 
     // Create the Azure Batch client
     var batch_client = new batch.ServiceClient(credentials,'azure batch URI');
-
     // Creating pool ID
     var poolid = "pool" + customerDetails.customerid;
 
@@ -124,7 +123,7 @@ https://accountname.location.batch.azure.com
 
 Please refer to the screenshot below:
 
-![Azure batch uri](./media/nodejs-client/azurebatchuri.PNG)
+![Azure batch uri](./media/batch-nodejs-get-started/azurebatchuri.PNG)
 
 ### Create Azure Batch Job
 
