@@ -399,6 +399,10 @@ In C# functions you can also output to any of the following types:
 ## Output sample
 See [input sample](#inputsample).
 
+## Known Errors
+
+[!INCLUDE [Functions Binding Blob Storage Errors](../../includes/functions-bindings-storage-blob-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

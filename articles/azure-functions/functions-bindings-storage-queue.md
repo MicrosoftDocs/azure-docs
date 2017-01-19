@@ -295,6 +295,10 @@ module.exports = function(context) {
 };
 ```
 
+## Known Errors
+
+[!INCLUDE [Functions Binding Queue Storage Errors](../../includes/functions-bindings-storage-queue-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

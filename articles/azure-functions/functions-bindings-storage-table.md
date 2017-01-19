@@ -340,6 +340,10 @@ public class Person : TableEntity
 }
 ```
 
+## Known Errors
+
+[!INCLUDE [Functions Binding Table Storage Errors](../../includes/functions-bindings-storage-table-errors.md)]
+
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
