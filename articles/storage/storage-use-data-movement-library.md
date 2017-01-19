@@ -20,18 +20,18 @@ ms.author: micurd
 # Transfer Data with the Microsoft Azure Storage Data Movement Library
 
 ## Overview
-The Microsoft Azure Storage Data Movement Library is a cross-platform open source library that is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md). Everything that can be done with the Data Movement Library can also be done with our traditional [.NET Azure Storage Client Library](storage-dotnet-how-to-use-blobs.md). However, if you're looking for a more convenient way to move data in parallel, track transfer progress, or easily resume a paused or failed transfer, then consider using the Data Movement Library.  
+The Microsoft Azure Storage Data Movement Library is a cross-platform open source library that is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md). Everything that can be done with the Data Movement Library can also be done with our traditional [.NET Azure Storage Client Library](storage-dotnet-how-to-use-blobs.md). However, if you're looking for a more convenient way to move data in parallel, track transfer progress, or easily resume a cancelled transfer, then consider using the Data Movement Library.  
 
 This library also leverages the .Net Standard runtime library, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
 
 This document will demonstrate how to create a .NET Core console application that that runs on Windows, Linux, and MacOS and performs the following:
 
-- Download, upload, and copy blobs and files.
-- Copy blobs and files synchronously and asynchronously.
+- Download, upload, and copy blobs.
+- Copy blobs synchronously and asynchronously.
 - Define the number of parallel operations when transferring data.
 - Download a specific blob snapshot.
 - Track data transfer progress.
-- Resume cancelled data transfer.
+- Resume cancelled/paused data transfer.
 - Set access condition.
 - Set user agent suffix. 
 
@@ -88,8 +88,8 @@ Your `project.json` should look like the following:
       }
     }
 
-## Set up skeleton of your application
-The first thing we'll do is set up a "skeleton" of our application. This application will prompt us for a Storage account name and account key and use those credentials to create a `CloudStorageAccount` object. This object will be used to interact with our Storage account in all transfer scenarios. The application will then prompt us to choose the type of transfer operation we would like to execute. 
+## Set up the skeleton of your application
+The first thing we'll do is set up the "skeleton" code of our application. This code will prompt us for a Storage account name and account key and use those credentials to create a `CloudStorageAccount` object. This object will be used to interact with our Storage account in all transfer scenarios. The code will then prompt us to choose the type of transfer operation we would like to execute. 
 
 `Program.cs` should look like the following:
 
@@ -109,18 +109,19 @@ namespace DMLibSample
             Console.WriteLine("Enter Storage account name:");           
             string accountName = Console.ReadLine();
 
-            Console.WriteLine("Enter Storage account key:");           
+            Console.WriteLine("\nEnter Storage account key:");           
             string accountKey = Console.ReadLine();
 
             string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=" + accountName + ";AccountKey=" + accountKey;
             CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
 
-            Console.WriteLine("What type of transfer would you like to execute?\n1.  Local file --> Azure Blob\n2.  Azure Blob --> local file\n3.  Azure Blob --> Azure Blob\n4.  Local directory --> Azure Blob directory\n5.  Azure Blob directory --> local directory\n6.  Azure Blob directory --> Azure Blob directory\n7.  Local file --> Azure File\n8.  Azure File --> local file \n9.  Azure File --> Azure File\n10. Local directory --> Azure File directory\n11. Azure File directory --> local directory\n12. Azure File directory --> Azure File directory\n13. Public URL (e.g. Public Amazon S3 file) --> Azure Blob");
-            string choice = Console.ReadLine();
-            executeChoice(choice, account);
+            executeChoice(account);
         }
 
-        public static void executeChoice(string choice, CloudStorageAccount account){
+        public static void executeChoice(CloudStorageAccount account){
+            Console.WriteLine("\nWhat type of transfer would you like to execute?\n1. Local file --> Azure Blob\n2. Azure Blob --> local file\n3. Azure Blob --> Azure Blob\n4. Local directory --> Azure Blob directory\n5. Azure Blob directory --> local directory\n6. Azure Blob directory --> Azure Blob directory\n7. Public URL (e.g. Public Amazon S3 file) --> Azure Blob");
+            string choice = Console.ReadLine();
+
             if(choice == "1"){
                 transferLocalFileToAzureBlob(account);
             }
@@ -140,24 +141,6 @@ namespace DMLibSample
                 transferAzureBlobDirectoryToAzureBlobDirectory(account);
             }
             else if(choice == "7"){
-                transferLocalFileToAzureFile(account);
-            }
-            else if(choice == "8"){
-                transferAzureFileToLocalFile(account);
-            }
-            else if(choice == "9"){
-                transferAzureFileToAzureFile(account);
-            }
-            else if(choice == "10"){
-                transferLocalDirectoryToAzureFileDirectory(account);
-            }
-            else if(choice == "11"){
-                transferAzureFileDirectoryToLocalDirectory(account);
-            }
-            else if(choice == "12"){
-                transferAzureFileDirectoryToAzureFileDirectory(account);
-            }
-            else if(choice == "13"){
                 transferPublicUrlToAzureBlob(account);
             }
         }
@@ -186,30 +169,6 @@ namespace DMLibSample
             
         }
 
-        public static void transferLocalFileToAzureFile(CloudStorageAccount account){ 
-            
-        }
-
-        public static void transferAzureFileToLocalFile(CloudStorageAccount account){ 
-            
-        }
-
-        public static void transferAzureFileToAzureFile(CloudStorageAccount account){ 
-            
-        }
-
-        public static void transferLocalDirectoryToAzureFileDirectory(CloudStorageAccount account){ 
-            
-        }
-
-        public static void transferAzureFileDirectoryToLocalDirectory(CloudStorageAccount account){ 
-            
-        }
-
-        public static void transferAzureFileDirectoryToAzureFileDirectory(CloudStorageAccount account){ 
-            
-        }
-
         public static void transferPublicUrlToAzureBlob(CloudStorageAccount account){
             
         }
@@ -217,8 +176,36 @@ namespace DMLibSample
 }
 ```
 
+## Transfer local file to Azure Blob
+Modify the `transferLocalFileToAzureBlob` method to look like the following:
+
+```csharp
+public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
+    Console.WriteLine("\nEnter in path for local file:");
+    string localFilePath = Console.ReadLine();
+
+    CloudBlobClient blobClient = account.CreateCloudBlobClient();
+
+    Console.WriteLine("\nProvide name of Blob container. This can be a new or existing Blob container:");
+    string containerName = Console.ReadLine();
+    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+    container.CreateIfNotExistsAsync().Wait();
+
+    Console.WriteLine("\nProvide name of new Blob:");
+    string blobName = Console.ReadLine();
+    CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+
+    Console.WriteLine("\nTransferring local file to Azure Blob...");
+    TransferManager.UploadAsync(localFilePath, blob).Wait();
+    Console.WriteLine("\nTransfer operation complete.");
+    executeChoice(account);
+}
+```
+
+This code will prompt us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method will then perform the upload using this information. Hit `F5` to run your application. You can verify that everything is working by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+
 ## Next steps
-In this getting started, you learned how to create an application that interacts with Azure Storage and runs on Windows, Linux and MacOS. Please check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement) to learn more.
+In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux and MacOS. This getting started specifically focused on Blob Storage. However, this same knowledge can be applied to File Storage. Please check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement) to learn more.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
