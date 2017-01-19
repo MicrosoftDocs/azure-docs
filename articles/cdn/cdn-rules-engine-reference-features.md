@@ -967,7 +967,32 @@ Option|Description
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
  This feature allows our edge servers to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
 
-**Sample Scenario**
+**Sample Scenario 1**
+
+In this example, we will demonstrate how to redirect an edge CNAME URL that resolves to this base CDN URL:
+http://marketing.azureedge.net/brochures/
+
+Qualifying requests will be redirected to this base edge CNAME URL:
+http://MyOrigin.azureedge.net/resources/
+
+This URL redirection may be achieved through the following configuration:
+![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**Sample Scenario 2**
+
+In this example, we will demonstrate how to redirect an edge CNAME URL from UPPERCASE to lowercase using regular expressions.
+
+This URL redirection may be achieved through the following configuration:
+![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**Key points:**
+
+- The URL Rewrite feature defines the request URLs that will be rewritten. As a result, additional match conditions are not required. Although the match condition was defined as "Always," only requests that point to the "brochures" folder on the "marketing" customer origin will be rewritten.
+
+- The URL segments that were captured from the request are appended to the new URL via "$1."
+
+
 
 ###Compatibility
 
