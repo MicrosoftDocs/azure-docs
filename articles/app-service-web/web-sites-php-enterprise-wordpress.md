@@ -188,7 +188,7 @@ After the WordPress site has been created or migrated, use the following informa
 * [Tips for WordPress on Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards are required, and there are no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards are required, and there are no commitments.
 >
 >
 
