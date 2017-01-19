@@ -32,9 +32,10 @@ All actions that were executed, whether they were successful or failed are meter
 Actions executed within loops are counted per iteration of the loop.  For example, a single action in a for each loop iterating through a list of 10 items will be counted as the count of items in the list (10) multiplied by the number of actions in the loop (1) plus one for the initiation of the loop, which, in this example, would be (10 * 1) + 1 = 11 action executions.
 Logic Apps that are disabled cannot have new instances instantiated and therefore while they are disabled are not charged.  Be mindful that after disabling a logic app it may take a little time for the instances to quiesce before being completely disabled.
 ### Integration Account Usage
-Included in consumption based usage is an [integration account](https://docs.microsoft.com/en-us/azure/app-service-logic/app-service-logic-enterprise-integration-create-integration-account?toc=%2fazure%2flogic-apps%2ftoc.json) for exploration, development and testing purposes allowing you to use the [B2B/EDI](https://docs.microsoft.com/en-us/azure/app-service-logic/app-service-logic-enterprise-integration-b2b?toc=%2fazure%2flogic-apps%2ftoc.json) and [XML processing](https://docs.microsoft.com/en-us/azure/app-service-logic/app-service-logic-enterprise-integration-xml?toc=%2fazure%2flogic-apps%2ftoc.json) features of Logic Apps at no additional cost. You are able to create a maximum of one account per region and store up to 10 Agreements and 25 maps. Schemas, certificates and partners have no limits and you can upload as many as you need.
+Included in consumption based usage is an [integration account](logic-apps-enterprise-integration-create-integration-account.md) for exploration, development and testing purposes allowing you to use the [B2B/EDI](logic-apps-enterprise-integration-b2b) and [XML processing](logic-apps-enterprise-integration-xml.md) features of Logic Apps at no additional cost. You are able to create a maximum of one account per region and store up to 10 Agreements and 25 maps. Schemas, certificates and partners have no limits and you can upload as many as you need.
 
-In addition to the inclusion of integration accounts with consumption you can also create standard integration accounts without these limits and with our standard Logic Apps SLA. See [here](https://azure.microsoft.com/pricing/details/logic-apps) for further details.
+In addition to the inclusion of integration accounts with consumption, you can also create standard integration accounts without these limits and with our standard Logic Apps SLA. See [Azure pricing](https://azure.microsoft.com/pricing/details/logic-apps) for further details.
+
 ## App Service plans
 Logic apps previously created referencing an App Service Plan will continue to behave as before. Depending on the plan chosen, are throttled after the prescribed daily executions are exceeded but are billed using the action execution meter.
 EA customers that have an App Service Plan in their subscription, which does not have to be explicitly associated with the Logic App, get the included quantities benefit.  For example, if you have a Standard App Service Plan in your EA subscription and a Logic App in the same subscription then you aren't charged for 10,000 action executions per day (see following table). 
@@ -47,11 +48,12 @@ App Service Plans and their daily allowed action executions:
 To change a Logic App that has an App Service Plan associated with it to a consumption model, remove the reference to the App Service Plan in the Logic App definition.  This change can be done with a call to a PowerShell cmdlet:
 `Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
 ## Pricing
-For pricing details, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+For pricing details, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+
 ## Next steps
 * [An overview of Logic Apps][whatis]
 * [Create your first logic app][create]
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[whatis]: app-service-logic-what-are-logic-apps.md
-[create]: app-service-logic-create-a-logic-app.md
+[whatis]: logic-apps-what-are-logic-apps.md
+[create]: logic-apps-create-a-logic-app.md
 

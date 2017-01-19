@@ -79,10 +79,6 @@
 ### [Preview](logic-apps-schema-2015-08-01.md)
 ## [REST](/rest/api/logic/)
 
-## 2014 schema (before GA)
-### [Azure Resource connector](../app-service-logic/app-service-logic-connector-azure-resource.md)
-### [File connector](../app-service-logic/app-service-logic-connector-file.md)
-
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)  
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
