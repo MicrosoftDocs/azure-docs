@@ -79,7 +79,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
    
     ![Screenshot of sign-out](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
    
-    f. Sign in to the [Azure Account Center](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
+    f. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with the service administrator credentials.
    
     ![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
    
