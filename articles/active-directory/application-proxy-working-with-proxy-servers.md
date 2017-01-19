@@ -32,7 +32,7 @@ The core connector service uses Azure Service Bus to handle some of the underlyi
 
 For information about resolving Azure AD connectivity problems, see [How to troubleshoot Azure AD Application Proxy connectivity problems](https://blogs.technet.microsoft.com/applicationproxyblog/2015/03/24/how-to-troubleshoot-azure-ad-application-proxy-connectivity-problems). 
 
-## Configure to the outbound proxy
+## Configure the outbound proxy
 
 If you have an outbound proxy in your environment, ensure that the account doing the install is appropriately configured to use the outbound proxy. As the installer runs in the context of the user doing the install this can be done using Microsoft Edge or other Internet browser. 
 
