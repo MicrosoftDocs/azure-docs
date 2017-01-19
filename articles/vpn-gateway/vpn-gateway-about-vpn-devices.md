@@ -26,7 +26,7 @@ A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-
 >
 >
 
-If your device doesn't appear in the [Validated VPN devices](#devicetable) table, see the [Non-validated VPN devices](#additionaldevices) section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
+If your device doesn't appear in the [Validated VPN devices](#devicetable) table, see the [Non-validated VPN devices](#additionaldevices) section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer. 
 
 **Items to note when viewing the tables:**
 
