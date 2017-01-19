@@ -13,8 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/18/2017
 ms.author: zhangya;bradsev
+
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: data-science-create-features
 
 ---
 # Feature engineering and selection in Azure Machine Learning
