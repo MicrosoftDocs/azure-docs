@@ -57,7 +57,7 @@ When using a shared secret, a service-to-service access token request contains t
 The following HTTP POST requests an access token for the https://service.contoso.com/ web service. The `client_id` identifies the web service that requests the access token.
 
 ```
-POST /contoso.onmicrosoft.com/oauth2/token HTTP/1.1
+POST /contoso.com/oauth2/token HTTP/1.1
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
