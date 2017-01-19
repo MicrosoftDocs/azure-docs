@@ -1,6 +1,6 @@
 ---
 title: Load balance Kubernetes containers in Azure | Microsoft Docs
-description: Load balance across multiple containers in a Kubernetes cluster in Azure Container Service.
+description: Connect externally and load balance across multiple containers in a Kubernetes cluster in Azure Container Service.
 services: container-service
 documentationcenter: ''
 author: dlepow
@@ -15,12 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2016
+ms.date: 01/19/2016
 ms.author: danlep
 
 ---
 # Load balance containers in a Kubernetes cluster in Azure Container Service 
-In this article, we'll explore how to load balance container workloads in a Kubernetes cluster in Azure Container Service. 
+This article shows how to load balance a container service in a Kubernetes cluster in Azure Container Service. Load balancing provides an externally accessible IP address for the service and distributes traffic among the agent VMs.
+
+This article focuses on using the [Azure Load Balancer](../load-balancer/load-balancer-overview.md) that is deployed with Kubernetes in Azure Container Service to load balance external TCP or UDP traffic. Alternative approaches are also introduced.
 
 ## Prerequisites
 * [Deploy a Kubernetes cluster](container-service-kubernetes-walkthrough.md) in Azure Container Service
@@ -28,47 +30,95 @@ In this article, we'll explore how to load balance container workloads in a Kube
 
 ## Azure load balancer
 
-A Kubernetes cluster deployed in Azure Container Service includes an [Azure load balancer](../load-balancer/load-balancer-overview.md), a Layer 4 (TCP, UDP) load balancer, for the agent VMs. (A separate load balancer resource is configured for the master VMs.) 
+By default, a Kubernetes cluster deployed in Azure Container Service includes an Azure load balancer for the agent VMs. (A separate load balancer resource is configured for the master VMs.) Azure load balancer is a Layer 4 (TCP, UDP) load balancer.
 
-You can dynamically configure the the load balancer for container workloads running on the agent VMs. Azure load balancer creates rules that map the public IP address and port number of incoming traffic to the private IP addresses and port numbers of the agent VMs and vice versa for the response traffic from the VMs. 
+When creating a Kubernetes service, you can automatically configure the Azure load balancer to allow access to the service. To configure the load balancer, set the service `type` to `LoadBalancer`. The load balancer creates a rule to map a public IP address and port number of incoming service traffic to the private IP addresses and port numbers of the agent VMs (and vice versa for response traffic). 
 
-As shown in the [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md), you configure the Azure load balancer by exposing a service with the `kubectl expose` command and its `--type=LoadBalancer` flag.
+ Following are two examples showing how to set the Kubernetes service `type` to `LoadBalancer`. For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/user-guide/load-balancer/).
 
-### Nginx example
-The following command starts a new deployment called `mynginx` consisting of three containers based on the Docker `nginx` image.
+### Example: Use the `kubectl expose` command 
+The [Kubernetes walkthrough](container-service-kubernetes-walkthrough.md) includes an example of how to expose a service with the `kubectl expose` command and its `--type=LoadBalancer` flag. Here are the steps :
 
-```
-kubectl run mynginx --replicas=3 --image nginx
-```
-To query for the running containers, type `kubectl get pods`. Output is similar to the following:
+1. Start a new container deployment. For example, the following command starts a new deployment called `mynginx` consisting of three containers based on the Docker image for the Nginx web server.
 
-![Get Nginx containers](./media/container-service-kubernetes-load-balancing/nginx-get-pods.png)
+    ```console
+    kubectl run mynginx --replicas=3 --image nginx
+    ```
+2. Verify that the containers are running. For example, if you query for the containers with `kubectl get pods`, you see output similar to the following:
 
-To configure the load balancer to accept external traffic on port 80, run the following command to expose the service:
+    ![Get Nginx containers](./media/container-service-kubernetes-load-balancing/nginx-get-pods.png)
 
-```
-kubectl expose deployments mynginx --port=80 --type=LoadBalancer
-```
+3. To configure the load balancer to accept external traffic to the deployment, run the `kubectl expose` command with `--type=LoadBalancer`. For example, the following command exposes the Nginx server on port 80:
 
-Type `kubectl get svc` to see the state of the services in the cluster. While the load balancer configures the rule, the **EXTERNAL-IP** of the service appears as `<pending>`. After a few minutes, the external IP address is configured: 
+    ```console
+    kubectl expose deployments mynginx --port=80 --type=LoadBalancer
+    ```
 
-![Configure Azure load balancer](./media/container-service-kubernetes-load-balancing/kubectl-expose.png).
+4. Type `kubectl get svc` to see the state of the services in the cluster. While the load balancer configures the rule, the `EXTERNAL-IP` of the service appears as `<pending>`. After a few minutes, the external IP address is configured: 
 
-You can open a web browser to the IP address shown to see the Nginx web server running in one of the containers. Or, if you prefer, run the `curl` or `wget` command.
+    ![Configure Azure load balancer](./media/container-service-kubernetes-load-balancing/nginx-external-ip.png)
 
-To see the configuration of the Azure load balancer:
-1. Go to the [Azure portal](https://portal.azure.com), and browse for the load balancer resource for the agent VMs in the cluster. Its name should be the same as the container service. (Don't choose the load balancer for the master nodes, the one whose name includes **master-lb**). 
-2. Click **Load balancing rules**
+5. Verify that you can access the service at the external IP address. For example, open a web browser to the IP address shown to see the Nginx web server running in one of the containers. Or, you can run the `curl` or `wget` command. For example:
 
-### Guestbook example
+    ```
+    curl 13.82.93.130
+    ```
+
+    You should see output similar to:
+
+    ![Access Nginx with curl](./media/container-service-kubernetes-load-balancing/curl-output.png)
+
+6. To see the configuration of the Azure load balancer, go to the [Azure portal](https://portal.azure.com).
+
+7. Browse for the resource group for your container service cluster, and select the load balancer for the agent VMs. Its name should be the same as the container service. (Don't choose the load balancer for the master nodes, the one whose name includes **master-lb**.) 
+
+    ![Load balancer in resource group](./media/container-service-kubernetes-load-balancing/container-resource-group-portal.png)
+
+8. To see the details of the load balancer configuration, click **Load balancing rules** and the name of the rule that was configured.
+
+    ![Load balancer rules](./media/container-service-kubernetes-load-balancing/load-balancing-rules.png) 
+
+### Example: Specify `type: LoadBalancer` in the service configuration file
+
+If you deploy a Kubernetes container app from a [service configuration file](https://kubernetes.io/docs/user-guide/services/operations/#service-configuration-file) (formatted as YAML or JSON), specify an external load balancer by adding the following line to the service specification:
+
+```YAML
+ "type": "LoadBalancer"
+``` 
+
+> [!NOTE]
+> Creation of the load balancer happens asynchronously, and information about the provisioned balancer is published in the service’s `status.loadBalancer` field.
+
+The following steps use the Kubernetes [Guestbook example](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook). This example is a multi-tier web app based on Docker container images. You can specify in the service configuration file that the frontend PHP server uses the Azure load balancer.
+
+1. Download the file `guestbook-all-in-one.yaml` from [GitHub](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook/all-in-one). 
+2. Browse for the `spec` for the `frontend` service.
+3. Uncomment the line `type: LoadBalancer`.
+
+    ![Load balancer in service configuration](./media/container-service-kubernetes-load-balancing/guestbook-frontend-loadbalance.png)
+
+4. Save the file, and deploy the app by running the following command:
+
+    ```
+    kubectl create -f guestbook-all-in-one.yaml
+    ```
+
+5. Type `kubectl get svc` to see the state of the services in the cluster. While the load balancer configures the rule, the `EXTERNAL-IP` of the `frontend` service appears as `<pending>`. After a few minutes, the external IP address is configured: 
+
+    ![Configure Azure load balancer](./media/container-service-kubernetes-load-balancing/guestbook-external-ip.png)
+
+6. Verify that you can access the service at the external IP address. For example, you can open a web browser to the external IP address of the service.
+
+    ![Access guestbook externally](./media/container-service-kubernetes-load-balancing/guestbook-web.png)
+
+7. To see the configuration of the Azure load balancer, browse for the load balancer resource for the cluster in the [Azure portal](https://portal.azure.com). See the steps in the previous example.
 
 
+## Alternatives
 
-## Ingress controller
+If you want to load-balance HTTP or HTTPS traffic to container workloads, you can take advantage of the Kubernetes [Ingress](https://kubernetes.io/docs/user-guide/ingress/) resource. An Ingress is a collection of rules that allow inbound connections to reach the cluster services. 
 
-If you want to load-balance HTTP or HTTPS traffic to container workloads, you can configure a Kubernetes [Ingress controller](https://kubernetes.io/docs/user-guide/ingress/). An Ingress is a collection of rules that allow inbound connections to reach the cluster services.
-
-For example you can use the [Nginx ingress controller](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) to configure Ingress rules for HTTP and HTTPS traffic. For more information, see the [Nginx ingress controller](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) documentation.
+For the Ingress resource to work, you need to run an [Ingress controller](https://kubernetes.io/docs/user-guide/ingress/) on the cluster. Several controller implementations are available. For example, you can use the [Nginx ingress controller](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) to configure Ingress rules and load balance HTTP and HTTPS traffic. For more information, see the [Nginx ingress controller documentation](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md).
 
 ## Next steps
 
