@@ -521,7 +521,7 @@ At this stage, the configuration for Operationalization is complete. Now you can
 
 Make sure you allow traffic through port 12800 to the Edge node. That way, you can use the Edge node to connect to the Operationalization feature.
 
-````
+```
 library(mrsdeploy)
 
 remoteLogin(
@@ -529,7 +529,7 @@ remoteLogin(
     username = "admin",
     password = "xxxxxxx"
 )
-````
+```
 
 If the remoteLogin() cannot connect to the Edge node, but if you can SSH to the Edge node, you need to verify if the rule to allow traffic on port 12800 has been set properly or not. If you continue to face the issue, you can use a workaround by setting up port forward tunneling through SSH.
 
@@ -544,6 +544,18 @@ ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsigh
 On Putty, you can set it up as well.
 
 ![putty ssh connection](./media/hdinsight-hadoop-r-server-get-started/putty.png)
+
+Once your SSH session is active, the traffic from your machine’s port 12800 will be forwarded to the Edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your remoteLogin() method. This will login to the Edge node’s operationalization through port forwarding.
+
+```
+library(mrsdeploy)
+
+remoteLogin(
+    deployr_endpoint = "http://127.0.0.1:12800",
+    username = "admin",
+    password = "xxxxxxx"
+)
+```
 
 ## How to scale Microsoft R Server Operationalization compute nodes on HDinsight worker nodes?
  
