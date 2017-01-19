@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 01/18/2017
 ms.author: karolz@microsoft.com
 
 ---
 # Collect logs directly from an Azure Service Fabric service process
 ## In-process log collection
-Collecting application logs using [Azure Diagnostics extension](../cloud-services/cloud-services-dotnet-diagnostics.md) is a good option for **Azure Service Fabric** services if the set of log sources and destinations is small, does not change often, and there is a straightforward mapping between the sources and their destinations. If not, an alternative is to have services send their logs directly to a central location. This process is known as **in-process log collection** and has several potential advantages:
+Collecting application logs using [Azure Diagnostics extension](service-fabric-diagnostics-how-to-setup-wad.md) is a good option for **Azure Service Fabric** services if the set of log sources and destinations is small, does not change often, and there is a straightforward mapping between the sources and their destinations. If not, an alternative is to have services send their logs directly to a central location. This process is known as **in-process log collection** and has several potential advantages:
 
 * *Easy configuration and deployment*
 
