@@ -550,21 +550,23 @@ The following table describes the web services used in this example.  See [Retra
 - **Training web service** - Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage. The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint.
 - **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
 
-	If the web service is a **classic web service** (that is not the new Azure Resource Manager endpoint), create the second **non-default and updatable endpoint** by using the [Azure portal](https://manage.windowsazure.com). See [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. To invoke the classic web service, specify **ApiKey** in the AzureML linked service definition. 
-
-	If the web service is the new type of web service that exposes an Azure Resource Manager endpoint, you do not need to add the second **non-default** endpoint. The **updateResourceEndpoint** in the linked service is of the format: 
-	https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). The new update resource endpoint requires an AAD (Azure Active Directory) token. Specify a **service principal credential** in AzureML linked service. See [how to create service principal and assign permissions to manage Azure resource](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-
-
 The following picture depicts the relationship between training and scoring endpoints in Azure ML.
 
 ![Web services](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking an Azure ML web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail.
+You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking an Azure ML web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail. 
 
 You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. The following examples provide linked service definitions: 
 
-### using class web service
+### Scoring web service is a classic web service
+If the scoring web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the [Azure portal](https://manage.windowsazure.com). See [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following:
+
+* Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
+* Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
+
+![updatable endpoint](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+
+The following example provides a sample JSON definition for the AzureML linked service. The linked service uses the apiKey for authentication.  
 
 ```json
 {
@@ -580,7 +582,14 @@ You can invoke the **scoring web service** by using the **Azure ML Update Resour
 }
 ```
 
-### using new type of web service (Azure Resource Manager)
+### Scoring web service is a new type of web service (Azure Resource Manager)
+If the web service is the new type of web service that exposes an Azure Resource Manager endpoint, you do not need to add the second **non-default** endpoint. The **updateResourceEndpoint** in the linked service is of the format: 
+
+```
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+```
+
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey**in AzureML linked service. See [how to create service principal and assign permissions to manage Azure resource](../azure-resource-manager/resource-group-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
 
 ```json
 {
@@ -727,15 +736,6 @@ The following JSON snippet defines an Azure Machine Learning linked service that
     }
 }
 ```
-
-Before creating and deploying an Azure ML linked service, follow the steps in [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article to create a second (non-default and updatable) endpoint for the scoring web service.
-
-After you create the non-default updatable endpoint, do the following:
-
-* Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
-* Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
-
-![updatable endpoint](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
 #### Placeholder output dataset:
 The Azure ML Update Resource activity does not generate any output. However, Azure Data Factory requires an output dataset to drive the schedule of a pipeline. Therefore, we use a dummy/placeholder dataset in this example.  
