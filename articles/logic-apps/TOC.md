@@ -61,7 +61,7 @@
 ### [Publish from VS](logic-apps-deploy-from-vs.md)
 
 ## Manage
-### [Use Visual Studio Cloud Explorer](../app-service-logic/app-service-logic-manage-from-vs.md)
+### [Use Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 ### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 ### [Monitor B2B messages](../app-service-logic/app-service-logic-monitor-b2b-message.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
