@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/18/2017
 ms.author: cherylmc
 
 ---
@@ -171,15 +171,15 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 | **System integrator** | **Continent** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Asia, Europe, US |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europe |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |US |
+| **[Avanade Inc.](http://www.avanade.com/)** | Asia, Europe, North America, South America |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europe |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
 | **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
-| **[Nelite](http://nelite.com/)** |Europe |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asia |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |US |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |US |
+| **[Nelite](http://nelite.com/)** | Europe |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | North America |
 
 
 ## Next steps
