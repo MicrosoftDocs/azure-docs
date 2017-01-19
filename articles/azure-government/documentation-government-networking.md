@@ -92,16 +92,16 @@ Load Balancer is generally available in Azure Government.
 > [!NOTE]
 > Define what is different in Azure Gov and dhow devs should connect to Azure Storage
 
-For more information, see the [Load Balancer public documentation](../virtual-network/virtual-network-peering-overview.md). 
+For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
 ## Support for Traffic Manger
-Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../virtual-network/virtual-network-peering-overview.md). 
+Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
 
 ## Support for VNet Peering 
 VNet Peering is generally available in Azure Government. For more information, see the [VNet Peering public documentation](../virtual-network/virtual-network-peering-overview.md). 
 
 ## Support for VPN Gateway 
-VPN Gateway is generally available in Azure Government. For more information, see the [VPN Gateway public documentation](../virtual-network/virtual-network-peering-overview.md). 
+VPN Gateway is generally available in Azure Government. For more information, see the [VPN Gateway public documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
 
 ## Next Steps
 For supplemental information and updates please subscribe to the
