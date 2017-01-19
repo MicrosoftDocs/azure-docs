@@ -290,5 +290,8 @@ module.exports = function(context) {
 ```
 
 ## Next steps
+
+For an example of a function that uses a Storage queue triggers and bindings, see [Create an Azure Function connected to an Azure service](functions-create-an-azure-connected-function.md).
+
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
