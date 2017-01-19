@@ -81,6 +81,8 @@ Once the values are filled out, click **Create** to create the packet capture.
 
 ![create a packet capture][2]
 
+After the time limit set on the packet capture has expired, the packet capture will stop and can be reviewed.
+
 ## Delete a packet capture
 
 In the packet capture view, click the **context menu** (...) or right click, and click **delete** to stop the packet capture

@@ -22,9 +22,9 @@ ms.author: gwallace
 The topology feature of Network Watcher represents and graphs network resources in a subscription. Topology helps you **know your network**. This will show containment relationships between the resources. If it is run through the portal, a visual representation of the topology is shown. If using the Azure REST endpoint for Topology, a collection of objects and associations are returned. These objects can be mapped to objects in a tool of your choice to represent the topology graphically.
 
 > [!NOTE]
-> Topology is currently only supported in the Azure portal at this time.
+> Topology is currently not supported in the Azure portal at this time.
 
-The topology view includes the Network Security Groups (NSG) that are applied to the resources as well as the security rules as well.
+The topology view returns resources and how they are related to networking resources and the Network Security Groups (NSG) that are applied to the resources.
 
 The following is the properties that are returned when querying the Topology REST API.
 
