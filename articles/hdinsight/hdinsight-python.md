@@ -309,18 +309,6 @@ The following script will run the **streaming.py** script. Before running, it wi
 # Replace 'YourHDIClusterName' with the name of your cluster
 $clusterName = YourHDIClusterName
 $creds=Get-Credential
-#Get the cluster info so we can get the resource group, storage, etc.
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroup = $clusterInfo.ResourceGroup
-$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-$container=$clusterInfo.DefaultStorageContainer
-$storageAccountKey=(Get-AzureRmStorageAccountKey `
-    -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
-#Create a storage content and upload the file
-$context = New-AzureStorageContext `
-    -StorageAccountName $storageAccountName `
-    -StorageAccountKey $storageAccountKey
 
 # If using a Windows-based HDInsight cluster, change the USING statement to:
 # "USING 'D:\Python27\python.exe streaming.py' AS " +
@@ -347,18 +335,12 @@ Wait-AzureRmHDInsightJob `
 # Get-AzureRmHDInsightJobOutput `
 #   -Clustername $clusterName `
 #   -JobId $job.JobId `
-#   -DefaultContainer $container `
-#   -DefaultStorageAccountName $storageAccountName `
-#   -DefaultStorageAccountKey $storageAccountKey `
 #   -HttpCredential $creds `
 #   -DisplayOutputType StandardError
 Write-Host "Display the standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
     -Clustername $clusterName `
     -JobId $job.JobId `
-    -DefaultContainer $container `
-    -DefaultStorageAccountName $storageAccountName `
-    -DefaultStorageAccountKey $storageAccountKey `
     -HttpCredential $creds
 ```
 
@@ -381,19 +363,7 @@ The following will use the **pig_python.py** script, using the Jython interprete
 $clusterName = YourHDIClusterName
 
 $creds = Get-Credential
-#Get the cluster info so we can get the resource group, storage, etc.
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroup = $clusterInfo.ResourceGroup
-$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-$container=$clusterInfo.DefaultStorageContainer
-$storageAccountKey=(Get-AzureRmStorageAccountKey `
-    -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
 
-#Create a storage content and upload the file
-$context = New-AzureStorageContext `
-    -StorageAccountName $storageAccountName `
-    -StorageAccountKey $storageAccountKey
 
 $PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
             "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
@@ -415,20 +385,14 @@ Wait-AzureRmHDInsightJob `
     -HttpCredential $creds
 # Uncomment the following to see stderr output
 # Get-AzureRmHDInsightJobOutput `
-    -Clustername $clusterName `
-    -JobId $job.JobId `
-    -DefaultContainer $container `
-    -DefaultStorageAccountName $storageAccountName `
-    -DefaultStorageAccountKey $storageAccountKey `
-    -HttpCredential $creds `
-    -DisplayOutputType StandardError
+#    -Clustername $clusterName `
+#    -JobId $job.JobId `
+#    -HttpCredential $creds `
+#    -DisplayOutputType StandardError
 Write-Host "Display the standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
     -Clustername $clusterName `
     -JobId $job.JobId `
-    -DefaultContainer $container `
-    -DefaultStorageAccountName $storageAccountName `
-    -DefaultStorageAccountKey $storageAccountKey `
     -HttpCredential $creds
 ```
 
@@ -464,9 +428,6 @@ Both of the example PowerShell scripts used to run the examples contain a commen
 # Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 ```
