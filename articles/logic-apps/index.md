@@ -142,11 +142,4 @@ Learn how to develop Logic Apps that simplify and integrate scalable workflows i
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Logic Apps Documentation
-        </div>
-    </a>
-</div>
+
