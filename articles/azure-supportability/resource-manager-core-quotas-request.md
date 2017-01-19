@@ -7,6 +7,7 @@ ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
+
 ---
 
 # Resource Manager core quota increase requests
@@ -20,19 +21,19 @@ To request an increase, create a Quota support case for Cores in the Azure porta
 > [!NOTE]
 > Learn how to [create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) in the Azure portal
 
-1. On the new support request page, select Issue type as "Quota" and Quota type as "Cores"
+1. On the new support request page, select Issue type as "Quota" and Quota type as "Cores".
 
 ![Quota Basics blade](./media/resource-manager-core-quotas-request/Basics-blade.png)
 
-2. Select Deployment model as "Resource Manager" and select a location
+2. Select Deployment model as "Resource Manager" and select a location.
 
 ![Quota Problem blade](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Select the SKU Families that require an increase
+3. Select the SKU Families that require an increase.
 
 ![SKU series selected](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Enter the new limits you would like on the subscription
+4. Enter the new limits you would like on the subscription.
 
 ![SKU new quota request](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
