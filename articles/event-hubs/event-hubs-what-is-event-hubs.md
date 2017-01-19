@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: .net
 author: banisadr
 
-ms.assetid: 78bae7b4-8dfc-4193-9700-e537d0414bcb
+ms.assetid:
 ms.service: event-hubs
 ms.topic: get-started-article
 ms.date: 11/29/2016
