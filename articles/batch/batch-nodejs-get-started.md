@@ -1,17 +1,17 @@
 # Get started with Azure Batch Nodejs client
 
-Through this article we will run through the steps to setting up an Azure batch job, deploy tasks and monitor them using the [Nodejs SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). This article assumes that you have a base understanding of Nodejs and have Nodejs setup and installed on your dev machine.
+Through this article we will run through the steps to setting up an Azure batch job, deploy tasks and monitor them using the [Nodejs SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). This article assumes that you have a base understanding of Nodejs and have Nodejs set up and installed on your dev machine.
 
 You can install azure-batch SDK for node through npm:
 
 `npm install azure-batch`
 
-This will install the latest version of azure-batch node SDK.
+This installs the latest version of azure-batch node SDK.
 
 Now, let's understand the batch scenario we want to work with in more detail and we get into mapping it into Azure batch components right after that.
 
 ## The scenario
-I was working with a customer, helping them process large amount of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a /json pattern. Following figure explains the flow of the processor.
+I was working with a customer, helping them process large number of csv files into JSON. I have a csv to JSON processor Python console app that takes in the storage account details, container name and a blob pattern. It iterates through the blobs in the container that match the pattern downloads them and converts them into JSON, and re-uploads them with a /json pattern. Following figure explains the flow of the processor.
 
 ![processcsv.py flow](./media/nodejs-client/processcsvflow.png)
 
