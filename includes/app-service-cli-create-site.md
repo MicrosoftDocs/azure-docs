@@ -1,4 +1,4 @@
-## Create an App Service Site with Azure CLI 2.0
+## Step 1: Create an App Service Site with Azure CLI 2.0
 
 > [!NOTE]
 > This article assumes that you have followed the [installation steps](https://github.com/azure/azure-cli#installation) for the Azure CLI 2.0.
@@ -55,7 +55,7 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 > ```cli
 > az account set --subscription <subscription-id>
 > ```
->
+> <p></p>
 
 ### Create a Resource Group
 
@@ -65,7 +65,7 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 > ```cli
 > az account list-locations --query '[].{Name:name}' -o table
 > ```
->
+> <p></p>
 
 ```cli
 az group create -n <resource-group-name> -l <resource-group-location>
@@ -79,7 +79,7 @@ az group create -n <resource-group-name> -l <resource-group-location>
 > ```cli
 > az appservice list-locations --query '[].{Name:name}' -o table
 > ```
->
+> <p></p>
 
 **Command**
 

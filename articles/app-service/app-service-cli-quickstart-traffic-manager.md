@@ -25,7 +25,7 @@ In less than 5 minutes, this quickstart will have you create an App Service Site
 
 [!INCLUDE [App Service CLI Create Site](../../includes/app-service-cli-create-site.md)]
 
-## Step 1: Upgrade App Service Plan to Standard
+## Step 2: Upgrade App Service Plan to Standard
 
 **Command**
 
@@ -65,7 +65,7 @@ az appservice plan update -n <plan-name> -g <resource-group-name> --sku S1
 }
 ```
 
-## Step 2: Create Traffic Manager Profile
+## Step 3: Create Traffic Manager Profile
 
 **Command**
 
@@ -96,7 +96,7 @@ az network traffic-manager profile create -n <profile-name> -g <resource-group-n
 }
 ```
 
-## Step 3: Add Traffic Manager Endpoint
+## Step 4: Add Traffic Manager Endpoint
 
 **Command**
 
@@ -123,7 +123,7 @@ az network traffic-manager endpoint create -n <endpoint-name> --profile-name <pr
 }
 ```
 
-## Step 4: Validate
+## Step 5: Validate
 
 **Command**
 

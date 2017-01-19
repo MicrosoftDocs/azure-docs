@@ -1,4 +1,4 @@
-## Create an App Service Site with Azure PowerShell
+## Step 1: Create an App Service Site with Azure PowerShell
 
 > [!NOTE]
 > This article assumes that you have followed the [installation](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) of Azure PowerShell.
@@ -31,6 +31,7 @@ Sign in using the dialogue box which opens.
 > ```powershell
 > Select-AzureRmSubscription -SubscriptionId <subscription-id>
 > ```
+> <p></p>
 
 ### Create a Resource Group
 
@@ -40,7 +41,7 @@ Sign in using the dialogue box which opens.
 > ```powershell
 > Get-AzureRMLocation | Format-Table DisplayName
 > ```
->  
+> <p></p>
 
 ```powershell
 New-AzureRMResourceGroup -Name <resource-group-name> -Location <resource-group-location>
@@ -54,7 +55,7 @@ New-AzureRMResourceGroup -Name <resource-group-name> -Location <resource-group-l
 > ```powershell
 > Get-AzureRMLocation | ? { $_.Providers -contains "Microsoft.Web" } | Format-Table DisplayName
 > ```
->  
+> <p></p>
 
 **Command**
 
