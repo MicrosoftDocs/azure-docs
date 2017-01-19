@@ -43,15 +43,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 1. If you're failing over to Azure and data encryption is enabled, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation. You can ignore this step if you have not enabled encryption on the virtual machine.
 1. Track failover progress on the **Jobs** tab. You should be able to see the test replica machine in the Azure portal.
 1. To initiate an RDP connection on the virtual machine you will need to [add a public ip](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) on the network interface of the failed over virtual machine. If you are failing over to a Classic virtual machine then you will need to [add an endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) on port 3389
-1. Once you're done, When the failover reaches the **Complete testing** phase , click **Complete Test** to finish.
-1. In **Notes** record and save any observations associated with the test failover.
-1. Click **The test failover is complete** to automatically clean up the test environment. After this is complete the test failover will show the **Completed** status.
-
-
-> [!IMPORTANT]
-> If a test failover continues for more than two weeks it'll be completed by force. Any elements or virtual machines created automatically during the test failover will be deleted.
-> 
-> 
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
 
 
 > [!TIP]
