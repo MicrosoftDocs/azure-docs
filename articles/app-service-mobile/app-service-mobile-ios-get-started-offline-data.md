@@ -105,7 +105,7 @@ Using the offline data-sync feature of Mobile Apps, you can interact with a loca
               // server conflicts, etc via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
-              // We will just discard our changes and keep the servers copy for simplicity
+              // We will discard our changes and keep the server's copy for simplicity
               if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
                   for opError in opErrors {
                       print("Attempted operation to item \(opError.itemId)")
@@ -130,16 +130,16 @@ Using the offline data-sync feature of Mobile Apps, you can interact with a loca
 
     In both the Objective-C and Swift versions, you can use the **pullWithQuery** method to specify a query to filter the records you want to retrieve. In this example, the query retrieves all records in the remote `TodoItem` table.
 
-    The second parameter to **pullWithQuery** is a query ID that is used for *incremental sync*. Incremental sync retrieves only records that were modified since the last sync, using the record's `UpdatedAt` time stamp (called `updatedAt` in the local store.) The query ID should be a descriptive string that is unique for each logical query in your app. To opt out of incremental sync, pass `nil` as the query ID. This approach can be potentially inefficient, because it retrieves all records on each pull operation.
+    The second parameter of **pullWithQuery** is a query ID that is used for *incremental sync*. Incremental sync retrieves only records that were modified since the last sync, using the record's `UpdatedAt` time stamp (called `updatedAt` in the local store.) The query ID should be a descriptive string that is unique for each logical query in your app. To opt out of incremental sync, pass `nil` as the query ID. This approach can be potentially inefficient, because it retrieves all records on each pull operation.
 
-* The Objective-C app syncs when we modify or add data, when you perform the refresh gesture, and on launch.
+* The Objective-C app syncs when you modify or add data, when you perform the refresh gesture, and on launch.
 
  The Swift app syncs when you perform the refresh gesture and on launch.
 
-Because the app syncs whenever data is modified (Objective-C) or whenever the app starts (Objective-C and Swift), the app assumes that you are online. In a later section, we update the app so that you can edit even when you are offline.
+Because the app syncs whenever data is modified (Objective-C) or whenever the app starts (Objective-C and Swift), the app assumes that you are online. In a later section, you will update the app so that you can edit even when you are offline.
 
 ## <a name="review-core-data"></a>Review the Core Data model
-When you use the Core Data offline store, you must define particular tables and fields in your data model. The sample app already includes a data model with the right format. In this section, we walk through these tables and show how they are used.
+When you use the Core Data offline store, you must define particular tables and fields in your data model. The sample app already includes a data model with the right format. In this section, we walk through these tables to show how they are used.
 
 Open **QSDataModel.xcdatamodeld**. Four tables are defined--three that are used by the SDK and one that's used for the to-do items themselves:
   * MS_TableOperations: Tracks the items that need to be synchronized with the server.
@@ -210,7 +210,7 @@ In this section, you modify the app so that it does not sync on app start or whe
 
 **Objective-C**:
 
-1. In **QSTodoListViewController.m**, change the **viewDidLoad** method to remove the call to `[self refresh]` at the end of the method. Now, the data is not synced with the server on app start but, instead, it is synced with the contents of the local store.
+1. In **QSTodoListViewController.m**, change the **viewDidLoad** method to remove the call to `[self refresh]` at the end of the method. Now the data is not synced with the server on app start but, instead, is synced with the contents of the local store.
 2. In **QSTodoService.m**, modify the definition of `addItem` so that it doesn't sync after the item is inserted. Remove the `self syncData` block and replace it with the following:
 
    ```objc
@@ -246,7 +246,7 @@ In this section, you connect to an invalid URL to simulate an offline scenario. 
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
-2. Add some to-do items. Quit the simulator (or forcibly close the app) and restart it. Verify that your changes persist.
+2. Add some to-do items. Quit the simulator (or forcibly close the app), and then restart it. Verify that your changes persist.
 
 3. View the contents of the remote TodoItem table:
    * For a Node.js back end, go to the [Azure portal](https://portal.azure.com/) and, in your mobile-app back end, click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.  
@@ -265,11 +265,11 @@ When you use a Core Data local store, you must define several tables with the [c
 
 The normal create, read, update, and delete (CRUD) operations for mobile apps work as if the app is still connected, but all the operations occur against the local store.
 
-When we wanted to synchronize the local store with the server, we used the **MSSyncTable.pullWithQuery** method.
+When we synchronized the local store with the server, we used the **MSSyncTable.pullWithQuery** method.
 
 ## Additional resources
 * [Offline Data Sync in Mobile Apps]
-* [Cloud Cover: Offline Sync in Azure Mobile Services] \(Note: The video is about Mobile Services, but offline sync works in a similar way in Mobile Apps.\)
+* [Cloud Cover: Offline Sync in Azure Mobile Services] \(Note: The video is about Mobile Services, but Mobile Apps offline sync works in a similar way.\)
 
 <!-- URLs. -->
 
