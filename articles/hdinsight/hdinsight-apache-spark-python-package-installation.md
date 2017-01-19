@@ -1,5 +1,5 @@
 ---
-title: Use external python packages with Jupyter notebooks in Apache Spark clusters on Azure HDInsight | Microsoft Docs
+title: Use Script action to install external python packages with Jupyter notebooks in Apache Spark clusters on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
 services: hdinsight
 documentationcenter: ''
@@ -18,9 +18,19 @@ ms.date: 11/28/2016
 ms.author: nitinme
 
 ---
-# Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight
+# Use Script Action to install external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight
+> [!div class="op_single_selector"]
+> * [Using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Using Script Action](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
 Learn how to use Script Actions to configure an Apache Spark cluster on HDInsight (Linux) to use external, community-contributed **python** packages that are not included out-of-the-box in the cluster.
+
+> [!NOTE]
+> You can also configure a Jupyter notebook by using `%%configure` magic to use external packages. For instructions, see [Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md).
+> 
+> 
 
 You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) or [conda-forge](https://conda-forge.github.io/feedstocks.html).
 
