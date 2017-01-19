@@ -98,7 +98,7 @@ For a full working sample of a Service Bus application that illustrates the conf
 
 ## Access Shared Access Authorization rules on a namespace
 
-Operations on the Service Bus namespace root require certificate authentication. You must upload a management certificate for your Azure subscription. To upload a management certificate, follow the steps [here](../cloud-services/cloud-services-configure-ssl-certificate-portal#step-3-upload-a-certificate), using the [Azure portal][Azure portal]. For more information about Azure management certificates, see the [Azure certificates overview](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Operations on the Service Bus namespace root require certificate authentication. You must upload a management certificate for your Azure subscription. To upload a management certificate, follow the steps [here](../cloud-services/cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate), using the [Azure portal][Azure portal]. For more information about Azure management certificates, see the [Azure certificates overview](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 The endpoint for accessing shared access authorization rules on a Service Bus namespace is as follows:
 
