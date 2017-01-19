@@ -19,9 +19,17 @@ ms.author: cfowler
 
 # Load Balance an App Geographically with Azure CLI 2.0
 
-## In this Quickstart
+## Summary
 
-In less than 5 minutes, this quickstart will have you create an App Service Site and Traffic Manager Profile. Once created you will add the App Service to the Endpoint to the Profile for Load Balancing.
+In less than 5 minutes, you will execute a series of command-line tools to generate the following in Azure:
+
+* Resource Group
+* App Service Plan
+* App Service Site
+* Traffic Manager Profile
+* Traffic Manager Endpoint
+
+Once completed, you will have a Web Server which is configured in a Performance based Load Balancer.
 
 [!INCLUDE [App Service CLI Create Site](../../includes/app-service-cli-create-site.md)]
 
@@ -136,6 +144,18 @@ az network traffic-manager profile show -n <profile-name> -g <resource-group-nam
 Paste the resulting URL into your favourite web browser.
 
 ![App Service CLI Quickstart Traffic Manager](../../includes/media/app-service-cli-quickstart-traffic-manager/start-page.png)
+
+## Conclusion
+
+Your subscription should now be populated with the following:
+
+* Resource Group
+* App Service Plan
+* App Service Site
+* Traffic Manager Profile
+* Traffic Manager Endpoint
+
+Continue this challenge by creating another site and adding it as an endpoint in traffic manager.
 
 ## Glossary
 
