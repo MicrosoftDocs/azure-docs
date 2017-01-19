@@ -18,7 +18,7 @@ ms.date: 01/03/2016
 ms.author: iainfou
 
 ---
-# Different ways to create a Linux VM using the Azure CLI 2.0 (Preview)
+# Different ways to create a Linux VM including the Azure CLI 2.0 (Preview)
 You have the flexibility in Azure to create a Linux virtual machine (VM) using tools and workflows comfortable to you. This article summarizes these differences and examples for creating your Linux VMs.
 
 ## Azure CLI
