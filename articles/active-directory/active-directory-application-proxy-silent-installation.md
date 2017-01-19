@@ -26,9 +26,6 @@ Use the command line to install the connector without using the UI when you want
 * Integrate the connector installation and registration as part of another procedure. 
 * Create a standard server image that contains the connector bits but is not registered. 
 
-
- 
-+ 
 ## Enabling Access
 Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this is entered during Connector installation in a pop up dialog box. Alternatively, you can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.
 
