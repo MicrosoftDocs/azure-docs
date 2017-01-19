@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 01/19/2017
 ms.author: seanmck
 ---
 
@@ -41,7 +41,8 @@ Microsoft provides best-effort support for OSS CF through the following communit
 - [cf-bosh mailing list](https://lists.cloudfoundry.org/pipermail/cf-bosh)
 - GitHub issues for the [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) and [service broker](https://github.com/Azure/meta-azure-service-broker/issues)
 
->[!NOTE] The level of support for your Azure resources, such as the virtual machines where you run Cloud Foundry, is based on your Azure support agreement. Best-effort community support only applies to the Cloud Foundry-specific components.
+>[!NOTE]
+> The level of support for your Azure resources, such as the virtual machines where you run Cloud Foundry, is based on your Azure support agreement. Best-effort community support only applies to the Cloud Foundry-specific components.
 
 ### Pivotal Cloud Foundry
 
