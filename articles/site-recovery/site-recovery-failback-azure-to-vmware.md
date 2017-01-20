@@ -22,42 +22,41 @@ ms.author: ruturajd
 > * [Azure Portal](site-recovery-failback-azure-to-vmware.md)
 > * [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
 > * [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
-> 
-> 
+>
+>
 
-This articles describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
+This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 ## Overview
-This diagram shows the failback architecture for this scenario.
+The following diagrams show the failback architecture for this scenario.
 
-Use this architecture when the process server is on-premises and you are using an ExpressRoute.
+* When the process server is on-premises and you are using an ExpressRoute, use this architecture:
 
-![Architecture Diagram for Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
+ ![Architecture Diagram for Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
-Use this architecture when the process server is on Azure and you have either a VPN or an ExpressRoute connection.
+* When the process server is on Azure and you have either a VPN or an ExpressRoute connection, use this architecture:
 
-![Architecture Diagram for VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+ ![Architecture Diagram for VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
-To see the complete list of ports and the failback architecture diagram refer to the image below
+For a complete list of ports and the failback architecture diagram, refer to the following image:
 
 ![Failover-Failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
-Here’s how failback works:
+After you’ve failed over to Azure, you fail back to your on-premises site in three stages:
 
-* After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
-  * **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site.
-  * **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
-  * **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
+* **Stage 1**: You reprotect the Azure VMs so that they start replicating back to the VMware VMs that are running on your on-premises site.
+* **Stage 2**: After your Azure VMs are replicated to your on-premises site, you run a fail over to fail back from Azure.
+* **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
 ### Failback to the original or alternate location
-If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be failed back. Note that:
+If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario, only the delta changes are failed back. Note that:
 
 * If you failed over physical servers then failback is always to a new VMware VM.
   * Before failing back a Physical machine note that:
     * Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 physical machine if protected and failed over to Azure cannot be failed back. A WS 2008R2 SP1 that started as a virtual machine on-premises will be able to failback
     * Ensure that you discover at least one Master Target server along with the necessary ESX/ESXi hosts to which you need to failback.
 * If you fail back to the original VM the following is required:
-  
+
   * If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
   * If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
   * If your VM is on an ESX host and doesn't use vCenter then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
@@ -92,34 +91,34 @@ You need to install a process server in Azure so that the Azure VMs can send the
 If you have protected your machines as classic resources (that is the VM recovered in Azure is a classic VM), then you will need a classic process server in Azure. If you have recovered the machines as resources manager as deployment type, you will need a process server of a resource manager deployment type. The type is selected by the Azure virtual network you deploy the process server into.
 
 1. In the Vault > Settings > Site Recovery Infrastructure (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines" heading) select the configuration server. Click on "+ Process server", highlighted with yellow on the example screenshow below.
-   
+
    ![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 2. Choose to deploy the process server as "Deploy a failback process server in Azure".
 3. Select the subscription in which you have recovered the machines.
 4. Next select the Azure network in which you have the recovered machines. Process server needs to be in the same network so that the recovered VMs and the process server can communicate.
 5. If you have selected a *classic deployment* network - you will be asked to create a new VM via the Azure gallery and install the process sever in it.
-   
+
     ![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
-   
+
    1. Name of the image is *Microsoft Azure Site Recovery Process Server V2*. make sure you select *Classic* as the deployment model.
-      
+
        ![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
    2. Install the Process server as per the steps [given here](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)
 6. If you select the *Resource Manager* Azure network, you will need to give the following inputs to deploy the server.
-   
+
    1. Resource Group to which you want to deploy the server
    2. Give the server a name
    3. Give it a username password so that you can log in
    4. Choose the storage account to which you want to deploy the server
    5. Choose the specific Subnet and the Network Interface to connect to it. Note - you need to create your own [Network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while deploying.
-      
+
        ![](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
    6. Click OK. This will trigger a job that will create a Resource Manager deployment type virtual machine with process server setup. You need to run the setup inside the VM to register the server to the configuration server. You can do this by following [these steps](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
    7. A job to deploy the process server will be triggered
 7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers tab.
     ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
@@ -128,8 +127,8 @@ The master target server receives the failback data. A master target server is a
 
 > [!NOTE]
 > If you want to install a master target server on Linux, follow the instructions in the next procedure. Make sure you only use CentOS 6.6 minimal operating system, for the MT OS.
-> 
-> 
+>
+>
 
 1. If you're installing the master target server on Windows, open the Quick Start page from the VM on which you're installing the master target server, and download the installation file for the Azure Site Recovery Unified Setup wizard.
 2. Run setup and in **Before you begin** select **Add additional process servers to scale out deployment**.
@@ -157,7 +156,7 @@ You’ll need to download and install some additional packages.
 1. Make sure the master target server is connected to the internet.
 2. Run this command to download and install 15 packages from the CentOS repository: **# yum install –y xfsprogs perl lsscsi rsync wget kexec-tools**.
 3. If the source machines you’re protecting are running Linux with Reiser or XFS file system for the root or boot device, then you should download and install additional packages as follows:
-   
+
    * # cd /usr/local
    * # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
    * # wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
@@ -180,7 +179,7 @@ Do the following to apply custom changes after you’ve complete the post-instal
 3. In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
 4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value.
 5. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
-   
+
    a. Volume shouldn't be in use for any other purpose (target of replication etc.)
 
    b. Volume shouldn't be in lock mode.
@@ -205,8 +204,8 @@ You can also reprotect at a recovery plan level. If you have a replication group
 
 > [!NOTE]
 > A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
-> 
-> 
+>
+>
 
 ### Run a failover to the on-premises site
 After reprotection the VM you can initiate a failover from Azure to On-premises.
@@ -242,4 +241,3 @@ You can fail back over a VPN connection or Azure ExpressRoute. If you want to us
 
 * ExpressRoute should be set up on the Azure virtual network to which source machines fail over, and in which Azure VMs are located after the failover occurs.
 * Data is replicated to an Azure storage account on a public endpoint. You should set up public peering in ExpressRoute with the target data center for Site Recovery replication to use ExpressRoute.
-
