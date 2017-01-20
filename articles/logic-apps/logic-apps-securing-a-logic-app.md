@@ -85,7 +85,7 @@ A valid IP range takes the format `192.168.1.1/255`.  If you want the logic app 
 
 #### Setting IP ranges on the resource definition
 
-If you are using a [deployment template](../logic-apps/logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
+If you are using a [deployment template](logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
 
 ``` json
 {
@@ -138,7 +138,7 @@ This setting can be configured within the resource settings of the Azure portal:
 
 #### Setting IP ranges on the resource definition
 
-If you are using a [deployment template](../logic-apps/logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
+If you are using a [deployment template](logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
 
 ``` json
 {
@@ -252,7 +252,7 @@ When working with an HTTP, HTTP + Swagger (Open API), or Webhook action, you can
 
 ### Restricting access to logic app IP addresses
 
-All calls from logic apps come from a specific set of IP addresses per region.  You can add additional filtering to only accept requests from those designated IP addresses.  A list of those IP addresses can be found [in this article](../logic-apps/logic-apps-limits-and-config.md#configuration).
+All calls from logic apps come from a specific set of IP addresses per region.  You can add additional filtering to only accept requests from those designated IP addresses.  A list of those IP addresses can be found [in this article](logic-apps-limits-and-config.md#configuration).
 
 ### On-premises connectivity
 
@@ -260,7 +260,7 @@ Logic apps provides integration with a number of services to provide secure and 
 
 #### On-premises data gateway
 
-Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway leverages encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](../logic-apps/logic-apps-gateway-install.md#how-the-gateway-works).
+Many of the managed connectors from logic apps provide secure connectivity to on-premises systems, including File System, SQL, SharePoint, DB2, and more.  The gateway leverages encrypted channels via Azure Service Bus to relay data on-premises, and all traffic originates from secure outbound traffic from the gateway agent.  More details on how the gateway works [in this article](logic-apps-gateway-install.md#how-the-gateway-works).
 
 #### Azure API Management
 
@@ -271,7 +271,7 @@ Many of the managed connectors from logic apps provide secure connectivity to on
 You can use the on-premises hybrid connection feature for Azure API and Web apps to communicate on-premises.  Details on hybrid connections and how to configure can be found [in this article](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## Next steps
-[Create a deployment template](../logic-apps/logic-apps-create-deploy-template.md)  
+[Create a deployment template](logic-apps-create-deploy-template.md)  
 [Exception handling](logic-apps-exception-handling.md)  
-[Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)  
-[Diagnosing logic app failures and issues](../logic-apps/logic-apps-diagnosing-failures.md)  
+[Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)  
+[Diagnosing logic app failures and issues](logic-apps-diagnosing-failures.md)  
