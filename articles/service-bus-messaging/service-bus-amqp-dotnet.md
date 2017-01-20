@@ -18,7 +18,6 @@ ms.author: sethm
 
 ---
 # Using Service Bus from .NET with AMQP 1.0
-[!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 ## Downloading the Service Bus SDK
 AMQP 1.0 support is available in the Service Bus SDK version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
