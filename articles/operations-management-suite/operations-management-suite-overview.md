@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 01/20/2017
 ms.author: bwren
 
 ---
@@ -59,7 +59,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 #### Collecting data
 There are a variety of ways that you can get data into the repository for Log Analytics to analyze.
 
-- **Windows or Linux computers and virtual machines.**  You install the Microsoft Monitoring Agent on [Windows](h../log-analytics/log-analytics-windows-agents.md) and [Linux](../log-analytics/log-analytics-linux-agents) computers or virtual machines that you want to collect data from.  The agent will automatically download from Log Analytics configuration that defines events and performance data to collect.  You can easily install the agent on virtual machines running in Azure using the Azure portal.  If you have an existing Operations Manager environment, you can connect the management group to Log Analytics and automatically start collecting data from all existing agents.
+- **Windows or Linux computers and virtual machines.**  You install the Microsoft Monitoring Agent on [Windows](../log-analytics/log-analytics-windows-agents.md) and [Linux](../log-analytics/log-analytics-linux-agents.md) computers or virtual machines that you want to collect data from.  The agent will automatically download from Log Analytics configuration that defines events and performance data to collect.  You can easily install the agent on virtual machines running in Azure using the Azure portal.  If you have an existing Operations Manager environment, you can connect the management group to Log Analytics and automatically start collecting data from all existing agents.
 - **Azure services.**  Log Analytics collects telemetry from [Azure Diagnostics and Azure Monitoring](../log-analytics/log-analytics-azure-storage.md) into the repository so that you can monitor Azure resources.
 - **Data Collector API.**  Log Analytics has a [REST API for populating data from any client](../log-analytics/log-analytics-data-collector-api.md).  This allows you to collect data from third party applications or implement custom management scenarios.  A common method is to use a runbook in Azure Automation to collect data and then use the Data Collector API to write it to the repository.
 
@@ -68,7 +68,7 @@ Log Analytics includes a powerful query language to extract data stored in the r
   
 In addition to ad hoc analysis, Log Analytics provides multiple ways to leverage data from a query.
 
-- **Views and dashboards.**  [Views](..log-analytics/log-analytics-view-designer.md) and [dashboards](../log-analytics/log-analytics-dashboards.md) visualize the results of a query in the portal.  Management solutions will typically include views that analyze the data from the solution.  You can also create your own custom views to analyze data and make it readily available in your custom portal.
+- **Views and dashboards.**  [Views](../log-analytics/log-analytics-view-designer.md) and [dashboards](../log-analytics/log-analytics-dashboards.md) visualize the results of a query in the portal.  Management solutions will typically include views that analyze the data from the solution.  You can also create your own custom views to analyze data and make it readily available in your custom portal.
 - **Export.**  You have the option to export the results of any query so that you can analyze it outside of Log Analytics.  You can even schedule a regular export to [Power BI](../log-analytics/log-analytics-powerbi.md) which provides significant visualization and analysis capabilities.
 - **Log Search API.**  Log Analytics has a [REST API for collecting data from any client](../log-analytics/log-analytics-log-search-api.md).  This allows you to programmatically work with data collected in the repository or access it from another monitoring tool.
 
