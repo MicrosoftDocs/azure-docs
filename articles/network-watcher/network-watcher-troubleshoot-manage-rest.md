@@ -74,7 +74,7 @@ $requestBody = @"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
 ```
 
-Since this is a long running transaction, in the response header, the uri for querying the operation and the uri for the result is returned as shown in the following response.
+Since this is a long running transaction, in the response header, the URI for querying the operation and the URI for the result is returned as shown in the following response.
 
 **Important Values**
 
@@ -107,7 +107,7 @@ Use the operations URI to query for the progress of the operation as seen in the
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
 ```
 
-While the operation is in progress the response will show **InProgress** as seen in the following example:
+While the operation is in progress, the response will show **InProgress** as seen in the following example:
 
 ```json
 {
@@ -125,7 +125,7 @@ When the operation is complete the status will change to **Succeeded**.
 
 ### Retrieve the results
 
-Once the status returned is **Succeeded**, call a GET Method on the operationResult uri to retrieve the results.
+Once the status returned is **Succeeded**, call a GET Method on the operationResult URI to retrieve the results.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
@@ -202,7 +202,7 @@ $requestBody = @{
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
 ```
 
-Since this is a long running transaction, in the response header, the uri for querying the operation and the uri for the result is returned as shown in the following response.
+Since this is a long running transaction, in the response header, the URI for querying the operation and the URI for the result is returned as shown in the following response.
 
 **Important Values**
 
@@ -235,7 +235,7 @@ Use the operations URI to query for the progress of the operation as seen in the
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
 ```
 
-While the operation is in progress the response will show **InProgress** as seen in the following example:
+While the operation is in progress, the response will show **InProgress** as seen in the following example:
 
 ```json
 {
@@ -255,7 +255,7 @@ The following responses are examples of a typical response returned when queryin
 
 ### Retrieve the results
 
-Once the status returned is **Succeeded**, call a GET Method on the operationResult uri to retrieve the results.
+Once the status returned is **Succeeded**, call a GET Method on the operationResult URI to retrieve the results.
 
 ```powershell
 armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/843b1c31-4717-4fdd-b7a6-4c786ca9c501?api-version=2016-03-30"
@@ -310,19 +310,19 @@ is a transient state while the Azure platform is being updated.",
 
 ## Understanding the results
 
-The following is a list of the values returned with the troubleshoot api:
+The following is a list of the values returned with the troubleshoot API:
 
-* **startTime** - This value is the time the troubleshoot api call started.
-* **endTime** - This value is the time that the troubleshoot api call ended. 
+* **startTime** - This value is the time the troubleshoot API call started.
+* **endTime** - This value is the time that the troubleshoot API call ended. 
 * **code** - This value is a role up of the **results** collection.  If one item is not healthy it will return **UnHealty**.
-* **results** - Results is a collection of results returned on the connection or the virtual network gateway
-    * **id** - This value is the fault Type 
-    * **summary** - This value is a summary of the fault
-    * **detailed** - This value provides a detailed description of the fault
-    * **recommendedActions** - This is a collection of recommended actions to take
-      * **actionText** - This value contains the text describing what action to take
-      * **actionUri** - This value provides the uri to documenation on how to take action
-      * **actionUriText** - This value is a short description of the action text
+* **results** - Results is a collection of results returned on the connection or the virtual network gateway.
+    * **id** - This value is the fault Type.
+    * **summary** - This value is a summary of the fault.
+    * **detailed** - This value provides a detailed description of the fault.
+    * **recommendedActions** - This is a collection of recommended actions to take.
+      * **actionText** - This value contains the text describing what action to take.
+      * **actionUri** - This value provides the URI to documentation on how to act.
+      * **actionUriText** - This value is a short description of the action text.
 
 The following table shows the different fault types (id under results from the preceding list) that are available.
 
@@ -347,3 +347,5 @@ The following table shows the different fault types (id under results from the p
 |WfpParse Error|No|Yes|
 
 ## Next Steps
+
+If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.

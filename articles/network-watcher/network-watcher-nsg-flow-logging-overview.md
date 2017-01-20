@@ -37,7 +37,7 @@ The following list is a listing of the properties that are returned within the N
 		* **rule** - Rule for which the flows are listed
 			* **flows** - a collection of flows
 				* **mac** - The MAC address of the NIC for the VM where the flow was collected
-				* **flowTuples** - A string that contains multiple properties for the flow tuple in comma seperated format
+				* **flowTuples** - A string that contains multiple properties for the flow tuple in comma separated format
 					* **Time Stamp** - This is the time stamp of when the flow occurred in UNIX EPOCH format
 					* **Source IP** - The source IP
 					* **Destination IP** - The destination IP

@@ -21,7 +21,7 @@ ms.author: gwallace
 
 Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file is based on a filter that is defined to track only the traffic you need. This data is then stored in a storage blob or locally on the guest machine.
 
-This article takes you through the different management tasks that are currently available for packet capture
+This article takes you through the different management tasks that are currently available for packet capture.
 
 - [**Start a packet capture**](#start-a-packet-capture)
 - [**Stop a packet capture**](#stop-a-packet-capture)
@@ -108,7 +108,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in our out of your vm by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in our out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

@@ -32,7 +32,7 @@ This scenario assumes you have already followed the steps in [Create a Network W
 
 The scenario covered in this article creates a simple Visio diagram based off on topology information returned from the REST API.
 
-In this scenario you will:
+In this scenario, you will:
 
 - Login with armclient
 - Retrieve the topology information for your network
@@ -46,7 +46,7 @@ Log in to armclient with your Azure credentials.
 armclient login
 ```
 
-## Retreive Topology
+## Retrieve Topology
 
 The following example requests the topology from the REST API.  The example is parameterized to allow for flexibility in creating an example.  Replace all values with \< \> surrounding them.
 

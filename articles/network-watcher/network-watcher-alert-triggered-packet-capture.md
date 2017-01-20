@@ -300,7 +300,7 @@ public class PacketCaptureResponseProperties
 }
 ``` 
 
-Once you have created your function, you need to configure your alert to call the url associated with the function. To get this value, copy the Function Url from your function app.
+Once you have created your function, you need to configure your alert to call the URL associated with the function. To get this value, copy the Function URL from your function app.
 
 ![finding the function url][2]
 
@@ -308,7 +308,7 @@ If you require custom properties in the payload of the webhook POST request, ref
 
 ## Configure an alert on a VM
 
-Using Azure alerts, alerts can be configured to notify inidivudals when a specific metric crosses a threshold assigned to it. In this example, the alert is on the TCP segments sent, but the alert can be triggered for many other metrics.
+Using Azure alerts, alerts can be configured to notify individuals when a specific metric crosses a threshold assigned to it. In this example, the alert is on the TCP segments sent, but the alert can be triggered for many other metrics.
 When the alert is triggered you and others can elect to receive email notifications. In this example an alert is configured to call a webhook 
 
 ### Create the alert rule
@@ -320,7 +320,7 @@ Navigate to an existing virtual machine and add an alert rule. More detailed doc
 > [!NOTE]
 > Some Metrics are not enabled by default, learn more about how to enable addition metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
-Finally paste the url from the preceding step in to the webhook textbox on your alert. Click **OK** to save the alert rule.
+Finally paste the URL from the preceding step in to the webhook textbox on your alert. Click **OK** to save the alert rule.
 
 ![pasting the url to the alert rule][3]
 

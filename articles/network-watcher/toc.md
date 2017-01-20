@@ -26,7 +26,6 @@
 ## [Troubleshoot VPN Gateway and connections](network-watcher-troubleshoot-manage-rest.md)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [Azure CLI 2.0 preview](/cli/azure/network/network-watcher)
 ## [.NET](/dotnet/api)
 # Related
 ## [Virtual network](/azure/virtual-network/)
