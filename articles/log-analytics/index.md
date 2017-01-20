@@ -82,11 +82,4 @@ Learn how to use Log Analytics in the Operations Management Suite to collect and
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Log Analytics Documentation
-        </div>
-    </a>
-</div>
+

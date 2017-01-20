@@ -145,11 +145,4 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Virtual Network Documentation
-        </div>
-    </a>
-</div>
+

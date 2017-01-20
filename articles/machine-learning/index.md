@@ -127,11 +127,4 @@ Learn how data scientists and developers use Machine Learning to embed predictiv
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Machine Learning Documentation
-        </div>
-    </a>
-</div>
+

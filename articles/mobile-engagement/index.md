@@ -191,12 +191,4 @@ Learn how to increase the usage, retention, and monetization of mobile apps with
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Mobile Engagement Documentation
-        </div>
-    </a>
-</div>
 
