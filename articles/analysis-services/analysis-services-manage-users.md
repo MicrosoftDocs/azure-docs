@@ -24,6 +24,8 @@ In Azure Analysis Services there are two types of users, server administrators a
 ## Server administrators
 You can use **Analysis Services Admins** in the control blade for your server in Azure portal or Server Properties in SSMS to manage server administrators. Analysis Services Admins are database server administrators with  rights for common database administration tasks such as adding and removing databases and managing users. By default, the user that creates the server in Azure portal is automatically added as an Analysis Services Admin.
 
+![Server Admins in Azure portal](./media/analysis-services-manage-users/aas-manage-users-admins.png)
+
 You should also know:
 
 * Windows Live ID is not a supported identity type for Azure Analysis Services.  
