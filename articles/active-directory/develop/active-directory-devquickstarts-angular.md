@@ -18,7 +18,6 @@ ms.author: dastrock
 
 ---
 # Securing AngularJS Single Page Apps with Azure AD
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
