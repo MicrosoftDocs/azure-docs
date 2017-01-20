@@ -1,0 +1,125 @@
+---
+title: Manage access to cloud apps by restricting tenants | Microsoft Docs
+description: How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: 
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/19/2017
+ms.author: kgremban
+
+---
+# Use Tenant Restrictions to manage access to SaaS cloud applications
+
+Large organizations that emphasize security want to move to cloud services like Office 365, but need to know that their users won't be able to access unapproved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where SaaS apps are hosted in a public cloud, running on shared domain names like outlook.office.com and login.microsoftonline.com. Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources. 
+
+Azure Active Directory's solution to this challenge is a feature called Tenant Restrictions. Tenant Restrictions enables organizations to control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Office 365 applications, while preventing access to other organizations’ instances of these same applications.  
+
+Tenant Restrictions gives organizations the ability to specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
+
+## How does it work?
+
+The overall solution comprises the following components: 
+
+1. **Azure AD** – If the header `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants. 
+
+2. **On-premises proxy server infrastructure** – a proxy device capable of SSL inspection, configured to insert the header containing the list of permitted tenants into traffic destined for Azure AD. 
+
+3. **Client software** – to support Tenant Restrictions, client software must request tokens directly from Azure AD, so that traffic can be intercepted by the proxy infrastructure. Tenant Restrictions is currently supported by browser-based Office 365 applications and by Office clients when modern authentication (i.e. OAuth 2.0) is used. 
+
+4. **Modern Authentication** – cloud services must use modern authentication to use Tenant Restrictions and block access to all non-permitted tenants. Office 365 cloud services must be configured to use modern authentication protocols by default. For the latest information on Office 365 support for modern authentication, read [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+
+The following diagram illustrates the high-level traffic flow. Note that SSL inspection is only required on traffic to Azure AD, not to the Office 365 cloud services. This is an important distinction because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
+
+![Tenant Restrictions traffic flow - diagram](./media/active-directory-tenant-restrictions/traffic-flow.png)
+
+## Set up Tenant Restrictions
+
+There are two steps to get started with Tenant Restrictions. The first step is to make sure that your clients can connect to the right addresses. The second is to configure your proxy infrastructure. 
+
+### URLs and IP addresses
+
+In order to use Tenant Restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: login.microsoftonline.com, login.microsoft.com, and login.windows.net. Additionally, to access Office 365, your clients must also be able to connect to the FQDNs/URLs and IP addresses defined in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+
+### Proxy configuration and requirements
+
+The following configuration is required to enable Tenant Restrictions through your proxy infrastructure. This is generic guidance – please refer to your proxy vendor’s documentation for specific implementation steps.
+
+#### Prerequisites
+
+- The proxy must be capable of SSL interception and HTTP header insertion, as well as filtering destinations using FQDNs/URLs. 
+
+- Clients must trust the certificate chain presented by the proxy for SSL communications. For example, if certificates from an internal PKI are used, the internal issuing root certificate authority certificate must be trusted.
+
+#### Configuration 
+
+- For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert an HTTP header with the name `Restrict-Access-To-Tenants`  
+
+- The header should include the following elements: 
+  - A value of <permitted tenant list>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair will look like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+  - A value of <Restricted-Access-Context> with a value of a single tenant ID, declaring the tenant setting Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy will look like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+
+- To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
+
+- Clients must be forced to use the proxy for all requests to login.microsoftonline.com, login.microsoft.com, and login.windows.net. For example, if PAC files are used to direct clients to use the proxy, end users should not be able to edit or disable the PAC files.
+
+## The user experience
+
+This section shows the experience for both end-users and admins. 
+
+### End-user experience
+
+An example user is on the Contoso network, but is trying to access the Fabrikam instance of a shared SaaS application like Outlook online. If Contoso is a non-permitted tenant for that instance, the user sees the following page: 
+
+![Access denied page for users in non-permitted tenants](./media/active-directory-tenant-restrictions/end-user-denied.png)
+
+### Admin experience
+
+While configuration of Tenant Restrictions is done on the corporate proxy infrastructure, admins can access the Tenant Restrictions reports in the Azure Portal directly. To view the reports, go to the Azure Active Directory Overview page, then look under ‘Other capabilities’. 
+
+Using the report, the admin for the tenant specified as the “Restricted-Access-Context” can see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used, and the target Tenant ID:
+
+![Use the Azure portal to view restricted sign-in attempts](./media/active-directory-tenant-restrictions/portal-report.png)
+
+Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific user, application, client, or time interval. 
+
+## Office 365 support for Tenant Restrictions
+
+In order for an Office 365 application to fully support Tenant Restrictions, it must meet two criteria:
+
+1. The client used supports modern authentication
+2. Modern authentication is enabled as the default authentication protocol for the cloud service. 
+
+Refer to [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) for the latest information on which Office clients currently support modern authentication, as well as links to instructions for enabling modern authentication on specific Exchange Online and Skype for Business Online tenants. Modern authentication is already enabled by default in SharePoint Online.
+
+Tenant Restrictions is currently supported by Office 365 browser-based applications (the Office Portal, Yammer, SharePoint sites, Outlook on the Web, etc.). For thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint, etc.) Tenant Restrictions can only be enforced when modern authentication is used.  
+
+It is important to note that Outlook and Skype for Business clients that support modern authentication are still able to use legacy protocols against tenants where modern authentication is not enabled, effectively bypassing Tenant Restrictions. For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting. For Outlook on non-Windows platforms, and for Skype for Business on Windows and non-Windows platforms, full support for Tenant Restrictions is expected to come when modern authentication is enabled as the service-wide default.
+
+### SharePoint Online cross-tenant sharing
+
+SharePoint supports cross-tenant sharing scenarios which require destination fully qualified domain name (FQDN) filtering in the near term to fully support Tenant Restrictions. Currently, the protocols used by SharePoint only support security token issuance based on the user identity, not the resource. Thus, a user in a permitted tenant can access shared content in non-permitted tenants if the content’s FQDNs are accessible. 
+
+To enable cross-tenant sharing scenarios, an on-premises proxy device may be used to filter SharePoint FQDNs because SharePoint sites (including OneDrive for Business) are deployed using tenant-specific names under sharepoint.com. If the proxy can support filtering on a name like <tenant>-*.sharepoint.com, then this would be the simplest approach. Otherwise, the following specific FQDNS must be allowed.
+
+- <tenant>.sharepoint.com
+- <tenant>-my.sharepoint.com
+- <tenant>-admin.sharepoint.com
+- <tenant>-files.sharepoint.com
+- <tenant>-myfiles.sharepoint.com
+
+> [!NOTE] 
+> In this case, <tenant> equals the short name of the permitted tenant. For example, if the tenant is contoso.onmicrosoft.com, then <tenant> equals contoso. 
+
+Other destinations under sharepoint.com should not be allowed unless there is a specific need for them. For example, if you use custom applications, you may need to allow FQDNs like <tenant>-<app identifier>.sharepoint.com, where <app identifier> is the specific application ID.
+
+## Testing
+
