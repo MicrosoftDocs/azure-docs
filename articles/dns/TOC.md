@@ -35,7 +35,7 @@
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
 ## Troubleshoot
-### [Troubleshooting Guide](dns-troubleshoot.md)
+### [Troubleshooting guide](dns-troubleshoot.md)
 
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
