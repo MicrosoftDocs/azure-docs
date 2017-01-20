@@ -22,7 +22,7 @@ ms.author: dobett
 
 ## Introduction
 
-The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as IoT Hub and Stream analytics. The solution also includes a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. Depending on where you choose to deploy this solution, the model may run in an [Azure Machine Learning][lnk_machine_learning] workspace or on an R server hosted in a virtual machine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
+The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as IoT Hub and Stream analytics. The solution also includes a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The model runs on an R server hosted in a virtual machine as part of the solution. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
 
 ## Logical architecture
 
@@ -32,15 +32,13 @@ The following diagram outlines the logical components of the preconfigured solut
 
 The blue items are Azure services that are provisioned in the region you select when you provision the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
 
-Depending on the region you select, you may be offered a choice between using Azure Machine Learning or an R Server instance to run the prediction model. In some regions you are not offered a choice.
-
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
 
 The gray items represent components that implement *device management* capabilities. The current release of the predictive maintenance preconfigured solution does not provision these resources. To learn more about device management, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
 
 ## Simulated devices
 
-In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the Machine Learning or R model to calculate the RUL for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
+In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the R model to calculate the RUL for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
 
 *Cycle count*. A cycle represents a completed flight with a duration between two and ten hours. During the flight, telemetry data is captured every half hour.
 
@@ -59,13 +57,10 @@ IoT Hub provides device command acknowledgment.
 **Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
 
 ## Event processor
-The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to an API that exposes trained model to calculate the RUL for an engine. The API may be exposed by an Azure Machine Learning instance or an R Server depending on the choice you made when you provisioned the solution.
-
-## Azure Machine Learning
-For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to an API that exposes trained model to calculate the RUL for an engine. The API is exposed by an R Server that is provisioned as part of the solution.
 
 ## R Server
-The R Server implementation uses a model derived from the Machine Learning RUL model. To access the R Server and the model, see the links on the solution panel for your provisioned solution at [Microsoft Azure IoT Suite][lnk-azureiotsuite]
+The R Server implementation uses a model derived from data collected from real aircraft engines. To access the R Server and the model, see the links on the solution panel for your provisioned solution at [Microsoft Azure IoT Suite][lnk-azureiotsuite].
 
 
 ## Next steps
@@ -78,7 +73,6 @@ You can also explore some of the other features and capabilities of the IoT Suit
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
