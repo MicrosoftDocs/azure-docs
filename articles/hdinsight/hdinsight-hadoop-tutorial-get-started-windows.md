@@ -20,20 +20,19 @@ ms.author: nitinme
 
 ---
 # Hadoop tutorial: Get started using Hadoop in HDInsight on Windows
+
 > [!div class="op_single_selector"]
 > * [Linux-based](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows-based](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you 
-how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the 
-results in Microsoft Excel.
 
-> [!NOTE]
-> The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-> 
-> 
+
+To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the results in Microsoft Excel.
+
+> [!IMPORTANT]
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For information on creating Linux-based clusters, see [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Assume you have a large unstructured data set and you want to run a Hive query on it 
 to extract some meaningful information. That's exactly what you are going to do in this 
