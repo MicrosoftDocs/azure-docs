@@ -20,7 +20,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Generate Shared Access Signatures](service-bus-sas-overview.md)
 ## [Build a multi-tier Service Bus application](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # How To
@@ -36,7 +35,7 @@
 ### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ### [Apps that use queues](service-bus-create-queues.md)
 ### [Apps that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
-### [Authentication and authorization](service-bus-authentication-and-authorization.md)
+### [Authentication and authorization](service-bus-sas.md)
 ### [Partitioned queues and topics](service-bus-partitioning.md)
 ### [Dead-letter queues](service-bus-dead-letter-queues.md)
 ### [Transaction processing](service-bus-transactions.md)
