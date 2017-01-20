@@ -147,7 +147,7 @@ A client certificate is required for authentication. After generating the client
 1. To export a client certificate, you can use *certmgr.msc*. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**.
 2. Export the client certificate with the private key. This is a *.pfx* file. Make sure to record or remember the password (key) that you set for this certificate.
 
-### <a name="upload"></a>4. Upload the root certificate .cer file
+### <a name="upload"></a>Step 4 - Upload the root certificate .cer file
 Declare the variable for your certificate name, replacing the value with your own:
 
         $P2SRootCertName = "Mycertificatename.cer"
