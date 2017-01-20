@@ -53,7 +53,7 @@ A couple of points regarding the storage geo-failover experience:
 * Your existing storage service endpoints for blobs, tables, queues, and files will remain the same after the failover; the DNS entry will need to be updated to switch from the primary region to the secondary region.
 * Before and during the geo-failover, you won’t have write access to your storage account due to the impact of the disaster but you can still read from the secondary if your storage account has been configured as RA-GRS.
 * When the geo-failover has been completed and the DNS changes propagated, read and write access to your storage account will be resumed; this points to what used to be your secondary endpoint. 
-* Note that you will have write access whether you have GRS or RA-GRS configured for the storage account. 
+* Note that you will have write access if you have GRS or RA-GRS configured for the storage account. 
 * You can query [“Last Geo Failover Time” of your storage account](https://msdn.microsoft.com/library/azure/ee460802.aspx) to get more details.
 * After the failover, your storage account will be fully functioning, but in a “degraded” status, as it is actually hosted in a standalone region with no geo-replication possible. To mitigate this risk, we will restore the original primary region and then do a geo-failback to restore the original state. If the original primary region is unrecoverable, we will allocate another secondary region.
   For more details on the infrastructure of Azure Storage geo replication, please refer to the article on the Storage team blog about [Redundancy Options and RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
@@ -65,4 +65,6 @@ There are some recommended approaches to back up your storage data on a regular 
 * Block blobs –Create a [snapshot](https://msdn.microsoft.com/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 * Tables – use [AzCopy](storage-use-azcopy.md) to export the table data into another storage account in another region.
 * Files – use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in another region.
+
+For information about creating applications that take full advantage of the RA-GRS feature, please check out [Designing Highly Available Applications using RA-GRS Storage](storage-designing-ha-apps-with-ragrs.md)
 

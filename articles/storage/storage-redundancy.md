@@ -79,7 +79,7 @@ With GRS, both the primary and secondary regions manage replicas across separate
 Considerations:
 
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
+* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
 * If an application wants to read from the secondary region, the user should enable RA-GRS.
 
 When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
@@ -127,10 +127,11 @@ Considerations:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* If Microsoft initiates failover to the secondary region, you will have read and write access to that data. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
+* If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
 * RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](storage-performance-checklist.md).
 
 ## Next steps
+* [Designing Highly Available Applications using RA-GRS Storage](storage-designing-ha-apps-with-ragrs.md)
 * [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/)
 * [About Azure storage accounts](storage-create-storage-account.md)
 * [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md)
