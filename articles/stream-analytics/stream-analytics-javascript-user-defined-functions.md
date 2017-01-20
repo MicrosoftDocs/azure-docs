@@ -4,8 +4,8 @@ description: IoT sensor tags and data streams with stream analytics and real-tim
 keywords: iot solution, get started with iot, tools
 services: stream-analytics
 author: jeffstokes72
-manager: 
-editor: 
+manager: jhubbard
+editor: cgronlun
 
 ms.assetid: 
 ms.service: stream-analytics
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/01/2017
-ms.author: jeffstokes72
+ms.author: jeffstok
 ---
 
 # Azure Stream Analytics JavaScript User-Defined Functions
