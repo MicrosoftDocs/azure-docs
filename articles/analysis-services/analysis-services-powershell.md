@@ -40,7 +40,6 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 |Set-AzureRmAnalysisServicesServer|Modifies a server instance.|   
 |Test-AzureRmAnalysisServicesServer|Tests the existence of a server  instance.| 
 
-
 ## Database operations
 Azure Analysis Services database operations use the same [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) module as SQL Server Analysis Services. However, not all cmdlets are supported for Azure Analysis Services Preview. 
 
@@ -52,13 +51,10 @@ The SQLASCMDLETS module provides task-specific database management cmdlets as we
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remove a member from a database role.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute a TMSL script.|
 |[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Process a database.|  
-|[Invoke-ProcessPartition]()|Process a partition.| 
-|[Invoke-ProcessTable]()|Process a table.|  
-|[Merge-Partition]()|Merge a partition.|  
+|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Process a partition.| 
+|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Process a table.|  
+|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Merge a partition.|  
   
-
-
-
 
 ## Related information
 * [PowerShell scripting in Analysis Services](https://msdn.microsoft.com/library/hh213141.aspx).
