@@ -17,6 +17,12 @@ ms.author: cherylmc
 
 ---
 # ExpressRoute partners and peering locations
+
+> [!div class="op_single_selector"]
+> * [Locations By Provider](expressroute-locations.md)
+> * [Providers By Location](expressroute-locations-providers.md)
+
+
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
@@ -52,11 +58,9 @@ The table below provides information on regions and geopolitical boundaries for 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
 
 ## <a name="locations"></a>Connectivity provider locations
-> [!div class="op_single_selector"]
-> * [Locations By Provider](expressroute-locations.md#locations)
-> * [Providers By Location](expressroute-locations-providers.md#locations)
->
->
+
+The following table shows locations by service provider. If you want to view available providers by location, see [Service providers by location](expressroute-locations-providers.md#locations).
+
 
 ### Production Azure
 | **Service provider** | **Microsoft Azure** | **Office 365 and CRM Online** | **Locations** |

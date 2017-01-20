@@ -149,11 +149,4 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure VPN Gateway Documentation
-        </div>
-    </a>
-</div>
+

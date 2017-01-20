@@ -112,11 +112,4 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Event Hubs Documentation
-        </div>
-    </a>
-</div>
+

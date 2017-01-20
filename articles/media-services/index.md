@@ -195,11 +195,3 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Media Services Documentation
-        </div>
-    </a>
-</div>

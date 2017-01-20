@@ -26,7 +26,7 @@ GitHub is a web-based Git repository hosting service. It offers all of the distr
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The GitHub connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
@@ -164,5 +164,5 @@ There are no parameters for this call
 | repository_url |string |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 
