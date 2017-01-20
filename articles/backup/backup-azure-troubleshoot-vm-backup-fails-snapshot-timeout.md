@@ -1,6 +1,6 @@
 ---
-title: 'Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out | Microsoft Docs'
-description: Symptoms, causes, and resolutions for Azure VM Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
+title: 'Troubleshoot Azure Backup failure: Snapshot VM sub task timed out | Microsoft Docs'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out'
 services: backup
 documentationcenter: ''
 author: genlin
@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: jimpark; markgal;genli
-
+ms.author: jimpark; markgal; genli
 ---
+
 # Troubleshoot Azure Backup failure: Snapshot VM sub task timed out
 ## Summary
-After you register and schedule a VM for Azure Backup service, Backup initiates the job by communicating with the VMs backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related to snapshot time-out errors.
+After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related to snapshot time-out errors.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Symptom
-Azure Backup for an infrastructure as a service (IaaS) VM fails, returning the following error message in the job error details in the [Azure portal](https://portal.azure.com/):
-
-> Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out.
+Azure Backup for an infrastructure as a service (IaaS) VM fails, returning the following error message in the job error details in the [Azure portal](https://portal.azure.com/): "Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out."
 
 ## Cause 1: The VM has no Internet access
 Per the deployment requirement, the VM has no Internet access, or it has restrictions in place that prevent access to the Azure infrastructure.
@@ -70,7 +68,7 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
    * /var/log/waagent.log
    * /var/log/azure/*
 
-If we require verbose logging for waagent, please do the following:
+If we require verbose logging for waagent, follow these steps:
 
 1. In the /etc/waagent.conf file, locate the following line: **Enable verbose logging (y|n)**
 2. Change the **Logs.Verbose** value from *n* to *y*.
