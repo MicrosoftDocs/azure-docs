@@ -36,7 +36,7 @@ Typically, if you need browser-based access to your cloud apps and services that
 
 If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
 
-A branded sign-in page only appears when you visit a service with a tenant-specific URL such as [https://outlook.com/**contoso**.com](https://outlook.com/contoso.com), or [https://mail.**contoso**.com](https://mail.contoso.com).
+A branded sign-in page only appears when you visit a service with a tenant-specific URL such as `https://outlook.com/**contoso**.com`, or `https://mail.**contoso**.com`.
 
 When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
 
