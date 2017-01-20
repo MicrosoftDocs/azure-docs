@@ -15,7 +15,7 @@ ms.author: sethm; babanisa
 # What is Azure Event Hubs?
 Event Hubs is a highly scalable data streaming platform capable of ingesting millions of events per second. Data sent to an Event Hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serves as the "on ramp" for Big Data.
 
-## Why use Event Hubs? 
+## Why use Event Hubs?
 Event Hubs event and telemetry handling capabilities make it especially useful for:
 
 * Application instrumentation
@@ -51,7 +51,7 @@ Event Hubs enables granular control over event publishers through *publisher pol
 ```
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
-    
+
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
 
 ## Partitions
@@ -67,7 +67,7 @@ Event Hubs retain data for a configured retention time that applies across all p
 
 The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long term scale when setting partition count. Partitions are a data organization mechanism that relate to the downstream parallelism required in consuming applications. The number of partitions in an Event Hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
 
-While partitions are identifiable and can be sent to directly, this is not recommended. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publisher) and [Publisher Policy](#capacity-and-security) sections.
+While partitions are identifiable and can be sent to directly, this is not recommended. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publishers) and [Capacity](#capacity) sections.
 
 Partitions are filled with a sequence of event data which contains the body of the event, a user defined property bag, and metadata such as its offset in the partition and its number in the stream sequence.
 
@@ -116,9 +116,9 @@ When connecting to partitions, it is common practice to use a leasing mechanism 
 After an AMQP 1.0 session and link is opened for a specific partition, events are delivered to the AMQP 1.0 client by the Event Hubs service. This delivery mechanism enables higher throughput and lower latency than pull-based mechanisms such as HTTP GET. As events are sent to the client, each event data instance contains important metadata such as the offset and sequence number that are used to facilitate checkpointing on the event sequence.
 
 Event data:
-* Offset 
+* Offset
 * Sequence number
-* Body 
+* Body
 * User properties
 * System properties
 
