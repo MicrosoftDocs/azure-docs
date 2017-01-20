@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-accounts.md
+redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-accounts
 ---

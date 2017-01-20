@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-using-sap-connector.md
+redirect_url: /azure/logic-apps/logic-apps-using-sap-connector
 ---
