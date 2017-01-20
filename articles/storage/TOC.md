@@ -78,6 +78,7 @@
 ### Samples
 #### [.NET](storage-samples-dotnet.md)
 #### [Java](storage-samples-java.md)
+### [Designing HA Apps using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Configure connection strings](storage-configure-connection-string.md)
 ### [Use the Storage Emulator](storage-use-emulator.md)
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
