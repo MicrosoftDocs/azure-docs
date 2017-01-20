@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-use-logic-app-templates.md
+redirect_url: /azure/logic-apps/logic-apps-use-logic-app-templates
 ---

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-azure-functions.md
+redirect_url: /azure/logic-apps/logic-apps-azure-functions
 ---
