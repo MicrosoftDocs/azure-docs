@@ -1,5 +1,5 @@
 ---
-title: Service Bus authentication with Shared Access Signatures | Microsoft Docs
+title: Azure Service Bus authentication with Shared Access Signatures | Microsoft Docs
 description: Overview of Service Bus Authentication using Shared Access Signatures overview, details about SAS authentication with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
