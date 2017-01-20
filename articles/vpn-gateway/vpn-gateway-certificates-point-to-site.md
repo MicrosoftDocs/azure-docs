@@ -21,7 +21,7 @@ ms.author: cherylmc
 # Working with self-signed certificates for Point-to-Site connections
 This article helps you create a self-signed certificate using **makecert**, and then generate client certificates from the self-signed certificate. For P2S connections, the preferred method for certificates is to use your enterprise certificate solution. Make sure to issue the client certificates with the common name value format 'name@yourdomain.com', rather than the 'NetBIOS domain name\username' format.
 
-If you don't have an enterprise solution, a self-signed certificate is necessary to allow P2S clients to connect to a virtual network. While it is possible to use PowerShell to create a certificate, the certificate generated using PowerShell does not contain the required fields that Azure needs for P2S authentication. Makecert has been validated to create certificates that are compatible with P2S connections and is not deprecated for P2S use. 
+If you don't have an enterprise solution, a self-signed certificate is necessary to allow P2S clients to connect to a virtual network. While it is possible to use PowerShell to create a certificate, the certificate generated using PowerShell does not contain the required fields that Azure needs for P2S authentication. Makecert has been validated to create certificates that are compatible with P2S connections. Makecert has not been deprecated for use with P2S configurations.
 
 ## Create a self-signed certificate
 The following steps walk you through creating a self-signed certificate using makecert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
