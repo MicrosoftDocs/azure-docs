@@ -70,11 +70,13 @@ In order for tenants to be able to configure App Service to connect to their rep
     ![BitBucket Add OAuth Consumer][8]
 3. Enter a **Name** for the consumer, for example App Service on Azure Stack
 4. Enter a **Description** for the application
-5. Enter the **Callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+5. Enter the **Callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain please substitute your domain for azurestack.local.  The Url must follow the capitalisation as listed here for BitBucket integration to succeed.
 6. Enter the **URL** - this should be the Azure Stack Portal URL, for example https://portal.azurestack.local
 7. Select the **Permissions** required
-    .
+    **Repositories** : **Read**
+    **Webhooks : **Read and write**
 8. Click **Save**.  You will now see this new application, along with the **Key** and **Secret** under **OAuth consumers**.
+    ![BitBucket Application Listing][9]
 9. In a new browser tab or window Login to the Azure Stack Portal as the service administrator.
 10. Browse to **Resource Providers** and select the ** App Service Resource Provider Admin**.
 11. Click **Source control configuration**
@@ -83,6 +85,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 14. Click **Roles**
 15. Click **Management Server**
 16. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
+![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
 
 ## Configure OneDrive as a Deployment Source
 
@@ -90,12 +93,14 @@ In order for tenants to be able to configure App Service to connect to their rep
 > OneDrive for Business Accounts are not currently supported.  You will need to have a Microsoft Account linked to a OneDrive account to complete this task.
 1. Browse to https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm and login using your Microsoft Account.
 2. Click **Add an app** under **Converged applications**
-3. Enter a **Name** for the New Application Registration, for example App Service on Azure Stack, and click **Create Application**
+3. Enter a **Name** for the New Application Registration, enter **App Service on Azure Stack**, and click **Create Application**
 4. The next screen lists the properties of your new application. Record the **Application Id**
 5. Under **Application Secrets** click **Generate New Password** and record the **New password generated** - this is your application secret.
 6. Under **Platforms** click **Add Platform** and select **Web**
 7. Enter the **Redirect URI**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
-8. Set the **Application Permissions**
+8. Set the **Microsoft Graph Permissions** - **Delegated Permissions**
+    * **Files.ReadWrite.AppFolder**
+    * **User.Read**
 9. Click **Save**
 10. In a new browser tab or window Login to the Azure Stack Portal as the service administrator.
 11. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
@@ -105,6 +110,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 15. Click **Roles**
 16. Click **Management Server**
 17. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
+![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
 
 ## Configure DropBox as a Deployment Source
 
@@ -116,15 +122,17 @@ In order for tenants to be able to configure App Service to connect to their rep
 4. Set the access level to **App Folder**
 5. Enter a **Name** for your application.
 6. Click **Create App**.  You will now be presented with a page listing the settings for the App including **App key** and **App secret**.
-7. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
-8. In a new browser tab or window Login to the Azure Stack Portal as the service administrator
-9. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
-10. Click **Source control configuration**
-11. Copy and paste the **Application Key** into the **Client ID** input box, and **App secret** into the **Client Secret** input boxes for DropBox
-12. Click **Save**
-13. Click **Roles**
-14. Click **Management Server**
-15. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
+7. Check the **App folder name** is set to **App Service on Azure Stack**
+8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+9. In a new browser tab or window Login to the Azure Stack Portal as the service administrator
+10. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
+11. Click **Source control configuration**
+12. Copy and paste the **Application Key** into the **Client ID** input box, and **App secret** into the **Client Secret** input boxes for DropBox
+13. Click **Save**
+14. Click **Roles**
+15. Click **Management Server**
+16. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
+![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png
@@ -134,6 +142,6 @@ In order for tenants to be able to configure App Service to connect to their rep
 [5]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-github-register-a-new-oauth-application-complete.png
 [6]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-roles-management-server-repair-all.png
 [7]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-dashboard.png
-[8]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-oauth-consumers.png
-[9]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-add-oauth-consumer-complete.png
+[8]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-add-oauth-consumer.png
+[9]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-add-oauth-consumer-complete.png
 [10]: 
