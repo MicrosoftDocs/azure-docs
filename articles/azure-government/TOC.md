@@ -36,4 +36,4 @@
 ## [Pricing](https://azure.microsoft.com/pricing/)
 ## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
-## [Azure Government Website](https://azure.microsoft.com/en-us/overview/clouds/government/)
+## [Azure Government Website](https://azure.microsoft.com/overview/clouds/government/)
