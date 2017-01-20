@@ -157,6 +157,14 @@ Your subscription should now be populated with the following:
 
 Continue this challenge by creating another site and adding it as an endpoint in traffic manager.
 
+## Remove Resource
+
+**Command**
+
+```cli 
+az group delete -n <resource-group-name>
+```
+
 ## Glossary
 
 | Token | Service | Description | Data Type |
@@ -171,6 +179,10 @@ Continue this challenge by creating another site and adding it as an endpoint in
 | endpoint-name | Traffic Manager | The friendly name to provide to the Endpoint | string |
 | endpoint-type | Traffic Manager | The type of endpoint which is to be configured | Enum: [azureEndpoints \| externalEndpoints \| nestedEndpoints] |
 | target-resource-id | Traffic Manager | The ResourceId of the App Service which is to be added as an endpoint. | relative uri |
+
+## Video
+
+[!VIDEO []()]
 
 ## Related documentation
 
