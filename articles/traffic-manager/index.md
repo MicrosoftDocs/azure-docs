@@ -116,11 +116,4 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Traffic Manager Documentation
-        </div>
-    </a>
-</div>
+

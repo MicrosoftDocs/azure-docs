@@ -70,7 +70,7 @@ For a walk-through of creating a server, a database, server-level firewall rules
 In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the master database to which user accounts can be added that grant permissions to either create databases or manage logins.
 
 ### Database creators
-One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. The user can be a contained database user, or a user based on a SQL Server login in the master database.
+One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the master database or contained database user based on an Azure Active Directory user.
 
 1. Using an administrator account, connect to the master database.
 2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
