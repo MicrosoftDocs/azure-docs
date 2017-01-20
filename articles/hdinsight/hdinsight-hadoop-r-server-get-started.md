@@ -91,7 +91,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 6. Select **Data Source** to select a data source to be the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
 
-   1. If you select an Azure Storage account, then select an existing storage account by selecting **Select storage account** and then selecting the account, or create a new account using the **Create New** link in teh **Select storage account** section.
+   1. If you select an Azure Storage account, then select an existing storage account by selecting **Select storage account** and then selecting the account, or create a new account using the **Create New** link in the **Select storage account** section.
 
       > [!NOTE]
       > If you select **New**, you must enter a name for the new storage account. A green check will appear if the name is accepted.
@@ -105,7 +105,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    2. If you select use of an existing Data Lake
       Store, then select the ADLS storage account to use and add the cluster ADD
-      identity to your cluster to allow access to the store.  For more information on this process see [Createan HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+      identity to your cluster to allow access to the store.  For more information on this process see [Creating HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
       Use the **Select** button to save the data source configuration.
 
@@ -567,7 +567,7 @@ Steps to decommissioning worker nodes:
  
 * Login to HDI cluster's Ambari console and click on "hosts" tab
 * Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.
-![decommision worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)
+![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
@@ -592,7 +592,7 @@ Once all decommissioned worker nodes have been configured to run compute node, c
 * Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`
 * Look for the "Uris" section, and add worker node's IP and port details.
 
-![decommision worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+![decommission worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
