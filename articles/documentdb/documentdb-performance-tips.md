@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 
 ---
@@ -126,6 +126,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 10. **Increase number of threads/tasks**
 
     See [Increase number of threads/tasks](#increase-threads) in the Networking section.
+    
+11. **Make sure you are using 64-bit host process**
+    Though we support the SDK to work in a 32-bit host process, but if you are using cross partition queries, 64-bit host processing is recommended for improved performance.
+    For Executable applications, this can be done by unchecking the "Prefer 32-bit" option in the project properties window, on the Build tab. 
+    For VSTest based test projects, this can be done by selecting Test->Test Settings->Default Processor Architecture as X64, from Visual Studio Test menu option.
+    For locally deployed ASP.NET Web applications, this can be done by checking the "Use the 64 bit version of IIS Express for web sites and projects", under Tools->Options->Projects and Solutions->Web Projects.
+    For ASP.NET Web applications deployed on Azure, this can be done by choosing the Platform as 64-bit in the Application Settings on the Azure portal.
 
 ## Indexing Policy
 1. **Use lazy indexing for faster peak time ingestion rates**
