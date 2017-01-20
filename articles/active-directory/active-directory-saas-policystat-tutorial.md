@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory Integration with PolicyStat
 The objective of this tutorial is to show the integration of Azure and PolicyStat.  
+
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
@@ -37,7 +38,8 @@ The scenario outlined in this tutorial consists of the following building blocks
 ## Enabling the application integration for PolicyStat
 The objective of this section is to outline how to enable the application integration for PolicyStat.
 
-### To enable the application integration for PolicyStat, perform the following steps:
+**To enable the application integration for PolicyStat, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-policystat-tutorial/IC700993.png "Active Directory")
@@ -58,15 +60,18 @@ The objective of this section is to outline how to enable the application integr
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to PolicyStat with their account in Azure AD using federation based on the SAML protocol.  
+
 Your PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
-The following screenshot shows an example for this.
+
+The following screenshot shows an example of this.
 
 ![Attributes](./media/active-directory-saas-policystat-tutorial/IC808628.png "Attributes")
 
-### To configure single sign-on, perform the following steps:
+**To configure single sign-on, perform the following steps:**
+
 1. In the Azure classic portal, on the **PolicyStat** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configure Single Sign-On")
@@ -90,17 +95,17 @@ The following screenshot shows an example for this.
    
    ![Single Sign-On Configuration](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On Configuration")
    
-   1. In the **Username Attribute** textbox, type **uid**.
-   2. In the **First Name Attribute** textbox, type **firstname**.
-   3. In the **Last Name Attribute** textbox, type **lastname**.
-   4. In the **Email Attribute** textbox, type **emailaddress**.
-   5. Click **Save Changes**.
+   a. In the **Username Attribute** textbox, type **uid**.
+   b. In the **First Name Attribute** textbox, type **firstname**.
+   c. In the **Last Name Attribute** textbox, type **lastname**.
+   d. In the **Email Attribute** textbox, type **emailaddress**.
+   e. Click **Save Changes**.
 9. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
    
    ![Single Sign-On Configuration](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On Configuration")
    
-   1. Open your downloaded metadata file, copy the content, and then paste it into the **Your Identity Provider Metadata** textbox
-   2. Click **Save Changes**.
+    a. Open your downloaded metadata file, copy the content, and then paste it into the **Your Identity Provider Metadata** textbox.
+    b. Click **Save Changes**.
 10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configure Single Sign-On")
@@ -111,14 +116,16 @@ The following screenshot shows an example for this.
     
     ![Attributes](./media/active-directory-saas-policystat-tutorial/IC804823.png "Attributes")
     
-    1. Click **add user attribute**.
-    2. In the **Attribute Name** textbox, type **uid**.
-    3. In the **Attribute Value** textbox, select **ExtractMailPrefix()**.
-    4. From the **Mail** list, select **User.mail**.
-    5. Click **Complete**.
-       ##Configuring user provisioning
+    a. Click **add user attribute**.
+    b. In the **Attribute Name** textbox, type **uid**.
+    c. In the **Attribute Value** textbox, select **ExtractMailPrefix()**.
+    d. From the **Mail** list, select **User.mail**.
+    e. Click **Complete**.
+
+##Configuring user provisioning
 
 In order to enable Azure AD users to log into PolicyStat, they must be provisioned into PolicyStat.  
+
 PolicyStat supports just in time user provisioning. This means, you do not need to add the users manually to PolicyStat.  
 The users will get added automatically on their first login through single sign on.
 
@@ -130,7 +137,8 @@ The users will get added automatically on their first login through single sign 
 ## Assigning users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to PolicyStat, perform the following steps:
+**To assign users to PolicyStat, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **PolicyStat **application integration page, click **Assign users**.
    

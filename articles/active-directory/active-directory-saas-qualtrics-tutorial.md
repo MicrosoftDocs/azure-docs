@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/18/2017
 ms.author: jeedes
 
 ---
@@ -58,7 +58,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-   ## Configuring single sign-on
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Qualtrics with their account in Azure AD using federation based on the SAML protocol.
 
@@ -85,10 +85,11 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure Single Sign-On](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
 There is no action item for you to configure user provisioning to Qualtrics.  
 When an assigned user tries to log into Qualtrics using the access panel, Qualtrics checks whether the user exists.  
+
 If there is no user account available yet, it is automatically created by Qualtrics.
 
 ## Assigning users
