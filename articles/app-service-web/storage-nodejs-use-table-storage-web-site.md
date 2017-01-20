@@ -459,7 +459,7 @@ In this step, you will download a file containing information about your subscri
 
 1. Enter the following command:
    
-        azure account download
+        azure login
    
     This command launches a browser and navigates to the download page. If prompted, log in with the account associated with your Azure subscription.
    
