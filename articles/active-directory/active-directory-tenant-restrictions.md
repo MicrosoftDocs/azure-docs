@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 01/20/2017
 ms.author: kgremban
 
 ---
@@ -24,6 +24,8 @@ Large organizations that emphasize security want to move to cloud services like 
 Azure Active Directory's solution to this challenge is a feature called Tenant Restrictions. Tenant Restrictions enables organizations to control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Office 365 applications, while preventing access to other organizations’ instances of these same applications.  
 
 Tenant Restrictions gives organizations the ability to specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
+
+This article focuses on Tenant Restrictions for Office 365, but the feature should work with any SaaS cloud app that uses modern authentication protocols with Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by Office 365, make sure that all required tenants are permitted. See the [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/) for more details on SaaS cloud apps. 
 
 ## How does it work?
 
@@ -122,4 +124,41 @@ To enable cross-tenant sharing scenarios, an on-premises proxy device may be use
 Other destinations under sharepoint.com should not be allowed unless there is a specific need for them. For example, if you use custom applications, you may need to allow FQDNs like <tenant>-<app identifier>.sharepoint.com, where <app identifier> is the specific application ID.
 
 ## Testing
+
+If you want to try out Tenant Restrictions before implementing it for your whole organization, there are two options: a host-based approach using a tool like Fiddler, or a staged rollout of proxy settings.
+
+### Fiddler for a host-based approach
+
+Fiddler is a free web debugging proxy that can be used to capture and modify HTTP/HTTPS traffic, including inserting HTTP headers. In order to configure Fiddler to test Tenant Restrictions, perform the following steps:
+
+1.	[Download and install Fiddler](http://www.telerik.com/fiddler).
+2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.	Configure Fiddler to insert the Restrict-Access-To-Tenants header using custom rules.
+  1. In the Fiddler Web Debugger tool, click on the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
+  2. Add the following lines at the beginning of the *OnBeforeRequest* function, replacing <tenant ID> with a domain registered with your tenant, e.g. contoso.onmicrosoft.com:
+
+  ```
+  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant ID>";}
+  ```
+
+  If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+
+  ```
+  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+  ```
+
+4. Save and close the CustomeRules file.
+
+After you configure Fiddler, you can capture traffic by going to the **File** menu and selecting **Capture Traffice**.
+
+### Staged rollout of proxy settings
+
+Depending on the capabilities of your proxy infrastructure, you may be able to stage the rollout of settings to your users. Here are a couple high-level options for consideration:
+
+1.	Use PAC files to point test users to a test proxy infrastructure, while normal users continue to use the production proxy infrastructure.
+2.	Some proxy servers may support different configurations using groups.
+
+Refer to your proxy server documentation for specific details.
+
+
 
