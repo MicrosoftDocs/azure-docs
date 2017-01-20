@@ -33,7 +33,7 @@ In this post we will cover, how you can have a single API Management service for
 
 In this setup, all your APIs are managed only from within your Virtual network. Internal consumers (highlighted in orange), can access all your Internal and External APIs. Internal consumers benefit from the traffic never going out to Internet, with high speed provided via Express Route circuits.
 
-![url route](./media/api-management-howto-integrate-internal-vnet-appgateway.png)
+![url route](./media/api-management-using-with-vnet/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## Before you begin
 
@@ -51,7 +51,7 @@ In this setup, all your APIs are managed only from within your Virtual network. 
 * **Custom Health Probe:** Application Gateway, by default, uses IP Address based probes to figure out which servers in the BackendAddressPool are active. API Management service only responds to requests which have the correct host header, hence the default probes fail. We need to define custom health probe to tell application gateway that the service is alive and it should forward the requests.
 * **Custom domain certificate:** To access API Management from Internet you will need to do a CNAME mapping of the hostname to the Application Gateway Front-end DNS name. The same hostname header and certificate will be applied to API Management, so that when the request comes via Application Gateway, API Management recognises that as valid and responds.
 
-## Create an api management and application gateway 
+## Steps required for integrating API Management and Application Gateway 
 
 1. Create a resource group for Resource Manager.
 2. Create a virtual network, subnet, and public IP for the application gateway. Create another subnet for api management.
