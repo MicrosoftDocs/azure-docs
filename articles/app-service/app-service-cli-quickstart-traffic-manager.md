@@ -161,7 +161,7 @@ Continue this challenge by creating another site and adding it as an endpoint in
 
 **Command**
 
-```cli 
+```cli
 az group delete -n <resource-group-name>
 ```
 
