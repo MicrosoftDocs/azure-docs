@@ -20,6 +20,8 @@ ms.author: tomfitz
 # Apply Azure resource policies to storage accounts
 Through Azure Resource Manager policies, you define consistent rules for how resources are deployed in your organization. You create customized policies to ensure users in your organization do not break conventions that are needed to manage your organization's resources. This topic shows several policies that define rules for Azure Storage Accounts. For more information about policies, see [Use resource policies to manage resources](resource-manager-policy.md).
 
+The examples in this topic show hard-coded values in the policy rule. However, you can use parameters to pass in values that are used when assigning the policy. For more information, see [Policy parameters](resource-manager-policy.md#parameters).
+
 ## Define permitted storage account types
 
 The following policy restricts which [storage account types](../storage/storage-redundancy.md) can be deployed:
@@ -34,14 +36,10 @@ The following policy restricts which [storage account types](../storage/storage-
       },
       {
         "not": {
-          "allof": [
-            {
-              "field": "Microsoft.Storage/storageAccounts/sku.name",
-              "in": [
-                "Standard_LRS",
-                "Standard_GRS"
-              ]
-            }
+          "field": "Microsoft.Storage/storageAccounts/sku.name",
+          "in": [
+            "Standard_LRS",
+            "Standard_GRS"
           ]
         }
       }
@@ -66,56 +64,19 @@ The following policy specifies the type of [access tier](../storage/storage-blob
         "equals": "Microsoft.Storage/storageAccounts"
       },
       {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
         "not": {
-          "allof": [
-            {
-              "field": "Microsoft.Storage/storageAccounts/accessTier",
-              "equals": "cool"
-            }
-          ]
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
         }
       }
     ]
   },
   "then": {
     "effect": "deny"
-  }
-}
-```
-
-Or, you can provide a parameter to specify the permitted access tier, as shown in the following example:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "accessTier": {
-        "type": "string"
-      }
-    },
-    "policyRule": {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Storage/storageAccounts"
-          },
-           {
-            "field": "kind",
-            "equals": "BlobStorage"
-          },
-          {
-            "not": {
-              "field": "Microsoft.Storage/storageAccounts/accessTier",
-              "equals": "[parameters('accessTier')]"
-            }
-          }
-        ]
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
   }
 }
 ```
@@ -134,12 +95,8 @@ The following policy requires all storage accounts to enable [Storage service en
       },
       {
         "not": {
-          "allof": [
-            {
-              "field": "Microsoft.Storage/storageAccounts/enableBlobEncryption",
-              "equals": "true"
-            }
-          ]
+          "field": "Microsoft.Storage/storageAccounts/enableBlobEncryption",
+          "equals": "true"
         }
       }
     ]
