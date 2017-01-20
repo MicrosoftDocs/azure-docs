@@ -119,58 +119,73 @@ namespace DMLibSample
             executeChoice(account);
         }
 
-        public static void executeChoice(CloudStorageAccount account){
+        public static void executeChoice(CloudStorageAccount account)
+        {
             Console.WriteLine("\nWhat type of transfer would you like to execute?\n1. Local file --> Azure Blob\n2. Azure Blob --> local file\n3. Azure Blob --> Azure Blob\n4. Local directory --> Azure Blob directory\n5. Azure Blob directory --> local directory\n6. Azure Blob directory --> Azure Blob directory\n7. Public URL (e.g. Public Amazon S3 file) --> Azure Blob");
             int choice = int.Parse(Console.ReadLine());
 
-            if(choice == 1){
+            if(choice == 1)
+            {
                 transferLocalFileToAzureBlob(account);
             }
-            else if(choice == 2){
+            else if(choice == 2)
+            {
                 transferAzureBlobToLocalFile(account);
             }
-            else if(choice == 3){
+            else if(choice == 3)
+            {
                 transferAzureBlobToAzureBlob(account);
             }
-            else if(choice == 4){
+            else if(choice == 4)
+            {
                 transferLocalDirectoryToAzureBlobDirectory(account);
             }
-            else if(choice == 5){
+            else if(choice == 5)
+            {
                 transferAzureBlobDirectoryToLocalDirectory(account);
             }
-            else if(choice == 6){
+            else if(choice == 6)
+            {
                 transferAzureBlobDirectoryToAzureBlobDirectory(account);
             }
-            else if(choice == 7){
+            else if(choice == 7)
+            {
                 transferPublicUrlToAzureBlob(account);
             }
         }
 
-        public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
+        public static void transferLocalFileToAzureBlob(CloudStorageAccount account)
+        { 
             
         }
 
-        public static void transferAzureBlobToLocalFile(CloudStorageAccount account){ 
+        public static void transferAzureBlobToLocalFile(CloudStorageAccount account)
+        { 
             
         }
 
-        public static void transferAzureBlobToAzureBlob(CloudStorageAccount account){ 
+        public static void transferAzureBlobToAzureBlob(CloudStorageAccount account)
+        { 
             
         }
 
-        public static void transferLocalDirectoryToAzureBlobDirectory(CloudStorageAccount account){ 
+        public static void transferLocalDirectoryToAzureBlobDirectory(CloudStorageAccount account)
+        { 
             
         }
 
-        public static void transferAzureBlobDirectoryToLocalDirectory(CloudStorageAccount account){ 
+        public static void transferAzureBlobDirectoryToLocalDirectory(CloudStorageAccount account)
+        { 
             
         }
 
-        public static void transferAzureBlobDirectoryToAzureBlobDirectory(CloudStorageAccount account){ 
+        public static void transferAzureBlobDirectoryToAzureBlobDirectory(CloudStorageAccount account)
+        { 
             
         }
 
-        public static void transferPublicUrlToAzureBlob(CloudStorageAccount account){
+        public static void transferPublicUrlToAzureBlob(CloudStorageAccount account)
+        {
             
         }
     }
@@ -178,49 +193,19 @@ namespace DMLibSample
 ```
 
 ## Transfer local file to Azure Blob
-Modify the `transferLocalFileToAzureBlob` method to look like the following:
-
-```csharp
-public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
-    Console.WriteLine("\nEnter in path for local file:");
-    string localFilePath = Console.ReadLine();
-
-    CloudBlobClient blobClient = account.CreateCloudBlobClient();
-
-    Console.WriteLine("\nProvide name of Blob container. This can be a new or existing Blob container:");
-    string containerName = Console.ReadLine();
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-    container.CreateIfNotExistsAsync().Wait();
-
-    Console.WriteLine("\nProvide name of new Blob:");
-    string blobName = Console.ReadLine();
-    CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
-
-    Console.WriteLine("\nTransferring local file to Azure Blob...");
-    TransferManager.UploadAsync(localFilePath, blob).Wait();
-    Console.WriteLine("\nTransfer operation complete.");
-    executeChoice(account);
-}
-```
-
-This code will prompt us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method will then perform the upload using this information. 
-
-Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
-
-## Clean up code
-There's a good deal of code we wrote in `transferLocalFileToAzureBlob` that will be useful to us in other parts of our application. Specifically, the code to get a reference to a blob and local file path can be reused. Let's modify our code to make it a little more modular.
-
 Add the methods `getLocalFilePath` and `getBlob` to `Program.cs`:
 
 ```csharp
-public static string getLocalFilePath(){
+public static string getLocalFilePath()
+{
     Console.WriteLine("\nEnter in path for local file:");
     string localFilePath = Console.ReadLine();
 
     return localFilePath;
 }
 
-public static CloudBlockBlob getBlob(CloudStorageAccount account){
+public static CloudBlockBlob getBlob(CloudStorageAccount account)
+{
     CloudBlobClient blobClient = account.CreateCloudBlobClient();
 
     Console.WriteLine("\nProvide name of Blob container. This can be a new or existing Blob container:");
@@ -236,10 +221,11 @@ public static CloudBlockBlob getBlob(CloudStorageAccount account){
 }
 ```
 
-Modify the `transferLocalFileToAzureBlob` method to use `getLocalFilePath` and `getBlob`:
+Modify the `transferLocalFileToAzureBlob` method to look like the following:
 
 ```csharp
-public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
+public static void transferLocalFileToAzureBlob(CloudStorageAccount account
+{ 
     string localFilePath = getLocalFilePath();
     CloudBlockBlob blob = getBlob(account);
     Console.WriteLine("\nTransferring local file to Azure Blob...");
@@ -248,6 +234,10 @@ public static void transferLocalFileToAzureBlob(CloudStorageAccount account){
     executeChoice(account);
 }
 ```
+
+This code will prompt us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method will then perform the upload using this information. 
+
+Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 ## Set number of parallel operations
 A great feature offered by the Data Movement Library is the ability to set the number of parallel operations to increase the data transfer throughput. By default, the Data Movement Library will set the number of parallel operations to 8 * the number of cores on your machine. 
@@ -259,7 +249,8 @@ Let's add some code that allows us to set the number of parallel operations. We'
 Add a `setNumberOfParallelOperations` method to `Program.cs`:
 
 ```csharp
-public static void setNumberOfParallelOperations(){
+public static void setNumberOfParallelOperations()
+{
     Console.WriteLine("\nHow many parallel operations would you like to use?");
     string parallelOperations = Console.ReadLine();
     TransferManager.Configurations.ParallelOperations = int.Parse(parallelOperations);
@@ -269,31 +260,39 @@ public static void setNumberOfParallelOperations(){
 Modify the `executeChoice` method to use `setNumberOfParallelOperations`:
 
 ```csharp
-public static void executeChoice(CloudStorageAccount account){
+public static void executeChoice(CloudStorageAccount account)
+{
     Console.WriteLine("\nWhat type of transfer would you like to execute?\n1. Local file --> Azure Blob\n2. Azure Blob --> local file\n3. Azure Blob --> Azure Blob\n4. Local directory --> Azure Blob directory\n5. Azure Blob directory --> local directory\n6. Azure Blob directory --> Azure Blob directory\n7. Public URL (e.g. Public Amazon S3 file) --> Azure Blob");
     int choice = int.Parse(Console.ReadLine());
 
     setNumberOfParallelOperations();
 
-    if(choice == 1){
+    if(choice == 1)
+    {
         transferLocalFileToAzureBlob(account);
     }
-    else if(choice == 2){
+    else if(choice == 2)
+    {
         transferAzureBlobToLocalFile(account);
     }
-    else if(choice == 3){
+    else if(choice == 3)
+    {
         transferAzureBlobToAzureBlob(account);
     }
-    else if(choice == 4){
+    else if(choice == 4)
+    {
         transferLocalDirectoryToAzureBlobDirectory(account);
     }
-    else if(choice == 5){
+    else if(choice == 5)
+    {
         transferAzureBlobDirectoryToLocalDirectory(account);
     }
-    else if(choice == 6){
+    else if(choice == 6)
+    {
         transferAzureBlobDirectoryToAzureBlobDirectory(account);
     }
-    else if(choice == 7){
+    else if(choice == 7)
+    {
         transferPublicUrlToAzureBlob(account);
     }
 }
@@ -302,7 +301,8 @@ public static void executeChoice(CloudStorageAccount account){
 Modify the `transferLocalFileToAzureBlob` method to use a timer:
 
 ```csharp
-public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
+public static void transferLocalFileToAzureBlob(CloudStorageAccount account)
+{ 
     string localFilePath = getLocalFilePath();
     CloudBlockBlob blob = getBlob(account);
     Console.WriteLine("\nTransferring local file to Azure Blob...");
@@ -319,29 +319,31 @@ public static void transferLocalFileToAzureBlob(CloudStorageAccount account){
 > 
 >
 
-## Track progress of transfer
+## Track transfer progress
 Knowing how long it took for our data to transfer is great. However, being able to see the progress of our transfer *during* the transfer operation would be even better. In order to do this, we'll need to create a `TransferContext` object. The `TransferContext` object comes in two forms: `SingleTransferContext` and `DirectoryTransferContext`. The former is for transferring a single file (which is what we're doing now) and the latter is for transferring a directory of files (which we'll be adding later).
 
 Add the methods `getSingleTransferContext` and `getDirectoryTransferContext` to `Program.cs`: 
 
 ```csharp
-public static SingleTransferContext getSingleTransferContext(){
-    SingleTransferContext context = new SingleTransferContext();
+public static SingleTransferContext getSingleTransferContext(TransferCheckpoint checkpoint)
+{
+    SingleTransferContext context = new SingleTransferContext(checkpoint);
 
     context.ProgressHandler = new Progress<TransferStatus>((progress) =>
     {
-        Console.WriteLine("Bytes transferred: {0}", progress.BytesTransferred );
+        Console.Write("\rBytes transferred: {0}", progress.BytesTransferred );
     });
     
     return context;
 }
 
-public static DirectoryTransferContext getDirectoryTransferContext(){
-    DirectoryTransferContext context = new DirectoryTransferContext();
+public static DirectoryTransferContext getDirectoryTransferContext(TransferCheckpoint checkpoint)
+{
+    DirectoryTransferContext context = new DirectoryTransferContext(checkpoint);
 
     context.ProgressHandler = new Progress<TransferStatus>((progress) =>
     {
-        Console.WriteLine("Bytes transferred: {0}", progress.BytesTransferred );
+        Console.WriteLine("\rBytes transferred: {0}", progress.BytesTransferred );
     });
     
     return context;
@@ -351,11 +353,13 @@ public static DirectoryTransferContext getDirectoryTransferContext(){
 Modify the `transferLocalFileToAzureBlob` method to use `getSingleTransferContext`:
 
 ```csharp
-public static void transferLocalFileToAzureBlob(CloudStorageAccount account){ 
+public static void transferLocalFileToAzureBlob(CloudStorageAccount account)
+{ 
     string localFilePath = getLocalFilePath();
     CloudBlockBlob blob = getBlob(account);
-    SingleTransferContext context = getSingleTransferContext();
-    Console.WriteLine("\nTransferring local file to Azure Blob...");
+    TransferCheckpoint checkpoint = null;
+    SingleTransferContext context = getSingleTransferContext(checkpoint);
+    Console.WriteLine("\nTransferring local file to Azure Blob...\n");
     Stopwatch stopWatch = Stopwatch.StartNew();
     TransferManager.UploadAsync(localFilePath, blob, null, context).Wait();
     stopWatch.Stop();
@@ -366,6 +370,57 @@ public static void transferLocalFileToAzureBlob(CloudStorageAccount account){
 
 ## Resume a cancelled transfer
 Another very convenient feature offered by the Data Movement Library is the ability to resume a cancelled transfer. Let's add some code that will allow us to temporarily cancel the transfer by typing `c`, and then resume the transfer 3 seconds later.
+
+Modify `transferLocalFileToAzureBlob` to look like the following:
+
+```csharp
+public static async void transferLocalFileToAzureBlob(CloudStorageAccount account)
+{ 
+    string localFilePath = getLocalFilePath();
+    CloudBlockBlob blob = getBlob(account);
+    TransferCheckpoint checkpoint = null;
+    SingleTransferContext context = getSingleTransferContext(checkpoint);
+    CancellationTokenSource cancellationSource = new CancellationTokenSource();
+    Console.WriteLine("\nTransferring local file to Azure Blob...\nPress 'c' to temporarily cancel your transfer...\n");
+    Stopwatch stopWatch = Stopwatch.StartNew();
+    Task task;
+    ConsoleKeyInfo keyinfo;
+    try
+    {
+        task = TransferManager.UploadAsync(localFilePath, blob, null, context, cancellationSource.Token);
+        while(!task.IsCompleted)
+        {
+            if(Console.KeyAvailable)
+            {
+                keyinfo = Console.ReadKey(true);
+                if(keyinfo.Key == ConsoleKey.C)
+                {
+                    cancellationSource.Cancel();
+                }
+            }
+        }
+        await task;
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine("\nThe transfer is cancelled: {0}", e.Message);  
+    }
+    if(cancellationSource.IsCancellationRequested)
+    {
+        Console.WriteLine("\nTransfer will resume in 3 seconds...");
+        Thread.Sleep(3000);
+        checkpoint = context.LastCheckpoint;
+        context = getSingleTransferContext(checkpoint);
+        Console.WriteLine("\nResuming transfer...\n");
+        TransferManager.UploadAsync(localFilePath, blob, null, context).Wait(); 
+    }
+    stopWatch.Stop();
+    Console.WriteLine("\nTransfer operation completed in " + stopWatch.Elapsed.TotalSeconds + " seconds.");
+    executeChoice(account);
+}
+```
+
+Up until now, our `checkpoint` value has always been set to `null`. Now, if we cancel the transfer, we retrieve the last checkpoint of our transfer, then use this new checkpoint in our transfer context. 
 
 ## Next steps
 In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux and MacOS. This getting started specifically focused on Blob Storage. However, this same knowledge can be applied to File Storage. Please check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement) to learn more.
