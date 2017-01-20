@@ -22,7 +22,7 @@ ms.author: saurinsh
 
 Learn about the service levels offered for Azure HDInsight, as well as the Hadoop ecosystem components and versions included. Each HDInsight version is a cloud distribution of a version of the HortonWorks Data Platform (HDP).
 
-## HDInsight Standard and HDInsight Premium service levels
+## HDInsight Standard and HDInsight Premium
 
 Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only as part of Premium**. Features that are not explicitly called out in the table here are available as part of Standard.
 
@@ -110,7 +110,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 * Formula 1: Add 180 days to the date HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
 
-The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31st 2017, you cannot resize a cluster after it's deprecation date. 
+The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31st 2017, you cannot resize a cluster after it's deprecation date.
 
 > [!NOTE]
 > Windows-based HDInsight cluster (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
