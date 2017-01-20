@@ -48,7 +48,7 @@ If you need to target a specific OS version, you can set it in the **Configurati
 ![Set OS version](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
 
->[!IMPORANT]
+>[!IMPORTANT]
 > Choosing a specific OS version disables automatic OS updates and makes patching your responsibility. You must ensure that your role instances are receiving updates or you may expose your application to security vulnerabilities.
 
 ## Monitoring
