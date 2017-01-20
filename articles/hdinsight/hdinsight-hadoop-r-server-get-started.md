@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/19/2017
+ms.date: 01/20/2017
 ms.author: jeffstok
 
 ---
@@ -515,7 +515,7 @@ As an optional step you can perform Diagnostic checks by running a diagnostics t
 
 ![Diagnostics for op](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
 
-At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on Edge node and start using its features like remote execution and web-services. Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login, as explained below:
+At this stage, the configuration for Operationalization is complete. Now you can use the ‘mrsdeploy’ package on your RClient to connect to the Operationalization on Edge node and start using its features like [remote execution](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) and [web-services](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Depending on whether your cluster is set up on a virtual network or not, you may need to set up port forward tunneling through SSH login, as explained below:
 
 ### RServer Cluster on virtual network
 
