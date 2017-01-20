@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-pricing.md
+redirect_url: /azure/logic-apps/logic-apps-pricing
 ---

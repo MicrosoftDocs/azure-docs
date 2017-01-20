@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-content-type.md
+redirect_url: /azure/logic-apps/logic-apps-content-type
 ---
