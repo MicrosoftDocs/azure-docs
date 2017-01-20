@@ -158,7 +158,7 @@ Following is an example of a Resource Manager template that's used for deploying
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {
