@@ -20,6 +20,8 @@ ms.author: jgao
 ---
 # Create Windows-based Hadoop clusters in HDInsight using the Azure portal
 
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+
 Learn how to create Windows-based Hadoop cluster in HDInsight using Azure portal. 
 
 The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).

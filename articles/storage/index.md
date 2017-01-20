@@ -136,11 +136,4 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Storage Documentation
-        </div>
-    </a>
-</div>
+
