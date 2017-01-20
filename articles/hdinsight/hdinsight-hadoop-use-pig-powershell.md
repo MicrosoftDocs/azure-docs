@@ -76,7 +76,6 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
         "RESULT = order FREQUENCIES by COUNT desc;" +
         "DUMP RESULT;"
 
-
         #Create a new HDInsight Pig Job definition
         $pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
             -Query $QueryString `
