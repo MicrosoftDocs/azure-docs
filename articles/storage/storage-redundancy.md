@@ -74,13 +74,13 @@ Geo-redundant storage (GRS) replicates your data to a secondary region that is h
 
 For a storage account with GRS enabled, an update is first committed to the primary region, where it is replicated three times. Then the update is replicated asynchronously to the secondary region, where it is also replicated three times.
 
-With GRS both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit as described with LRS.
+With GRS, both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit as described with LRS.
 
 Considerations:
 
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region.
-* If an application wants to read from the secondary region the user should enable RA-GRS.
+* The replica is not available unless Microsoft initiates failover to the secondary region. If Microsoft does initiate a failover to the secondary region, you will have read and write access to that data. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
+* If an application wants to read from the secondary region, the user should enable RA-GRS.
 
 When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
 
@@ -126,6 +126,8 @@ When you enable read-only access to your data in the secondary region, your data
 Considerations:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
+* Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
+* If Microsoft initiates failover to the secondary region, you will have read and write access to that data. For more information, please see [Disaster Recovery Guidance](storage-disaster-recovery-guidance.md). 
 * RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](storage-performance-checklist.md).
 
 ## Next steps
