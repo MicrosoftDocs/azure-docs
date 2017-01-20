@@ -67,6 +67,18 @@ The script prompts for required parameters:
 | **CleanupMode** | Cleanup the resource provider | No |
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
+You can also deploy the resource provider from a PowerShell prompt, for example:
+```
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+
+$AADAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)
+
+.\DeployMySQLProvider.ps1 -AadTenantDirectoryName "mydomain.onmicrosoft.com" -AzCredential $AADAdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.MySql" -VmName "SystemMySqlRP"
+ ```
+
+
 
 Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours.
 
