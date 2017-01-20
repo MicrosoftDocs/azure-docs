@@ -199,8 +199,8 @@ The following table shows an example of what might happen when you update the de
 | T2       | Transaction B:<br>Update<br> employee entity<br> in primary  |                                | T1                 | Transaction B written to primary,<br> not replicated yet.  |
 | T3       | Transaction C:<br> Update <br>administrator<br>role entity in<br>primary |                    | T1                 | Transaction C written to primary,<br> not replicated yet.  |
 | *T4*     |                                                       | Transaction C <br>replicated to<br> secondary | T1         | Transaction C replicated to secondary.<br>LastSyncTime not updated because <br>transaction B has not been replicated yet.|
-| *T5*     | Read entities <br>from secondary                           |                                  | T1                 | You get the stale value for employee <br> entity because transaction B hasn’t <br> replicated yet. You get the new value for<br> administrator role entity because C has<br> replicated. Last Sync Time still hasn’t been <br>updated because transaction B hasn’t<br>replicated. You can tell the administrator <br>role entity is inconsistent because the <br>entity date/time is after the Last Sync <br>Time. |
-| *T6*     |                                                      | Transaction B<br> replicated to<br> secondary | T6                 | *T6* – All transactions through C have been<br> replicated, Last Sync Time is updated. |
+| *T5*     | Read entities <br>from secondary                           |                                  | T1                 | You get the stale value for employee <br> entity because transaction B hasn’t <br> replicated yet. You get the new value for<br> administrator role entity because C has<br> replicated. Last Sync Time still hasn’t<br> been updated because transaction B<br> hasn’t replicated. You can tell the<br>administrator role entity is inconsistent <br>because the entity date/time is after <br>the Last Sync Time. |
+| *T6*     |                                                      | Transaction B<br> replicated to<br> secondary | T6                 | *T6* – All transactions through C have <br>been replicated, Last Sync Time<br> is updated. |
 
 In this example, assume the client switches to reading from the secondary region at T5. It can successfully read the **administrator role** entity at this time, but the entity contains a value for the count of administrators that is not consistent with the number of **employee** entities that are marked as administrators in the secondary region at this time. Your client could simply display this value, with the risk that it is inconsistent information. Alternatively, the client could attempt to determine that the **administrator role** is in a potentially inconsistent state because the updates have happened out of order, and then inform the user of this fact.
 
@@ -226,9 +226,8 @@ You could extend this example to intercept a wider range of requests and only ch
 
 If you have made the thresholds for switching your application to read-only mode configurable, it will be easier to test the behavior with non-production transaction volumes.
 
-Additional resources
---------------------
+## Next Steps
 
-For more information about Read Access Geo-Redundancy, including another example of how the LastSyncTime is set, please see [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* For more information about Read Access Geo-Redundancy, including another example of how the LastSyncTime is set, please see [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-For a complete sample showing how to make the switch back and forth between the Primary and Secondary endpoints, please see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+* For a complete sample showing how to make the switch back and forth between the Primary and Secondary endpoints, please see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
