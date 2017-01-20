@@ -40,7 +40,7 @@ Open your Azure Search service in the [Azure portal](http://portal.azure.com). U
 ![][1]
 
 Change the Status to **On**, select the Azure Storage account to use, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics.
-You can set the retention policy for your data from 1 to 365 days. If you don't want to retain the data indefinitely, set retention (days) to 0.
+You can set the retention policy for your data from 1 to 365 days. To retain the data indefinitely, set retention (days) to 0.
 
 ![][2]
 
