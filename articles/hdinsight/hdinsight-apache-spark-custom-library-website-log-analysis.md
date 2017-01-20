@@ -18,7 +18,8 @@ ms.date: 10/05/2016
 ms.author: nitinme
 
 ---
-# Analyze website logs using a custom library with Apache Spark cluster on HDInsight Linux
+# Analyze website logs using a custom library with Apache Spark cluster on HDInsight
+
 This notebook demonstrates how to analyze log data using a custom library with Spark on HDInsight. The custom library we use is a Python library called **iislogparser.py**.
 
 > [!TIP]
@@ -31,7 +32,8 @@ This notebook demonstrates how to analyze log data using a custom library with S
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Save raw data as an RDD
 In this section, we use the [Jupyter](https://jupyter.org) notebook associated with an Apache Spark cluster in HDInsight to run jobs that process your raw sample data and save it as a Hive table. The sample data is a .csv file (hvac.csv) available on all clusters by default.

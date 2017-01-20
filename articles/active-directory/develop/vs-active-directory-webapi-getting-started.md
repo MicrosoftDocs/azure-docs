@@ -24,8 +24,8 @@ ms.author: tarcher
 > 
 > 
 
-## Requiring authentication to access controllers
-All controllers in your project were adorned with the **Authorize** attribute. This attribute will require the user to be authenticated before accessing the APIs defined by these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
+### Requiring authentication to access controllers
+All controllers in your project were adorned with the **Authorize** attribute. This attribute requires the user to be authenticated before accessing the APIs defined by these controllers. To allow the controller to be accessed anonymously, remove this attribute from the controller. If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.
 
 [Learn more about Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
