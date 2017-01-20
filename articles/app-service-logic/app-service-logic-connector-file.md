@@ -79,7 +79,7 @@ Details of the APIs can be found at [file connector API definition].
 Now that the connector is created, you can add it to a business workflow using a Logic app. See [What are Logic apps?](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure Logic apps before signing up for an Azure account, go to [Try Logic app](https://azure.microsoft.com/try/app-service/logic/), where you can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 >
 >
 

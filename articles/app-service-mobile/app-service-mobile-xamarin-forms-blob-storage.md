@@ -34,7 +34,7 @@ In this tutorial, you will create a storage account and add a connection string 
 * Complete the [Create a Xamarin.Forms app] tutorial, which lists other prerequisites. This article uses the completed app from that tutorial.
 
 > [!NOTE]
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
+> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/mobile/). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
 > 
 > 
 

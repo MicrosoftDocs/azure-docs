@@ -145,11 +145,4 @@ Learn how to create Windows virtual machines. Tutorials, API references, and oth
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Windows Virtual Machine Documentation
-        </div>
-    </a>
-</div>
+
