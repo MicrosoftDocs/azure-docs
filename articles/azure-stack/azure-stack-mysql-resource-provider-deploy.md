@@ -74,7 +74,6 @@ $AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@my
 | **VMLocalCredential** | The local administrator account of the MySQL resource provider VM | _required_ |
 | **ResourceGroupName** | Resource Group for the items created by this script | Default: Microsoft-MySQL-RP1 |
 | **VmName** | Name of the VM holding the resource provider | mysqlrp |
-| **AadLoginURL** | Azure active directory login URL | https://login.windows.net |
 | **AcceptLicense** | Prompts to accept the GPL License Accept the terms of the GPL License (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | Yes |
 | **DependencyFilesLocalPath** | Path to a local share containing the MySQL files [mysql-5.6.35-winx64.zip](https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.35-winx64.zip) and [mysql-5.5.54-winx64.zip](https://downloads.mysql.com/archives/get/file/mysql-5.5.54-winx64.zip) | _leave blank to download from the internet_ |
 | **MaxRetryCount** | Each operation will be retried if there is a failure | 2 |
