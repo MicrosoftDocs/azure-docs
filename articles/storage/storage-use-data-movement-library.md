@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: micurd
 
 ---
@@ -22,7 +22,7 @@ ms.author: micurd
 ## Overview
 The Microsoft Azure Storage Data Movement Library is a cross-platform open source library that is designed for high-performance uploading, downloading and copying of Azure Storage Blobs and Files. This library is the core data movement framework that powers [AzCopy](storage-use-azcopy.md). Everything that can be done with the Data Movement Library can also be done with our traditional [.NET Azure Storage Client Library](storage-dotnet-how-to-use-blobs.md). However, if you're looking for a more convenient way to move data in parallel, track transfer progress, or easily resume a cancelled transfer, then consider using the Data Movement Library.  
 
-This library also leverages the .Net Standard runtime library, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
+This library also leverages .NET Core, which means you can use it when building .NET apps for Windows, Linux and MacOS. To learn more about .NET Core, please refer to the [.NET Core documentation](https://dotnet.github.io/).
 
 This document will demonstrate how to create a .NET Core console application that that runs on Windows, Linux, and MacOS and performs the following:
 
@@ -31,7 +31,7 @@ This document will demonstrate how to create a .NET Core console application tha
 - Define the number of parallel operations when transferring data.
 - Download a specific blob snapshot.
 - Track data transfer progress.
-- Resume cancelled/paused data transfer.
+- Resume cancelled data transfer.
 - Set access condition.
 - Set user agent suffix. 
 
@@ -203,7 +203,9 @@ public static void transferLocalFileToAzureBlob(CloudStorageAccount account){
 }
 ```
 
-This code will prompt us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method will then perform the upload using this information. Hit `F5` to run your application. You can verify that everything is working by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+This code will prompt us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method will then perform the upload using this information. 
+
+Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 ## Clean up code
 There's a good deal of code we wrote in `transferLocalFileToAzureBlob` that will be useful to us in other parts of our application. Specifically, the code to get a reference to a blob and local file path can be reused. Let's modify our code to make it a little more modular.
@@ -361,6 +363,9 @@ public static void transferLocalFileToAzureBlob(CloudStorageAccount account){
     executeChoice(account);
 }
 ```
+
+## Resume a cancelled transfer
+Another very convenient feature offered by the Data Movement Library is the ability to resume a cancelled transfer. Let's add some code that will allow us to temporarily cancel the transfer by typing `c`, and then resume the transfer 3 seconds later.
 
 ## Next steps
 In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux and MacOS. This getting started specifically focused on Blob Storage. However, this same knowledge can be applied to File Storage. Please check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement) to learn more.
