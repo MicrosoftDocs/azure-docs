@@ -76,11 +76,4 @@ Learn how to use Site Recovery for business continuity and disaster recovery str
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Site Recovery Documentation
-        </div>
-    </a>
-</div>
+

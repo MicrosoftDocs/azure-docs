@@ -84,11 +84,4 @@ Learn how to use SQL Server Stretch Database to migrate cold data transparently 
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Server Stretch Database Documentation
-        </div>
-    </a>
-</div>
+

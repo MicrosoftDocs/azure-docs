@@ -27,17 +27,6 @@ ms.author: barbkess
 > 
 > 
 
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
-
-This collection of tasks uses T-SQL to:
-
-* View current DWU settings
-* Change compute resources by adjusting DWUs
-
-To pause or resume a database, choose one of the other platform options at the top of this article.
-
-To learn about this, see [Manage compute power overview][Manage compute power overview].
-
 <a name="current-dwu-bk"></a>
 
 ## View current DWU settings

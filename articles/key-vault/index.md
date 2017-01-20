@@ -147,11 +147,3 @@ Learn how to use Key Vault to safeguard and manage cryptographic keys and secret
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Key Vault Documentation
-        </div>
-    </a>
-</div>

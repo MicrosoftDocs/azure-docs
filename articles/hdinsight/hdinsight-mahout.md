@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 01/19/2017
 ms.author: larryfr
 
 ---
@@ -78,9 +78,6 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
 > This file prompts you for information that is used to connect to your HDInsight cluster and run jobs. It may take several minutes for the jobs to complete and download the output.txt file.
 
 ```powershell
-# Script should stop on failures
-$ErrorActionPreference = "Stop"
-
 # Login to your Azure subscription
 # Is there an active Azure subscription?
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
@@ -153,9 +150,6 @@ Write-Host "STDERR"
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 
@@ -324,9 +318,6 @@ Mahout jobs do not clean up temporary files that were created during processing.
 To avoid errors when running Mahout jobs, delete temporary and output files between runs, or use unique temporary and output directory names. Use the following PowerShell script to remove the files created by the earlier scripts in this document:
 
 ```powershell
-# Script should stop on failures
-$ErrorActionPreference = "Stop"
-
 # Login to your Azure subscription
 # Is there an active Azure subscription?
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
