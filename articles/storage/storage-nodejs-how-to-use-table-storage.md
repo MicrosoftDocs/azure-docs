@@ -193,8 +193,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity-related operation and can be retrieved through `response['.metadata'].etag`.
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
 >
-> `entity2['.metadata'].etag = currentEtag;`
->
+> 		entity2['.metadata'].etag = currentEtag;
 > 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
 >
 >
