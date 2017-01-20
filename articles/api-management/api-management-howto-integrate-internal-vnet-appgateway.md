@@ -19,7 +19,7 @@ ms.author: sasolank
 ---
 # Integrate API Management in Internal VNET with Application Gateway 
 
-The API Management service in Internal VNET mode, allows you to setup a service which can only be accessed from within the Virtual network. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service, and provides among its offering a Web Application Firewall(WAF).
+The API Management service in Internal VNET mode, allows you to setup a service that can only be accessed from within the Virtual network. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service, and provides among its offering a Web Application Firewall(WAF).
 
 ##<a name="overview"> </a> Overview
 Using API Management in Internal VNET mode and combining it with Application Gateway frontend you can achieve the following scenarios
@@ -29,7 +29,7 @@ Using API Management in Internal VNET mode and combining it with Application Gat
 * Provides you with a turn-key solution to switch-On and switch-Off access to your API Management resource from Internet. 
 
 ##<a name="scenario"> </a> Scenario
-In this post we will cover, how you can have a single API Management service for both Internal and External consumers. The API Management service could provide Proxy Frontend to all your On-Prem and Cloud APIs. You can then choose to expose only a subset of those APIs (highlighted in green) for External Consumption also, using the PathBasedRouting functionality available in Application Gateway.
+In this post, we will cover, how you can have a single API Management service for both Internal and External consumers. The API Management service could provide Proxy Frontend to all your On-Prem and Cloud APIs. You can then choose to expose only a subset of those APIs (highlighted in green) for External Consumption also, using the PathBasedRouting functionality available in Application Gateway.
 
 In this setup, all your APIs are managed only from within your Virtual network. Internal consumers (highlighted in orange), can access all your Internal and External APIs. Internal consumers benefit from the traffic never going out to Internet, with high speed provided via Express Route circuits.
 
@@ -43,14 +43,13 @@ In this setup, all your APIs are managed only from within your Virtual network. 
 
 ## What is required to create an integration between api management and application gateway?
 
-* **Back-end server pool:** This will be the Internal virtual IP address of the API Management service.
+* **Back-end server pool:** This is the Internal virtual IP address of the API Management service.
 * **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
 * **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 * **Rule:** The rule binds the listener, the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
 * **Custom Health Probe:** Application Gateway, by default, uses IP Address based probes to figure out which servers in the BackendAddressPool are active. API Management service only responds to requests which have the correct host header, hence the default probes fail. We need to define custom health probe to tell application gateway that the service is alive and it should forward the requests.
-* **Custom domain certificate:** To access API Management from Internet you will need to do a CNAME mapping of the hostname to the Application Gateway Front-end DNS name. The same hostname header and certificate will be applied to API Management, so that when the request comes via Application Gateway, API Management recognises that as valid and responds.
-
+* **Custom domain certificate:** To access API Management from Internet you need to do a CNAME mapping of the hostname to the Application Gateway Front-end DNS name. The same hostname header and certificate is applied to API Management, so that when the request comes via Application Gateway, API Management recognizes that as valid and responds.
 ## <a name="overview-steps"> </a> Steps required for integrating API Management and Application Gateway 
 
 1. Create a resource group for Resource Manager.
@@ -144,11 +143,11 @@ Create an api management service inside the Virtual network
 ```powershell
 $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization Contoso -AdminEmail admin@contoso.com -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
 ```
-After the above command succeeds refer to [DNS Configuration reqquired to access Internal vpn API Management service][api-management-using-with-internal-vnet.md#apim-dns-configuration] to access it.
+After the above command succeeds refer to [DNS Configuration required to access Internal VNET API Management service][api-management-using-with-internal-vnet.md#apim-dns-configuration] to access it.
 
 ## Update API Management service with custom domain name
 
-We will now apply custom domain name to the Api Management service endpoint Proxy which we want to access from Internet.
+We will now apply custom domain name to the Api Management service endpoint Proxy, which we want to access from Internet.
 
 ### Step 1
 Upload the certificate with private key showing your authority to setup custom domain on the domain, say `*.contoso.net`. 
@@ -253,7 +252,7 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name ap
 ### Step 10
 Configure URL rule paths for the back-end pools. We can have multiple APIs configured in API Management, like `Echo API (/echo/), Calculator API (/calc/) etc.` and we can choose to allow access only to `Echo API` from Internet. 
 
-The following example creates a simple rules for "/echo/" path routing traffic to back-end "apimProxyBackendPool".
+The following example creates a simple rule for "/echo/" path routing traffic to back-end "apimProxyBackendPool".
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
@@ -303,7 +302,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName apim-appGw-RG -Name publicIP01
 ```
 
 ##<a name="summary"> </a> Summary
-Azure API Management service in a VNET provides a single gateway interface, to manage access to all your APIs, whether they are hosted On-Prem or in Cloud. You get deep insights to who and how your APIs are being used. Integrating Application Gateway with API Management gives you more flexibility on what APIs you want to give access on the Internet, as well have providing a Web Application Firewall as frontend to your API Management instance.
+Azure API Management service in a VNET provides a single gateway interface, to manage access to all your APIs, whether they are hosted On-Prem or in Cloud. You get deep insights to who and how your APIs are being used. Integrating Application Gateway with API Management gives you more flexibility on what APIs you want to give access on the Internet, as well as providing a Web Application Firewall as frontend to your API Management instance.
 
 ##<a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
