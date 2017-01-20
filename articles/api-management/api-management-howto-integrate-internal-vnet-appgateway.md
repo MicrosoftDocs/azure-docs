@@ -21,21 +21,21 @@ ms.author: sasolank
 
 The API Management service in Internal VNET mode, allows you to setup a service which can only be accessed from within the Virtual network. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service, and provides among its offering a Web Application Firewall(WAF).
 
-## Overview
+##<a name="overview"> </a> Overview
 Using API Management in Internal VNET mode and combining it with Application Gateway frontend you can achieve the following scenarios
 
 * Use the same API Management resource, for consumption by internal consumers and external consumers.
 * Use a single API Management resource, and have a subset of APIs defined in API Management available for external consumers.
 * Provides you with a turn-key solution to switch-On and switch-Off access to your API Management resource from Internet. 
 
-## Scenario
+##<a name="scenario"> </a> Scenario
 In this post we will cover, how you can have a single API Management service for both Internal and External consumers. The API Management service could provide Proxy Frontend to all your On-Prem and Cloud APIs. You can then choose to expose only a subset of those APIs (highlighted in green) for External Consumption also, using the PathBasedRouting functionality available in Application Gateway.
 
 In this setup, all your APIs are managed only from within your Virtual network. Internal consumers (highlighted in orange), can access all your Internal and External APIs. Internal consumers benefit from the traffic never going out to Internet, with high speed provided via Express Route circuits.
 
 ![url route](./media/api-management-using-with-vnet/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## Before you begin
+## <a name="before-you-begin"> </a> Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. You create a virtual network and create separate subnets for API Management and Application Gateway. 
@@ -51,7 +51,7 @@ In this setup, all your APIs are managed only from within your Virtual network. 
 * **Custom Health Probe:** Application Gateway, by default, uses IP Address based probes to figure out which servers in the BackendAddressPool are active. API Management service only responds to requests which have the correct host header, hence the default probes fail. We need to define custom health probe to tell application gateway that the service is alive and it should forward the requests.
 * **Custom domain certificate:** To access API Management from Internet you will need to do a CNAME mapping of the hostname to the Application Gateway Front-end DNS name. The same hostname header and certificate will be applied to API Management, so that when the request comes via Application Gateway, API Management recognises that as valid and responds.
 
-## Steps required for integrating API Management and Application Gateway 
+## <a name="overview-steps"> </a> Steps required for integrating API Management and Application Gateway 
 
 1. Create a resource group for Resource Manager.
 2. Create a virtual network, subnet, and public IP for the application gateway. Create another subnet for api management.
@@ -302,14 +302,14 @@ Once the gateway is created, the next step is to configure the front end for com
 Get-AzureRmPublicIpAddress -ResourceGroupName apim-appGw-RG -Name publicIP01
 ```
 
-## Summary
+##<a name="summary"> </a> Summary
 Azure API Management service in a VNET provides a single gateway interface, to manage access to all your APIs, whether they are hosted On-Prem or in Cloud. You get deep insights to who and how your APIs are being used. Integrating Application Gateway with API Management gives you more flexibility on what APIs you want to give access on the Internet, as well have providing a Web Application Firewall as frontend to your API Management instance.
 
-## Next steps
+##<a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
   * [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
 * Learn more about API Management in VNET
-  * [Using API Management in VNET](api-management-using-with-vnet)
+  * [Using API Management in VNET](api-management-using-with-vnet.md)
 
 
