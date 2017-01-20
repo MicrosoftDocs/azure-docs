@@ -1,4 +1,4 @@
-capacity-and-security---
+---
 title: Azure Event Hubs Archive | Microsoft Docs
 description: Overview of the Azure Event Hubs Archive feature.
 services: event-hubs
