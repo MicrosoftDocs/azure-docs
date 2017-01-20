@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 01/19/2017
 ms.author: larryfr
 
 ---
@@ -55,13 +55,9 @@ The following cmdlets are used when running Hive queries in a remote HDInsight c
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster:
 
-1. Using an editor, save the following code as **hivejob.ps1**. You must replace **CLUSTERNAME** with the name of your HDInsight cluster.
+1. Using an editor, save the following code as **hivejob.ps1**.
    
    ```powershell
-    #Specify the values
-    $clusterName = "CLUSTERNAME"
-    $creds=Get-Credential
-
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
@@ -69,6 +65,10 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     {
         Add-AzureRmAccount
     }
+    
+    #Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
 
     #HiveQL
     #Note: set hive.execution.engine=tez; is not required for
@@ -90,22 +90,11 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     Write-Host "Wait for the job to complete..." -ForegroundColor Green
     Wait-AzureRmHDInsightJob -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
 
-    #Get the cluster info so we can get the resource group, storage, etc.
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
     # Print the output
     Write-Host "Display the standard output..." -ForegroundColor Green
     Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $hiveJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds
    ```
 
@@ -113,7 +102,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
    
         .\hivejob.ps1
    
-    When the script runs, you will be prompted to enter the HTTPS/Admin account credentials for your cluster. You may also be prompted to login to your Azure subscription.
+    When the script runs, you will be prompted to enter the cluster name and the HTTPS/Admin account credentials for the cluster. You may also be prompted to login to your Azure subscription.
 
 3. When the job completes, it should return information similar to the following:
    
@@ -122,27 +111,30 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
         2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
-4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following commands, and replace **CLUSTERNAME** with the name of your cluster:
+4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
    
    ```powershell
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
+
+    #Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
+
+    # Set the cluster to use
     Use-AzureRmHDInsightCluster -ClusterName $clusterName -HttpCredential $creds
-    #Get the cluster info so we can get the resource group, storage, etc.
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
+    
     $queryString = "set hive.execution.engine=tez;" +
                 "DROP TABLE log4jLogs;" +
                 "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';" +
                 "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
     Invoke-AzureRmHDInsightHiveJob `
         -StatusFolder "statusout" `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -Query $queryString
    ```
    
@@ -168,9 +160,6 @@ If no information is returned when the job completes, an error may have occurred
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 ```

@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: spelluru
+redirect_url: https://azure.microsoft.com/services/data-factory/
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Azure Data Factory Developer Reference

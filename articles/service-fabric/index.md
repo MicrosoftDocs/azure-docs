@@ -145,11 +145,4 @@ Learn how to use Service Fabric to package, deploy, and manage scalable and reli
 </ul>	
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Service Fabric Documentation
-        </div>
-    </a>
-</div>
+
