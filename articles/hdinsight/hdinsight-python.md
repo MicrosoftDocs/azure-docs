@@ -79,7 +79,6 @@ Here's the **streaming.py** file used by the HiveQL example.
 
 ```python
 #!/usr/bin/env python
-
 import sys
 import string
 import hashlib
@@ -87,7 +86,7 @@ import hashlib
 while True:
     line = sys.stdin.readline()
     if not line:
-        break
+         break
 
     line = string.strip(line, "\n ")
     clientid, devicemake, devicemodel = string.split(line, "\t")
