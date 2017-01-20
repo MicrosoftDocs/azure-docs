@@ -68,16 +68,19 @@ Use “sa” for username and the password that you used when you deployed the r
 ### Parameters
 The script prompts for required parameters:
 
-| Parameter Name | Description | Comment |
+| Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
 | **AadTenantDirectoryName** | The Azure Active Directory Name | _required_ |
 | **AzCredential** | Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack) | _required_ |
-| **LocalCredential** | This is used for the local administrator account of the SQL resource provider VM; the password is also be used for the SQL **sa** account | _required_ |
-| **ResourceGroupName** | Resource Group for the items created by this script | Default: Microsoft-SQL-RP1 |
-| **VmName** | Name of the VM holding the resource provider | Default: sqlrp |
+| **VMLocalCredential** | This is used for the local administrator account of the SQL resource provider VM; this password will also be used for the SQL **sa** account | _required_ |
+| **ResourceGroupName** | Resource Group for the items created by this script | Microsoft-SQL-RP1 |
+| **VmName** | Name of the VM holding the resource provider | sqlrp |
+| **AadLoginURL** | Azure active directory login URL | https://login.windows.net |
 | **DependencyFilesLocalPath** | Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center. | _leave blank to download from the internet_ |
-| **MaxRetryCount** | Each operation will be retried if there is a failure | 5 |
-| **RetryDuration** | Timeout between retries, in seconds | 300 |
+| **MaxRetryCount** | Each operation will be retried if there is a failure | 2 |
+| **RetryDuration** | Timeout between retries, in seconds | 120 |
+| **CleanupMode** | Cleanup the resource provider | No |
+| **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
 This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware and download speed). Make sure you reopen your browser before proceeding with the following steps.
