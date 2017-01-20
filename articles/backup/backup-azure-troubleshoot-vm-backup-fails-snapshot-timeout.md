@@ -1,6 +1,6 @@
 ---
 title: 'Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out | Microsoft Docs'
-description: Symptoms causes and resolutions for Azure VM backup failures related to could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out error
+description: Symptoms, causes, and resolutions for Azure VM Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
 services: backup
 documentationcenter: ''
 author: genlin
@@ -19,7 +19,7 @@ ms.author: jimpark; markgal;genli
 ---
 # Troubleshoot Azure Backup failure: Snapshot VM sub task timed out
 ## Summary
-After you register and schedule a virtual machine (VM) for Azure Backup service, Backup initiates the job by communicating with the backup extension in the VM to take a point-in-time snapshot. Any one of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related specifically to snapshot time-out errors.
+After you register and schedule a VM for Azure Backup service, Backup initiates the job by communicating with the VMs backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related to snapshot time-out errors.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -34,7 +34,7 @@ Per the deployment requirement, the VM has no Internet access, or it has restric
 To function correctly, the backup extension requires connectivity to the Azure public IP addresses. The extension sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension has no access to the public Internet, Backup eventually fails.
 
 ### Solution
-To resolve the issue, use one of the following methods.
+To resolve the issue, try one of the methods listed here.
 
 #### Allow access to the Azure datacenter IP ranges
 1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to allow access to.
@@ -82,12 +82,11 @@ If extensions cannot be loaded, Backup fails because a snapshot cannot be taken.
 ### Solution
 For Windows guests:
 
-1. Verify that the iaasvmprovider service is enabled and has a startup type of *automatic*.
-2. If this is not the configuration, enable the service to determine whether the next backup succeeds.
+Verify that the iaasvmprovider service is enabled and has a startup type of *automatic*. If the service is not configured in this way, enable it to determine whether the next backup succeeds.
 
 For Linux guests:
 
-The latest version of VMSnapshot Linux (extension used by Backup) is 1.0.91.0.
+The latest version of VMSnapshot for Linux (the extension used by Backup) is 1.0.91.0.
 
 If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
 
@@ -101,15 +100,15 @@ To uninstall the extension, do the following:
 This procedure causes the extension to be reinstalled during the next backup.
 
 ## Cause 4: The snapshot status cannot be retrieved or a snapshot cannot be taken
-VM backup relies on issuing a snapshot command to the underlying storage account. The backup can fail either because it has no access to the storage account or because there's a delay in the snapshot task execution.
+The VM backup relies on issuing a snapshot command to the underlying storage account. Backup can fail either because it has no access to the storage account or because the execution of the snapshot task is delayed.
 
 ### Solution
 The following conditions can cause snapshot task failure:
 
 | Cause | Solution |
 | --- | --- |
-| The VM has Microsoft SQL Server Backup configured. | By default, VM Backup runs a VSS full backup on Windows VMs. On VMs that are running SQL Server-based servers and on which SQL Server Backup is configured, snapshot execution delays may occur.<br><br>If you are experiencing backup failures because of snapshot issues, set the following registry key:<br><br>[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
-| The VM status is reported incorrectly because the VM is shut down in RDP. | If you shut down the VM in Remote Desktop Protocol (RDP), check the portal to determine whether that VM status is reflected correctly. If it’s not reflected correctly, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
+| The VM has SQL Server backup configured. | By default, the VM backup runs a VSS full backup on Windows VMs. On VMs that are running SQL Server-based servers and on which SQL Server backup is configured, snapshot execution delays may occur.<br><br>If you are experiencing a Backup failure because of a snapshot issue, set the following registry key:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| The VM status is reported incorrectly because the VM is shut down in RDP. | If you shut down the VM in Remote Desktop Protocol (RDP), check the portal to determine whether the VM status is correct. If it’s not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
 | Many VMs from the same cloud service are configured to back up at the same time. | It’s a best practice to spread out the backup schedules for VMs from the same cloud service. |
-| The VM is running at high CPU or memory usage. | If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed, and it eventually times out. In this situation, try on-demand backup. |
-| The VM cannot get the host/fabric address from DHCP. | DHCP must be enabled inside the guest for IaaS VM Backup to work.  If the VM cannot get the host/fabric address from DHCP response 245, it cannot download or run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| The VM is running at high CPU or memory usage. | If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed, and it eventually times out. In this situation, try an on-demand backup. |
+| The VM cannot get the host/fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work.  If the VM cannot get the host/fabric address from DHCP response 245, it cannot download or run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
