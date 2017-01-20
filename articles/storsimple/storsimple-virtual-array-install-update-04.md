@@ -96,7 +96,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 If running Update 0.2 and later, we recommend that you install updates through the Azure portal. The portal procedure requires the user to scan, download, and then install the updates. This procedure takes around 7 minutes to complete. Perform the following steps to install the update or hotfix.
 
-[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal.md)]
+[!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal-04.md)]
 
 After the installation is complete (as indicated by job status at 100 %), go to your StorSimple Device Manager service. Select **Devices** and then select and click the device you want to update from the list of devices connected to this service. In the **Settings** blade, go to **Manage** section and select **Device updates**. The displayed software version should be **10.0.10289.0**.
 
