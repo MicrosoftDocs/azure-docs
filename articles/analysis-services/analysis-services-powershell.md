@@ -48,13 +48,13 @@ The SQLASCMDLETS module provides task-specific database management cmdlets as we
   
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Add-RoleMember](../Topic/Add-RoleMember%20cmdlet.md)|Add a member to a database role.| 
-|[Remove-RoleMember](../Topic/Remove-RoleMember%20cmdlet.md)|Remove a member from a database role.|   
-|[Invoke-ASCmd](../Topic/Invoke-ASCmd%20cmdlet.md)|Execute a TMSL script.|
-|[Invoke-ProcessASDatabase](../Topic/Invoke-ProcessASDatabase.md)|Process a database.|  
-|[Invoke-ProcessPartition](../Topic/Invoke-ProcessPartition%20cmdlet.md)|Process a partition.| 
-|[Invoke-ProcessTable](../Topic/Invoke-ProcessTable%20cmdlet.md)|Process a table.|  
-|[Merge-Partition](../Topic/Merge-Partition%20cmdlet.md)|Merge a partition.|  
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Add a member to a database role.| 
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remove a member from a database role.|   
+|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute a TMSL script.|
+|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Process a database.|  
+|[Invoke-ProcessPartition]()|Process a partition.| 
+|[Invoke-ProcessTable]()|Process a table.|  
+|[Merge-Partition]()|Merge a partition.|  
   
 
 
