@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling.md
+redirect_url: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
 ---

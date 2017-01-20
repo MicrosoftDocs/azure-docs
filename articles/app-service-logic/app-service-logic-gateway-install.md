@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-gateway-install.md
+redirect_url: /azure/logic-apps/logic-apps-gateway-install
 ---

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-limits-and-config.md
+redirect_url: /azure/logic-apps/logic-apps-limits-and-config
 ---
