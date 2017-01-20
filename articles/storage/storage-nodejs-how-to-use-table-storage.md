@@ -195,7 +195,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 >
 > `entity2['.metadata'].etag = currentEtag;`
 >
-> 1. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
+> 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
 >
 >
 
