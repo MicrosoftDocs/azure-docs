@@ -12,11 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
+ms.date: 01/18/2017
 ms.author: cherylmc
 
 ---
 # ExpressRoute partners and peering locations
+
+> [!div class="op_single_selector"]
+> * [Locations By Provider](expressroute-locations.md)
+> * [Providers By Location](expressroute-locations-providers.md)
+
+
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
@@ -52,11 +58,9 @@ The table below provides information on regions and geopolitical boundaries for 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
 
 ## <a name="locations"></a>Connectivity provider locations
-> [!div class="op_single_selector"]
-> * [Locations By Provider](expressroute-locations.md#locations)
-> * [Providers By Location](expressroute-locations-providers.md#locations)
->
->
+
+The following table shows locations by service provider. If you want to view available providers by location, see [Service providers by location](expressroute-locations-providers.md#locations).
+
 
 ### Production Azure
 | **Service provider** | **Microsoft Azure** | **Office 365 and CRM Online** | **Locations** |
@@ -171,15 +175,15 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 | **System integrator** | **Continent** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Asia, Europe, US |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europe |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |US |
+| **[Avanade Inc.](http://www.avanade.com/)** | Asia, Europe, North America, South America |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europe |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | North America |
 | **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
-| **[Nelite](http://nelite.com/)** |Europe |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asia |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |US |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |US |
+| **[Nelite](http://nelite.com/)** | Europe |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asia |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | North America |
 
 
 ## Next steps
