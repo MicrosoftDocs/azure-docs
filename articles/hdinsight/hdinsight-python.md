@@ -87,7 +87,7 @@ import hashlib
 while True:
     line = sys.stdin.readline()
     if not line:
-    break
+        break
 
     line = string.strip(line, "\n ")
     clientid, devicemake, devicemodel = string.split(line, "\t")
@@ -119,8 +119,6 @@ To determine whether Pig uses Jython or C Python to run the script, use **regist
 
 > [!IMPORTANT]
 > When using Jython, the path to the pig_jython file can be either a local path or a WASB:// path. However, when using C Python, you must reference a file on the local file system of the node that you are using to submit the Pig job.
-> 
-> 
 
 Once past registration, the Pig Latin for this example is the same for both:
 
@@ -148,10 +146,10 @@ The actual Python script file is also similar between C Python and Jython, the o
 
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
 def create_structure(input):
-if (input.startswith('java.lang.Exception')):
-    input = input[21:len(input)] + ' - java.lang.Exception'
-date, time, classname, level, detail = input.split(' ', 4)
-return date, time, classname, level, detail
+    if (input.startswith('java.lang.Exception')):
+        input = input[21:len(input)] + ' - java.lang.Exception'
+    date, time, classname, level, detail = input.split(' ', 4)
+    return date, time, classname, level, detail
 ```
 
 > [!NOTE]
@@ -265,7 +263,16 @@ These steps use Azure PowerShell. If this is not already installed and configure
 2. Use  the following PowerShell script to upload the **streaming.py** and **pig\_python.py** files to the server. Substitute the name of your Azure HDInsight cluster, and the path to the **streaming.py** and **pig\_python.py** files on the first three lines of the script.
    
    ```powershell
-    $clusterName = YourHDIClusterName
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
+
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
     $pathToStreamingFile = "C:\path\to\streaming.py"
     $pathToJythonFile = "C:\path\to\pig_python.py"
 
@@ -306,9 +313,17 @@ After uploading the files, use the following PowerShell scripts to start the job
 The following script will run the **streaming.py** script. Before running, it will prompt you for the HTTPs/Admin account information for your HDInsight cluster.
 
 ```powershell
-# Replace 'YourHDIClusterName' with the name of your cluster
-$clusterName = YourHDIClusterName
-$creds=Get-Credential
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
+
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -Message "Enter the login for the cluster"
 
 # If using a Windows-based HDInsight cluster, change the USING statement to:
 # "USING 'D:\Python27\python.exe streaming.py' AS " +
@@ -359,13 +374,19 @@ The following will use the **pig_python.py** script, using the Jython interprete
 > When remotely submitting a job using PowerShell, it is not possible to use C Python as the interpreter.
 
 ```powershell
-# Replace 'YourHDIClusterName' with the name of your cluster
-$clusterName = YourHDIClusterName
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount
+}
 
-$creds = Get-Credential
+# Get cluster info
+$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+$creds=Get-Credential -Message "Enter the login for the cluster"
 
-
-$PigQuery = "Register wasbs:///jython.py using jython as myfuncs;" +
+$PigQuery = "Register wasbs:///pig_python.py using jython as myfuncs;" +
             "LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);" +
             "LOG = FILTER LOGS by LINE is not null;" +
             "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
