@@ -50,7 +50,22 @@ This script will do all of the following:
 * Register a local DNS record that will map to your resource provider VM.
 * Register your resource provider with the local Azure Resource Manager.
 
-The script prompts for required parameters:
+Either specify at least the required parameters on the command line, or, if you run without any parameters, you will be prompted to enter them. 
+
+Here's an example you can run from the PowerShell prompt:
+
+```
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
+
+$AADAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)
+
+.\DeployMySQLProvider.ps1 -AadTenantDirectoryName "mydomain.onmicrosoft.com" -AzCredential $AADAdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.MySql" -VmName "SystemMySqlRP"
+ ```
+
+### Parameters
+
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
@@ -67,16 +82,6 @@ The script prompts for required parameters:
 | **CleanupMode** | Cleanup the resource provider | No |
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
-You can also deploy the resource provider from a PowerShell prompt, for example:
-```
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
-
-$AADAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)
-
-.\DeployMySQLProvider.ps1 -AadTenantDirectoryName "mydomain.onmicrosoft.com" -AzCredential $AADAdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.MySql" -VmName "SystemMySqlRP"
- ```
 
 
 

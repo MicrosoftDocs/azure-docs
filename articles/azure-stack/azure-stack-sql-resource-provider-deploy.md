@@ -65,8 +65,21 @@ The script does all of the following:
 
 Use “sa” for username and the password that you used when you deployed the resource provider VM.
 
+Either specify at least the required parameters on the command line, or, if you run without any parameters, you will be prompted to enter them. 
+
+Here's an example you can run from the PowerShell prompt:
+
+```
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+$AADAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)
+
+.\DeploySQLProvider.ps1 -AadTenantDirectoryName "mydomain.onmicrosoft.com" -AzCredential $AADAdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SystemSqlRP"
+ ```
+
 ### Parameters
-The script prompts for required parameters:
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
@@ -82,17 +95,6 @@ The script prompts for required parameters:
 | **CleanupMode** | Cleanup the resource provider | No |
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
-
-You can also deploy the resource provider from a PowerShell prompt, for example:
-```
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
-
-$AADAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$AADAdminCreds = New-Object System.Management.Automation.PSCredential ("admin@mydomain.onmicrosoft.com", $AADAdminPass)
-
-.\DeploySQLProvider.ps1 -AadTenantDirectoryName "mydomain.onmicrosoft.com" -AzCredential $AADAdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "System.Sql" -VmName "SystemSqlRP"
- ```
 
 
 This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware and download speed). Make sure you reopen your browser before proceeding with the following steps.
