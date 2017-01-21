@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/18/2017
 ms.author: terrylan
 
 ---
@@ -145,7 +145,7 @@ Supported Linux VMs:
 * Debian versions 7, 8
 * CentOS versions 6.\*, 7.*
 * Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
-* SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
+* SUSE Linux Enterprise Server (SLES) versions 11 SP4+, 12.*
 * Oracle Linux versions 6.\*, 7.*
 
 VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).

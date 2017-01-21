@@ -158,11 +158,4 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Stream Analytics Documentation
-        </div>
-    </a>
-</div>
+

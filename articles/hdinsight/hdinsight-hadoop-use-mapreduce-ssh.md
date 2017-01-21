@@ -32,6 +32,10 @@ In this article, you will learn how to use Secure Shell (SSH) to connect to a Ha
 To complete the steps in this article, you will need the following:
 
 * A Linux-based HDInsight (Hadoop on HDInsight) cluster
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * An SSH client. Linux, Unix, and Mac operating systems should come with an SSH client. Windows users must download a client, such as [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a id="ssh"></a>Connect with SSH

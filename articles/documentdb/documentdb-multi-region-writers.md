@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2016
+ms.date: 01/17/2017
 ms.author: arramac
 
 ---
@@ -134,7 +134,8 @@ Like articles, reviews are mostly written and read in the context of article. Ch
 			} 
 		}
 		
-		//Reviewer Id public string UserId { get; set; }
+		//Reviewer Id 
+		public string UserId { get; set; }
 		public string ReviewText { get; set; }
 		
 		public int Rating { get; set; } }
