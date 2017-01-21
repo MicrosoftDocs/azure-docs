@@ -12,15 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
 
+Additional sources of information:
+
+* Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
+* [The tutorial page](app-insights-analytics-tour) gives a step-by-step introduction to the language features.
 * [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
 * [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
  
