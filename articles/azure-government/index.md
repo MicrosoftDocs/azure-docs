@@ -69,11 +69,4 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 </ul>
 	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Government Documentation
-        </div>
-    </a>
-</div>
+

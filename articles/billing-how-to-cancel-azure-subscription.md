@@ -4,7 +4,7 @@ description: Describes how to cancel your Azure subscription, like the Free Tria
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 

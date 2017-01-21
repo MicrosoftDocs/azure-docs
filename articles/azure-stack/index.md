@@ -81,13 +81,6 @@ Learn how to use Azure Stack technical preview to deliver Azure services from yo
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Stack Documentation
-        </div>
-    </a>
-</div>
+
+

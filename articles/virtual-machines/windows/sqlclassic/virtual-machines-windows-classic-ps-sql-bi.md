@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: asaxton
 
 ---
@@ -64,11 +64,12 @@ For more information on editions and features supported by SQL Server, see the f
 ### BI Features Installed on the SQL Server Virtual Machine Gallery Images
 The following table summarizes the Business Intelligence features installed on the common Microsoft Azure Virtual Machine gallery images for SQL Server”
 
-* SQL Server 2016 RC3
-* SQL Server 2014 SP1 Enterprise
-* SQL Server 2014 SP1 Standard
-* SQL Server 2012 SP2 Enterprise
-* SQL Server 2012 SP2 Standard
+* SQL Server 2016 SP1 Enterprise
+* SQL Server 2016 SP1 Standard
+* SQL Server 2014 SP2 Enterprise
+* SQL Server 2014 SP2 Standard
+* SQL Server 2012 SP3 Enterprise
+* SQL Server 2012 SP3 Standard
 
 | SQL Server BI Feature | Installed on the gallery image | Notes |
 | --- | --- | --- |
@@ -100,8 +101,6 @@ The following table summarizes the Business Intelligence features installed on t
   
   > [!NOTE]
   > The SQL Server database engine is required in the supported BI scenarios. In a single server VM topology, the database engine is required to be running on the same VM.
-  > 
-  > 
   
     For more information, see the following: [Uninstall Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) and [Uninstall an Instance of Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Check **Windows Update** for new ‘Important updates’. The Microsoft Azure Virtual Machine images are frequently refreshed; however important updates could become available from **Windows Update** after the VM image was last refreshed.
@@ -137,8 +136,6 @@ The virtual machine gallery image for SQL Server includes Reporting Services Nat
 
 > [!NOTE]
 > For similar content that uses Windows PowerShell scripts to configure the report server, see [Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md).
-> 
-> 
 
 ### Connect to the Virtual Machine and Start the Reporting Services Configuration Manager
 There are two common workflows for connecting to an Azure Virtual Machine:
@@ -157,7 +154,7 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 
 **Start Reporting Services Configuration Manager.**
 
-1. In **Windows Server 2012**:
+1. In **Windows Server 2012/2016**:
 2. From the **Start** screen, type **Reporting Services** to see a list of Apps.
 3. Right-click **Reporting Services Configuration Manager** and click **Run as Administrator**.
 4. In **Windows Server 2008 R2**:
@@ -344,8 +341,6 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 > [!NOTE]
 > [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
-> 
-> 
 
 ### Community Content
 * [Azure SQL Database Management with PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)

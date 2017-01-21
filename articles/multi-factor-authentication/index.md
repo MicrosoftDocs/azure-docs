@@ -101,11 +101,4 @@ Learn how to deploy and manage Azure Multi-Factor Authentication, a two-step ide
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Multi-factor Authentication Documentation
-        </div>
-    </a>
-</div>
+

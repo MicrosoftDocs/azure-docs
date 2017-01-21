@@ -134,11 +134,4 @@ Learn how to use Azure StorSimple, an integrated storage solution that manages s
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download StorSimple Documentation
-        </div>
-    </a>
-</div>
+

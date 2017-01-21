@@ -81,7 +81,7 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 5.3.204.* |February 24, 2017 |
 | 5.3.301.* |February 24, 2017 |
 | 5.3.311.* |February 24, 2017 |
-| 5.4. *. * |Current version and so no end date |
+| 5.4.145.* |Current version and so no end date
 
 
 ## Next steps

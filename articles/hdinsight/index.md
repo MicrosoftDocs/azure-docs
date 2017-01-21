@@ -163,11 +163,4 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/hdinsight.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download HDInsight Documentation
-        </div>
-    </a>
-</div>
+
