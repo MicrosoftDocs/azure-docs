@@ -130,6 +130,9 @@ Before following the instructions in this article, you should already have:
    ```PowerShell
    New-Cluster -Name \<clustername\> -Node $nodes –StaticAddress \<10.0.0.10\>.
    ```
+   
+   >[!TIP]
+   >Use a link-local address for the cluster static address. For example, \<192.254.0.1\>. This address cannot be used anywhere else within the subnet. 
 
 1. Enable Store Spaces Direct (S2D).
 
