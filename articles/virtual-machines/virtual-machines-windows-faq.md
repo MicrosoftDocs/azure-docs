@@ -73,6 +73,7 @@ Yes. The computer name can be a maximum of 15 characters in length. See [Infrast
 ## What are the username requirements when creating a VM?
 Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
 
+
 The following usernames are not allowed:
 
 <table>
@@ -114,9 +115,17 @@ The following passwords are not allowed:
 
 <table>
     <tr>
-        <td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+        <td style="text-align:center">abc@123</td>
+        <td style="text-align:center">P@$$w0rd</td>
+        <td style="text-align:center">P@ssw0rd</td>
+        <td style="text-align:center">P@ssword123</td>
+        <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
-        <td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+        <td style="text-align:center">pass@word1</td>
+        <td style="text-align:center">Password!</td>
+        <td style="text-align:center">Password1</td>
+        <td style="text-align:center">Password22</td>
+        <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
