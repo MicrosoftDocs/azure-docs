@@ -22,7 +22,7 @@ ms.author: awills
 Additional sources of information:
 
 * Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
-* [The tutorial page](app-insights-analytics-tour) gives a step-by-step introduction to the language features.
+* [The tutorial page](app-insights-analytics-tour.md) gives a step-by-step introduction to the language features.
 * [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
 * [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
  
