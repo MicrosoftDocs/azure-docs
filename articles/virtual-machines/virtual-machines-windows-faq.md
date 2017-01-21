@@ -37,7 +37,6 @@ Establish a remote connection using Remote Desktop Connection (RDP) for a Window
 If you’re having problems with Remote Desktop, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
-
 ## Can I use the temporary disk (the D: drive by default) to store data?
 Don’t use the temporary disk to store data. It is only temporary storage, so you would risk losing data that can’t be recovered. Data loss can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
 
@@ -48,7 +47,6 @@ You can change the drive letter by moving the page file and reassigning drive le
 
 ## Can I add an existing VM to an availability set?
 No. If you want your VM to be part of an availability set, you need to create the VM within the set. There currently isn't a way to add a VM to an availability set after it has been created.
-
 ## Can I upload a virtual machine to Azure?
 Yes. For instructions, see [Upload a Windows VM image to Azure ](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -58,32 +56,27 @@ Yes. For instructions, see [How to expand the OS drive of a Virtual Machine in a
 ## Can I copy or clone an existing Azure VM?
 Yes. For instructions, see [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
-The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
+## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
 
 ## Does Azure support Linux VMs?
 Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 ## Can I add a NIC to my VM after it's created?
 No. Adding a NIC can only be done at creation time.
 
 ## Are there any computer name requirements?
 Yes. The computer name can be a maximum of 15 characters in length. See [Infrastructure naming guidelines](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
 
-## What are the username requirements when creating a VM?
-Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
+## What are the username requirements when creating a VM?Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
 
 
 The following usernames are not allowed:
-
 <table>
     <tr>
         <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
     </tr>
     <tr>
         <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>
-    <tr>
+    </tr>    <tr>
         <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
@@ -115,17 +108,17 @@ The following passwords are not allowed:
 
 <table>
     <tr>
-        <td style="text-align:center">abc@123</td>
-        <td style="text-align:center">P@$$w0rd</td>
-        <td style="text-align:center">P@ssw0rd</td>
-        <td style="text-align:center">P@ssword123</td>
-        <td style="text-align:center">Pa$$word</td>
+        <td>abc@123 </td>
+        <td>P@$$w0rd </td>
+        <td>P@ssw0rd </td>
+        <td>P@ssword123 </td>
+        <td>Pa$$word </td>
     </tr>
     <tr>
-        <td style="text-align:center">pass@word1</td>
-        <td style="text-align:center">Password!</td>
-        <td style="text-align:center">Password1</td>
-        <td style="text-align:center">Password22</td>
-        <td style="text-align:center">iloveyou!</td>
+        <td>pass@word1 </td>
+        <td>Password! </td>
+        <td>Password1 </td>
+        <td>Password22 </td>
+        <td>iloveyou! </td>
     </tr>
 </table>
