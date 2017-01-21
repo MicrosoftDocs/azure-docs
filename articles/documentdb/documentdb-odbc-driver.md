@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 
-# Leveraging the DocumentDB ODBC driver for data visualizations
+# Connect DocumentDB to data visualization software with the ODBC Driver
 
 The DocumentDB ODBC driver enables you to connect to data visualization services such as Power BI Desktop and Tableau so that you can create visualizations of your DocumentDB data in those solutions. 
 
@@ -115,7 +115,9 @@ This step is optional, and should only be used if you want to create schema or v
 8. Once your data appears the way you want it, click **File** | **Save** to save your schema map.
 9. Back in the **DocumentDB ODBC Driver DSN Setup** window, click **OK**. This will save the schema and view you created to the User DSN, and BI solutions will only display the data you've selected here. 
 
-## Step 5: View your data in Power BI Desktop
+## Step 5: View your data in BI solution such as Power BI Desktop
+
+You can use your new User DSN, schemas, and views to connect to any NC-92 compliant service - this step simply shows you how to connect to Power BI Desktop and create a visualization.
 
 1. Open Power BI Desktop.
 2. Click **Get Data**.
