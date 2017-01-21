@@ -64,10 +64,10 @@ To back up your files and folders, you need to create a Recovery Services vault 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 8. Click **Create**.
 
-    The portal will provide messages as the vault is created and deployed. If you don't see your vault listed after it has been completed, click **Refresh**. ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh.png)
+    The portal will provide messages as the vault is created and deployed. If you don't see your vault listed after it has been completed, click **Refresh**. ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh.png)</br>
     Once the list refreshes, select your vault to open its blade.
 
-### To determine storage redundancy
+### Set storage redundancy for the vault
 When you first create a Recovery Services vault you determine how storage is replicated.
 
 1. From the list of Recovery Services vaults, click the new vault to open its blade.
@@ -85,7 +85,7 @@ When you first create a Recovery Services vault you determine how storage is rep
 Now that you've created a vault, configure it for backing up files and folders.
 
 ## Configure the vault
-1. On the Recovery Services vault blade (for the vault you just created), in the Getting Started section, click **Backup**, then on the **Getting Started with Backup** blade, select **Backup goal**
+1. On the Recovery Services vault blade (for the vault you just created), in the Getting Started section, click **Backup**, then on the **Getting Started with Backup** blade, select **Backup goal**.
 
     ![Open backup goal blade](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
@@ -95,7 +95,7 @@ Now that you've created a vault, configure it for backing up files and folders.
 
 2. From the **Where is your workload running?** drop-down menu, select **On-premises**.
 
-    You choose **On-premises** because your Windows Server or Windows computer is physical machine that is not in Azure.
+    You choose **On-premises** because your Windows Server or Windows computer is a physical machine that is not in Azure.
 
 3. From the **What do you want to backup?** menu, select **Files and folders** , and click **OK**.
 
@@ -105,11 +105,11 @@ Now that you've created a vault, configure it for backing up files and folders.
 
     ![Backup goal configured, next prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. On the **Prepare infrastructure** blade, click **Download Agent for Windows Server or Windows Client**
+4. On the **Prepare infrastructure** blade, click **Download Agent for Windows Server or Windows Client**.
 
     ![prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-    A pop-up menu prompts you to run or save MARSAgentInstaller.exe from download.microsoft.com.
+    If you are using Windows Server Essential, then choose to download the agent for Windows Server Essential. A pop-up menu prompts you to run or save MARSAgentInstaller.exe.
 
     ![MARSAgentInstaller dialog](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
@@ -121,23 +121,23 @@ Now that you've created a vault, configure it for backing up files and folders.
 
     You don't need to install the agent yet. You'll do this in an upcoming step after you have downloaded the vault credentials.
 
-6. On the **Prepare infrastructure** blade, click **Download** .
+6. On the **Prepare infrastructure** blade, click **Download**.
 
     ![download vault credentials](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    The vault credentials download to your Downloads folder. After the vault credentials have finished downloading, you'll see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that atempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step; the vault credentials are in the Downloads folder.   
+    The vault credentials download to your Downloads folder. After the vault credentials have finished downloading, you'll see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that attempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step; the vault credentials are in the Downloads folder.   
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
 ## Install and register the agent
+
 > [!NOTE]
 > Enabling backup through the Azure portal is coming. At this time, use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
 >
 
-
 1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
 
-    If you The installer will provide a series of messages as it extracts and installs the Recovery Services agent.
+    The installer provides a series of messages as it extracts, installs, and registers the Recovery Services agent.
 
     ![run Recovery Services agent installer credentials](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
