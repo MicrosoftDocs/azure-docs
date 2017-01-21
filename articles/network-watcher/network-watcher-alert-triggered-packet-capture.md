@@ -19,7 +19,7 @@ ms.author: gwallace
 ---
 # Create an alert triggered packet capture with Azure Network Watcher
 
-Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file is based on a filter that is defined to track only the traffic you need. This data is then stored in a storage blob or locally on the guest machine. This capability can be started remotely from other automation scenarios like Azure Functions.
+Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file is based on a filter that is defined to track only the traffic you need. This data is then stored in a storage blob or locally on the guest machine. This capability can be started remotely from other automation scenarios like Azure Functions. Packet capture provides the capability of running proactive captures based on defined network anomalies. Other uses include gathering network statistics, gaining information on network intrusions, to debug client server communications and much more.
 
 Resources deployed in Azure are running 24/7. You or your staff cannot actively monitor the status of all resources 24/7. What happens if an issue occurs at 2am?
 
@@ -27,7 +27,7 @@ By using Network Watcher, Alerting, and Functions from within the Azure ecosyste
 
 ## Before you begin
 
-In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. When you are alerted, you want to have packet level data to understand why communication has increased so that you can take steps to return the machine to the level of communication.
+In this example, your VM is sending more TCP segments than usual, and you would like to be alerted. TCP Segments are just used as an example, you could use any alert condition. When you are alerted, you want to have packet level data to understand why communication has increased so that you can take steps to return the machine to the level of communication.
 This scenario assumes you have an existing instance of Network Watcher, and a resource group with a valid virtual machine to be used.
 
 ## Scenario
@@ -309,7 +309,7 @@ If you require custom properties in the payload of the webhook POST request, ref
 ## Configure an alert on a VM
 
 Using Azure alerts, alerts can be configured to notify individuals when a specific metric crosses a threshold assigned to it. In this example, the alert is on the TCP segments sent, but the alert can be triggered for many other metrics.
-When the alert is triggered you and others can elect to receive email notifications. In this example an alert is configured to call a webhook 
+When the alert is triggered you and others can elect to receive email notifications. In this example an alert is configured to call a webhook to call the function.
 
 ### Create the alert rule
 
@@ -328,7 +328,7 @@ Finally paste the URL from the preceding step in to the webhook textbox on your 
 
 If you save your capture to a storage account, then the capture file can be downloaded via the portal or programmatically. If the capture file was stored locally the capture file can be retrieve by logging into the virtual machine. 
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md) 
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer, more about Storage Explorer can be found here at the following link. [Storage Explorer](http://storageexplorer.com/)
 
 Once your capture is downloaded, you can view it using any tool that can read a **.cap** file. The following are links to two of these tools:
 

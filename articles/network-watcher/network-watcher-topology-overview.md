@@ -1,5 +1,5 @@
 ---
-title: Introduction to the topology API in Azure Network Watcher | Microsoft Docs
+title: Introduction to the topology in Azure Network Watcher | Microsoft Docs
 description: This page provides an overview of the Network Watcher topology capabilities
 services: network-watcher
 documentationcenter: na
@@ -21,12 +21,9 @@ ms.author: gwallace
 
 The topology feature of Network Watcher represents and graphs network resources in a subscription. Topology helps you **know your network**. This will show containment and association relationships between resources. If it is run through the portal, a visual representation of the topology is shown. If using PowerShell, CLI, or REST for Topology, a collection of objects and associations are returned. These objects can be mapped to objects in a tool of your choice to represent the topology graphically.
 
-> [!NOTE]
-> Topology is currently not supported in the Azure portal.
+The topology view returns resources and how they are related to networking resources including but not limited to Network Security Groups (NSG) that are applied to the resources.
 
-The topology view returns resources and how they are related to networking resources and the Network Security Groups (NSG) that are applied to the resources.
-
-The following is the properties that are returned when querying the Topology REST API.
+The following are properties that are returned when querying the Topology REST API.
 
 * **name** - The name of the resource
 * **id** - The uri of the resource.
@@ -56,13 +53,6 @@ The following is an example of the json response returned.
           "associationType": "Contains"
         }
       ]
-    },
-    {
-      "name": "appGatewaySubnet",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/virtualNetworks/virtualNetwork1/subnets/appGatewayS
-ubnet",
-      "location": "westcentralus",
-      "associations": []
     },
     {
       "name": "webtestvnet-vybsv4xqn6j6w",
@@ -130,57 +120,6 @@ hdzsjq7jvsy-2-yh2nfml56dvqq",
         }
       ]
     },
-    {
-      "name": "applicationGateway1",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/applicationGateways/applicationGateway1",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "appGatewayFrontendIP",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/applicationGateways/applicationGateway1
-/frontendIPConfigurations/appGatewayFrontendIP",
-          "associationType": "Contains"
-        },
-        {
-          "name": "appGatewayBackendPool",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/applicationGateways/applicationGateway1
-/backendAddressPools/appGatewayBackendPool",
-          "associationType": "Contains"
-        }
-      ]
-    },
-    {
-      "name": "appGatewayFrontendIP",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPC
-onfigurations/appGatewayFrontendIP",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "testAppGWIP",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/publicIPAddresses/testAppGWIP",
-          "associationType": "Associated"
-        }
-      ]
-    },
-    {
-      "name": "appGatewayBackendPool",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddr
-essPools/appGatewayBackendPool",
-      "location": "westcentralus",
-      "associations": []
-    },
-    {
-      "name": "webtestnic-backend-qghdzsjq7jvsy-1-yh2nfml56dvqq",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkInterfaces/webtestnic-backend-qghdzsjq7jvsy-
-1-yh2nfml56dvqq",
-      "location": "westcentralus",
-      "associations": [
-        {
-          "name": "webtestvm-backend-qghdzsjq7jvsy-1-yh2nfml56dvqq",
-          "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Compute/virtualMachines/webtestvm-backend-qghdz
-sjq7jvsy-1-yh2nfml56dvqq",
-          "associationType": "Associated"
-        },
         {
           "name": "webtestnsg-wjplxls65qcto",
           "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/networkSecurityGroups/webtestnsg-wjplxl
@@ -324,12 +263,6 @@ hdzsjq7jvsy-2-yh2nfml56dvqq",
           "associationType": "Associated"
         }
       ]
-    },
-    {
-      "name": "testAppGWIP",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azuretestrgrg/providers/Microsoft.Network/publicIPAddresses/testAppGWIP",
-      "location": "westcentralus",
-      "associations": []
     }
   ]
 }

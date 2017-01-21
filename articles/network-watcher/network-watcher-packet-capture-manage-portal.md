@@ -19,7 +19,7 @@ ms.author: gwallace
 
 # Manage packet captures with Azure Network Watcher using the portal
 
-Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. The capture file is based on a filter that is defined to track only the traffic you need. This data is then stored in a storage blob or locally on the guest machine.
+Network Watcher packet capture creates capture sessions to track traffic in and out of a virtual machine. You can add filters to the capture to track only the traffic you need. This data is then stored in a storage blob or locally on the guest machine.
 
 This article takes you through the different management tasks that are currently available for packet capture.
 
@@ -51,7 +51,7 @@ The properties that can be defined on a packet capture are:
 
 **Main Settings**
 
-- **Subscription** - This value is the subscription that is used, network watcher can span multiple subscriptions
+- **Subscription** - This value is the subscription that is used, an instance of network watcher is needed in each subscriptions
 - **Resource group** - The resource group of the virtual machine that is being targeted.
 - **Target virtual machine** - The virtual machine that is running the packet capture
 - **Packet capture name** - This value is the name of the packet capture.
@@ -61,7 +61,10 @@ The properties that can be defined on a packet capture are:
 - **Storage** - Determines if packet capture is saved in a storage account.
 - **File** - Determines if a packet capture is saved locally on the virtual machine.
 - **Storage Accounts** - The selected storage account to save the packet capture in. Default location is https://{storage account name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription id}/resourcegroups/{resource group name}/providers/microsoft.compute/virtualmachines/{virtual machine name}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. (Only enabled if **Storage** is selected)
-- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected)
+- **Local file path** - The local path on a virtual machine to save the packet capture. (Only enabled if **File** is selected). A Valid path must be supplied
+
+> [!NOTE]
+> Premium storage accounts are currently not supported for storing packet captures.
 
 **Filtering (Optional)**
 
@@ -71,17 +74,20 @@ The properties that can be defined on a packet capture are:
 - **Remote IP address** - This value filters the packet capture to packets where the remote IP matches this filter value.
 - **Remote port** - This value filters the packet capture to packets where the remote port matches this filter value.
 
+> [!NOTE]
+> Port and IP address values can be a single value, range of values, or a set. (i.e. 80-1024 for port)
+
 **Advanced**
 
 - **Maximum bytes per packet** - The number of bytes from each packet that are captured, all bytes are captured if left blank.
-- **Maximum bytes per session** - Total number of bytes in (MB) that are captured, once the value is reached old packets drop.
+- **Maximum bytes per session** - Total number of bytes in (MB) that are captured, once the value is the packet capture stops.
 - **Time limit (seconds)** - Sets a time limit for the packet capture to stop.
 
 Once the values are filled out, click **Create** to create the packet capture.
 
 ![create a packet capture][2]
 
-After the time limit set on the packet capture has expired, the packet capture will stop and can be reviewed.
+After the time limit set on the packet capture has expired, the packet capture will stop and can be reviewed. You can also manually stop the packet captures sessions.
 
 ## Delete a packet capture
 
@@ -99,9 +105,9 @@ In the packet capture view, click the **context menu** (...) or right click, and
 
 ## Download a packet capture
 
-Once your packet capture session has completed, the capture file can be uploaded to blob storage or to a local file on the VM. A convenient tool to access these capture files saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  http://storageexplorer.com/ 
+Once your packet capture session has completed, the capture file can be uploaded to blob storage or to a local file on the VM. The storage location of the packet capture is defined at creation of the session. A convenient tool to access these capture files saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  http://storageexplorer.com/ 
 
-By default, packet capture files are saved to a storage account at the following location:
+If a storage account is specified, packet capture files are saved to a storage account at the following location:
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 
 ## Next Steps
