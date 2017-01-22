@@ -152,6 +152,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 
     ![][7]
 7. Keep the first two lines and replace the rest with the following query:
+
 ~~~~
    > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
@@ -182,8 +183,10 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    > # "Changed Type2"
    >
 ~~~~
+
 8. Click Done
 9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query:
+
 ~~~~
    > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
@@ -206,6 +209,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    > # "Inserted Date"
    >
 ~~~~
+
 10. Click Done and then select Close&Apply in the Home tab.
 
 11. Your data for the last 30 days is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
