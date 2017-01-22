@@ -81,7 +81,7 @@ By default the [Python SDK(version 2.0.0 or higher)](https://docs.microsoft.com/
 
 ## How to use the certificate in Node.js
 
-By default the [Node.js SDK(version 1.10.1 or higher)] for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+By default the [Node.js SDK(version 1.10.1 or higher)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-node) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
