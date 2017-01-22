@@ -156,9 +156,10 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor.
 
     ![][7]
+    
 7. Keep the first two lines and replace the rest with the following query:
 
-~~~~
+   ~~~~
    > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
    > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
@@ -187,13 +188,13 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
    > # "Changed Type2"
    >
-~~~~
+   ~~~~
 
-8. Click Done'
+8. Click Done.
 
 9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query:
 
-~~~~
+   ~~~~
    > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
    > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
    > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
@@ -214,7 +215,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
    > # "Inserted Date"
    >
-~~~~
+   ~~~~
 
 10. Click Done and then select Close&Apply in the Home tab.
 
