@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-certificates.md
+redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-certificates
 ---

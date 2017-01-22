@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-monitor-your-logic-apps.md
+redirect_url: /azure/logic-apps/logic-apps-monitor-your-logic-apps
 ---
