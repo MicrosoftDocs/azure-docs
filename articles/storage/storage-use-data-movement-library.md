@@ -48,7 +48,7 @@ This document demonstrates how to create a .NET Core console application that th
 2. From the command line, create a directory for your project. Navigate into this directory, then type `dotnet new` to create a C# console project.
 3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .`.  
 4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code. 
-5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Click "yes." Another prompt is for restoring unresolved dependendencies. Click "restore."
+5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Click "yes." Another prompt is for restoring unresolved dependencies. Click "restore."
 6. Your application should now contain a `launch.json` file under the `.vscode` directory. In this file, change the `externalConsole` value to `true`.
 7. Visual Studio Code allows you to debug .NET Core applications. Hit `F5` to run your application and verify that your setup is working. You should see "Hello World!" printed to the console. 
 
@@ -205,7 +205,7 @@ A great feature offered by the Data Movement Library is the ability to set the n
 
 Keep in mind that many parallel operations in a low-bandwidth environment may overwhelm the network connection and actually prevent operations from fully completing. You'll need to experiment with this setting to determine what works best based on your available network bandwidth. 
 
-Let's add some code that allows us to set the number of parallel operations. We'll also add code that times how long it takes for the transfer to complete.
+Let's add some code that allows us to set the number of parallel operations. Let's also add code that times how long it takes for the transfer to complete.
 
 Add a `setNumberOfParallelOperations` method to `Program.cs`:
 
@@ -258,11 +258,6 @@ public static async void transferLocalFileToAzureBlob(CloudStorageAccount accoun
     executeChoice(account);
 }
 ```
-
-> [!NOTE]
-> Setting the number of parallel operations is only applicable to upload, download, and synchronous copy operations. You cannot set the number of parallel operations for a server-side asynchronous copy. Synchronous and asynchronous copy is discussed more later in this document.
-> 
->
 
 ## Track transfer progress
 Knowing how long it took for our data to transfer is great. However, being able to see the progress of our transfer *during* the transfer operation would be even better. To achieve this scenario, we need to create a `TransferContext` object. The `TransferContext` object comes in two forms: `SingleTransferContext` and `DirectoryTransferContext`. The former is for transferring a single file (which is what we're doing now) and the latter is for transferring a directory of files (which we are adding later).
@@ -443,14 +438,67 @@ public static async void transferLocalDirectoryToAzureBlobDirectory(CloudStorage
 
 There are a few differences between this method and the method for uploading a single file. We're now using `TransferManager.UploadDirectoryAsync` and the `getDirectoryTransferContext` method we created earlier. In addition, we now provide an `options` value to our upload operation, which allows us to indicate that we want to include subdirectories in our upload. 
 
+## Copy file from URL to Azure Blob
+Finally, let's add code that allows us to copy a file from a URL to an Azure Blob. 
+
+Modify `transferUrlToAzureBlob`:
+
+```csharp
+public static async void transferUrlToAzureBlob(CloudStorageAccount account)
+{
+    Uri uri = new Uri(getSourcePath());
+    CloudBlockBlob blob = getBlob(account); 
+    TransferCheckpoint checkpoint = null;
+    SingleTransferContext context = getSingleTransferContext(checkpoint); 
+    CancellationTokenSource cancellationSource = new CancellationTokenSource();
+    Console.WriteLine("\nTransfer started...\nPress 'c' to temporarily cancel your transfer...\n");
+    Stopwatch stopWatch = Stopwatch.StartNew();
+    Task task;
+    ConsoleKeyInfo keyinfo;
+    try
+    {
+        task = TransferManager.CopyAsync(uri, blob, true, null, context, cancellationSource.Token);
+        while(!task.IsCompleted)
+        {
+            if(Console.KeyAvailable)
+            {
+                keyinfo = Console.ReadKey(true);
+                if(keyinfo.Key == ConsoleKey.C)
+                {
+                    cancellationSource.Cancel();
+                }
+            }
+        }
+        await task;
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine("\nThe transfer is canceled: {0}", e.Message);  
+    }
+    if(cancellationSource.IsCancellationRequested)
+    {
+        Console.WriteLine("\nTransfer will resume in 3 seconds...");
+        Thread.Sleep(3000);
+        checkpoint = context.LastCheckpoint;
+        context = getSingleTransferContext(checkpoint);
+        Console.WriteLine("\nResuming transfer...\n");
+        task = TransferManager.CopyAsync(uri, blob, true, null, context, cancellationSource.Token);
+    }
+    stopWatch.Stop();
+    Console.WriteLine("\nTransfer operation completed in " + stopWatch.Elapsed.TotalSeconds + " seconds.");
+    executeChoice(account);
+}
+```
+
+One important use case for this feature is when you need to move data from another cloud service (e.g. AWS) to Azure. As long as you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a new boolean parameter. Setting this parameter to `true` indicates that we want to do an asynchronous server side copy. Setting this parameter to `false` indicates a synchronous copy - meaning the resource is downloaded to our local machine first, then uploaded to Azure Blob. However, synchronous copy is currently only available for copying from one Azure Storage resource to another. 
+
+## Conclusion
+Our data movement application is now complete. [The full code sample is available on GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
+
 ## Next steps
 In this getting started, we created an application that interacts with Azure Storage and runs on Windows, Linux, and MacOS. This getting started focused on Blob Storage. However, this same knowledge can be applied to File Storage. To learn more, check out [Azure Storage Data Movement Library reference documentation](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
-
-
-
-
 
 
 
