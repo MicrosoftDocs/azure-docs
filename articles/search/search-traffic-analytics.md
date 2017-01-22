@@ -139,16 +139,21 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 #### Power BI Desktop
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. See the starter query in the following section:
 
-1. Open a new PowerBI Desktop report
+1. Open a new PowerBI Desktop report.
+
 2. Select Get Data -> More...
 
     ![][5]
-3. Select Microsoft Azure Blob Storage and Connect
+
+3. Select Microsoft Azure Blob Storage and Connect.
 
     ![][6]
-4. Enter the Name and Account Key of your storage account
-5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click Edit
-6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
+
+4. Enter the Name and Account Key of your storage account.
+
+5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click Edit.
+
+6. When the Query Editor opens, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor.
 
     ![][7]
 7. Keep the first two lines and replace the rest with the following query:
@@ -184,7 +189,8 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
    >
 ~~~~
 
-8. Click Done
+8. Click Done'
+
 9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first two lines and replace the rest with the following query:
 
 ~~~~
