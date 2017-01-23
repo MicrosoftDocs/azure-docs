@@ -1,5 +1,5 @@
 ---
-title: Configure forced tunneling for Azure Site-to-Site connections: Resource Manager | Microsoft Docs
+title: Configure forced tunneling for Azure Site-to-Site connections - Resource Manager | Microsoft Docs
 description: How to redirect or 'force' all Internet-bound traffic back to your on-premises location.
 services: vpn-gateway
 documentationcenter: na
