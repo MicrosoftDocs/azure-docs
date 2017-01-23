@@ -25,7 +25,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 >
 
 ## Supported authentication types
-Azure Data Lake Store connector support **service principal** authentication and **user credential** (OAuth) authentication. You are suggested to use the former especially for scheduled data copy to avoid token expiration behavior with the latter. See [Azure Data Lake Store Linked Service properties](#azure-data-lake-store-linked-service-properties) section with configuration details.
+Azure Data Lake Store connector support **service principal** authentication and **user credential** authentication. You are recommended to use the former especially for scheduled data copy, to avoid token expiration behavior with the latter. See [Azure Data Lake Store Linked Service properties](#azure-data-lake-store-linked-service-properties) section with configuration details.
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Data Lake Store is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
@@ -406,15 +406,15 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ```
 
 ## Azure Data Lake Store Linked Service properties
-The following table provides description for JSON elements specific to Azure Data Lake Store linked service.
+The following table provides description for JSON elements specific to Azure Data Lake Store linked service, and you can choose between **service principal** and **user credential** authentication.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **AzureDataLakeStore** |Yes |
-| dataLakeStoreUri |Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 |Yes |
+| type | The type property must be set to: **AzureDataLakeStore** | Yes |
+| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
 
 ### Using service principal authentication (recommended)
-To use service principal authentication, firstly you need register an application entity in Azure Active Directory (AAD) and grant it access in Data Lake Store. Afterwards, you can specify below properties in Azure Data Factory with corresponding application ID, application key and tenant information to copy data from/to Data Lake Store. Refer to [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory) on how to set it up and retrieve the required info.
+To use service principal authentication, firstly you need register an application entity in Azure Active Directory (AAD) and grant it access in Data Lake Store. Afterwards, you can specify below properties in Azure Data Factory with corresponding application ID, application key and tenant information to copy data from/to Data Lake Store. Refer to [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) on how to set it up and retrieve the required info.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -438,7 +438,7 @@ To use service principal authentication, firstly you need register an applicatio
 }
 ```
 
-### Uing user credential authentication
+### Using user credential authentication
 Alternatively, you can use user credential authentication to copy from/to Data Lake Store by specifying below properties.
 
 | Property | Description | Required |

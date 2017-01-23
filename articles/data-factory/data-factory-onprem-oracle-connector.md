@@ -29,7 +29,7 @@ Data Factory supports connecting to on-premises Oracle sources using the Data Ma
 ## Supported versions and installation
 Oracle connector support two versions of drivers:
 
-- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. With that, you don't need to install anything else besides the gateway to connect to Oracle. Oracle Database version 10g Release 2 or later are supported. You are recommended to use this driver to simplify environment setup.
+- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. With that, you don't need to install anything else besides the gateway to connect to Oracle. Oracle Database version 10g Release 2 or later are supported. You are **recommended** to use this driver to simplify environment setup.
 
     > [!NOTE]
     > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle.
@@ -411,8 +411,8 @@ The following table provides description for JSON elements specific to Oracle li
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **OnPremisesOracle** |Yes |
-| driverType | Specify which driver to use to copy from/to Oracle. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
-| connectionString |Specify information needed to connect to the Oracle Database instance for the connectionString property. See below examples. |Yes |
+| driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
+| connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. See below examples. | Yes |
 | gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises Oracle data source.
@@ -486,7 +486,7 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 | sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. |Column name of a column with data type of binary(32). |No |
 
 ## Troubleshooting tips
-**Problem 1:**
+### Problem 1: .NET Framework Data Provider
 
 You see the following **error message**:
 
@@ -507,7 +507,7 @@ You see the following **error message**:
 3. Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
 4. Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running `gacutil /i [provider path]`.## Troubleshooting tips
 
-**Problem 2:**
+### Problem 2: datetime formatting
 
 You see the following **error message**:
 
