@@ -1,10 +1,10 @@
 ---
-title: Connect Azure VNets with VPN Gateway and PowerShell | Microsoft Docs
+title: Connect a virtual network to another VNet: PowerShell | Microsoft Docs
 description: This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 

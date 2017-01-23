@@ -1,10 +1,10 @@
 ---
-title: Connect VNets using the Resource Manager deployment model and the Azure portal  | Microsoft Docs
+title: Connect a virtual network to another VNet: Portal | Microsoft Docs
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
