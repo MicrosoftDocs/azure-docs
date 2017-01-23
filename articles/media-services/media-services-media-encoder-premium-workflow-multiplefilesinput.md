@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/23/2017
 ms.author: xpouyat;anilmur;juliako
 
 ---
@@ -36,20 +36,36 @@ The configuration string to set in the encoding task uses an XML document that l
       <transcodeSource>
       </transcodeSource>
       <setRuntimeProperties>
-        <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
+        <property propertyPath="Media File Input/filename" value="VideoFileName.mp4" />
       </setRuntimeProperties>
     </transcodeRequest>
 
 
-The following is the C# code that reads the XML configuration from a file and passes it to the task in a job:
+The following is the C# code that reads the XML configuration from a file, update it with the right video filename and passes it to the task in a job:
 
-    XDocument configurationXml = XDocument.Load(xmlFileName);
-    IJob job = _context.Jobs.CreateWithSingleTask(
-                                                  "Media Encoder Premium Workflow",
-                                                  configurationXml.ToString(),
-                                                  myAsset,
-                                                  "Output asset",
-                                                  AssetCreationOptions.None);
+    string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
+    
+    // Declare a new job.
+    IJob job = _context.Jobs.Create("Premium Workflow encoding job");
+
+    // Get a media processor reference, and pass to it the name of the 
+    // processor to use for the specific task.
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
+
+    // Create a task with the encoding details, using a string preset.
+    ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
+                                  processor,
+                                  premiumConfiguration,
+                                  TaskOptions.None);
+
+    // Specify the input assets
+    task.InputAssets.Add(workflow); // workflow asset
+    task.InputAssets.Add(video); // video asset with multiple files
+    
+    // Add an output asset to contain the results of the job. 
+    // This output is specified as AssetCreationOptions.None, which 
+    // means the output asset is not encrypted. 
+    task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 
 ## Customizing component properties
@@ -67,7 +83,6 @@ Example:
         <setRuntimeProperties>
           <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
           <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
-          <property propertyPath="Optional Overlay/Overlay/filename" value="MyLogo.png"/>
           <property propertyPath="Optional Text Overlay/Text To Image Converter/text" value="Today is Friday the 13th of May, 2016"/>
       </setRuntimeProperties>
     </transcodeRequest>
@@ -242,7 +257,11 @@ With additional frame-accurate trimming:
 
 
 ## Examples
-Consider an example in which you want to overlay a logo image on the input video while the video is encoded. In this example, the input video is named "MyInputVideo.mp4" and the logo is named "MyLogo.png". You should perform the following steps:
+
+### Example 1 : Overlay an image on top of the video
+
+#### Presentation
+Consider an example in which you want to overlay a logo image on the input video while the video is encoded. In this example, the input video is named "Microsoft_HoloLens_Possibilities_816p24.mp4" and the logo is named "logo.png". You should perform the following steps:
 
 * Create a Workflow Asset with the workflow file (see the following example).
 * Create a Media Asset, which contains two files: MyInputVideo.mp4 as the primary file and MyLogo.png.
@@ -250,12 +269,12 @@ Consider an example in which you want to overlay a logo image on the input video
 
 Configuration:
 
-    <?xml version="1.0" encoding="utf-8"?>
+    <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>
         <setRuntimeProperties>
-          <property propertyPath="Media File Input/filename" value="MyInputVideo.mp4" />
-          <property propertyPath="/primarySourceFile" value="MyInputVideo.mp4" />
-          <property propertyPath="Media File Input Logo/filename" value="MyLogo.png" />
+          <property propertyPath="Media File Input/filename" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
+          <property propertyPath="/primarySourceFile" value="Microsoft_HoloLens_Possibilities_816p24.mp4" />
+          <property propertyPath="Media File Input Logo/filename" value="logo.png" />
         </setRuntimeProperties>
       </transcodeRequest>
 
@@ -267,7 +286,7 @@ In the example above, the name of the video file is sent to the Media File Input
 >
 >
 
-### Step-by-step workflow creation that overlays a logo on top of the video
+#### Step-by-step workflow creation
 Here are the steps to create a workflow that takes two files as input: a video and an image. It will overlay the image on top of the video.
 
 Open **Workflow Designer** and select **File** > **New Workspace** > **Transcode Blueprint**.
@@ -398,7 +417,7 @@ After the job is complete, the MP4 file in the output asset displays the overlay
 
 You can download the sample workflow from [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-### Another example : multiple audio language encoding
+### Example 2 : Multiple audio language encoding
 
 An example of multiple audio language encoding workfkow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
