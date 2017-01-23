@@ -36,7 +36,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
 
 1. On your Mac, open *QSTodoListViewController.m* in Xcode and add the following method:
 
-    ```objectivec
+    ```Objective-C
     - (void)loginAndGetData
     {
         QSAppDelegate *appDelegate = (QSAppDelegate *)[UIApplication sharedApplication].delegate;
@@ -65,13 +65,13 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
 
 2. Replace `[self refresh]` in `viewDidLoad` in *QSTodoListViewController.m* with the following code:
 
-    ```objectivec
+    ```Objective-C
     [self loginAndGetData];
     ```
 
 3. Open the `QSAppDelegate.h` file and add the following code:
 
-    ```objectivec
+    ```Objective-C
     #import "QSTodoService.h"
 
     @property (strong, nonatomic) QSTodoService *qsTodoService;
@@ -79,7 +79,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
 
 4. Open the `QSAppDelegate.m` file and add the following code:
 
-    ```objectivec
+    ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
     {
         if ([[url.scheme lowercaseString] isEqualToString:@"zumoe2etestapp"]) {
@@ -96,7 +96,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
 
 5. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 
-    ```xml
+    ```XML
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
