@@ -1,5 +1,5 @@
 ---
-title: Logs, exceptions and custom diagnostics for ASP.NET in Application Insights
+title: Logs and custom diagnostics for ASP.NET
 description: Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net.
 services: application-insights
 documentationcenter: ''
