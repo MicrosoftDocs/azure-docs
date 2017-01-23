@@ -155,7 +155,7 @@ Copy activity can parse below patterns of JSON files:
             "callingnum2": "345626404",
             "switch1": "Germany",
             "switch2": "UK"
-        },
+        }
     ]
     ```
 
