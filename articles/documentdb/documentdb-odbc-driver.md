@@ -1,5 +1,5 @@
 ---
-title: Connect DocumentDB to data visualization software | Microsoft Docs
+title: Connect DocumentDB to data visualization solutions | Microsoft Docs
 description: Learn how to use the Azure DocumentDB ODBC driver to create schemas and views so that normalized data can be viewed in BI data visualization software.
 keywords: odbc, odbc driver
 services: documentdb
@@ -25,7 +25,7 @@ The DocumentDB ODBC driver enables you to connect to data visualization services
 
 Using the ODBC driver, you can create schemas for an entire collection, or you can limit your results to display the columns, and even the values that you want to view in your BI solution. 
 
-The ODBC driver works with any NC-92 compliant service.
+The ODBC driver is ODBC 3.8 compliant and adheres to the ANSI SQL-92 standard.
 
 ## Why do I need to normalize my data to visualize it?
 DocumentDB is a non-relational, NoSQL database, so it enables rapid development of apps by enabling them to iterate their data model on the fly and not confine them to to a strict schema. So a single DocumentDB database can contain JSON documents that don't adhere to a single (or even multiple schemas). This is great for rapid development, but when you want to take a closer look at your data using BI solutions, you're required to present normalized data - data adhering to a specific schema. 
