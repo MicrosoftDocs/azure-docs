@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -69,4 +69,3 @@ To learn more about the capabilities of Data Catalog, see:
 * [How to manage data assets](data-catalog-how-to-manage.md)
 * [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
 * [Frequently Asked Questions](data-catalog-frequently-asked-questions.md)
-
