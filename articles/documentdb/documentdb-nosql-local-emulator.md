@@ -80,9 +80,9 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 The DocumentDB Emulator is installed by default to the `C:\Program Files\DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. See [command-line tool reference](#command-line) for more information.
 
-## Start the local emulator Data Explorer
+## Start the DocumentDB emulator Data Explorer
 
-When the local emulator launches it will automatically open the DocumentDB Data Explorer in your browser. The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the DocumentDB Emulator in the Windows Tray Icon as shown below.
+When the DocumentDB emulator launches it will automatically open the DocumentDB Data Explorer in your browser. The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the DocumentDB Emulator in the Windows Tray Icon as shown below.
 
 ![DocumentDB local emulator data explorer launcher](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 
@@ -216,9 +216,9 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 
 ## Troubleshooting
 
-Use the following tips to help troubleshoot issues you encounter with the local emulator:
+Use the following tips to help troubleshoot issues you encounter with the DocumentDB emulator:
 
-- If the local emulator crashes during startup in DocumentDB.StartupEntryPoint.exe, first confirm the cause of the error in the [trace files](#trace-files). This issue occurs when the performance counter registration on the machine misconfigured. To fix this, run `lodctr /r` from an administrative command prompt, which refreshes the performance counter registration. 
+- If the DocumentDB emulator crashes during startup in DocumentDB.StartupEntryPoint.exe, first confirm the cause of the error in the [trace files](#trace-files). This issue occurs when the performance counter registration on the machine misconfigured. To fix this, run `lodctr /r` from an administrative command prompt, which refreshes the performance counter registration. 
 
 - If you encounter a port conflict, the emulator displays the port conflict message and suggests a command line option to override the defaults and fix the issue.
 
@@ -227,16 +227,17 @@ Use the following tips to help troubleshoot issues you encounter with the local 
 - If you need additional assistance determining the cause of the error, [turn on tracing](#trace-files), reproduce the issue, compress the files, and then send mail to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 
-### <a id="trace-files"></a>Collect trace files
+### <a id="trace-files"></a>Collect trace or dump files
 
-First, check to see if any trace files exist in the c:\Users\user_name\AppData\Local\CrashDumps folder. If there are any .dmp files, compress them and send them in your email for debugging.
+If the DocumentDB emulator crashes on startup, check to see if any dump files exist in the c:\Users\user_name\AppData\Local\CrashDumps folder. If there are any .dmp files, compress them and attach them in your email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-To collect debugging traces, shut down the emulator, then do the following from an administrative command prompt:
+To collect debugging traces, run the following commands from an administrative command prompt:
 
-1. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
-2. `DocumentDB.Emulator.exe /starttraces`
-3. `DocumentDB.Emulator.exe`
-4. Reproduce the problem. If Document Explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
+1. `DocumentDB.Emulator.exe /shutdown`
+2. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
+3. `DocumentDB.Emulator.exe /starttraces`
+4. `DocumentDB.Emulator.exe`
+5. Reproduce the problem. If Data Explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
 5. `DocumentDB.Emulator.exe /stoptraces`
 6. Navigate to Program Files\DocumentDB Emulator and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
