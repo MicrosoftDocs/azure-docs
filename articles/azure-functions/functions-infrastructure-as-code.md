@@ -122,7 +122,7 @@ The location in which to deploy the Function App.
 
 In addition to parameters, Azure Resource Manager templates also have a concept of variables which can incorporate parameters to build out more specific settings to be used by your template.
 
-In this example below, you can see that we are leveraging variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to take the provided appName and convert it to lowercase to ensure that the [naming requirements](../storage/storage-create-storage-account#create-a-storage-account) for Azure Storage accounts are met.
+In this example below, you can see that we are leveraging variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to take the provided appName and convert it to lowercase to ensure that the [naming requirements](../storage/storage-create-storage-account#create-a-storage-account.md) for Azure Storage accounts are met.
 
 ```json
 "variables": {
@@ -254,9 +254,9 @@ A Function App has many child resources in which you can take advantage of inclu
 ## Deploying your template
 
 * [Powershell](../azure-resource-manager/resource-group-template-deploy.md)
-* [CLI](../azure-resource-manager/resource-group-template-deploy-cli)
-* [Portal](../azure-resource-manager/resource-group-template-deploy-portal)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest)
+* [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### Deploy to azure button
 
