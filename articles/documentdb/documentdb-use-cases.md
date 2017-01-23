@@ -1,5 +1,5 @@
 ---
-title: Common use cases & scenarios for Azure DocumentDB | Microsoft Docs
+title: Common use cases & NoSQL scenarios for Azure DocumentDB | Microsoft Docs
 description: Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).
 services: documentdb
 author: h0n
