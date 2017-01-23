@@ -43,30 +43,31 @@ The configuration string to set in the encoding task uses an XML document that l
 
 The following is the C# code that reads the XML configuration from a file, update it with the right video filename and passes it to the task in a job:
 
-    string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
-    
-    // Declare a new job.
-    IJob job = _context.Jobs.Create("Premium Workflow encoding job");
+```
+string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
-    // Get a media processor reference, and pass to it the name of the 
-    // processor to use for the specific task.
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
+// Declare a new job.
+IJob job = _context.Jobs.Create("Premium Workflow encoding job");
 
-    // Create a task with the encoding details, using a string preset.
-    ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
-                                  processor,
-                                  premiumConfiguration,
-                                  TaskOptions.None);
+// Get a media processor reference, and pass to it the name of the 
+// processor to use for the specific task.
+IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
-    // Specify the input assets
-    task.InputAssets.Add(workflow); // workflow asset
-    task.InputAssets.Add(video); // video asset with multiple files
-    
-    // Add an output asset to contain the results of the job. 
-    // This output is specified as AssetCreationOptions.None, which 
-    // means the output asset is not encrypted. 
-    task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
+// Create a task with the encoding details, using a string preset.
+ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
+                              processor,
+                              premiumConfiguration,
+                              TaskOptions.None);
 
+// Specify the input assets
+task.InputAssets.Add(workflow); // workflow asset
+task.InputAssets.Add(video); // video asset with multiple files
+
+// Add an output asset to contain the results of the job. 
+// This output is specified as AssetCreationOptions.None, which 
+// means the output asset is not encrypted. 
+task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
+```
 
 ## Customizing component properties
 ### Property with a simple value
@@ -122,8 +123,6 @@ Example:
 
 > [!NOTE]
 > Make sure not to put a carriage return just after `<![CDATA[`.
->
->
 
 ### propertyPath value
 In the previous examples, the propertyPath was "/Media File Input/filename" or "/inactiveTimeout" or "clipListXml".
@@ -283,8 +282,6 @@ In the example above, the name of the video file is sent to the Media File Input
 
 > [!NOTE]
 > The video file name is sent to the primarySourceFile property. The reason for this is to use this property in the workflow for building the correct output file name using Expressions, for example.
->
->
 
 #### Step-by-step workflow creation
 Here are the steps to create a workflow that takes two files as input: a video and an image. It will overlay the image on top of the video.
@@ -375,8 +372,6 @@ This tutorial shows you how to manage assets with AMSE. There are two ways to ad
 
 > [!NOTE]
 > Make sure to set a primary file in the asset (the main video file).
->
->
 
 ![Asset files in AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
