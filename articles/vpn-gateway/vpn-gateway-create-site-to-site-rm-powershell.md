@@ -1,5 +1,5 @@
 ---
-title: Configure a cross-premises Site-to-Site Azure VPN connection: PowerShell | Microsoft Docs
+title: Configure a cross-premises Site-to-Site Azure VPN connection - PowerShell | Microsoft Docs
 description: This article walks you through creating a VNet using the Resource Manager deployment model and connecting it to your local on-premises network using a S2S VPN gateway connection.
 services: vpn-gateway
 documentationcenter: na

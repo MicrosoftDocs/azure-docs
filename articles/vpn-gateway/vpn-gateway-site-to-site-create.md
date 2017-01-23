@@ -1,5 +1,5 @@
 ---
-title: Configure a cross-premises Site-to-Site Azure VPN connection: Classic portal | Microsoft Docs
+title: Configure a cross-premises Site-to-Site Azure VPN connection - classic portal | Microsoft Docs
 description: Create a VNet with a S2S VPN Gateway connection for cross-premises and hybrid configurations using the classic deployment model.
 services: vpn-gateway
 documentationcenter: ''
