@@ -112,7 +112,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
     This code should be placed inside the `<dict>` element.  Replace the _appname_ string (within the
-    array for **CFBundleURLSchemes** with the app name you chose in step 1).  You can also make these
+    array for **CFBundleURLSchemes**) with the app name you chose in step 1.  You can also make these
     changes in the plist editor - click on the `AppName-Info.plist` file in XCode to open the plist
     editor.
 
@@ -199,7 +199,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
     This code should be placed inside the `<dict>` element.  Replace the _appname_ string (within the
-    array for **CFBundleURLSchemes** with the app name you chose in step 1).  You can also make these
+    array for **CFBundleURLSchemes**) with the app name you chose in step 1.  You can also make these
     changes in the plist editor - click on the `AppName-Info.plist` file in XCode to open the plist
     editor.
 
