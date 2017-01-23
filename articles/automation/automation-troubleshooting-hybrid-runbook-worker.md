@@ -17,12 +17,12 @@ ms.date: 01/23/2017
 ms.author: magoedte
 ---
 
-## Troubleshooting tips for Hybrid Runbook Worker
+# Troubleshooting tips for Hybrid Runbook Worker
 
 This article provides help troubleshooting errors you might experience with Automation Hybrid Runbook Workers and suggests possible solutions to resolve them.
 
 ## Hybrid Runbook Worker: A runbook job terminates with a status of Suspended
-### Summary
+
 Your runbook is suspended shortly after attempting to execute it three times. There are conditions which may interrupt the runbook from completing successfully and the related error message does not include any additional information indicating why. This article provides troubleshooting steps for issues related to the Hybrid Runbook Worker runbook execution failures.
 
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
