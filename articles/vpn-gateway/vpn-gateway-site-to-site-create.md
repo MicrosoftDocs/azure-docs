@@ -1,10 +1,10 @@
 ---
-title: Create a virtual network with a site-to-site VPN Gateway connection using the Azure classic portal | Microsoft Docs
+title: Configure a cross-premises Site-to-Site Azure VPN connection: Classic portal | Microsoft Docs
 description: Create a VNet with a S2S VPN Gateway connection for cross-premises and hybrid configurations using the classic deployment model.
 services: vpn-gateway
 documentationcenter: ''
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 
 ---
-# Create a VNet with a Site-to-Site connection using the Azure classic portal
+# Create a VNet with a Site-to-Site connection using the classic portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
