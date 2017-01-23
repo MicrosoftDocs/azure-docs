@@ -17,7 +17,7 @@ ms.date: 12/06/2016
 ms.author: spelluru
 
 ---
-# Tutorial: Create a pipeline with Copy Activity using Azure PowerShell
+# Tutorial: Create a Data Factory pipeline that moves data using Azure PowerShell 
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
