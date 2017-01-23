@@ -1,5 +1,5 @@
 ---
-title: Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Docs
+title: Build and optimize partitioned tables for fast parallel data import | Microsoft Docs
 description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
 documentationcenter: ''

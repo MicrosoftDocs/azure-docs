@@ -1,5 +1,5 @@
 ---
-title: 'The Team Data Science Process in action: using SQL Server | Microsoft Docs'
+title: Build and deploy a machine learning model using SQL Server | Microsoft Docs'
 description: Advanced Analytics Process and Technology in Action
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/23/2017
 ms.author: fashah;bradsev
 
 ---
