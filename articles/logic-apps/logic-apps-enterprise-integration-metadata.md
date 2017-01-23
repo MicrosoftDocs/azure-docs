@@ -25,18 +25,18 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 ## How to Store metadata 
 
-1. Create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)   
+1. Create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md)   
 
-2. Add a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](logic-apps-enterprise-integration-schemas.md) in integration account
+2. Add a [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](logic-apps-enterprise-integration-schemas.md) in integration account
 
 3. Select a parter or an agreement, or a schema. select **Edit as JSON** and enter metadata details    
 ![Enter metadata](media/logic-apps-enterprise-integration-metadata/image1.png)  
 
 ## Call **Integration Account Artifact LookUp** from a logic app
 
-1. Create a [Logic App](../logic-apps/logic-apps-create-a-logic-app.md)
+1. Create a [Logic App](logic-apps-create-a-logic-app.md)
 
-2. [Link](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
+2. [Link](logic-apps-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
 
 3. Create a trigger, for example using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp** 
 ![Search lookup](media/logic-apps-enterprise-integration-metadata/image2.png) 
@@ -59,4 +59,4 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 
 ## Next steps
-* [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+* [Learn more about agreements](logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
