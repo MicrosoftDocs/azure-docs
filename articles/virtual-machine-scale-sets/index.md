@@ -95,11 +95,4 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Virtual Machine Scale Sets Documentation
-        </div>
-    </a>
-</div>
+

@@ -4,7 +4,7 @@ description: Describes how to download your Azure billing invoice and daily usag
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: ruchic
 editor: ''
 tags: billing
 

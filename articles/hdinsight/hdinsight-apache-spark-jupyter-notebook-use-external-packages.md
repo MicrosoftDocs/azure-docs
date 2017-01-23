@@ -19,6 +19,11 @@ ms.author: nitinme
 
 ---
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
+> [!div class="op_single_selector"]
+> * [Using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Using Script Action](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
 Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight to use external, community-contributed **maven** packages that are not included out-of-the-box in the cluster. 
 
