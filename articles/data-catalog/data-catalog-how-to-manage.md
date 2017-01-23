@@ -1,5 +1,5 @@
 ---
-title: How to Manage Data Assets | Microsoft Docs
+title: How to manage data assets in Azure Data Catalog | Microsoft Docs
 description: How-to article highlighting how to control visibility and ownership of data assets registered in Azure Data Catalog.
 services: data-catalog
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
-# How to manage data assets
+# How to manage data assets in Azure Data Catalog
 ## Introduction
 **Azure Data Catalog** provides capabilities for data source discovery, enabling users to easily discover and understand the data sources they need to perform analysis and make decisions. These discovery capabilities make the biggest impact when all users can find and understand the broadest range of available data sources. With this in mind, the default behavior of Data Catalog is for all registered data sources to be visible to – and discoverable by – all catalog users.
 
