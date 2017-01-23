@@ -1,5 +1,5 @@
 ---
-title: Configure a Point-to-Site VPN gateway connection to an Azure Virtual Network using the Azure portal | Microsoft Docs
+title: Connect to an Azure virtual network using Point-to-Site: Classic portal| Microsoft Docs
 description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using the Azure portal.
 services: vpn-gateway
 documentationcenter: na

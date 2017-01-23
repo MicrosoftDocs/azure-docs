@@ -1,5 +1,5 @@
 ---
-title: Configure a Point-to-Site VPN gateway connection to virtual network using the Resource Manager deployment model | Microsoft Docs
+title:Connect to an Azure virtual network using Point-to-Site: PowerShell| Microsoft Docs
 description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
 services: vpn-gateway
 documentationcenter: na
