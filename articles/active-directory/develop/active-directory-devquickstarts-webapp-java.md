@@ -1,5 +1,5 @@
 ---
-title: Azure AD Java Getting Started | Microsoft Docs
+title: Azure AD Java web app getting started | Microsoft Docs
 description: How to build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: brandwe
 
 ---
