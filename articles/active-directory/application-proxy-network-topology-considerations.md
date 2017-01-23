@@ -31,6 +31,7 @@ When an application is published through Azure AD App Proxy, all traffic from th
 * Hop 2: App proxy service to the connector
 * Hop 3: Connector to target application
 
+
  ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
 
 ## Tenant location and App Proxy service
