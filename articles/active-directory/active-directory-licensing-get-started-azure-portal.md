@@ -61,7 +61,7 @@ assigned a license. A license assignment is a mapping between a user and a purch
 Mobility Suite.
 
 Managing which users in your directory should have a license is simple. It can be accomplished by assigning licenses to groups in Azure portal or by assigning licenses directly to the right individuals through the portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job
-title has a license or even delegate the decision to other managers in the organization. For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, please see this article.\#\#\#
+title has a license or even delegate the decision to other managers in the organization. For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, please see this article.???
 
 ## Getting started with Azure AD licensing
 
@@ -108,7 +108,7 @@ This will bring up a new blade where you can choose multiple users or group, and
 
 When assigning a license to the group, it may take some time, depending on the number of users in the group, before all users inherit the license. The processing status can be checked on the group blade, under the **Licenses** tile.
 
-![license assignment status](media/active-directory-licensing-get-started-azure-portal/license-assignment-status,.png)
+![license assignment status](media/active-directory-licensing-get-started-azure-portal/license-assignment-status.png)
 
 Assignment errors can occur during Azure AD license assignment, but are relatively rare when managing Azure AD and EMS products. Potential assignment errors are limited to:
 - Assignment conflict: When a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license will require removing the current one.
@@ -132,7 +132,7 @@ Similarly, **Licensed groups** shows all groups to which licenses have been assi
 
 To remove a license, go to the user or group and open the **Licenses** tile. Select the license and click **Remove**.
 
-![remove a license](media/active-directory-licensing-get-started-azure-portal/remove-license.tmp)
+![remove a license](media/active-directory-licensing-get-started-azure-portal/remove-license.png)
 
 Please note that licenses inherited by the user from a group cannot be removed directly. Instead, remove the user from the group from which they are inheriting the license.
 
