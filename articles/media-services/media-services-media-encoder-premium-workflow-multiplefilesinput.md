@@ -44,7 +44,7 @@ The configuration string to set in the encoding task uses an XML document that l
 
 The following is the C# code that reads the XML configuration from a file, update it with the right video filename and passes it to the task in a job:
 
-```
+```c#
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
