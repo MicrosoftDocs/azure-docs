@@ -29,7 +29,7 @@ Data Factory supports connecting to on-premises Oracle sources using the Data Ma
 ## Supported versions and installation
 Oracle connector support two versions of drivers:
 
-- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. With that, you don't need to install anything else besides the gateway to connect to Oracle. Oracle Database version 10g Release 2 or later are supported.
+- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. With that, you don't need to install anything else besides the gateway to connect to Oracle. Oracle Database version 10g Release 2 or later are supported. You are recommended to use this driver to simplify environment setup.
 
     > [!NOTE]
     > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle.
@@ -364,7 +364,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
     "name":"SamplePipeline",
     "properties":{  
         "start":"2014-06-01T18:00:00",
-        "end":"2014-08-01T19:00:00",
+        "end":"2014-06-05T19:00:00",
         "description":"pipeline with copy activity",
         "activities":[  
             {
