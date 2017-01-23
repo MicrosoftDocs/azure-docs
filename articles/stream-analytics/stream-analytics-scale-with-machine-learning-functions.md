@@ -1,5 +1,5 @@
 ---
-title: Scale your Stream Analytics job with Azure Machine Learning functions | Microsoft Docs
+title: Job scaling with Stream Analytics & Machine Learning functions | Microsoft Docs
 description: Learn how to properly scale Stream Analytics jobs (partitioning, SU quantity, and more) when using Azure Machine Learning functions.
 keywords: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
