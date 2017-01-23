@@ -61,12 +61,12 @@ Before following the instructions in this article, you should already have:
 
    | Image | Notes
    | ----- | -----
-   | **SQL Server 2016 Enterprise on Windows Server Datacenter 2016** | Provides SQL Server installed. <br/> Billed per minute. <br/>After creating the VM, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
-   | **{BYOL}SQL Server 2016 Enterprise on Windows Server Datacenter 2016** | Provides SQL Server installed. <br/> Billed according to your license agreements. <br/> After creating the VM, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
-   | **Windows Server 2016 Datacenter** | Does not contain SQL Server installation media. <br/>You will need to copy the media to a location where you can run the SQL Server installation in order to create the SQL Server FCI.
+   | **SQL Server 2016 Enterprise on Windows Server Datacenter 2016** | Provides SQL Server installed. <br/> Billed per minute. <br/>After creating the VM, remove SQL Server. <br/>Use pre-installed media when it is time to create the SQL Server FCI. 
+   | **{BYOL} SQL Server 2016 Enterprise on Windows Server Datacenter 2016** | Provides SQL Server installed. <br/> Billed according to your license agreements. <br/> After creating the VM, remove SQL Server. <br/>Use pre-installed media when it is time to create the SQL Server FCI. 
+   | **Windows Server 2016 Datacenter** | Does not contain SQL Server installation media.<br/> Billed according to your license agreements. <br/>You will need to copy the media to a location where you can run the SQL Server installation in order to create the SQL Server FCI.
    
    >[!IMPORTANT]
-   > If you use an Azure Marketplace image with SQL Server installed, remove **SQL Server** immediately after Azure provisions the virtual machine. Later, you will use the SQL Server installation media in `C:\SQLServer_13.0_Full` to install the failover cluster instance. 
+   > If you use an Azure Marketplace image with SQL Server installed, remove **SQL Server** immediately after Azure provisions the virtual machine. Later, you will use the SQL Server installation media in `C:\SQLServer_<version number>_Full` to install the failover cluster instance. 
 
 1. Open the firewall ports.
 
@@ -76,20 +76,6 @@ Before following the instructions in this article, you should already have:
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. 
    | Health probe | 59999 | Any open TCP port. You will use this port when you configure the load balancer health probe and the cluster resources.  
-
-1. [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
-
-   This load balancer must:
-   
-   - Be in the same network and subnet as the cluster nodes.
-   - Have a static IP address for the SQL Server Virtual IP.
-      
-      >[!TIP]
-      >You can create the load balancer with a dynamic IP address and then change it to a static address after it is created. 
-
-   - Include a backend pool consisting of the virtual machines.
-   - Use the TCP port probe specific to the IP address.
-   - Configure load balancer with direct server return (floating IP). 
 
 1. Add storage to the virtual machine. [Add storage](../../articles/storage/storage-premium-storage#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
@@ -118,7 +104,7 @@ Before following the instructions in this article, you should already have:
 
    ```PowerShell
    $nodes = ("\<Server-1\>", "\<Server-2\>")
-   icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
+   icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeManagementTools}
    ```
 
 1. [Create a cloud witness for the failover cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
@@ -145,7 +131,7 @@ Before following the instructions in this article, you should already have:
 
 1. Create a volume.
 
-   One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates a an 800 GB CSV. 
+   One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 GB CSV. 
 
    ```PowerShell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -164,6 +150,20 @@ Before following the instructions in this article, you should already have:
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, you will need to intall SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+
+1. [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+
+   This load balancer must:
+   
+   - Be in the same network and subnet as the cluster nodes.
+   - Have a static IP address for the SQL Server Virtual IP.
+      
+      >[!TIP]
+      >You can create the load balancer with a dynamic IP address and then change it to a static address after it is created. 
+
+   - Include a backend pool consisting of the virtual machines.
+   - Use the TCP port probe specific to the IP address.
+   - Configure load balancer with direct server return (floating IP). 
 
 1. Set the cluster probe port parameter in PowerShell.
 
