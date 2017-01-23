@@ -1,13 +1,13 @@
 ---
 title: Guidance for developing Azure Functions | Microsoft Docs
-description: Understand Azure Functions concepts and components that are common to all languages and bindings.
+description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
 editor: ''
 tags: ''
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
+keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
