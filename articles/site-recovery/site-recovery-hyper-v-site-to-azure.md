@@ -370,7 +370,7 @@ We recommend that you verify the properties of the source machine.
 
 
 ### Prepare to connect to Azure VMs after failover
-If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
+If you want to connect to Azure VMs using RDP after failover, make sure you do the following: 
 
 **On the on-premises machine before failover**:
 
