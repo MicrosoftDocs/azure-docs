@@ -1,5 +1,5 @@
 ---
-title: Install Hadoop applications on HDInsight | Microsoft Docs
+title: Install your own custom Hadoop applications on Azure HDInsight | Microsoft Docs
 description: Learn how to install HDInsight applications on HDInsight applications.
 services: hdinsight
 documentationcenter: ''
@@ -18,8 +18,11 @@ ms.date: 09/14/2016
 ms.author: jgao
 
 ---
-# Install custom HDInsight applications
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install an HDInsight application that has not been published to the Azure portal on HDInsight. The application you will install is [Hue](http://gethue.com/). 
+# Install custom Hadoop applications on Azure HDInsight
+
+In this article, you will learn how to install a Hadoop application on Azure HDInsight, which has not been published to the Azure portal. The application you will install in this article is [Hue](http://gethue.com/).
+
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
 Other related articles:
 
