@@ -1,5 +1,5 @@
 ---
-title: Azure MFA cloud vs server | Microsoft Docs
+title: Choose between Azure MFA cloud or server | Microsoft Docs
 description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
 services: multi-factor-authentication
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
