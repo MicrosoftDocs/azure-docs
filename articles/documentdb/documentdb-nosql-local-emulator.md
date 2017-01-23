@@ -218,18 +218,11 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 
 Use the following tips to help troubleshoot issues you encounter with the DocumentDB emulator:
 
-- If the DocumentDB emulator crashes during startup in DocumentDB.StartupEntryPoint.exe, first confirm the cause of the error in the [trace files](#trace-files). This issue occurs when the performance counter registration on the machine misconfigured. To fix this, run `lodctr /r` from an administrative command prompt, which refreshes the performance counter registration. 
+- If the DocumentDB emulator crashes, collect dump files from c:\Users\user_name\AppData\Local\CrashDumps folder, compress them, and attach them to an email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-- If you encounter a port conflict, the emulator displays the port conflict message and suggests a command line option to override the defaults and fix the issue.
+- If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-- If you receive a **ServiceUnavailableException**, start [collecting traces](#trace-files), then review the trace files. If the trace file contains `WSAEOPNOTSUPP`, then the emulator is failing to listen to the network correctly. This is caused by some network filter drivers that cause the registered IO APIs to fail. To fix this, uninstall the network filter driver.
-
-- If you need additional assistance determining the cause of the error, [turn on tracing](#trace-files), reproduce the issue, compress the files, and then send mail to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
-
-
-### <a id="trace-files"></a>Collect trace or dump files
-
-If the DocumentDB emulator crashes on startup, check to see if any dump files exist in the c:\Users\user_name\AppData\Local\CrashDumps folder. If there are any .dmp files, compress them and attach them in your email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+### <a id="trace-files"></a>Collect trace files
 
 To collect debugging traces, run the following commands from an administrative command prompt:
 
@@ -241,7 +234,6 @@ To collect debugging traces, run the following commands from an administrative c
 5. `DocumentDB.Emulator.exe /stoptraces`
 6. Navigate to Program Files\DocumentDB Emulator and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
-
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
