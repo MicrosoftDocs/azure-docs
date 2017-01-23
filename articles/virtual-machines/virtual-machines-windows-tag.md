@@ -1,5 +1,5 @@
 ---
-title: How to Tag a VM | Microsoft Docs
+title: How to tag a Windows VM resource in Azure | Microsoft Docs
 description: Learn about tagging a Windows virtual machine created in Azure using the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
