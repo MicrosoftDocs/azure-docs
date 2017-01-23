@@ -27,7 +27,7 @@ ms.author: sutalasi
 3. Click on '+Replicaton policy' on the top.
 
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Create-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Create-Policy.png)
 
 4. Enter the policy name.
 
@@ -44,19 +44,19 @@ ms.author: sutalasi
 
 8. Click 'OK'. The policy should be created in about 30 seconds to 1 minute.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Creating-Policy.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Creating-Policy.png)
 
 ## Associate Configuration server with replication policy
 1. Click on the replication policy to which you want to associate the configuration server.
 2. Click on 'Associate' on top.
 
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-1.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-1.png)
 
 3. Select the 'Configuration server' from the list of servers.
 4. Click OK. The confgiration server should be associated in about 1 to 2 minutes.
 
-	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-2.png)
+![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-2.png)
 
 ## Edit replication policy
 1. Click on the replication policy for which you want to edit replication settings.
