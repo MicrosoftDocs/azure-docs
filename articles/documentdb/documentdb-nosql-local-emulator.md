@@ -235,6 +235,7 @@ To collect debugging traces, run the following commands from an administrative c
 6. Navigate to Program Files\DocumentDB Emulator and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
 
+
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
 * To start developing against the DocumentDB Emulator, download one of the [supported DocumentDB SDKs](documentdb-sdk-dotnet.md).
