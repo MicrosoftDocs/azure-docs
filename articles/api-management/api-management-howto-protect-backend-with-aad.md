@@ -1,5 +1,5 @@
 ---
-title: How to protect a Web API backend with Azure Active Directory and API Management
+title: Protect a Web API backend with Azure Active Directory and API Management | Microsoft Docs
 description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/23/2017
 ms.author: sdanie
 
 ---

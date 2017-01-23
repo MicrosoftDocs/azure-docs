@@ -1,5 +1,5 @@
 ---
-title: API Management key concepts
+title: API Management overview and key concepts | Microsoft Docs
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 01/23/2017
 ms.author: sdanie
 
 ---

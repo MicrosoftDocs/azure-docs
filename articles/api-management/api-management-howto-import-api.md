@@ -1,6 +1,6 @@
 ---
-title: API Management key concepts
-description: Learn about APIs, products, roles, groups, and other API Management key concepts.
+title: Import an API into Azure API Management | Microsoft Docs
+description: Learn how to import an API and its operations into Azure API Management.
 services: api-management
 documentationcenter: ''
 author: steved0x
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/23/2017
 ms.author: sdanie
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Monitor your APIs with Azure API Management, Event Hubs and Runscope
+title: Monitor APIs with Azure API Management, Event Hubs, and Runscope | Microsoft Docs
 description: Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Runscope for HTTP  logging and monitoring
 services: api-management
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/23/2017
 ms.author: darrmi
 
 ---
