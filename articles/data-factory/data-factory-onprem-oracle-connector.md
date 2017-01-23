@@ -31,9 +31,9 @@ Oracle connector support two versions of drivers:
 
 - **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. With that, you don't need to install anything else besides the gateway to connect to Oracle. Oracle Database version 10g Release 2 or later are supported.
 
-> [!NOTE]
-> Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle.
->
+    > [!NOTE]
+    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle.
+    >
 
 - **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
 
@@ -286,7 +286,6 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {
             "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-            "fileName": "{Hour}.csv",
             "partitionedBy": [
                 {
                     "name": "Year",
@@ -311,14 +310,6 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
                         "date": "SliceStart",
                         "format": "dd"
                     }
-                },
-                {
-                    "name": "Hour",
-                    "value": {
-                        "type": "DateTime",
-                        "date": "SliceStart",
-                        "format": "HH"
-                    }
                 }
             ],
             "format": {
@@ -329,7 +320,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
         },
         "external": true,
         "availability": {
-            "frequency": "Hour",
+            "frequency": "Day",
             "interval": 1
         },
         "policy": {
@@ -357,7 +348,7 @@ The sample assumes you have created a table “MyTable” in Oracle. Create the 
             "tableName": "MyTable"
         },
         "availability": {
-            "frequency": "Hour",
+            "frequency": "Day",
             "interval": "1"
         }
     }
@@ -373,7 +364,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
     "name":"SamplePipeline",
     "properties":{  
         "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
+        "end":"2014-08-01T19:00:00",
         "description":"pipeline with copy activity",
         "activities":[  
             {
@@ -399,7 +390,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                     }
                 },
                 "scheduler": {
-                    "frequency": "Hour",
+                    "frequency": "Day",
                     "interval": 1
                 },
                 "policy": {
@@ -442,6 +433,7 @@ See [Move data between on-premises sources and the cloud with Data Management Ga
 ```
 
 **Example: using ODP driver**
+
 You can refer to [this site](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/) for more allowed format.
 ```JSON
 {
@@ -493,15 +485,40 @@ In Copy activity, when the source is of type **OracleSource** the following prop
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. |A query statement. |No |
 | sliceIdentifierColumnName |Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. |Column name of a column with data type of binary(32). |No |
 
-### Troubleshooting tips
+## Troubleshooting tips
+**Problem 1:**
 
-If you see the following error message, adjust the query string based on how dates are configured in your Oracle database.
+You see the following **error message**:
+
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
+
+**Possible causes:**
+
+1. The .NET Framework Data Provider for Oracle was not installed.
+2. The .NET Framework Data Provider for Oracle was installed to .NET Framework 2.0 and is not found in the .NET Framework 4.0 folders.
+
+**Resolution/Workaround:**
+
+1. If you haven't installed the .NET Provider for Oracle, [install it](http://www.oracle.com/technetwork/topics/dotnet/downloads/) and retry the scenario.
+2. If you get the error message even after installing the provider, do the following steps:
+   1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+   2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry as shown in the following sample under **system.data** -> **DbProviderFactories**:
+           “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+3. Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
+4. Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running `gacutil /i [provider path]`.## Troubleshooting tips
+
+**Problem 2:**
+
+You see the following **error message**:
 
     Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 
-You may need to change the query as shown in the following sample (using the to_date function):
+**Resolution/Workaround:**
+
+You may need to adjust the query string in your copy activity based on how dates are configured in your Oracle database, as shown in the following sample (using the to_date function):
 
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -542,25 +559,6 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 > [!NOTE]
 > Data type **INTERVAL YEAR TO MONTH** and **INTERVAL DAY TO SECOND** are not supported when using Microsoft driver.
 >
-
-## Troubleshooting tips
-**Problem:**
-You see the following **error message**: Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed”.  
-
-**Possible causes:**
-
-1. The .NET Framework Data Provider for Oracle was not installed.
-2. The .NET Framework Data Provider for Oracle was installed to .NET Framework 2.0 and is not found in the .NET Framework 4.0 folders.
-
-**Resolution/Workaround:**
-
-1. If you haven't installed the .NET Provider for Oracle, [install it](http://www.oracle.com/technetwork/topics/dotnet/downloads/) and retry the scenario.
-2. If you get the error message even after installing the provider, do the following steps:
-   1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry as shown in the following sample under **system.data** -> **DbProviderFactories**:
-           “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-3. Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
-4. Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running `gacutil /i [provider path]`.
 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
