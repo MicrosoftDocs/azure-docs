@@ -89,18 +89,24 @@ In order for tenants to be able to configure App Service to connect to their rep
 
 ## Configure OneDrive as a Deployment Source
 
-> [!NOTED]
+> [!NOTE]
 > OneDrive for Business Accounts are not currently supported.  You will need to have a Microsoft Account linked to a OneDrive account to complete this task.
 1. Browse to https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm and login using your Microsoft Account.
-2. Click **Add an app** under **Converged applications**
+2. Click **Add an app** under **My applications**
+![OneDrive Applications][10]
 3. Enter a **Name** for the New Application Registration, enter **App Service on Azure Stack**, and click **Create Application**
 4. The next screen lists the properties of your new application. Record the **Application Id**
+![OneDrive Application Properties][11]
 5. Under **Application Secrets** click **Generate New Password** and record the **New password generated** - this is your application secret.
+> [!NOTE]
+> Make sure to make a note of the new password as it is not retrievable once you click OK at this stage.
 6. Under **Platforms** click **Add Platform** and select **Web**
 7. Enter the **Redirect URI**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+![OneDrive Application - Add Web Platform][12]
 8. Set the **Microsoft Graph Permissions** - **Delegated Permissions**
     * **Files.ReadWrite.AppFolder**
     * **User.Read**
+![OneDrive Application - Graph Permissions][13]
 9. Click **Save**
 10. In a new browser tab or window Login to the Azure Stack Portal as the service administrator.
 11. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
@@ -118,12 +124,15 @@ In order for tenants to be able to configure App Service to connect to their rep
 > You will need to have a DropBox account to complete this task.
 1. Browse to https://www.dropbox.com/developers/apps and login using your DropBox Account
 2. Click **Create app** 
+![Dropbox applications][14]
 3. Select **DropBox API**
 4. Set the access level to **App Folder**
 5. Enter a **Name** for your application.
+![Dropbox application registration][15]
 6. Click **Create App**.  You will now be presented with a page listing the settings for the App including **App key** and **App secret**.
 7. Check the **App folder name** is set to **App Service on Azure Stack**
 8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+![Dropbox application configuration][16]
 9. In a new browser tab or window Login to the Azure Stack Portal as the service administrator
 10. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
 11. Click **Source control configuration**
@@ -144,4 +153,10 @@ In order for tenants to be able to configure App Service to connect to their rep
 [7]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-dashboard.png
 [8]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-add-oauth-consumer.png
 [9]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-add-oauth-consumer-complete.png
-[10]: 
+[10]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-applications.png
+[11]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-application-registration.png
+[12]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-application-platform.png
+[13]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-application-graph-permissions.png
+[14]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-dropbox-applications.png
+[15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-dropbox-application-registration.png
+[16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-dropbox-application-configuration.png
