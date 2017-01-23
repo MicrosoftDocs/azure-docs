@@ -1,5 +1,5 @@
 ---
-title: StorSimple Device Manager - Manage shares on your Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: Manage StorSimple Virtual Array shares | Microsoft Docs
 description: Describes the StorSimple Device Manager and explains how to use it to manage shares on your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
