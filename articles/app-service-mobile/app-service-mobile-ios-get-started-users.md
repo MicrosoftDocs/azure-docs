@@ -28,13 +28,173 @@ In this tutorial, you add authentication to the [iOS quick start] project using 
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-In Xcode, press **Run** to  start the app. An exception will be raised because the app attempts to access the backend as an unauthenticated user, but *TodoItem* table now requires authentication.
+In Xcode, press **Run** to start the app. An exception is raised because the app attempts to access the
+backend as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 ## <a name="add-authentication"></a>Add authentication to app
-[!INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
+**Objective-C**:
+
+1. On your Mac, open *QSTodoListViewController.m* in Xcode and add the following method:
+
+    ```objectivec
+    - (void)loginAndGetData
+    {
+        QSAppDelegate *appDelegate = (QSAppDelegate *)[UIApplication sharedApplication].delegate;
+        appDelegate.qsTodoService = self.todoService;
+
+        [self.todoService.client loginWithProvider:@"google" urlScheme:@"appname" controller:self animated:YES completion:^(MSUser * _Nullable user, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Login failed with error: %@, %@", error, [error userInfo]);
+            }
+            else {
+                self.todoService.client.currentUser = user;
+                NSLog(@"User logged in: %@", user.userId);
+
+                [self refresh];
+            }
+        }];
+    }
+    ```
+
+    Change *google* to *microsoftaccount*, *twitter*, *facebook*, or *windowsazureactivedirectory* if you
+    are not using Google as your identity provider. If you use Facebook, you must [whitelist Facebook domains][1]
+    in your app.
+
+    Replace the **urlScheme** with a unique name for your application.  The urlScheme is used by the authentication
+    callback to switch back to your application after the authentication request is complete.
+
+2. Replace `[self refresh]` in `viewDidLoad` in *QSTodoListViewController.m* with the following code:
+
+    ```objectivec
+    [self loginAndGetData];
+    ```
+
+3. Open the `QSAppDelegate.h` file and add the following code:
+
+    ```objectivec
+    #import "QSTodoService.h"
+
+    @property (strong, nonatomic) QSTodoService *qsTodoService;
+    ```
+
+4. Open the `QSAppDelegate.m` file and add the following code:
+
+    ```objectivec
+    - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+    {
+        if ([[url.scheme lowercaseString] isEqualToString:@"zumoe2etestapp"]) {
+            // Resume login flow
+            return [self.qsTodoService.client resumeWithURL:url];
+        }
+        else {
+            return NO;
+        }
+    }
+    ```
+
+   Add this code directly before the line reading `#pragma mark - Core Data stack`
+
+5. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
+
+    ```xml
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>com.microsoft.azure.zumo</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>appname</string>
+            </array>
+        </dict>
+    </array>
+    ```
+
+    This code should be placed inside the `<dict>` element.  Replace the _appname_ string (within the
+    array for **CFBundleURLSchemes** with the app name you chose in step 1).
+
+6. Press *Run* to start the app, and then log in. When you are logged in, you should be able to view
+    the Todo list and make updates.
+
+**Swift**:
+
+1. On your Mac, open *ToDoTableViewController.swift* in Xcode and add the following method:
+
+    ```swift
+    func loginAndGetData() {
+
+        guard let client = self.table?.client, client.currentUser == nil else {
+            return
+        }
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.todoTableViewController = self
+
+        let loginBlock: MSClientLoginBlock = {(user, error) -> Void in
+            if (error != nil) {
+                print("Error: \(error?.localizedDescription)")
+            }
+            else {
+                client.currentUser = user
+                print("User logged in: \(user?.userId)")
+            }
+        }
+
+        client.login(withProvider:"google", urlScheme: "appname", controller: self, animated: true, completion: loginBlock)
+
+    }
+    ```
+
+    Change *google* to *microsoftaccount*, *twitter*, *facebook*, or *windowsazureactivedirectory* if you
+    are not using Google as your identity provider. If you use Facebook, you must [whitelist Facebook domains][1]
+    in your app.
+
+    Replace the **urlScheme** with a unique name for your application.  The urlScheme is used by the authentication
+    callback to switch back to your application after the authentication request is complete.
+
+
+2. Remove the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the
+    end of `viewDidLoad()` in *ToDoTableViewController.swift*. Add a call to `loginAndGetData()` in their place:
+
+    ```swift
+    loginAndGetData()
+    ```
+
+3. Open the `AppDelegate.swift` file and add the following line to the `AppDelegate` class:
+
+    ```swift
+    var todoTableViewController: ToDoTableViewController?
+    ```
+
+4. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
+
+    ```xml
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.microsoft.azure.zumo</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>appname</string>
+            </array>
+        </dict>
+    </array>
+    ```
+
+    This code should be placed inside the `<dict>` element.  Replace the _appname_ string (within the
+    array for **CFBundleURLSchemes** with the app name you chose in step 1).
+
+5. Press *Run* to start the app, and then log in. When you are logged in, you should be able to view
+    the Todo list and make updates.
+
 
 <!-- URLs. -->
 
+[1]: https://developers.facebook.com/docs/ios/ios9#whitelist
+[Azure portal]: https://portal.azure.com
+
 [iOS quick start]: app-service-mobile-ios-get-started.md
 
-[Azure portal]: https://portal.azure.com
