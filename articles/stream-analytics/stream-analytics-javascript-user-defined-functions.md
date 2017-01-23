@@ -49,12 +49,12 @@ To create a simple JavaScript User-Defined Function under an existing Stream Ana
  
 5.	Put in _hex2Int_ as the UDF alias and change the function implementation as below
 
-```
-// Convert Hex value to integer.
-function main(hexValue) {
-    return parseInt(hexValue, 16);
-}
-```
+    ```
+    // Convert Hex value to integer.
+    function main(hexValue) {
+        return parseInt(hexValue, 16);
+    }
+    ```
 
 6.	Click the **Save** button, your function will appear on the function list. 
 
