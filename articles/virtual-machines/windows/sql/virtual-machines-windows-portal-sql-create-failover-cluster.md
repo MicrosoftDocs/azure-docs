@@ -48,11 +48,11 @@ Before following the instructions in this article, you should already have:
 
 ## How to Configure Failover CLuster with S2D in the UI
 
-1. [Create the availability set](../../virtual-machines/virtual-machines-windows-create-availability-set.md).
+1. [Create the availability set](../../virtual-machines-windows-create-availability-set.md).
 
 1. Create the virtual machines in the availability set.
    
-   Choose an image from the Azure Marketplace.  For details, see [Overview of SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview)
+   Choose an image from the Azure Marketplace.  For details, see [Overview of SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)
    
    >[!TIP]
    >Use the image with the latest service pack for SQL Server and Windows. 
@@ -77,7 +77,7 @@ Before following the instructions in this article, you should already have:
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. 
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer health probe and the cluster to use this port.  
 
-1. Add storage to the virtual machine. [Add storage](../../articles/storage/storage-premium-storage#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+1. Add storage to the virtual machine. [Add storage](../../articles/storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
 
    Attach raw disks - not NTFS formatted disks. 
       >[!NOTE]
@@ -103,13 +103,13 @@ Before following the instructions in this article, you should already have:
    The preceding link shows how to add the feature in the user interface. You can also add the feature with PowerShell. For example:
 
    ```PowerShell
-   $nodes = ("\<Server-1\>", "\<Server-2\>")
+   $nodes = ("<Server-1>", "<Server-2>")
    icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeManagementTools}
    ```
 
 1. [Create a cloud witness for the failover cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
-1. [Create the Failover cluster](virtual-machines-windows-portal-sql-availability-group-tutorial#a-namecreateclusteracreate-the-cluster).
+1. [Create the Failover cluster](virtual-machines-windows-portal-sql-availability-group-tutorial#CreateCluster).
 
    The following PowerShell creates a Windows Server failover cluster. The IP address is the same IP address specified in the load balancer front-end IP address.
 
