@@ -1,6 +1,6 @@
 
 ---
-title: Customize Service Fabric cluster settings and Fabric Upgrade policy | Microsoft Docs
+title: Customize Service Fabric cluster settings | Microsoft Docs
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
 services: service-fabric
 documentationcenter: .net
@@ -19,7 +19,7 @@ ms.author: chackdan
 
 ---
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your service fabric cluster. You can customize them on the portal or using a Resource Manager template.
+This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
 
 ## Fabric settings that you can customize
 Here are the Fabric settings that you can customize:
