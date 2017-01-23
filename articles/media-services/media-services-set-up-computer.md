@@ -1,5 +1,5 @@
 ---
-title: Set up your environment | Microsoft Docs
+title: Set up your Media Services development environment | Microsoft Docs
 description: Set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
-# Set up your environment
+# Set up your Media Services development environment
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
