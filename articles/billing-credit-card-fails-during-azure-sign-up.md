@@ -4,7 +4,7 @@ description: Learn how to resolve issues when your credit or debit card is decli
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 keywords: credit card declined, debit card declined, your credit card was declined, do not honor credit card

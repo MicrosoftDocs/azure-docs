@@ -12,7 +12,7 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure, dcos, swarm, kuberne
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
