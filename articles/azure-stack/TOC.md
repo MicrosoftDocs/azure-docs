@@ -26,7 +26,7 @@
 ## [Subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md)
 ## [Delegate offers in Azure Stack](azure-stack-delegated-provider.md)
 
-# Use templates
+## Use templates
 ## [Template overview](azure-stack-arm-templates.md)
 ## [Develop templates](azure-stack-develop-templates.md)
 ## [Check templates](azure-stack-validate-templates.md)
@@ -36,6 +36,7 @@
 ## [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
 
 # Plan and manage storage
+
 ## [Overview](azure-stack-storage-overview.md)
 ## [Manage storage accounts](azure-stack-manage-storage-accounts.md)
 ## [Differences and considerations](azure-stack-acs-differences-tp2.md)
@@ -86,3 +87,4 @@
 ## [Tools](azure-stack-tools-paas-services.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
+## [Azure Stack Wiki](https://aka.ms/azurestackwiki)
