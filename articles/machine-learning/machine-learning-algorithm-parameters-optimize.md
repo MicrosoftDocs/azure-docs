@@ -1,6 +1,6 @@
 ---
-title: Choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Docs
-description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning.
+title: Optimize algorithms with parameters in Azure Machine Learning | Microsoft Docs
+description: How to choose the optimal parameter set for an algorithm in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
