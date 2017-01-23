@@ -1,5 +1,5 @@
 ---
-title: How to configure your API Management service using Git | Microsoft Docs
+title: Configure your API Management service using Git | Microsoft Docs
 description: Learn how to save and configure your API Management service configuration using Git.
 services: api-management
 documentationcenter: ''
