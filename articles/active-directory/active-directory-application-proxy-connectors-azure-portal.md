@@ -31,9 +31,10 @@ The basic concept is that each Application Proxy Connector is assigned to a conn
 By default, all applications are assigned to a default connector group. If your admin doesn’t change anything, the system continues to behave like it did before. If you change nothing, all the applications assigned to the default connector group include all the connectors. But if you organize your connectors into groups, you can set each application to work with a specific connector group. In this case, only the connectors in that group will serve the application upon request.
 
 >
->[!Note]
+>[!NOTE]
 >Because new connectors are automatically assigned to a default connector group, for large deployments we recommend that you do not have applications assigned to the default group. Therefore once installed, new connectors will not receive any live traffic. Only after you assign the connector to one of the active groups, it can start serving live traffic. This also enables you to put connectors in an idle mode in order to enable maintenance. 
 >
+
  ## Prerequisite: Create your connector groups
 To group your connectors, you have to make sure you [installed multiple connectors](active-directory-application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
 
