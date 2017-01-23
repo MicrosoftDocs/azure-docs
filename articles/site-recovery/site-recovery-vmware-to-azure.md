@@ -83,7 +83,7 @@ The graphic shows how these components interact.
 
 ![architecture](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figure 1: VMware/physical to Azure**
+**VMware/physical to Azure**
 
 ## Azure prerequisites
 Here's what you need in Azure.
@@ -645,16 +645,7 @@ We recommend that you verify the properties of the source machine. Remember that
      ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
 4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
 
-
-## Failover
-After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover.
-[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
-
-> [!NOTE]
-> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-an-unplanned-failover) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
-
-
-## Run a test failover
+## Step 7 : Run a test failover
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
@@ -669,7 +660,16 @@ To test the deployment you can run a test failover for a single virtual machine 
 
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
-## Run an Unplanned Failover
+## Failover
+After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, and Unplanned failover.
+[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
+
+
+> [!NOTE]
+> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Unplanned Failover operation](site-recovery-failover.md#run-an-unplanned-failover) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
+
+
+### Run an Unplanned Failover
 This procedure describes how to run an 'unplanned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
 
 1. Select **Recovery Plans > recoveryplan_name**.
@@ -701,7 +701,6 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 * For access over the internet enable RDP, ensure that TCP and UDP rules are added for the **Public**, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for all profiles.
 * For access over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain** and **Private** networks.
 * Install the [Azure VM agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) on the on-premises machine.
-* [Manually install the Mobility service](#install-the-mobility-service-manually) on machines, instead of using the process server to push the service automatically. This is required because the push installation only happens after the machine is enabled for replication.
 * Ensure that the operating system's SAN policy is set to OnlineAll. [Learn more](https://support.microsoft.com/kb/3031135)
 * Turn off the IPSec service, before you run the failover.
 

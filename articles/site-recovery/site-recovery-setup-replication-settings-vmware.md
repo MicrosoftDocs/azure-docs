@@ -1,5 +1,5 @@
 ---
-title: Setup replication settings | Microsoft Docs
+title: Set up replication settings for Azure Site Recovery| Microsoft Docs
 description: Describes how to deploy Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds, to Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,13 +13,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/10/2016
+ms.date: 01/19/2017 
 ms.author: sutalasi
 
 ---
-# Manage replication policy for 'VMware to Azure'
+# Manage replication policy for VMware to Azure
 
-## Prerequisites 
 
 ## Create a new replication policy
 
@@ -28,36 +27,36 @@ ms.author: sutalasi
 3. Click on '+Replicaton policy' on the top.
 
 
-![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Create-Policy.png)
-
+	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Create-Policy.png)
 
 4. Enter the policy name.
+
 5. In RPO threshold, specify the RPO limit. Alerts will be generated when continuous replication exceeds this limit.
 6. In Recovery point retention, specify in hours how long the retention window will be for each recovery point. Protected machines can be recovered to any point within a window. 
 
-> [!NOTE] 
-> Up to 24 hours retention is supported for machines replicated to premium storage and 72 hours retention is supported for machines replicated to standard storage.
-
-> [!NOTE] 
-> A replicaiton policy for failback will be automatically created.
+	> [!NOTE] 
+	> Up to 24 hours retention is supported for machines replicated to premium storage and 72 hours retention is supported for machines replicated to standard storage.
+	
+	> [!NOTE] 
+	> A replicaiton policy for failback will be automatically created.
 
 7. In App-consistent snapshot frequency, specify how often (in minutes) recovery points containing application-consistent snapshots will be created.
 
 8. Click 'OK'. The policy should be created in about 30 seconds to 1 minute.
 
-![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Creating-Policy.png)
+	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Creating-Policy.png)
 
 ## Associate Configuration server with replication policy
 1. Click on the replication policy to which you want to associate the configuration server.
 2. Click on 'Associate' on top.
 
 
-![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-1.png)
+	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-1.png)
 
 3. Select the 'Configuration server' from the list of servers.
 4. Click OK. The confgiration server should be associated in about 1 to 2 minutes.
 
-![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-2.png)
+	![Create Replication policy](./media/site-recovery-setup-replicaion-settings-vmware/Associate-CS-2.png)
 
 ## Edit replication policy
 1. Click on the replication policy for which you want to edit replication settings.

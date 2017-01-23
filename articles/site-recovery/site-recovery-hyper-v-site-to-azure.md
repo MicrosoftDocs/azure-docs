@@ -399,15 +399,7 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 * A public endpoint should be created to allow incoming connections on the SSH port (TCP port 22 by default).
 * If the VM is accessed over a VPN connection (Express Route or site-to-site VPN) then the client can be used to directly connect to the VM over SSH.
 
-
-## Failover
-After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover.
-[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
-
-> [!NOTE]
-> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
-
-## Run a test failover
+## Step 7: Run a test failover
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
@@ -420,7 +412,27 @@ To test the deployment you can run a test failover for a single virtual machine 
 6. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
 7. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
 
-### Run an Unplanned Failover
+
+## Failover
+After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover.
+[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
+
+> [!NOTE]
+> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
+
+
+### Run a planned Failover
+This should be chosen to meet compliance requirements or during planned maintenance, fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports. This procedure describes how to run an 'planned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
+
+1. Select **Recovery Plans > recoveryplan_name**.
+2. On the Recovery plan blade, Click **Unplanned Failover**.
+3. On the **Confirm Planned Failover **page, choose the source and target locations. 
+4. When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss. You can follow the failover progress on the **Jobs** tab. If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops. You can initiate the failover again.
+6. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
+7. After replication is complete, the virtual machines start up at the secondary location.
+
+
+### Run an unplanned Failover
 This should be chosen when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack. This procedure describes how to run an 'unplanned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
 
 1. Select **Recovery Plans > recoveryplan_name**.
