@@ -30,9 +30,9 @@ The following image shows a common deployment of an availability group on Azure 
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
-In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. You can build this architecture [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
+In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
-This architecture is vulnerable downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
+This architecture is vulnerable to downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
 
    ![Availability Group DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
@@ -52,6 +52,9 @@ The following diagram shows how the networks communicate between data centers.
 
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
+>[!IMPORTANT]
+>This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
+
 ## Create remote replica
 
 To create a replica in a remote data center, do the following steps:
@@ -69,13 +72,13 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
    This load balancer must:
    
    - Be in the same network and subnet as the new virtual machine.
    - Have a static IP address for the Availability Group listener.
-   - Include backend pool consisting of only the virtual machines in the same region as the load balancer.
+   - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
    - Use a TCP port probe specific to the IP address.
    - Have a load balancing rule specific to the SQL Server in the same region.  
 
@@ -98,7 +101,7 @@ To create a replica in a remote data center, do the following steps:
    - Use the network from the remote data center.
    - Assign the IP address from the new Azure load balancer. 
 
-1. In SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
+1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
 
@@ -119,10 +122,20 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Set the cluster parameters in PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
-   >[!IMPORTANT]
-   >Run the PowerShell script with the IP address and probe port that you configured on the load balancer in the new region.
+Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
 
-## Set connection for multi subnets
+   ```PowerShell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
+   $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
+   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
+   
+   Import-Module FailoverClusters
+   
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
+
+## Set connection for multiple subnets
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
@@ -132,7 +145,7 @@ If you cannot modify the connection strings, you can configure name resolution c
 
 ## Fail over to remote region 
 
-To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, fail over is subject to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
+To test listener connectivity to the remote region, you can fail over the replica to the remote region. While the replica is asynchronous, failover is vulnerable to potential data loss. To fail over without data loss, change the availability mode to synchronous and set the failover mode to automatic. Use the following steps:
 
 1. In **Object Explorer**, connect to the instance of SQL Server that hosts the primary replica.
 1. Under **AlwaysOn Availability Groups**, **Availability Groups**, right-click your availability group and click **Properties**.
@@ -166,5 +179,5 @@ For more information, see the following topics:
 
 * [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Azure Load Balancers](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md#configure-internal-load-balancer)
+* [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure Availability Sets](../../virtual-machines-windows-manage-availability.md)

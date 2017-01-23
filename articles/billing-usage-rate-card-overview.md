@@ -4,7 +4,7 @@ description: Provides a conceptual overview of the Azure Billing Usage and RateC
 services: ''
 documentationcenter: ''
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: ''
 tags: billing
 

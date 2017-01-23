@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-x12-decode.md
+redirect_url: /azure/logic-apps/logic-apps-enterprise-integration-x12-decode
 ---

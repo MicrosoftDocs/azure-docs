@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-examples-and-scenarios.md
+redirect_url: /azure/logic-apps/logic-apps-examples-and-scenarios
 ---
