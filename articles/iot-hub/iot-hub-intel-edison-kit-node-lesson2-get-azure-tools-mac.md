@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 2: Get tools (macOS) | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 2: Azure tools (macOS) | Microsoft Docs'
 description: Install Python and Azure command-line interface (Azure CLI) on macOS.
 services: iot-hub
 documentationcenter: ''
