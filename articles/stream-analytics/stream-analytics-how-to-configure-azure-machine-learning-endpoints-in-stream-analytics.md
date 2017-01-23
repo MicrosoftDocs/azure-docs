@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure Machine Learning endpoints in Stream Analytics | Microsoft Docs
+title: Use Azure Machine Learning endpoints in Stream Analytics | Microsoft Docs
 description: Machine Language User defined functions in Stream Analytics
 keywords: ''
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
