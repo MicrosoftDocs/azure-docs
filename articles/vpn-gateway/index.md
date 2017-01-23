@@ -1,5 +1,5 @@
 ---
-title: VPN Gateway Documentation | Microsoft Docs
+title: VPN Gateway Documentation - Tutorials and API Reference | Microsoft Docs
 description: Learn how to configure virtual private network (VPN) gateways to manage traffic between cloud virtual networks and on-premises, or between cloud VNets.
 services: vpn-gateway
 author: carolz
