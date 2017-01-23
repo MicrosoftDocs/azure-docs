@@ -1,5 +1,5 @@
 ---
-title: Service Bus FAQ | Microsoft Docs
+title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
