@@ -1,5 +1,5 @@
 ---
-title: Architecture of predictive maintenance | Microsoft Docs
+title: Predictive maintenance in aerospace - Cortana Intelligence Solution architecture | Microsoft Docs
 description: Architecture diagram of the Microsoft Cortana Intelligence Solution Template for predictive maintenance in aerospace, utilities, transportation
 services: cortana-analytics
 documentationcenter: ''
