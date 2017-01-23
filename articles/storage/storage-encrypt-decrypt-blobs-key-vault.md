@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/23/17
+ms.date: 01/23/2017
 ms.author: adhurwit
 
 ---
