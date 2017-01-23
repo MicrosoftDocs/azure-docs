@@ -232,7 +232,7 @@ Instead of a static configuration setting for your output binding properties, yo
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
