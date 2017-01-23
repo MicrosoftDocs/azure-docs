@@ -1,5 +1,5 @@
 ---
-title: About cross-premises Azure VPN connections| Microsoft Docs
+title: About cross-premises Azure VPN connections | Microsoft Docs
 description: Learn about VPN Gateway connections for Azure Virtual Networks.
 services: vpn-gateway
 documentationcenter: na
