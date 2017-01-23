@@ -1,5 +1,5 @@
 ---
-title: 'T-SQL: Manage an Azure SQL database elastic pool | Microsoft Docs'
+title: 'T-SQL: Manage an Azure SQL Database elastic pool | Microsoft Docs'
 description: Use T-SQL to manage an Azure SQL Database elastic pool. 
 services: sql-database
 documentationcenter: ''
