@@ -1,5 +1,5 @@
 ---
-title: Move data from FTP server | Microsoft Docs
+title: Move data from FTP server using Azure Data Factory | Microsoft Docs
 description: Learn about how to move data from an FTP server using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
