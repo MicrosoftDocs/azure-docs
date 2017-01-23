@@ -121,7 +121,7 @@ JavaScript runtime errors will be considered fatal and surfaced through the Acti
 
 ## Other JavaScript UDF usage patterns
 
-1.	Writing nested JSON to output
+### Writing nested JSON to output
 Writing a JSON string to output is a common task when you have follow-up processing step which takes Stream Analytics job output as input and it requires a JSON format. Below example calls JSON.stringify() function to pack all name/value pairs of the input and write them as a single string value in output. 
 
 ### JavaScript UDF definition:
@@ -130,8 +130,10 @@ Writing a JSON string to output is a common task when you have follow-up process
 function main(x) {
 return JSON.stringify(x);
 }
+```
 
-Sample query:
+**Sample query:**
+```
 SELECT 
     DataString,
     DataValue,
