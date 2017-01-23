@@ -120,7 +120,6 @@ The app is in a customer's network in the U.S. with users in the same region. No
 **Recommendation:** Follow use case #1 above. For improved latency, consider leveraging ExpressRoute, if needed <see use case #3 and #4>.
 
 This is a simple pattern. The most common pattern is to optimize hop #3, where the connector is placed near the app. This is also a natural choice, because the connector typically is installed with line of sight to the app and to the DC to perform KCD operations.
-
 This use case follows the pattern #1 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern1.png)
@@ -149,7 +148,7 @@ This use case follows the pattern #3 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern3.png)
 
-### Use Case 4:
+### Use Case 4
 
 The app is in a customer's network in the US. ExpressRoute with private peering exists between Azure and the corporate network.
 
@@ -161,7 +160,7 @@ This use case follows the pattern #4 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern4.png)
 
-### Use Case 5:
+### Use Case 5
 
 The app is in a customer's network in the E.U. with most users in the US.
 
