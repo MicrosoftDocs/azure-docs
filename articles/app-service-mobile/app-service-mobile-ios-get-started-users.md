@@ -113,7 +113,9 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
     This code should be placed inside the `<dict>` element.  Replace the _appname_ string (within the
-    array for **CFBundleURLSchemes** with the app name you chose in step 1).
+    array for **CFBundleURLSchemes** with the app name you chose in step 1).  You can also make these
+    changes in the plist editor - click on the `AppName-Info.plist` file in XCode to open the plist
+    editor.
 
 6. Press *Run* to start the app, and then log in. When you are logged in, you should be able to view
     the Todo list and make updates.
@@ -185,15 +187,19 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
     This code should be placed inside the `<dict>` element.  Replace the _appname_ string (within the
-    array for **CFBundleURLSchemes** with the app name you chose in step 1).
+    array for **CFBundleURLSchemes** with the app name you chose in step 1).  You can also make these
+    changes in the plist editor - click on the `AppName-Info.plist` file in XCode to open the plist
+    editor.
 
 5. Press *Run* to start the app, and then log in. When you are logged in, you should be able to view
     the Todo list and make updates.
 
-
+App Service Authentication uses Apples Inter-App Communication.  For more details on this subject, refer
+to the [Apple Documentation][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
+[2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
 [Azure portal]: https://portal.azure.com
 
 [iOS quick start]: app-service-mobile-ios-get-started.md
