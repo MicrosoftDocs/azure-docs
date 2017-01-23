@@ -107,8 +107,6 @@ A: No, SSE is only supported on Resource Manager storage accounts.
 
 A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account. 
 
-Another option is to migrate your classic storage account to a Resource Manage storage account. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/).
-
 **Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 
 A: Yes, but only newly written blobs will be encrypted. It does not go back and encrypt data that was already present. 
