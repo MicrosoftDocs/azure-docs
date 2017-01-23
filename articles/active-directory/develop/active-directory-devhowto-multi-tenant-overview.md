@@ -1,5 +1,5 @@
 ---
-title: How to build an application that can sign in any Azure Active Directory user| Microsoft Docs
+title: How to build an app that can sign in any Azure AD user| Microsoft Docs
 description: Step by step instructions for building an application that can sign in a user from any Azure Active Directory tenant, also known as a multi-tenant application.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: skwan;bryanla
 
 ---
