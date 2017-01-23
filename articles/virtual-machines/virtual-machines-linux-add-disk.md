@@ -1,5 +1,5 @@
 ---
-title: Add a disk to Linux VM | Microsoft Docs
+title: Add a disk to Linux VM with the Azure CLI | Microsoft Docs
 description: Learn to add a persistent disk to your Linux VM
 keywords: linux virtual machine,add resource disk
 services: virtual-machines-linux
