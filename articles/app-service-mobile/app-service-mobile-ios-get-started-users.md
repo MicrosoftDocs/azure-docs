@@ -82,7 +82,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
     {
-        if ([[url.scheme lowercaseString] isEqualToString:@"zumoe2etestapp"]) {
+        if ([[url.scheme lowercaseString] isEqualToString:@"appname"]) {
             // Resume login flow
             return [self.qsTodoService.client resumeWithURL:url];
         }
@@ -92,7 +92,8 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     }
     ```
 
-   Add this code directly before the line reading `#pragma mark - Core Data stack`
+   Add this code directly before the line reading `#pragma mark - Core Data stack`.  Replace the
+   _appname_ wih the urlScheme value that you used in step 1.
 
 5. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 
@@ -168,7 +169,18 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
 
     ```swift
     var todoTableViewController: ToDoTableViewController?
+
+    func application(_ application: UIApplication, openURL url: NSURL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme?.lowercased() == "appname" {
+            return (todoTableViewController!.table?.client.resume(with: url as URL))!
+        }
+        else {
+            return false
+        }
+    }
     ```
+
+    Replace the _appname_ wih the urlScheme value that you used in step 1.
 
 4. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 
