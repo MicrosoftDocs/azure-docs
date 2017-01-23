@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure AD in Visual Studio MVC projects | Microsoft Docs
+title: Get Started with Azure AD in Visual Studio MVC projects
 description: How to get started using Azure Active Directory in MVC projects after connecting to or creating an Azure AD using Visual Studio connected services
 services: active-directory
 documentationcenter: ''
