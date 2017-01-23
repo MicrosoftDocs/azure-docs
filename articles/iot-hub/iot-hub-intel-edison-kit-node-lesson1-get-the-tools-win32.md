@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''

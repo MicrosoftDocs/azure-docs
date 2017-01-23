@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison to Azure IoT - Lesson 1: Get tools (Ubuntu) | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Get tools (Ubuntu) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on Ubuntu.
 services: iot-hub
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison to Azure IoT - Lesson 3: Send device messages | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Send messages | Microsoft Docs'
 description: Deploy and run a sample application to Intel Edison that sends messages to your IoT hub and blinks the LED.
 services: iot-hub
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison to Azure IoT - Lesson 3: Read cloud messages | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Monitor messages | Microsoft Docs'
 description: Monitor the device-to-cloud messages as they are written to your Azure Table storage.
 services: iot-hub
 documentationcenter: ''

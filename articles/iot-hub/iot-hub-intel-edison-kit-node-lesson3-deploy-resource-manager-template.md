@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison to Azure IoT - Lesson 3: Create function app | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 3: Create function app | Microsoft Docs'
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''

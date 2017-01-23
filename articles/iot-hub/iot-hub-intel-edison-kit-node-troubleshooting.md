@@ -1,5 +1,5 @@
 ---
-title: 'Connect Intel Edison to Azure IoT - Lesson 4: Troubleshooting | Microsoft Docs'
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 4: Troubleshooting | Microsoft Docs'
 description: Troubleshooting page for Intel Edison Node.js experience
 services: iot-hub
 documentationcenter: ''
