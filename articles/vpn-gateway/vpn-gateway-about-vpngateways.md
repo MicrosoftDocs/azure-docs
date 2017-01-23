@@ -21,9 +21,9 @@ ms.author: cherylmc
 # About VPN Gateway
 If you want to send network traffic between your Azure virtual network and your on-premises locations, you need to create a virtual network gateway. A VPN gateway is a type of virtual network gateway that sends encrypted traffic across a public connection. You can also use virtual network gateways to send traffic between Azure virtual networks over the Microsoft network.
 
-When you create a virtual network gateway, you specify several settings. One of the required settings is '-GatewayType'. When network traffic is sent encrypted across a public connection, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway. When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. 
+When you create a virtual network gateway, you specify several settings. One of the required settings is '-GatewayType'. Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses '-GatewayType ExpressRoute', and one that uses '-GatewayType Vpn'. This article focuses primarily on VPN Gateway. 
 
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses '-GatewayType ExpressRoute', and one that uses '-GatewayType Vpn'. This article focuses primarily on VPN Gateway. For more information about ExpressRoute, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
+When network traffic is sent encrypted across a public connection, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway. When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. For more information about ExpressRoute, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
 ## Pricing
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
