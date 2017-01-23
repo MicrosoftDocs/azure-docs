@@ -1,5 +1,5 @@
 ---
-title: SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide | Microsoft Docs
+title: SAP NetWeaver on Linux VMs in Azure – Plan and Implement | Microsoft Docs
 description: SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide
 services: virtual-machines-linux
 documentationcenter: ''
