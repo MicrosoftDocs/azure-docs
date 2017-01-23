@@ -31,7 +31,6 @@ When an application is published through Azure AD App Proxy, all traffic from th
 * Hop 2: App proxy service to the connector
 * Hop 3: Connector to target application
 
-
  ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
 
 ## Tenant location and App Proxy service
@@ -51,6 +50,7 @@ Corporations have typically included server endpoints in their network's demilit
 App Proxy service chooses the location of instances for you, based on your tenant location. Therefore, you get to decide where to install the connector, giving you the power to define the end-to-end latency characteristics of your network traffic.
 
 When settingup the App Proxy service, here are some questions you should ask:
+
 * Where is the app located?
 * Where are the majority of users accessing the app located?
 * Where is the App Proxy instance located (this is based on your tenant)?
@@ -70,20 +70,20 @@ Each hop can be optimized by:
 * Reducing the distance between the two ends of the hop.
 * Choosing the right network to traverse. For example, traversing a private network rather than the public Internet may be faster, due to dedicated links.
  
- If you have a dedicated VPN/Express Route link between Azure and your corporate network, you may want to leverage that.
+If you have a dedicated VPN/Express Route link between Azure and your corporate network, you may want to leverage that.
 
 ## Focus your optimizing strategy
 
 Because your users may access apps remotely over the Internet, you should always focus on optimizing hops 2 and 3. Below are some of the common patterns you can incorporate.
 
-###Pattern #1: Optimize hop #3:
+### Pattern #1: Optimize hop #3:
 
 To optimize hop 3, the connector is placed close to the target application in the customer network. The advantage with doing this is that the connector is likely to need line-of-sight to the Domain Controller, as mentioned above. This approach is usually enough for most customers and scenarios. Most of our customers follow this pattern.
 
  ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-hop3.png)
 
 
-> NOTE
+> [!NOTE]
 There are some scenarios where you will need to optimize both hop #2 and hop #3 to get the latency characteristics you want. For example, if you have a VPN or ExpressRoute setup between your network and the Azure datacenter, this scenario allows you to optimize hop #2, in addition to hop #3.
 >
 
@@ -93,7 +93,7 @@ If you have an ExpressRoute setup with public peering, then we will leverage the
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-expressroute-public.png)
 
-## Pattern #3: Taking advantage ExpressRoute with private peering
+### Pattern #3: Taking advantage ExpressRoute with private peering
 
 If you have a dedicated VPN or ExpressRoute setup with private peering between Azure and your corporate network that the app is installed, you have another option. In this configuration, the virtual network in Azure is typically considered as extension of the corporate network. So you can install the connector in the Azure datacenter, and still satisfy the low latency requirements of the connector-to-app connection for hop #3. 
 
@@ -113,7 +113,9 @@ Consider using connector groups to target apps that are in different locations a
 
 In this section, we walk through a few use cases. For all the use cases below, assume that the Azure AD tenant (and therefore proxy service endpoint) is in the U.S. In other regions around the globe, the same considerations will usually apply.
 
-**Use Case 1:** The app is in a customer's network in the U.S. with users in the same region. No ExpressRoute or VPN exists between and Azure DC and the corporate network.
+### Use Case 1
+
+The app is in a customer's network in the U.S. with users in the same region. No ExpressRoute or VPN exists between and Azure DC and the corporate network.
 
 **Recommendation:** Follow use case #1 above. For improved latency, consider leveraging ExpressRoute, if needed <see use case #3 and #4>.
 
@@ -123,7 +125,9 @@ This use case follows the pattern #1 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern1.png)
 
-**Use Case 2:** The app is in a customer's network in the U.S. with users spread out globally. No ExpressRoute or VPN exists between and Azure DC and the corporate network.
+### Use Case 2
+
+The app is in a customer's network in the U.S. with users spread out globally. No ExpressRoute or VPN exists between and Azure DC and the corporate network.
 
 **Recommendation:** Follow use case #2 above. For improved latency, consider leveraging ExpressRoute, if needed (see use case #3 and #4).
 
@@ -133,7 +137,9 @@ This use case follows the pattern #2 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern2.png)
 
-**Use Case 3:** The app is in a customer's network in the U.S. ExpressRoute with public peering exists between Azure and the corporate network.
+## Use Case 3
+
+The app is in a customer's network in the U.S. ExpressRoute with public peering exists between Azure and the corporate network.
 
 **Recommendation:** Place the connector as close as possible to the app. The system will automatically use ExpressRoute for hop #2. This follows pattern #2 described above.
 
