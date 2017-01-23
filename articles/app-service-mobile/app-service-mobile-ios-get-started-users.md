@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 01/23/2017
 ms.author: yuaxu
 
 ---
@@ -100,8 +100,6 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
             <key>CFBundleURLName</key>
             <string>com.microsoft.azure.zumo</string>
             <key>CFBundleURLSchemes</key>
@@ -116,6 +114,8 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     array for **CFBundleURLSchemes** with the app name you chose in step 1).  You can also make these
     changes in the plist editor - click on the `AppName-Info.plist` file in XCode to open the plist
     editor.
+
+    Replace the `com.microsoft.azure.zumo` string for **CFBundleURLName** with your Apple bundle identifier.
 
 6. Press *Run* to start the app, and then log in. When you are logged in, you should be able to view
     the Todo list and make updates.
@@ -190,6 +190,8 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     array for **CFBundleURLSchemes** with the app name you chose in step 1).  You can also make these
     changes in the plist editor - click on the `AppName-Info.plist` file in XCode to open the plist
     editor.
+
+    Replace the `com.microsoft.azure.zumo` string for **CFBundleURLName** with your Apple bundle identifier.
 
 5. Press *Run* to start the app, and then log in. When you are logged in, you should be able to view
     the Todo list and make updates.
