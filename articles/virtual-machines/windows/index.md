@@ -2,7 +2,7 @@
 layout: LandingPage
 description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
 
-title: Azure Virtual Machines for Windows Documentation | Microsoft Docs
+title: Azure Virtual Machines for Windows Documentation, Tutorials and API Reference | Microsoft Docs
 services: virtual-machines
 author: carolz
 manager: carolz
