@@ -1,5 +1,5 @@
 ---
-title: Copy or move data easily with Copy Wizard | Microsoft Docs
+title: Copy data easily with Copy Wizard - Azure | Microsoft Docs
 description: Learn about how to use the Data Factory Copy Wizard to copy data from supported data sources to sinks.
 services: data-factory
 documentationcenter: ''
