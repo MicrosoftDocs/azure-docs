@@ -101,7 +101,7 @@ Latency is not compromised because traffic is flowing over a dedicated connectio
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-expressroute-private.png)
 
-## Other approaches
+### Other approaches
 
 The focus on this article so far has been on connector placement. However,  if moving the application is an option for you (for example, to Azure or another hosted environment), then the application’s placement can be changed to get better latency characteristics. 
 
@@ -137,7 +137,7 @@ This use case follows the pattern #2 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern2.png)
 
-## Use Case 3
+### Use Case 3
 
 The app is in a customer's network in the U.S. ExpressRoute with public peering exists between Azure and the corporate network.
 
@@ -149,7 +149,9 @@ This use case follows the pattern #3 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern3.png)
 
-**Use Case 4:** The app is in a customer's network in the US. ExpressRoute with private peering exists between Azure and the corporate network.
+### Use Case 4:
+
+The app is in a customer's network in the US. ExpressRoute with private peering exists between Azure and the corporate network.
 
 **Recommendation:** Place the connector in the Azure DC that is connected to the corporate network through ExpressRoute private peering. This follows pattern #3 described above.
 
@@ -159,7 +161,9 @@ This use case follows the pattern #4 below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern4.png)
 
-**Use Case 5:** The app is in a customer's network in the E.U. with most users in the US.
+### Use Case 5:
+
+The app is in a customer's network in the E.U. with most users in the US.
 
 **Recommendation:** Place the connector near the app. For the reasons covered above, this is the best choice. Since U.S. users are accessing an App Proxy instance that happens to be in the same region, Hop #1 is not too expensive. Hop #3 is optimized. However, Hop #2 is typically expensive in this use case.
 
