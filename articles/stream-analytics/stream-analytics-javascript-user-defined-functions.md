@@ -66,15 +66,16 @@ To create a simple JavaScript User-Defined Function under an existing Stream Ana
 
 2.	Edit your query and call the UDF you just added as below:
 
-```
-SELECT 
-    time,
-    UDF.hex2Int(offset) AS IntOffset
-INTO
-    output
-FROM
-    InputStream
-```
+
+    ```
+    SELECT 
+        time,
+        UDF.hex2Int(offset) AS IntOffset
+    INTO
+        output
+    FROM
+        InputStream
+    ```
 
 3.	Right click on the job input to upload sample data file
  
