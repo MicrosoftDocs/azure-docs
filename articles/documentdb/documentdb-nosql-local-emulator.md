@@ -226,13 +226,13 @@ Use the following tips to help troubleshoot issues you encounter with the Docume
 
 To collect debugging traces, run the following commands from an administrative command prompt:
 
-1. `DocumentDB.Emulator.exe /shutdown`
-2. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
+1. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
+2. `DocumentDB.Emulator.exe /shutdown`. Watch the system tray to make sure the program has shut down, it may take a minute. You can also just click **Exit** in the DocumentDB emulator user interface.
 3. `DocumentDB.Emulator.exe /starttraces`
 4. `DocumentDB.Emulator.exe`
 5. Reproduce the problem. If Data Explorer is not working, you only need to wait for the browser to open for a few seconds to catch the error.
 5. `DocumentDB.Emulator.exe /stoptraces`
-6. Navigate to Program Files\DocumentDB Emulator and find the docdbemulator_000001.etl file.
+6. Navigate to `%ProgramFiles%\DocumentDB Emulator` and find the docdbemulator_000001.etl file.
 7. Send the .etl file along with repro steps to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) for debugging.
 
 
