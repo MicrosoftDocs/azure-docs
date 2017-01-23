@@ -1,6 +1,6 @@
 ---
-title: Accessing VM ID
-description: Describes Accessing and Using Azure VM Unique ID
+title: Get an Azure Linux VM ID  | Microsoft Docs
+description: Describes how to get and use an Azure Linux VM Unique ID.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: kmouss
