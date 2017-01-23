@@ -17,9 +17,11 @@
 ## Build
 ### [Create a connector](logic-apps-create-api-app.md)
 ### [Use File System connector](logic-apps-using-file-connector.md)
+### [Use SAP connector](logic-apps-using-sap-connector.md)
 ### [Visual Studio tools](logic-apps-deploy-from-vs.md)
 ### [Using Azure functions](logic-apps-azure-functions.md)
 ### [Logic apps as callable endpoints](logic-apps-http-endpoint.md)
+### [Loops, scopes, and debatching](logic-apps-loops-and-scopes.md)
 ### [Using your custom API](logic-apps-custom-hosted-api.md)
 ### [Exception handling](logic-apps-exception-handling.md)
 ### [Exception handling scenario](logic-apps-scenario-error-and-exception-handling.md)
@@ -41,6 +43,7 @@
 ### [Using certificates](logic-apps-enterprise-integration-certificates.md)
 ### [Add partners](logic-apps-enterprise-integration-partners.md)
 ### [Add schemas](logic-apps-enterprise-integration-schemas.md)
+### [Store metadata](logic-apps-enterprise-integration-metadata.md)
 ### [AS2 integration](logic-apps-enterprise-integration-as2.md)
 ### [AS2 encoding](logic-apps-enterprise-integration-as2-encode.md)
 ### [AS2 decoding](logic-apps-enterprise-integration-as2-decode.md)
@@ -62,12 +65,14 @@
 
 ## Manage
 ### [Use Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
+### [Secure your logic app](logic-apps-securing-a-logic-app.md)
 ### [Monitor logic apps](logic-apps-monitor-your-logic-apps.md)
 ### [Monitor B2B messages](logic-apps-monitor-b2b-message.md)
 #### [AS2 tracking schema](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 tracking schema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Custom tracking schema](logic-apps-track-integration-account-custom-tracking-schema.md)
 #### [Track B2B messages](logic-apps-track-b2b-messages-omsportal.md)
+#### [Query OMS portal](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ### [Integration accounts](logic-apps-enterprise-integration-accounts.md)
 ### [Pricing](logic-apps-pricing.md)

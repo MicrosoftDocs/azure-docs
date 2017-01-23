@@ -72,7 +72,7 @@ Click the alert to configure it.
 Notice that you can disable Smart Detection, but you can't delete it (or create another one).
 
 #### Detailed alerts
-If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
+If you select "Get more detailed diagnostics" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
 
 There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
 

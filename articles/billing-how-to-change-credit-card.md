@@ -4,7 +4,7 @@ description: Describes how to How to change the credit card used to pay for an A
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 

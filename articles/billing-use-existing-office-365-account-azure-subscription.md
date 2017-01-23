@@ -4,7 +4,7 @@ description: Learn how to share your Office 365 Azure AD tenant and its users wi
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: ''
 tags: billing,top-support-issue
 
