@@ -31,15 +31,16 @@ To let the **Media Encoder Premium Workflow** know that you are changing some pr
 ## Configuration string syntax
 The configuration string to set in the encoding task uses an XML document that looks like this:
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <transcodeRequest>
-      <transcodeSource>
-      </transcodeSource>
-      <setRuntimeProperties>
-        <property propertyPath="Media File Input/filename" value="VideoFileName.mp4" />
-      </setRuntimeProperties>
-    </transcodeRequest>
-
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<transcodeRequest>
+  <transcodeSource>
+  </transcodeSource>
+  <setRuntimeProperties>
+    <property propertyPath="Media File Input/filename" value="VideoFileName.mp4" />
+  </setRuntimeProperties>
+</transcodeRequest>
+```
 
 The following is the C# code that reads the XML configuration from a file, update it with the right video filename and passes it to the task in a job:
 
@@ -254,12 +255,9 @@ With additional frame-accurate trimming:
         </setRuntimeProperties>
       </transcodeRequest>
 
+## Example 1 : Overlay an image on top of the video
 
-## Examples
-
-### Example 1 : Overlay an image on top of the video
-
-#### Presentation
+### Presentation
 Consider an example in which you want to overlay a logo image on the input video while the video is encoded. In this example, the input video is named "Microsoft_HoloLens_Possibilities_816p24.mp4" and the logo is named "logo.png". You should perform the following steps:
 
 * Create a Workflow Asset with the workflow file (see the following example).
@@ -283,7 +281,7 @@ In the example above, the name of the video file is sent to the Media File Input
 > [!NOTE]
 > The video file name is sent to the primarySourceFile property. The reason for this is to use this property in the workflow for building the correct output file name using Expressions, for example.
 
-#### Step-by-step workflow creation
+### Step-by-step workflow creation
 Here are the steps to create a workflow that takes two files as input: a video and an image. It will overlay the image on top of the video.
 
 Open **Workflow Designer** and select **File** > **New Workspace** > **Transcode Blueprint**.
@@ -412,7 +410,7 @@ After the job is complete, the MP4 file in the output asset displays the overlay
 
 You can download the sample workflow from [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-### Example 2 : Multiple audio language encoding
+## Example 2 : Multiple audio language encoding
 
 An example of multiple audio language encoding workfkow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
