@@ -1,5 +1,5 @@
 ---
-title: Azure Batch diagnostic logging | Microsoft Docs
+title: Enable diagnostic logging for Batch events - Azure | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 services: batch
 documentationcenter: ''
