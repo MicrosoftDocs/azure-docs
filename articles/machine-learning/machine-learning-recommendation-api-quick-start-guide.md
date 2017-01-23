@@ -1,5 +1,5 @@
 ---
-title: 'Quick start guide: Machine Learning Recommendations API | Microsoft Docs'
+title: 'Quick start: Azure Machine Learning Recommendations API (ver. 1)| Microsoft Docs'
 description: Azure Machine Learning Recommendations - Quick Start Guide
 services: machine-learning
 documentationcenter: ''
