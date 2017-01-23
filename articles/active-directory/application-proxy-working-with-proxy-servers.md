@@ -1,5 +1,5 @@
 ---
-title: Working with existing on-premises Application Proxy servers | Microsoft Docs
+title: Working with existing on-premises proxy servers | Microsoft Docs
 description: Covers how to work with existing on-premise Proxy servers.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 01/12/2017
 ms.author: kgremban
 
 ---
-# Working with existing on-premises Application Proxy servers
+# Working with existing on-premises proxy servers
 
 This article explains how to configure the Application Proxy Connector to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
