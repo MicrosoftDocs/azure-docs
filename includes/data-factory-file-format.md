@@ -50,7 +50,7 @@ To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar`
 "escapeChar": "$",
 ```
 
-### Scenarios for using firstRowAsHeader and skipLineCount
+#### Scenarios for using firstRowAsHeader and skipLineCount
 * You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify `firstRowAsHeader` as true in the output dataset for this scenario.
 * You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify `firstRowAsHeader` as true in the input dataset.
 * You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify `skipLineCount` to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify `firstRowAsHeader`. If both `skipLineCount` and `firstRowAsHeader` are specified, the lines are skipped first and then the header information is read from the input file
@@ -72,92 +72,93 @@ If you want to parse the JSON files or write the data in JSON format, set the `f
 
 Copy activity can parse below patterns of JSON files:
 
-**Type I: setOfObjects**
+- **Type I: setOfObjects**
 
-Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy activity produces a single JSON file with each object per line (line-delimited).
+    Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy activity produces a single JSON file with each object per line (line-delimited).
 
-- **single object JSON example**
+    * **single object JSON example**
+
+        ```json
+        {
+            "time": "2015-04-29T07:12:20.9100000Z",
+            "callingimsi": "466920403025604",
+            "callingnum1": "678948008",
+            "callingnum2": "567834760",
+            "switch1": "China",
+            "switch2": "Germany"
+        }
+        ```
+
+    * **line-delimited JSON example**
+
+        ```json
+        {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
+        {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
+        {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
+        ```
+
+    * **concatenated JSON example**
+
+        ```json
+        {
+            "time": "2015-04-29T07:12:20.9100000Z",
+            "callingimsi": "466920403025604",
+            "callingnum1": "678948008",
+            "callingnum2": "567834760",
+            "switch1": "China",
+            "switch2": "Germany"
+        }
+        {
+            "time": "2015-04-29T07:13:21.0220000Z",
+            "callingimsi": "466922202613463",
+            "callingnum1": "123436380",
+            "callingnum2": "789037573",
+            "switch1": "US",
+            "switch2": "UK"
+        }
+        {
+            "time": "2015-04-29T07:13:21.4370000Z",
+            "callingimsi": "466923101048691",
+            "callingnum1": "678901578",
+            "callingnum2": "345626404",
+            "switch1": "Germany",
+            "switch2": "UK"
+        }
+        ```
+
+- **Type II: arrayOfObjects**
+
+    Each file contains an array of objects.
 
     ```json
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    }
+    [
+        {
+            "time": "2015-04-29T07:12:20.9100000Z",
+            "callingimsi": "466920403025604",
+            "callingnum1": "678948008",
+            "callingnum2": "567834760",
+            "switch1": "China",
+            "switch2": "Germany"
+        },
+        {
+            "time": "2015-04-29T07:13:21.0220000Z",
+            "callingimsi": "466922202613463",
+            "callingnum1": "123436380",
+            "callingnum2": "789037573",
+            "switch1": "US",
+            "switch2": "UK"
+        },
+        {
+            "time": "2015-04-29T07:13:21.4370000Z",
+            "callingimsi": "466923101048691",
+            "callingnum1": "678901578",
+            "callingnum2": "345626404",
+            "switch1": "Germany",
+            "switch2": "UK"
+        },
+    ]
     ```
 
-- **line-delimited JSON example**
-
-    ```json
-    {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
-    {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
-    {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
-    ```
-
-- **concatenated JSON example**
-
-    ```json
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    }
-    {
-        "time": "2015-04-29T07:13:21.0220000Z",
-        "callingimsi": "466922202613463",
-        "callingnum1": "123436380",
-        "callingnum2": "789037573",
-        "switch1": "US",
-        "switch2": "UK"
-    }
-    {
-        "time": "2015-04-29T07:13:21.4370000Z",
-        "callingimsi": "466923101048691",
-        "callingnum1": "678901578",
-        "callingnum2": "345626404",
-        "switch1": "Germany",
-        "switch2": "UK"
-    }
-    ```
-
-**Type II: arrayOfObjects**
-
-Each file contains an array of objects.
-
-```json
-[
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    },
-    {
-        "time": "2015-04-29T07:13:21.0220000Z",
-        "callingimsi": "466922202613463",
-        "callingnum1": "123436380",
-        "callingnum2": "789037573",
-        "switch1": "US",
-        "switch2": "UK"
-    },
-    {
-        "time": "2015-04-29T07:13:21.4370000Z",
-        "callingimsi": "466923101048691",
-        "callingnum1": "678901578",
-        "callingnum2": "345626404",
-        "switch1": "Germany",
-        "switch2": "UK"
-    },
-]
-```
 ### JsonFormat example
 If you have a JSON file with the following content:  
 
