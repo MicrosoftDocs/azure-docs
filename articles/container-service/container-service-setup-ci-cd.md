@@ -329,16 +329,17 @@ Delete the Azure Container Registry:
 In the Azure portal, search for the Azure Container Registry, and delete it. 
 
 The [Visual Studio Team Services account offers free Basic Access Level for the first five users](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), but you can delete the build and release definitions.
+
 Delete the VSTS Build Definition:
 		
-	* Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
-	* Click the action menu beside the build definition you want to delete, and select **Delete Definition**
+1. Open the Build Definition URL in your browser, then click on the **Build Definitions** link (next to the name of the build definition you are currently viewing).
+2. Click the action menu beside the build definition you want to delete, and select **Delete Definition**
 
-	![Delete VSTS Build Definition](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![Delete VSTS Build Definition](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
 Delete the VSTS Release Definition:
 
-	* Open the Release Definition URL in your browser.
-	* In the Release Definitions list on the left-hand side, click the drop-down beside the release definition you want to delete, and select **Delete**.
+1. Open the Release Definition URL in your browser.
+2. In the Release Definitions list on the left-hand side, click the drop-down beside the release definition you want to delete, and select **Delete**.
 
-	![Delete VSTS Release Definition](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
+`![Delete VSTS Release Definition](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
