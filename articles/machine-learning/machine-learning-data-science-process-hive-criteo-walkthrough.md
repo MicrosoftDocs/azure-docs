@@ -1,5 +1,5 @@
 ---
-title: 'The Team Data Science Process in action: using HDInsight Hadoop clusters on the 1 TB Criteo dataset | Microsoft Docs'
+title: Analyze and model the 1 TB Criteo dataset on Hadoop clusters | Microsoft Docs'
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset
 services: machine-learning,hdinsight
 documentationcenter: ''

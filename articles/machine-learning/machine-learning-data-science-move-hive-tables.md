@@ -1,5 +1,5 @@
 ---
-title: Create and load data into Hive tables from Blob storage | Microsoft Docs
+title: Create Hive queries to load data into tables | Microsoft Docs
 description: Create Hive tables and load data in blob to hive tables
 services: machine-learning,storage
 documentationcenter: ''
