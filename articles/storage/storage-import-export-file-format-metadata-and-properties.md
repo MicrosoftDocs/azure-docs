@@ -1,5 +1,5 @@
 ---
-title: Import-Export Service Metadata and Properties File Format | Microsoft Docs
+title: Azure Import-Export service metadata and properties file format | Microsoft Docs
 description: Learn how to specify metadata and properties for one or more blobs that are part of an import or export job
 author: muralikk
 manager: syadav
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---

@@ -1,6 +1,6 @@
 ---
 
-title: Import-Export Service Log File Format | Microsoft Docs
+title: Azure Import/Export log file format | Microsoft Docs
 description: Learn about the format of the log files created when steps are executed for an Import-Export Service job
 author: muralikk
 manager: syadav
@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---

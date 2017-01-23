@@ -1,5 +1,5 @@
 ---
-title: Setting Properties and Metadata during the Import Process | Microsoft Docs
+title: Setting properties and metadata in the import process v1 | Microsoft Docs | Microsoft Docs
 description: Learn how to specify properties and metadata to be set on the destination blobs when running the Import-Export tool to prepare your drives. 
 author: muralikk
 manager: syadav
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---

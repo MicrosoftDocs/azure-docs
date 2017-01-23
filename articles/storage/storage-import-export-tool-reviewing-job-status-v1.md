@@ -1,5 +1,5 @@
 ---
-title: Reviewing Job Status with Copy Log Files | Microsoft Docs
+title: Reviewing Azure Import-Export Job Status with Log Files | Microsoft Docs
 description: Learn how to use the log files created when the import or export job was run to see the status of the Import-Export Job. 
 author: renashahmsft
 manager: aungoo
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
+ms.date: 01/23/2017
 ms.author: renash
 
 ---

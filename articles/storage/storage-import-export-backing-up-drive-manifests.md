@@ -1,5 +1,5 @@
 ---
-title: Backing up Azure Import/Export drive manifests | MicrosoftDocs
+title: Backing up Azure Import/Export drive manifests | Microsoft Docs
 description: Learn how to have your drive manifests for the Microsoft Azure Import/Export service backed-up automatically.
 author: muralikk
 manager: syadav
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
