@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Microsoft Docs
+title: 'Connect Intel Edison to Azure IoT - Lesson 1: Get tools (Ubuntu) | Microsoft Docs'
 description: Install Python and Azure command-line interface (Azure CLI) on Ubuntu.
 services: iot-hub
 documentationcenter: ''
