@@ -20,7 +20,7 @@
 #### [Load balancer - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Failover Cluster Instance
-#### [Configure](virtual-machines-windows-portal-create-failover-cluster.md)
+#### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Manage
 ### [Use the SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)

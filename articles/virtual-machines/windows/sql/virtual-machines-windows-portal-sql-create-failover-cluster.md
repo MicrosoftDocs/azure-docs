@@ -26,7 +26,7 @@ This article explains how to create a SQL Server Failover Cluster Instance (FCI)
 
 The following diagram shows the complete solution on Azure Virtual Machines:
 
-![Availability Group](./media/virtual-machines-windows-portal-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
+![Availability Group](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
 In this solution each virtual machine has two or more data disks. S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. Then you can create a cluster shared volume (CSV) on the storage pool. The CSV are mounted on the virtual machine system drive. The SQL Server FCI cluster role uses the storage for the cluster system and data drives. In addition, the solution requires an Azure load balancer to hold the IP address for the SQL Server FCI. Finally, a single availability set holds all of the resources.
 
