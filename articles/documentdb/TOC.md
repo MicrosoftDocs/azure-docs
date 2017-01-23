@@ -55,7 +55,7 @@
 ### [Track changes with Change feed](documentdb-change-feed.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
-### Patterns and best practices
+### Best practices
 #### [Multi-region writers](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
 
