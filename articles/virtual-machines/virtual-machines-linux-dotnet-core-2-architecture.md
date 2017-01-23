@@ -1,5 +1,5 @@
 ---
-title: Deploying Compute Resources with Azure Resource Manager Templates | Microsoft Docs
+title: Deploying Linux Compute Resources with Azure Resource Manager Templates | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux
 documentationcenter: virtual-machines
