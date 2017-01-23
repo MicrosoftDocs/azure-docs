@@ -1,5 +1,5 @@
 ---
-title: How to create a web app with App Service on Linux | Microsoft Docs
+title: Create a web app with App Service on Linux | Microsoft Docs
 description: Web app creation workflow for App Service on Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
