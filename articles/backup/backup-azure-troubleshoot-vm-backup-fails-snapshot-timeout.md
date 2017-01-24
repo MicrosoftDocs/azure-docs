@@ -43,7 +43,7 @@ To resolve the issue, try one of the methods listed here.
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
- To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
 
 ## Cause 2: The agent installed in the VM is out of date (for Linux VMs)
 ### Solution
@@ -59,7 +59,6 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
  If the process is not running, restart it by using the following commands:
 
  * For Ubuntu: `service walinuxagent start`
-
  * For other distributions: `service waagent start`
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, please collect the following logs from the customer’s VM:
@@ -95,6 +94,7 @@ To uninstall the extension, do the following:
 4. Click **Extensions**.
 5. Click **Vmsnapshot Extension**.
 6. Click **Uninstall**.  
+
 This procedure causes the extension to be reinstalled during the next backup.
 
 ## Cause 4: The snapshot status cannot be retrieved or a snapshot cannot be taken
