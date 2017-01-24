@@ -92,6 +92,23 @@ When you remove an agent from a server, the server is not automatically removed 
 If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
 In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
 
+## Migration Questions
+
+This section only applies to customers, who were notified about an upcoming migration of their Azure AD Connect Health service data.
+
+**Q: Will I have to re-register my agents or reconfigure my notification settings, after the migration happens?**
+
+No, agent registration information and notification settings will be moved as part of the mgiration. 
+
+**Q: How long after the migration, will I start seeing data in the portal?**
+
+Data will start appearing in the portal, within one hour after the mgration. 
+
+**Q: What happens to my existent active alerts?**
+
+Any applicable alerts will be re-activated, within one hour after the migration.
+
+
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
