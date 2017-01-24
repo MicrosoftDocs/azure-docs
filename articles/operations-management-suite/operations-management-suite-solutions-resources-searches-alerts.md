@@ -208,7 +208,7 @@ This section is optional.  Include this section if you want to suppress alerts f
 |:--|:--|:--|
 | Recipients | Yes | Comma delimited list of email addresses to send notification when an alert is created such as in the following example.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Subject | Yes | Subject line of the mail. |
-| Attachment | No | Attachments are not currently supported. |
+| Attachment | No | Attachments are not currently supported.  If this element is included, it should be **None**. |
 
 
 ##### Remediation
@@ -500,5 +500,6 @@ The following parameter file provides samples values for this solution.
 
 
 ## Next steps
-* [Add a view to your solution](operations-management-suite-solutions-resources-views.md) to visualize collected data.
+* [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.
+* [Add Automation runbooks and other resources](operations-management-suite-solutions-resources-automation.md) to your management solution.
 
