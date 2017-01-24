@@ -17,7 +17,7 @@ ms.date: 01/18/2017
 ms.author: zhangya;bradsev
 
 ROBOTS: NOINDEX, NOFOLLOW
-redirect_url: data-science-create-features
+redirect_url: machine-learning-data-science-create-features
 
 ---
 # Feature engineering and selection in Azure Machine Learning

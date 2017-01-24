@@ -4,7 +4,7 @@ description: Describes how you can set up alerts on your Azure bill so you can a
 services: ''
 documentationcenter: ''
 author: vikdesai
-manager: mbaldwin
+manager: vikdesai
 editor: ''
 tags: billing
 
