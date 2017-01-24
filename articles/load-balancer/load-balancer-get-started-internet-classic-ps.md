@@ -1,5 +1,5 @@
 ---
-title: Create an Internet-facing load balancer - PowerShell classic | Microsoft Docs
+title: Create an Internet-facing load balancer - Azure PowerShell classic | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in classic mode using PowerShell
 services: load-balancer
 documentationcenter: na
