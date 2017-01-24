@@ -3,7 +3,8 @@ title: 'PowerShell: Manage an Azure SQL Database elastic pool | Microsoft Docs'
 description: Learn how to use PowerShell to manage an elastic pool.
 services: sql-database
 documentationcenter: ''
-author: sriniamanager: jhubbard
+author: srinia
+manager: jhubbard
 editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
