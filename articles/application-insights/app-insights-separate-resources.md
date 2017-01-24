@@ -1,5 +1,5 @@
 ---
-title: Monitoring dev, test and production in Application Insights
+title: Monitor dev, test and production in Azure Application Insights | Microsoft Docs
 description: Monitor the performance and usage of your application at different stages of development
 services: application-insights
 documentationcenter: ''
