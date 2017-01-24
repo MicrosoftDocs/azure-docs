@@ -1,6 +1,6 @@
 ---
-title: About cross-premises Azure VPN connections | Microsoft Docs
-description: Learn about VPN Gateway connections for Azure Virtual Networks.
+title: 'VPN Gateway Overview: Create cross-premises VPN connections to Azure virtual networks | Microsoft Docs'
+description: This VPN Gateway Overview explains the ways to connect to Azure virtual networks using a VPN connection over the Internet. Included are diagrams of basic connection configurations.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/24/2017
 ms.author: cherylmc
 
 ---
@@ -53,12 +53,12 @@ Use the diagrams and descriptions to help select the connection topology to matc
 ### Site-to-Site
 A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. S2S connections can be used for cross-premises and hybrid configurations.   
 
-![S2S connection](./media/vpn-gateway-about-vpngateways/demos2s.png "site-to-site")
+![Azure VPN Gateway Site-to-Site connection example](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
 ### Multi-Site
 You can create and configure a VPN gateway connection between your VNet and multiple on-premises networks. When working with multiple connections, you must use a RouteBased VPN type (dynamic gateway for classic VNets). Because a VNet can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
 
-![Multi-Site connection](./media/vpn-gateway-about-vpngateways/demomulti.png "multi-site")
+![Azure VPN Gateway Multi-Site connection example](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
 ### Deployment models and methods for Site-to-Site and Multi-Site
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
@@ -72,7 +72,7 @@ The VNets you connect can be:
 * in the same or different subscriptions 
 * in the same different deployment models
 
-![VNet to VNet connection](./media/vpn-gateway-about-vpngateways/demov2v.png "vnet-to-vnet")
+![Azure VPN Gateway VNet to VNet connection example](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
 #### Connections between deployment models
 Azure currently has two deployment models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can create a connection between the VNets to allow the resources in one VNet to communicate directly with resources in another.
@@ -86,7 +86,7 @@ You may be able to use VNet peering to create your connection, as long as your v
 ## Point-to-Site
 A Point-to-Site (P2S) VPN gateway connection allows you to create a secure connection to your virtual network from an individual client computer. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). P2S connections do not require a VPN device or a public-facing IP address to work. You establish the VPN connection by starting it from the client computer. This solution is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a VNet. P2S connections can be used in conjunction with S2S connections through the same VPN gateway, provided that all of the configuration requirements for both connections are compatible.
 
-![Point-to-site connection](./media/vpn-gateway-about-vpngateways/demop2s.png "point-to-site")
+![Azure VPN Gateway Point-to-Site connection example](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
 ### Deployment models and methods for Point-to-Site
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
@@ -101,7 +101,7 @@ ExpressRoute is a direct, dedicated connection from your WAN (not over the publi
 
 You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. Notice that this requires two virtual network gateways for the same virtual network, one using -GatewayType Vpn, and the other using -GatewayType ExpressRoute.
 
-![Coexist connection](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")
+![ExpressRoute and VPN Gateway coexisting connections example](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
 ### Deployment models and methods for S2S and ExpressRoute
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
