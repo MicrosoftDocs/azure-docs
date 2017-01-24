@@ -1,5 +1,5 @@
 ---
-title: Allow application to revtrieve Azure Stack Key Vault secrets  | Microsoft Docs
+title: Allow application to retrieve Azure Stack Key Vault secrets  | Microsoft Docs
 description: Use a sample app to work with Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
