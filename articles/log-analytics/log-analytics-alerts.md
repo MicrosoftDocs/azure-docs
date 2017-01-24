@@ -22,6 +22,9 @@ Alerts in Log Analytics identify important information in your OMS repository.  
 
 ![Log Analytics alerts](media/log-analytics-alerts/overview.png)
 
+>[NOTE]
+> For information on metric measurement alert rules which are currently in public preview, see [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
+
 ## Creating an alert rule
 To create an alert rule, you start by creating a log search for the records that should invoke the alert.  The **Alert** button will then be available so you can create and configure the alert rule.
 
@@ -57,8 +60,6 @@ To create an alert rule, you start by creating a log search for the records that
 | Select a runbook |Select the runbook to start from the runbooks in the automation account configured in your Automation solution. |
 | Run on |Select **Azure** to run the runbook in the Azure cloud.  Select **Hybrid Worker** to run the runbook on a [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) in your local environment. |
 
->[NOTE]
-> For information on metric measurement alert rules which are currently in public preview, see [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
 
 ## Manage alert rules
 You can get a list of all alert rules in the **Alerts** menu in Log Analytics **Settings**.  
@@ -75,6 +76,10 @@ You can perform multiple actions from this view.
 * Remove an alert rule by clicking the **X** icon next to it. 
 
 ## Setting time windows and thresholds
+
+>[NOTE]
+> For information on metric measurement alert rules which are currently in public preview, see [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
+> 
 ### Event alerts
 Events include data sources such as Windows event logs, Syslog, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time window.
 
