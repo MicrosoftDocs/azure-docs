@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
 ms.service: active-directoryms.workload: identity
@@ -20,9 +20,9 @@ ms.author: kgremban
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-connectors.md)
-> 
-> 
-Azure AD Application Proxy and connector groups
+>
+
+## Azure AD Application Proxy and connector groups
 
 Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups – a new capability to assign specific connectors to serve specific applications. This capability generates many use cases for Application Proxy that were not possible before. During the private preview phase, we witnessed large customers enabling connector groups to boost their live Application Proxy deployments. 
 
@@ -30,9 +30,7 @@ The basic concept is that each Application Proxy connector is assigned to a conn
 
 By default, all applications are assigned to a default connector group. If your admin doesn’t change anything, the system continues to behave like it did before. If you change nothing, all the applications assigned to the default connector group include all the connectors. But if you organize your connectors into groups, you can set each application to work with a specific connector group. In this case, only the connectors in that group will serve the application upon request.
 
->
->[!NOTE]
->Because new connectors are automatically assigned to a default connector group, for large deployments we recommend that you do not have applications assigned to the default group. Therefore once installed, new connectors will not receive any live traffic. Only after you assign the connector to one of the active groups, it can start serving live traffic. This also enables you to put connectors in an idle mode in order to enable maintenance. 
+>[!NOTE] Because new connectors are automatically assigned to a default connector group, for large deployments we recommend that you do not have applications assigned to the default group. Therefore once installed, new connectors will not receive any live traffic. Only after you assign the connector to one of the active groups, it can start serving live traffic. This also enables you to put connectors in an idle mode in order to enable maintenance. 
 >
 
 ## Prerequisite: Create your connector groups

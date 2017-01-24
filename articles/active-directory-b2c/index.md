@@ -172,13 +172,3 @@ Learn how to set up and manage comprehensive consumer identity management in the
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-b2c.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory B2C Documentation
-        </div>
-    </a>
-</div>

@@ -1,5 +1,5 @@
 ---
-title: Understanding Service Fabric application and service security policies | Microsoft Docs
+title: Learn about Azure microservices security policies | Microsoft Docs
 description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
 services: service-fabric
 documentationcenter: .net

@@ -1,5 +1,5 @@
 ---
-title: SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse | Microsoft Docs
+title: Multi-Factor authentication - Azure SQL | Microsoft Docs
 description: Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
 services: sql-database
 documentationcenter: ''

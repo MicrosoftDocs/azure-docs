@@ -1,6 +1,6 @@
 ---
-title: Install Hadoop applications on HDInsight | Microsoft Docs
-description: Learn how to install HDInsight applications on HDInsight applications.
+title: Install third-party Hadoop applications on Azure HDInsight | Microsoft Docs
+description: Learn how to install third-party Hadoop applications on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -18,8 +18,11 @@ ms.date: 11/23/2016
 ms.author: jgao
 
 ---
-# Install HDInsight applications
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. In this article, you will learn how to install a published application. For installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md). 
+# Install third-party Hadoop applications on Azure HDInsight
+
+In this article, you will learn how to install an already published third-party Hadoop application on Azure HDInsight. For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
 Currently there are three published applications:
 

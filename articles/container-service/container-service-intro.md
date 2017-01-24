@@ -1,7 +1,7 @@
 ---
-title: Azure Container Service Introduction | Microsoft Docs
+title: Docker cloud container clusters in Azure | Microsoft Docs
 description: Azure Container Service provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications.
-services: container-service
+    services: container-service
 documentationcenter: ''
 author: rgardler
 manager: timlt
@@ -12,7 +12,7 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure
 ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
