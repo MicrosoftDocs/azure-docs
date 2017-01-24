@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric content roadmap | Microsoft Docs
+title: Learn about Azure Service Fabric | Microsoft Docs
 description: An overview and getting started guide for Service Fabric where applications are composed of many microservices to provide scale and resilience. 
 services: service-fabric
 documentationcenter: .net
