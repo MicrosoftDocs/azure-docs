@@ -27,7 +27,7 @@ Before you start installing Azure AD Connect, make sure to [download Azure AD Co
 * The URLs required to be open in the proxy server. For basic scenarios, those also supported by DirSync, the requirements are the same. If you want to use any of the new features included with Azure AD Connect, some new URLs must be opened.
 
 > [!NOTE]
-> Once you have enabled your new Azure AD Connect server to start synchronizing change to Azure AD, you must not roll back to using DirSync. Downgrading from Azure AD Connect to legacy clients including DirSync and Azure AD Sync is not supported and can have unintentional consequences such as data loss in Azure AD.
+> Once you have enabled your new Azure AD Connect server to start synchronizing changes to Azure AD, you must not roll back to using DirSync or Azure AD Sync. Downgrading from Azure AD Connect to legacy clients including DirSync and Azure AD Sync is not supported and can lead to unintentional consequences such as data loss in Azure AD.
 > 
 > 
 
