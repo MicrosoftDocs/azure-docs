@@ -1,5 +1,5 @@
 ---
-title: Relay exceptions | Microsoft Docs
+title: Azure Relay exceptions and how to resolve | Microsoft Docs
 description: List of Relay exceptions and suggested actions.
 services: service-bus-relay
 documentationcenter: na

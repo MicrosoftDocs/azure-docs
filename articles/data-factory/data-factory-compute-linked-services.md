@@ -1,6 +1,6 @@
 ---
-title: Compute Linked Services | Microsoft Docs
-description: Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data.
+title: Compute environments supported by Azure Data Factory | Microsoft Docs
+description: Learn about compute environments that you can use in Azure Data Factory pipelines to transform/process data.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/23/2017
 ms.author: shlo
 
 ---
-# Compute Linked Services
+# Compute environments supported by Azure Data Factory
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
 
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 

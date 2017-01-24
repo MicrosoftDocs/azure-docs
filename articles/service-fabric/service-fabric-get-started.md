@@ -1,5 +1,5 @@
 ---
-title: Set up your development environment | Microsoft Docs
+title: Set up a development environment for Azure microservices | Microsoft Docs
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications.
 services: service-fabric
 documentationcenter: .net

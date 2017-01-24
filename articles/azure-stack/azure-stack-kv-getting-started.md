@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Azure Stack Key Vault | Microsoft Docs
+title: Getting started with Key Vault in Azure Stack | Microsoft Docs
 description: Get started using Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: ricardom
 
 ---

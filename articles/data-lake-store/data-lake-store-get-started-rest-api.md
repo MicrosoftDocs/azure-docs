@@ -1,5 +1,5 @@
 ---
-title: Get started with Data Lake Store using REST API| Microsoft Docs
+title: Use the REST API to get started with Data Lake Store | Microsoft Docs
 description: Use WebHDFS REST APIs to perform operations on Data Lake Store
 services: data-lake-store
 documentationcenter: ''
