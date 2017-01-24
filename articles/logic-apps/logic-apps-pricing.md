@@ -1,6 +1,6 @@
 ---
-title: Logic Apps pricing model | Microsoft Docs
-description: Details about how pricing works in Logic Apps
+title: Pricing & billing - Azure Logic Apps | Microsoft Docs
+description: Learn how pricing and billing works for Azure Logic Apps.
 author: kevinlam1
 manager: anneta
 editor: ''
