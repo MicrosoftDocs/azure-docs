@@ -25,6 +25,24 @@ In this tutorial, you add authentication to the [iOS quick start] project using 
 ## <a name="register"></a>Register your app for authentication and configure the App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+3. In the [Azure portal], select your App Service.
+
+4. Click the **Authentication / Authorization** menu option.
+
+5. Click **Azure Active Directory** under the **Authentication Providers** section.
+
+6. Set the **Management mode** to **Advanced**.
+
+7. In the **Allowed External Redirect URLs**, enter `appname://easyauth.callback`.  The _appname_ in this
+    string is the URL Scheme for your mobile application.  It should follow normal URL specification for
+    a protocol (use letters and numbers only, and start with a letter).  You should make a note of the string
+    that you choose as you will need to adjust your mobile application code with the URL Scheme in several
+    places.
+
+8. Click **OK**.
+
+9. Click **Save**.
+
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -60,8 +78,10 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     are not using Google as your identity provider. If you use Facebook, you must [whitelist Facebook domains][1]
     in your app.
 
-    Replace the **urlScheme** with a unique name for your application.  The urlScheme is used by the authentication
-    callback to switch back to your application after the authentication request is complete.
+    Replace the **urlScheme** with a unique name for your application.  The urlScheme should be the same as
+    the URL Scheme protocol that you specified in the **Allowed External Redirect URLs** field in the Azure
+    portal. The urlScheme is used by the authentication callback to switch back to your application after the
+    authentication request is complete.
 
 2. Replace `[self refresh]` in `viewDidLoad` in *QSTodoListViewController.m* with the following code:
 
@@ -154,9 +174,10 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     are not using Google as your identity provider. If you use Facebook, you must [whitelist Facebook domains][1]
     in your app.
 
-    Replace the **urlScheme** with a unique name for your application.  The urlScheme is used by the authentication
-    callback to switch back to your application after the authentication request is complete.
-
+    Replace the **urlScheme** with a unique name for your application.  The urlScheme should be the same as
+    the URL Scheme protocol that you specified in the **Allowed External Redirect URLs** field in the Azure
+    portal. The urlScheme is used by the authentication callback to switch back to your application after the
+    authentication request is complete.
 
 2. Remove the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the
     end of `viewDidLoad()` in *ToDoTableViewController.swift*. Add a call to `loginAndGetData()` in their place:
