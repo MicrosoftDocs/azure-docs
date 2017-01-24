@@ -1,5 +1,5 @@
 ---
-title: Continuous Integration and Deployment of Multi-Container Docker Applications to Azure Container Service | Microsoft Docs
+title: CI/CD with Azure Container Service and DC/OS | Microsoft Docs
 description: How to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS.
 services: container-service
 documentationcenter: ''
