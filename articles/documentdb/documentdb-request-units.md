@@ -1,5 +1,5 @@
 ---
-title: Request Units in DocumentDB | Microsoft Docs
+title: Request units & estimating throughput - Azure DocumentDB | Microsoft Docs
 description: Learn about how to understand, specify, and estimate request unit requirements in DocumentDB.
 services: documentdb
 author: syamkmsft
