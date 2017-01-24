@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/18/2016
-ms.author: rickbyh
+ms.author: rickbyh;carlrab
 
 ---
 # Azure SQL Database access control
@@ -25,9 +25,7 @@ To provide security, SQL Database controls access with firewall rules limiting c
 > [!IMPORTANT]
 > For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial using SQL Server authentication, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md). For a tutorial using Azure Active Directory authentication, see [SQL Database tutorial: AAD authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-aad-authentication-get-started.md).
 
->
-
-t## Firewall and firewall rules
+## Firewall and firewall rules
 Microsoft Azure SQL Database provides a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](sql-database-firewall-configure.md)
 
 The Azure SQL Database service is only available through TCP port 1433. To access a SQL Database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If not needed for other applications, block inbound connections on TCP port 1433. 
