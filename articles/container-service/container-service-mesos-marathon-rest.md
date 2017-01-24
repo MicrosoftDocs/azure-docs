@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service container management through the REST API | Microsoft Docs
+title: Manage Azure DC/OS cluster with Marathon REST API | Microsoft Docs
 description: Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API.
 services: container-service
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.date: 09/13/2016
 ms.author: danlep
 
 ---
-# Container management through the REST API
+# DC/OS container management through the Marathon REST API
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
 Although frameworks are available for many popular workloads, this document describes how you can create and scale container deployments by using Marathon. Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
