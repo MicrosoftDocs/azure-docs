@@ -38,7 +38,7 @@ This article assumes that you already have SharePoint 2013 or newer already setu
 
 Follow these steps to enable remote access to SharePoint with Azure AD App Proxy:
 
-** Part 1: Configure single sign-on (SSO)**
+**Part 1: Configure single sign-on (SSO)**
 
   * A. Ensure that SharePoint server is running as a service account.
   * B. Configure SharePoint for Kerberos.
