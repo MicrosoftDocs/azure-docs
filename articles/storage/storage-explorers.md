@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Client Tools | Microsoft Docs
+title: Tools for working with Azure Storage | Microsoft Docs
 description: A list of tools that allow you to view/interact with your Azure Storage data.
 services: storage
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: micurd
 
 ---

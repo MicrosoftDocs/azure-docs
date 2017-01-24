@@ -232,7 +232,7 @@ Instead of a static configuration setting for your output binding properties, yo
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -318,12 +318,14 @@ Define an imperative binding as follows:
 or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Use the following C# pattern to perform the data binding.
 
-		using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-		{
-				...
-		}
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
-	where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
+where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
 supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
 Mobile Apps table output binding supports 
 [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
@@ -333,16 +335,18 @@ or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/s
 The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#storage-blob-output-binding)
 with blob path that's defined at run time, then writes a string to the blob.
 
-		using Microsoft.Azure.WebJobs;
-		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-		
-		public static async Task Run(string input, Binder binder)
-		{
-				using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-				{
-						writer.Write("Hello World!!");
-				}
-		}
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and 
@@ -352,21 +356,24 @@ custom app setting to use by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 and passing the attribute array into `BindAsync<T>()`. For example,
 
-		using Microsoft.Azure.WebJobs;
-		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-		
-		public static async Task Run(string input, Binder binder)
-		{
-				var attributes = new Attribute[]
-				{
-						new BlobAttribute("samples-output/path"),
-						new StorageAccountAttribute("MyStorageAccount")
-				};
-				using (var writer = await binder.BindAsync<TextWriter>(attributes))
-				{
-						writer.Write("Hello World!");
-				}
-		}
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 The following table shows you the corresponding .NET attribute to use for each binding type and which package to reference.
 

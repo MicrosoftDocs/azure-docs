@@ -1,5 +1,5 @@
 ---
-title: Hive Activity
+title: Transform data using Hive Activity - Azure | Microsoft Docs
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 10/11/2016
 ms.author: shlo
 
 ---
-# Hive Activity
+# Transform data using Hive Activity in Azure Data Factory 
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
