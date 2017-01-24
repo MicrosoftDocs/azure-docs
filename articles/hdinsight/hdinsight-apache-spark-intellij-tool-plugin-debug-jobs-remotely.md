@@ -1,5 +1,5 @@
 ---
-title: Use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug applications running on HDInsight Spark clusters| Microsoft Docs
+title: Use Azure Toolkit for IntelliJ to remote-debug applications on Spark clusters| Microsoft Docs
 description: Learn how use HDInsight Tools in Azure Toolkit for IntelliJ to remotely debug applications running on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''

@@ -69,4 +69,3 @@ To learn more about the capabilities of Data Catalog, see:
 * [How to manage data assets](data-catalog-how-to-manage.md)
 * [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
 * [Frequently Asked Questions](data-catalog-frequently-asked-questions.md)
-
