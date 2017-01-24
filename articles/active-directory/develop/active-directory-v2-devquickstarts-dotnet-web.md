@@ -44,19 +44,19 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?ref
 ## Install & configure OWIN authentication
 Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
-* To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
+1. To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
 
   * The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
   * The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
-* Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
+2. Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
 PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
-```
+```  
 
-* Add an "OWIN Startup Class" to the project called `Startup.cs`  Right click on the project --> **Add** --> **New Item** --> Search for "OWIN".  The OWIN middleware will invoke the `Configuration(...)` method when your app starts.
+3. Add an "OWIN Startup Class" to the project called `Startup.cs`  Right click on the project --> **Add** --> **New Item** --> Search for "OWIN".  The OWIN middleware will invoke the `Configuration(...)` method when your app starts.
 * Change the class declaration to `public partial class Startup` - we've already implemented part of this class for you in another file.  In the `Configuration(...)` method, make a call to ConfigureAuth(...) to set up authentication for your web app  
 
 ```C#
@@ -74,7 +74,7 @@ namespace TodoList_WebApp
 }
 ```
 
-* Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+4. Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)

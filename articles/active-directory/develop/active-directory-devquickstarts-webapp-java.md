@@ -232,9 +232,9 @@ The file should look like the following:
 ```
 
 
-    -    YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
-    -    YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.
-    -    YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
+-    YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
+-    YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.
+-    YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
 Leave the rest of the configuration parameters alone.
 
@@ -358,9 +358,9 @@ Our goal is to create some Java files that will:
 
 Let's write some Java files to do this work for us:
 
-1. create a folder in your root directory called 'adal4jsample` to store all of our java files. 
+1. Create a folder in your root directory called 'adal4jsample` to store all of our java files. 
 
-We will be using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this (e.g. `/com/microsoft/aad/adal4jsample`). You are free to do this, but it is not necessary.
+    We will be using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this (e.g. `/com/microsoft/aad/adal4jsample`). You are free to do this, but it is not necessary.
 
 2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
 
@@ -584,7 +584,6 @@ public class JSONHelper {
 }
 
 ```
-
 3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
 
 ```Java
@@ -798,7 +797,6 @@ public abstract class DirectoryObject {
 }
 
 ```
-
 2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
 
 ```Java
@@ -1373,7 +1371,6 @@ public final class AuthHelper {
     }
 }
 ```
-
 2. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
 
 ```Java
@@ -1391,7 +1388,6 @@ public final class AuthParameterNames {
     public static String CODE = "code";
 }
 ```
-
 3. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
 
 Cut/paste the following:
