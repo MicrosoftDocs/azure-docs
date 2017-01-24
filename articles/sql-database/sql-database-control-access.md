@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Access Control | Microsoft Docs
-description: Learn about controlling access to Microsoft Azure SQL Database.
+title: Granting access to Azure SQL Database | Microsoft Docs
+description: Learn about granting access to Microsoft Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
