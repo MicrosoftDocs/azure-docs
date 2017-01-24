@@ -70,7 +70,7 @@ The following tables show the sizes and the capacities they provide.
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / high |
 | Standard_A4 |8 |14 |605 |16 |16x500 |4 / high |
 | Standard_A5 |2 |14 |135 |4 |4X500 |1 / moderate |
-*| Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
+| Standard_A6 |4 |28 |285 |8 |8x500 |2 / high |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / high |
 
 <br>
@@ -80,7 +80,7 @@ For information and considerations about using these sizes, see [About the H-ser
 
 | Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- |
-*| Standard_A8* |8 |56 |382 |16 |16x500 |2 / high |
+| Standard_A8* |8 |56 |382 |16 |16x500 |2 / high |
 | Standard_A9* |16 |112 |382 |16 |16x500 |4 / very high |
 | Standard_A10 |8 |56 |382 |16 |16x500 |2 / high |
 | Standard_A11 |16 |112 |382 |16 |16x500 |4 / very high |
