@@ -238,8 +238,8 @@ The last step you need to take is to ensure that SharePoint can find the site ba
 
 ##Next steps
 
-[How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)<p>
-[Understand Azure AD Application Proxy Connectors](application-proxy-understand-connectors.md)<p>
+[How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)<br>
+[Understand Azure AD Application Proxy Connectors](application-proxy-understand-connectors.md)<br>
 [Publishing SharePoint 2016 and Office Online Server with Azure AD Application Proxy](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
 
 
