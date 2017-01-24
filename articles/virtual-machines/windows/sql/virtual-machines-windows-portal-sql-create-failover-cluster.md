@@ -81,7 +81,7 @@ Before following the instructions in this article, you should already have:
 
    Attach raw disks - not NTFS formatted disks. 
       >[!NOTE]
-      >If you attach NTFS-formatted disks, you will only be able to enable S2D with no disk eligibility check. 
+      >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
    
    Attach minimum of 2 SSD 512 premium to each VM.
    
@@ -129,7 +129,7 @@ Before following the instructions in this article, you should already have:
    ```
 1. Create a volume.
 
-   One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800-gigabyte (GB) CSV. 
+   One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV. 
 
    ```PowerShell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
