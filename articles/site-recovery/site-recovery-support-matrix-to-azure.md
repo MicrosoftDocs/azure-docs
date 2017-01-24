@@ -7,7 +7,7 @@ author: rayne-wiselman
 manager: jwhit
 editor: ''
 
-ms.assetid: 1bbcc13c-ea21-4349-9ddf-0d7dfdcdcbfb
+ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -21,7 +21,7 @@ ms.author: raynew
 
 > [!div class="op_single_selector"]
 > * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to customer owned secondary site](site-recovery-support-matrix-to-azure-sec-site.md)
+> * [Replicate to customer owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 
 A list of prerequisites for Azure Site Recovery is mentioned  [here](site-recovery-best-practices.md) and the article below, summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure.

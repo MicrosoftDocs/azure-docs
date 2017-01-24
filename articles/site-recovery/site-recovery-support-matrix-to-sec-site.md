@@ -1,5 +1,5 @@
---
-title: Azure Site Recovery support matrix for replicating to customer owned secondary site | Microsoft Docs
+---
+title: Azure Site Recovery support matrix | Microsoft Docs
 description: Summarizes the supported operating systems and components for Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/04/2016
+ms.date: 01/24/2017
 ms.author: raynew
 
 ---
@@ -21,7 +21,7 @@ ms.author: raynew
 
 > [!div class="op_single_selector"]
 > * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
-> * [Replicate to customer owned secondary site](site-recovery-support-matrix-to-azure-sec-site.md)
+> * [Replicate to customer owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 A list of prerequisites for Azure Site Recovery is mentioned  [here](site-recovery-best-practices.md) and the article below, summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to customer owned secondary site.
 
