@@ -138,8 +138,8 @@ Klist
 ```
 3. It will return the set of target service SPNs. In this example, the highlighted value is the SPN needed:
 
-  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-target-service
-  .png)
+  ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-target-service.png)
+  
 4. Now that you have the SPN, you need to make sure that it is configured correctly on the service account set up for the Web Application earlier. Follow the steps in the next section.
 
 **Setting the SPN**
