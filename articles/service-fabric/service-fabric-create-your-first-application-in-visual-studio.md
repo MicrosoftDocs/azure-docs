@@ -1,5 +1,5 @@
 ---
-title: Create your first Service Fabric application in Visual Studio | Microsoft Docs
+title: Create your first Azure microservices application | Microsoft Docs
 description: Create, deploy, and debug a Service Fabric application using Visual Studio
 services: service-fabric
 documentationcenter: .net

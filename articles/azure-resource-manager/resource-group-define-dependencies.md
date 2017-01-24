@@ -1,5 +1,5 @@
 ---
-title: Dependencies in Resource Manager templates | Microsoft Docs
+title: Set deployment order for Azure resources | Microsoft Docs
 description: Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order.
 services: azure-resource-manager
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 01/03/2017
 ms.author: tomfitz
 
 ---
-# Defining dependencies in Azure Resource Manager templates
+# Define the order for deploying resources in Azure Resource Manager templates
 For a given resource, there can be other resources that must exist before the resource is deployed. For example, a SQL server must exist before attempting to deploy a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function. 
 
 Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources are not dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template. 

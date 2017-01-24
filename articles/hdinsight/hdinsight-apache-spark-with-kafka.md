@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark with Kafka on HDInsight | Microsoft Docs
+title: Use Apache Spark with Kafka on Azure HDInsight | Microsoft Docs
 description: 'Learn how to use Spark on HDInsight to read and write data to a Kafka on HDInsight cluster. This example uses Scala in a Jupyter Notebook to write random data to Kafka on HDInsight, then read it back using Spark streaming.'
 services: hdinsight
 documentationcenter: ''

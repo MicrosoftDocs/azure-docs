@@ -1,6 +1,6 @@
 ---
-title: Monitoring Kubernetes in Azure Container Service using DataDog | Microsoft Docs
-description: Monitoring Kubernetes in Azure Container Service using DataDog
+title: Monitor Azure Kubernetes cluster with DataDog | Microsoft Docs
+description: Monitoring Kubernetes cluster in Azure Container Service using DataDog
 services: container-service
 documentationcenter: ''
 author: bburns
