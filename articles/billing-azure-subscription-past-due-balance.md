@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/24/2017
 ms.author: genli
 
 ---
@@ -23,8 +23,8 @@ If you are the Account Administrator for your Azure subscription, and have not m
 
 > [!NOTE]
 > If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
+>
+>
 
 If we are unable to process your payment for some reason, you might receive an email with a message similar to:
 
@@ -48,9 +48,8 @@ For instructions about how to change the payment method in Azure, see [How to ch
 
 > [!NOTE]
 > If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it: [What do I do if my Azure subscription is disabled?](billing-subscription-become-disable.md)
-> 
+>
 > [!NOTE]
 > If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
-
+>
+>
