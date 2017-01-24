@@ -93,7 +93,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q** What other resource limits exist for VM scale sets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits](../azure-subscription-service-limits.md) apply.
 
 **Q.** Are Data Disks Supported within VM scale sets?
 
@@ -107,11 +107,11 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** Which Azure regions support VM scale sets?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**A.** All regions support VM scale sets.
 
 **Q.** How do you create a VM scale set using a custom image?
 
-**A.** Leave the vhdContainers property blank, for example:
+**A.** Leave the vhdContainers property blank (or omit it) and provide image property's uri, for example:
 
     "storageProfile": {
         "osDisk": {

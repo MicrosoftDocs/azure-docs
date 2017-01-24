@@ -1,5 +1,5 @@
 ---
-title: Get Started with Event Hubs in C# | Microsoft Docs
+title: Send events with Azure Event Hubs in C#, receive in C# | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs with C# and using the Event Processor Host.
 services: event-hubs
 documentationcenter: ''
