@@ -1,5 +1,5 @@
 ---
-title: Set up your Media Services development environment | Microsoft Docs
+title: Set up your Azure Media Services development environment | Microsoft Docs
 description: Set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''

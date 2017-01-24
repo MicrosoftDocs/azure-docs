@@ -1,5 +1,5 @@
 ---
-title: How to crop videos with Media Encoder Standard | Microsoft Docs
+title: How to crop videos with Media Encoder Standard - Azure | Microsoft Docs
 description: This article shows how to crop videos with Media Encoder Standard.
 services: media-services
 documentationcenter: ''

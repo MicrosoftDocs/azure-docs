@@ -1,5 +1,5 @@
 ---
-title: Scale media processing by adding encoding units
+title: Scale media processing by adding encoding units - Azure |  Microsoft Docs
 description: Learn how to how to add encoding units with .NET
 services: media-services
 documentationcenter: ''
