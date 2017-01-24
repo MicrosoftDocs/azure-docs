@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 01/24/2017
 ms.author: raynew
 
 ---
@@ -101,12 +101,8 @@ Make sure your VMM clouds are set up properly before you begin Site Recovery dep
 Create LUNs based on the applications you need to protect, capacity requirements and based on what needs to replicate together.
 
 1. After the storage appears in the VMM fabric, you can [provision LUNs](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-storage-host-groups#create-a-lun-in-vmm).
-
-
      > [!NOTE]
      > After you've enabled replication for a VM, don't add VHDs for the VMs to LUNs, if those LUNs aren't in a Site Recovery replication group. If you do, they won't be detected by Site Recovery.
-
-
 2. Allocate storage capacity to the Hyper-V host cluster, so that VMM can deploy VM data to the provisioned storage. Before you can allocate storage to the cluster, you need to [allocate the storage pool to the VMM host group](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-storage-host-groups) on which the cluster resides. Then allocate it to the cluster.
 
 ### Create replication groups
