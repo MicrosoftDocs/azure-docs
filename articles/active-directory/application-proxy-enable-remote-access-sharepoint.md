@@ -119,7 +119,7 @@ _port_ is optional. If the FQDN of the SharePoint server is:
 sharepoint.demo.o365identity.us
 ```
 
-then the SPN would be: 
+Then the SPN would be: 
 
 ```
 HTTP/ sharepoint.demo.o365identity.us demo
