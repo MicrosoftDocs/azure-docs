@@ -1,10 +1,10 @@
 ---
-title: Introduction to ExpressRoute | Microsoft Docs
-description: This page provides an overview of the ExpressRoute service, including how an ExpressRoute connection works.
+title: 'ExpressRoute Overview - Extend your on-premises network to Azure over a dedicated private connection | Microsoft Docs'
+description: ExpressRoute Technical Overview about extending your on-premises network to Azure over a dedicated private connecton, including how an ExpressRoute connection works.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
