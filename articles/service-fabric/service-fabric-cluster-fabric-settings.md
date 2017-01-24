@@ -1,6 +1,6 @@
 
 ---
-title: Customize Service Fabric cluster settings | Microsoft Docs
+title: Change Azure Service Fabric cluster settings | Microsoft Docs
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
 services: service-fabric
 documentationcenter: .net
