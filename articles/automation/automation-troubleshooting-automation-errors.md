@@ -19,7 +19,7 @@ ms.date: 01/24/2017
 ms.author: sngun; v-reagie
 
 ---
-# Troubleshooting common issues with Azure Automation 
+# Troubleshooting common issues in Azure Automation 
 This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.
 
 ## Authentication errors when working with Azure Automation runbooks
