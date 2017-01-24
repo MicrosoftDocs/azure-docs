@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/07/2016
+ms.date: 01/24/2017
 ms.author: jawalte
 
 ---
@@ -87,12 +87,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
 ## Support for Load Balancer
-Load Balancer is generally available in Azure Government. 
-
-> [!NOTE]
-> Define what is different in Azure Gov and dhow devs should connect to Azure Storage
-
-For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
+Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
 ## Support for Traffic Manger
 Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
