@@ -1,5 +1,5 @@
 ---
-title: End-user authentication: Data Lake Store with Azure Active Directory | Microsoft Docs
+title: 'End-user authentication: Data Lake Store with Azure Active Directory | Microsoft Docs'
 description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory
 services: data-lake-store
 documentationcenter: ''

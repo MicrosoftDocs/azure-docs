@@ -1,5 +1,5 @@
 ---
-title: Script action: Install Python packages with Jupyter notebooks on Azure HDInsight | Microsoft Docs
+title: 'Script action: Install Python packages with Jupyter notebooks on Azure HDInsight | Microsoft Docs'
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
 services: hdinsight
 documentationcenter: ''

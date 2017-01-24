@@ -1,5 +1,5 @@
 ---
-title: Service-to-service authentication: Data Lake Store using Azure Active Directory | Microsoft Docs
+title: 'Service-to-service authentication: Data Lake Store with Azure Active Directory | Microsoft Docs'
 description: Learn how to achieve service-to-service authentication with Data Lake Store using Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
