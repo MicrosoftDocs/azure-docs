@@ -1,6 +1,6 @@
 ---
 title: 'Azure portal: Azure SQL Database server-level firewall rules | Microsoft Docs'
-description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL server usinhg the Azure portal.
+description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL server using the Azure portal.
 services: sql-database
 documentationcenter: ''
 author: BYHAM
