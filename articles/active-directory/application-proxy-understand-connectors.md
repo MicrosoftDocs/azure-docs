@@ -147,5 +147,7 @@ You can examine the state of the service in the Services window. The connector i
 
 For information about resolving errors  the Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog).
+##Next steps
+[Working with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)<br>
+[How to silently install the Azure AD Application Proxy Connector ](active-directory-application-proxy-silent-installation.md)
 
