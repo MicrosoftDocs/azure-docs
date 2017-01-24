@@ -49,7 +49,7 @@ Follow these steps to enable remote access to SharePoint with Azure AD App Proxy
 
  * E. Publish the SharePoint farm to Azure AD App Proxy.
 
-** Part 3: Ensure that SharePoint knows about the external URL**
+**Part 3: Ensure that SharePoint knows about the external URL**
 
  * F. Set alternate access mappings in SharePoint.
 
