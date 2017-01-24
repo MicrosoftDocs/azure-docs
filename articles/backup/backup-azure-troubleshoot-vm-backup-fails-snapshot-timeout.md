@@ -33,19 +33,21 @@ To function correctly, the backup extension requires connectivity to the Azure p
 
 ### Solution
 To resolve the issue, try one of the methods listed here.
-
 #### Allow access to the Azure datacenter IP ranges
+
 1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to allow access to.
 2. Unblock the IPs by running the **New-NetRoute** cmdlet in the Azure VM in an elevated PowerShell window. Run the cmdlet as an administrator.
 3. To allow access to the IPs, add rules to the network security group, if you have one.
 
 #### Create a path for HTTP traffic to flow
+
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
 To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
 
 ## Cause 2: The agent installed in the VM is out of date (for Linux VMs)
+
 ### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
@@ -60,6 +62,7 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
  * For Ubuntu: `service walinuxagent start`
  * For other distributions: `service waagent start`
+
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, please collect the following logs from the customer’s VM:
 
@@ -77,6 +80,7 @@ If we require verbose logging for waagent, follow these steps:
 If extensions cannot be loaded, Backup fails because a snapshot cannot be taken.
 
 ### Solution
+
 For Windows guests:
 
 Verify that the iaasvmprovider service is enabled and has a startup type of *automatic*. If the service is not configured in this way, enable it to determine whether the next backup succeeds.
@@ -88,6 +92,7 @@ The latest version of VMSnapshot for Linux (the extension used by Backup) is 1.0
 If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
 
 To uninstall the extension, do the following:
+
 1. Go to the [Azure portal](https://portal.azure.com/).
 2. Locate the VM that has backup problems.
 3. Click **Settings**.
