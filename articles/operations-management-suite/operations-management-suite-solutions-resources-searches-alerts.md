@@ -1,7 +1,6 @@
 ---
 title: Saved searches and alerts in OMS solutions | Microsoft Docs
-description: Solutions in OMS will typically include 
-saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in an ARM template so they can be included in management solutions.
+description: Solutions in OMS will typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in an ARM template so they can be included in management solutions.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
