@@ -36,7 +36,7 @@ To configure your reference data, you first need to create an input that is of t
 </tr>
 <tr>
 <td>Storage Account</td>
-<td>The name of the storage account where your blobs are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop down.</td>
+<td>The name of the storage account where your blobs are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop-down.</td>
 </tr>
 <tr>
 <td>Storage Account Key</td>
@@ -52,11 +52,11 @@ To configure your reference data, you first need to create an input that is of t
 </tr>
 <tr>
 <td>Date Format [optional]</td>
-<td>If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop down of supported formats. Example: YYYY/MM/DD, MM/DD/YYYY, etc.</td>
+<td>If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats. Example: YYYY/MM/DD, MM/DD/YYYY, etc.</td>
 </tr>
 <tr>
 <td>Time Format [optional]</td>
-<td>If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop down of supported formats. Example: HH, HH/mm, or HH-mm</td>
+<td>If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats. Example: HH, HH/mm, or HH-mm</td>
 </tr>
 <tr>
 <td>Event Serialization Format</td>
@@ -83,7 +83,7 @@ If your reference data is a slowly changing data set, then support for refreshin
 > 
 > 
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions . Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) and moving data easily on a regular schedule that you specify. For more information and step by step guidance on how to set up a Data Factory pipeline to generate reference data for Stream Analytics which refreshes on a pre-defined schedule, check out this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions. Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) and moving data easily on a regular schedule that you specify. For more information and step by step guidance on how to set up a Data Factory pipeline to generate reference data for Stream Analytics which refreshes on a pre-defined schedule, check out this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## Tips on refreshing your reference data
 1. Overwriting reference data blobs will not cause Stream Analytics to reload the blob and in some cases it can cause the job to fail. The recommended way to change reference data is to add a new blob using the same container and path pattern defined in the job input and use a date/time **greater** than the one specified by the last blob in the sequence.
