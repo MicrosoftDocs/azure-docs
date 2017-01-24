@@ -28,12 +28,12 @@ You can switch between different Azure AD tenants by selecting the currently sig
 ## Installation Questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sycn) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sync) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
 
 The numbers below are an approximation.
 
 * CPU consumption: ~1% increase
-* Memory consumption: Up to 10 % of the total system memory
+* Memory consumption: Up to 10% of the total system memory
 
 > [!NOTE]
 > In the event of the agent being unable to communicate to Azure, the agent stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
@@ -98,15 +98,15 @@ This section only applies to customers, who were notified about an upcoming migr
 
 **Q: Will I have to re-register my agents or reconfigure my notification settings, after the migration happens?**
 
-No, agent registration information and notification settings will be moved as part of the mgiration. 
+No, agent registration information and notification settings will be moved as part of the migration. 
 
 **Q: How long after the migration, will I start seeing data in the portal?**
 
-Data will start appearing in the portal, within one hour after the mgration. 
+Data will start appearing in the portal, within one hour after the migration. 
 
 **Q: What happens to my existent active alerts?**
 
-Any applicable alerts will be re-activated, within one hour after the migration.
+Any applicable alerts will be reactivated, within one hour after the migration.
 
 
 ## Related links
