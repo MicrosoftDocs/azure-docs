@@ -1,5 +1,5 @@
 ---
-title: Create standalone scala applications to run on HDInsight Spark clusters | Microsoft Docs
+title: Create standalone Scala applications to run on Azure Spark clusters | Microsoft Docs
 description: Learn how to create a standalone Spark application to run on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''

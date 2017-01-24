@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub glossary | Microsoft Docs
+title: Azure IoT Hub glossary of terms | Microsoft Docs
 description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
 services: iot-hub
 documentationcenter: .net
