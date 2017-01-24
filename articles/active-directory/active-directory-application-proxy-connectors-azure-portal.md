@@ -1,11 +1,11 @@
 ---
-title: Working with Azure AD Application Proxy connectors | Microsoft Docs
+title: Install and manage connectors - Azure AD App Proxy | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
 ms.service: active-directory
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
-# Publish applications on separate networks and locations using connector groups - Public Preview
+# Publish applications on separate networks and locations using connectors - Public Preview
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-connectors.md)
-> 
-> 
+>
+>
 
-Connector groups are useful for various scenarios, including:
+Connectors and connector groups are useful for various scenarios, including:
 
 * Sites with multiple interconnected datacenters. In this case, you want to keep as much traffic within the datacenter as possible because cross-datacenter links are expensive and slow. You can deploy connectors in each datacenter to serve only the applications that reside within the datacenter. This approach minimizes cross-datacenter links and provides an entirely transparent experience to your users.
 * Managing applications installed on isolated networks that are not part of the main corporate network. You can use connector groups to install dedicated connectors on isolated networks to also isolate applications to the network.
@@ -58,4 +58,3 @@ The last step is to set each application to the connector group that will serve 
 * [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-

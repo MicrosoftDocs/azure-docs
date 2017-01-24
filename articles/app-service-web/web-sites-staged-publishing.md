@@ -272,7 +272,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 
 - - -
 > [!NOTE]
-> See a web app in action. [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) immediately and create a short-lived starter app—no credit 
+> See a web app in action. [Try App Service](https://azure.microsoft.com/try/app-service/) immediately and create a short-lived starter app—no credit 
 > card required, no commitments.
 > 
 > 

@@ -1,10 +1,10 @@
 ---
-title: Why have you received a notification that your Azure subscription has a past due balance | Microsoft Docs
+title: Past due balance email from Azure | Microsoft Docs
 description: Describes how to make payment if your Azure subscription has a past due balance
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 

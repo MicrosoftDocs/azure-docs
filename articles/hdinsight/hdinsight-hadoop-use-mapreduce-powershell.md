@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 
 ---
@@ -53,22 +53,21 @@ The following cmdlets are used when running MapReduce jobs in a remote HDInsight
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster.
 
-1. Using an editor, save the following code as **mapreducejob.ps1**. You must replace **CLUSTERNAME** with the name of your HDInsight cluster.
+1. Using an editor, save the following code as **mapreducejob.ps1**..
     
     ```powershell
-    #Specify the values
-    $clusterName = "CLUSTERNAME"
-
     # Login to your Azure subscription
     # Is there an active Azure subscription?
     $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Login-AzureRmAccount
+        Add-AzureRmAccount
     }
 
-    #Get HTTPS/Admin credentials for submitting the job later
-    $creds = Get-Credential
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
+
     #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroup = $clusterInfo.ResourceGroup
@@ -89,11 +88,11 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     # -ClassName = the class of the application
     # -Arguments = The input file, and the output directory
     $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-        -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+        -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
         -ClassName "wordcount" `
         -Arguments `
-            "wasbs:///example/data/gutenberg/davinci.txt", `
-            "wasbs:///example/data/WordCountOutput"
+            "wasb:///example/data/gutenberg/davinci.txt", `
+            "wasb:///example/data/WordCountOutput"
 
     #Submit the job to the cluster
     Write-Host "Start the MapReduce job..." -ForegroundColor Green
@@ -114,13 +113,10 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         -Container $container `
         -Destination output.txt `
         -Context $context
-    # Print the output
+    # Print the output of the job.
     Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds
     ```
 
@@ -128,7 +124,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
    
         .\mapreducejob.ps1
    
-    When you run the script, you are prompted to authenticate to your Azure subscription. You will also be asked to provide the HTTPS/Admin account name and password for the HDInsight cluster.
+    When you run the script, you are prompted for the name of the HDInsight cluster and the HTTPS/Admin account name and password for the cluster. You may also be prompted to authenticate to your Azure subscription.
 
 3. When the job completes, you should receive output similar to the following:
     
@@ -166,9 +162,6 @@ Write-Host "Display the standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
-        -DefaultContainer $container `
-        -DefaultStorageAccountName $storageAccountName `
-        -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
 ```

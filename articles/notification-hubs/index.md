@@ -197,11 +197,4 @@ Learn how to use Notification Hubs, a multi-platform, scalable push-notification
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Notification Hubs Documentation
-        </div>
-    </a>
-</div>
+

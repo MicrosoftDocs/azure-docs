@@ -43,12 +43,14 @@
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
 #### [Architecture](service-fabric-reliable-services-platform-architecture.md)
+#### [Reliable Services lifecycle](service-fabric-reliable-services-lifecycle.md)
 #### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 #### [Use Reliable Collections](service-fabric-work-with-reliable-collections.md)
 #### [Configure](service-fabric-reliable-services-configuration.md)
 #### [Notifications](service-fabric-reliable-services-notifications.md)
 #### [Backup and restore](service-fabric-reliable-services-backup-restore.md)
 #### [Communicate with Reliable Services](service-fabric-reliable-services-communication.md)
+#### [Secure communications with Reliable Services](service-fabric-reliable-services-secure-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
 ##### [Service Remoting](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
@@ -111,6 +113,7 @@
 
 ### Standalone clusters
 #### [Create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md)
+#### [Create a standalone cluster on Azure Virtual Machines](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Scale a cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Upgrade a cluster](service-fabric-cluster-upgrade-windows-server.md)
 #### [Secure a cluster](service-fabric-windows-cluster-x509-security.md)
@@ -164,7 +167,7 @@
 ### Azure Diagnostics logs
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Service Fabric application trace](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [Collect logs from a service process](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 ### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)

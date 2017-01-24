@@ -4,7 +4,7 @@ description: Describes how to troubleshoot some common Azure sign up issues.
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: felixwu
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 
