@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 10/20/2016
+ms.date: 01/20/2017
 ms.author: tamram
 
 ---
