@@ -236,7 +236,7 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 Note the following points:
 
 * If the `structure` and `jsonPathDefinition` are not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
-* If the JSON input has an array, by default the Copy Activity converts the entire array value into a string. You can choose to extract data from it using `jsonNodeReference` and/or `jsonPathDefinition`, or skip it by using [column mapping or filtering](#column-mapping-with-translator-rules).
+* If the JSON input has an array, by default the Copy Activity converts the entire array value into a string. You can choose to extract data from it using `jsonNodeReference` and/or `jsonPathDefinition`, or skip it by not specifying it in `jsonPathDefinition`.
 * If there are duplicate names at the same level, the Copy Activity picks the last one.
 * Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties.
 
