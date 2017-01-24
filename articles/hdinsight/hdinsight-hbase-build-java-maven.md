@@ -1,5 +1,5 @@
 ---
-title: Build a Java HBase application for Windows-based HDInsight | Microsoft Docs
+title: Build a Java HBase application for Windows-based Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to a Windows-based Azure HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
