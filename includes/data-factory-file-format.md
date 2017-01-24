@@ -63,8 +63,8 @@ If you want to parse the JSON files or write the data in JSON format, set the `f
 | Property | Description | Required |
 | --- | --- | --- |
 | filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
-| jsonNodeReference | If you want to iterate and extract data from the objects inside an array field, specify the JSON path of that array. By default, if the JSON input has an array, the Copy Activity converts the entire array value into a string. | No |
-| jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name. For fields belong to root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
+| jsonNodeReference | If you want to iterate and extract data from the objects with same pattern inside an array field, specify the JSON path of that array. | No |
+| jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name. You can extract data from object or array. For fields belong to root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
 | encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
 | nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
 
@@ -169,15 +169,15 @@ If you have a JSON file with the following content:
     "orderlines": [
         {
             "prod": "p1",
-            "price": "23"
+            "price": 23
         },
         {
             "prod": "p2",
-            "price": "13"
+            "price": 13
         },
         {
             "prod": "p3",
-            "price": "231"
+            "price": 231
         }
     ],
     "city": [ { "sanmateo": "No 1" } ]
@@ -193,8 +193,8 @@ and you want to copy it into an Azure SQL table in the following format, by flat
 
 The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
-- `jsonNodeReference` indicates to iterate and extract the objects under **array** orderlines.
+- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
+- `jsonNodeReference` indicates to iterate and extract data from the objects with same pattern under **array** orderlines.
 - `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, "ordernumber", "orderdate" and "city" are under root object with JSON path starting with "$.", while "order_pd" and "order_price" are defined with path derived from the array element without "$.".
 
 ```json
@@ -210,7 +210,7 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
         },
         {
             "name": "order_pd",
-            "type": "Int64"
+            "type": "String"
         },
         {
             "name": "order_price",
