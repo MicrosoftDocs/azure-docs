@@ -35,7 +35,8 @@ Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) s
 For a broad overview of Azure AD service capabilities, see [What is
 Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/). For more information, see our Service Level Agreements page.
 
-> [!NOTE] Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure
+> [!NOTE] 
+> Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure
 resources and map them to your payment method. In this case, there are NO license counts associated with the subscription. Users' association
 with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure
 resources mapped to the subscription.
@@ -48,8 +49,8 @@ When you purchase or activate Enterprise Mobility Suite, Azure AD Premium, or Az
 
 Each subscription consists of one or more service plans, each mapping the included functional level of the service type; for example, Azure AD, Azure MFA, Microsoft Intune, Exchange Online, or SharePoint Online.  Azure AD license management does NOT require service-plan-level management. This is different from Office 365 which relies on this advanced configuration mode to manage access to included services. Azure AD relies on in service configuration, to enable features and manage individual permissions.
 
-> [!IMPORTANT] Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant.
-Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
+> [!IMPORTANT]
+> Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
 >
 > When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services; for example, Office 365.
 
@@ -71,7 +72,8 @@ Here are a couple of best practices:
 
 - If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure classic portal. Learn more about creating a new Azure AD directory in the Azure classic portal. The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure portal with this account, you will be able to see this directory and access all directory administration tasks.
 
-> [!NOTE] Azure AD supports “external users,” which are user accounts in an instance of Azure AD that were created using either a Microsoft Account (MSA) or an Azure AD identity from another directory. While we are busy extending this capability into all of Microsoft's organizational services, right now these accounts are not supported in some of the services' experiences; for example, the Office 365 administration portal does not currently support these users. Thus, external users with Microsoft accounts will not be able to access the Office 365 administration portal at all, while external users from other Azure AD directories will be ignored. In the latter case, only the user’s local account, the Azure AD or Office 365 directory where the user was originally created, is accessible through these experiences.
+> [!NOTE]
+> Azure AD supports “external users,” which are user accounts in an instance of Azure AD that were created using either a Microsoft Account (MSA) or an Azure AD identity from another directory. While we are busy extending this capability into all of Microsoft's organizational services, right now these accounts are not supported in some of the services' experiences; for example, the Office 365 administration portal does not currently support these users. Thus, external users with Microsoft accounts will not be able to access the Office 365 administration portal at all, while external users from other Azure AD directories will be ignored. In the latter case, only the user’s local account, the Azure AD or Office 365 directory where the user was originally created, is accessible through these experiences.
 
 As indicated, Azure AD has different paid versions. These versions have some minor differences in their purchase availability:
 
@@ -94,7 +96,8 @@ The trial licenses will now be available on the **Licenses** blade.
 
 Once the subscription is active, you should assign a license to yourself and refresh the browser to ensure you are seeing all your features. The next step is to assign licenses to the users that will need to access or be included in paid Azure AD features. As we mentioned above in [Assigning licenses](#assigning-licenses), the best way to do this is to identify the group representing the desired audience and assign the license to it; in this way, users who are added or removed from the group over its lifecycle will be assigned or removed the license, respectively.
 
-> [!NOTE] Some Microsoft services are not available in all locations; before a license can be assigned to a user, the administrator must specify the “Usage location” property on the user. This can be done under User &gt; Profile &gt; Settings section in the Azure portal. When using group license assignment, any users without a usage location specified will inherit the location of the directory.
+> [!NOTE]
+> Some Microsoft services are not available in all locations; before a license can be assigned to a user, the administrator must specify the “Usage location” property on the user. This can be done under User &gt; Profile &gt; Settings section in the Azure portal. When using group license assignment, any users without a usage location specified will inherit the location of the directory.
 
 To assign a license to a group or individual users, under Azure Active Directory &gt; Licenses &gt; All Products select one or more products and click the **Assign** button on the command bar.
 
