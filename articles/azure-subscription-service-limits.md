@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Subscription and Service Limits, Quotas, and Constraints
+title: Azure subscription limits and quotas | Microsoft Docs
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values.
 services: ''
 documentationcenter: ''

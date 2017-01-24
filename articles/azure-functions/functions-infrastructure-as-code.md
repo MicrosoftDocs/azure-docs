@@ -1,6 +1,6 @@
 ---
-title: Automating azure functions resource deployment | Microsoft Docs
-description: 
+title: Automate resource deployment for Azure Functions | Microsoft Docs
+description: Learn how to build an Azure Resource Manager template that deploys your Functions App to Microsoft Azure.
 services: Functions
 documtationcenter: na
 author: mattchenderson
@@ -15,14 +15,16 @@ ms.devlang: multiple
 ms.topic:
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/29/2016
+ms.date: 01/23/2017
 ms.author: cfowler;glenga
+
 ---
-# Automating azure functions resource deployment
+
+# Automate the deployment of resources for your Azure Functions App
 
 In this topic, you will learn how to build an Azure Resource Manager template, that deploys a function app. You will learn how to define the baseline of resources required for an Azure Function and the parameters that are specified when the deployment is executed. Depending on the [triggers and bindings](functions-triggers-bindings.md) that are used in your function, you may require deploying additional resources to encompass your entire application as infrastructure as code.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 For examples of a complete template, [Create consumption-based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) and/or [Create an App Service Plan based Azure Function](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json)
 
@@ -62,7 +64,7 @@ The location in which to deploy the Function App.
 > The **defaultValue** parameter is used to inherit the location of the Resource Group, or if a parameter value isn't specified during a Powershell or CLI deployment. If deploying from the Portal, a dropdown box is provided to select from the **allowedValues**.
 
 > [!TIP]
-> For an up-to-date list of regions Azure Functions is available in visit the [Products available by region](https://azure.microsoft.com/en-us/regions/services/) page.
+> For an up-to-date list of regions Azure Functions is available in visit the [Products available by region](https://azure.microsoft.com/regions/services/) page.
 
 ```json
 "location": {
@@ -120,7 +122,7 @@ The location in which to deploy the Function App.
 
 In addition to parameters, Azure Resource Manager templates also have a concept of variables which can incorporate parameters to build out more specific settings to be used by your template.
 
-In this example below, you can see that we are leveraging variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to take the provided appName and convert it to lowercase to ensure that the [naming requirements](/storage/storage-create-storage-account#create-a-storage-account) for Azure Storage accounts are met.
+In this example below, you can see that we are leveraging variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to take the provided appName and convert it to lowercase to ensure that the [naming requirements](../storage/storage-create-storage-account.md#create-a-storage-account) for Azure Storage accounts are met.
 
 ```json
 "variables": {
@@ -194,9 +196,6 @@ A Function App has many child resources in which you can take advantage of inclu
 > [!IMPORTANT]
 > It is important to understand how resources are deployed in Azure to ensure that you create a successful infrastructure as code configuration for your Application when using Azure Resource Manager. In this example, you will notice that there are top-level configurations being applied using **siteConfig**, these are important to set at a top level as they convey meaning to Azure Functions runtime and deployment engine which are required before the child resource **sourcecontrols/web** is applied. While these settings could be configured in the child level resource **config/appSettings**, there are scenarios in which your Function App and Functions will need to be deployed *before* the **config/appsettings** are applied as your Functions are a dependency of another resource, for example a [Logic App](../logic-apps/index.md).
 
-> [!TIP]
-> In this template we are using the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Setting, which is setting the base directory in which the Functions Deployment Engine (Kudu) is going to look for deployable code. In this example, we have set this value to `src` as our GitHub repository contains a `src` folder in which our functions are a child of. If you have a repository in which your functions are directly in the root of the repository, or you are not deploying from Source Control, this App Setting can be removed.
-
 ```json
 {
   "apiVersion": "2015-08-01",
@@ -249,17 +248,19 @@ A Function App has many child resources in which you can take advantage of inclu
   ]
 }
 ```
+> [!TIP]
+> In this template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app setting, which is setting the base directory in which the Functions Deployment Engine (Kudu) is going to look for deployable code. In this example, we have set this value to `src` as our GitHub repository contains a `src` folder in which our functions are a child of. If you have a repository in which your functions are directly in the root of the repository, or you are not deploying from Source Control, this App Setting can be removed.
 
 ## Deploying your template
 
-* [Powershell](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/)
-* [CLI](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy-cli/)
-* [Portal](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy-portal/)
-* [REST API](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy-rest/)
+* [Powershell](../azure-resource-manager/resource-group-template-deploy.md)
+* [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### Deploy to azure button
 
-Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL encoded](https://www.bing.com/search?q=url+encode) of the raw path of your `azuredeploy.json` file in GitHub.
+Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL encoded](https://www.bing.com/search?q=url+encode) version of the raw path of your `azuredeploy.json` file in GitHub.
 
 #### Markdown
 

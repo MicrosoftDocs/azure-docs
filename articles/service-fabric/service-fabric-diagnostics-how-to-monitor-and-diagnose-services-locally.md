@@ -1,5 +1,5 @@
 ---
-title: Locally monitor and diagnose services written with Azure Service Fabric | Microsoft Docs
+title: Debug Azure microservices in Windows | Microsoft Docs
 description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
 services: service-fabric
 documentationcenter: .net
