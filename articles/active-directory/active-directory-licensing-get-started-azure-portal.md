@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) s
 For a broad overview of Azure AD service capabilities, see [What is
 Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-whatis/). For more information, see our Service Level Agreements page.
 
-> [!NOTE] 
+> [!NOTE]
 > Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure
 resources and map them to your payment method. In this case, there are NO license counts associated with the subscription. Users' association
 with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure
@@ -154,14 +154,9 @@ groups read this article ???
 
 Now you might be ready to configure and use some Azure AD Premium features.
 
--   Self-service password reset
-
--   Self-service group management
-
--   Azure AD Connect heath
-
--   Group assignment to applications
-
--   Azure Multi-Factor Authentication
-
--   Direct purchase of Azure AD Premium licenses
+* [Self-service password reset](active-directory-manage-passwords.md)
+* [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+* [Azure AD Connect heath](active-directory-aadconnect-health.md)
+* [Group assignment to applications](active-directory-manage-groups.md)
+* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)
