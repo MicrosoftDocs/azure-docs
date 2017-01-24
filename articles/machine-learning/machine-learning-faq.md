@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning FAQ | Microsoft Docs
+title: Azure Machine Learning frequently asked questions (FAQ) | Microsoft Docs
 description: 'Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/26/2016
+ms.date: 01/23/2017
 ms.author: garye
 
 ---
