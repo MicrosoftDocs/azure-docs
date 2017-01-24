@@ -1,5 +1,5 @@
 ---
-title: Connect an Azure virtual network to another VNet - Portal | Microsoft Docs
+title: 'Connect an Azure virtual network to another VNet: Portal | Microsoft Docs'
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
