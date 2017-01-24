@@ -112,6 +112,11 @@ The default method for each metric is shown when you create a new chart or when 
 
 ![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 
+## Pin Y-axis 
+By default a chart shows Y axis values starting from zero till maximum values in the data range, to give a visual representation of quantum of the values. But in some cases more than the quantum it might be interesting to visually inspect minor changes in values. For customizations like this use the Y-axis range editing feature to pin the Y-axis minimum or maximum value at desired place.
+Click on "Advanced Settings" check box to bring up the Y-axis range Settings
+
+![Click Advanced Settings, select Custom range, and specify min max values](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## Filter your data
 To see just the metrics for a selected set of property values:
