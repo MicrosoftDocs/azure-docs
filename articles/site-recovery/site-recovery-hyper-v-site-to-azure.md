@@ -425,7 +425,7 @@ After initial replication is complete for  your machines, you can invoke failove
 This should be chosen to meet compliance requirements or during planned maintenance, fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports. This procedure describes how to run an 'planned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
 
 1. Select **Recovery Plans > recoveryplan_name**.
-2. On the Recovery plan blade, Click **Unplanned Failover**.
+2. On the Recovery plan blade, Click **Planned Failover**.
 3. On the **Confirm Planned Failover **page, choose the source and target locations. 
 4. When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss. You can follow the failover progress on the **Jobs** tab. If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops. You can initiate the failover again.
 6. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
