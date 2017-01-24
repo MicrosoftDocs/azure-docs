@@ -29,7 +29,6 @@ If you haven't gone through the overview of Azure Batch service before, I would 
 
 I also know some of you will still skip it :), so I have tried to cover the basics of Azure Batch along with the instructions to create it.
 
-n
 ### Step 1: Create an Azure Batch Account
 
 As a first step, let's create an Azure Batch account. You can create it from the [portal](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal) or from commandline ([Powershell](https://docs.microsoft.com/en-us/azure/batch/batch-powershell-cmdlets-get-started) /[Azure cli](https://docs.microsoft.com/en-us/azure/batch/batch-cli-get-started)).
