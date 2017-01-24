@@ -57,6 +57,9 @@ To create an alert rule, you start by creating a log search for the records that
 | Select a runbook |Select the runbook to start from the runbooks in the automation account configured in your Automation solution. |
 | Run on |Select **Azure** to run the runbook in the Azure cloud.  Select **Hybrid Worker** to run the runbook on a [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) in your local environment. |
 
+>[NOTE]
+> For information on metric measurement alert rules which are currently in public preview, see [New metric measurement alert rule type in Public Preview!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
+
 ## Manage alert rules
 You can get a list of all alert rules in the **Alerts** menu in Log Analytics **Settings**.  
 
@@ -79,7 +82,7 @@ To alert on a single event, set the number of results to greater than 0 and both
 
 Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time window.  
 
-In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case you would set the threshold to `Less than 1`.
+In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case you would set the threshold to `less than 1`.
 
 ### Performance alerts
 [Performance data](log-analytics-data-sources-performance-counters.md) is stored as records in the OMS repository similar to events.  If you want to alert when a performance counter exceeds a particular threshold, then that threshold should be included in the query.
@@ -88,9 +91,9 @@ For example, if you wanted to alert when the processor runs over 90%, you would 
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-If you wanted to alert when the processor averaged over 90% for 15 minutes, you would use a query like the following with the threshold for the alert rule to `greater than 0` 
+If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query like the following with the threshold for the alert rule to `greater than 0` 
 
-	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) interval 15minutes | where AggregatedValue>90
+	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) | where AggregatedValue>90
 
 ## Alert actions
 In addition to creating an alert record, you can configure the alert rule to automatically run one or more actions.  Actions can proactively notify you of the alert or invoke some process that attempts to correct the problem that was detected.  The following sections describe the actions that are currently available.
