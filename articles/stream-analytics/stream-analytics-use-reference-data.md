@@ -52,11 +52,11 @@ To configure your reference data, you first need to create an input that is of t
 </tr>
 <tr>
 <td>Date Format [optional]</td>
-<td>If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats. Example: YYYY/MM/DD, MM/DD/YYYY, etc.</td>
+<td>If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats.<BR>Example: YYYY/MM/DD, MM/DD/YYYY, etc.</td>
 </tr>
 <tr>
 <td>Time Format [optional]</td>
-<td>If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats. Example: HH, HH/mm, or HH-mm</td>
+<td>If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats.<BR>Example: HH, HH/mm, or HH-mm</td>
 </tr>
 <tr>
 <td>Event Serialization Format</td>
