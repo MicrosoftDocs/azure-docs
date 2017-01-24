@@ -28,9 +28,9 @@ ms.author: ruturajd
 This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions here when you're ready to fail back your VMware virtual machines or Windows or Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 ## Overview
-The following diagrams show the failback architecture for this scenario.
+The diagrams in this section show the failback architecture for this scenario.
 
-When the Process Server is on-premises and you are using an ExpressRoute, use this architecture:
+When the Process Server is on-premises and you are using an ExpressRoute connection, use this architecture:
 
 ![Architecture diagram for ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
@@ -217,7 +217,7 @@ You can also reprotect at a recovery plan level. If you have a replication group
 After you reprotect the VM, you can initiate a failover from Azure to on-premises.
 
 1. On the replicated items page, right-click the virtual machine, and then select **Unplanned Failover**.
-2. In **Confirm Failover**, verify the failover direction (from Azure), and then select the recovery point that you want to use for the failover (the latest, or the latest app-consistent recovery point). An app-consistent recovery point occurs before the most recend point in time, and it will cause some data loss.
+2. In **Confirm Failover**, verify the failover direction (from Azure), and then select the recovery point that you want to use for the failover (the latest, or the latest app-consistent recovery point). An app-consistent recovery point occurs before the most recent point in time, and it will cause some data loss.
 3. During failover, Site Recovery shuts down the Azure VMs. After you check that failback has been completed as expected, you can check to ensure that the Azure VMs have been shut down as expected.
 
 ### Reprotect the on-premises site
@@ -232,7 +232,7 @@ After the commit is completed, your data should be back on the on-premises site,
 After the reprotection is complete, the VM replicates back to Azure and you can do a failover.
 
 ### Common issues in failback
-* If you perform a read-only user vCenter discovery and protect virtual machines, it succeeds and failover works. During reprotection, failover  fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+* If you perform a read-only user vCenter discovery and protect virtual machines, it succeeds and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
 * When you fail back a Linux VM and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation happens because the Network Manager package is removed when the VM is recovered in Azure.
 * When a VM is configured with a static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to on-premises, the VM continues to use DHCP to acquire the IP address. Manually sign in to the machine and set the IP address back to a static address if necessary.
 * If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback would not succeed. To enable failback, upgrade to either program's evaluation license.
@@ -241,7 +241,7 @@ After the reprotection is complete, the VM replicates back to Azure and you can 
 * A WS2008R2SP1 machine that is protected as a physical on-premises machine cannot be failed back from Azure to on-premises.
 
 ## Failing back with ExpressRoute
-You can fail back over a VPN connection or by using Azure ExpressRoute. If you want to use ExpressRoute, note the following:
+You can fail back over a VPN connection or by using an ExpressRoute connection. If you want to use an ExpressRoute connection, note the following:
 
-* ExpressRoute should be set up on the Azure virtual network that the source machines fail over to and where the Azure VMs are located after the failover occurs.
-* Data is replicated to an Azure storage account on a public endpoint. To use ExpressRoute, set up public peering in ExpressRoute with the target data center for Site Recovery replication.
+* The ExpressRoute connection should be set up on the Azure virtual network that the source machines fail over to and where the Azure VMs are located after the failover occurs.
+* Data is replicated to an Azure storage account on a public endpoint. To use an ExpressRoute connection, set up public peering in ExpressRoute with the target data center for Site Recovery replication.
