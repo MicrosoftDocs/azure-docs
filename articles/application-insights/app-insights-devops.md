@@ -1,5 +1,5 @@
 ---
-title: Web application performance monitoring | Microsoft Docs
+title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Analytics in Application Insights | Microsoft Docs
+title: Troubleshoot Analytics in Azure Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
 documentationcenter: ''

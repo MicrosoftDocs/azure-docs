@@ -1,5 +1,5 @@
 ---
-title: Technical support for Application Insights | Microsoft Docs
+title: Technical support for Azure Application Insights | Microsoft Docs
 description: Get help with problems with Application Insights.
 services: application-insights
 documentationcenter: ''
