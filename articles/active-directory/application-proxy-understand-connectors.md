@@ -50,7 +50,7 @@ Enable Application Proxy in the Azure portal](active-directory-application-proxy
 
 As a result of having only outbound traffic, there is no need to setup load balancing between the connectors or configure inbound access through your firewalls.
 
-For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers).
+For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md).
 
 ## Network security
 
