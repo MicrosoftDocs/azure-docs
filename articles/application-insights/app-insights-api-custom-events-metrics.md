@@ -26,9 +26,9 @@ The API is uniform across all platforms, apart from a few small variations.
 
 | Method | Used for |
 | --- | --- |
-| [`TrackPageView`](#page-views) |Pages, screens, blades, or forms |
+| [`TrackPageView`](#page-views) |Pages, screens, blades, or forms. |
 | [`TrackEvent`](#track-event) |User actions and other events. Used to track user behavior or to monitor performance. |
-| [`TrackMetric`](#track-metric) |Performance measurements such as queue lengths not related to specific events |
+| [`TrackMetric`](#track-metric) |Performance measurements such as queue lengths not related to specific events. |
 | [`TrackException`](#track-exception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
 | [`TrackRequest`](#track-request) |Logging the frequency and duration of server requests for performance analysis. |
 | [`TrackTrace`](#track-trace) |Diagnostic log messages. You can also capture third-party logs. |
@@ -72,7 +72,7 @@ TelemetryClient is thread-safe.
 We recommend that you use an instance of TelemetryClient for each module of your app. For instance, you may have one TelemetryClient instance in your web service to report incoming HTTP requests, and another in a middleware class to report business logic events. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions, or `TelemetryClient.Context.Device.Id` to identify the machine. This information is attached to all events that the instance sends.
 
 ## TrackEvent
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer][metrics] as an aggregated count, and also as individual occurrences in [Diagnostic Search][diagnostic]. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer][metrics] as an aggregated count, and in [Diagnostic Search][diagnostic] as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert TrackEvent calls in your code to count how often users:
 
@@ -187,7 +187,7 @@ By default, the times reported as **Page view load time** are measured from when
 
 Instead, you can either:
 
-* Set an explicit duration in the [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) call: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`
+* Set an explicit duration in the [trackPageView](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#trackpageview) call: `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
 * Use the page view timing calls `startTrackPage` and `stopTrackPage`.
 
 *JavaScript*
@@ -230,7 +230,7 @@ You can also call it yourself if you want to simulate requests in a context wher
 
 
 ## Operation context
-You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events sent while processing an HTTP request. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
+You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
 
 The easiest way to set the ID is to set an operation context by using this pattern:
 
@@ -260,8 +260,8 @@ In Search, the operation context is used to create the **Related Items** list:
 ## TrackException
 Send exceptions to Application Insights:
 
-* To [count them][metrics], as an indication of the frequency of a problem
-* To [examine individual occurrences][diagnostic]
+* To [count them][metrics], as an indication of the frequency of a problem.
+* To [examine individual occurrences][diagnostic].
 
 The reports include the stack traces.
 
@@ -322,7 +322,7 @@ In addition, you can add a severity level to your message. And, like other telem
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level that relate to a particular database.
+In [Search][diagnostic], you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
 ## TrackDependency
 Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
@@ -343,9 +343,9 @@ Use the TrackDependency call to track the response times and success rates of ca
             }
 ```
 
-Remember that the server SDKs include a [dependency module](app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. You use this call if you want to track calls that aren't caught by the automated tracking, or if you don't want to install the agent.
+Remember that the server SDKs include a [dependency module](app-insights-asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
-To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
+To turn off the standard dependency-tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## Flushing data
 Normally, the SDK sends data at times chosen to minimize the impact on the user. However, in some cases, you might want to flush the buffer--for example, if you are using the SDK in an application that shuts down.
@@ -360,9 +360,9 @@ Normally, the SDK sends data at times chosen to minimize the impact on the user.
 Note that the function is asynchronous for the [server telemetry channel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 ## Authenticated users
-In a web app, users are by default identified by cookies. A user might be counted more than once if they access your app from a different machine or browser, or if they delete cookies.
+In a web app, users are (by default) identified by cookies. A user might be counted more than once if they access your app from a different machine or browser, or if they delete cookies.
 
-But if users sign in to your app, you can get a more accurate count by setting the authenticated user ID in the browser code:
+If users sign in to your app, you can get a more accurate count by setting the authenticated user ID in the browser code:
 
 *JavaScript*
 
@@ -400,10 +400,10 @@ In [Metrics Explorer](app-insights-metrics-explorer.md), you can create a chart 
 
 You can also [search][diagnostic] for client data points with specific user names and accounts.
 
-## <a name="properties"></a>Filtering, searching, and segmenting your data with properties
+## <a name="properties"></a>Filtering, searching, and segmenting your data by using properties
 You can attach properties and measurements to your events (and also to metrics, page views, exceptions, and other telemetry data).
 
-*Properties* are string values that you can use to filter your telemetry in the usage reports. For example, if your app provides several games, you'll want to attach the name of the game to each event, so that you can see which games are more popular.
+*Properties* are string values that you can use to filter your telemetry in the usage reports. For example, if your app provides several games, you can attach the name of the game to each event so that you can see which games are more popular.
 
 There's a limit of about 1,000 on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
 
@@ -482,7 +482,7 @@ There are some [limits on the number of properties, property values, and metrics
 ![Open Metrics Explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 > [!NOTE]
-> If your metric doesn't appear, or if the **Custom** heading isn't there, close the selection blade and try later. It can sometimes take an hour for metrics to be aggregated through the pipeline.
+> If your metric doesn't appear, or if the **Custom** heading isn't there, close the selection blade and try again later. Metrics can sometimes take an hour to be aggregated through the pipeline.
 
 *If you used properties and metrics*, segment the metric by the property:
 
@@ -492,7 +492,7 @@ There are some [limits on the number of properties, property values, and metrics
 
 ![Select an instance, and then select "..."](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
 
-Use the **Search** field to see event occurrences with a particular property value.
+Use the **Search** field to see event occurrences that have a particular property value.
 
 ![Type a term into Search](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
@@ -518,7 +518,7 @@ If it's more convenient, you can collect the parameters of an event in a separat
 >
 
 ## <a name="timed"></a> Timing events
-Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
+Sometimes you want to chart how long it takes to perform an action. For example, you might want to know how long users take to consider choices in a game. You can use the measurement parameter for this.
 
 *C#*
 
@@ -581,11 +581,11 @@ Individual telemetry calls can override the default values in their property dic
 *To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 ## Sampling, filtering, and processing telemetry
-You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
+You can write code to process your telemetry before it's sent from the SDK. The processing includes data sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
 
 [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values calculated from other properties.
 
-[Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it is sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+[Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
 
 [Sampling](app-insights-api-filtering-sampling.md) is a packaged solution to reduce the volume of data sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
 
@@ -670,13 +670,13 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 * **Component**: The app and its version.
 * **Device**: Data about the device where the app is running. (In web apps, this is the server or client device that the telemetry is sent from.)
-* **InstrumentationKey**: The Application Insights resource in Azure where the telemetry will appear. Usually picked up from ApplicationInsights.config.
+* **InstrumentationKey**: The Application Insights resource in Azure where the telemetry will appear. It's usually picked up from ApplicationInsights.config.
 * **Location**: The geographic location of the device.
 * **Operation**: In web apps, the current HTTP request. In other app types, you can set this to group events together.
   * **Id**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find related items.
   * **Name**: An identifier, usually the URL of the HTTP request.
   * **SyntheticSource**: If not null or empty, a string that indicates that the source of the request has been identified as a robot or web test. By default, it will be excluded from calculations in Metrics Explorer.
-* **Properties**: Properties that are sent with all telemetry data. Can be overridden in individual Track* calls.
+* **Properties**: Properties that are sent with all telemetry data. It can be overridden in individual Track* calls.
 * **Session**: The user's session. The ID is set to a generated value, which is changed when the user has not been active for a while.
 * **User**: User information.
 
@@ -711,11 +711,11 @@ To determine how long data is kept, see [Data retention and privacy][data].
     Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](app-insights-export-power-bi.md) and [continuous export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Next steps
-[Search events and logs][diagnostic]
+* [Search events and logs][diagnostic]
 
-[Samples and walkthroughs](app-insights-code-samples.md)
+* [Samples and walkthroughs](app-insights-code-samples.md)
 
-[Troubleshooting][qna]
+* [Troubleshooting][qna]
 
 <!--Link references-->
 

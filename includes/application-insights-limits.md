@@ -9,7 +9,7 @@ There are some limits on the number of metrics and events per application (that 
 | [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | This resource provides detailed results of each step.
 | Property and metric name length | 150 |
 | Property value string length | 8,192 |
-| Trace and Exception message length | 10,000 |
+| Trace and exception message length | 10,000 |
 | [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) count per app  | 10 |
 
 For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
