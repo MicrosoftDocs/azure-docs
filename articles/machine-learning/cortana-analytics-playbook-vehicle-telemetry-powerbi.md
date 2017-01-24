@@ -1,5 +1,5 @@
 ---
-title: Vehicle telemetry analytics solution template Power BI Dashboard setup instructions | Microsoft Docs
+title: Power BI Dashboard for vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 documentationcenter: ''

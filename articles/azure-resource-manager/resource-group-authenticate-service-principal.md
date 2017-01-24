@@ -1,5 +1,5 @@
 ---
-title: Create Azure service principal with PowerShell | Microsoft Docs
+title: Create identity for Azure app with PowerShell | Microsoft Docs
 description: Describes how to use Azure PowerShell to create an Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a password or certificate.
 services: azure-resource-manager
 documentationcenter: na
