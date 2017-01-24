@@ -1,5 +1,5 @@
 ---
-title: Connect to an Azure virtual network using Point-to-Site: Azure portal: classic deployment | Microsoft Docs
+title: 'Connect to an Azure virtual network using Point-to-Site: Azure portal: classic deployment | Microsoft Docs'
 description: Securely connect to your classic Azure Virtual Network by creating a Point-to-Site VPN gateway connection using the Azure portal.
 services: vpn-gateway
 documentationcenter: na
