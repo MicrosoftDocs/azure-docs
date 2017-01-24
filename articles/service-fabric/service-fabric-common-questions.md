@@ -36,9 +36,9 @@ Not today, but this is also a common request that we intend to deliver.
 
 The challenge with OS updates is that they typically require a reboot of the machine, which results in temporary availability loss. By itself, that is not a problem, since Service Fabric will automatically redirect traffic for those services to other nodes. However, if OS updates are not coordinated across the cluster, there is the potential that many nodes go down at once. Such simultaneous reboots can cause complete availability loss for a service, or at least for a specific partition (for a stateful service).
 
-In the future, we will support an OS update policy that is coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
+In the future, we will support an OS update policy that is fully automated and coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
 
-In the interim, the only safe option is to perform OS updates manually, one node at a time.
+In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) that a cluster administrator can use to manually kick off patching of each node in a safe manner.
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 

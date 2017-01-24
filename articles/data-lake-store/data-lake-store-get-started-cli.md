@@ -1,5 +1,5 @@
 ---
-title: Get started with Data Lake Store using cross-platform command line interface | Microsoft Docs
+title: Use command-line interface to get started with Azure Data Lake Store | Microsoft Docs
 description: Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations
 services: data-lake-store
 documentationcenter: ''

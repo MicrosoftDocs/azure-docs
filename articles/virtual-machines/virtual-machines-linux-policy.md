@@ -1,5 +1,5 @@
 ---
-title: Apply policies to Azure Resource Manager Virtual Machines | Microsoft Docs
+title: Enforce security with policies on Linux VMs in Azure | Microsoft Docs
 description: How to apply a policy to an Azure Resource Manager Linux Virtual Machine
 services: virtual-machines-linux
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 04/13/2016
 ms.author: singhkay
 
 ---
-# Apply policies to Azure Resource Manager Virtual Machines
+# Apply security and policies to Linux VMs with Azure Resource Manager
 By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
 
 The outline for the steps to accomplish this is as below

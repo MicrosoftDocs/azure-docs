@@ -1,20 +1,5 @@
 ---
-title: How to implement client side partitioning with the SDKs | Microsoft Docs
-description: Learn how to use the Azure DocumentDB SDKs to partition (shard) data and route requests across multiple collections
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: cgronlun
-documentationcenter: ''
 
-ms.assetid: ab2a63f0-4601-42d8-b5e5-ba943319c1c8
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.author: mimig
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 

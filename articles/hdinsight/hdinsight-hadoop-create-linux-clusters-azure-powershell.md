@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using Azure PowerShell | Microsoft Docs
+title: Create Azure HDInsight (Hadoop) using PowerShell | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using Azure PowerShell.
 services: hdinsight
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: nitinme
 
 ---
 # Create Linux-based clusters in HDInsight using Azure PowerShell
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Microsoft Azure. This document provides information about how to create a Linux-based HDInsight cluster by using Azure PowerShell. It also includes an example script.
 

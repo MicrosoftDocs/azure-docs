@@ -1,6 +1,6 @@
 ---
-title: Azure SQL database overview | Microsoft Docs
-description: This page provides an overview of Azure SQL databases.
+title: What is an Azure SQL database? | Microsoft Docs
+description: This article provides an overview of Azure SQL databases.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler

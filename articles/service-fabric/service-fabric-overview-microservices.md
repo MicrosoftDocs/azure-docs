@@ -1,5 +1,5 @@
 ---
-title: Understanding microservices | Microsoft Docs
+title: Introduction to microservices on Azure| Microsoft Docs
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
 services: service-fabric
 documentationcenter: .net

@@ -1,10 +1,10 @@
 ---
 title: List of Microsoft-managed connectors for use in Microsoft Azure Logic apps | Microsoft Docs
-description: Get a complete list of the Microsoft-Managed connectors you can use to build Logic apps in Azure App Service
+description: Get a complete list of the Microsoft-Managed connectors you can use to build logic apps
 services: logic-apps
 documentationcenter: ''
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: ''
 tags: connectors
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/07/2016
-ms.author: deonhe
+ms.author: mandia
 
 ---
 # List of connectors
@@ -79,9 +79,9 @@ There are two types of triggers:
 Connectors can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the connectors. Actions map to operations that are defined in the Swagger metadata.
 
 ## Next Steps
-* [Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [Create a custom connector](../app-service-logic/app-service-logic-create-api-app.md)
-* [Monitor your logic apps](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Build a logic app now](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Create a custom connector](../logic-apps/logic-apps-create-api-app.md)
+* [Monitor your logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
@@ -117,18 +117,18 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [twitterdoc]: ./connectors-create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Keep your life in sync."
 [yammerdoc]: ./connectors-create-api-yammer.md "Connects to Yammer to post messages and get new messages."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Learn about enterprise integration AS2."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Learn about enterprise integration X12"
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration transforms."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode"
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode"
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode"
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode"
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2."
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Learn about enterprise integration X12"
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation."
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Learn about enterprise integration transforms."
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Learn about enterprise integration AS2 decode"
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Learn about enterprise integration AS2 encode"
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode"
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode"
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
 [httpdoc]: ./connectors-native-http.md "HTTP connector to make HTTP calls."
 [http-requestdoc]: ./connectors-native-reqres.md "Request and Response actions."
 [http-responsedoc]: ./connectors-native-reqres.md "Request and Response actions."
@@ -136,9 +136,9 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger connector to make HTTP calls."
 [querydoc]: ./connectors-native-query.md "Query action to select and filter arrays."
 [webhookdoc]: ./connectors-native-webhook.md "Webhook action and trigger for logic apps."
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Integrate logic apps with Azure Functions."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Integrate logic apps with App Service API Apps."
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Integrate logic apps with a nested workflow."
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrate logic apps with App Service API Apps."
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with a nested workflow."
 [recurrencedoc]:  ./connectors-native-recurrence.md "Recurrence trigger for logic apps."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Connects to Google Sheets and can modify sheets."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks and can manage tasks."
@@ -147,8 +147,8 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Connects to Mandrill and can be used for communication."
 [youtubedoc]: ./connectors-create-api-youtube.md "Connects to YouTube and can interact with videos and channels."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost and can be used for communication."
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Use file system connector to communicate with on-premises file system."
-[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Learn about SAP Connector"
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Use file system connector to communicate with on-premises file system."
+[sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "Learn about SAP Connector"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png

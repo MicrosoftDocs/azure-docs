@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 01/19/2017
 ms.author: kgremban
 
 ---
@@ -66,6 +66,10 @@ Here is a full list of permissions we ask for, and how they are used in the app:
 * **Read the contents of your storage**: This permission is only used when you report a technical problem through the app settings. Some information from your storage is collected to diagnose the issue.
 * **Full network access**: This permission is required for sending notifications to verify your identity.
 * **Run at startup**: If you restart your phone, this permission ensures that you continue you receive notifications to verify your identity.
+
+### Why does the Microsoft Authenticator App allow you to approve a request without unlocking the device?
+
+This is by design. Two-step verification requires proving two things – a thing you know, and a thing you have. The thing you know is the password. The thing you have is your phone (set up with the Microsoft Authenticator app and registered as an MFA proof.)  Therefore, having the phone and approving the request meets the criteria for the second factor of authentication. 
 
 ## Next steps
 

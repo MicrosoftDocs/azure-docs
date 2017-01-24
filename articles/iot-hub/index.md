@@ -149,11 +149,4 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download IoT Hub Documentation
-        </div>
-    </a>
-</div>
+
