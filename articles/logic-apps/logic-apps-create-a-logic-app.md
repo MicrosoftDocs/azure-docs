@@ -1,6 +1,6 @@
 ---
-title: Create a Logic App | Microsoft Docs
-description: Learn how to create a Logic App connecting SaaS services
+title: Create an Azure Logic App to mail tweets | Microsoft Docs
+description: Get started connecting apps and SaaS services with your first Logic App - mail Twitter tweets to Outlook 
 author: jeffhollan
 manager: anneta
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: jehollan
 
 ---
