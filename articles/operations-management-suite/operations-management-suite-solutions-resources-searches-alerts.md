@@ -5,7 +5,7 @@ saved searches in Log Analytics to analyze data collected by the solution.  They
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.service: operations-management-suite
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 01/24/2017
 ms.author: bwren
-
 ---
+
 # Log Analytics saved searches and alerts in OMS solutions (Preview)
+
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.   
 
