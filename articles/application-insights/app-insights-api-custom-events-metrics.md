@@ -230,7 +230,7 @@ You can also call it yourself if you want to simulate requests in a context wher
 
 
 ## Operation context
-You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
+You can associate telemetry items together by attaching to them a common operation ID. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request.
 
 The easiest way to set the ID is to set an operation context by using this pattern:
 
@@ -407,7 +407,7 @@ You can attach properties and measurements to your events (and also to metrics, 
 
 There's a limit of about 1,000 on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
 
-*Metrics* are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores that your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you can get separate or stacked graphs for different games.
+*Metrics* are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores that your gamers achieve. The graphs can be segmented by the properties that are sent with the event, so that you can get separate or stacked graphs for different games.
 
 For metric values to be correctly displayed, they should be greater than or equal to 0.
 
@@ -541,7 +541,7 @@ Sometimes you want to chart how long it takes to perform an action. For example,
 
 
 ## <a name="defaults"></a>Default properties for custom telemetry
-If you want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient instance. They are attached to every telemetry item sent from that client.
+If you want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient instance. They are attached to every telemetry item that's sent from that client.
 
 *C#*
 
@@ -581,13 +581,13 @@ Individual telemetry calls can override the default values in their property dic
 *To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 ## Sampling, filtering, and processing telemetry
-You can write code to process your telemetry before it's sent from the SDK. The processing includes data sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
+You can write code to process your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
 
-[Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values calculated from other properties.
+[Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
 
 [Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
 
-[Sampling](app-insights-api-filtering-sampling.md) is a packaged solution to reduce the volume of data sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
+[Sampling](app-insights-api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests, and page views.
 
 [Learn more](app-insights-api-filtering-sampling.md).
 
