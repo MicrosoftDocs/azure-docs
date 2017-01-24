@@ -28,12 +28,12 @@ You can switch between different Azure AD tenants by selecting the currently sig
 ## Installation Questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sycn) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sync) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
 
 The numbers below are an approximation.
 
 * CPU consumption: ~1% increase
-* Memory consumption: Up to 10 % of the total system memory
+* Memory consumption: Up to 10% of the total system memory
 
 > [!NOTE]
 > In the event of the agent being unable to communicate to Azure, the agent stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
@@ -91,6 +91,23 @@ When you remove an agent from a server, the server is not automatically removed 
 
 If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
 In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
+
+## Migration Questions
+
+This section only applies to customers, who were notified about an upcoming migration of their Azure AD Connect Health service data.
+
+**Q: Will I have to re-register my agents or reconfigure my notification settings, after the migration happens?**
+
+No, agent registration information and notification settings will be moved as part of the migration. 
+
+**Q: How long after the migration, will I start seeing data in the portal?**
+
+Data will start appearing in the portal, within one hour after the migration. 
+
+**Q: What happens to my existent active alerts?**
+
+Any applicable alerts will be reactivated, within one hour after the migration.
+
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
