@@ -1,5 +1,5 @@
 ---
-title: Cloud business continuity - Restore a deleted database - SQL Database | Microsoft Docs
+title: Restore an Azure SQL database from a backup | Microsoft Docs
 description: Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days).
 services: sql-database
 documentationcenter: ''
