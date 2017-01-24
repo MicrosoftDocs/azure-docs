@@ -1,5 +1,5 @@
 ---
-title: Create Spark Scala applications using HDInsight Tools in Azure Toolkit for Eclipse | Microsoft Docs
+title: Use Azure Toolkit for Eclipse to create Scala applications for Spark | Microsoft Docs
 description: Learn how to create a standalone Spark application to run on HDInsight Spark clusters.
 services: hdinsight
 documentationcenter: ''

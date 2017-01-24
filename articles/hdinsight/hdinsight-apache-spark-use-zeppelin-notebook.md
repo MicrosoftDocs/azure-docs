@@ -1,5 +1,5 @@
 ---
-title: Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux | Microsoft Docs
+title: Use script action to install Zeppelin notebooks for Spark cluster on Azure HDInsight  | Microsoft Docs
 description: Step-by-step instructions on how to install and use Zeppelin notebooks with Spark clusters on HDInsight Linux.
 services: hdinsight
 documentationcenter: ''
