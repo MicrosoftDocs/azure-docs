@@ -1,5 +1,5 @@
 ---
-title: Identify databases and tables for Stretch Database | Microsoft Docs
+title: Identify databases & tables for Stretch Database - Azure | Microsoft Docs
 description: Learn how to identify databases and tables that are candidates for Stretch Database.
 services: sql-server-stretch-database
 documentationcenter: ''

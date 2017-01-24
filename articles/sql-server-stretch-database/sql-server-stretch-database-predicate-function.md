@@ -1,5 +1,5 @@
 ---
-title: Select rows to migrate - Stretch Database | Microsoft Docs
+title: Select rows to migrate for Stretch Database - Azure | Microsoft Docs
 description: Learn how to select rows to migrate by using a filter function.
 services: sql-server-stretch-database
 documentationcenter: ''
