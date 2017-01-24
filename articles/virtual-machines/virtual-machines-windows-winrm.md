@@ -1,5 +1,5 @@
----
-title: Set up WinRM access for a VM in the Resource Manager model | Microsoft Docs
+n A---
+title: Set up WinRM access for an Azure VM in the Resource Manager model | Microsoft Docs
 description: How to setup WinRM access for use with an Azure Resource Manager virtual machine
 services: virtual-machines-windows
 documentationcenter: ''
