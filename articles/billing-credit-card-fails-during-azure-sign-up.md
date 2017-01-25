@@ -1,5 +1,5 @@
 ---
-title: Debit card or credit card declined at sign up | Microsoft Docs
+title: Credit card declined at Azure sign up | Microsoft Docs
 description: Learn how to resolve issues when your credit or debit card is declined when you try to sign up for Azure.
 services: ''
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: cjiang
 
 ---
@@ -26,7 +26,7 @@ If your debit card or credit card is declined or not accepted when you sign up f
 * **Your credit or debit card information is inaccurate or incomplete.** The name, address, and CVV code you enter must match exactly what’s printed on the card.
 * **You're using a virtual or prepaid card.** Virtual or prepaid credit or debit cards aren't accepted as payment for Azure subscriptions.
 * **The card is inactive or blocked.** Contact your bank and make sure that the card is active and not blocked.
-* **You're trying to activate a second free trial.** The Azure Free Trial offer is limited to one free trial activation per user. If you already activated a free trial with this credit card or had an Azure subscription that was linked to this credit card, you can’t activate a free trial. Use another Azure plan from [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). 
+* **You're trying to activate a second free trial.** The Azure Free Trial offer is limited to one free trial activation per user. If you already activated a free trial with this credit card or had an Azure subscription that was linked to this credit card, you can’t activate a free trial. Use another Azure plan from [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/).
 
 After you update your payment information, try signing up again.
 
@@ -34,8 +34,7 @@ After you update your payment information, try signing up again.
 If you represent a business, you can pay for your Azure subscription with invoice payment methods like checks, overnight checks, or wire transfers. You can’t change to another payment option after you’re set up to pay by invoice. To pay by invoice, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/).
 
 ## Update your credit card or debit card information
-After you sign up, [manage your payment information](billing-how-to-change-credit-card.md) to change or remove a card. 
+After you sign up, [manage your payment information](billing-how-to-change-credit-card.md) to change or remove a card.
 
 ## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
-
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
