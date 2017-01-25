@@ -1,6 +1,5 @@
 ---
-title: Certificate renewal for Office 365 and Azure AD
-users | Microsoft Docs
+title: Certificate renewal for Office 365 and Azure AD users | Microsoft Docs
 description: This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate.
 services: active-directory
 documentationcenter: ''
@@ -60,7 +59,8 @@ On your AD FS server, open PowerShell. Check that the AutoCertificateRollover va
 
 ![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
-[AZURE.NOTE] If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
+>[!NOTE] 
+>If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure AD.
