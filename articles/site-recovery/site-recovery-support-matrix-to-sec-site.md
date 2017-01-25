@@ -137,7 +137,7 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19([available from portal](http://aka.ms/downloadra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
+**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | NA (available from portal) | NA
 
 
