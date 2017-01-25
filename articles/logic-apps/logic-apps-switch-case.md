@@ -28,7 +28,7 @@ These scenarios can be achieved by using a switch statement: Logic App evaluates
 
 - Active Azure subscription.
 	- If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/en-us/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
-- [Basic knowledge of Logic Apps](./logic-apps-what-are-logic-apps?toc=%2fazure%2flogic-apps%2ftoc.json).
+- [Basic knowledge of Logic Apps](logic-apps-what-are-logic-apps.md).
 
 ## Working with switch statement in designer
 To demonstrate the usage of switch statement, let's create a Logic App that monitors files uploaded to Dropbox. The Logic App will send out an approval email to determine if it should be transferred to SharePoint. We will use switch statement to take different actions depending on the value approver selected.
