@@ -26,7 +26,7 @@ The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analyti
 The DocumentDB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in DocumentDB. Using the driver, you can represent data in DocumentDB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates and deletes.
 
 ## Why do I need to normalize my data?
-DocumentDB is a NoSQL database, so it enables rapid development of apps by enabling them to iterate their data model on the fly and not confine them to a strict schema. A single DocumentDB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools-, the data often will need to be flattened and adhere to a specific schema.
+DocumentDB is a NoSQL database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single DocumentDB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools-, the data often will need to be flattened and adhere to a specific schema.
 
 This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalized data in DocumentDB into tables and views fitting to your data analytic and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them, they simply enable you to leverage ODBC compliant tools to access the data. So now your DocumentDB database will not only be a favorite for your development team, but your data analysts will love it too.
 
@@ -63,13 +63,15 @@ Now lets get started with the ODBC driver.
         - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the [Schema Editor](#schema-editor) information.  Upon creating the new schema file, please remember to go back to the **Advanced Options** window to include the newly created schema file.
 
 6. Once you complete and close the **DocumentDB ODBC Driver DSN Setup** window, the new User DSN is added to the User DSN tab.
+
     ![New DocumentDB ODBC DSN on the User DSN tab](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-user-dsn.png)
 
 ## <a id="#collection-mapping"></a>Step 3:  Create a schema definition using the collection mapping method
 
-There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**.  A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. The steps below create a schema for the data in one or more collections using the collection mapping method.  This sampling method retrieves the data in the page of a collection to determine the structure of the data. It transposes a collection to a table on the ODBC side.  This sampling method is efficient and fast when the data in a collection is homogenous.  If a collection contains heterogenous type of data , we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the collection. 
+There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. The steps below create a schema for the data in one or more collections using the collection mapping method.  This sampling method retrieves the data in the page of a collection to determine the structure of the data. It transposes a collection to a table on the ODBC side.  This sampling method is efficient and fast when the data in a collection is homogenous.  If a collection contains heterogenous type of data , we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the collection. 
 
 1. After completing steps 1-4 in [Connect to your DocumentDB database](#connect), click **Schema Editor** in the **DocumentDB ODBC Driver DSN Setup** window.
+
     ![Schema editor button in the DocumentDB ODBC Driver DSN Setup window](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-schema-editor.png)
 2. In the **Schema Editor** window, click **Create New**.
     The **Generate Schema** window displays all of the collections in the DocumentDB account. 
@@ -109,7 +111,7 @@ To create a view for your data, in the **Schema Editor** window, in the **View D
 1. Click **New**, enter a name for the view, for example, EmployeesfromSeattleView and then click **OK**.
 2. In the **Edit view** window, enter a DocumentDB query.  This must be a DocumentDB SQL query, for example`SELECT  c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, and then click **OK**.   
 
-You can create a many view as you like.   Once you are done defining the views, you can then sample the data. 
+You can create a many views as you like. Once you are done defining the views, you can then sample the data. 
 
 ## Step 5: View your data in BI tools such as Power BI Desktop
 
