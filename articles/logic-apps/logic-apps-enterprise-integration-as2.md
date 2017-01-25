@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: anneta
-editor: 
+editor:
 
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
@@ -19,7 +19,7 @@ ms.author: deonhe
 ---
 # Enterprise integration with AS2
 ## Create an AS2 agreement
-To use the enterprise features in Logic apps, you must first create agreements. 
+To use the enterprise features in Logic apps, you must first create agreements.
 
 ### Here's what you need before you get started
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
@@ -27,8 +27,8 @@ To use the enterprise features in Logic apps, you must first create agreements.
 
 > [!NOTE]
 > When creating an agreement, the content in the agreement file must match the agreement type.    
-> 
-> 
+>
+>
 
 After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) and [added partners](logic-apps-enterprise-integration-partners.md), you can create an agreement by following these steps:  
 
@@ -37,7 +37,7 @@ After you log in to the [Azure portal](http://portal.azure.com "Azure portal"):
 
 1. Select **More services** and enter **integration** in the filter search box. Select **Integration Accounts** from the results list    
 ![](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
-2. Select the integration account to which you want to add the certificate. 
+2. Select the integration account to which you want to add the certificate.
 ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
 3. Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
 ![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
@@ -46,7 +46,7 @@ After you log in to the [Azure portal](http://portal.azure.com "Azure portal"):
 5. Enter a **Name** for your agreement, select **AS2** from the **Agreement Type**, **Host Partner**, **Host Identity**, **Guest Partner**, **Guest Identity** in the Agreements blade.  
 ![](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
-Here are a few details you may find useful when configuring the settings for your agreement: 
+Here are a few details you may find useful when configuring the settings for your agreement:
 
 | Property | Description |
 | --- | --- |
@@ -60,7 +60,7 @@ Here are a few details you may find useful when configuring the settings for you
 Let's continue:  
 
 1. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-   
+
    * Optionally, you can override the properties in the incoming message. To do this, select the **Override message properties**.
    * Select the **Message should be signed** if you'd like to require all incoming messages to be signed. If you select this option, you need to select the *guest partner public certificate* to validate the signature on the messages.
    * Select the **Message should be encrypted** if you'd like to require all incoming messages to be encrypted.  If you select this option, you need to select the *host partner private certificate* to decrypt the incoming messages.
@@ -91,8 +91,8 @@ Now, let's continue:
 
    * Select the **Enable message signing** to send signed messages to the partner. If you select this option, you need to select the *host partner private certificate MIC Algorithm* and *host partner private certificate* to sign the messages.
    * Select the **Enable message encryption** to send encrypted messages to the partner. If you select this option, you need to select the *guest partner public certificate algorithm* and *guest partner public certificate* to encrypt the messages.
-   * Select the **Message should be compressed** to compress the message 
-   * Select the **Unfold HTTP headers** to unfold the HTTP content-type header into a single line 
+   * Select the **Message should be compressed** to compress the message
+   * Select the **Unfold HTTP headers** to unfold the HTTP content-type header into a single line
    * Select the **Request MDN** to receive sync MDN for the messages sent
    * Select the **Request signed MDN** to receive signed MDN for the messages sent
    * Select the **Request asynchronous MDN** to receive async MDN for the messages sent. If you select this option, you need to provide a URL to which MDNs are sent  
