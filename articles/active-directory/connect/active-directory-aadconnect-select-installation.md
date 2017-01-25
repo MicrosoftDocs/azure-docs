@@ -21,7 +21,7 @@ ms.author: billmath
 Azure AD Connect has two installation types for new installation: Express and customized. This topic helps you to decide which option to use during installation.
 
 ## Express
-Express is the most common option and is used by about 90% of all new installations. It was designed to provide a configuration that will work for the most common customer scenarios.
+Express is the most common option and is used by about 90% of all new installations. It was designed to provide a configuration that works for the most common customer scenarios.
 
 It assumes:
 
@@ -32,7 +32,7 @@ It assumes:
 You get:
 
 - [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) from on-premises to Azure AD for single sign-on.
-- A configuration that will synchronize [users, groups, contacts, and Windows 10 computers](active-directory-aadconnectsync-understanding-default-configuration.md).
+- A configuration that synchronizes [users, groups, contacts, and Windows 10 computers](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Synchronization of all eligible objects in all domains and all OUs.
 - [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) is enabled to make sure you always use the latest available version.
 
@@ -42,12 +42,12 @@ Options where you can still use Express:
 - You want to enable one of the features in Azure AD Premium, such as Password writeback. First go through express to get the initial installation completed. Then run the installation wizard again and change the [configuration options](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## Custom
-The customized path allows many more options than express. It should be used in all cases where the configuration described above for express is not representative for your organization.
+The customized path allows many more options than express. It should be used in all cases where the configuration described in previous section for express is not representative for your organization.
 
 Use when:
 
 - You do not have access to an enterprise admin account in Active Directory.
-- You have more than one forest or you plan to synchronize more than one forest in the near future.
+- You have more than one forest or you plan to synchronize more than one forest in the future.
 - You have domains in your forest not reachable from the Connect server.
 - You plan to use federation or pass-through authentication for user sign-in.
 - You have more than 100,000 objects and need to use a full SQL Server.
@@ -66,7 +66,7 @@ If you are currently using Azure AD Sync, then you can follow the [same steps](a
 - Swing-migration to install Connect on a new server while the existing Azure AD Sync server is still operational.
 
 ## Migrate from FIM2010 or MIM2016
-If you are currently using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016 with the Azure AD Connector, then your only option is a migration. You should follow the steps described in [swing-migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). In the steps, replace any mention of Azure AD Sync with FIM2010/MIM2016.
+If you are currently using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016 with the Azure AD Connector, then your only option is a migration. Follow the steps described in [swing-migration](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). In the steps, replace any mention of Azure AD Sync with FIM2010/MIM2016.
 
 ## Next steps
 Depending on the option you have selected to use, use the table of content to the left to find your article with the detailed steps.
