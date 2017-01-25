@@ -35,7 +35,7 @@ A list of prerequisites for Azure Site Recovery is mentioned  [here](site-recove
 
 
 
-## Support for operating systems
+## Support for Datacenter Management servers
 
 ### Virtualization management entities
 
@@ -55,12 +55,20 @@ A list of prerequisites for Azure Site Recovery is mentioned  [here](site-recove
 **Hyper-V (no VMM)** | Not a supported configuration for replicating to secondary site
 **Hyper-V with VMM** | Windows Server 2016, Windows Server 2012 R2 with latest updates<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016
 
-## Support for replicated machines
+## Support for replicated machine machine OS versions
 The below table summarizes Operating System support in various deployment scenarios while using Azure Site Recovery. This support is **applicable for any workload** running on the mentioned OS.
 
 **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<br/><br/> **Storage support**:<br>File system (EXT3, ETX4, ReiserFS, XFS);<br>Multipath software-Device Mapper (multipath))<br> Volume manager: (LVM2).<br/><br/> Physical servers with HP CCISS controller storage are **not** supported.<br></br>Note: The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+
+>[!Note]
+>**Storage support for Linux versions**
+>File system (EXT3, ETX4, ReiserFS, XFS)
+>Multipath software-Device Mapper (multipath))
+>Volume manager: (LVM2)
+>Physical servers with HP CCISS controller storage are **not** supported.
+>The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.
 
 ## Support for network
 The below tables summarize network configuration support in various deployment scenarios while using Azure Site Recovery to replicate to Azure.
