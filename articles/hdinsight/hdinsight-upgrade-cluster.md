@@ -31,7 +31,7 @@ The workflow to upgrade HDInsight Cluster is as follows.
 ![Upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
-2. Create a new cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 3. Copy existing jobs, data sources, and sinks to the new environment. See [Copy Data To Test Environment](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) for more details.
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
@@ -42,7 +42,7 @@ actions:
 
 1.	Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
 2.	Delete the existing cluster.
-3.	Create a new cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
+3.	Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
 4.	Import any transient data you backed up.
 5.	Start jobs/continue processing using the new cluster.
 
