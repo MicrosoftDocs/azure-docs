@@ -429,19 +429,6 @@ Note that:
      ![Enable replication](./media/site-recovery-vmm-to-azure/test-failover4.png)
 4. In **Disks** you can see the operating system and data disks on the VM that will be replicated.
 
-## Step 7: Test your deployment
-To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
-
-### Prepare for failover
-* To run a test failover, we recommend that you create a new Azure network that’s isolated from your Azure production network. This is default behavior when you create a new network in Azure. [Learn more](site-recovery-failover.md#run-a-test-failover) about running test failovers.
-* To get the best performance when you fail over to Azure, install the Azure Agent on the protected machine. It makes booting faster and helps with troubleshooting. Install the [Linux](https://github.com/Azure/WALinuxAgent), or [Windows](http://go.microsoft.com/fwlink/?LinkID=394789) agent.
-* To fully test your deployment, you need an infrastructure for the replicated machine to work as expected. If you want to test Active Directory and DNS, you can create a virtual machine as a domain controller with DNS and replicate this to Azure using Azure Site Recovery. Read more in [test failover considerations for Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* If you've excluded disks from replication, you might need to create those disks manually in Azure after failover so that the application runs as expected.
-* If you want to run an unplanned failover instead of a test failover, note that:
-
-  * If possible, you should shut down primary machines before you run an unplanned failover. This ensures that you don't have both the source and replica machines running at the same time.
-  * When you run an unplanned failover, it stops data replication from primary machines, so any data delta won't be transferred after an unplanned failover begins. In addition, if you run an unplanned failover on a recovery plan it will run until complete, even if an error occurs.
-
 ### Prepare to connect to Azure VMs after failover
 If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
 
@@ -472,7 +459,10 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 * A public endpoint should be created to allow incoming connections on the SSH port (TCP port 22 by default).
 * If the VM is accessed over a VPN connection (Express Route or site to site VPN), then the client can be used to directly connect to the VM over SSH.
 
-### Run a test failover
+
+## Step 7: Test your deployment
+To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
+
 1. To fail over a single VM, in **Settings** > **Replicated Items**, click the VM > **+Test Failover**.
 1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
 1. In **Test Failover**, select the Azure network to which Azure VMs connect after failover occurs.
@@ -480,6 +470,8 @@ If you want to access an Azure VM running Linux after failover using a Secure Sh
 1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and is running.
 1. If you [prepared for connections after failover](#prepare-to-connect-to-Azure-VMs-after-failover), you should be able to connect to the Azure VM.
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
+
+For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
 ## Monitor your deployment
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:

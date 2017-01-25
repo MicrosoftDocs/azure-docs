@@ -412,6 +412,8 @@ To test the deployment you can run a test failover for a single virtual machine 
 1. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
 
+For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
+
 
 ## Failover
 After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover.
