@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/25/2017
 ms.author: billmath
 
 ---
@@ -30,8 +30,8 @@ First we need to make sure [**machine.config**](active-directory-aadconnect-prer
 
 > [!NOTE]
 > In some non-Microsoft blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
-> 
-> 
+>
+>
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -172,6 +172,9 @@ Authentication was successful. Could not retrieve company information from Azure
 ### RetrieveDomains
 Authentication was successful. Could not retrieve domain information from Azure AD.
 
+### Unexpected exception
+Shown as Unexpected error in the installation wizard. Can happen if you try to use a **Microsoft Account** rather than a **school or organization account**.
+
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
@@ -188,4 +191,3 @@ This error appear when the Sign-in assistant cannot reach the proxy or the proxy
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-
