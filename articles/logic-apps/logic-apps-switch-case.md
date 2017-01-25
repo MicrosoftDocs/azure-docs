@@ -17,12 +17,12 @@ ms.author: deli
 # Use switch statement in Logic Apps
 When authoring a workflow, you often need to take different actions based on the value of an object or expression. For example, you may want your Logic App to behave differently based on the status code of an HTTP request, or the selected option of an approval email.
 
-Scenarios like these can be achieved by using a switch statement: Logic App evaluates a token or expression, and chooses the case with the same value to execute actions within. Only one case should match the switch statement.
+These scenarios can be achieved by using a switch statement: Logic App evaluates a token or expression, and chooses the case with the same value to execute actions within. Only one case should match the switch statement.
 
  > [!TIP]
- > Like all programming language, switch statement only supports equality operators. Use a condition statement if you need other relational operators (e.g. greater than).
+ > Like all programming language, switch statement only supports equality operators. Use a condition statement if you need other relational operators (for example, greater than).
  >
- > To ensure determinstic execution behavior, cases must contain a unique and static value instead of dynamic tokens or expression.
+ > To ensure deterministic execution behavior, cases must contain a unique and static value instead of dynamic tokens or expression.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Scenarios like these can be achieved by using a switch statement: Logic App eval
 - [Basic knowledge of Logic Apps](./logic-apps-what-are-logic-apps?toc=%2fazure%2flogic-apps%2ftoc.json).
 
 ## Working with switch statement in designer
-To demonstrate the usage of switch statement, let's create a Logic App that monitors files uploaded to Dropbox and sends out an approval email to determine if it should be transferred to SharePoint. We will use switch statement to take different actions depending on the value approver selected.
+To demonstrate the usage of switch statement, let's create a Logic App that monitors files uploaded to Dropbox. The Logic App will send out an approval email to determine if it should be transferred to SharePoint. We will use switch statement to take different actions depending on the value approver selected.
 
 1. Start by create a Logic App, and select **Dropbox - When a file is created** trigger.
 
@@ -53,9 +53,9 @@ To demonstrate the usage of switch statement, let's create a Logic App that moni
  - We want to select what to execute based on `SelectedOptions` output of the *Send approval email* action, you can find it in the **Add dynamic content** selector.
  - Use *Case 1* to handle when user selected `Approve`.
 	- If approved, copy the original file to SharePoint Online with **SharePoint Online - Create file** action.
-	- Add another action within the case, to notify users that a new file is available on SharePoint.
+	- Add another action within the case to notify users that a new file is available on SharePoint.
  - Add another case to handle when user selected `Reject`.
-	- If rejected, send a notification email informing other approvers that the file is rejected and no futher action is required.
+	- If rejected, send a notification email informing other approvers that the file is rejected and no further action is required.
  - We know `SelectedOptions` only has two provided options, *default* case can be left empty.
 
  ![Switch statement](./media/logic-apps-switch-case/switch.jpg)
@@ -65,7 +65,7 @@ To demonstrate the usage of switch statement, let's create a Logic App that moni
 
 4. After the switch statement, delete the original file uploaded to Dropbox with **Dropbox - Delete file** action.
 
-5. Save your Logic App, and test it by uploading a file to Dropbox. You should receive an approval email shortly after, select an option and observe the behavior.
+5. Save your Logic App, and test it by uploading a file to Dropbox. You should receive an approval email shortly after, select an option, and observe the behavior.
  > [!TIP]
  > Check out how to [monitor your Logic Apps](logic-apps-monitor-your-logic-apps.md).
 
