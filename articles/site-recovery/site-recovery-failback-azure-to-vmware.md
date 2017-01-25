@@ -19,9 +19,9 @@ ms.author: ruturajd
 ---
 # Fail back VMware virtual machines and physical servers to the on-premises site
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-failback-azure-to-vmware.md)
-> * [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+> * [Azure portal](site-recovery-failback-azure-to-vmware.md)
+> * [Azure classic portal](site-recovery-failback-azure-to-vmware-classic.md)
+> * [Azure classic portal (legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 >
 >
 
@@ -30,7 +30,7 @@ This article describes how to fail back Azure virtual machines from Azure to the
 ## Overview
 The diagrams in this section show the failback architecture for this scenario.
 
-When the Process Server is on-premises and you are using an ExpressRoute connection, use this architecture:
+When the Process Server is on-premises and you are using an Azure ExpressRoute connection, use this architecture:
 
 ![Architecture diagram for ExpressRoute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
@@ -90,16 +90,16 @@ To replicate back to on-premises, you need a failback policy. The policy is auto
 ## Set up a Process Server in Azure
 Install a Process Server in Azure so that the Azure VMs can send the data back to the on-premises master target server.
 
-If you have protected your virtual machines as classic resources (that is, the VM recovered in Azure is a classic VM), you need a classic Process Server in Azure. If you have recovered the VMs with Resource Manager as the deployment type, the Process Server must have Resource Manager as the deployment type. The deployment type is selected by the Azure virtual network that you deploy the Process Server to.
+If you have protected your virtual machines as classic resources (that is, the VM recovered in Azure is a VM that was created by using the classic deployment model), you need a Process Server in Azure. If you have recovered the VMs with Azure Resource Manager as the deployment type, the Process Server must have Resource Manager as the deployment type. The deployment type is selected by the Azure virtual network that you deploy the Process Server to.
 
-1. In the **Vault** > **Settings** > **Site Recovery Infrastructure** (under "Manage") > **Configuration Servers** (under "For VMware and Physical Machines"), select the configuration server.
+1. In the **Vault** > **Settings** > **Site Recovery Infrastructure** (under **Manage**) > **Configuration Servers** (under **For VMware and Physical Machines**), select the configuration server.
 2. Click **Process Server**.
 
   ![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 3. Choose to deploy the Process Server as **Deploy a failback Process Server in Azure**.
 4. Select the subscription that you have recovered the VMs to.
 5. Select the Azure network that you have recovered the VMs to. The Process Server needs to be in the same network so that the recovered VMs and the Process Server can communicate.
-6. If you selected a *classic deployment* network, create a VM via the Azure Marketplace, and then install the Process Server in it.
+6. If you selected a *classic deployment model* network, create a VM via the Azure Marketplace, and then install the Process Server in it.
 
  ![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 
@@ -204,7 +204,7 @@ After you’ve completed the post-installation steps and installed the packages,
 
 If you want to recover to an alternate location, select the retention drive and datastore that are configured for the master target server. When you fail back to the on-premises site, the VMware VMs in the failback protection plan use the same datastore as the master target server. If you want to recover the replica Azure VM to the same on-premises VM, the on-premises VM should already be in the same datastore as the master target server. If there's no VM on-premises, a new one is created during reprotection.
 
-![Select "Azure to on-premises"](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
+![Select "Azure to on-premises" in the drop-down menu](./media/site-recovery-failback-azure-to-vmware-new/reprotectinputs.png)
 
 You can also reprotect at a recovery plan level. If you have a replication group, you can reprotect it only by using a recovery plan. When you reprotect by using a recovery plan, use the previous values for every protected machine.
 
@@ -231,7 +231,7 @@ After the commit is completed, your data should be back on the on-premises site,
 
 After the reprotection is complete, the VM replicates back to Azure and you can do a failover.
 
-### Common issues in failback
+### Resolve common failback issues
 * If you perform a read-only user vCenter discovery and protect virtual machines, it succeeds and failover works. During reprotection, failover fails because the datastores cannot be discovered. As a symptom, you will not see the datastores listed during reprotection. To resolve this issue, you can update the vCenter credential with an appropriate account that has permissions and retry the job. For more information, see [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
 * When you fail back a Linux VM and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation happens because the Network Manager package is removed when the VM is recovered in Azure.
 * When a VM is configured with a static IP address and is failed over to Azure, the IP address is acquired via DHCP. When you fail over back to on-premises, the VM continues to use DHCP to acquire the IP address. Manually sign in to the machine and set the IP address back to a static address if necessary.
@@ -240,7 +240,7 @@ After the reprotection is complete, the VM replicates back to Azure and you can 
 * If you are trying to fail back to an alternate vCenter, make sure that your new vCenter is discovered and that the master target server is also discovered. A typical symptom is that the datastores are not accessible or visible in the **Reprotect** dialog box.
 * A WS2008R2SP1 machine that is protected as a physical on-premises machine cannot be failed back from Azure to on-premises.
 
-## Failing back with ExpressRoute
+## Fail back with ExpressRoute
 You can fail back over a VPN connection or by using an ExpressRoute connection. If you want to use an ExpressRoute connection, note the following:
 
 * The ExpressRoute connection should be set up on the Azure virtual network that the source machines fail over to and where the Azure VMs are located after the failover occurs.
