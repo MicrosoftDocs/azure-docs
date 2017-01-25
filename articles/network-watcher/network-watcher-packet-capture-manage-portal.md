@@ -1,5 +1,5 @@
 ---
-title: Manage packet captures with Azure Network Watcher using the portal | Microsoft Docs
+title: Manage packet captures with Azure Network Watcher - Azure portal | Microsoft Docs
 description: This page explains how to manage the packet capture feature of Network Watcher using Azure portal
 services: network-watcher
 documentationcenter: na
@@ -34,6 +34,9 @@ This article assumes the you have the following:
 
 - An instance of Network Watcher in the region you want to create a packet capture
 - A virtual machine with the packet capture extension enabled.
+
+> [!IMPORTANT]
+> Packet capture requires an agent to be running on the virtual machine. The Agent is installed as an extension. For instructions on VM extensions visit [Virtual Machine extensions and features](..//virtual-machines/virtual-machines-windows-extensions-features).
 
 ## Packet Capture overview
 

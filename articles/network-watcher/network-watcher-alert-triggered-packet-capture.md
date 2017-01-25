@@ -1,5 +1,5 @@
 ---
-title: Create an alert triggered packet capture with Azure Network Watcher | Microsoft Docs
+title: Alert triggered packet capture with Azure Network Watcher | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
