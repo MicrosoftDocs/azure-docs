@@ -76,7 +76,7 @@
 ## Plan and deploy App Service
 ### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
 ### [Before you get started](azure-stack-app-service-before-you-get-started.md)
-### [Deploy App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md)
+### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
 ### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
 
 
