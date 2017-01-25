@@ -19,7 +19,7 @@ ms.author: awills
 # A tour of Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+ Analytics query language.
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
@@ -133,7 +133,7 @@ Override the time range by writing any query that mentions `timestamp` in a wher
 
 The time range feature is equivalent to a 'where' clause inserted after each mention of one of the source tables. 
 
-`ago(3d)` means 'three days ago'. Other units of time include hours (`2h`, `2.5h`), minutes (`25m`) and seconds (`10s`). 
+`ago(3d)` means 'three days ago'. Other units of time include hours (`2h`, `2.5h`), minutes (`25m`), and seconds (`10s`). 
 
 Other examples:
 
@@ -160,7 +160,7 @@ Other examples:
 [Dates and times reference](app-insights-analytics-reference.md#date-and-time).
 
 
-## [Project](app-insights-analytics-reference.md#project-operator): select, rename and compute columns
+## [Project](app-insights-analytics-reference.md#project-operator): select, rename, and compute columns
 Use [`project`](app-insights-analytics-reference.md#project-operator) to pick out just the columns you want:
 
 ```AIQL
@@ -234,7 +234,7 @@ Or we could group results by time of day:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Notice how we're using the `bin` function (aka `floor`). If we just used `by timestamp`, every input row would end up in its own little group. For any continuous scalar like times or numbers, we have to break the continuous range into a manageable number of discrete values, and `bin` - which is really just the familiar rounding-down `floor` function - is the easiest way to do that.
+Notice how we're using the `bin` function (aka `floor`). If we just used `by timestamp`, every input row would end up in its own little group. For any continuous scalar like times or numbers, we have to break the continuous range into a manageable number of discrete values. `bin` - which is just the familiar rounding-down `floor` function - is the easiest way to do that.
 
 We can use the same technique to reduce ranges of strings:
 
@@ -243,7 +243,7 @@ We can use the same technique to reduce ranges of strings:
 Notice that you can use `name=` to set the name of a result column, either in the aggregation expressions or the by-clause.
 
 ## Counting sampled data
-`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as data points in Application Insights, so that for each data point you see, there are `itemCount` events.
+`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events are retained as data points in Application Insights, so that for each data point you see, there are `itemCount` events.
 
 For example, if sampling discards 75% of the original events, then itemCount==4 in the retained records - that is, for every retained record, there were four original records.
 
@@ -291,7 +291,7 @@ Select the Chart display option:
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
 ## Multiple series
-Multiple expressions in the `summarize` creates multiple columns.
+Multiple expressions in the `summarize` clause creates multiple columns.
 
 Multiple expressions in the `by` clause creates multiple rows, one for each combination of values.
 
@@ -333,7 +333,7 @@ If you chart a table that has more than one numeric column, in addition to the t
 
 ![Segment an analytics chart](./media/app-insights-analytics-tour/110.png)
 
-You must select Don't Split before you can select multiple numeric columns You can't split by a string column at the same time as displaying more than one numeric column.
+You must select **Don't Split** before you can select multiple numeric columns. You can't split by a string column at the same time as displaying more than one numeric column.
 
 ## Daily average cycle
 How does usage vary over the average day?
@@ -413,14 +413,14 @@ Use the above query, but replace the last line:
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
-We also removed the upper limit in the where clause, so as to get correct figures including all sessions with more than one request:
+We also removed the upper limit in the where clause, in order to get correct figures including all sessions with more than one request:
 
 ![result](./media/app-insights-analytics-tour/180.png)
 
 From which we can see that:
 
 * 5% of sessions have a duration of less than 3 minutes 34s;
-* 50% of sessions last less than 36 minnutes;
+* 50% of sessions last less than 36 minutes;
 * 5% of sessions last more than 7 days
 
 To get a separate breakdown for each country, we just have to bring the client_CountryOrRegion column separately through both summarize operators:
@@ -458,7 +458,7 @@ It's good practice to use `project` to select just the columns we need before pe
 In the same clauses, we rename the timestamp column.
 
 ## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
-Use *let* to separate out the parts of the previous expression. The results are unchanged:
+Use `let` to separate out the parts of the previous expression. The results are unchanged:
 
 ```AIQL
 
@@ -470,7 +470,7 @@ Use *let* to separate out the parts of the previous expression. The results are 
     | take 30
 ```
 
-> Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+> Tip: In the Analytics client, don't put blank lines between the parts of the query. Make sure to execute all of it.
 >
 >
 
@@ -490,7 +490,7 @@ Use *Let* to define a function:
 ```
 
 ## Accessing nested objects
-Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
+Nested objects can be accessed easily. For example, in the exceptions stream you can see structured objects like this:
 
 ![result](./media/app-insights-analytics-tour/520.png)
 
@@ -542,11 +542,11 @@ To verify whether a custom dimension is of a particular type:
 You can pin your results to a dashboard in order to bring together all your most important charts and tables.
 
 * [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
-* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
+* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside other results from a wide range of sources.
 
 ## Combine with imported data
 
-Analytics reports look great on the dashboard, but sometimes you want to translate the data to a more digestible form. For example, suppose your authenticated users are identified in the telemetry by an alias. You'd like to show their real names in your results. To do this, you just need a CSV file that maps from the aliases to the real names. 
+Analytics reports look great on the dashboard, but sometimes you want to translate the data to a more digestible form. For example, suppose your authenticated users are identified in the telemetry by an alias. You'd like to show their real names in your results. To do this, you need a CSV file that maps from the aliases to the real names. 
 
 You can import a data file and use it just like any of the standard tables (requests, exceptions, and so on). Either query it on its own, or join it with other tables. For example, if you have a table named usermap, and it has columns `realName` and `userId`, then you can use it to translate the `user_AuthenticatedId` field in the request telemetry:
 
@@ -561,7 +561,9 @@ You can import a data file and use it just like any of the standard tables (requ
     | summarize count() by realName
 ```
 
-To import a table, open **Settings**, **Data sources** and follow the instructions to add a source. Use this definition to upload tables.
+To import a table, in the Schema blade, under **Other Data Sources**, follow the instructions to add a new data source, by uploading a sample of your data. Then you can use this definition to upload tables. 
+
+The import feature is currently in preview, so you will initially see a "Contact us" link under "Other data sources." Use this to sign up to the preview program, and the link will then be replaced by an "Add new data source" button. 
 
 
 ## Tables

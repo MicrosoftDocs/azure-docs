@@ -1,6 +1,6 @@
 ---
 title: PowerShell script to deploy Linux HPC cluster | Microsoft Docs
-description: Run a PowerShell script to deploy a Linux HPC Pack cluster in Azure virtual machines
+description: Run a PowerShell script to deploy a Linux HPC Pack 2012 R2 cluster in Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
@@ -14,30 +14,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 07/07/2016
+ms.date: 12/29/2016
 ms.author: danlep
 
 ---
-# Create a Linux high performance computing (HPC) cluster with the HPC Pack IaaS deployment script
-Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC cluster for Linux workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and compute nodes that run one of the Linux distributions supported by HPC Pack. If you want to deploy an HPC Pack cluster in Azure for Windows workloads, see [Create a Windows HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
+# Create a Linux high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script
+Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC Pack 2012 R2 cluster for Linux workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and compute nodes that run one of the Linux distributions supported by HPC Pack. If you want to deploy an HPC Pack cluster in Azure for Windows workloads, see [Create a Windows HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> The PowerShell script described in this article creates a Microsoft HPC Pack 2012 R2 cluster in Azure using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> In addition, the script described in this article does not support HPC Pack 2016.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
 ## Example configuration file
-The following configuration file creates a new domain controller and domain forest
-and deploys an HPC Pack cluster which has 1 head node with local
+The following configuration file creates a domain controller and domain forest
+and deploys an HPC Pack cluster which has one head node with local
 databases and 10 Linux compute nodes. All the cloud services are created
 directly in the East Asia location. The Linux compute nodes are created
-in 2 cloud services and 2 storage accounts (i.e. *MyLnxCN-0001* to
+in two cloud services and two storage accounts (that is, *MyLnxCN-0001* to
 *MyLnxCN-0005* in *MyLnxCNService01* and *mylnxstorage01*, and *MyLnxCN-0006* to
 *MyLnxCN-0010* in *MyLnxCNService02* and *mylnxstorage02*). The compute nodes
 are created from an OpenLogic CentOS version 7.0 Linux image. 
 
 Substitute your own values for your subscription name and the account and service names.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -78,21 +80,18 @@ Substitute your own values for your subscription name and the account and servic
 </IaaSClusterConfig>
 ```
 ## Troubleshooting
-* **“VNet doesn’t exist” error** - If you run the HPC Pack IaaS deployment script to deploy multiple
+* **“VNet doesn’t exist” error**. If you run the HPC Pack IaaS deployment script to deploy multiple
   clusters in Azure concurrently under one subscription, one or more
   deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
-  If this error occurs, re-run the script for the failed deployment.
-* **Problem accessing the Internet from the Azure virtual network** - If you create an HPC Pack cluster with a new domain controller by using
+  If this error occurs, rerun the script for the failed deployment.
+* **Problem accessing the Internet from the Azure virtual network**. If you create an HPC Pack cluster with a new domain controller by using
   the deployment script, or you manually promote a head node VM to domain
   controller, you may experience problems connecting the VMs in the Azure
   virtual network to the Internet. This can occur if a forwarder DNS
   server is automatically configured on the domain controller, and this
   forwarder DNS server doesn’t resolve properly.
   
-    To work around this problem, log on to the domain controller and either
-    remove the forwarder configuration setting or configure a valid
-    forwarder DNS server. To do this, in Server Manager click **Tools** >
-    **DNS** to open DNS Manager, and then double-click **Forwarders**.
+    To work around this problem, log on to the domain controller and either remove the forwarder configuration setting or configure a valid forwarder DNS server. To do this, in Server Manager click **Tools** > **DNS** to open DNS Manager, and then double-click **Forwarders**.
 
 ## Next steps
 * See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for information about supported Linux distributions, moving data, and submitting jobs to an HPC Pack cluster with Linux compute nodes.

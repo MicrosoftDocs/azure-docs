@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protecting your virtual machines in Azure Security Center  | Microsoft Docs
 description: This document addresses recommendations in Azure Security Center that help you protect your virtual machines and stay in compliance with security policies.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 01/07/2017
 ms.author: terrylan
 
 ---

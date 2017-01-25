@@ -4,7 +4,7 @@ description: This page gives details on how to set up Dynamic DNS to register ho
 services: dns
 documentationcenter: na
 author: GarethBradshawMSFT
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
-ms.author: sewhee
+ms.author: garbrad
 
 ---
 # Using Dynamic DNS to register hostnames in your own DNS server

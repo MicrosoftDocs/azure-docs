@@ -1,5 +1,5 @@
-﻿---
-title: 'Tutorial: Create a pipeline with Copy Activity using Azure PowerShell | Microsoft Docs'
+---
+title: 'Tutorial: Create a pipeline to move data using Azure PowerShell | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 
 ---
-# Tutorial: Create a pipeline with Copy Activity using Azure PowerShell
+# Tutorial: Create a Data Factory pipeline that moves data using Azure PowerShell 
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
@@ -118,21 +118,21 @@ In this step, you create two linked services: **StorageLinkedService** and **Azu
 2. In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
 3. You can use the **New-AzureRmDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureRmDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureRmDataFactory** cmdlet to a variable: **$df**: 
    
-```   
-$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
-```
+	```   
+	$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+	```
 
 4. Now, run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked service: **StorageLinkedService**. 
    
-```
-New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
-```
+	```
+	New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+	```
 
-If you hadn't run the **Get-AzureRmDataFactory** cmdlet and assigned the output to **$df** variable, you would have to specify values for the ResourceGroupName and DataFactoryName parameters as follows.   
+	If you hadn't run the **Get-AzureRmDataFactory** cmdlet and assigned the output to **$df** variable, you would have to specify values for the ResourceGroupName and DataFactoryName parameters as follows.   
    
-```
-New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
-```
+	```
+	New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+	```
 
 If you close the Azure PowerShell in the middle of the tutorial, you have run the Get-AzureRmDataFactory cmdlet next time you launch Azure PowerShell to complete the tutorial.
 
@@ -152,9 +152,9 @@ If you close the Azure PowerShell in the middle of the tutorial, you have run th
    Replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and password.
 2. Run the following command to create a linked service: 
    
-```
-New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
-```
+	```
+	New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
+	```
 
    Confirm that **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following steps:
    
@@ -266,9 +266,9 @@ A table is a rectangular dataset and has a schema. In this step, you create a ta
    See [JSON Scripting Reference](data-factory-data-movement-activities.md) for details about JSON properties.
 2. Run the following command to create the Data Factory dataset.
    
-```  
-New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
-```
+	```  
+	New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
+	```
 
 ### Create output dataset
 In this step, you create an output dataset named **EmpSQLTable**. This dataset points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table. 
@@ -309,9 +309,9 @@ In this step, you create an output dataset named **EmpSQLTable**. This dataset p
    * The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 2. Run the following command to create the Data Factory dataset. 
 
-```   
-New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
-```
+	```   
+	New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
+	```
 
 ## Create pipeline
 In this step, you create a pipeline with a **Copy Activity** that uses **EmpTableFromBlob** as input and **EmpSQLTable** as output.
@@ -375,9 +375,9 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
    See [JSON Scripting Reference](data-factory-data-movement-activities.md) for details about JSON properties.
 2. Run the following command to create the Data Factory table. 
 
-```   
-New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
-```
+	```   
+	New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+	```
 
 **Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a pipeline and scheduled the pipeline.
 
@@ -386,15 +386,15 @@ In this step, you use the Azure PowerShell to monitor what’s going on in an Az
 
 1. Run **Get-AzureRmDataFactory** and assign the output to a variable $df.
 
-```  
-$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
-```
+	```  
+	$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+	```
 
 2. Run **Get-AzureRmDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.  
 
-```   
-Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
-```
+	```   
+	Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+	```
 
    Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This setting should match the **Start** value in the pipeline JSON. 
    
@@ -402,7 +402,7 @@ Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-
    
    **Sample output:**
 
-```   
+	```   
      ResourceGroupName : ADFTutorialResourceGroup
      DataFactoryName   : ADFTutorialDataFactoryPSH
      TableName         : EmpSQLTable
@@ -412,16 +412,16 @@ Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-
      Status            : Waiting
      LatencyStatus     :
      LongRetryCount    : 0
-```
+	```
 3. Run **Get-AzureRmDataFactoryRun** to get the details of activity runs for a **specific** slice. Change the value of the **StartDateTime** parameter to match the **Start** time of the slice from the output. The value of the **StartDateTime** must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). 
 
-```  
-Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
-```
+	```  
+	Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+	```
 
    You should see the output similar to the following sample output:
 
-```   
+	```   
      Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
      ResourceGroupName   : ADFTutorialResourceGroup
      DataFactoryName     : ADFTutorialDataFactoryPSH
@@ -439,7 +439,7 @@ Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09
      ActivityName        : CopyFromBlobToSQL
      PipelineName        : ADFTutorialPipeline
      Type                : Copy
-```
+	```
 
 See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 

@@ -4,12 +4,20 @@ If you haven't already, you can get an [Azure subscription free trial](https://a
 azure config mode arm
 ```
 
-Now create your scale set using the `azure vmss quick-create` command. The following example creates a scale set named `myVMSS` with 5 VM instances in the resource group named `myResourceGroup`:
+Now create your scale set using the `azure vmss quick-create` command. The following example creates a Linux scale set named `myVMSS` with 5 VM instances in the resource group named `myResourceGroup`:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+The following example creates a Windows scale set with the same configuration:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.

@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
@@ -24,8 +24,8 @@ The Azure Resource Manager template used in this document demonstrates how to cr
 
 > [!NOTE]
 > The information in this document, and the example provided, have been tested using Linux-based HDInsight 3.3 and 3.4 cluster versions.
-> 
-> 
+>
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -221,8 +221,7 @@ Before testing, you must start the dashboard to view the output of the topology 
    
    > [!NOTE]
    > This example assumes that you have used **sensordata** as the name of your Event Hub, and **devices** as the name of the policy that has a **Send** claim.
-   > 
-   > 
+
 3. Use the following command to insert new entries in Event Hub:
    
         node app.js
@@ -269,7 +268,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 3. After verifying that this works, stop the topology using Ctrl+C. You can use Ctrl+C to stop the local web server also.
 
 ## Create a Storm and HBase cluster
-In order to run the topology on HDInsight, and to enable the HBase bolt, you must create a new Storm cluster and HBase cluster. The steps in this section use an [Azure Resource Manager template](../resource-group-template-deploy.md) to create a new Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
+In order to run the topology on HDInsight, and to enable the HBase bolt, you must create a new Storm cluster and HBase cluster. The steps in this section use an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) to create a new Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
 
 > [!NOTE]
 > A virtual network is used so that the topology running on the Storm cluster can directly communicate with the HBase cluster using the HBase Java API.
@@ -280,7 +279,7 @@ The Resource Manager template used in this document is located in a public blob 
 
 1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Parameters** blade, enter the following:
    
     ![HDInsight parameters](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -342,12 +341,11 @@ In order to store data in HBase, we must first create a table. You generally wan
         exit
 
 ## Configure the HBase bolt
-To write to HBase from the Storm cluster, you must provide the HBase bolt with the configuration details of your HBase cluster. The easiest way to do this is to download the **hbase-site.xml** from the cluster and include it in your project. You must also uncomment several dependencies in the **pom.xml** file, which load the storm-hbase component and required dependencies.
+
+To write to HBase from the Storm cluster, you must provide the HBase bolt with the configuration details of your HBase cluster. The easiest way to do this is to download the **hbase-site.xml** from the cluster and include it in your project. 
 
 > [!IMPORTANT]
 > You must also download the storm-hbase.jar file provided on your Storm on HDInsight cluster 3.3 or 3.4 cluster; this version is compiled to work with HBase 1.1.x, which is used for HBase on HDInsight 3.3 and 3.4 clusters. If you use a storm-hbase component from elsewhere, it may be compiled against an older version of HBase.
-> 
-> 
 
 ### Download the hbase-site.xml
 From a command prompt, use SCP to download the **hbase-site.xml** file from the cluster. In the following example, replace **USERNAME** with the SSH user you provided when creating the cluster, and **BASENAME** with the base name you provided earlier. When prompted, enter the password for the SSH user. Replace the `/path/to/TemperatureMonitor/resources/hbase-site.xml` with the path to this file in the TemperatureMonitor project.
@@ -370,33 +368,18 @@ This will download the **hbase-site.xml** to the path specified.
    
         mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
-### Enable the storm-hbase component in the project
-1. Open the **TemperatureMonitor/pom.xml** file and delete the following lines:
-   
-        <!-- uncomment this section to enable the hbase-bolt
-        end comment for hbase-bolt section -->
-   
-   > [!IMPORTANT]
-   > Only delete these two lines; do not delete any of the lines between them.
-   > 
-   > 
-   
-    This enables several components that are needed when communicating with HBase using the hbase bolt.
-2. Find the following lines, and then replace **####** with the version number of the storm-hbase file you downloaded earlier.
-   
+3. In the __pom.xml__ file, find the dependency section for __storm-hbase__. Uncomment the dependency by removing the `<!--` and `-->` surrounding the dependency. Also change the `<version></version>` entry to match the #### used in the previous steps. The entry will look similar to the following example:
+
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-hbase</artifactId>
-            <version>####</version>
+            <version>0.10.0.2.4.2.4-5</version>
         </dependency>
-   
-   > [!IMPORTANT]
-   > The version number must match the version you used when installing the component into the local Maven repository, as Maven uses this information to load the component when building the project.
-   > 
-   > 
-3. Save the **pom.xml** file.
+
+   Save the file after making changes.
 
 ## Build, package and deploy the solution to HDInsight
+
 In your development environment, use the following steps to deploy the Storm topology to the storm cluster.
 
 1. From the **TemperatureMonitor** directory, use the following command to perform a new build and create a JAR package from your project:
@@ -406,7 +389,7 @@ In your development environment, use the following steps to deploy the Storm top
     This will create a file named **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** directory of your project.
 2. Use scp to upload the **TemperatureMonitor-1.0-SNAPSHOT.jar** file to your Storm cluster. In the following example, replace **USERNAME** with the SSH user you provided when creating the cluster, and **BASENAME** with the base name you provided earlier. When prompted, enter the password for the SSH user.
    
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
+        scp target/TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
    
    > [!NOTE]
    > It may take several minutes to upload the file, as it will be several megabytes in size.

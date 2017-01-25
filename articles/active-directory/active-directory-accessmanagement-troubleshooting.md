@@ -1,4 +1,3 @@
-﻿
 ---
 title: Troubleshooting dynamic membership for groups | Microsoft Docs
 description: Troubleshooting tips for dynamic membership for groups in Azure AD.

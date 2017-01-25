@@ -78,7 +78,7 @@ The connection **connectionstring** value can be obtained from the [Azure Portal
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](../powershell-install-configure.md) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md).
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md).
 > 
 > 
 
@@ -93,7 +93,7 @@ The **NotificationHubService** object exposes the following object instances for
 ### How to: Send push notifications to Android applications
 The **GcmService** object provides a **send** method that can be used to send push notifications to Android applications. The **send** method accepts the following parameters:
 
-* **Tags** - the tag identifier. If no tag is provided, the notification will be sent to al clients.
+* **Tags** - the tag identifier. If no tag is provided, the notification will be sent to all clients.
 * **Payload** - the message's JSON or raw string payload.
 * **Callback** - the callback function.
 

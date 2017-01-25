@@ -1,6 +1,6 @@
 ---
-title: Get started with the Azure IoT Gateway SDK | Microsoft Docs
-description: This Azure IoT Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK.
+title: Get started with the Azure IoT Gateway SDK (Linux) | Microsoft Docs
+description: How to build a gateway on a Linux machine and learn about key concepts in the Azure IoT Gateway SDK such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 11/23/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK - Get started using Linux
+# Get started with the Azure IoT Gateway SDK (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -25,7 +25,11 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. Open a shell.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository and generate a makefile. The script then builds the solution and runs the tests.
+3. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder
+called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository 
+and generate a makefile. The script then builds the solution, skipping unit tests and end to 
+end tests. Add the **--run-unittests** parameter if you want to build and run the unit tests. Add the 
+**--run-e2e-tests** if you want to build and run the end to end tests.
 
 > [!NOTE]
 > Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
@@ -75,11 +79,11 @@ Before you get started, you must [set up your development environment][lnk-setup
         ]
     }
     ```
-3. Navigate to **azure-iot-gateway-sdk** folder.
+3. Navigate to **azure-iot-gateway-sdk/build** folder.
 4. Run the following command:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2016
-ms.author: JPallavi
+ms.author: pajosh
 
 ---
 # Security features for protecting hybrid backups using Azure Backup

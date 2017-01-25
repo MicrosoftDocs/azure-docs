@@ -1,10 +1,10 @@
 ---
-title: Create an application gateway with web application firewall using the portal | Microsoft Docs
+title: Create an Azure Application Gateway with Web Application Firewall | Microsoft Docs
 description: Learn how to create an Application Gateway with web application firewall by using the portal
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
+
 # Create an application gateway with web application firewall by using the portal
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
 
@@ -44,8 +43,6 @@ In the second scenario, you learn to [create an application gateway with web app
 
 > [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
-> 
-> 
 
 ## Before you begin
 
@@ -77,8 +74,6 @@ The settings to update an existing application gateway to support web applicatio
 
 > [!NOTE]
 > To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
-> 
-> 
 
 ## Create an application gateway with web application firewall
 
@@ -112,8 +107,6 @@ The information needed for the basic settings is:
 
 > [!NOTE]
 > An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not supported for web application firewall scenarios.
-> 
-> 
 
 ### Step 3
 

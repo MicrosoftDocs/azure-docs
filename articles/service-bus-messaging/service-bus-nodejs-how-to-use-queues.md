@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/11/2017
 ms.author: sethm
 
 ---
@@ -23,6 +23,8 @@ ms.author: sethm
 This article describes how to use Service Bus queues in Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create a Node.js application
 Create a blank Node.js application. For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website][Create and deploy a Node.js application to an Azure Website], or [Node.js Cloud Service][Node.js Cloud Service] using Windows PowerShell.
@@ -52,7 +54,7 @@ To use Azure Service Bus, download and use the Node.js Azure package. This packa
 ### Import the module
 Using Notepad or another text editor, add the following to the top of the **server.js** file of the application:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
@@ -66,13 +68,13 @@ For an example of setting the environment variables in the [Azure classic portal
 ## Create a queue
 The **ServiceBusService** object enables you to work with Service Bus queues. The following code creates a **ServiceBusService** object. Add it near the top of the **server.js** file, after the statement to import the Azure module:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 By calling **createQueueIfNotExists** on the **ServiceBusService** object, the specified queue is returned (if it exists), or a new queue with the specified name is created. The following code uses **createQueueIfNotExists** to create or connect to the queue named `myqueue`:
 
-```
+```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
     if(!error){
         // Queue exists
@@ -82,7 +84,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 
 **createServiceBusService** also supports additional options, which enable you to override default queue settings such as message time to live or maximum queue size. The following example sets the maximum queue size to 5 GB, and a time to live (TTL) value of 1 minute:
 
-```
+```javascript
 var queueOptions = {
       MaxSizeInMegabytes: '5120',
       DefaultMessageTimeToLive: 'PT1M'
@@ -98,13 +100,13 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ### Filters
 Optional filtering operations can be applied to operations performed using **ServiceBusService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 After doing its pre-processing on the request options, the method must call `next`, passing a callback with the following signature:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -112,7 +114,7 @@ In this callback, and after processing the **returnObject** (the response from t
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
@@ -122,7 +124,7 @@ To send a message to a Service Bus queue, your application calls the **sendQueue
 
 The following example demonstrates how to send a test message to the queue named `myqueue` using **sendQueueMessage**:
 
-```
+```javascript
 var message = {
     body: 'Test message',
     customProperties: {
@@ -147,7 +149,7 @@ If the **isPeekLock** parameter is set to **true**, the receive becomes a two st
 
 The following example demonstrates how to receive and process messages using **receiveQueueMessage**. The example first receives and deletes a message, and then receives a message using **isPeekLock** set to **true**, then deletes the message using **deleteMessage**:
 
-```
+```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -178,7 +180,7 @@ To learn more about queues, see the following resources.
 
 * [Queues, topics, and subscriptions][Queues, topics, and subscriptions]
 * [Azure SDK for Node][Azure SDK for Node] repository on GitHub
-* [Node.js Developer Center](/develop/nodejs/)
+* [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure classic portal]: http://manage.windowsazure.com

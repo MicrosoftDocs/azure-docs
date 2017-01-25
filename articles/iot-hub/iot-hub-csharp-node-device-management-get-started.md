@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure IoT Hub device management | Microsoft Docs
-description: This tutorial shows you how to get started with device management on Azure IoT Hub
+title: Get started with Azure IoT Hub device management (.NET/Node) | Microsoft Docs
+description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure IoT device SDK for Node.js to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Get started with device management
+# Get started with device management (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 ## Introduction
@@ -234,7 +234,7 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md

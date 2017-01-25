@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 12/06/2016
 ms.author: genli
 
 ---
@@ -142,7 +142,7 @@ Azure Service Level Agreements are independent of our on-premises Microsoft lice
 There could be several reasons for this:
 
 * It is less than 30 days from the day you subscribed to Azure.
-* Your subscription type is Free Trial or one of the member offers (MSDN/Open/BizSpark/DreamSpark) that doesn't have a credit card or other payment instrument associated with it.
+* Your subscription type is Free Trial or one of the member offers (monthly credit for Visual Studio subscriber/Open/BizSpark/Imagine) that doesn't have a credit card or other payment instrument associated with it.
 * The invoice generation date has not yet arrived.
 
 ### I am unable to log in to the Azure portal
@@ -192,7 +192,7 @@ Please contact [Azure support](https://azure.microsoft.com/support/options/) for
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. For more information, see [Azure Role-Based Access Control](active-directory/role-based-access-control-configure.md).
 
 ### How do I transfer ownership of my subscriptions?
-You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions. We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own. Note that the recipient’s user account must be in the same country and that you cannot transfer subscriptions that are associated with a marketplace purchase.
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, monthly credit for Visual Studio subscribers, Microsoft Partner Network, or BizSpark subscriptions. We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, monthly credit for Visual Studio subscribers, Microsoft Partner Network, or BizSpark subscription that you own. Note that the recipient’s user account must be in the same country and that you cannot transfer subscriptions that are associated with a marketplace purchase.
 For details, see the article [How to transfer an Azure subscription](billing-subscription-transfer.md).
 
 ### Can I use my existing Windows licenses that I bought outside of Azure?
@@ -239,14 +239,14 @@ To view and edit the Azure account information, you must sign in to the Azure Ac
 Azure is intended for use by businesses to build cloud scale applications and services. However, anyone may purchase Azure services.
 
 ### Can I try Azure for free, without any risk of being charged?
-Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, MSDN, MPN, or BizSpark offer can utilize Azure without getting charged as long as they keep the Spending Limit feature turned on. All new customers who sign up for these offers will have the Spending Limit turned on with a value of $0.
+Yes. With our [Spending Limit feature](https://azure.microsoft.com/pricing/spending-limits/), customers who sign up for a Free Trial, monthly credit for Visual Studio subscribers, Microsoft Partner Network, or BizSpark offer can utilize Azure without getting charged as long as they keep the Spending Limit feature turned on. All new customers who sign up for these offers will have the Spending Limit turned on with a value of $0.
 
 ### Can I turn the Spending Limit back on if I turn off it?
-For those on our member benefit offers (e.g., MSDN), you do have the ability to have the Spending Limit feature re-enabled at the beginning of your next billing cycle. The Spending Limit cannot be re-enabled for the current billing period once turned off.
+For those on our member benefit offers (e.g., monthly credit for Visual Studio subscribers), you do have the ability to have the Spending Limit feature re-enabled at the beginning of your next billing cycle. The Spending Limit cannot be re-enabled for the current billing period once turned off.
 For more information, see [Change the Azure Spending Limit](https://msdn.microsoft.com/library/azure/dn465781.aspx).
 
 ### Can I adjust the amount of the Spending Limit?
-For the initial release of this feature, the Spending Limit is set at $0 and cannot be adjusted. It is designed to enable customers on our Free Trial, MSDN, MPN or BizSpark offers to utilize Azure with complete assurance of not being billed.
+For the initial release of this feature, the Spending Limit is set at $0 and cannot be adjusted. It is designed to enable customers on our Free Trial, monthly credit for Visual Studio subscribers, Microsoft Partner Network, or BizSpark offers to utilize Azure with complete assurance of not being billed.
 For more information, see [Azure Spending Limit](https://azure.microsoft.com/pricing/spending-limits/).
 
 ### In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?

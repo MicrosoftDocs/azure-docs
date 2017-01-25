@@ -20,11 +20,6 @@ ms.author: juliako
 # Playing your content with existing players
 Azure Media Services supports many popular streaming formats, such as Smooth Streaming, HTTP Live Streaming, and MPEG-Dash. This topic points you to existing players that you can use to test your streams.
 
-> [!NOTE]
-> To play dynamically packaged or dynamically encrypted content, make sure to get at least one streaming unit for the streaming endpoint from which you plan to deliver your content. For information about scaling streaming units, see: [How to scale streaming units](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
-
 ### The Azure portal Media Services content player
 The **Azure** portal provides a content player that you can use to test your video.
 

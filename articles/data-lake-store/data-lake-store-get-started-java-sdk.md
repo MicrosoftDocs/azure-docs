@@ -1,6 +1,6 @@
 ---
-title: Use Data Lake Store Java SDK to develop applications | Microsoft Docs
-description: Use Azure Data Lake Store Java SDK to develop applications
+title: Use the Java SDK to develop applications in Azure Data Lake Store | Microsoft Docs
+description: Use Azure Data Lake Store Java SDK to create a Data Lake Store account and perform basic operations in the Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 12/23/2016
 ms.author: nitinme
 
 ---
@@ -61,7 +61,7 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.0.4-SNAPSHOT</version>
+            <version>2.1.1</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>

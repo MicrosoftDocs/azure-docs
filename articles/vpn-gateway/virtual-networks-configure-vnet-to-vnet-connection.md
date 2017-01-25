@@ -1,10 +1,10 @@
 ---
-title: Configure a VNet-to-VNet connection for the classic deployment model| Microsoft Docs
+title: 'Connect an Azure virtual network to another VNet: Classic | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -57,7 +57,7 @@ You may want to connect virtual networks for the following reasons:
   * If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
   * For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
 
-### VNet-to-VNet FAQ for classic VNets
+### VNet-to-VNet considerations for classic VNets
 * The virtual networks can be in the same or different subscriptions.
 * The virtual networks can be in the same or different Azure regions (locations).
 * A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
@@ -166,7 +166,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 2. On the **Specify the address space** page, click the checkmark on the lower right without making any changes.
 
 ## Step 7 - Create the VPN connection
-When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
+When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
 1. Open Windows PowerShell and log in.
    

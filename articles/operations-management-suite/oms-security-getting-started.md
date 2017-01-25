@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting started with Operations Management Suite Security and Audit Solution | Microsoft Docs
 description: This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud.
 services: operations-management-suite
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 
 ---
@@ -145,7 +146,7 @@ The main intent of this option is to allow IT to quickly identify potential thre
 
 ![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
+This option can also be used during an [incident response investigation](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) to perform the assessment and obtain more information about the attack.
 
 > [!NOTE]
 > For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Fail back VMware virtual machines and physical servers to the on-premises site | Microsoft Docs
 description: Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure.
 services: site-recovery
@@ -54,7 +54,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 
 * If you failed over physical servers then failback is always to a new VMware VM.
   * Before failing back a Physical machine note that:
-    * Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 machine if protected and failed over to Azure cannot be failed back.
+    * Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 physical machine if protected and failed over to Azure cannot be failed back. A WS 2008R2 SP1 that started as a virtual machine on-premises will be able to failback
     * Ensure that you discover at least one Master Target server along with the necessary ESX/ESXi hosts to which you need to failback.
 * If you fail back to the original VM the following is required:
   
@@ -235,7 +235,7 @@ Once the reprotect completes, the VM will be replicating back to Azure and you c
 4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will need to upgrade to either Evaluation License to enable failback.
 5. If CS is not reachable from the Process server, you can check connectivity from your process server to CS by - Telnet to the CS machine on port 443. You can also try to ping the CS from the PS machine. A PS server should also have a hearbeat when it is connected to the CS.
 6. If you are trying to failback to an alternate vCenter, make sure that your new vCenter is discovered, with the Master Target server also discovered. As a typical symptom, you will see the datastores are not accessible/visible in the Reprotect dialog.
-7. A WS2008R2SP1 machine protected as physical or virtual on-premises machine cannot be failed back from Azure to on-premises.
+7. A WS2008R2SP1 machine protected as physical on-premises machine cannot be failed back from Azure to on-premises.
 
 ## Failing back with ExpressRoute
 You can fail back over a VPN connection or Azure ExpressRoute. If you want to use ExpressRoute note the following:

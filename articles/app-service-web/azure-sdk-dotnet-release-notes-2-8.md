@@ -1,4 +1,3 @@
-﻿
 ---
 title: Azure SDK for .NET 2.8 Release Notes
 description: Azure SDK for .NET 2.8 Release Notes

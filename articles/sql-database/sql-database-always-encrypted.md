@@ -1,6 +1,6 @@
 ---
-title: 'Always Encrypted: Protect sensitive data in Azure SQL Database with database encryption | Microsoft Docs'
-description: Protect sensitive data in your SQL database in minutes.
+title: 'Always Encrypted: Azure SQL Database - Windows certificate store | Microsoft Docs'
+description: This article shows you how to secure sensitive data in a SQL database with database encryption by using the Always Encrypted Wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
 documentationcenter: ''
@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

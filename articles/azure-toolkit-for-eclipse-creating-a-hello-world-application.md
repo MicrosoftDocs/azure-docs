@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a Hello World Cloud Service for Azure in Eclipse
 description: Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse.
 services: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 
 ---

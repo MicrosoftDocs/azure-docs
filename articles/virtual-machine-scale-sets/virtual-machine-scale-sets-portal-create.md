@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
-ms.author: gatneil
+ms.author: negat
 
 ---
 # Create a Virtual Machine Scale Set using the Azure portal

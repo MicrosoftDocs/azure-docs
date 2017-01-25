@@ -1,10 +1,10 @@
 ---
-title: Create a custom probe for Application Gateway by using PowerShell in Resource Manager | Microsoft Docs
+title: Create a custom probe - Azure Application Gateway - PowerShell | Microsoft Docs
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
@@ -24,8 +24,6 @@ ms.author: gwallace
 > * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -36,7 +34,7 @@ ms.author: gwallace
 
 ### Step 1
 
-Use Login-AzureRmAccount to authenticate.
+Use `Login-AzureRmAccount` to authenticate.
 
 ```powershell
 Login-AzureRmAccount
@@ -52,7 +50,7 @@ Get-AzureRmSubscription
 
 ### Step 3
 
-Choose which of your Azure subscriptions to use. <BR>
+Choose which of your Azure subscriptions to use.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -189,11 +187,8 @@ Configure the instance size of the application gateway.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-
 > [!NOTE]
-> The default value for **InstanceCount** is 2, with a maximum value of 10. The default value for **GatewaySize** is Medium. You can choose between **Standard_Small**, **Standard_Medium**, and **Standard_Large**.
-> 
-> 
+> The default value for **InstanceCount** is 2, with a maximum value of 10. The default value for **GatewaySize** is Medium. You can choose between **Standard_Small**, **Standard_Medium**, and **Standard_Large**. 
 
 ## Create an application gateway by using New-AzureRmApplicationGateway
 
@@ -253,7 +248,6 @@ Load the application gateway resource into a PowerShell variable by using `Get-A
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
-
 ### Step 2
 
 Remove the probe configuration from the application gateway by using `Remove-AzureRmApplicationGatewayProbeConfig`.
@@ -310,5 +304,5 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure SSL offloading by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
+Learn to configure SSL offloading by visiting: [Configure SSL Offload](application-gateway-ssl-arm.md)
 

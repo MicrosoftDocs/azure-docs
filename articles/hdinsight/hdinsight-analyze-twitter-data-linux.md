@@ -14,17 +14,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
 # Analyze Twitter data using Hive in HDInsight
-In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [!NOTE]
-> While individual pieces of this document can be used with Windows-based HDInsight clusters (Python for example,) many steps are based on using a Linux-based HDInsight cluster. For steps specific to a Windows-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md).
-> 
-> 
+In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on an HDInsight cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
+
+> [!IMPORTANT]
+> The steps in this document were tested on a Linux-based HDInsight cluster.
+>
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -58,8 +59,7 @@ Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com
 
 > [!NOTE]
 > When you use the curl command in Windows, use double quotes instead of single quotes for the option values.
-> 
-> 
+
 
 ### Download tweets
 The following Python code will download 10,000 tweets from Twitter and save them to a file named **tweets.txt**.

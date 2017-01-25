@@ -1,5 +1,5 @@
 ---
-title: Create service principal in portal | Microsoft Docs
+title: Create identity for Azure app in portal | Microsoft Docs
 description: Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 
 ---
@@ -25,7 +25,13 @@ ms.author: tomfitz
 >
 >
 
-When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This approach is preferable to running the app under your own credentials because:
+
+* You can assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
+* You do not have to change the app's credentials if your responsibilities change. 
+* You can use a certificate to automate authentication when executing an unattended script.
+
+This topic shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
  
 ## Required permissions
 To complete this topic, you must have sufficient permissions to register an application with your Active Directory, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
@@ -154,9 +160,19 @@ You can set the scope at the level of the subscription, resource group, or resou
      ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
 9. Select **OK** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
-Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that is gives it certain actions it can perform. You can look the sample applications to learn more about how to accomplish tasks in application code.
+## Log in as the application
 
-## Sample applications
+Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. 
+
+To log in through PowerShell, see [Provide credentials through PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+
+To log in through Azure CLI, see [Provide credentials through Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+
+To get the access token for REST operations, see [Create the request](/rest/api/#create-the-request).
+
+Look at the following sample applications to learn about logging in through application code.
+
+### Sample applications
 The following sample applications show how to log in as the AD application.
 
 **.NET**

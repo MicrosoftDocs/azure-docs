@@ -1,4 +1,4 @@
-﻿---
+---
 title: ProjectOnline | Microsoft Docs
 description: Create Logic apps with Azure App service. Project Online is a flexible online solution for project portfolio management (PPM) and everyday work from Microsoft. Delivered through Office 365, Project Online enables organizations to get started quickly with powerful project management capabilities to plan, prioritize, and manage projects and project portfolio investments—from almost anywhere on almost any device.
 services: logic-apps
@@ -26,7 +26,7 @@ Project Online is a flexible online solution for project portfolio management (P
 > 
 > 
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 The ProjectOnline connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
@@ -441,5 +441,5 @@ Checkin and publish project: Check in and publish and existing project in your s
 | Contact |string |No |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md)
 

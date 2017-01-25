@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 
 ---
@@ -24,8 +24,6 @@ This document provides details on the differences between HDInsight on Windows a
 
 > [!NOTE]
 > HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
->
->
 
 ## Migration tasks
 The general workflow for migration is as follows.
@@ -55,10 +53,13 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 
 1. Find the storage account and default container information for your existing cluster. You can do this by using the following Azure PowerShell script.
 
-        $clusterName="Your existing HDInsight cluster name"
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
-        write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```powershell
+    $clusterName="Your existing HDInsight cluster name"
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
+    write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```
+
 2. Follow the steps in the Create Linux-based clusters in HDInsight document to create a new test environment. Stop before creating the cluster, and instead select **Optional Configuration**.
 3. From the Optional Configuration blade, select **Linked Storage Accounts**.
 4. Select **Add a storage key**, and when prompted, select the storage account that was returned by the PowerShell script in step 1. Click **Select** on each blade to close them. Finally, create the cluster.
@@ -70,7 +71,8 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
-    [AZURE.NOTE] If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
+    > [!NOTE]
+    > If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
 
         hdfs dfs -mkdir -p /new/path/to/create
 
@@ -81,7 +83,7 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
 
 ## Client-side technologies
-In general, client-side technologies such as [Azure PowerShell cmdlets](../powershell-install-configure.md), [Azure CLI](../xplat-cli-install.md) or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) will continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
+In general, client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md) or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) will continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
 
 ## Server-side technologies
 The following table provides guidance on migrating server-side components that are Windows specific.
@@ -90,7 +92,7 @@ The following table provides guidance on migrating server-side components that a
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. If you need it for server-side scripting, see [Install the Azure CLI](../xplat-cli-install.md) for information on installing on Linux-based platforms. |
-| **.NET components** |.NET is not fully supported on Linux-based HDInsight clusters. Linux-based Storm on HDInsight clusters created after 10/28/2017 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
+| **.NET components** |.NET is not fully supported on all Linux-based HDInsight cluster types. Linux-based Storm on HDInsight clusters created after 10/28/2016 support C# Storm topologies using the SCP.NET framework. Additional support for .NET will be added in future updates. |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology; you may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
 
 ## Cluster creation
@@ -135,8 +137,6 @@ Ambari has an alert system that can tell you of potential problems with the clus
 > Ambari alerts indicate that there *may* be a problem, not that there *is* a problem. For example, you may receive an alert that HiveServer2 cannot be accessed, even though you can access it normally.
 >
 > Many alerts are implemented as interval-based queries against a service, and expect a response within a specific time frame. So the alert doesn't necessarily mean that the service is down, just that it didn't return results within the expected time frame.
->
->
 
 In general, you should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have previously been reported with the cluster before taking action on it.
 
