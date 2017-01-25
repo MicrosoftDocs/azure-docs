@@ -1,5 +1,5 @@
 ---
-title: 'Reestablish IPsec tunnels for Azure VPN Gateway connections: PowerShell | Microsoft Docs'
+title: 'Reset an Azure VPN gateway to reestablish IPsec tunnels: PowerShell | Microsoft Docs'
 description: This article walks you through resetting your Azure VPN Gateway to reestablish IPsec tunnels. The article applies to VPN gateways in both the classic, and the Resource Manager deployment models.
 services: vpn-gateway
 documentationcenter: na
