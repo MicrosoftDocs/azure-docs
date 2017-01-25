@@ -21,7 +21,7 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
 
 > [!NOTE]
-> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
+> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 
