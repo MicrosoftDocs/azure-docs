@@ -82,27 +82,27 @@ PowerShell uses the configuration in machine.config to contact the proxy. The se
 If the proxy is correctly configured, you should get a success status:
 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-If you receive **Unable to connect to the remote server** then PowerShell is trying to make a direct call without using the proxy or DNS is not correctly configured. Make sure the **machine.config** file is correctly configured.
+If you receive **Unable to connect to the remote server**, then PowerShell is trying to make a direct call without using the proxy or DNS is not correctly configured. Make sure the **machine.config** file is correctly configured.
 ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
-If the proxy is not correctly configured, we will get an error:
+If the proxy is not correctly configured, you get an error:
 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
 | Error | Error Text | Comment |
 | --- | --- | --- |
 | 403 |Forbidden |The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
-| 407 |Proxy Authentication Required |The proxy server required a sign in and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
+| 407 |Proxy Authentication Required |The proxy server required a sign in and none was provided. If your proxy server requires authentication, make sure to have this setting configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard and for the service account. |
 
 ## The communication pattern between Azure AD Connect and Azure AD
-If you have followed all these steps above and still cannot connect, you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings that can be ignored if you are reading the network logs.
+If you have followed all these steps above and still cannot connect, you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings that can be ignored when you are reading the network logs.
 
-* There are calls to https://dc.services.visualstudio.com. It is not required to have this URL open in the proxy for the installation to succeed and these can be ignored.
+* There are calls to https://dc.services.visualstudio.com. It is not required to have this URL open in the proxy for the installation to succeed and these calls can be ignored.
 * You see that dns resolution lists the actual hosts to be in the DNS name space nsatc.net and other namespaces not under microsoftonline.com. However, there are not any web service requests on the actual server names and you do not have to add these to the proxy.
-* The endpoints adminwebservice and provisioningapi (see below in the logs) are discovery endpoints and used to find the actual endpoint to use. These endpoints are different depending on your region.
+* The endpoints adminwebservice and provisioningapi are discovery endpoints and used to find the actual endpoint to use. These endpoints are different depending on your region.
 
 ### Reference proxy logs
-Here is a dump from an actual proxy log and the installation wizard page from where it was taken (duplicate entries to the same endpoint have been removed). This can be used as a reference for your own proxy and network logs. The actual endpoints might be different in your environment (in particular those in *italic*).
+Here is a dump from an actual proxy log and the installation wizard page from where it was taken (duplicate entries to the same endpoint have been removed). This section can be used as a reference for your own proxy and network logs. The actual endpoints might be different in your environment (in particular those URLs in *italic*).
 
 **Connect to Azure AD**
 
@@ -144,13 +144,13 @@ Here is a dump from an actual proxy log and the installation wizard page from wh
 This section covers errors that can be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
 
 ### Invalid Grant
-Invalid username or password. See [The password cannot be verified](#the-password-cannot-be-verified) for more information.
+Invalid username or password. For more information, see [The password cannot be verified](#the-password-cannot-be-verified).
 
 ### Unknown User Type
 Your Azure AD directory cannot be found or resolved. Maybe you try to login with a username in an unverified domain?
 
 ### User Realm Discovery Failed
-Network or proxy configuration issues. The network cannot be reached, see [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+Network or proxy configuration issues. The network cannot be reached. See [Troubleshoot connectivity issues in the installation wizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### User Password Expired
 Your credentials have expired. Change your password.
@@ -168,7 +168,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 Authentication was successful. You are not a global administrator.
 
 ### PrivilegedIdentityManagement
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. See [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) for more information.
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
 
 ### CompanyInfoUnavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
@@ -180,16 +180,16 @@ Authentication was successful. Could not retrieve domain information from Azure 
 Shown as Unexpected error in the installation wizard. Can happen if you try to use a **Microsoft Account** rather than a **school or organization account**.
 
 ## Troubleshooting steps for previous releases.
-With releases starting with build number 1.1.105.0 (released February 2016) the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
+With releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
-For the single-sign in assistant to work, winhttp must be configured. This can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
+For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### The Sign-in assistant has not been correctly configured
 This error appears when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-* If you see this, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
+* If you see this error, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
