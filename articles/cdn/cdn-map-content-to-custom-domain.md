@@ -1,9 +1,9 @@
 ---
-title: How to Map Azure Content Delivery Network (CDN) Content to a Custom Domain | Microsoft Docs
-description: This topic demonstrate how to map a CDN content to a Custom Domain.
+title: Map Azure CDN content to a custom domain | Microsoft Docs
+description: Learn how to map Azure CDN content to a custom domain.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
-# How to map Custom Domain to Content Delivery Network (CDN) endpoint
+# Map Azure CDN content to a custom domain
 You can map a custom domain to a CDN endpoint in order to use your own domain name in URLs to cached content rather than using a subdomain of azureedge.net.
 
 There are two ways to map your custom domain to a CDN endpoint:
