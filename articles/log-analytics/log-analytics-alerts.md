@@ -92,11 +92,11 @@ In some cases, you may want to create an alert in the absence of an event.  For 
 ### Performance alerts
 [Performance data](log-analytics-data-sources-performance-counters.md) is stored as records in the OMS repository similar to events.  If you want to alert when a performance counter exceeds a particular threshold, then that threshold should be included in the query.
 
-For example, if you wanted to alert when the processor runs over 90%, you would use a query like the following with the threshold for the alert rule to **greater than 0**.
+For example, if you wanted to alert when the processor runs over 90%, you would use a query like the following with the threshold for the alert rule **greater than 0**.
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query like the following with the threshold for the alert rule to **greater than 0**. 
+If you wanted to alert when the processor averaged over 90% for a particular time window, you would use a query using the [measure command](log-analytics-search-reference.md#commands) like the following with the threshold for the alert rule **greater than 0**. 
 
 	Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
