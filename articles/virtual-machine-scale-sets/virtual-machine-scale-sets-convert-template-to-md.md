@@ -27,7 +27,7 @@ Customers with a Resource Manager template for creating a scale set not using ma
 
 ## Making the OS disks managed
 
-In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary to specify because managed disk will automatically choose the proper type for the chosen VM size (if the VM size has a lowercase or uppercase 's' in it, then premium storage will be used, otherwise standard storage will be used; both will be locally redundate storage). New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary becuase managed disk will automatically name the underlying storage blob containers and disks.
+In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary to specify because managed disk will automatically choose the proper type for the chosen VM size (if the VM size has a lowercase or uppercase 's' in it, then premium storage will be used, otherwise standard storage will be used; both will be locally redundant storage). New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary becuase managed disk will automatically name the underlying storage blob containers and disks.
 
 ```diff
    "variables": {
@@ -51,7 +51,7 @@ In the diff below, we can see that we have removed several variables related to 
 ```
 
 
-In the diff below, we can see that we updated the compute api version to 2016-04-30-preview, which is the earliest required version for managed disk support with scale sets. Note that we could still use unmanaged disks with the new api version with the old syntax if desired. In other words, if we only update the compute api version and don't change anything else, the template should continue to work as before.
+In the diff below, we can see that we updated the compute api version to 2016-04-30-preview, which is the earliest required version for managed disk support with scale sets. Note that we could still use unmanaged disks in the new api version with the old syntax if desired. In other words, if we only update the compute api version and don't change anything else, the template should continue to work as before.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -71,7 +71,7 @@ In the diff below, we can see that we are removing the storage account resource 
 @@ -113,19 +101,6 @@
        }
      },
-     {
+-    {
 -      "type": "Microsoft.Storage/storageAccounts",
 -      "name": "[concat(variables('uniqueStringArray')[copyIndex()], variables('newStorageAccountSuffix'))]",
 -      "location": "[resourceGroup().location]",
@@ -84,13 +84,13 @@ In the diff below, we can see that we are removing the storage account resource 
 -        "accountType": "[variables('storageAccountType')]"
 -      }
 -    },
--    {
+     {
        "type": "Microsoft.Network/publicIPAddresses",
        "name": "[variables('publicIPAddressName')]",
        "location": "[resourceGroup().location]",
 ```
 
-In the diff below, we can see that we are removing the depends on clause referring to the storage loop. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. We do add one new property, though, which is "diskSizeGB", specifying the size of our OS disk in gigabytes.
+In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. We do add one new property, though, which is "diskSizeGB", specifying the size of our OS disk in gigabytes.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -122,12 +122,12 @@ In the diff below, we can see that we are removing the depends on clause referri
 
 ```
 
-Note that there is is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying a template to ensure that the right properties are in the storage profile of the scale set.
+Note that there is is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying the template to ensure that the right properties are in the storage profile of the scale set.
 
 
 ## Data disks
 
-With the changes above, the scale set will use managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value is a JSON list that requires a lun (which must be unique per data disk on a VM), a "createOption" ("empty" is the only supported option at this time), and a size in gigabytes as below. If you specify `n` disks in this array, each VM in the scale set will have `n` data disks. Do note, however, that the disk will be a raw device. It will not be formatted or have a filesystem on it. It is up to the customer to attach the disk, format it, and put a file system on it.
+With the changes above, the scale set will use managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is the only supported option at this time), and "diskSizeGB" (the size of the disk in gigabytes; this must be greater than 0 and less than 1024) as below. If you specify `n` disks in this array, each VM in the scale set will have `n` data disks. Do note, however, that the disk will be a raw device. It will not be formatted or have a filesystem on it. It is up to the customer to attach the disk, format it, and put a file system on it.
 
 ```
 "dataDisks": [
