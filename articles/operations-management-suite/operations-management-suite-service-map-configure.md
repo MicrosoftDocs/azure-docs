@@ -18,7 +18,7 @@ ms.author: daseidma;bwren;dairwin
 
 ---
 # Configuring Service Map solution in Operations Management Suite (OMS)
-![Alert Management icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
+Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
 This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map.md)
 
@@ -72,7 +72,7 @@ The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It i
 
 
 ## Configuration
-In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.
 
 
 ### Migrating from BlueStripe FactFinder
@@ -90,12 +90,12 @@ To download the Dependency Agent, click **Configure Solution** in the **Service 
 #### Microsoft Windows
 Administrator privileges are required to install or uninstall the agent.
 
-The Dependency Agent is installed on Windows computers with Dependency-Agent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to install interactively.  
+The Dependency Agent is installed on Windows computers with InstallDependencyAgent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to install interactively.  
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
 1.	Ensure that the OMS Agent is installed using the instructions at Connect computers directly to OMS.
-2.	Download the Windows agent and run it with the following command: <br>*Dependency-Agent-Windows.exe*
+2.	Download the Windows agent and run it with the following command: <br>*InstallDependencyAgent-Windows.exe*
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is *C:\Program Files\Microsoft Dependency Agent\logs*. 
 
@@ -105,27 +105,27 @@ The Dependency Agent for Windows can be uninstalled by an Administrator through 
 #### Linux
 Root access is required to install or configure the agent.
 
-The Dependency Agent is installed on Linux computers with Dependency-Agent-Linux64.bin, a shell script with a self-extracting binary. You can run the file with sh or add execute permissions to the file itself.
+The Dependency Agent is installed on Linux computers with InstallDependencyAgent-Linux64.bin, a shell script with a self-extracting binary. You can run the file with sh or add execute permissions to the file itself.
  
 Use the following steps to install the Dependency Agent on each Linux computer:
 
 1.	Ensure that the OMS Agent is installed using the instructions at [Collect and manage data from Linux computers.  The OMS Agent needs to be installed before the Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
-2.	Install the Linux Dependency agent as root using the following command:<br>*sh Dependency-Agent-Linux64.bin*.
+2.	Install the Linux Dependency agent as root using the following command:<br>*sh InstallDependencyAgent-Linux64.bin*.
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
 ### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy, which is installed automatically with the agent.  You can uninstall both with the following single command:
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the Connector, which is installed automatically with the agent.  You can uninstall both with the following single command:
 
 	rpm -e dependency-agent dependency-agent-connector
 
 
-### Installing from a Command Line
+### Installing from a command line
 The previous section provides guidance on installing the Dependency Monitor agent using default options.  The following sections provide guidance for installing the agent from a command line using custom options.
 
 #### Windows
 Use options from the following table to install from a command line. To see a list of the installation flags run the installer with the /? flag as follows.
 
-	Dependency-Agent-Windows.exe /?
+	InstallDependencyAgent-Windows.exe /?
 
 | Flag | Description |
 |:--|:--|
@@ -137,7 +137,7 @@ Files for the Windows Dependency Agent are placed in *C:\Program Files\Microsoft
 #### Linux
 Use options from the following table to install. To see a list of the installation flags run the installation program with the -help flag as follows.
 
-	Dependency-Agent-Linux64.bin -help
+	InstallDependencyAgent-Linux64.bin -help
 
 | Flag	Description
 |:--|:--|
@@ -159,12 +159,12 @@ Files for the Dependency Agent are placed in the following directories:
 ## Troubleshooting
 If you encounter problems with Service Map, you can gather troubleshooting information from multiple components using the following information.
 
-### Windows Agents
+### Windows agents
 
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectDependencyAgentData.vbs script using the following command.  You can add the --help flag to show additional options.
 
-	cd C:\Program Files\Bluestripe\Collector\scripts
+	cd C:\Program Files\Microsoft Dependency Agent\scripts
 	cscript CollectDependencyData.vbs
 
 The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
@@ -190,7 +190,7 @@ To collect diagnostic traces, open a Command Prompt as administrator and run the
 Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing with StopTracing.cmd.
 
 
-### Linux Agents
+### Linux agents
 
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
@@ -199,7 +199,7 @@ To generate troubleshooting data from the Dependency Agent, login with an accoun
 
 The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
 
-#### Microsoft Dependency Agent Fluentd Plug-in for Linux
+#### Microsoft Dependency Agent Fluentd plug-in for Linux
 The Dependency Agent Fluentd Plug-in runs inside the OMS Linux Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.  
 
 Logs are written to the following two files.
@@ -223,7 +223,7 @@ You can expect each agent to transmit roughly 25 MB per day, depending on how co
 The Dependency Agent typically consumes 0.1% of system memory and 0.1% of system CPU.
 
 
-## Supported Operating Systems
+## Supported operating systems
 The following sections list the supported operating systems for the Dependency Agent.   32-bit architectures are not supported for any operating system.
 
 ### Windows Server

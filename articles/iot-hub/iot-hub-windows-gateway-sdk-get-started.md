@@ -1,6 +1,6 @@
 ---
-title: Get started with the Azure IoT Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using Windows to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK.
+title: Get started with the Azure IoT Gateway SDK (Windows) | Microsoft Docs
+description: How to build a gateway on a Windows machine and learn about key concepts in the Azure IoT Gateway SDK such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK - Get started using Windows
+# Get started with the Azure IoT Gateway SDK (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -25,7 +25,11 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository.
+3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds 
+the solution. You can find the Visual Studio solution in the **build** folder in your local copy of 
+the **azure-iot-gateway-sdk** repository. Additional parameters can be given to the script to build 
+and run unit and end to end tests. These paramaters are **--run-unittests** and **--run-e2e-tests**
+respectively. 
 
 ## How to run the sample
 1. The **build.cmd** script creates a folder called **build** in your local copy of the repository. This folder contains the two modules used in this sample.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage compute power in Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
 description: PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
 services: sql-data-warehouse
@@ -26,16 +26,6 @@ ms.author: barbkess
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether.
-
-This collection of tasks uses the Azure portal to:
-
-* Scale compute
-* Pause compute
-* Resume compute
-
-To learn about this, see [Manage compute overview][Manage compute overview].
 
 ## Before you begin
 ### Install the latest version of Azure PowerShell
@@ -124,7 +114,7 @@ For other management tasks, see [Management overview][Management overview].
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->

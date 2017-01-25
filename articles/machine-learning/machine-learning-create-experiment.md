@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 
 ---
@@ -30,7 +30,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 >
 >If you're new to machine learning, the video series [Data Science for Beginners](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) might be a good place to start. This video series is a great introduction to machine learning using everyday language and concepts.
 >
->If you know machine learning, but you're looking for more general information about Machine Learning Studio, and the machine learning algorithms it contains, here are some good resources:
+>If you're familiar with machine learning, but you're looking for more general information about Machine Learning Studio, and the machine learning algorithms it contains, here are some good resources:
 >
 - [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md) - This is a high-level overview of Studio.
 - [Machine learning basics with algorithm examples](machine-learning-basics-infographic-with-algorithm-examples.md) - This infographic is useful if you want to learn more about the different types of machine learning algorithms included with Machine Learning Studio.
@@ -92,7 +92,9 @@ Here's how to get the dataset into your experiment.
 
 1. Create a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, select **EXPERIMENT**, and then select **Blank Experiment**.
 
-2. The experiment is given a default name that you can see at the top of the canvas. Select this text and rename it to something meaningful, for example, **Automobile price prediction**.
+2. The experiment is given a default name that you can see at the top of the canvas. Select this text and rename it to something meaningful, for example, **Automobile price prediction**. The name doesn't need to be unique.
+
+	![Rename the experiment][rename-experiment]
 
 2. To the left of the experiment canvas is a palette of datasets and modules. Type **automobile** in the Search box at the top of this palette to find the dataset labeled **Automobile price data (Raw)**. Drag this dataset to the experiment canvas.
 
@@ -109,7 +111,7 @@ To see what this data looks like, click the output port at the bottom of the aut
 > [!TIP]
 > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom.
 To create a flow of data through your experiment,
-you'll connect these ports together.
+you'll connect an output port of one module to an input port of another.
 At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.
 
 In this sample dataset, each instance of an automobile appears as a row, and the variables associated with each automobile appear as columns. Given the variables for a specific automobile, we're going to try to predict the price in far-right column (column 26, titled "price").
@@ -167,7 +169,7 @@ First we add a module that removes the **normalized-losses** column completely, 
 	<br/>
 	***Set the cleaning mode to "Remove entire row" for the "Clean Missing Data" module***
 
-4. Run the experiment by clicking **RUN** under the experiment canvas.
+4. Run the experiment by clicking **RUN** at the bottom of the page.
 
 	When the experiment has finished running, all the modules have a green check mark to indicate that they finished successfully. Notice also the **Finished running** status in the upper-right corner.
 
@@ -324,7 +326,7 @@ Now that you've completed the first machine learning tutorial and have your expe
 For an example of how to compare multiple models in a single experiment, see [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
 
 	> [!TIP]
-	> To copy any iteration of your experiment, use the **SAVE AS** button under the experiment canvas. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
+	> To copy any iteration of your experiment, use the **SAVE AS** button at the bottom of the page. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** at the bottom of the page. For more details, see [Manage experiment iterations in Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -338,6 +340,7 @@ Want to learn more? For a more extensive and detailed walkthrough of the process
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png

@@ -16,7 +16,9 @@
 ### [Notify users of data received from sensors](event-hubs-sensors-notify-users.md)
 ### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
 ### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+
 ## Manage
+### [Event Hubs management libraries](event-hubs-management-libraries.md)
 ### [Event Hubs Archive](event-hubs-archive-overview.md)
 ### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
@@ -24,14 +26,14 @@
 ### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
 
 # Reference
-## [Quotas and limits](event-hubs-quotas.md)
-## [Messaging exceptions](event-hubs-messaging-exceptions.md)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
-## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [.NET](/dotnet/api/microsoft.azure.eventhubs)
+## [Java](/java/api/com.microsoft.azure.eventhubs)
 ## [REST](/rest/api/eventhub)
 
 # Resources
+## [Quotas and limits](event-hubs-quotas.md)
+## [Messaging exceptions](event-hubs-messaging-exceptions.md)
+## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## [Pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)

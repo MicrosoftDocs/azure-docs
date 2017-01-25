@@ -1,4 +1,4 @@
-﻿---
+---
 title: Best Practices for Software Updates on Microsoft Azure IaaS | Microsoft Docs
 description: Article provides a collection of best practices for software updates in an Microsoft Azure IaaS environment.  It is intended for IT professionals and security analysts who deal with change control, software update and asset management on a daily basis, including those responsible for their organization's security and compliance efforts.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/04/2017
 ms.author: yurid
 
 ---

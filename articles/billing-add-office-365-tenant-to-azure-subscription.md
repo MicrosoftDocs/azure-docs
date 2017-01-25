@@ -1,10 +1,10 @@
-﻿---
+---
 title: Use an Office 365 tenant with an Azure subscription | Microsoft Docs
 description: Learn how to add an Office 365 directory (tenant) to an Azure subscription to make the association.
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: ''
 tags: billing,top-support-issue
 
@@ -14,17 +14,12 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/16/2016
 ms.author: cjiang
 
 ---
 # Associate an Office 365 tenant with an Azure subscription
 If you acquired both Azure and Office 365 subscriptions separately in the past, and now you want to be able to access the Office 365 tenant from the Azure subscription, it's easy to do so. This article shows you how.
-
-> [!NOTE]
-> This article doesn’t apply to Enterprise Agreement (EA) customers.
-> 
-> 
 
 ## Quick guidance
 To associate your Office 365 tenant with your Azure subscription, use your Azure account to add your Office 365 tenant, and then associate your Azure subscription with the Office 365 tenant.
@@ -39,27 +34,19 @@ In this scenario, Kelley Wall is a user who has an Azure subscription under the 
 ### Prerequisites
 For the association to work properly, the following prerequisites are necessary:
 
-* You need the credentials of the service administrator of the Azure subscription. Co-administrators cannot execute a subset of the steps.
+* You need the credentials of the service administrator of the Azure subscription. Co-administrators cannot execute a subset of the steps. To change your service administrator, see [How to add or change Azure administrator roles](./billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
 * You need the credentials of a global administrator of the Office 365 tenant.
 * The email address of the service administrator must not be contained in the Office 365 tenant.
 * The email address of the service administrator must not match that of any global administrator of the Office 365 tenant.
 * If you are currently using an email address that is both a Microsoft account and an organizational account, temporarily change the service administrator of your Azure subscription to use another Microsoft account. You can create a new Microsoft account at the [Microsoft account signup page](https://signup.live.com/).
 
-To change your service administrator, follow these steps:
-
-1. Sign in to the [Account Management portal](https://account.windowsazure.com/subscriptions).
-2. Select the subscription you want to change.
-3. Select **Edit subscription details**.
-   
-    ![Screenshot of Azure subscription information, with "Edit subscription details" highlighted](./media/billing-add-office-365-tenant-to-azure-subscription/s33_azure-edit-subscription-details.png)
-4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new service administrator.
-   
-    ![Screenshot of "Edit your subscription" dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s34_change-subscription-service-admin.png)
-
 ### Associate the Office 365 tenant with the Azure subscription
 To associate the Office 365 tenant with the Azure subscription, follow these steps:
 
-1. Sign in to the [Account Management portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with the service administrator credentials.
+
+    ![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
+
 2. In the left pane, select **ACTIVE DIRECTORY**.
    
    ![Screenshot of Active Directory entry](./media/billing-add-office-365-tenant-to-azure-subscription/s35-classic-portal-active-directory-entry.png)
@@ -92,7 +79,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
    
     ![Screenshot of sign-out](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
    
-    f. Sign in to the [Account Management portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
+    f. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with the service administrator credentials.
    
     ![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
    
@@ -142,15 +129,11 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
     ![Screenshot of administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s321_azure-co-administrator-added.png)
 6. Next you can test access with the co-administrator.
    
-    a. Sign out of the Account Management portal.
+    a. Sign out of the Azure classic portal.
    
-    b. Open the [Account Management portal](https://account.windowsazure.com/subscriptions) or the [Azure portal](https://portal.azure.com/).
+    b. Open the [Azure portal](https://portal.azure.com/).
    
-    c. If the Azure sign-in page has a link of **Sign in with your organization account**, select the link. Otherwise, skip this step.
-   
-    ![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/3-sign-in-to-azure.png)
-   
-    d. Enter the credentials of the co-administrator, and then select **Sign in**.
+    c. Enter the credentials of the co-administrator, and then select **Sign in**.
    
     ![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 

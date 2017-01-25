@@ -144,7 +144,7 @@ You are now the proud owner of a storage account!
 The next steps will be to add all the resources required to deploy the architecture described in the start of this tutorial. You will add these resources in the same template you have been working on.
 
 ## Availability Set
-After the definition for the storage account, add an availably set for the virtual machines. In this case, there are no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
+After the definition for the storage account, add an availability set for the virtual machines. In this case, there are no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
 
 ```json
 {

@@ -21,9 +21,8 @@ ms.author: kyliel
 # Create and upload a FreeBSD VHD to Azure
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For information about uploading a VHD using the Resource Manager model, see [here](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 This article assumes that you have the following items:
@@ -177,7 +176,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Step 4: Upload the .vhd file
 When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use when you upload the file:

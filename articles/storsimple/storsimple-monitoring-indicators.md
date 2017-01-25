@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple monitoring indicators | Microsoft Docs
 description: Describes the light-emitting diodes (LEDs) and audible alarms used to monitor the status of the StorSimple device.
 services: storsimple

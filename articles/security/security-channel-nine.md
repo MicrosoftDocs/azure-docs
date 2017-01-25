@@ -1,6 +1,6 @@
-﻿---
+---
 title: Azure security videos on Channel 9 | Microsoft Docs
-description: The article provides a curated list of Azure security presentations on Channel 9. Channel 9 is a community that connects the people who use our products with the people behind our products.
+description: This article provides a curated list of Azure security presentations on Channel 9. Channel 9 is a community that connects the people who use our products with the people behind our products.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 
 ---

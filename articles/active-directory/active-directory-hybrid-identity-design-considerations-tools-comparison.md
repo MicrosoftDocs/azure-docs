@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Hybrid Identity: Directory integration tools comparison | Microsoft Docs'
 description: This is page provides a comprehensive table that compares the various directory integration tools that can be used for directory integration.
 services: active-directory
@@ -54,7 +54,7 @@ PP = Public Preview
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Writeback of devices |● | |● | | |
 | Attribute writeback (for Exchange hybrid deployment ) |● |● |● |● |● |
-| Writeback of users and groups objects |● | | | | |
+| Writeback of groups objects |● | | | | |
 | Writeback of passwords (from self-service password reset (SSPR) and password change) |● |● | | | |
 
 ## Authentication Feature Support

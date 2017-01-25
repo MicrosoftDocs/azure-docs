@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting and Questions about Application Insights
+title: Troubleshooting and Questions about Azure Application Insights | Microsoft Docs
 description: Something in Azure Application Insights unclear or not working? Try here.
 services: application-insights
 documentationcenter: .net
@@ -36,17 +36,13 @@ ms.author: awills
 [See Platforms][platforms]
 
 ## Is it free?
-* Yes, if you choose the free [pricing tier](app-insights-pricing.md). You get most features and a generous quota of data.
-* You have to provide your credit card data to register with Microsoft Azure, but no charges will be made unless you use another paid-for Azure service, or you explicitly upgrade to a paying tier.
-* If your app sends more data than the monthly quota for the free tier, it stops being logged. If that happens, you can either choose to start paying, or wait until the quota is reset at the end of the month.
-* Basic usage and session data is not subject to a quota.
-* There is also a free 30-day trial, during which you get the paid features free of charge.
-* Each application resource has a separate quota, and you set its pricing tier independently of any others.
 
-#### What do I get if I pay?
-* A larger [monthly quota of data](https://azure.microsoft.com/pricing/details/application-insights/).
-* Option to pay 'overage' to continue collecting data over the monthly quota. If your data goes over quota, you're charged per Mb.
-* [Continuous export](app-insights-export-telemetry.md).
+Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
+
+You need to use the Enterprise plan to get certain features such as Continuous Export. That incurs a daily charge.
+
+[Read the pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
+
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
 The details depend on the type of project. For a web application:

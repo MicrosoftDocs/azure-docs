@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/04/2017
 ms.author: jotaub;sethm
 
 ---
@@ -61,7 +61,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 [24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

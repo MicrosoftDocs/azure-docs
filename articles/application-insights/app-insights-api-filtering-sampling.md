@@ -184,7 +184,7 @@ public void Process(ITelemetry item)
 {
     var request = item as DependencyTelemetry;
 
-    if (request != null && request.Duration.Milliseconds < 100)
+    if (request != null && request.Duration.TotalMilliseconds < 100)
     {
         return;
     }

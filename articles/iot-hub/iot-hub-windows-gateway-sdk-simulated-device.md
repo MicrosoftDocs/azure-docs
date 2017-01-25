@@ -1,6 +1,6 @@
-﻿---
-title: Simulate a device with the IoT Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using Windows to illustrate sending telemetry from a simulated device using the Azure IoT Gateway SDK.
+---
+title: Simulate a device with the Azure IoT Gateway SDK (Windows) | Microsoft Docs
+description: How to use the Azure IoT Gateway SDK on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK – send device-to-cloud messages with a simulated device app using Windows
+# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
@@ -31,7 +31,11 @@ To build the sample:
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository.
+3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds 
+the solution. You can find the Visual Studio solution in the **build** folder in your local copy of 
+the **azure-iot-gateway-sdk** repository. Additional parameters can be given to the script to build 
+and run unit and end to end tests. These paramaters are **--run-unittests** and **--run-e2e-tests**
+respectively.
 
 To run the sample:
 

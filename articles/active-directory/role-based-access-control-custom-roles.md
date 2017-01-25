@@ -1,10 +1,10 @@
-﻿---
-title: Custom Roles in Azure RBAC | Microsoft Docs
+---
+title: Create custom roles for Azure RBAC | Microsoft Docs
 description: Learn how to define custom roles with Azure Role-Based Access Control for more precise identity management in your Azure subscription.
 services: active-directory
 documentationcenter: ''
 author: kgremban
-manager: kgremban
+manager: femila
 editor: ''
 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
@@ -81,8 +81,8 @@ Use the **NotActions** property if the set of operations that you wish to allow 
 
 > [!NOTE]
 > If a user is assigned a role that excludes an operation in **NotActions**, and is assigned a second role that grants access to the same operation, the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
-> 
-> 
+>
+>
 
 ## AssignableScopes
 The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, resource groups, or resources) within which the custom role is available for assignment. You can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups.
@@ -95,8 +95,8 @@ Examples of valid assignable scopes include:
 
 > [!NOTE]
 > You must use at least one subscription, resource group, or resource ID.
-> 
-> 
+>
+>
 
 ## Custom roles access control
 The **AssignableScopes** property of the custom role also controls who can view, modify, and delete the role.
@@ -116,4 +116,3 @@ The **AssignableScopes** property of the custom role also controls who can view,
   * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
   * [REST API](role-based-access-control-manage-access-rest.md)
 * [Built-in roles](role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
-

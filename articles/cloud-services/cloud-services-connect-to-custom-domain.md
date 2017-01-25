@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 
 ---
@@ -22,12 +22,12 @@ We will first set up a Virtual Network (VNet) in Azure. We will then add an Acti
 
 Before we get started, couple of things to keep in mind:
 
-1. This tutorial uses PowerShell, so please make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+1. This tutorial uses PowerShell, so please make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment below. Someone will get back to you (yes, we do read comments).
 
-1. The network that is referenced by the cloud service <mark>must be</mark> a **classic virtual network**.
+The network that is referenced by the cloud service must be a **classic virtual network**.
 
 ## Create a Virtual Network
 You can create a Virtual Network in Azure using the Azure classic portal or PowerShell. For this tutorial, we will use PowerShell. To create a Virtual Network using the Azure classic portal, see [Create Virtual Network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
@@ -146,7 +146,7 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 
 And that's it.
 
-You cloud services should now be joined to your custom domain controller. If you would like to learn more about the different options available for how to configure AD Domain Extension, use the PowerShell help as shown below.
+Your cloud services should now be joined to your custom domain controller. If you would like to learn more about the different options available for how to configure AD Domain Extension, use the PowerShell help as shown below.
 
 ```powershell
 help Set-AzureServiceADDomainExtension

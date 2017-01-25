@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 64e83b47-f16b-4aee-98b8-2d164f074c5e
 ms.service: sql-database
+ms.custom: benefits
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -26,6 +27,10 @@ One of the advantages of running SQL Database on Microsoft Azure is being able t
 
 ## When your app is an overnight success
 SQL Database makes it easy to scale at a moment's notice. So if your app becomes an overnight success, it's just one click to accommodate the new performance needs. Plus, with minimal downtime, you won't have to worry about your app taking a hit when the time comes to scale up or down.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
 
 [Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787569)
 

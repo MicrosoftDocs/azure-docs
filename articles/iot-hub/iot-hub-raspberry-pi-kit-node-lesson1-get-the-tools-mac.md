@@ -1,5 +1,5 @@
 ---
-title: Get the tools (macOS 10.10) | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Get tools (macOS) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Pi on macOS.
 services: iot-hub
 documentationcenter: ''
@@ -56,9 +56,9 @@ To install Git and Node.js, use the [Homebrew](http://brew.sh) package managemen
       ```
 2. Install Git and Node.js by running the following command:
    
-    ```bash
-    brew install node git
-    ```
+   ```bash
+   brew install node git
+   ```
 
 ## Install additional Node.js development tools
 Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to Pi. Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.

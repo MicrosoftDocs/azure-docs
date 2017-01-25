@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network with a Site-to-Site VPN connection using Azure Resource Manager and PowerShell | Microsoft Docs
+title: 'Configure a cross-premises Site-to-Site Azure VPN connection: PowerShell | Microsoft Docs'
 description: This article walks you through creating a VNet using the Resource Manager deployment model and connecting it to your local on-premises network using a S2S VPN gateway connection.
 services: vpn-gateway
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 10/14/2016
 ms.author: cherylmc
 
 ---
-# Create a VNet with a Site-to-Site connection using PowerShell
+# Create a VNet with a Site-to-Site VPN connection using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -46,7 +46,7 @@ Verify that you have the following items before beginning configuration.
 * A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 * An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
-* The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+* The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
 ## <a name="Login"></a>1. Connect to your subscription
 Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).

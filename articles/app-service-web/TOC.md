@@ -7,12 +7,13 @@
 # Get started
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Marketplace app](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)	
+### [PHP](app-service-web-get-started-php.md)	
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,11 +61,12 @@
 ### [WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET apps
-#### [Deploy your first .NET web app to Azure in five minutes](app-service-web-get-started-dotnet.md)
+#### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md)
 #### [Create a REST service using ASP.NET Web API](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Create an ASP.NET 5 web app in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
 
 ### Node.js apps
+#### [Develop Node.js for App Service](app-service-web-nodejs-get-started.md)
 #### [Create a Node.js web app](web-sites-nodejs-develop-deploy-mac.md)
 #### [Create a Node.js chat application with Socket.IO](web-sites-nodejs-chat-app-socketio.md)
 #### [How to use io.js with Web Apps](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [Build and deploy using WebMatrix](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP apps
-#### [Deploy your first PHP web app to Azure in five minutes](app-service-web-get-started-php.md)
+#### [Develop PHP apps for App Service](app-service-web-php-get-started.md)	
 #### [Create a PHP-SQL web app and deploy using Git](web-sites-php-sql-database-deploy-use-git.md)
 #### [Create a WordPress web app in Azure App Service](web-sites-php-web-site-gallery.md)
 #### [Create and connect to a MySQL database in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md)
 
 ### Java apps
-#### [Deploy your first Java web app to Azure in five minutes](web-sites-java-get-started.md)
 #### Create a Hello World app
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -247,7 +248,7 @@
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
 # Reference
-## [Azure CLI](/cli/azure/)
+## [Azure CLI 2.0 preview](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/)
 ## [REST](/rest/api/appservice)

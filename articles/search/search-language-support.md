@@ -1,6 +1,6 @@
-﻿---
-title: Create an index for documents in multiple languages in Azure Search | Microsoft Docs
-description: " Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
+---
+title: Azure Search multi language | Microsoft Docs
+description: "Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
 services: search
 documentationcenter: ''
 author: yahnoosh
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 ---
 

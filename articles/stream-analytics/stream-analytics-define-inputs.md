@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Data connection: Data stream inputs from an event stream | Microsoft Docs'
 description: Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data.
 keywords: data stream, data connection, event stream
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---

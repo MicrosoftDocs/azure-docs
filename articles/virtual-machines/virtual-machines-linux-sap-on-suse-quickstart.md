@@ -111,7 +111,7 @@ file is created, you can deploy the VM by using the following CLI command as an 
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-For more details about JSON template files, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) and [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/).
+For more details about JSON template files, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) and [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/).
 
 For more details about CLI and Azure Resource Manager, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 

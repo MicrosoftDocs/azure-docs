@@ -18,14 +18,14 @@ ms.date: 10/06/2016
 ms.author: davidmu
 
 ---
-# Deploy Azure Resources using C
+# Deploy Azure Resources using C# #
 This article shows you how to create Azure resources using C#.
 
 You first need to make sure you've finished these tasks:
 
 * Install [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Verify the installation of [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-* Get an [authentication token](../resource-group-authenticate-service-principal.md)
+* Get an [authentication token](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 It takes about 30 minutes to do these steps.
 
@@ -453,26 +453,28 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 1. To delete the resource group, add this method to the Program class:
    
-     public static async void DeleteResourceGroupAsync(
-   
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-   
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
+
 2. To call the method that you previously added, add this code to the Main method:
    
-     DeleteResourceGroupAsync(
-   
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```   
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## Step 5: Run the console application
 1. To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.

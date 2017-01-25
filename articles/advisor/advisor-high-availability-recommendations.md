@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumudd
+ms.author: kumud
 ---
 
 # Advisor High Availability recommendations

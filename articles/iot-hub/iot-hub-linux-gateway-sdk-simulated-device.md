@@ -1,6 +1,6 @@
-﻿---
-title: Simulate a device with the IoT Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using Linux to illustrate sending telemetry from a simulated device using the Azure IoT Gateway SDK.
+---
+title: Simulate a device with the Azure IoT Gateway SDK (Linux) | Microsoft Docs
+description: How to use the Azure IoT Gateway SDK on Linux to create a simulated device that sends telemetry through a gateway to an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux
+# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
@@ -31,7 +31,11 @@ To build the sample:
 
 1. Open a shell.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository and generate a makefile. The script then builds the solution and runs the tests.
+3. Run the **tools/build.sh** script. This script uses the **cmake** utility to create a folder
+called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository 
+and generate a makefile. The script then builds the solution, skipping unit tests and end to 
+end tests. Add the **--run-unittests** parameter if you want to build and run the unit tests. Add the 
+**--run-e2e-tests** if you want to build and run the end to end tests. 
 
 > [!NOTE]
 > Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
@@ -149,11 +153,11 @@ Save any changes you made to the configuration file.
 
 To run the sample:
 
-1. In your shell, navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
+1. In your shell, navigate to the **azure-iot-gateway-sdk/build** folder.
 2. Run the following command:
    
     ```
-    ./build/samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
+    ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
 3. You can use the [device explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages that IoT hub receives from the gateway.
 

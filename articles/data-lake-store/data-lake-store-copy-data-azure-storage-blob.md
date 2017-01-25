@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 
 ---
@@ -39,6 +39,7 @@ Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Storage Blobs** container with some data.
+* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics account (optional)** - See [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) for instructions on how to create a Data Lake Store account.
 * **AdlCopy tool**. Install the AdlCopy tool from [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
@@ -86,6 +87,10 @@ The parameters in the syntax are described below:
    
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
+### Performance considerations
+
+If you are copying from an Azure Blob Storage account, you may be throttled during copy on the blob storage side. This will degrade the performance of your copy job. To learn more about the limits of Azure Blob Storage, see Azure Storage limits at [Azure subscription and service limits](../azure-subscription-service-limits.md).
+
 ## Use AdlCopy (as standalone) to copy data from another Data Lake Store account
 You can also use AdlCopy to copy data between two Data Lake Store accounts.
 
@@ -114,6 +119,10 @@ You can also use AdlCopy to copy data between two Data Lake Store accounts.
    
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
+### Performance considerations
+
+When using AdlCopy as a standalone tool, the copy is run on shared, Azure managed resources. The performance you may get in this environment depends on system load and available resources. This mode is best used for small transfers on an ad hoc basis. No parameters need to be tuned when using AdlCopy as a standalone tool.
+
 ## Use AdlCopy (with Data Lake Analytics account) to copy data
 You can also use your Data Lake Analytics account to run the AdlCopy job to copy data from Azure storage blobs to Data Lake Store. You would typically use this option when the data to be moved is in the range of gigabytes and terabytes, and you want better and predictable performance throughput.
 
@@ -132,10 +141,13 @@ For example:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-
 Similarly, run the following command to copy from an Azure Storage blob to a Data Lake Store account using Data Lake Analytics account:
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
+
+### Performance considerations
+
+When copying data in the range of terabytes, using AdlCopy with your own Azure Data Lake Analytics account provides better and more predictable performance. The parameter that should be tuned is the number of Azure Data Lake Analytics Units to use for the copy job. Increasing the number of units will increase the performance of your copy job. Each file to be copied can use maximum one unit. Specifying more units than the number of files being copied will not increase performance.
 
 ## Use AdlCopy to copy data using pattern matching
 In this section, you learn how to use AdlCopy to copy data from a source (in our example below we use Azure Storage Blob) to a destination Data Lake Store account using pattern matching. For example, you can use the steps below to copy all files with .csv extension from the source blob to the destination.
@@ -155,6 +167,10 @@ In this section, you learn how to use AdlCopy to copy data from a source (in our
 
 ## Considerations for using AdlCopy
 * AdlCopy (for version 1.0.5), supports copying data from sources that collectively have more than thousands of files and folders. However, if you encounter issues copying a large dataset, you can distribute the files/folders into different sub-folders and use the path to those sub-folders as the source instead.
+
+## Performance considerations for using AdlCopy
+
+AdlCopy supports copying data containing thousands of files and folders. However, if you encounter issues copying a large dataset, you can distribute the files/folders into smaller sub-folders. AdlCopy was built for ad hoc copies. If you are trying to copy data on a recurring basis, you should consider using [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) that provides full management around the copy operations.
 
 ## Next steps
 * [Secure data in Data Lake Store](data-lake-store-secure-data.md)

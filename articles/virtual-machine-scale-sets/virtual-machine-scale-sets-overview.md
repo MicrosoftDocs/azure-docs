@@ -31,7 +31,7 @@ Take a look at these videos for more about VM scale sets:
 ## Creating and managing VM scale sets
 You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting *new* and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
 
-VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with *vmss* in the title)
 
@@ -93,7 +93,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q** What other resource limits exist for VM scale sets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits](../azure-subscription-service-limits.md) apply.
 
 **Q.** Are Data Disks Supported within VM scale sets?
 
@@ -107,11 +107,11 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** Which Azure regions support VM scale sets?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**A.** All regions support VM scale sets.
 
 **Q.** How do you create a VM scale set using a custom image?
 
-**A.** Leave the vhdContainers property blank, for example:
+**A.** Leave the vhdContainers property blank (or omit it) and provide image property's uri, for example:
 
     "storageProfile": {
         "osDisk": {

@@ -64,7 +64,7 @@ The output will include an annotations json file with face location data, as wel
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Optional) Upload an ‘idlist.txt’ file which includes a newline delimited list of the IDs you wish to redact. 
+2. (Optional) Upload a 'Dance_idlist.txt' file which includes a newline delimited list of the IDs you wish to redact. 
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 

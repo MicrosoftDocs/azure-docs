@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/20/2016
+ms.date: 01/17/2017
 ms.author: cfowler;mahender;glenga
 
 ---
@@ -67,10 +67,10 @@ Azure Functions integrates with various Azure and 3rd-party services. These serv
 ## <a name="pricing"></a>How much does Functions cost?
 Azure Functions has two kinds of pricing plans, choose the one that best fits your needs: 
 
-* **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions). 
-* **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+* **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. 
+* **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. 
 
-For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
+Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/). For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
 
 ## Next Steps
 * [Create your first Azure Function](functions-create-first-azure-function.md)  

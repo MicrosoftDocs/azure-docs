@@ -1,5 +1,5 @@
 ---
-title: Linked templates with Resource Manager | Microsoft Docs
+title: Connect related templates for Azure deployment | Microsoft Docs
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 services: azure-resource-manager
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 11/28/2016
 ms.author: tomfitz
 
 ---
-# Using linked templates with Azure Resource Manager
+# Using linked templates when deploying Azure resources
 From within one Azure Resource Manager template, you can link to another template, which enables you to decompose your deployment into a set of targeted, purpose-specific templates. As with decomposing an application into several code classes, decomposition provides benefits in terms of testing, reuse, and readability.  
 
 You can pass parameters from a main template to a linked template, and those parameters can directly map to parameters or variables exposed by the calling template. The linked template can also pass an output variable back to the source template, enabling a two-way data exchange between templates.

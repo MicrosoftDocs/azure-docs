@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to customize security options in Azure services to meet the requirements of your deployments of services and data in the cloud.
 ---
 # Security Documentation
 
-Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your deployments.
+Learn how to use Azure Security to protect services and data in the cloud. Tutorials and other documentation help you customize security options in Azure services to meet the requirements of your deployments.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,11 +101,4 @@ Azure’s infrastructure is designed from the facility to applications for hosti
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Security Documentation
-        </div>
-    </a>
-</div>
+

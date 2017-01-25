@@ -27,7 +27,7 @@ This topic shows you how to use the Azure portal to create a simple "hello world
 ## Create a function app
 A function app hosts the execution of your functions in Azure. Follow these steps to create a function app in the Azure portal.
 
-Before you can create your first function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Click **+New** > **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:

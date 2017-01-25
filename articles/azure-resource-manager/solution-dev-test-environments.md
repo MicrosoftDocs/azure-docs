@@ -164,7 +164,7 @@ To create the resource group for the Pre-Production environment, type the comman
     azure group create "TestApp1-Pre-Production" "Central US"
 
 ### PowerShell
-Ensure that you have Azure PowerShell 1.01 or higher installed on a Windows computer and have connected your [Azure AD account](../active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school account) to your subscription as detailed in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment.
+Ensure that you have Azure PowerShell 1.01 or higher installed on a Windows computer and have connected your [Azure AD account](../active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school account) to your subscription as detailed in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment.
 
     New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -232,7 +232,7 @@ After seeing a "Waiting for deployment to complete" message for a few minutes, t
     data:    requestedServiceObjectiveName  String        S0
     info:    group deployment create command OKx
 
-If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-cli.md) article.
+If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](resource-manager-common-deployment-errors.md) article.
 
 From the CLI command line, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
@@ -275,7 +275,7 @@ After seeing a blinking cursor for a few minutes, the command will return the fo
 
     Outputs           :
 
-  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-powershell.md) article.
+  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](resource-manager-common-deployment-errors.md) article.
 
   From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 

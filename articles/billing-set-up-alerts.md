@@ -1,10 +1,10 @@
-﻿---
+---
 title: Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Docs
 description: Describes how you can set up alerts on your Azure bill so you can avoid billing surprises.
 services: ''
 documentationcenter: ''
 author: vikdesai
-manager: mbaldwin
+manager: vikdesai
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2016
+ms.date: 01/07/2017
 ms.author: vikdesai
 
 ---

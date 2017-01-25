@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Docs
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 
 ---

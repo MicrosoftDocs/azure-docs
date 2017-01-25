@@ -25,17 +25,21 @@ ms.author: gwallace
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
-This article walks you through the process of creating records and records sets by using the Azure portal. After you create your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
+This article walks you through the process of creating records and records sets by using the Azure portal. To do this, you first need to understand DNS records and record sets.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## Create a record set and record
+The examples on this page all use the 'A' DNS record type. The process for other record types is similar.
 
-The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS "A" record type.
+If your new record has the same name and type as an existing record, you need to add it to the existing record set&mdash;see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md). If your new record has a different name and type to all existing records, you need to create a new record set, as explained below.
+
+## Create records in a new record set
+
+The following example walks you through the process of creating a record set and record by using the Azure portal.
 
 1. Sign in to the portal.
 2. Go to the **DNS zone** blade in which you want to create a record set.
-3. At the top of the **DNS zone** blade, select **Record set** to open the **Add record set** blade.
+3. At the top of the **DNS zone** blade, select **+ Record set** to open the **Add record set** blade.
 
     ![New record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
@@ -45,11 +49,28 @@ The following example walks you through the process of creating a record set and
 
 5. Select the type of record you want to create. For example, select **A**.
 6. Set the **TTL**. The default time to live in the portal is one hour.
-7. Add the IP addresses, one IP address per line. When you use the suggested record set name and record type described earlier, you add the IPv4 IP addresses to the **A** record for the www record set.
+7. Add the details of each record in the record set. In this case, since the record type is 'A', you need to add the A record IP addresses, one IP address per line.
 8. After you finish adding IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
+
+### Verify name resolution
+
+You can test your DNS records are present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
+
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the command below.
+
+    nslookup
+    > set type=A
+    > server ns1-01.azure-dns.com
+    > www.contoso.com
+
+    Server:  ns1-01.azure-dns.com
+    Address:  40.90.4.1
+
+	Name:    www.contoso.com
+	Address:  1.2.3.4
 
 ## Next steps
 
-To manage your record set and records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
+Learn how to [delegate your domain name to the Azure DNS name servers](dns-domain-delegation.md)
 
-For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
+To manage your record set and records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).

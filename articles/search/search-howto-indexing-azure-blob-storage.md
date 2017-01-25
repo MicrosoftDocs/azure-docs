@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 ---
 
@@ -59,7 +59,7 @@ For blob indexing, the data source must have the following required properties:
 
 * **name** is the unique name of the data source within your search service.
 * **type** must be `azureblob`.
-* **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value.
+* **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) below for details.
 * **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter.
 
 To create a data source:
@@ -71,11 +71,25 @@ To create a data source:
     {
         "name" : "blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
 For more on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+
+<a name="Credentials"></a>
+#### How to specify credentials ####
+
+You can provide the credentials for the blob container in one of these ways: 
+
+- **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
+- **Storage account shared access signature** (SAS) connection string: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. The SAS should have the list and read permissions on containers and objects (blobs in this case).
+-  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. The SAS should have the list and read permissions on the container.
+
+For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### Step 2: Create an index
 The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
@@ -144,6 +158,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 >
 
+<a name="DocumentKeys"></a>
 ### Defining document keys and field mappings
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 

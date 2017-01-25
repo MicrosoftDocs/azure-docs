@@ -1,5 +1,5 @@
-﻿---
-title: 'RBAC: Built-in Roles | Microsoft Docs'
+---
+title: Actions and NotActions - roles in Azure RBAC | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
@@ -25,8 +25,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 
 > [!NOTE]
 > The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
-> 
-> 
+>
+>
 
 | Role name | Description |
 | --- | --- |
@@ -549,4 +549,3 @@ Can manage websites but not the web plans to which they are connected
 * [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
 * [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
-

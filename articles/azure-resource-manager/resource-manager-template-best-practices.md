@@ -50,8 +50,6 @@ If you provide a parameter for these resource names, you must guess a unique nam
         "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
     }
 
-Storage accounts with a uniqueString prefix do not get clustered on the same racks.
-
 ### Resource names for identification
 For resource types that you want to name but you do not have to guarantee uniqueness, simply provide a name that identifies both its context and resource type. You want to provide a descriptive name that helps you recognize it from a list of resource names. If you need to vary the resource name during deployments, use a parameter for the name:
 

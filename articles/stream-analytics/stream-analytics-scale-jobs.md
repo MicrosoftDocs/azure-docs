@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scale Stream Analytics jobs to increase throughput | Microsoft Docs
 description: Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 keywords: data streaming, streaming data processing, tune analytics
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---

@@ -4,7 +4,7 @@ description: How to enable Multi-Factor Authentication in consumer-facing applic
 services: active-directory-b2c
 documentationcenter: ''
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
 
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 
 ---

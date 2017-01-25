@@ -164,7 +164,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [azure-active-directory]: ../active-directory-domain-services/active-directory-ds-overview.md
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [GitHub]: https://github.com/mspnp/reference-architectures/tree/master/guidance-ra-identity-adds

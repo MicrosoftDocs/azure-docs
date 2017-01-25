@@ -26,7 +26,7 @@ Many web app management tasks can be performed in the Azure Portal.
 
 ## Before you deploy your web app to production
 ### Choose a tier
-Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and Premium. For information about the features and pricing for each tier, see [Pricing details](/pricing/details/app-service/). 
+Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and Premium. For information about the features and pricing for each tier, see [Pricing details](https://azure.microsoft.com/pricing/details/app-service/). 
 
 * [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) let you group multiple web apps under the same tier.
 * You can always [switch tiers](web-sites-scale.md) after you create your web app.

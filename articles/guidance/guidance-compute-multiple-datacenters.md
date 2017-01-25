@@ -197,7 +197,7 @@ This series has focused on pure cloud deployments. Enterprise scenarios often re
 [install-azure-cli]: ../xplat-cli-install.md
 [regional-pairs]: ../best-practices-availability-paired-regions.md
 [resource groups]: ../azure-resource-manager/resource-group-overview.md
-[resource-group-links]: ../resource-group-link-resources.md
+[resource-group-links]: ../azure-resource-manager/resource-group-link-resources.md
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/en-us/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/en-us/library/ms162843.aspx

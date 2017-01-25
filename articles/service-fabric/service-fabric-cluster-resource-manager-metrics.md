@@ -1,6 +1,6 @@
-﻿---
-title: Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Microsoft Docs
-description: Learn about how to configure and use metrics in Service Fabric.
+---
+title: Manage Azure microservice load using metrics | Microsoft Docs
+description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 
 ---
 # Managing resource consumption and load in Service Fabric with metrics
-Metrics are the generic term within Service Fabric for the resources that your services care about and which are provided by the nodes in the cluster. Generally, a metric is anything that you want to manage in order to deal with the performance of your services.
+Metrics are the generic term within Service Fabric for the resources that your services care about and which are provided by the nodes in the cluster. Generally, a metric is anything that you want to manage to deal with the performance of your services.
 
-Things like Memory, Disk, CPU usage – all of these are examples of metrics. These are physical metrics, resources that correspond to physical resources on the node that need to be managed. Metrics can also be (and commonly are) logical metrics, things like “MyWorkQueueDepth” that are application-defined and which correspond to some level of resource consumption (but where the application don’t really know it or know how to measure it). Most metrics that we see people use are logical metrics. There's a variety of reasons for this, but the most common is that today many of our customers write their services in managed code, and from within a given stateless service instance or stateful service replica object it is actually quite hard to measure and report your consumption of actual physical resources. The complexity of reporting your own metrics is also why we provide some default metrics out of the box.
+Things like Memory, Disk, and CPU usage are examples of metrics. These are physical metrics, resources that correspond to physical resources on the node that need to be managed. Metrics can also be (and commonly are) logical metrics. Logical metrics are things like “MyWorkQueueDepth” or "MessagesToProcess" or "TotalRecords". Logical metrics are application-defined and correspond to some physical resource consumption, but the application doesn't really know how to measure it. This is common. Most metrics that we see people use are logical metrics. Most commonly this is because today many services are written in managed code. Managed code means that from within a host process it can be hard to measure and report a single service object's consumption of physical resources. The complexity of measuring and reporting your own metrics is also why we provide some default metrics out of the box.
 
 ## Default metrics
-Let’s say that you just want to get started and don’t know what resources you are going to consume or even which ones would be important to you. So you go implement and then create your services without specifying any metrics. That’s fine! We’ll pick some metrics for you. The default metrics that we use for you today if you don’t specify any of your own are called PrimaryCount, ReplicaCount, and (somewhat vaguely, we realize) Count. The table below shows how much load for each of these metrics is associated with each service object:
+Let’s say that you want to get started and don’t know what resources you are going to consume or even which ones would be important to you. So you go implement and then create your services without specifying any metrics. That’s fine! The Service Fabric Cluster Resource Manager picks some simple metrics for you. The default metrics that we use today when you don’t specify any are called PrimaryCount, ReplicaCount, and Count. The following table shows how much load for each of these metrics is associated with each service object:
 
 | Metric | Stateless Instance Load | Stateful Secondary Load | Stateful Primary Load |
 | --- | --- | --- | --- |
@@ -31,31 +31,44 @@ Let’s say that you just want to get started and don’t know what resources yo
 | ReplicaCount |0 |1 |1 |
 | Count |1 |1 |1 |
 
-Ok, so with these default metrics, what do you get? Well it turns out that for basic workloads you get a pretty good distribution of work. In this example below let’s see what happens when we create one stateful service with three partitions and a target replica set size of three, and also a single stateless service with an instance count of three - you’ll get something like this!
+Ok, so with these default metrics, what do you get? Well it turns out that for basic workloads you get a decent distribution of work. In the following example, let’s see what happens when we create two services. The first one a stateful service with three partitions and a target replica set size of three. The second one a stateless service with one partition and an instance count of three:
 
+<center>
 ![Cluster Layout with Default Metrics][Image1]
+</center>
 
-In this example we see
+Here's what you get:
 
 * Primary replicas for the stateful service are not stacked up on a single node
 * Replicas for the same partition are not on the same node
-* The total number of primaries and secondaries is well distributed in the cluster
-* The total number of service objects (stateless and stateful) are evenly allocated on each node
+* The total number of primaries and secondaries is distributed in the cluster
+* The total number of service objects are evenly allocated on each node
 
-Pretty good!  
+Good!
 
-This works great until you start to think about it: What's the likelihood that the partitioning scheme you picked will result in perfectly even utilization by all partitions over time? Coupled with that, what’s the chance that the load for a given service is constant over time, or even just the same right now? Turns, out for any serious workload the odds of all replicas being equivalent is actually rather low, so if you're interested in getting the most out of your cluster you'll probably want to start looking into custom metrics.
+This works great until you start to run large numbers of real workloads: What's the likelihood that the partitioning scheme you picked results in perfectly even utilization by all partitions? What’s the chance that the load for a given service is constant over time, or even just the same right now?
 
-Realistically, you could absolutely run with just the default metrics but doing so usually means that your cluster utilization is lower than you’d like (since reporting isn’t adaptive and presumes everything is equivalent); in the worst case it can also result in overscheduled nodes resulting in performance issues. We can do better with custom metrics and dynamic load reports, which we'll cover next.
+Realistically, you could run with just the default metrics, but doing so usually means that your cluster utilization is lower than you’d like. This is because the default metric reporting isn’t adaptive and presumes everything is equivalent. In the worst case, using just the defaults can also result in overscheduled nodes resulting in performance issues. We can do better with custom metrics and dynamic load reports, which we'll cover next. For any serious workload, the odds of all services being equivalent forever is low. If you're interested in getting the most out of your cluster and avoiding performance issues, you'll want to start looking into custom metrics.
 
 ## Custom metrics
-We’ve already discussed that there can be both physical and logical metrics, and that people can define their own metrics. Great! But how? Well, it's actually pretty easy! Just configure the metric and the default initial load when creating the service and you’re done! Any set of metrics and default values representing how much the service is expected to consume can be configured on a per-named-service-instance basis when you’re creating the service.
+Metrics are configured on a per-named-service-instance basis when you’re creating the service.
 
-Note that when you start defining custom metrics you need to explicitly add back in the default metrics if you want us to use them to balance your service as well. This is because we want you to be clear about the relationship between the default metrics and your custom metrics – maybe you care about Memory consumption or WorkQueueDepth way more than you care about Primary distribution.
+Any metric has some properties that describe it: a name, a default load, and a weight.
 
-Let’s say you wanted to configure a service which would report a metric called “Memory” (in addition to the default metrics). For memory, let’s say that you’ve done some basic measurements and know that normally a primary replica of that service takes up 20Mb of Memory, while secondaries of that same service will take up 5Mb. You know that Memory is the most important metric in terms of managing the performance of this particular service, but you still want primary replicas to be balanced so that the loss of some node or fault domain doesn’t take an inordinate number of primary replicas along with it. Other than that you’ll take the defaults.
+* Metric Name: The name of the metric. The metric name is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+* Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
+  * For stateless services, each metric has a single property named DefaultLoad
+  * For stateful services you define:
+    * PrimaryDefaultLoad: The default amount of this metric this service consumes when it is a Primary
+    * SecondaryDefaultLoad: The default amount of this metric this service consumes when it is a Secondary
+* Weight: Metric weight defines how important this metric is relative to the other metrics for this service.
 
-Here’s what you’d do:
+If you define custom metrics and you want to also use the default metrics, you'll need to explicitly add them back. This is because you want to be clear about the relationship between the default metrics and your custom metrics. For example, maybe you care about Memory consumption or WorkQueueDepth way more than you care about Primary distribution.
+
+### Defining metrics for your service - an example
+Let’s say you wanted to configure a service that reports a metric called “MemoryInMb”, and that you also want to use the default metrics. Let’s also say that you’ve done some measurements and know that normally a Primary replica of that service takes up 20 units of "MemoryInMb", while secondaries take up 5. You know that Memory is the most important metric in terms of managing the performance of this particular service, but you still want primary replicas to be balanced. Balancing Primaries is a good idea so that the loss of some node or fault domain doesn’t impact a majority of primary replicas along with it. Other than these tweaks, you want to use the default metrics.
+
+Here’s the code that you would write to create a service with that metric configuration:
 
 Code:
 
@@ -96,103 +109,106 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
 (Reminder: if you just want to use the default metrics, you don’t need to touch the metrics collection at all or do anything special when creating your service.)
 
-Now that we’ve shown you how to define your own metrics, let’s talk about the different properties that metrics can have. We’ve already shown them to you, but it’s time to talk about what they actually mean! There are four different properties a metric can have today:
-
-* Metric Name: This is the name of the metric. This is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
-* Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
-  * For stateless services each metric just has a single property named Default Load
-  * For stateful services you define
-    * PrimaryDefaultLoad: The default amount of load that this service will exert for this metric as a Primary
-    * SecondaryDefaultLoad: The default amount of load that this service will exert for this metric as a Secondary replica  
-* Weight: This is how important the metric is relative to the other configured metrics for this service.
+Now that we've gotten an introduction and seen an example, let's go through each of these settings in more detail and talk about the behavior you'll get.
 
 ## Load
-Load is the general notion of how much of a given metric is consumed by some service instance or replica on a given node.
+The whole point of defining metrics is to represent some load. "Load" is how much of a given metric is consumed by some service instance or replica on a given node. The expected load can be configured when a service is created, updated after the service is created, reported on a per service object basis, or all of the above.
 
 ## Default load
-Default load is how much load the Cluster Resource Manager should assume each service instance or replica of this service will consume until it receives any updates from the actual service instances or replicas. For simpler services, this ends up being a static definition that is never updated dynamically and hence will be used for the lifetime of the service. This works great for simple capacity planning because it’s exactly what we are used to doing – dedicating certain resources to certain workloads, but the benefit is that at least now we’re operating in the microservices mindset where resources aren’t actually statically assigned to particular workloads and where people aren’t in the decision-making loop.
+Default load is how much load each service object (instance or replica) of this service consumes by default. For simpler services, the default load is a static definition that is never updated and that is used for the lifetime of the service. Default load works great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads.
 
-We allow stateful services to specify default load for both their Primaries and Secondaries – realistically for a lot of services these numbers are different due to the different workloads executed by primary replicas and secondary replicas, and since primaries usually serve both reads and writes (as well as most of the computational burden) the default load for a primary replica is higher than for secondary replicas.
-
-But now let’s say that you’ve been running your service for a while and you’ve noticed that some instances or replicas of your service consume way more resources than others or that their consumption varies over time – maybe they’re associated with a particular customer, maybe they just correspond to workloads that vary over the course of the day like messaging traffic, phone calls, or stock trades. At any rate, you notice that there’s no “single number” that you can use for the load without being off by a significant amount for at least some portion of the time. You also notice that “being off” in your initial estimate results in the Cluster Resource Manager either over or under allocating resources to your service, and consequently you have nodes which are over or under utilized.
-
-What to do? Well, your service could be reporting load on the fly!
+The Cluster Resource Manager allows stateful services to specify a different default load for both their Primaries and Secondaries, while stateless services can only specify one value. For stateful services the default load for primary and secondary replicas are typically different since replicas do different kinds of work in each role. For example, primaries usually serve both reads and writes (and most of the computational burden), while secondaries don't. It's expected that the default load for a primary replica is higher than for secondary replicas, but the real numbers should depend on your own measurements.
 
 ## Dynamic load
-Dynamic load reports allow replicas or instances to adjust their allocation/reported use of metrics in the cluster over their lifetime. A service replica or instance that was cold and not doing any work would usually report that it was using low amounts of a given metric, while busy replicas or instances report that they are using more. This general level of churn in the cluster allows us to reorganize the service replicas and instances in the cluster on the fly in order to ensure that the get the resources they require – in effect that busy services are able to reclaim resources from other replicas or instances which are currently cold or doing less work. Reporting load on the fly can be done via the ReportLoad method, available on the ServicePartition, available as a property on the base StatefulService or StatelessService class via the Reliable Services programming model. Within your service the code would look like this:
+Let’s say that you’ve been running your service for a while. With some monitoring, you’ve noticed that:
+
+1. Some partitions or instances of a given service consume more resources than others
+2. Some services have load that varies over time.
+
+There's lots of things that could cause these types of load fluctuations. The service or partition could be associated with a particular customer, or maybe they correspond to workloads that vary over the course of the day. Regardless of the reason, there’s no single number that you can use for default load. Any value you pick for default load is wrong some of the time. This is a problem since incorrect default loads result in the Cluster Resource Manager either over or under allocating resources for your service. As a result, you have nodes that are over or under utilized even if the Cluster Resource Manager thinks the cluster is balanced. Default loads are still good since they provide some information, but they're not a complete story for real workloads most of the time. This is why the Cluster Resource Manager allows each service object to update its own load during runtime. This is called dynamic load reporting.
+
+Dynamic load reports allow replicas or instances to adjust their allocation/reported load of metrics over their lifetime. A service replica or instance that was cold and not doing any work would usually report that it was using low amounts of a given metric. A busy replica or instance would report that they are using more.
+
+Reporting per replica or instance allows the Cluster Resource Manager to reorganize the individual service objects in the cluster to ensure that the services get the resources they require. Busy services effectively get to "reclaim" resources from other replicas or instances that are currently cold or doing less work.
+
+Within your Reliable Service the code to report load dynamically would look like this:
 
 Code:
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
 ```
 
-Services replicas or instances may only report load for the metrics that they have been configured to use. The metric list is set when each service is created and may be updated later. If a service replica or instance tries to report load for a metric that it is not currently configured to use, Service Fabric logs the report but ignores it, meaning that we won’t use it when calculating or reporting on the state of the cluster. This is neat because it allows for greater experimentation – the code can measure and report on everything it knows how to, and the operator can configure, tweak, and update the resource balancing rules for that service on the fly without ever having to change the code. This can include for example, disabling a metric with a buggy report, reconfiguring the weights of metrics based on behavior, or enabling a new metric only after the code has already been deployed and validated via other mechanisms.
+Services replicas or instances may only report load for the metrics that they were configured to use when they were created. The list of metrics a service can report is the same set specified when the service is created. The list of metrics associated with the service may also be updated dynamically. If a service replica or instance tries to report load for a metric that it is not currently configured to use, Service Fabric logs that report but ignores it. If there are other metrics reported in the same API call that are valid, those reports are accepted and used. This is neat because it allows for greater experimentation. The code can measure and report all metrics it knows about, and the operator can specify and update the metric configuration for that service without having to change the code. For example, the administrator or ops team could disable a metric with a buggy report for a particular service, reconfigure the weights of metrics based on behavior, or enable a new metric only after the code has already been deployed and validated via other mechanisms.
 
 ## Mixing default load values and dynamic load reports
-Does it make sense to have a default load specified for a service which is going to be reporting load dynamically? Absolutely! In this case the default load serves as an estimate until the real reports start to show up from the actual service replica or instance. This is great because it gives the Cluster Resource Manager something to work with - the default load estimate allows it to place the service instances or replicas in good places right from the start. When no default load information is provided the placement of services is effectively random at creation time, and if loads change later the Cluster Resource Manager would almost certainly have to move things around.
+If default load isn't sufficient, and reporting load dynamically is recommended, can both be used? Yes! In fact, this is the recommended configuration. When both default load is set and dynamic load reports are utilized, the default load serves as an estimate until dynamic reports show up. This is good because it gives the Cluster Resource Manager something to work with. The default load allows the Cluster Resource Manager to place the service objects in good places when they are created. If no default load information is provided placement of services is random. When load reports come in later the Cluster Resource Manager almost always has to move services around.
 
-So let’s take our previous example and see what happens when we add some custom load and then when after the service is created it gets updated dynamically. In this example, we’ll use “Memory” as an example, and let’s presume that we initially created the stateful service with the following command:
+Let’s take our previous example and see what happens when we add some custom metrics and dynamic load reporting. In this example, we use “Memory” as an example metric. Let’s presume that we initially created the stateful service with the following command:
 
 Powershell:
 
 ```posh
-New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("Memory,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
 ```
 
-We talked about this syntax earlier (MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad), but we’ll talk more about what the specific value for Weight means later.
+As a reminder, this syntax is ("MetricName, MetricWeight, PrimaryDefaultLoad, SecondaryDefaultLoad").
 
 Let's see what one possible cluster layout could look like:
 
+<center>
 ![Cluster Balanced with both Default and Custom metrics][Image2]
+</center>
 
 Some things that are worth noting:
 
-* Since replicas or instances use the service’s default load until they report their own load, we know that the replicas inside of partition 1 of the stateful service haven’t reported load on their own
+* Because replicas or instances use the service’s default load until they report their own, we know that the replicas inside partition 1 of the stateful service haven’t reported load dynamically
 * Secondary replicas within a partition can have their own load
-* Overall the metrics look pretty good, with the difference between the maximum and minimum load on a node (for memory – the custom metric we said we cared the most about) of only a factor of 1.75 (the node with the most load for the memory is N3, the least is N2, and 28/16 = 1.75) – pretty balanced!
+* Overall the metrics look balanced. For memory, the ratio between the maximum and minimum load is 1.75 (the node with the most load is N3, the least is N2, and 28/16 = 1.75).
 
-There are some things that we still need to explain
+There are some things that we still need to explain:
 
-* What determined whether a ratio of 1.75 was reasonable or not? How do we know that’s good enough or if there is more work to do?
+* What determined whether a ratio of 1.75 was reasonable or not? How does the Cluster Resource Manager know if that’s good enough or if there is more work to do?
 * When does balancing happen?
 * What does it mean that Memory was weighted “High”?
 
 ## Metric weights
-Metric Weights are what allows two different services to report the same metrics but to view the importance of balancing that metric differently. For example, consider an in-memory analytics engine and a persistent database; both probably care about the “Memory” metric, but the in-memory service probably doesn’t care much about the “Disk” metric – it might consume a little of it, but it is not critical to the service’s performance, so it probably doesn't even report it. Being able to track the same metrics across different services is great since that’s what allows the Cluster Resource Manager to track real consumption in the cluster, ensure that nodes don’t go over capacity, etc.
+Being able to track the same metrics across different services is important. That view is what allows the Cluster Resource Manager to track consumption in the cluster, balance consumption across nodes, and ensure that nodes don’t go over capacity. However, services may have different views as to the importance of the same metric. Also, in a cluster with many metrics and lots of services, perfectly balanced solutions may not exist for all metrics. How should the Cluster Resource Manager handle these situations?
 
-Metric weights also allow the Cluster Resource Manager to make decisions about how to balance the cluster when there’s no perfect answer (which is a lot of the time). Metrics can have four different weight levels: Zero, Low, Medium, and High. A metric with a weight of Zero contributes nothing when considering whether things are balanced or not, but its load does still contribute to things like capacity measurement.
+Metric weights allow the Cluster Resource Manager to decide how to balance the cluster when there’s no perfect answer. Metric weights also allow the Cluster Resource Manager to balance specific services differently. Metrics can have four different weight levels: Zero, Low, Medium, and High. A metric with a weight of Zero contributes nothing when considering whether things are balanced or not, but its load does still contribute to things like capacity.
 
-The real impact of different metric weights in the cluster is that we arrive at different arrangements of the services since the Cluster Resource Manager has been told, in aggregate, that certain metrics are more important than others. Because it knows this, when metrics which have different weights conflict with other the Cluster Resource Manager can prefer solutions which balance the higher weighted metrics better.
+The real impact of different metric weights in the cluster is that the Cluster Resource Manager generates different solutions. Metric weights tell the Cluster Resource Manager that certain metrics are more important than others. When there's no perfect solution the Cluster Resource Manager can prefer solutions which balance the higher weighted metrics better. If one service thinks a metric is unimportant, it may find their use of that metric imbalanced. This allows another service to get an even distribution that is important to it.
 
-Let’s take a look at a simple example of some load reports and how different metric weights can result in different allocations in the cluster. In this example we see that switching the relative weight of the metrics results in the Resource Manager preferring certain solutions by creating different arrangements of services.
+Let’s look at an example of some load reports and how different metric weights can result in different allocations in the cluster. In this example, we see that switching the relative weight of the metrics results in the Cluster Resource Manager preferring different solutions and creating different arrangements of services.
 
+<center>
 ![Metric Weight Example and Its Impact on Balancing Solutions][Image3]
+</center>
 
-In this example there are four different services, all reporting different values for two different metrics A and B. In one case all the services define Metric A is the most important one (Weight = High) and MetricB as relatively unimportant (Weight = Low), and indeed we see that the Cluster Resource Manager places the services so that MetricA is better balanced (has a lower standard deviation) than MetricB. In the second case, we reverse the metric weights, and we see that the Cluster Resource Manager would probably swap services A and B in order to come up with an allocation where MetricB is better balanced than MetricA.
+In this example, there are four different services, all reporting different values for two different metrics A and B. In one case all the services define Metric A is the most important one (Weight = High) and MetricB as unimportant (Weight = Low). In this case, we see that the Cluster Resource Manager places the services so that MetricA is better balanced (has a lower standard deviation) than MetricB. In the second case, we reverse the metric weights. As a result, the Cluster Resource Manager would probably swap services A and B to come up with an allocation where MetricB is better balanced than MetricA.
 
 ### Global metric weights
 So if ServiceA defines MetricA as most important, and ServiceB doesn’t care about it at all, what’s the actual weight that ends up getting used?
 
-Well there are actually two weights we keep track of for every metric – the weight the service itself defined and the global average weight across all of the services that care about that metric. We use both these weights when calculating the scores of the solutions we generate, since it is important to ensure that both a service is balanced with regard to its own priorities, but also that the cluster as a whole is allocated correctly.
+There are actually multiple weights that are tracked for every metric. The first set are the weights that each service defined for the metric. The other weight is a global weight, which is the average from all the services that report that metric. The Cluster Resource Manager uses both these weights when calculating the scores of the solutions. This is because it is important that a service is balanced according to its own priorities, but also that the cluster as a whole is allocated correctly.
 
-What would happen if we didn’t care about both global and local balance? Well, it’s trivial to construct solutions that are globally balanced but which result in very poor balance and resource allocation for individual services. In the example below let’s consider the default metrics that a stateful service is configured with, PrimaryCount, ReplicaCount, and Count, and see what happens when we only consider global balance:
+What would happen if the Cluster Resource Manager didn’t care about both global and local balance? Well, it’s trivial to construct solutions that are globally balanced but which result in poor resource allocations for individual services. In the following example, let’s look at the default metrics that a stateful service is configured with and see what happens when if only global balance is considered:
 
+<center>
 ![The Impact of a Global Only Solution][Image4]
+</center>
 
-In the top example where we only looked at global balance, the cluster as a whole is indeed balanced – all nodes have the same count of primaries, and total replicas. However if you look at the actual impact of this allocation it’s not so good: the loss of any node impacts a particular workload disproportionally, as it takes out all of its primaries. Take for example if we were to lose the first node. If this happened the three primaries for the three different partitions of the Circle service would all be lost simultaneously. Conversely, the other two services (Triangle and Hexagon) have their partitions lose a replica, which causes no disruption (other than having to recover the down replica).
+In the top example where we only looked at global balance, the cluster as a whole is indeed balanced. All nodes have the same count of primaries and the same number total replicas. However, if you look at the actual impact of this allocation it’s not so good: the loss of any node impacts a particular workload disproportionately, because it takes out all its primaries. For example, if the first node fails the three primaries for the three different partitions of the Circle service would all be lost. Conversely, the other two services (Triangle and Hexagon) have their partitions lose a replica, which causes no disruption (other than having to recover the down replica).
 
-In the bottom example we have distributed the replicas based on both the global and per-service balance. When calculating the score of the solution we give a majority of the weight to the global solution, but a (configurable) portion does go to ensuring that the services are balanced within themselves as much as possible as well. As a result, if we were to lose the same first node, we see that the loss of primaries (and secondaries) is distributed across all partitions of all services and the impact to each is the same.
-
-Taking metric weights into account, the global balance is calculated based on the average of the metric weights configured for each of the services. We balance a service with regard to its own defined metric weights.
+In the bottom example, the Cluster Resource Manager has distributed the replicas based on both the global and per-service balance. When calculating the score of the solution it gives most of the weight to the global solution, and a (configurable) portion to individual services. Global balance is calculated based on the average of the metric weights configured for each of the services. Each service is balanced according to its own defined metric weights. This ensures that the services are balanced within themselves according to their own needs as much as possible. As a result, if the same first node fails the loss of primaries (and secondaries) is distributed across all partitions of all services. The impact to each is the same.
 
 ## Next steps
-* For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
+* For more information about the other options available for configuring services, check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
 * Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 * Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
