@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure SQL Data Sync (Preview)
+title: Getting started with Azure SQL Data Sync (Preview) | Microsoft Docs
 description: This tutorial helps you get started with the Azure SQL Data Sync (Preview).
 services: sql-database
 documentationcenter: ''
