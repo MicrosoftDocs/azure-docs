@@ -23,38 +23,13 @@ ms.author: negat
 
 # Convert a scale set template to a managed disk scale set template
 
-If you have a Resource Manager template for creating a scale set not using managed disk, you may wish to modify it to use managed disk. This article will show how to do this.
+Customers with a Resource Manager template for creating a scale set not using managed disk may wish to modify it to use managed disk. This article will show how to do this, using as an example a pull request from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates), a community-driven repo for sample Resource Manager templates. The full pull request can be seen here: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), and the relevant parts of the diff are below, along with explanations:
 
-## High level guidance
+## Making the OS disks managed
 
-
-
-## A concrete example
+In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary to specify because managed disk will automatically choose the proper type for the chosen VM size (if the VM size has a lowercase or uppercase 's' in it, then premium storage will be used, otherwise standard storage will be used; both will be locally redundate storage). New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary becuase managed disk will automatically name the underlying storage blob containers and disks.
 
 ```diff
-$ git diff master
-diff --git a/201-vmss-windows-nat/azuredeploy.json b/201-vmss-windows-nat/azuredeploy.json
-index baf81ed..12b8abb 100644
---- a/201-vmss-windows-nat/azuredeploy.json
-+++ b/201-vmss-windows-nat/azuredeploy.json
-@@ -21,10 +21,10 @@
-         "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter."
-       }
-     },
--    "vmssName":{
--      "type":"string",
--      "metadata":{
--        "description":"String used as a base for naming resources. Must be 3-61 characters in length and globally unique across Azure. A hash is prepended to this string for some resources, and resource-specific information is appended."
-+    "vmssName": {
-+      "type": "string",
-+      "metadata": {
-+        "description": "String used as a base for naming resources. Must be 3-61 characters in length and globally unique across Azure. A hash is prepended to this string for some resources, and resource-specific information is appended."
-       },
-       "maxLength": 61
-     },
-@@ -49,20 +49,8 @@
-     }
-   },
    "variables": {
 -    "storageAccountType": "Standard_LRS",
      "namingInfix": "[toLower(substring(concat(parameters('vmssName'), uniqueString(resourceGroup().id)), 0, 9))]",
@@ -73,6 +48,12 @@ index baf81ed..12b8abb 100644
      "addressPrefix": "10.0.0.0/16",
      "subnetPrefix": "10.0.0.0/24",
      "virtualNetworkName": "[concat(variables('namingInfix'), 'vnet')]",
+```
+
+
+In the diff below, we can see that we updated the compute api version to 2016-04-30-preview, which is the earliest required version for managed disk support with scale sets. Note that we could still use unmanaged disks with the new api version with the old syntax if desired. In other words, if we only update the compute api version and don't change anything else, the template should continue to work as before.
+
+```diff
 @@ -86,7 +74,7 @@
        "version": "latest"
      },
@@ -82,6 +63,11 @@ index baf81ed..12b8abb 100644
      "networkApiVersion": "2016-03-30",
      "storageApiVersion": "2015-06-15"
    },
+```
+
+In the diff below, we can see that we are removing the storage account resource from the resources array completely. We no longer need them since managed disk will create them automatically on our behalf.
+
+```diff
 @@ -113,19 +101,6 @@
        }
      },
@@ -102,6 +88,11 @@ index baf81ed..12b8abb 100644
        "type": "Microsoft.Network/publicIPAddresses",
        "name": "[variables('publicIPAddressName')]",
        "location": "[resourceGroup().location]",
+```
+
+In the diff below, we can see that we are removing the depends on clause referring to the storage loop. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. We do add one new property, though, which is "diskSizeGB", specifying the size of our OS disk in gigabytes.
+
+```diff
 @@ -183,7 +158,6 @@
        "location": "[resourceGroup().location]",
        "apiVersion": "[variables('computeApiVersion')]",
@@ -122,7 +113,6 @@ index baf81ed..12b8abb 100644
 -                "[concat('https://', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]"
 -              ],
 -              "name": "[variables('osDiskName')]",
--              "caching": "ReadOnly",
 -              "createOption": "FromImage"
 +              "createOption": "FromImage",
 +              "diskSizeGB": 100
@@ -131,6 +121,24 @@ index baf81ed..12b8abb 100644
            },
 
 ```
+
+Note that there is is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying a template to ensure that the right properties are in the storage profile of the scale set.
+
+
+## Data disks
+
+With the changes above, the scale set will use managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value is a JSON list that requires a lun (which must be unique per data disk on a VM), a "createOption" ("empty" is the only supported option at this time), and a size in gigabytes as below. If you specify `n` disks in this array, each VM in the scale set will have `n` data disks. Do note, however, that the disk will be a raw device. It will not be formatted or have a filesystem on it. It is up to the customer to attach the disk, format it, and put a file system on it.
+
+```
+"dataDisks": [
+  {
+    "lun": "1",
+    "createOption": "empty",
+    "diskSizeGB": "1023"
+  }
+]
+```
+
 
 ## Next steps
 For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
