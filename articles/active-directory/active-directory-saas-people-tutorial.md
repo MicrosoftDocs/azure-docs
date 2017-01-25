@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 
 ---
@@ -24,7 +24,7 @@ Integrating People with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to People
 * You can enable your users to automatically get signed-on to People (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* You can manage your accounts in one central location with the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with People, you need the following items:
 
 * An Azure subscription
-* A People single-sign on enabled subscription
+* A People single sign-on (SSO) enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.

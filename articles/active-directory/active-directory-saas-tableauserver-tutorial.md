@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 
 ---
@@ -23,8 +23,8 @@ The objective of this tutorial is to show you how to integrate Tableau Server wi
 Integrating Tableau Server with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Tableau Server
-* You can enable your users to automatically get signed-on to Tableau Server (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* You can enable your users to automatically get signed-on to Tableau Server (Single Sign-on) with their Azure AD accounts
+* You can manage your accounts in one central location with the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Tableau Server, you need the following items:
 
 * An Azure AD subscription
-* A Tableau Server single-sign on enabled subscription
+* A Tableau Server single sign-on (SSO) enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -110,26 +110,22 @@ Tableau Server application expects the SAML assertions in a specific format. The
 
     ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_general_82.png) 
 
-
     b. In the **Attrubute Name** textbox, type **username**.
 
     c. From the **Attribute Value** list, selsect **user.displayname**.
 
     d. Click **Complete**.    
 
-
-
-
-1. In the menu on the top, click **Quick Start**.
+3. In the menu on the top, click **Quick Start**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_general_83.png)  
-2. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+4. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
-3. On the **How would you like users to sign on to Tableau Server** page, select **Azure AD Single Sign-On**, and then click **Next**.
+5. On the **How would you like users to sign on to Tableau Server** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_03.png) 
-4. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
+6. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_04.png) 
 
@@ -139,8 +135,7 @@ Tableau Server application expects the SAML assertions in a specific format. The
 
     c. Click **Next**
 
-
-1. On the **Configure single sign-on at Tableau Server** page, perform the following steps and click **Next**:
+7. On the **Configure single sign-on at Tableau Server** page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
 
@@ -148,8 +143,7 @@ Tableau Server application expects the SAML assertions in a specific format. The
 
     b. Click **Next**.
 
-
-1. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
+8. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
    
     a. In the Tableau Server configuration, click the **SAML** tab.
    
@@ -169,17 +163,17 @@ Tableau Server application expects the SAML assertions in a specific format. The
 
     > [AZURE.NOTE] If you need help configuring SAML on Tableau Server then please refer this article [Configure SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm) 
 
-1. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+9. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
-2. On the **Single sign-on confirmation** page, click **Complete**. 
+10. On the **Single sign-on confirmation** page, click **Complete**. 
    
     ![Azure AD Single Sign-On][11]
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-In the Users list, select **Britta Simon**.
+* In the Users list, select **Britta Simon**.
 
 ![Create Azure AD User][20]
 

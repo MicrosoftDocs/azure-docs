@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Skydesk Email wit
 Integrating Skydesk Email with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Skydesk Email
-* You can enable your users to automatically get signed-on to Skydesk Email (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to Skydesk Email (Single Sign-on) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Skydesk Email, you need the following items:
 
 * An Azure AD subscription
-* A Skydesk Email single-sign on enabled subscription
+* A Skydesk Email single sign-on (SSO) enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -111,15 +111,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. Click **Next**.
 
-
-1. On the **Configure single sign-on at Skydesk Email** page, perform the following steps:
+4. On the **Configure single sign-on at Skydesk Email** page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_05.png) 
    
     a. Click **Download certificate**, and then save the file on your computer.
    
     b. Click **Next**.
-2. To enable SSO in **Skydesk Email**, perform the following steps:
+5. To enable SSO in **Skydesk Email**, perform the following steps:
    
     a. Sign-on to your Skydesk Email account as administrator.
    
@@ -142,7 +141,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     f. Click on **SAML Authentication** from the left panel
    
     ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
-3. On the **SAML Authentication** dialog page, perform the following steps:
+6. On the **SAML Authentication** dialog page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
    
@@ -165,11 +164,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     f. Click **Ok** to save the changes.
 
-
-1. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
-2. On the **Single sign-on confirmation** page, click **Complete**.  
+8. On the **Single sign-on confirmation** page, click **Complete**.  
    
     ![Azure AD Single Sign-On][11]
 
@@ -230,7 +228,10 @@ a. Click on **User Access** from the left panel in Skydesk Email and then enter 
 
 ![Configure Single Sign-On](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
-[AZURE.NOTE] If you need to create bulk users, you need to contact the Skydesk Email support team.
+>[!NOTE] 
+>If you need to create bulk users, you need to contact the Skydesk Email support team.
+>
+
 
 ### Assigning the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Skydesk Email.
