@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/31/2016
+ms.date: 11/21/2016
 ms.author: sethm;shvija
 
 ---
@@ -39,14 +39,14 @@ To run the deployment automatically, click the following button:
 [![Deploy to Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 ## Parameters
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value in the template defines the resources that are deployed.
 
 The template defines the following parameters.
 
 ### eventHubNamespaceName
 The name of the Event Hubs namespace to create.
 
-```
+```json
 "eventHubNamespaceName": {
 "type": "string"
 }
@@ -55,7 +55,7 @@ The name of the Event Hubs namespace to create.
 ### eventHubName
 The name of the Event Hub created in the Event Hubs namespace.
 
-```
+```json
 "eventHubName": {
 "type": "string"
 }
@@ -64,7 +64,7 @@ The name of the Event Hub created in the Event Hubs namespace.
 ### eventHubConsumerGroupName
 The name of the consumer group created for the Event Hub.
 
-```
+```json
 "eventHubConsumerGroupName": {
 "type": "string"
 }
@@ -73,7 +73,7 @@ The name of the consumer group created for the Event Hub.
 ### apiVersion
 The API version of the template.
 
-```
+```json
 "apiVersion": {
 "type": "string"
 }
@@ -82,12 +82,12 @@ The API version of the template.
 ## Resources to deploy
 Creates a namespace of type **EventHubs**, with an Event Hub and a consumer group.
 
-```
+```json
 "resources":[  
       {  
          "apiVersion":"[variables('ehVersion')]",
          "name":"[parameters('namespaceName')]",
-         "type":"Microsoft.EventHub/Namespaces",
+         "type":"Microsoft.EventHub/namespaces",
          "location":"[variables('location')]",
          "sku":{  
             "name":"Standard",
@@ -127,7 +127,7 @@ Creates a namespace of type **EventHubs**, with an Event Hub and a consumer grou
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 

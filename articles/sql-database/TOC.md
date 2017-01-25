@@ -4,7 +4,7 @@
 ### [Database Transaction Units](sql-database-what-is-a-dtu.md)
 ### [DTU benchmark overview](sql-database-benchmark-overview.md)
 ### [Resource limits](sql-database-resource-limits.md)
-### [General limitations](sql-database-general-limitations.md)
+### [Features](sql-database-features.md)
 ### [SQL Database FAQ](sql-database-faq.md)
 ## Benefits
 ### [Learns and adapts](sql-database-learn-and-adapt.md)
@@ -12,7 +12,7 @@
 ### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
 ### [Secures and protects](sql-database-helps-secures-and-protects.md)
 ### [Works in your environment](sql-database-works-in-your-environment.md)
-## Comparisions
+## Comparisons
 ### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL differences](sql-database-transact-sql-information.md)
 ### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
@@ -111,7 +111,7 @@
 ### Learn
 #### [Overview](sql-database-business-continuity.md)
 #### [Database backups](sql-database-automated-backups.md)
-#### [Long term retention](sql-database-long-term-retention.md) 
+#### [Long-term retention](sql-database-long-term-retention.md)
 #### [Database recovery using backups](sql-database-recovery-using-backups.md)
 #### [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md)
 #### [Business continuity design scenarios](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -160,7 +160,7 @@
 #### [Connect with Visual Studio](sql-database-connect-query.md)
 #### [Build a client application](https://www.microsoft.com/sql-server/developer-get-started)
 #### [Work with error messages](sql-database-develop-error-messages.md)
-### Customer mplementations of software as a service
+### Customer implementations of software as a service
 #### [Daxko/CSI Software](sql-database-implementation-daxko.md)
 #### [GEP](sql-database-implementation-gep.md)
 #### [SnelStart](sql-database-implementation-snelstart.md)
@@ -173,7 +173,7 @@
 #### [JSON data](sql-database-json-features.md)
 #### [In-Memory](sql-database-in-memory.md)
 ### Do
-#### [SQL Sserver development](https://msdn.microsoft.com/library/ms179422.aspx)
+#### [SQL Server development](https://msdn.microsoft.com/library/ms179422.aspx)
 ## Monitoring and Tuning
 ### Learn
 #### [Single databases](sql-database-single-database-monitor.md)
@@ -182,10 +182,9 @@
 #### [Workload insights in the Azure portal](sql-database-performance.md)
 #### [Use batching](sql-database-use-batching-to-improve-performance.md)
 ## SQL Database V11
-### [New in V12](sql-database-v12-whats-new.md)
 ### [Web and business edition sunset](sql-database-web-business-sunset-faq.md)
 ### [Service tier advisor](sql-database-service-tier-advisor.md)
-### [Elastic pool assessement tool](sql-database-elastic-pool-database-assessment-powershell.md)
+### [Elastic pool assessment tool](sql-database-elastic-pool-database-assessment-powershell.md)
 ### [Upgrade to V12](sql-database-v12-plan-prepare-upgrade.md)
 #### [Upgrade using the Azure portal](sql-database-upgrade-server-portal.md)
 #### [Upgrade using PowerShell](sql-database-upgrade-server-powershell.md)
@@ -211,7 +210,7 @@
 #### [Split merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 #### [Working with Dapper](sql-database-elastic-scale-working-with-dapper.md)
 #### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
+#### [Data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 #### [Multitenant row level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 #### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
 #### [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -221,7 +220,7 @@
 #### [Azure AD authentication](sql-database-aad-authentication.md)
 #### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Firewall rules
-#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Azure portal](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [REST API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -288,7 +287,7 @@
 ### [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 ## Query
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
+### [Multishard querying](sql-database-elastic-scale-multishard-querying.md)
 ### Cross-database queries
 #### [Overview](sql-database-elastic-query-overview.md)
 #### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
@@ -359,5 +358,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-

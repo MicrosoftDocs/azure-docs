@@ -252,6 +252,12 @@ It is copied from the owning group of the parent folder under which the new file
 ### I am the owning user of a file but I don’t have the RWX permissions I need. What do I do?
 The owning user can simply change the permissions of the file to give themselves any RWX permissions they need.
 
+### When I look at ACLs in the Azure Portal I see user names but through APIs I see GUIDs, why is that?
+Entries in the ACLs are stored as GUIDs that corresponds to users in Azure Active Directory (AAD). The APIs will return the GUIDs as-is. The Azure Portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible. 
+
+### Why do I sometimes see GUIDs in the ACLs when using the Portal?
+A GUID will be shown when the user doesn't exist in AAD anymore. Usually this happens when the user has left the company or if their account has been deleted in AAD.
+
 ### Does Data Lake Store support inheritance of ACLs?
 No.
 

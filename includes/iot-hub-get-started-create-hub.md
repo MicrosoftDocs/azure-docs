@@ -1,5 +1,5 @@
 ## Create an IoT hub
-Create an IoT hub for your simulated device to connect to. The following steps show you how to complete this task by using the Azure portal.
+Create an IoT hub for your simulated device app to connect to. The following steps show you how to complete this task by using the Azure portal.
 
 1. Sign in to the [Azure portal][lnk-portal].
 2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.
@@ -19,7 +19,7 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the Azure portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click **Shared access policies**.
    
     ![New IoT hub blade][4]
-6. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "Azure IoT Hub developer guide."
+6. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the IoT Hub connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "IoT Hub developer guide."
    
     ![Shared access policies blade][5]
 

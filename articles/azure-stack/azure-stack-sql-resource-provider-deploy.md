@@ -7,12 +7,12 @@ author: JeffGoldner
 manager: byronr
 editor: ''
 
-ms.service: multiple
+ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/29/2016
 ms.author: JeffGo
 
 ---
@@ -72,7 +72,7 @@ The script prompts for required parameters:
 | --- | --- | --- |
 | **AadTenantDirectoryName** | The Azure Active Directory Name | _required_ |
 | **AzCredential** | Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack) | _required_ |
-| **LocalCredential** | This is used for the local administrator account of the SQL resource provider VM and the password is also be used for the SQL **sa** account | _required_ |
+| **LocalCredential** | This is used for the local administrator account of the SQL resource provider VM; the password is also be used for the SQL **sa** account | _required_ |
 | **ResourceGroupName** | Resource Group for the items created by this script | Default: Microsoft-SQL-RP1 |
 | **VmName** | Name of the VM holding the resource provider | Default: sqlrp |
 | **DependencyFilesLocalPath** | Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center. | _leave blank to download from the internet_ |
@@ -99,14 +99,14 @@ This should get your SQL Server resource provider up and running in about 45 min
       ![Verify the SQL RP was registered](./media/azure-stack-sql-rp-deploy/6.png)
 
 
-## Provide capacity to your SQL Resource Provider by connecting it to a hosting SQL server
+## Provide capacity by connecting it to a hosting SQL server
 
 1. Sign in to the Azure Stack POC portal as a service admin
 
 2. Click **Resource Providers** &gt; **SQL Resource Provider** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
-	
+
 	![Hosting Servers](./media/azure-stack-sql-rp-deploy/7.png)
 
 3. Fill the form with the connection details of your SQL Server instance. By default, a preconfigured SQL Server called “SQLRP” with the administrator username “sa” and the password you called out in the "LocalCredential" parameter is running on the VM.
@@ -145,3 +145,5 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
 	![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/12.png)
+
+Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).

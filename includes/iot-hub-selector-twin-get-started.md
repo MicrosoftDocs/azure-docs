@@ -9,9 +9,9 @@ Device twins are JSON documents that store device state information (metadata, c
 
 Use device twins to:
 
-* Store device metadata from your back end.
+* Store device metadata from your solution back end.
 * Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
+* Synchronize the state of long-running workflows (such as firmware and configuration updates) between a device app and a back-end app.
 * Query your device metadata, configuration, or state.
 
 > [!NOTE]
@@ -21,13 +21,13 @@ Use device twins to:
 
 Device twins are stored in an IoT hub and contain:
 
-* *tags*, device metadata accessible only by the back end;
-* *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *tags*, device metadata accessible only by the solution back end;
+* *desired properties*, JSON objects modifiable by the solution back end and observable by the device app; and
+* *reported properties*, JSON objects modifiable by the device app and readable by the solution back end. Tags and properties cannot contain arrays, but objects can be nested.
 
 ![][img-twin]
 
-Additionally, the app back end can query device twins based on all the above data.
+Additionally, the solution back end can query device twins based on all the above data.
 Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
 
 > [!NOTE]
@@ -37,8 +37,8 @@ Refer to [Understand device twins][lnk-twins] for more information about device 
 
 This tutorial shows you how to:
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back end app using filters on the tags and properties previously created.
+* Create a back-end app that adds *tags* to a device twin, and a simulated device app that reports its connectivity channel as a *reported property* on the device twin.
+* Query devices from your back-end app using filters on the tags and properties previously created.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png

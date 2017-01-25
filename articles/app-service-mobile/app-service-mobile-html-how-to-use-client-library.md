@@ -13,16 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 
 ---
 # How to Use the JavaScript Client Library for Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide teaches you to perform common scenarios using the latest [JavaScript SDK for Azure Mobile Apps]. If you are new to Azure Mobile
-Apps, first complete [Azure Mobile Apps Quick Start] to create a backend and create a table. In this guide, we focus on using the mobile
-backend in HTML/JavaScript Web applications.
+This guide teaches you to perform common scenarios using the latest [JavaScript SDK for Azure Mobile Apps]. If you are 
+new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend and create a table. In this 
+guide, we focus on using the mobile backend in HTML/JavaScript Web applications.
 
 ## Supported Platforms
 We limit browser support to the current and last versions of the major browsers:  Google Chrome, Microsoft Edge,
@@ -32,19 +32,13 @@ browser.
 The package is distributed as a Universal JavaScript Module, so it supports globals, AMD, and CommonJS formats.
 
 ## <a name="Setup"></a>Setup and Prerequisites
-This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
-tutorials.
+This guide assumes that you have created a backend with a table. This guide assumes that the table has the same 
+schema as the tables in those tutorials.
 
 Installing the Azure Mobile Apps JavaScript SDK can be done via the `npm` command:
 
 ```
 npm install azure-mobile-apps-client --save
-```
-
-Once installed, the library is located in `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`.  Copy this file to your web area.
-
-```
-<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 The library can also be used as an ES2015 module, within CommonJS environments such as Browserify and
@@ -55,6 +49,12 @@ Webpack and as an AMD library.  For example:
 var WindowsAzure = require('azure-mobile-apps-client');
 # For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
+```
+
+You can also use a pre-built version of the SDK by downloading directly from our CDN:
+
+```html
+<script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
 ```
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]

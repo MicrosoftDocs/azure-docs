@@ -3,7 +3,7 @@ title: How to create a hybrid collection for Azure RemoteApp | Microsoft Docs
 description: Learn how to create a deployment of RemoteApp that connects to your internal network.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # How to create a hybrid collection for Azure RemoteApp
@@ -123,7 +123,7 @@ Now that you have created your collection, you need to add the users that you wa
    
    **Notes:**
    
-   Make sure that you use the “user@domain.com” format.
+   Make sure that you use the *user@domain.com* format.
    
    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing.
 3. Once the users are validated, click **Save**.

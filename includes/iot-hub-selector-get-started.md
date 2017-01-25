@@ -16,5 +16,5 @@ This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT hub.
 * Create a device identity in your IoT hub.
-* Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
+* Create a simulated device app that sends telemetry to your solution back end, and receives commands from your solution back end.
 

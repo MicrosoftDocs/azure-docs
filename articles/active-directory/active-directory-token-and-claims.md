@@ -70,11 +70,15 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `ver` |Version |Stores the version number of the token. <br><br> **Example JWT Value**: <br> `"ver": "1.0"` |
 
 ## Access tokens
-Access tokens are only consumable by Microsoft Services at this point in time.  Your apps should not need to perform any validation or inspection of access tokens for any of the currently supported scenarios.  You can treat access tokens as completely opaque - they are just strings which your app can pass to Microsoft in HTTP requests.
+
+If your app only *uses* access tokens to get access to APIs, you can (and should) treat access tokens as completely opaque - they are just strings which your app can pass to resources in HTTP requests.
 
 When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
+If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+
 ## Refresh tokens
+
 Refresh tokens are security tokens, which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
 Refresh tokens are multi-resource, which means they may be received during a token request for one resource, but redeemed for access tokens to a completely different resource. To specify multi-resource, set the `resource` parameter in the request to the targeted resource.
@@ -84,14 +88,16 @@ Refresh tokens are completely opaque to your app. They are long-lived, but your 
 When you redeem a refresh token for a new access token, you will receive a new refresh token in the token response.  You should save the newly issued refresh token, replacing the one you used in the request.  This will guarantee that your refresh tokens remain valid for as long as possible.
 
 ## Validating tokens
-At this point in time, the only token validation your client app should need to perform is validating id_tokens.  In order to validate an id_token, your app should validate both the id_token's signature and the claims in the id_token.
+
+In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims.
 
 We provide libraries and code samples that show how to easily handle token validation, if you wish to understand the underlying process.  There are also several third-party open source libraries available for JWT validation, at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 #### Validating the signature
-A JWT contains three segments, which are separated by the `.` character.  The first segment is known as the **header**, the second as the **body**, and the third as the **signature**.  The signature segment can be used to validate the authenticity of the id_token so that it can be trusted by your app.
 
-Id_Tokens are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the id_token contains information about the key and encryption method used to sign the token:
+A JWT contains three segments, which are separated by the `.` character.  The first segment is known as the **header**, the second as the **body**, and the third as the **signature**.  The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
+
+Tokens issued by Azure AD are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the JWT contains information about the key and encryption method used to sign the token:
 
 ```
 {
@@ -123,21 +129,22 @@ It also includes a `jwks_uri`, which gives the location of the set of public key
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
 #### Validating the claims
-When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include but are not limited to:
 
-* The **Audience** claim - to verify that the id_token was intended to be given to your app.
-* The **Not Before** and **Expiration Time** claims - to verify that the id_token has not expired.
+When your app receives a token (either an id_token upon user sign-in, or an access token as a bearer token in the HTTP request) it should also perform a few checks against the claims in the token.  These include but are not limited to:
+
+* The **Audience** claim - to verify that the token was intended to be given to your app.
+* The **Not Before** and **Expiration Time** claims - to verify that the token has not expired.
 * The **Issuer** claim - to verify that the token was indeed issued to your app by Azure AD.
 * The **Nonce** -  to mitigate a token replay attack.
 * and more...
 
-For a full list of claim validations your app should perform, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
-
-Details of the expected values for these claims are included in the preceding [id_token section](#id-tokens) section.
+For a full list of claim validations your app should perform for ID Tokens, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details of the expected values for these claims are included in the preceding [id_token section](#id-tokens) section.
 
 ## Sample Tokens
+
 This section displays samples of SAML and JWT tokens that Azure AD returns. These samples let you see the claims in context.
-SAML Token
+
+### SAML Token
 
 This is a sample of a typical SAML token.
 

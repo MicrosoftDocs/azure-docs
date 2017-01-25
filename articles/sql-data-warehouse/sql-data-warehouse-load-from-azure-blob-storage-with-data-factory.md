@@ -1,4 +1,6 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
+
 title: Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory) | Microsoft Docs
 description: Learn to load data with Azure Data Factory
 services: sql-data-warehouse
@@ -14,7 +16,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 11/22/2016
 ms.author: barbkess
 
 ---

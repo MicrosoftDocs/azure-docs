@@ -1,10 +1,10 @@
 ---
-title: Reference in Analytics in Application Insights | Microsoft Docs
+title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 11/23/2016
 ms.author: awills
 
 ---
@@ -21,10 +21,9 @@ ms.author: awills
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query language.
 
-> [!NOTE]
-> [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
-> 
-> 
+* [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
+* [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
+ 
 
 ## Index
 **Let** [let](#let-clause)
@@ -405,11 +404,15 @@ If there are several rows with the same values for those fields, you'll get rows
 
 **Tips**
 
+There is a limit of 64MB on the result table.
+
 For best performance:
 
 * Use `where` and `project` to reduce the numbers of rows and columns in the input tables, before the `join`. 
 * If one table is always smaller than the other, use it as the left (piped) side of the join.
 * The columns for the join match must have the same name. Use the project operator if necessary to rename a column in one of the tables.
+
+
 
 **Example**
 

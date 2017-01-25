@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/29/2016
 ms.author: genli
 
 ---
@@ -23,8 +23,8 @@ This article answers some of the most common questions about Azure Billing and S
 
 > [!NOTE]
 > If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
+>
+>
 
 ## Account administration
 * [How do I manage Administrator accounts in the new Azure portal?](#how-do-i-manage-administrator-accounts-in-the-new-azure-portal)
@@ -97,8 +97,8 @@ You can purchase Azure using a credit or debit card or choose to be invoiced.
 > * Once you opt for the invoice option, you can't move to the credit card option. To sign up for invoicing, see [Azure Invoicing](https://azure.microsoft.com/pricing/invoicing/).
 > * Please note that we do not accept prepaid and virtual credit cards.
 > * You are solely responsible for any credit card interest or other credit card charges that may result.
-> 
-> 
+>
+>
 
 ### How can I request the invoice method of payment?
 Follow the steps in [Azure Invoicing](https://azure.microsoft.com//pricing/invoicing/) to submit a request to pay by invoice. Once your request has been approved, you will be provided instructions on how to set up your subscription for the invoice payment method.
@@ -123,8 +123,8 @@ For both single- and multi-instance configurations, Azure sends email communicat
 
 > [!NOTE]
 > For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-> 
-> 
+>
+>
 
 #### Unplanned maintenance
 In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
@@ -150,8 +150,8 @@ Please see [I am unable to log in to manage my Azure subscription](billing-canno
 
 > [!NOTE]
 > Make sure you are logging in as the right administrator: an Account Administrator can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](https://manage.windowsazure.com/).
-> 
-> 
+>
+>
 
 ### How do I purchase Azure Support?
 Azure Support plans may be purchased either online or through an Enterprise Agreement. The Developer, Standard, or Professional Direct Support plans are available online through the [Azure Support Plans](https://azure.microsoft.com/support/plans/) page. You must be the Microsoft Azure account owner to purchase a support plan.
@@ -182,8 +182,8 @@ An account owner can cancel an Azure Support plan by logging into the [Azure Acc
 > [!NOTE]
 > An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount.
 > For details see [How to cancel your Azure subscription](billing-how-to-cancel-azure-subscription.md).
-> 
-> 
+>
+>
 
 ### How do I migrate data and services for my Azure subscription to a new subscription?
 Please contact [Azure support](https://azure.microsoft.com/support/options/) for more information. To create a support ticket to migrate data and services for an Azure subscription to a new subscription see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
@@ -216,7 +216,7 @@ To view and edit the Azure account information, you must sign in to the Azure Ac
 1. Go to the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 2. On the subscriptions page, click the subscription for which you want to update the payment method.
 3. On the **subscription** summary page, click Change payment method. The **Change Payment Method** tool appears in a separate window.
-   
+
    **Note**: You can also access the Account Center from the Microsoft Azure classic portal. To do so, click your account name, and then click View my bill.
 4. On the **Choose payment method** page, click the drop-down list, select the payment method you want update, and then click **Edit**.
 5. On the details page, verify that you have selected the correct credit card type and card number.
@@ -226,8 +226,8 @@ For more information, see the article [How to change the credit card used to pay
 
 > [!NOTE]
 > Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method) in this article.
-> 
-> 
+>
+>
 
 ### Why am I seeing a message that I need to use an international credit card?
 In some cases, although you’re paying for Azure services in your local/preferred currency, you are purchasing services through a non-local Microsoft entity and your credit card is being processed by a non-local bank. In these cases, cards issued by local banks may fail which can negatively impact your Azure services. If you’re unsure whether your credit card is enabled for international transactions, please contact your bank or card issuer to confirm. See [supported countries and currencies](billing-countries-and-currencies.md).
@@ -276,19 +276,18 @@ Free Trial subscriptions are not eligible for quota increases. If you have a Fre
 
 > [!NOTE]
 > Microsoft Imagine subscriptions are also ineligible for quota increases.
-> 
-> 
+>
+>
 
 ### Where can I get more details on Free Trial?
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 > [!NOTE]
 > If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
+>
+>
 
 ### How do I make a payment?
 If you have set up a credit card or a debit card as your payment method, the payment will be made automatically.
 
 If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](billing-how-to-create-billing-support-ticket.md).
-

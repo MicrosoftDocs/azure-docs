@@ -26,7 +26,7 @@ The following table lists other Help topics for V12.
 
 | Title and link | Description of content |
 |:--- |:--- |
-| [What's new in SQL Database V12](sql-database-v12-whats-new.md) |Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
+| [Azure SQL Database features](sql-database-features.md) |Provides a feature matrix for Azure SQL Database versus SQL Server. |
 | [Create a database in SQL Database V12](sql-database-get-started.md) |Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
 
 ## Plan ahead

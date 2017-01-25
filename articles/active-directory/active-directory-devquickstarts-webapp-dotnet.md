@@ -38,15 +38,14 @@ To get started, [download the app skeleton](https://github.com/AzureADQuickStart
 ## *1.    Register an Application with Azure AD*
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-* Sign into the Azure Management Portal.
-* In the left hand nav, click on **Active Directory**.
+* Sign into the [Azure Portal](https://portal.azure.com).
 * Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click add in the bottom drawer.
+* In the left hand nav, click on **Azure Active Directory**.
+* Click the **App Registrations** tab, and click **Add**.
 * Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `https://localhost:44320/`.
-  * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-* Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+* Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
 ## *2. Set up your app to use the OWIN authentication pipeline*
 Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
@@ -178,4 +177,3 @@ You can now move onto more advanced topics.  You may want to try:
 [Secure a Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-

@@ -21,7 +21,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage]. That means it persists even if the host machine goes down. The OS disk is `/dev/sda1`.
 * **Temporary disk.** The VM is created with a temporary disk. This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage, and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. The temporary disk is `/dev/sdb1` and is mounted at `/mnt/resource` or `/mnt`.
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
-* **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a (VNet) that is further divided into subnets.
+* **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that is further divided into subnets.
 * **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over SSH.
 * **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
@@ -29,49 +29,49 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Recommendations
 
-Azure offers many different resources and resource types, and this reference architecture can be deployed in many different ways. To deploy this architecture as illustrated in the figure above, see the [solution deployment](#solution-deployment) section at the end of this document for more information. If you choose to create your own architecture you should follow these recommendations unless you have a specific requirement that a recommendation does not fit. 
+The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them. 
 
 ### VM recommendations
 
 Azure offers many different virtual machine sizes, but we recommend the DS- and GS-series because these machine sizes support [Premium Storage][premium-storage]. Select one of these machine sizes unless you have a specialized workload such as high-performance computing. For details, see [virtual machine sizes][virtual-machine-sizes].
 
-If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premise servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. If you require multiple NICs for your VM, be aware the maximum number of NICs available is a function of the [VM size][vm-size-tables].
+If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. If you require multiple NICs for your VM, be aware that the maximum number of NICs is a function of the [VM size][vm-size-tables].
 
-When you provision the VM and other resources, you must specify a location. Generally, choose a location closest to your internal users or customers. However, not all VM sizes may be available in all locations. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given location, run the following Azure command-line interface (CLI) command:
+When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
 
 ```
-    azure vm sizes --location <location>
+azure vm sizes --location <location>
 ```
 
-For information about choosing a published VM image, see [Navigate and select Windows virtual machine images in Azure with Powershell or CLI][select-vm-image].
+For information about choosing a published VM image, see [Select Linux VM images with the Azure CLI][select-vm-image].
 
 ### Disk and storage recommendations
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
-Provision enough storage accounts for the number of VMs you plan to deploy. Each of your VMs needs an OS disk and a temporary disk, and based on [storage account disk limits][storage-account-limits] one premium storage account can support 1 to 20 VMs. If you choose to add data disks to your VM, they are unformatted upon creation. You will have to log in to the VM to format any data disks.
+Create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs) in order to avoid hitting the IOPS limits for storage accounts. 
 
 Add one or more data disks. When you create a VHD, it is unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
 ```bat
-    # Create a partition.
-    sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.     
+# Create a partition.
+sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.     
 
-    # Create a file system.
-    sudo mkfs -t ext3 /dev/sdc1
+# Create a file system.
+sudo mkfs -t ext3 /dev/sdc1
 
-    # Mount the drive.
-    sudo mkdir /data1
-    sudo mount /dev/sdc1 /data1
+# Mount the drive.
+sudo mkdir /data1
+sudo mount /dev/sdc1 /data1
 ```
 
-If you have many of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
+If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
 
-When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an app that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
+When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an application that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
 You may want to change the I/O scheduler to optimize for performance on SSDs, because the disks for VMs with premium storage accounts are SSDs. A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat] to monitor disk I/O performance for your particular workload.
 
-* For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
+For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
 ### Network recommendations
 
@@ -111,18 +111,18 @@ To protect against accidental data loss during normal operations (for example, b
 The following CLI command enables diagnostics:
 
 ```
-    azure vm enable-diag <resource-group> <vm-name>
+azure vm enable-diag <resource-group> <vm-name>
 ```
 
-**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped. You are not charged when the VM is deallocated.
+**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
 
 Use the following CLI command to deallocate a VM:
 
 ```
-    azure vm deallocate <resource-group> <vm-name>
+azure vm deallocate <resource-group> <vm-name>
 ```
 
-* The **Stop** button in the Azure portal also deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
@@ -137,19 +137,17 @@ Use [role-based access control][rbac] (RBAC) to control access to the Azure reso
 A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
 > [!NOTE]
-> RBAC does not limit the actions that a user logged to a VM can perform. Those permissions are determined by the account type on the guest OS.   
+> RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 > 
 > 
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-* Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
 ## Solution deployment
 
-A [deployment][github-folder] for a reference architecture that implements these best practices is available. This reference architecture includes a virtual network (VNet), network security group (NSG), and a single virtual machine (VM).
-
-There are several ways to deploy this reference architecture. The easiest way is to follow the following steps: 
+A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window."
    [![Deploy to Azure](../articles/guidance/media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
@@ -163,11 +161,6 @@ There are several ways to deploy this reference architecture. The easiest way is
    * Click on the **Purchase** button.
 3. Wait for the deployment to complete.
 4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
-
-For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] Github folder.
-
-## Customize the deployment
-To change the deployment to match your needs, follow the instructions in the [guidance-single-vm][github-folder] page.
 
 ## Next steps
 In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].

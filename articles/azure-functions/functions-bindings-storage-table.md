@@ -297,7 +297,7 @@ module.exports = function (context) {
 
 <a name="readmulti"></a>
 
-## Sample: Read multiple table entities in C
+## Sample: Read multiple table entities in C#  #
 The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
 ```json

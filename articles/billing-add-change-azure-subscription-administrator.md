@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/29/2016
 ms.author: genli
 
 ---
@@ -29,42 +29,38 @@ There are three kinds of administrator roles in Microsoft Azure:
 
 > [!NOTE]
 > Azure Active Directory Role-based Access Control (RBAC) allows users to be added to multiple roles. For more information, see [Azure Active Directory Role-based Access Control](active-directory/role-based-access-control-configure.md).
-> 
-> [!NOTE]
-> If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
+>
 
 ## How to add an admin for a subscription
 **Azure portal**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
-   
+
     ![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
-3. In the subscription blade, select **Settings**> **Users**.
-   
+3. In the subscription blade, select **Access control (IAM)**> **Add**.
+
     ![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. In the Users blade, select **Add**>**Select a role** > **Owner**.
-   
+4. Select **Select a role** > **Owner**.
+
     ![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
-   
+
     **Note**
-   
-   * The owner role has same access privileges as co-administrator. This role does not have access privilege to the [Azure Account Center](https://account.windowsazure.com/subscriptions).
-   * The owners you added through the [Azure portal](https://portal.azure.com) cannot manage services in the [Azure classic portal](https://manage.windowsazure.com).  
+
+   * The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions.
+   * The owners you added through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com).  
 5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
-   
+
     ![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
 
 **Azure classic portal**
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/).
 2. In the navigation pane, select **Settings**> **Administrators**> **Add**. </br>
-   
+
     ![addcodmin](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
 3. Type the email address of the person you want to add as Co-administrator and then select the subscription that you want the Co-administrator to access.</br>
-   
+
     ![addcoadmin2](./media/billing-add-change-azure-subscription-administrator/addcoadmin2.png)</br>
 
 The following email address can be added as a Co-Administrator:
@@ -80,7 +76,7 @@ The following email address can be added as a Co-Administrator:
 * If you are logged in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
 * If you are logged in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com unless john@noncontoso.com is the user in Default Directory. Users logged in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
 * Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
-  
+
   | Login Method | Add Microsoft Account or users within Default Directory as CA or SA? | Add organizational account in the same organization as CA or SA? | Add organizational account in different organization as CA or SA? |
   | --- | --- | --- | --- |
   |  Microsoft Account |Yes |No |No |
@@ -92,10 +88,10 @@ Only the Account Administrator can change the Service Administrator for a subscr
 1. Log on into [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
 2. Select the subscription you want to change.
 3. On the right side, click **Edit subscription** details. </br>
-   
+
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator. </br>
-   
+
     ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
 ## How to change the Account Administrator
@@ -108,6 +104,5 @@ To transfer ownership of the Azure account to another account, see [Transferring
 
 > [!NOTE]
 > If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
-
+>
+>

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/29/2016
 ms.author: skwan;bryanla
 
 ---
@@ -99,16 +99,16 @@ To help us refine and shape our content, please use the Disqus comments feature 
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
-[ClientLib-Node-Sample]:
-[ClientLib-Iosmac-Lib]:
-[ClientLib-Iosmac-Repo]:
-[ClientLib-Iosmac-Sample]:
-[ClientLib-Android-Lib]:
-[ClientLib-Android-Repo]:
-[ClientLib-Android-Sample]:
-[ClientLib-Js-Lib]:
-[ClientLib-Js-Repo]:
-[ClientLib-Js-Sample]:
+[ClientLib-Node-Sample]:/
+[ClientLib-Iosmac-Lib]:/
+[ClientLib-Iosmac-Repo]:/
+[ClientLib-Iosmac-Sample]:/
+[ClientLib-Android-Lib]:/
+[ClientLib-Android-Repo]:/
+[ClientLib-Android-Sample]:/
+[ClientLib-Js-Lib]:/
+[ClientLib-Js-Repo]:/
+[ClientLib-Js-Sample]:/
 
 [Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/

@@ -106,7 +106,7 @@ Quick example:
 ## Next steps
 To learn more about developing for IoT Hub, see the following:
 
-* [IoT Hub SDKs][lnk-sdks]
+* [IoT SDKs][lnk-sdks]
 
 To further explore the capabilities of IoT Hub, see:
 

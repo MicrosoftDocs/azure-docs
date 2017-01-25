@@ -3,7 +3,7 @@ title: Active Geo-Replication for Azure SQL Database
 description: Active Geo-Replication enables you to setup 4 replicas of your database in any of the Azure datacenters.
 services: sql-database
 documentationcenter: na
-author: stevestein
+author: anosov1960
 manager: jhubbard
 editor: monicar
 
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sstein
+ms.author: sashan;carlrab
 
 ---
 # Overview: SQL Database Active Geo-Replication
-Active Geo-Replication enables you to configure up to four readable secondary databases in the same or different data center locations (regions). Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database.
+Active Geo-Replication enables you to configure up to four readable secondary databases in the same or different data center locations (regions). Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database. Active geo-replication must be between databases within the same subscription.
 
 > [!NOTE]
 > Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.

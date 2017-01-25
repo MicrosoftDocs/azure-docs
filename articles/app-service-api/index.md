@@ -54,7 +54,7 @@ API Apps is one of four app types offered by Azure App Service. API apps in Azur
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with API Apps, ASP.NET adn Swagger in Azure App Service</h3>
+                        <h3>Get started with API Apps, ASP.NET and Swagger in Azure App Service</h3>
                     </div>
                 </div>
             </div>
