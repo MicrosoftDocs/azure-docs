@@ -39,16 +39,16 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
-If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than the default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
+If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This problem could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than the default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
 * **AllowedSyncCycleInterval**. The most frequently Azure AD allows synchronizations to occur. You cannot synchronize more frequently than this setting and still be supported.
-* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It has the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this take effect after next synchronization cycle. From build 1.1.281 the change take effect immediately.
+* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It has the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this takes effect after next synchronization cycle. From build 1.1.281 the change take effect immediately.
 * **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, then you configure this setting. In the picture above, the scheduler has been set to run every hour instead. If you set this setting to a value lower than AllowedSyncInterval, then the latter is used.
 * **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync. The latter would also reprocess any new or changed rules.
 * **NextSyncCycleStartTimeInUTC**. Next time the scheduler starts the next sync cycle.
-* **PurgeRunHistoryInterval**. The time operation logs should be kept. These can be reviewed in the synchronization service manager. The default is to keep these logs for 7 days.
+* **PurgeRunHistoryInterval**. The time operation logs should be kept. These logs can be reviewed in the synchronization service manager. The default is to keep these logs for 7 days.
 * **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
-* **MaintenanceEnabled**. Shows if the maintenance process is enabled. It updates the certificates/keys and purge the operations log.
+* **MaintenanceEnabled**. Shows if the maintenance process is enabled. It updates the certificates/keys and purges the operations log.
 * **IsStagingModeEnabled**. Shows if [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
@@ -59,7 +59,7 @@ You can change some of these settings with `Set-ADSyncScheduler`. The following 
 * SyncCycleEnabled
 * MaintenanceEnabled
 
-The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server also affect the staging server (except IsStagingModeEnabled).
+The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server also affects the staging server (except IsStagingModeEnabled).
 
 ### CustomizedSyncCycleInterval
 Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
@@ -90,7 +90,7 @@ A delta sync cycle includes the following steps:
 * Delta sync on all Connectors
 * Export on all Connectors
 
-It could be that you have an urgent change which must be synchronized immediately, which is why you need to manually run a cycle. If you need to manually run a cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`.
+It could be that you have an urgent change that must be synchronized immediately, which is why you need to manually run a cycle. If you need to manually run a cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`.
 
 **Full sync cycle**  
 If you have made one of the following configuration changes, you need to run a full sync cycle (a.k.a. Initial):
