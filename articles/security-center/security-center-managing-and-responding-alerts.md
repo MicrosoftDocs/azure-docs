@@ -39,20 +39,19 @@ You can review your current alerts by looking at the **Security alerts** tile. O
 1. On the Security Center dashboard, you will see the **Security alerts** tile.
    
     ![Security alerts tile in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Click the tile to open the **Security alerts** blade that contains more details about the alerts as shown below.
    
    ![The Security alerts blade in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 In the bottom part of this blade are the details for each alert. To sort, click the column that you want to sort by. The definition for each column is given below:
 
-* **Alert**: A brief explanation of the alert.
+* **Description**: A brief explanation of the alert.
 * **Count**: A list of all alerts of this specific type that were detected on a specific day.
 * **Detected by**: The service that was responsible for triggering the alert.
 * **Date**: The date that the event occurred.
 * **State**: The current state for that alert. There are two types of states:
-  
   * **Active**: The security alert has been detected.
-  * **Dismissed**: The security alert has been dismissed by the user. This status is typically used for alerts that have been investigated but either mitigated or found not to be an actual attack.
 * **Severity**: The severity level, which can be high, medium or low.
 
 ### Filtering alerts
@@ -60,10 +59,7 @@ You can filter alerts based on date, state, and severity. Filtering alerts can b
 
 1. Click **Filter** on the **Security Alerts** blade. The **Filter** blade opens and you select the date, state, and severity values you wish to see.
    
-    ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. After investigating a security alert, you may find that it is a false positive for your environment or indicates an expected behavior for a particular resource. Whatever the case may be, if you determine that a security alert is not applicable, you can dismiss the alert and then filter it out of your view. There are two ways to dismiss a security alert. Right click an alert and select **Dismiss** or hover over an item, click the three dots that appear to the right, and select **Dismiss**. You can view dismissed security alerts by clicking **Filter** and selecting **Dismissed**.
-   
-   ![Dismissing alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtering alerts in Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### Respond to security alerts
 Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date. Clicking a security alert will open a blade containing a list of the grouped alerts.

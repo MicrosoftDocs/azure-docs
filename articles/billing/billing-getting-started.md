@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure billing and cost management | Microsoft Docs
+title: Azure billing and cost management guidance | Microsoft Docs
 description: Learn about best practices and first things to do to optimize your bill
 services: ''
 documentationcenter: ''
@@ -138,6 +138,18 @@ We recommend that you check the costs you see with the estimates you saw when yo
 If you manage multiple subscriptions as the Account admin, you can see the aggregate bill amount and breakdown for all of your subscriptions in the [Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
 
 <!-- Add screenshots of multiple subs each with billed usage -->
+
+### Turn on and check out Azure Advisor recommendations
+
+[Azure Advisor](../advisor/advisor-overview.md) is a preview feature that helps you reduce costs by identifying resources with low usage. Turn it on in the Azure portal:
+
+![Screenshot of Azure Advisor button in Azure portal](./media/billing-getting-started/advisor-button.PNG)
+
+Then, you can get actionable recommendations in the **Cost** tab in the Advisor dashboard:
+
+![Screenshot of Advisor cost recommendation example](./media/billing-getting-started/advisor-action.PNG)
+
+For more information, see [Advisor Cost recommendations](../advisor/advisor-cost-recommendations.md).
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 

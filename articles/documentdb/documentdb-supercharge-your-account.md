@@ -13,15 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 01/04/2017
 ms.author: mimig
 
 ---
 # Migrate your DocumentDB S1, S2, or S3 account
 Follow these steps to take advantage of increased throughput for your Azure DocumentDB account by moving to the Standard pricing tier. With little to no additional cost, you can increase the throughput of your existing S1 account from 250 [RU/s](documentdb-request-units.md) to 400 RU/s, or more! All Standard accounts benefit from the ability to scale throughput to meet the needs of your applications. You no longer need to choose from predefined throughput options, you can scale whenever you need to achieve the throughput your application requires. 
-
-> [!NOTE]
-> On August 1, 2017, the S1, S2, and S3 performance levels in DocumentDB will be retired. There will be no change to the customer experience with S1, S2 and S3 before this date. Customers deployed on S1, S2 and S3 will continue to use those service tiers as-is via the Azure portal or programmatically through APIs until retirement.
 
 ## Change to user-defined performance in the Azure portal
 1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 

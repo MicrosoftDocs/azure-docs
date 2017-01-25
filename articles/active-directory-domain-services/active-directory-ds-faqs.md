@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 01/13/2016
 ms.author: maheshu
 
 ---
@@ -55,6 +55,9 @@ No. You are not granted administrative privileges on the managed domain. Both â€
 #### Can I modify group memberships using LDAP or other AD administrative tools on domains provided by Azure AD Domain Services?
 No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may however change group memberships or user attributes either in Azure AD or on your on-premises domain. Such changes are automatically synchronized to Azure AD Domain Services.
 
+#### How long does it take for changes I make to my Azure AD directory to be visible in my managed domain?
+Changes made in your Azure AD directory using either the Azure AD UI or PowerShell are synchronized to your managed domain. This synchronization process runs in the background. After the one-time initial synchronization of your directory is complete, it typically takes about 20 minutes for changes made in Azure AD to be reflected in your managed domain.
+
 #### Can I extend the schema of the domain provided by Azure AD Domain Services?
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
@@ -68,10 +71,8 @@ Yes. For more information, see the [pricing page](https://azure.microsoft.com/pr
 #### Is there a free trial for the service?
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-#### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
-#### Do I need Azure AD Premium to use Azure AD Domain Services?
-No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all editions of Azure AD (Free, Basic, and, Premium) and are billed on an hourly basis, depending on usage.
+#### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
+No. Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free, Basic, and, Premium). You are billed on an hourly basis, depending on usage.
 
 #### What Azure regions is the service available in?
 Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
-

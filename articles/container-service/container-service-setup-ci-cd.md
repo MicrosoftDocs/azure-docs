@@ -1,5 +1,5 @@
 ---
-title: Continuous Integration and Deployment of Multi-Container Docker Applications to Azure Container Service | Microsoft Docs
+title: CI/CD with Azure Container Service and DC/OS | Microsoft Docs
 description: How to fully automate building and deploying a multi-container Docker app to an Azure Container Service cluster running DC/OS.
 services: container-service
 documentationcenter: ''
@@ -52,9 +52,9 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 	`az login`
 
-1. Create a resource group in which we place our cluster using [az resource group create](/cli/azure/resource/group#create):
+1. Create a resource group in which we place our cluster using [az group create](/cli/azure/group#create):
 	
-	`az resource group create --name myacs-rg --location westus`
+	`az group create --name myacs-rg --location westus`
 
 	You may want to specify the [Azure datacenter region](https://azure.microsoft.com/regions) closest to you. 
 

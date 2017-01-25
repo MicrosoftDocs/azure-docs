@@ -1,6 +1,6 @@
 ---
-title: Known issues of Apache Spark in HDInsight | Microsoft Docs
-description: Known issues of Apache Spark in HDInsight.
+title: Known issues for Apache Spark cluster in Azure HDInsight | Microsoft Docs
+description: Known issues of Apache Spark clusters in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 01/18/2017
 ms.author: nitinme
 
 ---
-# Known issues for Apache Spark cluster on HDInsight Linux
+# Known issues for Apache Spark cluster on HDInsight
+
 This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ## Livy leaks interactive session
@@ -28,7 +29,7 @@ When Livy is restarted with an interactive session (from Ambari or due to headno
 
 Use the following procedure to workaround the issue:
 
-1. Ssh into headnode. 
+1. Ssh into headnode. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) 
 2. Run the following command to find the application IDs of the interactive jobs started through Livy. 
    
         yarn application –list
@@ -68,7 +69,9 @@ You might see an error **`Error loading notebook`** when you load notebooks that
 
 **Mitigation:**
 
-If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. You can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook’s size.
+If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+Once you have connected to the cluster using SSH, you can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook’s size.
 
 To prevent this error from happening in the future, you must follow some best practices:
 

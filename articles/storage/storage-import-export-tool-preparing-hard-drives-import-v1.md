@@ -2,8 +2,8 @@
 
 title: Preparing Hard Drives for an Import Job | Microsoft Docs
 description: Learn how to prepare one or more hard drives for an import job for the Microsoft Azure Import-Export Service
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 
 ---
 

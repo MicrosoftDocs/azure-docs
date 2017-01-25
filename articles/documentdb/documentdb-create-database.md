@@ -1,21 +1,7 @@
 ---
-title: How to create a database in DocumentDB | Microsoft Docs
-description: Learn how to create a database using the online service portal for Azure DocumentDB, your blazing fast, global-scale NoSQL database.
-keywords: how to create a database
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 
-ms.assetid: 2503db56-744f-44b5-bf6a-0be821d023ea
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/17/2016
-ms.author: mimig
 
 ---
 # How to create a database for DocumentDB using the Azure portal
