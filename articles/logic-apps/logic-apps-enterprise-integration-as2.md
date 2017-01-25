@@ -33,7 +33,7 @@ To use the enterprise features in Logic apps, you must first create agreements.
 After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) and [added partners](logic-apps-enterprise-integration-partners.md), you can create an agreement by following these steps:  
 
 ### From the Azure portal home page
-After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
+After you log in to the [Azure portal](http://portal.azure.com "Azure portal"):  
 
 1. Select **More services** and enter **integration** in the filter search box. Select **Integration Accounts** from the results list    
 ![](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
@@ -43,7 +43,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 ![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
 4. Select the **Add** button in the Agreements blade that opens.  
 ![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-5. Enter a **Name** for your agreement, select **AS2** from the **Agreement Type**, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity** in the Agreements blade.  
+5. Enter a **Name** for your agreement, select **AS2** from the **Agreement Type**, **Host Partner**, **Host Identity**, **Guest Partner**, **Guest Identity** in the Agreements blade.  
 ![](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
 Here are a few details you may find useful when configuring the settings for your agreement: 
