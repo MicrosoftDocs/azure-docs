@@ -42,7 +42,7 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This problem could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than the default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
 * **AllowedSyncCycleInterval**. The most frequently Azure AD allows synchronizations to occur. You cannot synchronize more frequently than this setting and still be supported.
-* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It has the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this takes effect after next synchronization cycle. From build 1.1.281 the change take effect immediately.
+* **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It has the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this change takes effect after next synchronization cycle. From build 1.1.281 the change take effect immediately.
 * **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, then you configure this setting. In the picture above, the scheduler has been set to run every hour instead. If you set this setting to a value lower than AllowedSyncInterval, then the latter is used.
 * **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync. The latter would also reprocess any new or changed rules.
 * **NextSyncCycleStartTimeInUTC**. Next time the scheduler starts the next sync cycle.
@@ -112,7 +112,7 @@ If the scheduler is currently running a synchronization cycle, you might need to
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
-When a sync cycle is running, you cannot make configuration changes. You could wait until the scheduler has finished the process, but you can also stop it so you can make your changes immediately. Stopping the current cycle is not harmful and any changes still not processed are processed with next run.
+When a sync cycle is running, you cannot make configuration changes. You could wait until the scheduler has finished the process, but you can also stop it so you can make your changes immediately. Stopping the current cycle is not harmful and pending changes are processed with next run.
 
 1. Start by telling the scheduler to stop its current cycle with the PowerShell cmdlet `Stop-ADSyncSyncCycle`.
 2. If you use a build before 1.1.281, then stopping the scheduler does not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
