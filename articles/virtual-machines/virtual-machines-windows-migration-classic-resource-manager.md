@@ -135,6 +135,8 @@ You select the virtual network or the hosted service (if it’s not a virtual ne
 
 * If the resource is not capable of migration, the Azure platform lists all the reasons for why it’s not supported for migration.
 
+When validating storage services you will find the migrated account in a resource group named the same as your storage account with "-Migrated" appended.  For example if your storage account is named "mystorage" you will find the ARM enabled resource in a resource group named "mystorage-Migrated" and it will contain a storage account named "mystorage".
+
 ### Prepare
 The prepare operation is the second step in the migration process. The goal of this step is to simulate the transformation of the IaaS resources from classic to Resource Manager resources and present this side by side for you to visualize.
 

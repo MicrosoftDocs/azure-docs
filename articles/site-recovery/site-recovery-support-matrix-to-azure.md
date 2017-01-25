@@ -3,8 +3,8 @@ title: Azure Site Recovery support matrix for replicating to Azure | Microsoft D
 description: Summarizes the supported operating systems and components for Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: jwhit
+author: Rajani-Janaki-Ram
+manager: rochakm
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/04/2016
-ms.author: raynew
+ms.date: 01/25/2017
+ms.author: rajanaki
 
 ---
 # Azure Site Recovery support matrix for replicating to Azure
@@ -36,7 +36,7 @@ A list of prerequisites for Azure Site Recovery is mentioned  [here](site-recove
 **PowerShell** | Not currently supported. | Supported | Supported
 
 
-## Support for operating systems
+## Support for Datacenter Management servers
 
 ### Virtualization management entities
 
@@ -66,7 +66,16 @@ The below table summarizes replicated Operating System support in various deploy
 
  **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<br/><br/> **Storage support**:<br> File system (EXT3, ETX4, ReiserFS, XFS)<br> Multipath software-Device Mapper (multipath))<br>Volume manager: (LVM2)<br></br>Physical servers with HP CCISS controller storage are **not** supported. <br></br>Note: The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
+
+
+>[!Note]
+>**Storage support for Linux versions**
+>File system (EXT3, ETX4, ReiserFS, XFS)
+>Multipath software-Device Mapper (multipath))
+>Volume manager: (LVM2)
+>Physical servers with HP CCISS controller storage are **not** supported.
+>The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3.
 
 ## Support for network
 The below tables summarize network configuration support in various deployment scenarios while using Azure Site Recovery to replicate to Azure.
@@ -148,13 +157,6 @@ Premium storage | Yes | No | No
 Import/export service | No | No | No
 
 
-## Support for Recovery Services vault actions
-
-**Action** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
---- | --- | --- | ---
-Move vault across resource groups<br/><br/> Within and across subscriptions | No | No | No
-Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No | No
-
 ## Support for Azure compute configuration
 
 **Compute feature** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
@@ -180,14 +182,21 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 **Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises the virtual machines continue to use the VHDX format.
 **Bitlocker** | Not supported | Bitlocker must be disabled before protecting a virtual machine.
 **VM name** | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. Should start and end with a letter or number | Update the value in the virtual machine properties in Site Recovery
-**VM type** | Generation 1<br/><br/> Generation 2 - Windows | Generation 2 VMs with an OS disk type of basic, which includes one or two data volumes formatted as VHDX and less than 300 GB are supported.<br/><br/>. Linux Generation 2 VM's aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) |
+**VM type** | Generation 1<br/><br/> Generation 2 - Windows | Generation 2 VMs with an OS disk type of basic, which includes one or two data volumes formatted as VHDX and less than 300 GB are supported.<br></br>Linux Generation 2 VM's aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+
+## Support for Recovery Services vault actions
+
+**Action** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
+--- | --- | --- | ---
+Move vault across resource groups<br/><br/> Within and across subscriptions | No | No | No
+Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No | No
 
 
 ## Support for Provider and Agent
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19([available from portal](http://aka.ms/downloadra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
+**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Azure Site Recovery Unified Setup (VMware to Azure)** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.3.4246.1 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | NA (available from portal) | NA
 **Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a VMM server) | Latest agent ([available from portal](http://aka.ms/latestmarsagent)) |
