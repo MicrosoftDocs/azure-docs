@@ -1,5 +1,5 @@
 ---
-title: Connect DocumentDB to business intelligence and data analytics solutions | Microsoft Docs
+title: Connect to DocumentDB using BI analytics tools | Microsoft Docs
 description: Learn how to use the Azure DocumentDB ODBC driver to create  tables and views so that normalized data can be viewed in BI and data analytics software.
 keywords: odbc, odbc driver
 services: documentdb
@@ -19,21 +19,21 @@ ms.author: mimig
 
 ---
 
-# Connect DocumentDB to BI Analytics tools with the DocumentDB ODBC Driver
+# Connect DocumentDB to BI analytics tools with the DocumentDB ODBC Driver
 
 The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analytics tools  such as SQL Server Integration Services, Power BI Desktop and Tableau so that you can analyze and create visualizations of your DocumentDB data in those solutions. 
 
 The DocumentDB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in DocumentDB. Using the driver, you can represent data in DocumentDB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates and deletes.
 
 ## Why do I need to normalize my data?
-DocumentDB is a NoSQL database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single DocumentDB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools-, the data often will need to be flattened and adhere to a specific schema.
+DocumentDB is a NoSQL database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single DocumentDB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often will need to be flattened and adhere to a specific schema.
 
 This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalized data in DocumentDB into tables and views fitting to your data analytic and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them, they simply enable you to leverage ODBC compliant tools to access the data. So now your DocumentDB database will not only be a favorite for your development team, but your data analysts will love it too.
 
 Now lets get started with the ODBC driver.
 
 ## <a id="install"></a>Step 1: Install the DocumentDB ODBC driver
-1. Download either the Microsoft Azure DocumentDB ODBC 64-bit.msi for 64-bit Windows OS or Microsoft Azure DocumentDB ODBC 32-bit.msi for 32-bit Windows OS.2. Run the msi file locally, which starts the **Microsoft Azure DocumentDB ODBC Driver Installation Wizard**. 
+1. Download either the [Microsoft Azure DocumentDB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) for 64-bit Windows OS or [Microsoft Azure DocumentDB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) for 32-bit Windows OS.2. Run the msi file locally, which starts the **Microsoft Azure DocumentDB ODBC Driver Installation Wizard**. 
 2. Complete the installation wizard using the default input to install the ODBC driver.
 3. Open the **ODBC Data source Administrator** app on your computer, you can do this by typing **ODBC Data sources** in the Windows search box. 
     You can confirm the driver was installed by clicking the **Drivers** tab and ensuring **Microsoft DocumentDB ODBC Driver** is listed.
