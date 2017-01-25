@@ -73,7 +73,7 @@
 ### [Deploy MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
 ### [Deploy SQL resource provider](azure-stack-sql-resource-provider-deploy.md)
 
-## Plan and deploy App Service
+## Offer App Service as PaaS
 ### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
 ### [Before you get started](azure-stack-app-service-before-you-get-started.md)
 ### [Deploy App Service resource provider](azure-stack-app-service-deploy.md)
