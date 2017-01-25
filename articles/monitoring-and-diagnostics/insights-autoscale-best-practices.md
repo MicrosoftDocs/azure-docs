@@ -1,8 +1,8 @@
 ---
-title: Best practices for Azure Monitor autoscaling. | Microsoft Docs
-description: Learn principles to effectively use autoscaling in Azure Monitor.
+title: Best practices for autoscaling | Microsoft Docs
+description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services.
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2016
 ms.author: ashwink
 
 ---
-# Best practices for Azure Monitor autoscaling
-The following sections in this document help you understand the best practices for autoscale-in Azure. After reviewing this information, you'll be better able to effectively use autoscale in your Azure infrastructure.
+# Best practices Autoscaling Virtual
+This article teaches best practices to autoscale in Azure. It relates to Virtual Machines, Virtual Machine Scale Sets and Cloud Services.  Other Azure services used different scaling methods.
 
 ## Autoscale concepts
 * A resource can have only *one* autoscale setting
@@ -43,7 +43,7 @@ If you manually update the instance count to a value above or below the maximum,
 If you use only one part of the combination, autoscale scale-in that single out, or in, until the maximum, or minimum, is reached.
 
 ### Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage autoscale settings. For Virtual Machine Scale Sets use PoSH, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
+For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage autoscale settings. For Virtual Machine Scale Sets use PowerShell, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
@@ -56,7 +56,7 @@ We *do not recommend* autoscale settings like the examples below with the same o
 * Increase instances by 1 count when Thread Count <= 600
 * Decrease instances by 1 count when Thread Count >= 600
 
-Let's look at an example of what can lead to a behavior that may seem confusing. Cosider the following sequence.
+Let's look at an example of what can lead to a behavior that may seem confusing. Consider the following sequence.
 
 1. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625.
 2. Autoscale scales out adding a 3rd instance.
@@ -146,4 +146,3 @@ Autoscale notifies the administrators and contributors of the resource by email 
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.
   In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
-
