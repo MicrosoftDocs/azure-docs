@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 01/24/2017
 ms.author: jingwang
 
 ---
@@ -420,7 +420,7 @@ To use service principal authentication, firstly you need register an applicatio
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. | Yes |
-| tenant | Specify the tenant information (domain name) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. | No (If not specified, tenant of the data factory is used) |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. | No (If not specified, tenant of the data factory is used) |
 
 **Example: using service principal authentication**
 ```json
