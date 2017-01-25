@@ -21,14 +21,14 @@ ms.author: mimig
 
 # Connect to DocumentDB using BI analytics tools with the ODBC driver
 
-The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analytics tools  such as SQL Server Integration Services, Power BI Desktop and Tableau so that you can analyze and create visualizations of your DocumentDB data in those solutions. 
+The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analytics tools such as SQL Server Integration Services, Power BI Desktop and Tableau so that you can analyze and create visualizations of your DocumentDB data in those solutions. 
 
-The DocumentDB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in DocumentDB. Using the driver, you can represent data in DocumentDB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates and deletes.
+The DocumentDB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in DocumentDB. Using the driver, you can represent data in DocumentDB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates, and deletes.
 
 ## Why do I need to normalize my data?
 DocumentDB is a NoSQL database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single DocumentDB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often will need to be flattened and adhere to a specific schema.
 
-This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalized data in DocumentDB into tables and views fitting to your data analytic and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them, they simply enable you to leverage ODBC compliant tools to access the data. So now your DocumentDB database will not only be a favorite for your development team, but your data analysts will love it too.
+This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalized data in DocumentDB into tables and views fitting to your data analytic and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them, they simply enable you to leverage ODBC-compliant tools to access the data. So now your DocumentDB database will not only be a favorite for your development team, but your data analysts will love it too.
 
 Now lets get started with the ODBC driver.
 
@@ -42,7 +42,7 @@ Now lets get started with the ODBC driver.
 
 ## <a id="connect"></a>Step 2: Connect to your DocumentDB database
 
-1. After [Intalling the DocumentDB ODBC driver](#install), in the **ODBC Data Source Administrator** window, click **Add**.  You can create a User or System DSN.  In this example, we will be creating a User DSN.
+1. After [Installing the DocumentDB ODBC driver](#install), in the **ODBC Data Source Administrator** window, click **Add**.  You can create a User or System DSN.  In this example, we will be creating a User DSN.
 2. In the **Create New Data Source** window, select **Microsoft DocumentDB ODBC Driver**, and then click **Finish**.
 3. In the **DocumentDB ODBC Driver SDN Setup** window, fill in the following: 
 
@@ -53,13 +53,13 @@ Now lets get started with the ODBC driver.
     - **Access Key**: The primary or secondary, read-write or read-only key from the DocumentDB Keys blade in the Azure portal as shown in the following screenshot.  We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
     ![DocumentDB Keys blade](./media/documentdb-nosql-odbc-driver/documentdb-nosql-odbc-driver-keys.png)
     - **Encrypt Access Key for**: Select the best choice based on the users of this machine. 
-4. Click the **Test** button to make sure you can connect to you DocumentDB account. 
+4. Click the **Test** button to make sure you can connect to your DocumentDB account. 
 5. Click **Advanced Options** and set the following:
     - **Query Consistency**: Select the [consistency level](documentdb-consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
     - **Schema File**: You have a number of options here.
         -  By default, leaving this entry as is (blank), the driver will scan the first page data for all collections to determine the schema of each collection.  This is known as Collection Mapping.  Without a schema file defined, the driver will have to perform the scan for each driver session and could result in a higher start up time of an application using the DSN.  We recommend that you always associate a schema file for a DSN.     
-       - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor), ), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
+       - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
         - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the [Schema Editor](#schema-editor) information.  Upon creating the new schema file, please remember to go back to the **Advanced Options** window to include the newly created schema file.
 
 6. Once you complete and close the **DocumentDB ODBC Driver DSN Setup** window, the new User DSN is added to the User DSN tab.
@@ -68,7 +68,7 @@ Now lets get started with the ODBC driver.
 
 ## <a id="#collection-mapping"></a>Step 3:  Create a schema definition using the collection mapping method
 
-There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. The steps below create a schema for the data in one or more collections using the collection mapping method.  This sampling method retrieves the data in the page of a collection to determine the structure of the data. It transposes a collection to a table on the ODBC side.  This sampling method is efficient and fast when the data in a collection is homogenous.  If a collection contains heterogenous type of data , we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the collection. 
+There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. The steps below create a schema for the data in one or more collections using the collection mapping method.  This sampling method retrieves the data in the page of a collection to determine the structure of the data. It transposes a collection to a table on the ODBC side.  This sampling method is efficient and fast when the data in a collection is homogenous.  If a collection contains heterogenous type of data, we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the collection. 
 
 1. After completing steps 1-4 in [Connect to your DocumentDB database](#connect), click **Schema Editor** in the **DocumentDB ODBC Driver DSN Setup** window.
 
@@ -91,23 +91,23 @@ There are two types of sampling methods that you can use: **collection mapping**
 1. After completing steps 1-4 in [Connect to your DocumentDB database](#connect), click **Schema Editor** in the DocumentDB ODBC Driver DSN Setup window.
 2. In the **Schema Editor** window, click **Create New**.
     The **Generate Schema** window displays all of the collections in the DocumentDB account. 
-3. Select a collection on the **Sample View** tab, , in the **Mapping Definition** column for the collection, click **Edit**. Then in the **Mapping Definition** window, select **Table Delimiters** method. Then do the following:
+3. Select a collection on the **Sample View** tab, in the **Mapping Definition** column for the collection, click **Edit**. Then in the **Mapping Definition** window, select **Table Delimiters** method. Then do the following:
     a. In the **Attributes** box, type the name of a delimiter property.  This is a property in your document that you want to scope the sampling to, for instance, City and press enter. 
     b. If you only want to scope the sampling to certain values for the attribute you just entered, select the attribute in the selection box, then enter a value in the **Value** box, for example, Seattle and press enter. You can continue to add multiple values for attributes. Just ensure that the correct attribute is selected when you're entering values.
         
     For example, if you include an **Attributes** value of City, and you want to limit your table to only include rows with a city value of New York and Dubai, you would enter City in the Attributes box, and New York and then Dubai in the **Values** box.
 4. Click **OK**. 
-5. After completing the mapping definitions for the collections you want to sample, in the **Schema Editor** window, click **Sample**. . 
+5. After completing the mapping definitions for the collections you want to sample, in the **Schema Editor** window, click **Sample**.
      For each column, you can modify the column SQL name, the SQL type, SQL length (if applicable), Scale (if applicable), Precision (if applicable) and Nullable.   
     - You can set **Hide Column** to **true** if you want to exclude that column from query results. Columns marked Hide Column = true are not returned for selection and projection, although they are still part of the schema. For example, you can hide all of the DocumentDB system required properties starting with “_”.
     - The **id** column is the only field that cannot be hidden as it is used as the primary key in the normalized schema. 
 6. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
-7. Back in the **DocumentDB ODBC Driver DSN Setup** window, click ** Advanced Options**.  Then, in the **Schema File** box, navigate to the saved schema file and click **OK**.  Click **OK** again to save the DSN. This will save the schema  you created to the DSN. 
+7. Back in the **DocumentDB ODBC Driver DSN Setup** window, click ** Advanced Options**.  Then, in the **Schema File** box, navigate to the saved schema file and click **OK**.  Click **OK** again to save the DSN. This will save the schema you created to the DSN. 
 
 ## (Optional) Creating views
 You can define and create views as part of the sampling process.  These views are equivalent to SQL views.  They are read-only and are scope the selections and projections of the DocumentDB SQL defined. 
 
-To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the collection to sample Then in the **View Definitions** window, do the following:
+To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the collection to sample. Then in the **View Definitions** window, do the following:
 1. Click **New**, enter a name for the view, for example, EmployeesfromSeattleView and then click **OK**.
 2. In the **Edit view** window, enter a DocumentDB query.  This must be a DocumentDB SQL query, for example`SELECT  c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, and then click **OK**.   
 
@@ -115,7 +115,7 @@ You can create a many views as you like. Once you are done defining the views, y
 
 ## Step 5: View your data in BI tools such as Power BI Desktop
 
-You can use your new DSN to connect DocumentADB with any ODBC compliant tools - this step simply shows you how to connect to Power BI Desktop and create a Power BI visualization.
+You can use your new DSN to connect DocumentADB with any ODBC-compliant tools - this step simply shows you how to connect to Power BI Desktop and create a Power BI visualization.
 
 1. Open Power BI Desktop.
 2. Click **Get Data**.
