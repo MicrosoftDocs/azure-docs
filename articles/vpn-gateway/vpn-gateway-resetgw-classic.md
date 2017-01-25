@@ -24,7 +24,7 @@ Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connec
 
 This article walks you through resetting your Azure VPN Gateway using PowerShell cmdlets. These instructions include both the classic deployment model and the Resource Manager deployment model.
 
-Each Azure VPN gateway is composed of two VM instances running in an active-standby configuration. When you use the PowerShell cmdlet to reset the gateway, it reboots the gateway, and then reapplies the cross-premises configurations to it. The gateway keeps the public IP address it already has. This means you won’t need to update the VPN router configuration with a new public IP address for Azure VPN gateway.  
+Each Azure VPN gateway is a virtual network gateway that is composed of two VM instances running in an active-standby configuration. When you use the PowerShell cmdlet to reset the gateway, it reboots the gateway, and then reapplies the cross-premises configurations to it. The gateway keeps the public IP address it already has. This means you won’t need to update the VPN router configuration with a new public IP address for Azure VPN gateway.  
 
 Once the command is issued, the current active instance of the Azure VPN gateway is rebooted immediately. There will be a brief gap during the failover from the active instance (being rebooted), to the standby instance. The gap should be less than one minute.
 
