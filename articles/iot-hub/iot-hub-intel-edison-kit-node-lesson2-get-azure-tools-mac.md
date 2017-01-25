@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools for your Azure IoT Starter Kit (macOS 10.10) | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 2: Azure tools (macOS) | Microsoft Docs'
 description: Install Python and Azure command-line interface (Azure CLI) on macOS.
 services: iot-hub
 documentationcenter: ''
