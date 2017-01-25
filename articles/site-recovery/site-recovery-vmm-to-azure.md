@@ -18,12 +18,13 @@ ms.author: raynew
 
 ---
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using the Azure portal
+
+> [!div class="op_single_selector"]
 > * [Azure portal](site-recovery-vmm-to-azure.md)
 > * [Azure classic](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [PowerShell classic](site-recovery-deploy-with-powershell.md)
->
->
+
 
 Welcome to the Azure Site Recovery service!
 
