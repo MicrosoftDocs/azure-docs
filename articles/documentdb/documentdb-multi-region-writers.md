@@ -165,6 +165,10 @@ To guarantee local reads and writes, we must partition data not just on partitio
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
+The following diagram shows how reads and writes are performed in a typical application with this setup:
+
+![Azure DocumentDB multi-master architecture](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
+
 Here is a code snippet showing how to initialize the clients in a DAL running in the `West US` region.
     
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
@@ -192,8 +196,6 @@ With the preceding setup, the data access layer can forward all writes to the lo
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
-
-![Azure DocumentDB multi-master architecture](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
 
 ## <a id="DataAccessImplementation"></a>Data access layer implementation
 Now let's look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must implement the following steps:
