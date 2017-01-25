@@ -537,6 +537,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
    3. `encodingName` is set to **utf-8**, which is **default** value.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader` and `skipLineCount` are not specified.
    5. `compression` can be **no compression**, **GZip** or **Deflate**.
+
 	```JSON
 	"typeProperties": {
 	   "folderPath": "<blobpath>",
@@ -553,6 +554,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 	   }  
 	},
 	```
+
 3. There is no `skipHeaderLineCount` setting under **BlobSource** for the Copy activity in the pipeline.
 4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use `sqlWriterCleanupScript`).
 5. There is no `columnMapping` being used in the associated in Copy activity.
