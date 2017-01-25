@@ -31,8 +31,10 @@ The workflow to upgrade HDInsight Cluster is as follows.
 ![Upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
+
 2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 3. Copy existing jobs, data sources, and sinks to the new environment. See [Copy Data To Test Environment](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) for more details.
+
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
 
