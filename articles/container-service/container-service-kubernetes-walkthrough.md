@@ -23,7 +23,7 @@ ms.author: anhowe
 # Microsoft Azure Container Service Engine - Kubernetes Walkthrough
 
 ## Prerequisites
-This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed and have created [SSH public key](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) at `~/.ssh/id_rsa.pub`.
+This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed and have created [SSH public key](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) at `~/.ssh/id_rsa.pub`.
 
 ## Overview
 
