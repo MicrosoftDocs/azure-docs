@@ -52,7 +52,7 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 > 
 
 
-### Creating a network for test failover 
+## Creating a network for test failover 
 It is recommended that when you are doing a test failover you choose a network that is isolated from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. By default when you create an Azure virtual network, it is isolated from other networks. This network should mimic your production network:
 
 1. Test network should have same number of subnets as that in your production network and with the same name as those of the subents in your production network.
@@ -60,7 +60,7 @@ It is recommended that when you are doing a test failover you choose a network t
 1. Update the DNS of the Test Network as the IP that you gave as target IP for the DNS virtual machine under **Compute and Network** settings. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details. 
 
 
-### Test failover to a production network on recovery site 
+## Test failover to a production network on recovery site 
 It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Compute and Network** settings for the virtual machine. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
 1. Make sure that the primary virtual machine is shutdown when you are doing the test failover. If you don't do so there will be two virtual machines with the same identity running in the same network at the same time and that can lead to undesired consequences. 
@@ -69,7 +69,7 @@ It is recommended that when you are doing a test failover you choose a network t
 
 
 
-### Prepare Active Directory and DNS
+## Prepare Active Directory and DNS
 To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](site-recovery-active-directory.md#test-failover-considerations) section for more details. 
 
 ## Next Steps
