@@ -1,5 +1,5 @@
 ---
-title: Overview of the Azure Service Fabric Reliable Actors ReliableDictionaryActorStateProvider configuration | Microsoft Docs
+title: Change ReliableDictionaryActorStateProvider settings in Azure microservices | Microsoft Docs
 description: Learn about configuring Azure Service Fabric stateful actors of type ReliableDictionaryActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net

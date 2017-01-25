@@ -1,5 +1,5 @@
 ---
-title: Use kernels with Jupyter notebooks on Spark - Linux - Azure | Microsoft Docs
+title: Use different kernels with Jupyter notebooks on Azure Spark clusters | Microsoft Docs
 description: Learn about the PySpark and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux.
 services: hdinsight
 documentationcenter: ''

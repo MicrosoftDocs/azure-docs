@@ -1,5 +1,5 @@
 ---
-title: Get started with Intel Edison Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Get started | Microsoft Docs'
 description: Get started with Intel Edison, create your Azure IoT hub, and connect Edison to the IoT hub
 services: iot-hub
 documentationcenter: ''
