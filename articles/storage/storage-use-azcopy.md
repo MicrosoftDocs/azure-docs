@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/22/2016
 ms.author: micurd
 
 ---
@@ -129,7 +129,7 @@ Specifying option `/S` uploads the contents of the specified directory to Blob s
 
 After the upload operation, the container will include the following files:
 
-      abc.txt
+    abc.txt
     abc1.txt
     abc2.txt
     subfolder\a.txt
@@ -339,7 +339,7 @@ The `/XO` and `/XN` parameters allow you to exclude older or newer source resour
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
-Note: This is not supported when either the source or destination is a table.
+Note that this is not supported when either the source or destination is a table.
 
 ### Use a response file to specify command-line parameters
     AzCopy /@:"C:\responsefiles\copyoperation.txt"

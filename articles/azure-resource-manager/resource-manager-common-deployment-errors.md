@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 11/22/2016
 ms.author: tomfitz
 
 ---
@@ -32,60 +32,10 @@ The following image shows the activity log for a subscription. There are three o
 
 ![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
 
-Validation errors arise from scenarios that can be pre-determined to cause a problem; such as, syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process; such as, trying to access a resource that is being deployed in parallel.
+Validation errors arise from scenarios that can be pre-determined to cause a problem. Validation errors include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. For example, a deployment error might arise from trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never actually started.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never started.
 
-## Enable debug logging
-You can discover valuable information about how your deployment is processed by logging the request, response, or both.
-
-**PowerShell**
-
-In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-
-Examine the request content with the following:
-
-    (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-
-Or, the response content with:
-
-    (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-
-This information can help you determine whether a value in the template is being incorrectly set.
-
-**Azure CLI**
-
-In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
-
-    azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-
-Examine the logged request and response content with the following:
-
-    azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
-
-This information can help you determine whether a value in the template is being incorrectly set.
-
-**Nested template**
-
-To log debug information for a nested template, use the **debugSetting** element.
-
-    {
-        "apiVersion": "2016-09-01",
-        "name": "nestedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "Incremental",
-            "templateLink": {
-                "uri": "{template-uri}",
-                "contentVersion": "1.0.0.0"
-            },
-            "debugSetting": {
-               "detailLevel": "requestContent, responseContent"
-            }
-        }
-    }
 
 ## Error codes
 Deployment errors return the code **DeploymentFailed**. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
@@ -96,96 +46,98 @@ The following error codes are described in this topic:
 
 * [InvalidTemplate](#invalidtemplate)
 * [NotFound and ResourceNotFound](#notfound-and-resourcenotfound)
+* [ParentResourceNotFound](#parentresourcenotfound)
 * [StorageAccountAlreadyExists and StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
 * [AccountNameInvalid](#accountnameinvalid)
+* [BadRequest](#badrequest)
 * [NoRegisteredProviderFound](#noregisteredproviderfound)
-* [OperationNotAllowed](#operationnotallowed)
+* [QuotaExceeded and OperationNotAllowed](#quotaexceeded-and-operationnotallowed)
 * [InvalidContentLink](#invalidcontentlink)
 * [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [Authorization failed](#authorization-failed)
-* [SkuNotAvailable](#sku-not-available)
+* [SkuNotAvailable](#skunotavailable)
 
 ### InvalidTemplate
 This error can result from several different types of errors.
 
-**Syntax error**
+- Syntax error
 
-If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
+   If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
 
-    Code=InvalidTemplate
-    Message=Deployment template validation failed
+       Code=InvalidTemplate
+       Message=Deployment template validation failed
 
-This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
+   This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
-If you do not provide the matching syntax, the template produces a value that is different than your intention.
+   If you do not provide the matching syntax, the template produces a value that is different than your intention.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors.
+   When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) or [Visual Studio Code](resource-manager-vs-code.md), which can warn you about syntax errors.
 
-**Incorrect segment lengths**
+- Incorrect segment lengths
 
-Another invalid template error occurs when the resource name is not in the correct format.
+   Another invalid template error occurs when the resource name is not in the correct format.
 
-    Code=InvalidTemplate
-    Message=Deployment template validation failed: 'The template resource {resource-name}'
-    for type {resource-type} has incorrect segment lengths.
+       Code=InvalidTemplate
+       Message=Deployment template validation failed: 'The template resource {resource-name}'
+       for type {resource-type} has incorrect segment lengths.
 
-A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it is a **valid name**.
+   A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it is a **valid name**.
 
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "name": "myHostingPlanName",
-      ...
-    }
+       {
+         "type": "Microsoft.Web/serverfarms",
+         "name": "myHostingPlanName",
+         ...
+       }
 
-But the next example is **not a valid name** because it has the same number of segments as the type.
+   But the next example is **not a valid name** because it has the same number of segments as the type.
 
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "name": "appPlan/myHostingPlanName",
-      ...
-    }
+       {
+         "type": "Microsoft.Web/serverfarms",
+         "name": "appPlan/myHostingPlanName",
+         ...
+       }
 
-For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type.
+   For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type.
 
-    "resources": [
-        {
-            "type": "Microsoft.KeyVault/vaults",
-            "name": "contosokeyvault",
-            ...
-            "resources": [
-                {
-                    "type": "secrets",
-                    "name": "appPassword",
-                    ...
-                }
-            ]
-        }
-    ]
+       "resources": [
+           {
+               "type": "Microsoft.KeyVault/vaults",
+               "name": "contosokeyvault",
+               ...
+               "resources": [
+                   {
+                       "type": "secrets",
+                       "name": "appPassword",
+                       ...
+                   }
+               ]
+           }
+       ]
 
-Getting the segments right can be tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with four segments. Therefore, the name is three segments:
+   Getting the segments right can be tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with four segments. Therefore, the name is three segments:
 
-    {
-        "type": "Microsoft.Web/sites/providers/locks",
-        "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-        ...
-    }
+       {
+           "type": "Microsoft.Web/sites/providers/locks",
+           "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+           ...
+       }
 
-**Copy index is not expected**
+- Copy index is not expected
 
-You encounter this **InvalidTemplate** error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+   You encounter this **InvalidTemplate** error when you have applied the **copy** element to a part of the template that does not support this element. You can only apply the copy element to a resource type. You cannot apply copy to a property within a resource type. For example, you apply copy to a virtual machine, but you cannot apply it to the OS disks for a virtual machine. In some cases, you can convert a child resource to a parent resource to create a copy loop. For more information about using copy, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-**Parameter is not valid**
+- Parameter is not valid
 
-If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
+   If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
-    Code=InvalidTemplate;
-    Message=Deployment template validation failed: 'The provided value {parameter vaule}
-    for the template parameter {parameter name} is not valid. The parameter value is not
-    part of the allowed value(s)
+       Code=InvalidTemplate;
+       Message=Deployment template validation failed: 'The provided value {parameter value}
+       for the template parameter {parameter name} is not valid. The parameter value is not
+       part of the allowed values
 
-Double check the allowed values in the template, and provide one during deployment.
+   Double check the allowed values in the template, and provide one during deployment.
 
 ### NotFound and ResourceNotFound
 When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
@@ -220,6 +172,26 @@ If you attempt to use the [reference](resource-group-template-functions.md#refer
 
 Look for an expression that includes the **reference** function. Double check that the parameter values are correct.
 
+### ParentResourceNotFound
+
+When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not yet exist, you receive the following error:
+
+     Code=ParentResourceNotFound;
+     Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+
+The name of the child resource includes the parent name. For example, a SQL Database might be defined as:
+
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
+      ...
+
+But, if you do not specify a dependency on the parent resource, the child resource may get deployed before the parent. To resolve this error, include a dependency.
+
+    "dependsOn": [
+        "[variables('databaseServerName')]"
+    ]
+
 ### StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
@@ -235,6 +207,10 @@ If you deploy a storage account with the same name as an existing storage accoun
 
 ### AccountNameInvalid
 You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+
+### BadRequest
+
+You may encounter a BadRequest status when you provide an invalid value for a property. For example, if you provide an incorrect SKU value for a storage account, the deployment fails. 
 
 ### NoRegisteredProviderFound
 When deploying resource, you may receive the following error code and message:
@@ -283,7 +259,7 @@ To see the supported locations and API versions for a resource provider, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
-### OperationNotAllowed
+### QuotaExceeded and OperationNotAllowed
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
@@ -358,8 +334,6 @@ You may receive an error during deployment because the account or service princi
 
 For more information about role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
-In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the subscription. For example, an administrator can require that a particular tag value is provided for a resource type. If you do not fulfill the policy requirements, you receive an error during deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
-
 ### SkuNotAvailable
 
 When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
@@ -371,14 +345,68 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
 
-- Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource.
+- Log in to the portal and add a new resource through the UI. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
     ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
-## Create a troubleshooting template
-In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, simply return the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
+## Troubleshooting tricks and tips
+
+### Enable debug logging
+You can discover valuable information about how your deployment is processed by logging the request, response, or both.
+
+- PowerShell
+
+   In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
+
+       New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+
+   Examine the request content with the following cmdlet:
+
+       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+
+   Or, the response content with:
+
+       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+
+   This information can help you determine whether a value in the template is being incorrectly set.
+
+- Azure CLI
+
+   In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
+
+       azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+
+   Examine the logged request and response content with the following:
+
+       azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+
+   This information can help you determine whether a value in the template is being incorrectly set.
+
+- Nested template
+
+   To log debug information for a nested template, use the **debugSetting** element.
+
+       {
+           "apiVersion": "2016-09-01",
+           "name": "nestedTemplate",
+           "type": "Microsoft.Resources/deployments",
+           "properties": {
+               "mode": "Incremental",
+               "templateLink": {
+                   "uri": "{template-uri}",
+                   "contentVersion": "1.0.0.0"
+               },
+               "debugSetting": {
+                  "detailLevel": "requestContent, responseContent"
+               }
+           }
+       }
+
+
+### Create a troubleshooting template
+In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, create a template that returns the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -401,9 +429,13 @@ In some cases, the easiest way to troubleshoot your template is to test parts of
       }
     }
 
-Obviously, your troubleshooting template can vary based on your scenario.
+Or, suppose you are encountering deployment errors that you believe are related to incorrectly set dependencies. Test your template by breaking it into simplified templates. First, create a template that deploys only a single resource (like a SQL Server). When you are sure you have that resource correctly defined, add a resource that depends on it (like a SQL Database). When you have those two resources correctly defined, add other dependent resources (like auditing policies). In between each test deployment, delete the resource group to make sure you adequately testing the dependencies. 
 
-## Troubleshooting virtual machines
+## Troubleshooting other services
+If the preceding deployment error codes did not help you troubleshoot your issue, you can look for more detailed troubleshooting guidance for the particular Azure service with the error.
+
+The following table lists troubleshooting topics for Virtual Machines.
+
 | Error | Articles |
 | --- | --- |
 | Custom script extension errors |[Windows VM extension failures](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />or<br />[Linux VM extension failures](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
@@ -415,8 +447,7 @@ Obviously, your troubleshooting template can vary based on your scenario.
 | Connection errors resolved by redeploying |[Redeploy Virtual Machine to new Azure node](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Cloud service errors |[Cloud service deployment problems](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
-## Troubleshooting other services
-The following table is not a complete list of troubleshooting topics for Azure. Instead, it focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure service.
+The following table lists troubleshooting topics for other Azure services. It focuses on issues related to deploying or configuring resources. If you need help troubleshooting run-time issues with a resource, see the documentation for that Azure service.
 
 | Service | Article |
 | --- | --- |
@@ -430,11 +461,6 @@ The following table is not a complete list of troubleshooting topics for Azure. 
 | StorSimple |[Troubleshoot StorSimple device deployment issues](../storsimple/storsimple-troubleshoot-deployment.md) |
 | SQL Database |[Troubleshoot connection issues to Azure SQL Database](../sql-database/sql-database-troubleshoot-common-connection-issues.md) |
 | SQL Data Warehouse |[Troubleshooting Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md) |
-
-## Understand when a deployment is ready
-Azure Resource Manager reports success on a deployment when all providers return from deployment successfully. However, this message does not necessarily mean that your resource group is "active and ready for your users." For example, a deployment may need to download upgrades, wait on non-template resources, or install complex scripts. Resource Manager does not know when these tasks complete because they are not activities that a provider tracks. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
-
-You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template. The script knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template.
 
 ## Next steps
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).

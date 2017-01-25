@@ -56,7 +56,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 * [Import a BACPAC to Azure SQL Database PowerShell](sql-database-import-powershell.md)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

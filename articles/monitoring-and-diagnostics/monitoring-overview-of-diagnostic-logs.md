@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: johnkem; magoedte
 
 ---
@@ -157,7 +157,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 
 | Service | Schema & Docs |
 | --- | --- |
-| Software Load Balancer |[Log analytics for Azure Load Balancer (Preview)](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log analytics for Azure Load Balancer (Preview)](../load-balancer/load-balancer-monitor-log.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
@@ -172,32 +172,33 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 | Stream Analytics |No schema available. |
 
 ## Supported log categories per resource type
-| Resource Type | Category | Category Display Name |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |Job Logs |
-| Microsoft.Automation/automationAccounts |JobStreams |Job Streams |
-| Microsoft.Batch/batchAccounts |ServiceLog |Service Logs |
-| Microsoft.DataLakeAnalytics/accounts |Audit |Audit Logs |
-| Microsoft.DataLakeAnalytics/accounts |Requests |Request Logs |
-| Microsoft.DataLakeStore/accounts |Audit |Audit Logs |
-| Microsoft.DataLakeStore/accounts |Requests |Request Logs |
-| Microsoft.EventHub/namespaces |ArchiveLogs |Archive Logs |
-| Microsoft.EventHub/namespaces |OperationalLogs |Operational Logs |
-| Microsoft.KeyVault/vaults |AuditEvent |Audit Logs |
-| Microsoft.Logic/workflows |WorkflowRuntime |Workflow runtime diagnostic events |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |Network Security Group Event |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |Network Security Group Rule Counter |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |Network Security Group Rule Flow Event |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |Load Balancer Alert Events |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |Load Balancer Probe Health Status |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Application Gateway Access Log |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Application Gateway Performance Log |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Application Gateway Firewall Log |
-| Microsoft.Search/searchServices |OperationLogs |Operation Logs |
-| Microsoft.ServerManagement/nodes |RequestLogs |Request Logs |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |Operational Logs |
-| Microsoft.StreamAnalytics/streamingjobs |Execution |Execution |
-| Microsoft.StreamAnalytics/streamingjobs |Authoring |Authoring |
+|Resource Type|Category|Category Display Name|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
+|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
+|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
+|Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
+|Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
+|Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
+|Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
+|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Search/searchServices|OperationLogs|Operation Logs|
+|Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
+|Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
 ## Next Steps
 * [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)

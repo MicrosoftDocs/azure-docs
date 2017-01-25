@@ -122,6 +122,11 @@ To have a single index behave differently for different client endpoints, a fiel
 
 This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
 
+> [!NOTE]
+> Using the approach described above to configure a single index to serve multiple tenants affects the relevance of search results. Search relevance scores are computed at an index-level scope, not a tenant-level scope, so all tenants' data is incorporated in the relevance scores' underlying statistics such as term frequency.
+> 
+> 
+
 ## Next steps
 Azure Search is a compelling choice for many applications, [read more about the service's robust capabilities](http://aka.ms/whatisazsearch). When evaluating the various design patterns for multitenant applications, consider the [various pricing tiers](https://azure.microsoft.com/pricing/details/search/) and the respective [service limits](search-limits-quotas-capacity.md) to best tailor Azure Search to fit application workloads and architectures of all sizes.
 

@@ -1,4 +1,6 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
+
 title: Load data with Azure Data Factory | Microsoft Docs
 description: Learn to load data with Azure Data Factory
 services: sql-data-warehouse

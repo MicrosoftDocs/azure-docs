@@ -1,6 +1,6 @@
 
 ---
-title: Restore virtual machines from backup using Azure portal | Microsoft Docs
+title: Restore virtual machines from a backup point using the Azure portal | Microsoft Docs
 description: Restore an Azure virtual machine from a recovery point using Azure portal
 services: backup
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/28/2016
 ms.author: trinadhk; jimpark;
 
 ---

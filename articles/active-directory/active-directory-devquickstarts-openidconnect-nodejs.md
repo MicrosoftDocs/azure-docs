@@ -40,15 +40,14 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 The completed application is provided at the end of this tutorial as well.
 
 ## 1. Register an App
-* Sign into the Azure Management Portal.
-* In the left hand nav, click on **Active Directory**.
+* Sign into the [Azure Portal](https://portal.azure.com).
 * Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click add in the bottom drawer.
+* In the left hand nav, click on **Azure Active Directory**.
+* Click the **App Registrations** tab, and click **Add**.
 * Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
-  * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-* Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+* Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
 ## 2. Add pre-requisities to your directory
 From the command-line, change directories to your root folder if not already there and run the following commands:
@@ -70,7 +69,7 @@ This will install the libraries that passport-azure-ad depend on.
 Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 * To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-  
+
   * The `clientID:` is the **Application Id** assigned to your app in the registration portal.
   * The `returnURL` is the **Redirect Uri** you entered in the portal.
   * The `clientSecret` is the secret you generated in the portal
@@ -89,8 +88,8 @@ var log = bunyan.createLogger({
 * After that, use the strategy we just referenced to handle our login requests
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -130,8 +129,8 @@ Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, et
 
 > [!IMPORTANT]
 > The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a sample application, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
-> 
-> 
+>
+>
 
 * Next, let's add the methods that will allow us to keep track of the logged in users as required by Passport. This includes serializing and deserializing the user's information:
 
@@ -271,7 +270,7 @@ app.get('/logout', function(req, res){
 ```
 
 * Let's review these in detail:
-  
+
   * The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
   * The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
   * The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
@@ -374,13 +373,13 @@ These simple routes will just pass along the request to our views, including the
     <body>
         <% if (!user) { %>
             <p>
-            <a href="/">Home</a> | 
+            <a href="/">Home</a> |
             <a href="/login">Log In</a>
             </p>
         <% } else { %>
             <p>
-            <a href="/">Home</a> | 
-            <a href="/account">Account</a> | 
+            <a href="/">Home</a> |
+            <a href="/account">Account</a> |
             <a href="/logout">Log Out</a>
             </p>
         <% } %>
@@ -389,7 +388,7 @@ These simple routes will just pass along the request to our views, including the
 </html>
 ```
 
-Finally, build and run your app! 
+Finally, build and run your app!
 
 Run `node app.js` and navigate to `http://localhost:3000`
 
@@ -404,4 +403,3 @@ You can now move onto more advanced topics.  You may want to try:
 [Secure a Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-

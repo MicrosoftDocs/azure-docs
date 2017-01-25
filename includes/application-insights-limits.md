@@ -5,10 +5,7 @@ Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/
 | **Resource** | **Default Limit** | **Note**
 | --- | --- | --- |
 | Total data per day | 100 GB | You can reduce by setting a cap.
-| Free data per month | 1 GB | Additional data charged per GB
-| Total data rate for request, event, dependency, page view and availability telemetry |200/s - 500/s | Dependent on pricing plan
-| [Trace and Log](../articles/application-insights/app-insights-search-diagnostic-logs.md) data rate |200/s - 500/s | 
-| [Exception](../articles/application-insights/app-insights-asp-net-exceptions.md) data rate |50/s |
+| Free data per month<br/> (Basic price plan) | 1 GB | Additional data charged per GB
 | Data retention | 90 days | for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) and [Metrics explorer](../articles/application-insights/app-insights-metrics-explorer.md)
 | [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 30 days | Detailed results of each step
 | [Property](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) and [Metric](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> name count | 200 | 

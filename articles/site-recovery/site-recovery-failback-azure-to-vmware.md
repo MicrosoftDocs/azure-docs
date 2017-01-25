@@ -54,7 +54,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 
 * If you failed over physical servers then failback is always to a new VMware VM.
   * Before failing back a Physical machine note that:
-    * Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware
+    * Physical machine protected will come back as a Virtual machine when failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 machine if protected and failed over to Azure cannot be failed back.
     * Ensure that you discover at least one Master Target server along with the necessary ESX/ESXi hosts to which you need to failback.
 * If you fail back to the original VM the following is required:
   
@@ -76,6 +76,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 * Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
 * Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
+* You need a new drive added onto the Master target server. This drive is called a retention drive. Add a new disk and format the drive.
 
 ## Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy gets automatically created when you create a forward direction policy. Note that
@@ -118,7 +119,8 @@ If you have protected your machines as classic resources (that is the VM recover
 7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers tab.
     ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
-    >[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
+    > [!NOTE] 
+    > The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
 ## Set up the master target server on-premises
@@ -178,13 +180,21 @@ Do the following to apply custom changes after you’ve complete the post-instal
 3. In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
 4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value.
 5. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
+   
    a. Volume shouldn't be in use for any other purpose (target of replication etc.)
+
    b. Volume shouldn't be in lock mode.
+
    c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
+
    d. The Volume File system type shouldn't be FAT and FAT32.
+
    e. The volume capacity should be non-zero.
+
    e. Default retention volume for Windows is R volume.
+
    f. Default retention volume for Linux is /mnt/retention.
+
 6. The failback policy will be auto selected.
 7. After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
@@ -225,6 +235,7 @@ Once the reprotect completes, the VM will be replicating back to Azure and you c
 4. If you are using either ESXi 5.5 free edition or vSphere 6 Hypervisor free edition, failover would succeed, but failback will not succeed. You will need to upgrade to either Evaluation License to enable failback.
 5. If CS is not reachable from the Process server, you can check connectivity from your process server to CS by - Telnet to the CS machine on port 443. You can also try to ping the CS from the PS machine. A PS server should also have a hearbeat when it is connected to the CS.
 6. If you are trying to failback to an alternate vCenter, make sure that your new vCenter is discovered, with the Master Target server also discovered. As a typical symptom, you will see the datastores are not accessible/visible in the Reprotect dialog.
+7. A WS2008R2SP1 machine protected as physical or virtual on-premises machine cannot be failed back from Azure to on-premises.
 
 ## Failing back with ExpressRoute
 You can fail back over a VPN connection or Azure ExpressRoute. If you want to use ExpressRoute note the following:

@@ -40,17 +40,16 @@ To get started, [download the app skeleton](https://github.com/Azure-Samples/act
 ## 1.  Register an Application with Azure AD
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-* Sign into the Azure Management Portal.
-* In the left hand nav, click on **Active Directory**.
+* Sign into the [Azure Portal](https://portal.azure.com).
 * Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click add in the bottom drawer.
+* In the left hand nav, click on **Azure Active Directory**.
+* Click on **App Registrations** tab, and click **Add**.
 * Follow the prompts and create a new **Web Application and/or WebAPI**.
   * The **name** of the application will describe your application to end-users
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
-  * The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
-* Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+* Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
-Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
+Once in the portal for your app create a **Key** from the **Settings** page for your application and copy it down.  You will need it shortly.
 
 ## 2. Set up your app to use ADAL4J library and prerequisites using Maven
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
@@ -249,14 +248,14 @@ Change back out to your root directory and run the following command to build th
 
 `$ mvn package`
 
-You should now have a `adal4jsample.war` file in your `/targets` directory. You may deploy that in your Tomcat container and visit the URL 
+You should now have a `adal4jsample.war` file in your `/targets` directory. You may deploy that in your Tomcat container and visit the URL
 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
 > It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
-> 
-> 
+>
+>
 
 ## Next Steps
 Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.
@@ -264,4 +263,3 @@ Congratulations! You now have a working Java application that has the ability to
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
-

@@ -334,7 +334,7 @@ Similar to relational database table, U-SQL allows you to create a table with a 
 The following script create a database and two tables:
 
     DROP DATABASE IF EXISTS SearchLogDb;
-    CREATE DATABASE SeachLogDb
+    CREATE DATABASE SearchLogDb;
     USE DATABASE SearchLogDb;
 
     DROP TABLE IF EXISTS SearchLog1;

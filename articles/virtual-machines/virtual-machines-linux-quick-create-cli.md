@@ -19,7 +19,7 @@ ms.author: rasquill
 ---
 
 # Create a Linux VM using the Azure CLI 2.0 (Preview)
-This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the [az vm create](/cli/azure/vm?branch=master#create) command using the Azure CLI 2.0 (Preview). 
+This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the [az vm create](/cli/azure/vm#create) command using the Azure CLI 2.0 (Preview). 
 
 > [!NOTE] 
 > The Azure CLI 2.0 Preview is our next generation multi-platform CLI. Try it out and let us know what you think on the [GitHub project page](https://github.com/Azure/azure-cli).

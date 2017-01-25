@@ -72,7 +72,7 @@ In the article, “multi-DRM” covers the following:
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. Apple FairPlay (not yet supported by Azure Media Services)
+3. Apple FairPlay 
 
 The following table summarizes the native platform/native app, and browsers supported by each DRM.
 

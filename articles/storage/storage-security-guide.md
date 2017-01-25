@@ -86,7 +86,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 * [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
   
   This article details all of the built-in roles available in RBAC.
-* [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+* [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
   
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
 * [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)

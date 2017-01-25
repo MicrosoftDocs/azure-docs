@@ -38,7 +38,7 @@ With transactional replication, all changes to your data or schema show up in yo
  ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 ## Transactional Replication requirements
-Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016](https://www.microsoft.com/en-us/cloud-platform/sql-server), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported when the publisher and the distributor are at least one of the following SQL Server versions:
+Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016](https://www.microsoft.com/sql-server/sql-server-2016), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported when the publisher and the distributor are at least one of the following SQL Server versions:
 
 * SQL Server 2016 and above 
 * SQL Server 2014 SP1 CU3 and above
@@ -54,11 +54,11 @@ Transactional replication is a technology built-in and integrated with SQL Serve
 ## Next steps
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 * [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [SQL Server 2016 ](https://www.microsoft.com/en-us/cloud-platform/sql-server)
+* [SQL Server 2016 ](https://www.microsoft.com/sql-server/sql-server-2016)
 
 ## Additional resources
 * [Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx)
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

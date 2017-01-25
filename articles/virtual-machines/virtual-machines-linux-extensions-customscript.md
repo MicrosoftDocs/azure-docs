@@ -60,7 +60,7 @@ When using the Azure CLI to run the Custom Script Extension, create a configurat
 
 ```azurecli
 azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+  --auto-upgrade-minor-version --public-config-path /script-config.json
 ```
 
 Optionally, the command can be run using the `--public-config` and `--private-config` option, which allows the configuration to be specified during execution and without a separate configuration file.

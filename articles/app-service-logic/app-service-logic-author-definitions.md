@@ -286,43 +286,51 @@ Date Times can be useful, particularly when you are trying to pull data from a d
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1"
-            },
-            "type": "Object"
-        }
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "order": {
+      "defaultValue": {
+        "quantity": 10,
+        "id": "myorder1"
+      },
+      "type": "Object"
+    }
+  },
+  "triggers": {
+    "Request": {
+      "type": "request",
+      "kind": "http"
+    }
+  },
+  "actions": {
+    "order": {
+      "type": "Http",
+      "inputs": {
+        "method": "GET",
+        "uri": "http://www.example.com/?id=@{parameters('order').id}"
+      }
     },
-    "triggers": {
-        "manual": {
-            "type": "manual"
-        }
-    },
-    "actions": {
-        "order": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?id=@{parameters('order').id}"
-            }
-        },
+    "ifTimingWarning": {
+      "type": "If",
+      "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
+      "actions": {
         "timingWarning": {
-            "actions" {
-                "type": "Http",
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-                },
-                "runAfter": {}
-            }
-            "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+          "type": "Http",
+          "inputs": {
+            "method": "GET",
+            "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+          }
         }
-    },
-    "outputs": {}
+      },
+      "runAfter": {
+        "order": [
+          "Succeeded"
+        ]
+      }
+    }
+  },
+  "outputs": {}
 }
 ```
 

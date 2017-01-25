@@ -49,16 +49,18 @@ Now, you can add the C# function code that connects to your SQL Database.
    
     ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. In the **Code** pane in the **Develop** tab, add the following assembly references at the top of the existing function code:
-	```cs   
+	```cs
         #r "System.Configuration"
         #r "System.Data"
 	```
+
 3. Add the following `using` statements to the function:
-	```cs   
+	```cs
         using System.Configuration;
         using System.Data.SqlClient;
         using System.Threading.Tasks;
-	``` 
+	```
+
 4. Replace the existing **Run** function with the following code:
 	```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)

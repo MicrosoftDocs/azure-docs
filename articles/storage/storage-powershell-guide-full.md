@@ -129,7 +129,7 @@ After the script runs, you should have a local destination folder that includes 
 > [!NOTE]
 > The "Getting started with Azure Storage and PowerShell in 5 minutes" section provided a quick introduction on how to use Azure PowerShell with Azure Storage. For detailed information and instructions, we encourage you to read the following sections.
 > 
-> 
+
 ## Prerequisites for using Azure PowerShell with Azure Storage
 You need an Azure subscription and account to run the PowerShell cmdlets given in this guide, as described above.
 

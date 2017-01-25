@@ -3,8 +3,8 @@ title: Create a record set and records for a DNS Zone using the Azure portal | M
 description: How to create host records for Azure DNS and create record sets and records using the Azure portal
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create DNS record sets and records by using the Azure portal

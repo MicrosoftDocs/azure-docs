@@ -3,8 +3,8 @@ title: Onboarding physical and virtual machines for management by Azure Automati
 description: How to setup machines for management with Azure Automation DSC
 services: automation
 documentationcenter: dev-center-name
-author: coreyp-at-msft
-manager: stevenka
+author: sdwheeler
+manager: carmonm
 editor: tysonn
 
 ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 04/22/2016
-ms.author: coreyp
+ms.author: sewhee
 
 ---
 # Onboarding machines for management by Azure Automation DSC

@@ -72,15 +72,13 @@
 ### [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
 ## Plan and deploy App Service
-### [Azure Stack Web Apps Overview](azure-stack-app-service-overview.md)
-### [Before you get started with Azure Stack Web Apps](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: Adding more web worker roles](azure-stack-webapps-add-worker-roles.md)
-### [Add a Web Apps resource provider to Azure Stack](azure-stack-app-service-deploy.md)
+### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
+### [Before you get started](azure-stack-app-service-before-you-get-started.md)
+### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
+### [Add an App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md)
 
 # Troubleshoot
 ## [Troubleshoot Azure Stack](azure-stack-troubleshooting.md)
-## [Rerun a deployment from a failed step](azure-stack-rerun-deploy.md)
-## [Web Apps Resource Provider](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Resources
 ## [Tools](azure-stack-tools-paas-services.md)

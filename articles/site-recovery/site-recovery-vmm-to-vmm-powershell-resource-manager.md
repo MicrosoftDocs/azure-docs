@@ -42,7 +42,7 @@ The article includes prerequisites for the scenario, and shows you
 If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 > [!NOTE]
-> Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article covers the Resource Manager deployment model.
+> Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article covers the Resource Manager deployment model.
 > 
 > 
 
@@ -112,31 +112,30 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 ## Step 4: Install the Azure Site Recovery Provider
 1. On the VMM machine, create a directory by running the following command:
    
-     New-Item c:\ASR -type directory
+       New-Item c:\ASR -type directory
 2. Extract the files using the downloaded provider by running the following command
    
-     pushd C:\ASR\
-     .\AzureSiteRecoveryProvider.exe /x:. /q
+       pushd C:\ASR\
+       .\AzureSiteRecoveryProvider.exe /x:. /q
 3. Install the provider using the following commands:
    
-     .\SetupDr.exe /i
-     $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
-     do
-     {
-   
-                     $isNotInstalled = $true;
-                     if(Test-Path $installationRegPath)
-                     {
-                                     $isNotInstalled = $false;
-                     }
-     }While($isNotInstalled)
+       .\SetupDr.exe /i
+       $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
+       do
+       {
+         $isNotInstalled = $true;
+         if(Test-Path $installationRegPath)
+         {
+           $isNotInstalled = $false;
+         }
+       }While($isNotInstalled)
    
    Wait for the installation to finish.
 4. Register the server in the vault using the following command:
    
-     $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
-     pushd $BinPath
-     $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
+       $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
+       pushd $BinPath
+       $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
 ## Step 5: Create and associate a replication policy
 1. Create a Hyper-V 2012 R2 replication policy by running the following command:
@@ -152,41 +151,42 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod 
 
-    > [AZURE.NOTE] The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For eg: If you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication polices – one for each type of operating system versions.
+    > [!NOTE] 
+    > The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For eg: If you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication polices – one for each type of operating system versions.
 
 1. Get the primary protection container (primary VMM Cloud) and recovery protection container (recovery VMM Cloud) by running the following commands:
    
-     $PrimaryCloud = "testprimarycloud"
-     $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
+       $PrimaryCloud = "testprimarycloud"
+       $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
    
-     $RecoveryCloud = "testrecoverycloud"
-     $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
+       $RecoveryCloud = "testrecoverycloud"
+       $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
 2. Retrieve the policy you created in step 1 using the friendly name of the policy
    
-     $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
+       $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
 3. Start the association of the protection container (VMM Cloud) with the replication policy:
    
-     $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
+       $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
 4. Wait for the policy association job to complete. You can check if the job has completed using the following PowerShell snippet.
    
-     $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
+       $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
    
-        if($job -eq $null -or $job.StateDescription -ne "Completed")
-         {
+       if($job -eq $null -or $job.StateDescription -ne "Completed")
+       {
          $isJobLeftForProcessing = $true;
-     }
+       }
    
    After the job has finished processing, run the following command:
    
-     if($isJobLeftForProcessing)
-     {
-     Start-Sleep -Seconds 60
-     }
-     }While($isJobLeftForProcessing)
+       if($isJobLeftForProcessing)
+       {
+         Start-Sleep -Seconds 60
+       }
+       }While($isJobLeftForProcessing)
 
 To check the completion of the operation, follow the steps in [Monitor Activity](#monitor).
 
-## Step 5: Configure network mapping
+## Step 6: Configure network mapping
 1. The first command gets servers for the current Azure Site Recovery vault. The command stores the Microsoft Azure Site Recovery servers in the $Servers array variable.
    
         $Servers = Get-AzureRmSiteRecoveryServer
@@ -196,14 +196,15 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
    
         $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
-    > [AZURE.NOTE] The source VMM server can be the first one or the second one in the servers array. Check the names of the VMM servers and get the networks appropriately
+    > [!NOTE] 
+    > The source VMM server can be the first one or the second one in the servers array. Check the names of the VMM servers and get the networks appropriately
 
 
 1. The final cmdlet creates a mapping between the primary network and the recovery network. The cmdlet specifies the primary network as the first element of $PrimaryNetworks and the recovery network as the first element of $RecoveryNetworks.
    
         New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Step 6: Configure storage mapping
+## Step 7: Configure storage mapping
 1. The below command gets the list of storage classifications into $storageclassifications variable.
    
         $storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
@@ -213,7 +214,8 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
    
         $TargetClassification = $storageclassifications[1]
 
-    > [AZURE.NOTE] The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
+    > [!NOTE] 
+    > The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
 
     > Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
 
@@ -222,7 +224,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
    
         New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
 
-## Step 7: Enable protection for virtual machines
+## Step 8: Enable protection for virtual machines
 After the servers, clouds and networks are configured correctly, you can enable protection for virtual machines in the cloud. 
 
 1. To enable protection, run the following command to get the protection container:
@@ -248,20 +250,20 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 ### Run a test failover
 1. Run the below cmdlets to get the VM network to which you want to test failover your VMs to.
    
-     $Servers = Get-AzureRmSiteRecoveryServer
-     $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+       $Servers = Get-AzureRmSiteRecoveryServer
+       $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 2. Perform a test failover of a VM by doing the following:
    
-     $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
+       $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
    
-     $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1] 
+       $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1] 
 3. Perform a test failover of a recovery plan by doing the following:
    
-     $recoveryplanname = "test-recovery-plan"
+       $recoveryplanname = "test-recovery-plan"
    
-     $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+       $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
    
-     $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1] 
+       $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1] 
 
 ### Run a planned failover
 1. Perform a planned failover of a VM by doing the following:

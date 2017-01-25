@@ -63,7 +63,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
     * A **blob storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
 
-    * A https://review.docs.microsoft.com/en-us/azure/service-bus/?branch=master such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    * A https://docs.microsoft.com/en-us/azure/service-bus/ such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
 
         For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 
@@ -151,7 +151,7 @@ Script Action scripts can be used from the Azure portal, Azure PowerShell, Azure
 
 | Name | Script |
 | --- | --- |
-| **Add an Azure Storage account** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. See [Apply a Script Action to a running cluster](#apply-a-script-action-to-a-running-cluster). |
+| **Add an Azure Storage account** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. See [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md). |
 | **Install Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. See [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
 | **Install R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. See [Install and use R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md). |
 | **Install Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). |
@@ -752,5 +752,6 @@ See the following for information and examples on creating and using scripts to 
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 * [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
+* [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Stages during cluster creation"

@@ -12,7 +12,7 @@ ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
+ums.workload: na
 ms.date: 08/24/2016
 ms.author: TomSh
 
@@ -21,12 +21,12 @@ ms.author: TomSh
 Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events associated with your applications.
 
 This tutorial walks you through how to install Azure log integration and integrate logs from Azure storage, Azure Audit Logs, and Azure Security Center alerts. Estimated time to complete this tutorial is one hour.
-
-## Prerequisites
+E
+o## Prerequisites
 To complete this tutorial, you must have the following:
 
 * A machine (on-premises or in the cloud) to install the Azure log integration service. This machine must be running a 64-bit Windows OS with .Net 4.5.1 installed. This machine is called the **Azlog Integrator**.
-* Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+y* Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 * Azure Diagnostics enabled for your Azure virtual machines (VMs). To enable diagnostics for Cloud Services, see [Enabling Azure Diagnostics in Azure Cloud Services](../cloud-services/cloud-services-dotnet-diagnostics.md). To enable diagnostics for an Azure VM running Windows, see [Use PowerShell to enable Azure Diagnostics in a Virtual Machine Running Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Connectivity from the Azlog Integrator to Azure storage and to authenticate and authorize to Azure subscription.
 * For Azure VM logs, the SIEM agent (for example, Splunk Universal Forwarder, HP ArcSight Windows Event Collector agent, or IBM QRadar WinCollect) must be installed on the Azlog Integrator.
@@ -52,6 +52,20 @@ The Azure log integration service collects telemetry data from the machine on wh
 > 
 > 
 
+
+## Set your Azure Environment
+1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
+2. Run the command
+       Set-AzLogAzureEnvironment -Name <Cloud>
+       
+       Replace the Cloud with any of the following
+       AzureCloud 
+       AzureChinaCloud 
+       AzureUSGovernment 
+       AzureGermanCloud
+       
+       Note that at this time, an Azlog integrator only supports integrating logs from one cloud that you choose to integrate
+       
 ## Integrate Azure VM logs from your Azure Diagnostics storage accounts
 1. Check the prerequisites listed above to ensure that your WAD storage account is collecting logs before continuing your Azure log integration. Do not perform the following steps if your WAD storage account is not collecting logs.
 2. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.

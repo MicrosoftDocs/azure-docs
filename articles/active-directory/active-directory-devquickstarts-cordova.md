@@ -62,18 +62,18 @@ Each target platform has different prerequisites.
 * To build and run Windows Tablet/PC or Phone app version
   * [Visual Studio 2013 for Windows with Update 2 or later](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express or another version).
 * To build and run for iOS
-  
+
   * Xcode 5.x or greater. Download it at http://developer.apple.com/downloads or the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
   * [ios-sim](https://www.npmjs.org/package/ios-sim) – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: `npm install -g ios-sim`)
 * To build and run application for Android
-  
+
   * Install [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or later. Make sure `JAVA_HOME` (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).
   * Install [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) and add `<android-sdk-location>\tools` location (for example, C:\tools\Android\android-sdk\tools) to your `PATH` Environment Variable.
   * Open Android SDK Manager (for example, via terminal: `android`) and install
   * *Android 5.0.1 (API 21)* platform SDK
   * *Android SDK Build-tools* version 19.1.0 or higher
   * *Android Support Repository* (Extras)
-  
+
   Android sdk doesn't provide any default emulator instance. Create a new one by running `android avd` from terminal and then selecting *Create...* if you want to run Android app on emulator. Recommended *Api Level* is 19 or higher, see [AVD Manager](http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.
 
 ## *1.    Register an application with Azure AD*
@@ -81,19 +81,14 @@ Note: this **step is optional**. The tutorial provided pre-provisioned values th
 
 Azure AD will only issue tokens to known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant.  To register a new application in your tenant,
 
-* Sign into the [Azure Management Portal](https://manage.windowsazure.com)
-* In the left hand nav, click on **Active Directory**
-* Select the tenant where you wish to register the application.
-* Click the **Applications** tab, and click **Add** in the bottom drawer.
-* Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work).
-  * The **Name** of the application will describe your application to end-users
-  * The **Redirect URI** is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
-
-Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the **Configure** tab of the newly created app.
-
-In order to run `DirSearchClient Sample`, grant the newly created app permission to query the *Azure AD Graph API*:
-
-* In **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top right, click on your account and under the **Directory** list, choose an Active Directory tenant where you have admin permissions.
+3. Type **App registrations** in the search filter.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Native Client Application** (despite the fact that Cordova apps are HTML based, we are creating native client application here so `Native Client Application` option must be selected; otherwise, the application won't work). Enter a friendly name for the application, and select 'Native' as the Application Type. The **Redirect URI** is the URI used to return tokens to your app, for example `http://MyDirectorySearcherApp` Click on **Create** to create the application.
+6. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
+7. Find the Application ID value and copy it to the clipboard.
+8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Windows Azure Active Directory' (this is the AADGraph API). Then, click on  **Select Permissions** and select 'Access the directory as the signed-in user'.
 
 ## *2. Clone the sample app repository required for the tutorial*
 From your shell or command line, type the following command:
@@ -270,4 +265,3 @@ For reference, the completed sample (without your configuration values) is provi
 [Secure a Node.js Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-

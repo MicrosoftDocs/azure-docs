@@ -3,8 +3,8 @@ title: Create a record set and records for a DNS Zone using CLI| Microsoft Docs
 description: How to create host records for Azure DNS.Setting up record sets and records using CLI
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 
 ms.assetid: 02b897d3-e83b-4257-b96d-5c29aa59e843
 ms.service: dns
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create DNS record sets and records by using CLI

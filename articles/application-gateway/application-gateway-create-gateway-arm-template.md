@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 11/21/2016
 ms.author: gwallace
 
 ---
@@ -75,50 +75,50 @@ You can download the existing Azure Resource Manager template to create a virtua
    | **backendaddress1** |IP address of the first web server |
    | **backendaddress2** |IP address of the second web server |
 
-> [!IMPORTANT]
->Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
->
->
+    > [!IMPORTANT]
+    >Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
+    >
+    >
 
-1. Check the content under **resources** and notice the following:
+6. Check the content under **resources** and notice the following:
    
    * **type**. Type of resource being created by the template. In this case, the type is **Microsoft.Network/applicationGateways**, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means that the name is provided as input by you or by a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
-2. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
-3. Click **azuredeploy-paremeters.json**, and then click **RAW**.
-4. Save the file to a local folder on your computer.
-5. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
+7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
+8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
+9. Save the file to a local folder on your computer.
+10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
    
-```json
-       {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       {
-       "location" : {
-       "value" : "West US"
-       },
-       "addressPrefix": {
-       "value": "10.0.0.0/16"
-       },
-       "subnetPrefix": {
-       "value": "10.0.0.0/24"
-       },
-       "skuName": {
-       "value": "Standard_Small"
-       },
-       "capacity": {
-       "value": 2
-       },
-       "backendIpAddress1": {
-       "value": "10.0.1.10"
-       },
-       "backendIpAddress2": {
-       "value": "10.0.1.11"
-       }
-       }
-```
+    ```json
+        {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        {
+        "location" : {
+        "value" : "West US"
+        },
+        "addressPrefix": {
+        "value": "10.0.0.0/16"
+        },
+        "subnetPrefix": {
+        "value": "10.0.0.0/24"
+        },
+        "skuName": {
+        "value": "Standard_Small"
+        },
+        "capacity": {
+        "value": 2
+        },
+        "backendIpAddress1": {
+        "value": "10.0.1.10"
+        },
+        "backendIpAddress2": {
+        "value": "10.0.1.11"
+        }
+        }
+    ```
 
-6. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+11. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
@@ -232,6 +232,14 @@ Select **Legal terms** and click **Buy**.
 ### Step 5
 
 On the Custom deployment blade, click **Create**.
+
+## Providing certificate data to Resource Manager templates
+
+When using SSL with a template the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This will convert the certificate to a base64 string which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
+
+```powershell
+[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```
 
 ## Next steps
 

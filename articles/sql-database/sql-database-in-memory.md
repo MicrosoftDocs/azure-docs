@@ -13,13 +13,17 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 11/22/2016
 ms.author: jodebrui
 ---
 
 # Optimize Performance using In-Memory Technologies in SQL Database
 
-In-Memory technologies are available in all database in the Premium tier, including databases in Premium elastic pools. They help to optimize the performance of transactional (OLTP), analytics (OLAP), as well as mixed workloads (HTAP). With these technologies customers have been able to achieve up to 30X performance improvement for transaction processing and up to 100X performance improvement for analytical queries, for some scenarios. Not only do In-Memory technologies allow you to achieve unparalleled performance, you can also reduce cost: you typically do not need to upgrade the pricing tier of the database to achieve performance gains, and in some cases you could even reduce the pricing tier while still seeing performance improvements using In-Memory technologies, compared with traditional tables and indexes.
+In-Memory technologies in Azure SQL Database can help you achieve performance improvements with transactional (OLTP), analytics (OLAP), as well as mixed workloads (HTAP), while reducing cost at the same time. Depending on the workload, they can allow you to achieve up to 30X performance improvement for transaction processing and up to 100X performance improvement for analytical queries, compared with traditional tables and indexes. Because of the more efficient query and transaction processing, In-Memory technologies can also reduce cost: you typically do not need to upgrade the pricing tier of the database to achieve performance gains, and in some cases you could even reduce the pricing tier while still seeing performance improvements using In-Memory technologies. 
+
+In-Memory technologies are available in all database in the Premium tier, including databases in Premium elastic pools. 
+
+The following video explains potential performance gains with In-Memory technologies in Azure SQL Database. Remember that the performance gain you will see always depends on many factors, including nature of the workload and data, access pattern of the database, etc.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-In-Memory-Technologies/player]
 > 
@@ -485,12 +489,14 @@ In a database with the P2 pricing tier you can expect about 9X perf gain for thi
 
 - [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
 
-- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
+- [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
 
 
 ## Additional resources
 
 #### Deeper information
+
+- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Learn about In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
 

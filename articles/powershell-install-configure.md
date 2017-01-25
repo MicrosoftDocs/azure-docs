@@ -2,10 +2,10 @@
 title: How to install and configure Azure PowerShell
 description: Learn how to install and configure Azure PowerShell.
 editor: tysonn
-manager: dongill
+manager: carmonm
 documentationcenter: ''
 services: ''
-author: coreyp-at-msft
+author: sdwheeler
 
 ms.assetid: 802b28e0-1a8c-4872-a9ea-c889b15b9498
 ms.service: multiple
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
-ms.author: coreyp
+ms.author: sewhee
 
 ---
 # How to install and configure Azure PowerShell

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 11/22/2016
 ms.author: jgao
 
 ---
 # Create Linux-based clusters in HDInsight using the .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. This document demonstrates how to create a Linux-based HDInsight cluster using the .NET SDK.
+The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. This article demonstrates how to create a Linux-based HDInsight cluster using the .NET SDK.
 
 > [!IMPORTANT]
 > The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
@@ -34,14 +34,15 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Visual Studio 2013 or 2015**
+* **An Azure storage account**. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
+* **Visual Studio 2013 or 2015**.
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create clusters
 1. Open Visual Studio 2013 or 2015.
-2. Create a new Visual Studio project with the following settings
+2. Create a new Visual Studio project with the following settings:
    
    | Property | Value |
    | --- | --- |
@@ -81,9 +82,8 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                 private const string TenantId = UserTokenProvider.CommonTenantId; 
                 private const string SubscriptionId = "<Your Azure Subscription ID>";
                 // This is the GUID for the PowerShell client. Used for interactive logins in this example.
-                private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+                private const string ClientId = "<Your client ID>";
    
-                private static string SubscriptionId = "<Enter Your Subscription ID>";
                 private const string ExistingResourceGroupName = "<Enter Resource Group Name>";
                 private const string ExistingStorageName = "<Enter Default Storage Account Name>.blob.core.windows.net";
                 private const string ExistingStorageKey = "<Enter Default Storage Account Key>";
@@ -93,7 +93,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
                 private const string NewClusterType = "Hadoop";
-                private const string NewClusterVersion = "3.2";
+                private const string NewClusterVersion = "3.4";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
                 private const string NewClusterSshUserName = "sshuser";
@@ -127,10 +127,9 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                         OSType = NewClusterOSType,
                         Version = NewClusterVersion,
    
-                        DefaultStorageAccountName = ExistingStorageName,
-                        DefaultStorageAccountKey = ExistingStorageKey,
-                        DefaultStorageContainer = ExistingBlobContainer,
-   
+                        // Use an Azure storage account as the default storage
+                        DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingBlobContainer),
+
                         Password = NewClusterPassword,
                         Location = NewClusterLocation,
    
@@ -181,7 +180,8 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
 
 ## Use bootstrap
-For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+
+Using bootstrap, you can configure addition settings during the cluster creations.  For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 Modify the sample in [Create clusters](#create-clusters) to configure a Hive setting:
 
@@ -308,7 +308,8 @@ Modify the sample in [Create clusters](#create-clusters) to configure a Hive set
 
 
 ## Use Script Action
-For more inforamtion, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+
+Using Script Action, you can configure additional settings during cluster creations.  For more inforamtion, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 Modify the sample in [Create clusters](#create-clusters) to call a Script Action to install R:
 

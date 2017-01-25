@@ -6,15 +6,15 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'iot development, iot software, internet of things software, install python mac, install git on mac, gulp run, install node js mac'
 
 ms.assetid: 2ea6d211-c0e8-4ade-ac69-d1c2261d78c4
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
@@ -23,8 +23,6 @@ ms.author: xshi
 > * [Windows 7 or later](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
 > * [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-> 
-> 
 
 ## What you will do
 Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
@@ -68,7 +66,7 @@ Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample applic
 Install `gulp` and `device-discovery-cli` by running the following command in the terminal:
 
 ```bash
-sudo npm install -g device-discovery-cli gulp
+npm install -g device-discovery-cli gulp
 ```
 
 If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
