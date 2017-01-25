@@ -31,7 +31,7 @@ If you have a Resource Manager template for creating a scale set not using manag
 
 ## A concrete example
 
-```
+```diff
 $ git diff master
 diff --git a/201-vmss-windows-nat/azuredeploy.json b/201-vmss-windows-nat/azuredeploy.json
 index baf81ed..12b8abb 100644
