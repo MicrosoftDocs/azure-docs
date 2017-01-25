@@ -19,7 +19,7 @@ ms.author: mimig
 
 ---
 
-# Connect DocumentDB to BI analytics tools with the DocumentDB ODBC Driver
+# Connect to DocumentDB using BI analytics tools with the ODBC driver
 
 The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analytics tools  such as SQL Server Integration Services, Power BI Desktop and Tableau so that you can analyze and create visualizations of your DocumentDB data in those solutions. 
 
