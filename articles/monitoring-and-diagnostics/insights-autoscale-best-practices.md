@@ -64,7 +64,7 @@ Let's look at an example of what can lead to a behavior that may seem confusing.
 4. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means autoscale would have to immediately scale-out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop.
 5. To avoid this situation (termed "flapping"), autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
 
-Estimation during a scale-in is intended to avoid "flappy" situations. You should keep this behavior in mind when you choose the same thresholds for scale-out and in.
+Estimation during a scale-in is intended to avoid "flapping" situations, where scale-in and scale-out actions continually go back and forth. Keep this behavior in mind when you choose the same thresholds for scale-out and in.
 
 We recommend choosing an adequate margin between the scale-out and in thresholds. As an example, consider the following better rule combination.
 
