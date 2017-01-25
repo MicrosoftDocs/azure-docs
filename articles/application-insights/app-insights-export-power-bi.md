@@ -79,6 +79,18 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Select visualization](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
+## Troubleshooting
+
+### 401 or 403 Unauthorized 
+This can happen if your refesh token has not been updated. Try these steps to ensure you still have access. If you do have access and refershing the credentials does not work, please open a support ticket.
+
+1. Log into the Azure Portal and make sure you can access the resource
+2. Try to refresh the credentials for the Dashboard
+3. Create a test dashboard using the steps above
+
+### 502 Bad Gateway
+This is usually caused by a query that returns too much data. You should try using a smaller time range or by using the [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) or [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) functions only [project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) the fields you need. If reducing the amount of data does not help, please open a support ticket.
+
 ## About sampling
 If your application sends a lot of data, the adaptive sampling feature may operate and send only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling.](app-insights-sampling.md)
 
