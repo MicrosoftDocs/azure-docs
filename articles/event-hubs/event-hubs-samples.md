@@ -24,7 +24,7 @@ ms.author: jotaub
 > This topic is still in progress! 
 >
 > Learn more about how you can contribute on
-> [GitHub](https://github.com/microsoft/azure-docs/blob/master/CONTRIBUTING.md).
+> [GitHub](https://github.com/microsoft/azure-docs#contribute-to-azure-documentation).
 >
 
 # .NET Standard
