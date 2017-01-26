@@ -41,13 +41,15 @@ Once the installation is finished, click Configure Now.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install2.png)
 
-A command prompt is launched, followed by some PowerShell that executes Register-AzureADConnectHealthADFSAgent. When prompted to sign in to Azure, go ahead and sign in.
+This launches a PowerShell windows to initiate the agent registration process. When prompted, sign in with an Azure AD account that has access to perform agent registration. By default the Global Admin account has access.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install3.png)
 
 After signing in, PowerShell will continue. Once it completes, you can close PowerShell and the configuration is complete.
 
-At this point, the services should be started automatically allowing the agent to monitor and gather data. If you have not met all the pre-requisites outlined in the previous sections, warnings appear in the PowerShell window. Be sure to complete the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) before installing the agent. The following screenshot is an example of these errors.
+At this point, the agent services should be started automatically allowing the agent upload the required data to the cloud service in a secure manner.
+
+If you have not met all the pre-requisites outlined in the previous sections, warnings appear in the PowerShell window. Be sure to complete the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) before installing the agent. The following screenshot is an example of these errors.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install4.png)
 
@@ -73,9 +75,8 @@ Steps for Windows Server 2008 R2 servers:
 
 ### Enable Auditing for AD FS
 > [!NOTE]
-> This section only applies to AD FS federation servers.
-> 
-> 
+> This section only applies to AD FS servers. You do not have to follow these steps on the Web Application Proxy Servers.
+>
 
 In order for the Usage Analytics feature to gather and analyze data, the Azure AD Connect Health agent needs the information in the AD FS Audit Logs. These logs are not enabled by default. Use the following procedures to enable AD FS auditing and to locate the AD FS audit logs, on your AD FS servers.
 
@@ -109,11 +110,11 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 ![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
 > [!WARNING]
-> If a group policy that is disabling AD FS auditing exists, then the Azure AD Connect Health Agent is unable to collect information. Ensure that you don’t have a group policy that may be disabling auditing.
-> 
-> 
+> A group policy can disable AD FS auditing. Azure AD Connect Health Agent will not be able to collect information login activity events if AD FS auditing is disabled. Ensure that you don’t have a group policy that may be disabling AD FS auditing.>
+>
 
-[//]: # (Start of Agent Proxy Configuration Section)
+
+
 
 ## Installing the Azure AD Connect Health agent for sync
 The Azure AD Connect Health agent for sync is installed automatically in the latest build of Azure AD Connect. To use Azure AD Connect for sync, you need to download the latest version of Azure AD Connect and install it. You can download the latest version [here](http://www.microsoft.com/download/details.aspx?id=47594).
@@ -127,16 +128,16 @@ To verify the agent has been installed, look for the following services on the s
 
 > [!NOTE]
 > Remember that using Azure AD Connect Health requires Azure AD Premium. If you do not have Azure AD Premium, you are unable to complete the configuration in the Azure portal. For more information, see the [requirements page](active-directory-aadconnect-health-agent-install.md#requirements).
-> 
-> 
+>
+>
 
 ## Manual Azure AD Connect Health for Sync registration
 If the Azure AD Connect Health for Sync agent registration fails after successfully installing Azure AD Connect, you can use the following PowerShell command to manually register the agent.
 
 > [!IMPORTANT]
 > Using this PowerShell command is only required if the agent registration fails after installing Azure AD Connect.
-> 
-> 
+>
+>
 
 The following PowerShell command is required ONLY when the health agent registration fails even after a successful installation and configuration of Azure AD Connect. The Azure AD Connect Health services will start after the agent has been successfully registered.
 
@@ -179,10 +180,27 @@ If you completed the configuration, these services should already be running. Ot
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
-## Installing the Azure AD Connect Health Agent for AD DS on Server Core.
-After installing the .exe file, you can complete the registration process by using the following PowerShell command:
 
-`Register-AzureADConnectHealthADDSAgent -Credential $cred`
+### Agent Registration using PowerShell
+After installing the appropriate agent setup exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command from the following:
+
+```
+    Register-AzureADConnectHealthADFSAgent
+    Register-AzureADConnectHealthADDSAgent
+    Register-AzureADConnectHealthSyncAgent
+
+```
+
+These commands accept "Credential" as a parameter to complete the registration in a non-interactive manner or on a Server-Core machine.
+* The Credential can be captured in a PowerShell variable which is passed as a parameter.
+* You can provide any Azure AD Identity that has access to register the agents and does NOT have MFA enabled.
+* By default Global Admins have access to perform agent registration. You can also allow other less privileged identities to perform this step. Read more about [Role Based Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control).
+
+```
+    $cred = Get-Credential
+    Register-AzureADConnectHealthADFSAgent -Credential $cred
+
+```
 
 ## Configure Azure AD Connect Health Agents to use HTTP Proxy
 You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
@@ -191,8 +209,8 @@ You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
 > * Using “Netsh WinHttp set ProxyServerAddress” is not supported as the agent uses System.Net to make web requests instead of Microsoft Windows HTTP Services.
 > * The configured Http Proxy address is used to pass-through encrypted Https messages.
 > * Authenticated proxies (using HTTPBasic) are not supported.
-> 
-> 
+>
+>
 
 ### Change Health Agent Proxy Configuration
 You have the following options to configure Azure AD Connect Health Agent to use an HTTP Proxy.
@@ -200,8 +218,8 @@ You have the following options to configure Azure AD Connect Health Agent to use
 > [!NOTE]
 > All Azure AD Connect Health Agent services must be restarted, in order for the proxy settings to be updated. Run the following command:<br>
 > Restart-Service AdHealth*
-> 
-> 
+>
+>
 
 #### Import existing proxy Settings
 ##### Import from Internet Explorer
@@ -255,8 +273,8 @@ You can use the -ShowResults flag in the command to view detailed logs. Use the 
 
 > [!NOTE]
 > To use the connectivity tool, you must first complete the agent registration. If you are not able to complete the agent registration, make sure that you have met all the [requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health. This connectivity test is performed by default during agent registration.
-> 
-> 
+>
+>
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -266,4 +284,3 @@ You can use the -ShowResults flag in the command to view detailed logs. Use the 
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-
