@@ -1,5 +1,5 @@
 ---
-title: Create a Spark cluster in Azure HDInsight and use Spark SQL from Jupyter for interactive analysis | Microsoft Docs
+title: Get started with Apache Spark cluster in Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to quickly create an Apache Spark cluster in HDInsight and then use Spark SQL from Jupyter notebooks to run interactive queries.
 services: hdinsight
 documentationcenter: ''

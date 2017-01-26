@@ -1,5 +1,5 @@
 ---
-title: Windows VM sizes | Microsoft Docs
+title: Windows VM sizes in Azure | Microsoft Docs
 description: Lists the different sizes available for Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 01/24/2017
 ms.author: cynthn
 
 ---
