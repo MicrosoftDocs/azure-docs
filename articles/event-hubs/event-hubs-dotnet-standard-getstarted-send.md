@@ -19,6 +19,11 @@ ms.author: jotaub
 
 # Get started sending messages to Event Hubs in .NET Standard
 
+> **Note**
+> 
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender).
+>
+
 ## What will be accomplished
 
 This tutorial will walk-through how to create the existing solution **SampleSender** (inside this folder). You can run the solution as-is replacing the EhConnectionString/EhEntityPath with your Event Hub values, or follow this tutorial to create your own.
