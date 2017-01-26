@@ -19,7 +19,7 @@ ms.author: deonhe
 ---
 # Enterprise integration with AS2
 ## Create an AS2 agreement
-To use the enterprise features in Logic Apps, you must first create agreements.
+To use the enterprise features in the Logic Apps feature of Microsoft Azure App Service, you must first create agreements.
 
 ### Before you get started
 * Create an [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) in your Azure subscription.  
@@ -41,13 +41,13 @@ After you've [created an integration account](../logic-apps/logic-apps-enterpris
 3. Select the integration account that you want to add the certificate to.
 
  ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-4. Select the **Agreements** tile. If the Agreements tile is not displayed, add it.
+4. Select the **Agreements** tile. If the tile is not displayed, add it.
 
  ![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
 5. On the **Agreements** blade, select **Add**.
 
  ![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-6. Enter a name for your agreement, select **AS2** in the **Agreement type** drop-down list, and enter the appropriate information in the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity** drop-down lists.
+6. Enter a name for your agreement, select **AS2** in the **Agreement type** list, and enter the appropriate information in the **Host Partner**, **Host Identity**, **Guest Partner**, and **Guest Identity** lists.
 
  ![](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
 
@@ -55,20 +55,20 @@ After you've [created an integration account](../logic-apps/logic-apps-enterpris
 
 | Property | Description |
 | --- | --- |
-| Host Partner | An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement. |
+| Host Partner | An agreement requires both a host and guest partner. The host partner represents the organization that is configuring the agreement. |
 | Host Identity | An identifier for the host partner. |
-| Guest Partner | An agreement needs both a host and guest partner. The guest partner represents the organization that is doing business with the host partner. |
+| Guest Partner | An agreement requires both a host and guest partner. The guest partner represents the organization that is doing business with the host partner. |
 | Guest Identity | An identifier for the guest partner. |
 | Receive Settings | The properties that apply to all messages that are received by the agreement. |
 | Send Settings | The properties that apply to all messages that are sent by the agreement. |
 
-### Step 2: Complete the **Receive Settings** fields
+### Step 2: Set properties on the **Receive Settings** blade
 
 Configure how to handle messages that are received via this agreement. To do so, select **Receive Settings**, and then:   
 
 1. You can optionally override the properties of incoming messages by selecting the **Override message properties** check box.
-2. To require all incoming messages to be signed, select the **Message should be signed** check box. If you select this option, also validate the signature on the messages by selecting **guest partner public certificate** in the **Certificate** drop-down list.
-3. To require all incoming messages to be encrypted, select the **Message should be encrypted** check box. If you select this option, also decrypt the incoming messages by selecting **host partner private certificate** in the **Certificate** drop-down list.
+2. To require all incoming messages to be signed, select the **Message should be signed** check box. If you select this option, validate the signature on the messages by selecting **guest partner public certificate** in the **Certificate** list.
+3. To require all incoming messages to be encrypted, select the **Message should be encrypted** check box. If you select this option, decrypt the incoming messages by selecting **host partner private certificate** in the **Certificate** list.
 4. To require messages to be compressed, select the **Message should be compressed** check box.    
 5. To send synchronous MDNs for received messages, select the **Send MDN** check box.
 6. To send signed MDNs for received messages, select the **Send signed MDN** check box.
@@ -85,24 +85,24 @@ The following table describes the **Receive Settings** properties.
 | Message should be signed | Requires messages to be digitally signed. Under **Certificate**, configure the guest partner public certificate for signature verification.  |
 | Message should be encrypted | Requires messages to be encrypted. Non-encrypted messages will be rejected. Under **Certificate**, configure the host partner private certificate for decrypting the messages.  |
 | Message should be compressed | Requires messages to be compressed. Non-compressed messages will be rejected. |
-| MDN Text | Enter the default message disposition notification (MDN) to be sent to the message sender. |
+| MDN Text | The default message disposition notification (MDN) to be sent to the message sender. |
 | Send MDN | Requires MDNs to be sent. |
 | Send signed MDN | Requires MDNs to be signed. |
-| MIC Algorithm | Select the algorithm to use to sign messages. Configures the host partner private certificate message-integrity check (MIC) Algorithm for signing the messages. |
+| MIC Algorithm | The algorithm to use to sign messages. Configures the host partner private certificate message-integrity check (MIC) Algorithm for signing the messages. |
 | Send asynchronous MDN | Requires messages to be sent asynchronously. |
-| URL | Enter the URL that the MDNs are to be sent to. |
+| URL | The URL that the MDNs are to be sent to. |
 
-### Step 3: Complete the **Send Settings** fields  
+### Step 3: Set properties on the **Send Settings** blade  
 
 Configure how to handle messages that are sent via this agreement. To do so, select **Send Settings**, and then:  
 
-1. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, you also need to sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** drop-down list and selecting **host partner private certificate** in the **Certificate** drop-down list.
-2. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm" drop-down list and selecting **guest partner public certificate** in the **Certificate** drop-down list.
+1. To send signed messages to the partner, select the **Enable message signing** check box. If you select this option, sign the messages by selecting **host partner private certificate MIC Algorithm** in the **MIC Algorithm** list and by selecting **host partner private certificate** in the **Certificate** list.
+2. To send encrypted messages to the partner, select the **Enable message encryption** check box. If you select this option, encrypt the messages by selecting **guest partner public certificate algorithm** in the **Encryption Algorithm** list and by selecting **guest partner public certificate** in the **Certificate** list.
 3. To compress the message, select the **Enable message compression** check box.
 4. To unfold the HTTP content-type header into a single line, select the **Unfold HTTP headers** check box.
 5. To receive synchronous MDNs for the sent messages, select the **Request MDN** check box.
 6. To receive signed MDNs for the sent messages, select the **Request signed MDN** check box.
-7. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter a URL that the MDNs are to be sent to.  
+7. To receive asynchronous MDNs for the sent messages, select the **Request asynchronous MDN** check box. If you select this option, enter the URL that the MDNs are to be sent to.  
 8. To require non-repudiation of receipt, select the **Enable NRR** check box.
 9. Click **OK**.
 
@@ -113,17 +113,17 @@ The following table describes the **Send Settings** properties.
 | Property | Description |
 | --- | --- |
 | Enable message signing | Requires all messages that are sent from the agreement to be signed. |
-| MIC Algorithm | Select the algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
-| Certificate | Select the certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
+| MIC Algorithm | The algorithm to use to sign messages. Configures the host partner private certificate MIC Algorithm for signing the messages. |
+| Certificate | The certificate to use to sign messages. Configures the host partner private certificate for signing the messages. |
 | Enable message encryption | Requires encryption of all messages that are sent from this agreement. Configures the guest partner public certificate algorithm for encrypting the messages. |
-| Encryption Algorithm | Select the encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
-| Certificate | Select the certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
+| Encryption Algorithm | The encryption algorithm to use for message encryption. Configures the guest partner public certificate for encrypting the messages. |
+| Certificate | The certificate to use to encrypt messages. Configures the guest partner private certificate for encrypting the messages. |
 | Enable message compression | Requires compression of all messages that are sent from this agreement. |
 | Unfold HTTP headers | Places the HTTP content-type header onto a single line. |
 | Request MDN | Requires an MDN for all messages that are sent from this agreement. |
 | Request signed MDN | Requires all MDNs that are sent to this agreement to be signed. |
 | Request asynchronous MDN | Requires asynchronous MDNs to be sent to this agreement. |
-| URL | Enter the URL that the MDNs are to be sent to. |
+| URL | The URL that the MDNs are to be sent to. |
 | Enable NRR | Requires non-repudiation of receipt (NRR), a communication attribute that provides evidence that the data was received as addressed. |
 
 ### Step 4: View the agreements list
