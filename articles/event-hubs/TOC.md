@@ -1,21 +1,27 @@
 # Overview
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs FAQ](event-hubs-faq.md)
-## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+## [FAQ](event-hubs-faq.md)
 
 # Get Started
 ## [Create a namespace](event-hubs-create-namespace-portal.md)
-## Send events
-### [Get started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## Receive events
-### [Get started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Event Hubs programming guide](event-hubs-programming-guide.md)
+## [Send events](event-hubs-dotnet-standard-getstarted-send.md)
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+### .NET Framework
+### Java
+### Python
+### Node
+## [Receive events](event-hubs-dotnet-standard-getstarted-receive.md)
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive.md)
+### .NET Framework
+### Java
+### Python
+### Node
+## [Programming guide](event-hubs-programming-guide.md)
 ## [Samples](event-hubs-samples.md)
 
 # How to
 ## Plan and design
-### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 
 ## Develop
 ### [🔧Available API's](event-hubs-available-apis.md)

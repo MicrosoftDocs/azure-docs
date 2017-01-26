@@ -28,4 +28,6 @@ ms.author: jotaub
 >
 	
 
-#https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
+# [User notifications](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications)
+# [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
+# [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
