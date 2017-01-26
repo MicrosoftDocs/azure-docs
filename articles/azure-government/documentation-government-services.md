@@ -36,7 +36,7 @@ For the most current list of services, see the [Products by Region](https://azur
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
 * [BGP communities support](documentation-government-networking.md#support-for-bgp-communities)
 * Virtual Network
-* [Load Balancer](ocumentation-government-networking.md#support-for-load-balancer)
+* [Load Balancer](documentation-government-networking.md#support-for-load-balancer)
 * Application Gateway
 * [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
 * [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
