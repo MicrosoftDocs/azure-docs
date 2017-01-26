@@ -244,6 +244,7 @@ Now, you create the output dataset to represent the output data stored in the Az
 	```PowerShell
 	New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 	```
+
 ## Create pipeline
 In this step, you create your first pipeline with a **HDInsightHive** activity. Input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section.
 
