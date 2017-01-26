@@ -34,8 +34,7 @@ You can configure your clients to use Remote Desktop clients, such as MSTSC.exe,
 
 The diagram below shows the topology.
 
- ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop
-/remote-desktop-topology.png)
+ ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop/remote-desktop-topology.png)
 
 ## Configure the Remote Desktop Gateway URL
 
@@ -47,13 +46,11 @@ If your client devices and RDP file are already configured with a Remote Desktop
 
 If no Remote Desktop Gateway URL is configured, users or admins can specify it in the Remote Desktop clients (MSTSC), using the Remote Desktop Connection box, as shown below.
 
- ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop
-/remote-desktop-connection-advanced.png)
+ ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-advanced.png)
 
 The Connection Settings box appears when you click **Settings** in the **Advanced** tab.
 
- ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop
-/remote-desktop-connection-settings.png)
+ ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-settings.png)
 
 ## Remote Desktop Web Access
 
@@ -61,8 +58,7 @@ If your organization uses the Remote Desktop Web Access (RDWA) portal, you can a
 
 TThe diagram below shows the topology for this scenario.
 
- ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop
-/remote-desktop-web-access-portal1.png)
+ ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal1.png)
 
 In the case above, your users will be authenticated on Azure AD before accessing RDWA. If they have already been authenticated on Azur AD (for example, they are using Office 365) then they do not have to authenticate again for RDWA.
 
@@ -72,8 +68,7 @@ If RDWA needs SSO to the RDP traffic, or RDWA form-based authentication has been
 
 The diagram below shows the topology for this scenario.
 
- ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop
-/remote-desktop-web-access-portal2.png)
+ ![AzureAD Services Local](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal2.png)
 
 In the case above, your users will need to authenticate to RDWA using form-based authentication, but they will not need to authenticate over RDP. 
 
