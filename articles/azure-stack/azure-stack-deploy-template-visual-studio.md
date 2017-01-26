@@ -35,5 +35,6 @@ Use Visual Studio to deploy Azure Resource Manager templates to the Azure Stack 
 
 ## Next steps
 [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
+
 [Develop templates for Azure Stack](azure-stack-develop-templates.md)
 
