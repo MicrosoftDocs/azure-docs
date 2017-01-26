@@ -43,8 +43,7 @@ Select a connector to learn how to build workflows quickly.
 |![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
 |[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
 |[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![API Icon][YouTubeicon]<br/>**YouTube**|
-|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
+|![API Icon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
 
 ### Integration account connectors 
 
