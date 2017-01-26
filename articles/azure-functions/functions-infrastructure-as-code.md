@@ -22,19 +22,19 @@ ms.author: cfowler;glenga
 
 # Automate resource deployment for your Azure Functions app
 
-In this topic, learn how to build an Azure Resource Manager template that deploys an Azure Functions app. Learn how to define the resource baseline that's required for an Azure Functions app, and the parameters that are specified during deployment. Depending on the [triggers and bindings](functions-triggers-bindings.md) in your Functions app, you might need to deploy additional resources to implement your entire application as Infrastructure as Code.
+In this article, you can learn how to build an Azure Resource Manager template that deploys an Azure Functions app. Learn how to define the resource baseline that's required for an Azure Functions app, and the parameters that are specified during deployment. Depending on the [triggers and bindings](functions-triggers-bindings.md) in your Functions app, you might need to deploy additional resources to implement your entire application as Infrastructure as Code.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
-For examples of complete templates, see [Create a Consumption Plan-based Azure Functions app](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) and [Create an App Service Plan-based Azure Functions app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json).
+For examples of complete templates, see [Create a Consumption plan-based Azure Functions app](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) and [Create an App Service plan-based Azure Functions app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json).
 
 ## Required resources
 
-Use the following examples to create a baseline Azure Functions app. You'll need these resources for your Functions app:
+You can use the examples in this article to create a baseline Azure Functions app. You'll need these resources for your Functions app:
 
-* [Azure storage](../storage/index.md) account
+* [Azure Storage](../storage/index.md) account
 * Hosting plan (Consumption plan or App Service plan)
-* Functions app (`Microsoft.Web/Site` of kind **functionapp**)
+* Functions app (`type`: **Microsoft.Web/Site**, `kind`: **functionapp**)
 
 ## Parameters
 
@@ -44,7 +44,7 @@ You can use Azure Resource Manager to define parameters for values that you want
 
 When you define parameters, use the **allowedValues** field to specify which values a user can provide during deployment. To assign a value to the parameter, if no value is provided during deployment, use the **defaultValue** field.
 
-An Azure Resource Manager template uses the following parameters.
+An Azure Resource Manager template uses the following parameters:
 
 ### appName
 
@@ -92,11 +92,11 @@ Where to deploy the Functions app.
     "metadata": {
     "description": "Source code repository URL"
 }
-/*```
+```
 
 ### sourceCodeBranch (optional)
 
-```json*/
+```json
     "sourceCodeBranch": {
       "type": "string",
       "defaultValue": "master",
@@ -120,9 +120,9 @@ Where to deploy the Functions app.
 
 ## Variables
 
-Azure Resource Manager templates use variables to incorporate parameters, to build out more specific settings in your template.
+Azure Resource Manager templates use variables to incorporate parameters, so you can build out more specific settings in your template.
 
-In the next example, to meet Azure storage account [naming requirements](../storage/storage-create-storage-account.md#create-a-storage-account), we use variables to apply [Azure Resource Manager template Functions](../azure-resource-manager/resource-group-template-functions.md) to convert the entered  **appName** value to lowercase.
+In the next example, to meet Azure Storage account [naming requirements](../storage/storage-create-storage-account.md#create-a-storage-account), we use variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to convert the entered **appName** value to lowercase.
 
 ```json
 "variables": {
@@ -135,7 +135,7 @@ In the next example, to meet Azure storage account [naming requirements](../stor
 
 ### Storage account
 
-An Azure storage account is required for an Azure Functions app.
+An Azure Storage account is required for an Azure Functions app.
 
 ```json
 {
@@ -151,7 +151,7 @@ An Azure storage account is required for an Azure Functions app.
 
 ### Hosting plan: Consumption vs. App Service
 
-In some scenarios, you might want your functions to be fully managed scaling. That means they are scaled on-demand by the platform (by using a Consumption hosting plan). Or, you could choose user-managed scaling for your functions. In user-managed scaling, your functions run 24/7 on dedicated hardware (by using an App Service hosting plan). The number of instances can be set manually or automatically. Your hosting plan choice might be based on available features in the plan, or on architecting by cost. To learn more about hosting plans, see [Scaling Azure Functions](functions-scale.md).
+In some scenarios, you might want your functions to be fully managed scaling. That means they are scaled on-demand by the platform (by using a Consumption hosting plan). Or, you might choose user-managed scaling for your functions. In user-managed scaling, your functions run 24/7 on dedicated hardware (by using an App Service hosting plan). The number of instances can be set manually or automatically. Your choice of hosting plan might be based on available features in the plan, or on architecting by cost. To learn more about hosting plans, see [Scaling Azure Functions](functions-scale.md).
 
 #### Consumption plan
 
@@ -189,12 +189,12 @@ In some scenarios, you might want your functions to be fully managed scaling. Th
 
 ### Functions app (a site)
 
-After you've selected a scaling option, you'll create a Functions app, which is the container that holds all your functions.
+After you've selected a scaling option, create a Functions app, which is the container that holds all your functions.
 
-A Functions app has many child resources that you can use in your deployment, including **App Settings** and **Source Control Options**. You also might choose to remove the **sourcecontrols** child resource and use a different [deployment option](functions-continuous-deployment.md) instead.
+A Functions app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource and use a different [deployment option](functions-continuous-deployment.md) instead.
 
 > [!IMPORTANT]
-> To create a successful Infrastructure as Code configuration for your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied using **siteConfig**. It's important to set these configurations at a top level because they convey information to the Azure Functions runtime and deployment engine. The information is  required before the child **sourcecontrols/web** resource is applied. Although you can configure these settings in the child-level **config/appSettings** resource, in some scenarios, your Functions app and functions need to be deployed *before* **config/appsettings** is applied. In those cases, for example, in [Logic Apps](../logic-apps/index.md), your functions are a dependency of another resource.
+> To create a successful Infrastructure as Code configuration for your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied using **siteConfig**. It's important to set these configurations at a top level because they convey information to the Azure Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some scenarios, your Functions app and functions need to be deployed *before* **config/appSettings** is applied. In those cases, for example, in [Logic Apps](../logic-apps/index.md), your functions are a dependency of another resource.
 
 ```json
 {
@@ -249,7 +249,7 @@ A Functions app has many child resources that you can use in your deployment, in
 }
 ```
 > [!TIP]
-> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app setting, which sets the base directory in which the Functions Deployment Engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app setting value to `src`. If your functions are in the root of your repository, or if you are not deploying from source control, you can remove this app setting.
+> This template uses the [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app settings value, which sets the base directory in which the Functions Deployment Engine (Kudu) looks for deployable code. In our repository, our functions are in a subfolder of the **src** folder. So, in the preceding example, we set the app settings value to `src`. If your functions are in the root of your repository, or if you are not deploying from source control, you can remove this app settings value.
 
 ## Deploy your template
 
@@ -260,7 +260,7 @@ A Functions app has many child resources that you can use in your deployment, in
 
 ### Deploy to Azure button
 
-Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL- encoded](https://www.bing.com/search?q=url+encode) version of the raw path of your `azuredeploy.json` file in GitHub.
+Replace ```<url-encoded-path-to-azuredeploy-json>``` with a [URL-encoded](https://www.bing.com/search?q=url+encode) version of the raw path of your `azuredeploy.json` file in GitHub.
 
 #### Markdown
 
@@ -280,4 +280,4 @@ Learn more about how to develop and configure Azure Functions.
 
 * [Azure Functions developer reference](functions-reference.md)
 * [How to configure Azure Functions app settings](functions-how-to-use-azure-function-app-settings.md)
-* [Create your first Azure Function](functions-create-first-azure-function.md)
+* [Create your first Azure function](functions-create-first-azure-function.md)
