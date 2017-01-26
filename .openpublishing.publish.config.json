@@ -47,5 +47,9 @@
 		"path_to_root": "_themes.pdf",
 		"url": "https://github.com/Microsoft/templates.docs.msft.pdf",
 		"branch": "master"
-	}]
+	},
+	{   "path_to_root": "azure-event-hubs-dotnet",
+		"url": "https://github.com/Azure/azure-event-hubs-dotnet.git",
+		"branch": "master"
+    }]
 }
