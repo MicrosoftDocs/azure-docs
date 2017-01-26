@@ -21,7 +21,7 @@ ms.author: mimig
 
 # Connect to DocumentDB using BI analytics tools with the ODBC driver
 
-The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analytics tools such as SQL Server Integration Services, Power BI Desktop and Tableau so that you can analyze and create visualizations of your DocumentDB data in those solutions. 
+The DocumentDB ODBC driver enables you to connect to DocumentDB using BI analytics tools such as SQL Server Integration Services, Power BI Desktop, and Tableau so that you can analyze and create visualizations of your DocumentDB data in those solutions.
 
 The DocumentDB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in DocumentDB. Using the driver, you can represent data in DocumentDB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates, and deletes.
 
@@ -59,7 +59,7 @@ Now lets get started with the ODBC driver.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
     - **Schema File**: You have a number of options here.
         - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher start up time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
-       - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
+        - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
         - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the [Schema Editor](#schema-editor) information. Upon creating the new schema file, please remember to go back to the **Advanced Options** window to include the newly created schema file.
 
 6. Once you complete and close the **DocumentDB ODBC Driver DSN Setup** window, the new User DSN is added to the User DSN tab.
@@ -132,3 +132,7 @@ You can use your new DSN to connect DocumentADB with any ODBC-compliant tools - 
 If you receive the following error, ensure the **Host** and **Access Key** values you copied the Azure portal in [Step 2](#connect) are correct and then retry. Use the copy buttons to the right of the **Host** and **Access Key** values in the Azure portal to copy the values error free.
 
     [HY000]: [Microsoft][DocumentDB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+
+## Next steps
+
+To learn more about DocumentDB, see [What is DocumentDB?](documentdb-introduction.md).
