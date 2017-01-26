@@ -64,7 +64,7 @@ B2B communication involves message exchanges between two running business proces
 
 
 
-3. Selecting AS2 or X12 messages by status takes you to the message list
+3. Selecting AS2 or X12 messages by status takes you to the message list   
 ![Select AS2 message status](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
 | Property | Description |
@@ -72,15 +72,13 @@ B2B communication involves message exchanges between two running business proces
 | Sender | The guest partner configured in the receive settings or the host partner configured in the send settings for an AS2 agreement |
 | Receiver | The host partner configured in the receive settings or the guest partner configured in the send settings for an AS2 agreement |
 | Logic App | Logic App where the AS2 actions configured |
-| Status | AS2 message status.  Success = Received or sent a good AS2 message, no MDN configured;  
-                                Success = Received or sent a good AS2 message, MDN configured and received or sent MDN;
-                                Failed = Received a bad AS2 message, no MDN configured;   
-                                Pending = Received or sent a good AS2 message, MDN configured and expecting a functional ack; |
+| Status | AS2 message status. Success = Received or sent a good AS2 message, no MDN configured; Success = Received or sent a good AS2 message, MDN configured and received or sent MDN; Failed = Received a bad AS2 message, no MDN configured; Pending = Received or sent a good AS2 message, MDN; configured and expecting a functional ack; |
 | Ack | MDN message status |
 | Direction | AS2 message direction |
 | Correlation ID | Id to correlate all the triggers and actions within a Logic App |
 | Message ID |  AS2 message ID, from the headers of the AS2 message |
 | Timestamp | Time at which AS2 action process the message |
+|  |  |
 
 
 ![Select X12 message status](media/logic-apps-track-b2b-messages-omsportal/x12messagelist.png)
@@ -90,20 +88,15 @@ B2B communication involves message exchanges between two running business proces
 | Sender | The guest partner configured in the receive settings or the host partner configured in the send settings for an AS2 agreement |
 | Receiver | The host partner configured in the receive settings or the guest partner configured in the send settings for an AS2 agreement |
 | Logic App | Logic App where the AS2 actions configured |
-| Status | X12 message status. Success = Received or sent a good X12 message, no functional ack configured; 
-                               Success = Received or sent a good X12 message, functional ack configured and received or sent a functional ack;
-                               Failed = Received or sent a bad X12 message; 
-                               Pending: Received or sent a good X12 message, functional ack configured and expecting a functional ack |
-| Ack | Functional Ack (997) status.  Accepted = Received or sent a positive functional ack; 
-                                      Rejected = Received or sent a negative functional ack; 
-                                      Pending = Expecting a functional ack but didn't receive it;
-                                      Pending = Generated a functional ack but couldn't send it to partner  |
+| Status | X12 message status. Success = Received or sent a good X12 message, no functional ack configured; Success = Received or sent a good X12 message, functional ack configured and received or sent a functional ack; Failed = Received or sent a bad X12 message; Pending: Received or sent a good X12 message, functional ack configured and expecting a functional ack |
+| Ack | Functional Ack (997) status.  Accepted = Received or sent a positive functional ack; Rejected = Received or sent a negative functional ack; Pending = Expecting a functional ack but didn't receive it; Pending = Generated a functional ack but couldn't send it to partner |
 | Direction | X12 message direction |
 | Correlation ID | Id to correlate all the triggers and actions within a Logic App |
 | Msg Type |  EDI X12 message type |
 | ICN | Interchange Control Number of the X12 message |
 | TSCN | Transactional Set Control Number of the X12 message |
 | Timestamp | Time at which X12 action process the message |
+| | |
 
 4. Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
 ![Select message status](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
