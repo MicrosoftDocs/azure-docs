@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/29/2017
+ms.date: 01/29/2017
 ms.author: zakramer
 
+---
 # Azure Government Services
 Azure Government is continually expanding the services that are available.  These services are deployed using the same code that is used in Azure Public.  This section documents two key types of information:
 
