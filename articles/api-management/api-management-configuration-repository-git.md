@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-
+ms.author: apipm
 ---
 # How to save and configure your API Management service configuration using Git
 > [!IMPORTANT]

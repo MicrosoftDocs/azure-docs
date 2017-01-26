@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Container Service cluster with Kubernetes | Microsoft Docs
-description: Deploy an Azure Container Service cluster with Kubernetes
+title: Kubernetes cluster quickstart in Azure | Microsoft Docs
+description: Deploy and get started with a Kubernetes cluster in Azure Container Service
 services: container-service
 documentationcenter: ''
 author: anhowe

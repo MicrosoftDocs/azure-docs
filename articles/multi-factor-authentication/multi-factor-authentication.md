@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Overview | Microsoft Docs
+title: Learn about two-step verification in Azure MFA | Microsoft Docs
 description: 'What is Azure Multi-factor Authentication, why use MFA, more information about the Multi-factor Authentication client and the different methods and versions available. '
 keywords: introduction to MFA, mfa overview, what is mfa
 services: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
