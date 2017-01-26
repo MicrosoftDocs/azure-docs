@@ -69,7 +69,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
-* [Operational Insights](#operational-insights-limits)
+* [Operational Insights / Log Analytics](#operational-insights-limits)
 * [Resource Group](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
@@ -231,7 +231,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### Operational Insights limits
+### Operational Insights / Log Analytics limits
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### Backup limits
