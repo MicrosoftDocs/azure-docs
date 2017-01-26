@@ -91,6 +91,7 @@
 ### [Get notifications with Logic Apps](documentdb-change-notification.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
+### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
 
 # Reference
