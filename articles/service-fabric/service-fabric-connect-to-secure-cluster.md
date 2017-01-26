@@ -79,7 +79,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### Connect to a secure cluster using a client certificate
-Run the following PowerShell command to connect to a secure cluster that uses client certificates to authorize administrator access. Provide the cluster certificate thumbprint as well as the thumbprint of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate on the cluster nodes.
+Run the following PowerShell command to connect to a secure cluster that uses client certificates to authorize administrator access. Provide the cluster certificate thumbprint and the thumbprint of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate on the cluster nodes.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -168,7 +168,7 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 The following example uses Azure Active Directory for client identity and server certificate for server identity.
 
-Upon connecting to the cluster, a dialog window will automatically pop up for interactive sign-in.
+A dialog window automatically pops up for interactive sign-in upon connecting to the cluster.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -194,7 +194,7 @@ catch (Exception e)
 
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
-Refer to [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx) for more information on AAD token acquisition.
+For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -249,7 +249,7 @@ static string GetAccessToken(
 
 ### Connect to a secure cluster without prior metadata knowledge using Azure Active Directory
 
-The following example uses non-interactive token acquisition, but the same approach can be used to build a custom interactive token acquisition experience. The Azure Active Directory metadata needed for token acquisition is read from cluster configuration and provided to the client via the ClaimsRetrieval event handler.
+The following example uses non-interactive token acquisition, but the same approach can be used to build a custom interactive token acquisition experience. The Azure Active Directory metadata needed for token acquisition is read from cluster configuration.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -309,7 +309,7 @@ You are automatically be prompted to log in with AAD.
 
 ### Connect to a secure cluster using a client certificate
 
-To connect to a cluster that is secured with certifcates, point your browser to:
+To connect to a cluster that is secured with certificates, point your browser to:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
