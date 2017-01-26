@@ -1,5 +1,5 @@
 ---
-title: How to implement disaster recovery using service backup and restore in Azure API Management | Microsoft Docs
+title: Implement disaster recovery using backup and restore in Azure API Management | Microsoft Docs
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/23/2017
 ms.author: apipm
-
 ---
 # How to implement disaster recovery using service backup and restore in Azure API Management
 By choosing to publish and manage your APIs via Azure API Management you are taking advantage of many fault tolerance and infrastructure capabilities that you would otherwise have to design, implement, and manage. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
