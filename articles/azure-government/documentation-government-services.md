@@ -34,12 +34,12 @@ For the most current list of services, see the [Products by Region](https://azur
 
 ## [Networking](documentation-government-networking.md)
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
-* [BGP communities support](documentation-government-networking#support-for-bgp-communities)
+* [BGP communities support](documentation-government-networking.md#support-for-bgp-communities)
 * Virtual Network
-* [Load Balancer](ocumentation-government-networking#support-for-load-balancer)
+* [Load Balancer](ocumentation-government-networking.md#support-for-load-balancer)
 * Application Gateway
-* [Traffic Manager](documentation-government-networking#support-for-traffic-manger)
-* [VPN Gateway](documentation-government-networking#support-for-vpn-gateway)
+* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
+* [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## [Storage](documentation-government-services-storage.md)
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
@@ -85,7 +85,7 @@ For the most current list of services, see the [Products by Region](https://azur
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Scheduler
-* [Traffic Manager](documentation-government-networking#support-for-traffic-manger)
+* [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger)
 * Monitoring and Diagnostics
 
 ## Next Steps
