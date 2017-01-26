@@ -57,7 +57,7 @@ Creating an Azure Function can be accomplished in the portal by following [Creat
 > [!NOTE]
 > Other languages are provided with Azure functions but may be experimental and not have full support like PowerShell and Python.
 
-## Processing the alert and starting a Packet Capture session
+## Processing the alert and starting a packet capture session
 
 It is now time to make calls into Network Watcher from within the Azure Function. Depending on the requirements, the implementation of this function is different. However, the general flow of the code is as such:
 
@@ -324,7 +324,7 @@ Finally paste the URL from the preceding step in to the webhook textbox on your 
 
 ![pasting the url to the alert rule][3]
 
-## Downloading and viewing the Capture File
+## Downloading and viewing the capture file
 
 If you save your capture to a storage account, then the capture file can be downloaded via the portal or programmatically. If the capture file was stored locally the capture file can be retrieve by logging into the virtual machine. 
 

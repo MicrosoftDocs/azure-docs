@@ -1,5 +1,5 @@
 ---
-title: Saving Network Watcher topology to Visio with PowerShell and REST API | Microsoft Docs
+title: Saving Azure Network Watcher topology to Visio with PowerShell and REST API | Microsoft Docs
 description: This article will describe how to use the REST API to query your network topology and save in a basic Visio diagram.
 services: network-watcher
 documentationcenter: na
@@ -46,7 +46,7 @@ Log in to armclient with your Azure credentials.
 armclient login
 ```
 
-## Retrieve Topology
+## Retrieve topology
 
 The following example requests the topology from the REST API.  The example is parameterized to allow for flexibility in creating an example.  Replace all values with \< \> surrounding them.
 
@@ -58,7 +58,7 @@ $networkWatcherName = "<network watcher name>"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/topology?api-version=2016-07-01" | ConvertFrom-JSON
 ```
 
-## Create Visio Diagram with PowerShell
+## Create Visio diagram with PowerShell
 
 The following code assumes you have the **$response** variable from the previous steps. The code then creates a Visio diagram based on the response information.
 
@@ -117,7 +117,7 @@ The results will look like the following image. While the output is basic, it is
 
 ![Visio diagram][1]
 
-## Next Steps
+## Next steps
 
 Learn more about the security rules that are applied to your network resources by visiting [Security group view overview](network-watcher-security-group-view-overview.md)
 

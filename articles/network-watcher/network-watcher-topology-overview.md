@@ -21,6 +21,8 @@ ms.author: gwallace
 
 The topology feature of Network Watcher represents and graphs network resources in a subscription. Topology helps you **know your network**. This will show containment and association relationships between resources. If it is run through the portal, a visual representation of the topology is shown. If using PowerShell, CLI, or REST for Topology, a collection of objects and associations are returned. These objects can be mapped to objects in a tool of your choice to represent the topology graphically.
 
+## Overview
+
 The topology view returns resources and how they are related to networking resources including but not limited to Network Security Groups (NSG) that are applied to the resources.
 
 The following are properties that are returned when querying the Topology REST API.
@@ -268,7 +270,7 @@ hdzsjq7jvsy-2-yh2nfml56dvqq",
 }
 ```
 
-## Next Steps
+## Next steps
 
 Learn how to use the Azure REST API to retrieve the Topology view by visiting [Create Visio diagram based on Topology, REST API and PowerShell](network-watcher-topology-visio-rest.md)
 

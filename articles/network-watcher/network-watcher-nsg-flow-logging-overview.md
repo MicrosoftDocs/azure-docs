@@ -22,6 +22,8 @@ ms.author: gwallace
 
 NSG flow logs, which are a feature of Network Watcher allow you to view information about ingress and egress IP traffic on Network Security Groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5 tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
+## Overview
+
 This log is enabled from diagnostics within a Network Security Group. To learn more about overall diagnostic logging on Network Security groups and how to enable the log visit [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
 
 The following list is a listing of the properties that are returned within the NSG flow log:
@@ -73,7 +75,7 @@ The following is an example of the results in the NSG flow event log.
 		},
 ```
 
-## Next Steps
+## Next steps
 
 Learn to audit your NSG settings by visiting [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing.md).
 

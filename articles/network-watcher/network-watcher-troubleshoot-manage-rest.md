@@ -99,7 +99,7 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### Query the Async Operation for completion
+### Query the async operation for completion
 
 Use the operations URI to query for the progress of the operation as seen in the following example:
 
@@ -227,7 +227,7 @@ Date: Thu, 12 Jan 2017 18:32:01 GMT
 null
 ```
 
-### Query the Async Operation for completion
+### Query the async operation for completion
 
 Use the operations URI to query for the progress of the operation as seen in the following example:
 
@@ -346,6 +346,6 @@ The following table shows the different fault types (id under results from the p
 |IkePolicyMismatch|No|Yes|
 |WfpParse Error|No|Yes|
 
-## Next Steps
+## Next steps
 
 If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/virtual-network-manage-nsg-arm-portal.md) to track down the network security group and security rules that may be in question.
