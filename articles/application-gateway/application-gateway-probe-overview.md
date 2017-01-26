@@ -35,9 +35,6 @@ For example: You configure your application gateway to use back-end servers A, B
 
 If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
-> [!important]
-> The port range 65503-65534 must be open for the backend health probes to work properly.
-
 ### Default health probe settings
 
 | Probe property | Value | Description |
