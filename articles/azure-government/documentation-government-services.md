@@ -84,7 +84,7 @@ For the most current list of services, see the [Products by Region](https://azur
 * [Backup](documentation-government-services-backup.md) 
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Scheduler
+* Scheduler (PowerShell only)
 * Traffic Manager
 * Monitoring and Diagnostics
 
