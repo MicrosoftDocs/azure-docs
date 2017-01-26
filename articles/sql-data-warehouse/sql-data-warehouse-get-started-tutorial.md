@@ -1,11 +1,11 @@
 ---
-title: Azure SQL Data Warehouse - Get started tutorial | Microsoft Docs
-description: Get Started Tutorial with Azure SQL Data Warehouse.
+title: Azure SQL Data Warehouse - get started tutorial | Microsoft Docs
+description: This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. 
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 'barbkess'
+editor: barbkess
 
 ms.assetid: 52DFC191-E094-4B04-893F-B64D5828A900
 ms.service: sql-data-warehouse
@@ -13,20 +13,19 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 12/21/2016
-ms.author: elbutter
+ms.date: 01/20/2017
+ms.author: elbutter;barbkess
 
 ---
 # Get started with SQL Data Warehouse
 
-Get Started Tutorial with Azure SQL Data Warehouse. This tutorial teaches you the basics 
-of provisioning and loading data into a SQL Data Warehouse, as well as some basics on scaling, 
-pausing, and tuning. 
+This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. When you’re finished you’ll be ready to query and explore your data warehouse.
 
-**Estimated time to complete:** 75 minutes
+**Estimated time to complete:** This is an end-to-end tutorial with example code that will take about 75 minutes to complete. This includes creating an account and installing the SQL driver tools.
 
 ## Prerequisites
 
+The tutorial assumes you are familiar with SQL Data Warehouse. If you need an introduction, see [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
 
 ### Sign up for Microsoft Azure
 If you don't already have a Microsoft Azure account, you must sign up for one to use this service. If you already have an account, you may skip this step. 
@@ -37,25 +36,28 @@ If you don't already have a Microsoft Azure account, you must sign up for one to
 
 ### Install appropriate SQL Client Driver and tools
 
-Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL Data Warehouse supports, not every client application may be fully compatible 
-with SQL Data Warehouse.
+Most SQL client tools can connect to SQL Data Warehouse by using JDBC, ODBC, or ADO.NET. Due to the large number of T-SQL features that SQL Data Warehouse supports, some client applications are not fully compatible with SQL Data Warehouse.
 
-If you are running a Windows Operating System, we recommend using either [Visual Studio] or [SQL Server Management Studio].
+If you are running a Windows operating system, we recommend using either [Visual Studio] or [SQL Server Management Studio].
 
+
+### Create a logical SQL server
 
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Create an Azure SQL Data Warehouse
+## Create a SQL data warehouse
+
+A SQL data warehouse is a special type of database that is designed for massively parallel processing. The database is distributed across multiple nodes and processes queries in parallel. SQL Data Warehouse has a control node that orchestrates the activities of all the nodes. The nodes themselves use SQL Database to manage your data.  
 
 > [!NOTE]
-> Creating a SQL Data Warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a SQL data warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
+### Create a data warehouse
 
-### Create a SQL Data Warehouse
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign into the [Azure portal](https://portal.azure.com).
 2. Click **New** > **Databases** > **SQL Data Warehouse**.
 
     ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
@@ -63,100 +65,95 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 3. Fill out deployment details
 
-    **Database Name**: Pick anything you'd like. If you have multiple SQL DW instances, we recommend your names include details such as its region, environment, etc., 
+    **Database Name**: Pick anything you'd like. If you have multiple data warehouses, we recommend your names include details such as the region, environment, etc., 
     e.g. *mydw-westus-1-test*
 
-    **Subscription**: Your Azure Subscription
+    **Subscription**: Your Azure subscription
 
-    **Resource Group**: Create new (or use existing if you plan on using your Azure SQL Data Warehouse with other services)
+    **Resource Group**: Create new (or use existing if you plan on using your data warehouse with other SQL databases.)
     > [!NOTE]
-    > Services within a resource group should have the same lifecycle. Resource groups are useful for resource
-    > administration such as scoping access control and templated deployment. 
-    > Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
-    >
+    > Resource groups are useful for resource administration such as scoping access control and templated deployment. Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
     **Source**: Blank Database
 
     **Server**: Select the server you created in [Prerequisites].
 
-    **Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS
+    **Collation**: Leave the default collation SQL_Latin1_General_CP1_CI_AS.
 
-    **Select performance**: We recommend using staying with the standard 400DWU
+    **Select performance**: We recommend starting with the standard 400DWU.
 
 4. Choose **Pin to dashboard**
     ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
-5. Sit back and wait for your Azure SQL Data Warehouse to deploy! It's normal for this process to take several minutes. 
-The portal will notify you when your instance is done deploying. 
+5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. 
+The portal will notify you when your data warehouse is ready to use. 
 
-## Connect to Azure SQL Data Warehouse through SQL Server (logical server)
+## Connect to SQL Data Warehouse with SSMS
 
-This tutorial uses SQL Server Management Studio to connect to our SQL Data Warehouse. Other tools can be used to connect 
-to SQL Data Warehouse through our supported connectors: ADO.NET, JDBC, ODBC, and PHP. Bear in mind, functionality may be limited for 
-tools not supported by Microsoft.
+This tutorial uses SQL Server Management Studio (SSMS) to connect to the data warehouse. You can connect to SQL Data Warehouse through these supported connectors: ADO.NET, JDBC, ODBC, and PHP. Remember, functionality might be limited for tools that are not supported by Microsoft.
 
 
 ### Get connection information
 
-To connect to your SQL Data Warehouse, you must connect through the SQL Server (logical server) you created 
-in [Prerequisites].
+To connect to your data warehouse, you need to connect through the logical SQL server you created in [Prerequisites].
 
-1. Select your SQL Data Warehouse from the dashboard or search for it in your resources.
+1. Select your data warehouse from the dashboard or search for it in your resources.
 
     ![SQL Data Warehouse Dashboard](./media/sql-data-warehouse-get-started-tutorial/sql-dw-dashboard.png)
 
-2. Find the full name for the logical server.
+2. Find the full name for the logical SQL server.
 
     ![Select Server Name](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. Open SSMS and use object explorer to connect to this server using the credentials you created in [Prerequisites]
+3. Open SSMS and use object explorer to connect to this server using the server admin credentials you created in [Prerequisites]
 
     ![Connect with SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
-If all goes correctly, you should now be connected to your SQL Server (logical server) instance. You can use server 
-credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
-create separate logins and users for each database. We shall explore user creation in [Create a User for SQL Data Warehouse](./sql-data-warehouse-get-started-tutorial.md#create-a-user-for-sql-data-warehouse). 
+If all goes correctly, you should now be connected to your logical SQL server. Since you logged in as the server admin, you can connect to any database hosted by the server, including the master database. 
 
-## Create a user for SQL Data Warehouse
+There is only one server admin account and it has the most privileges of any user, so be careful not to allow very many people in your organization to know the admin password. 
 
-### Why create a separate user?
+You can also have an Azure active directory admin account. We don't go into the details of that here. If you want to learn more about using Azure Active Directory authentication, see [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
-We use the connection to the SQL Server (logical server), with server credentials from the previous step, 
-to create a new user for our SQL Data Warehouse. There are two primary reasons why you may want to create a separate 
-user/login for your SQL DW.
+Next, we will explore creating additional logins and users.
 
-1.  Your organization’s users should use a different account to authenticate. 
-This way you can limit the permissions granted to the application and reduce 
-the risks of malicious activity.
 
-2. By default, the server administrator login that you're currently connected with uses a smaller 
-resource class. Resource classes help you control memory allocation and CPU cycles given to a query. 
-Users in **smallrc** are given a smaller amount of memory and can take advantage of higher concurrency. 
-In contrast, users assigned to **xlargerc** are given large amounts of memory, and therefore fewer of their queries can run concurrently. 
-For loading data in a way that best optimizes compression, you want to make sure the user loading data 
-is part of a larger resource class. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+## Create a new user account to access your data warehouse
 
-### Creating a user of a larger resource class
+In this step, you create a new user account to access your data warehouse. We will also show you how to give that user the ability to run queries with a large amount of memory and CPU resources.
 
-1. Query the **master** database of your server
+### Notes about resource classes for allocating resources to queries
+
+- A best practice, you should not use the server admin to run queries on your production databases. It has the most privileges of any user and therefore over-using it will put your data at risk. Also, since the server admin is meant to perform management operations, it runs operations with only a small allocation of memory and CPU resources. 
+
+- SQL Data Warehouse provides a way to allocate different amounts of memory and CPU resources to queries. This key performance feature uses pre-defined resource classes. Each user can belong to a small, medium, large, or extra large resource class. A database user's resource class membership determines the resources the user has when it runs queries and load operations.
+
+- For loading data in a way that best optimizes compression, the user loading data usually needs large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+
+### Create a new account that can control a database
+
+Since you are currently logged in as the server admin you have permissions to create new logins and users.
+
+2. Using SSMS or another query client, open a new query for **master**.
 
     ![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![New Query on Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Create a server login and user
+2. In the query window, run this T-SQL command to create a login named XLRCLOGIN. This login can connect to the logical SQL server.
 
     ```sql
     CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-3. Querying the SQL DataWarehouse database, create a new database user based on the server login 
+3. Create a database user the XLRCLOGIN login can use to access and perform operations on databases.
+
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-4. Grant user DB control
+4. Give the database user control permissions to the database called NYT. 
+
     ```sql
     GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
     ```
@@ -164,346 +161,374 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     > If your database name has hyphens in it, be sure to wrap it in brackets! 
     >
 
-5. Add your database user to the **xlargerc** resource class role
+### Give the new user extra large resource allocations
+
+5. So that your database user can have the resources it needs to load data, run this T-SQL command to make it a member of the extra large resource class, which is called xlargerc. 
+
     ```sql
     EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
     ```
 
-6. Log in to your database with your new credentials
+6. Connect to the logical server with your new credentials
 
     ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## Loading data
+## Load data from Azure blob storage
 
-### Defining external data
-1. Create a Master Key and define an external data source
+You are now ready to load data into your data warehouse. This step shows you how to load New York City taxi cab data from a public Azure storage blob. To load the data we will define the Azure blob as an external data source and then import the data by using an external table.
+
+- A common way to load data into a SQL data warehouse is to first move the data to Azure blob storage, and then load it into your data warehouse. To make it easier to understand how to load, we have New York taxi cab data already hosted in a public Azure storage blob. 
+
+- For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+
+
+### Define external data
+
+1. Create a master key. You only need to do this once per database. 
 
     ```sql
     CREATE MASTER KEY;
+    ```
+
+2. Define the location of the Azure blob that contains the taxi cab data. To do this, create an object called an external data source. 
 
     CREATE EXTERNAL DATA SOURCE NYTPublic
     WITH
     (
-    TYPE = Hadoop
-    , LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        TYPE = Hadoop,
+        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
     );
     ```
-
 
 2. Define the external file formats
 
     The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
-    format of the external data that you are loading from. For the New York public taxi data, we’ve used the
-    two formats for storing the data in Azure Blob Storage
+    format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
+
+	Run these two T-SQL command to define two different formats: uncompressed and compressed.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
-    WITH
-    ( FORMAT_TYPE = DELIMITEDTEXT
-    , FORMAT_OPTIONS ( FIELD_TERMINATOR = ','
-    , STRING_DELIMITER = ''
-    , DATE_FORMAT = ''
-    , USE_TYPE_DEFAULT = False
-    )
+    WITH (
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( 
+            FIELD_TERMINATOR = ',',
+            STRING_DELIMITER = '',
+            DATE_FORMAT = '',
+            USE_TYPE_DEFAULT = False
+        )
     );
 
     CREATE EXTERNAL FILE FORMAT compressedcsv
-    WITH
-    ( FORMAT_TYPE = DELIMITEDTEXT
-    , FORMAT_OPTIONS ( FIELD_TERMINATOR = '|'
-    , STRING_DELIMITER = ''
-    , DATE_FORMAT = ''
-    , USE_TYPE_DEFAULT = False
-    )
-    , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+    WITH ( 
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
+            STRING_DELIMITER = ''DATE_FORMAT = '',
+            USE_TYPE_DEFAULT = False
+        ),
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
     );
     ```
 
-3.  Create a schema for your external file format
+3.  Create a schema for your external file format. 
 
     ```sql
     CREATE SCHEMA ext;
-    GO
     ```
 
-4. Create the external tables. These tables reference data stored in HDFS or Azure blob storage. 
+4. Create the external tables. An external table defines the format of the data and points to the location of the actual data. The structure of the table is stored in SQL Data Warehouse as metadata, and the actual data is stored in Azure blob storage. Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
-    [DateID] int NOT NULL,
-    [Date] datetime NULL,
-    [DateBKey] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DaySuffix] varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfWeek] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfWeekInMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfWeekInYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfQuarter] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DayOfYear] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [WeekOfMonth] varchar(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [WeekOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [WeekOfYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Month] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MonthName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MonthOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Quarter] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [QuarterName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Year] char(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [YearName] char(7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MonthYear] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [MMYYYY] char(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [FirstDayOfMonth] date NULL,
-    [LastDayOfMonth] date NULL,
-    [FirstDayOfQuarter] date NULL,
-    [LastDayOfQuarter] date NULL,
-    [FirstDayOfYear] date NULL,
-    [LastDayOfYear] date NULL,
-    [IsHolidayUSA] bit NULL,
-    [IsWeekday] bit NULL,
-    [HolidayUSA] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [DateID] int NOT NULL,
+        [Date] datetime NULL,
+        [DateBKey] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DaySuffix] varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfWeek] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfWeekInMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfWeekInYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfQuarter] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DayOfYear] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [WeekOfMonth] varchar(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [WeekOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [WeekOfYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Month] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MonthName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MonthOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Quarter] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [QuarterName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Year] char(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [YearName] char(7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MonthYear] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [MMYYYY] char(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FirstDayOfMonth] date NULL,
+        [LastDayOfMonth] date NULL,
+        [FirstDayOfQuarter] date NULL,
+        [LastDayOfQuarter] date NULL,
+        [FirstDayOfYear] date NULL,
+        [LastDayOfYear] date NULL,
+        [IsHolidayUSA] bit NULL,
+        [IsWeekday] bit NULL,
+        [HolidayUSA] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'Date'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Date',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
+
+
     CREATE EXTERNAL TABLE [ext].[Geography]
     (
-    [GeographyID] int NOT NULL,
-    [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [County] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [City] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [State] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [Country] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [ZipCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [GeographyID] int NOT NULL,
+        [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [County] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [City] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [State] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [Country] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [ZipCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'Geography'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0 
+        LOCATION = 'Geography',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0 
     )
     ;
+    
+
     CREATE EXTERNAL TABLE [ext].[HackneyLicense]
     (
-    [HackneyLicenseID] int NOT NULL,
-    [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [HackneyLicenseCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [HackneyLicenseID] int NOT NULL,
+        [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [HackneyLicenseCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'HackneyLicense'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'HackneyLicense',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+    
+
     CREATE EXTERNAL TABLE [ext].[Medallion]
     (
-    [MedallionID] int NOT NULL,
-    [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [MedallionCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+        [MedallionID] int NOT NULL,
+        [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [MedallionCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
     )
     WITH
     (
-    LOCATION = 'Medallion'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Medallion',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+
+
     CREATE EXTERNAL TABLE [ext].[Time]
     (
-    [TimeID] int NOT NULL,
-    [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [HourNumber] tinyint NOT NULL,
-    [MinuteNumber] tinyint NOT NULL,
-    [SecondNumber] tinyint NOT NULL,
-    [TimeInSecond] int NOT NULL,
-    [HourlyBucket] varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
-    [DayTimeBucketGroupKey] int NOT NULL,
-    [DayTimeBucket] varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+        [TimeID] int NOT NULL,
+        [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [HourNumber] tinyint NOT NULL,
+        [MinuteNumber] tinyint NOT NULL,
+        [SecondNumber] tinyint NOT NULL,
+        [TimeInSecond] int NOT NULL,
+        [HourlyBucket] varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+        [DayTimeBucketGroupKey] int NOT NULL,
+        [DayTimeBucket] varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
     )
     WITH
     (
-    LOCATION = 'Time'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Time',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value
+        REJECT_VALUE = 0
     )
     ;
+
+
     CREATE EXTERNAL TABLE [ext].[Trip]
     (
-    [DateID] int NOT NULL,
-    [MedallionID] int NOT NULL,
-    [HackneyLicenseID] int NOT NULL,
-    [PickupTimeID] int NOT NULL,
-    [DropoffTimeID] int NOT NULL,
-    [PickupGeographyID] int NULL,
-    [DropoffGeographyID] int NULL,
-    [PickupLatitude] float NULL,
-    [PickupLongitude] float NULL,
-    [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [DropoffLatitude] float NULL,
-    [DropoffLongitude] float NULL,
-    [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [PassengerCount] int NULL,
-    [TripDurationSeconds] int NULL,
-    [TripDistanceMiles] float NULL,
-    [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-    [FareAmount] money NULL,
-    [SurchargeAmount] money NULL,
-    [TaxAmount] money NULL,
-    [TipAmount] money NULL,
-    [TollsAmount] money NULL,
-    [TotalAmount] money NULL
+        [DateID] int NOT NULL,
+        [MedallionID] int NOT NULL,
+        [HackneyLicenseID] int NOT NULL,
+        [PickupTimeID] int NOT NULL,
+        [DropoffTimeID] int NOT NULL,
+        [PickupGeographyID] int NULL,
+        [DropoffGeographyID] int NULL,
+        [PickupLatitude] float NULL,
+        [PickupLongitude] float NULL,
+        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DropoffLatitude] float NULL,
+        [DropoffLongitude] float NULL,
+        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [PassengerCount] int NULL,
+        [TripDurationSeconds] int NULL,
+        [TripDistanceMiles] float NULL,
+        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FareAmount] money NULL,
+        [SurchargeAmount] money NULL,
+        [TaxAmount] money NULL,
+        [TipAmount] money NULL,
+        [TollsAmount] money NULL,
+        [TotalAmount] money NULL
     )
     WITH
     (
-    LOCATION = 'Trip2013'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = compressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Trip2013',
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = compressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
+    
+
     CREATE EXTERNAL TABLE [ext].[Weather]
     (
-    [DateID] int NOT NULL,
-    [GeographyID] int NOT NULL,
-    [PrecipitationInches] float NOT NULL,
-    [AvgTemperatureFahrenheit] float NOT NULL
+        [DateID] int NOT NULL,
+        [GeographyID] int NOT NULL,
+        [PrecipitationInches] float NOT NULL,
+        [AvgTemperatureFahrenheit] float NOT NULL
     )
     WITH
     (
-    LOCATION = 'Weather2013'
-    , DATA_SOURCE = NYTPublic
-    , FILE_FORMAT = uncompressedcsv
-    , REJECT_TYPE = value
-    , REJECT_VALUE = 0
+        LOCATION = 'Weather2013'
+        DATA_SOURCE = NYTPublic,
+        FILE_FORMAT = uncompressedcsv,
+        REJECT_TYPE = value,
+        REJECT_VALUE = 0
     )
     ;
     ```
 
-### Create Table as Select (CTAS)
+### Use Create Table as Select (CTAS) to import data from Azure blob storage.
 
-5. Load your data from external tables into your SQL Data Warehouse instance. 
+5. Import the tables into your data warehouse. SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+ 
     ```sql
     CREATE TABLE [dbo].[Date]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Date]
+    AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
+    
+
     CREATE TABLE [dbo].[Geography]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
     AS
-    SELECT *
-    FROM [ext].[Geography]
+    SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
+
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[HackneyLicense]
+    AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
+
     CREATE TABLE [dbo].[Medallion]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Medallion]
+    AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
+
     CREATE TABLE [dbo].[Time]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Time]
+    AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
+
     CREATE TABLE [dbo].[Weather]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    ( 
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Weather]
+    AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
+
     CREATE TABLE [dbo].[Trip]
     WITH
-    ( DISTRIBUTION = ROUND_ROBIN
-    , CLUSTERED COLUMNSTORE INDEX
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
     )
-    AS
-    SELECT *
-    FROM [ext].[Trip]
+    AS SELECT * FROM [ext].[Trip]
     OPTION (LABEL = 'CTAS : Load [dbo].[Trip]')
     ;
     ```
 
-    > [!NOTE]
-    > You’re loading several GBs of data and compressing it into highly performant Cluster Columnstore Indexes. Run
-    > the DMV query following and then grab a coffee or snack while Azure SQL Data Warehouse does some heavy lifting.
-    >
 
-6. Create a new query and watch as your data comes in with this Dynamic Management View (DMV)
+6. Use a Dynamic Management View to watch as your data is loaded
 
+   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a Dynamic Management Views (DMV) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting. Cluster Columnstore Indexes. 
+    
+   
     ```sql
     SELECT
-    r.command,
-    s.request_id,
-    r.status,
-    count(distinct input_name) as nbr_files,
-    sum(s.bytes_processed)/1024/1024 as gb_processed
-    FROM
-    sys.dm_pdw_exec_requests r
-    inner join sys.dm_pdw_dms_external_work s
-    on r.request_id = s.request_id
+        r.command,
+        s.request_id,
+        r.status,
+        count(distinct input_name) as nbr_files,
+        sum(s.bytes_processed)/1024/1024 as gb_processed
+    FROM 
+        sys.dm_pdw_exec_requests r
+        INNER JOIN sys.dm_pdw_dms_external_work s
+        ON r.request_id = s.request_id
     WHERE
-    r.[label] = 'CTAS : Load [dbo].[Date]' OR
-    r.[label] = 'CTAS : Load [dbo].[Geography]' OR
-    r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
-    r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
-    r.[label] = 'CTAS : Load [dbo].[Time]' OR
-    r.[label] = 'CTAS : Load [dbo].[Weather]' OR
-    r.[label] = 'CTAS : Load [dbo].[Trip]'
+        r.[label] = 'CTAS : Load [dbo].[Date]' OR
+        r.[label] = 'CTAS : Load [dbo].[Geography]' OR
+        r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
+        r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
+        r.[label] = 'CTAS : Load [dbo].[Time]' OR
+        r.[label] = 'CTAS : Load [dbo].[Weather]' OR
+        r.[label] = 'CTAS : Load [dbo].[Trip]'
     GROUP BY
-    r.command,
-    s.request_id,
-    r.status
+        r.command,
+        s.request_id,
+        r.status
     ORDER BY
-    nbr_files desc, gb_processed desc;
+        nbr_files desc, 
+        gb_processed desc;
     ```
 
 7. View all system queries
@@ -517,16 +542,19 @@ is part of a larger resource class. Read more about resource classes [here](./sq
     ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
+## Improve query performance
 
-## Querying data 
+There are several ways to improve query performance and to achieve the high-speed performance that SQL Data warehouse is designed to provide.  
 
-### Scan query with scaling
+### See the effect of scaling on query performance 
 
-Let's get a good idea of how scaling affects the speed of your queries.
+One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
 
-Before we begin, let's scale our operation down to 100 DWUs so we can get an idea of how one compute node might perform on its own.
+In this step, you compare performance at two different DWU settings.
 
-1. Go to the portal and select your SQL Data Warehouse instance
+First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+
+1. Go to the portal and select your SQL data warehouse.
 
 2. Select scale in the SQL Data Warehouse blade. 
 
@@ -539,11 +567,10 @@ Before we begin, let's scale our operation down to 100 DWUs so we can get an ide
 4. Wait for your scale operation to finish.
 
     > [!NOTE]
-    > Please note, scaling operations **kill** your currently running queries and prevent new ones from being run.
+    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager
- to move on quickly, feel free to select fewer rows.
+5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
@@ -551,53 +578,52 @@ Before we begin, let's scale our operation down to 100 DWUs so we can get an ide
 
 Take note of the time it took to run this operation.
 
-6. Scale up your instance to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
 
 7. Run the query again! You should notice a significant difference. 
 
 > [!NOTE]
-> Azure SQL Data Warehouse is a Massively Parallel Processing (MPP) platform. Queries and
-> operations that can parallelize work among various nodes experience the true power of
+> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
 > Azure SQL Data Warehouse.
 >
 
-### Join query with statistics
+### See the effect of statistics on query performance
 
 1. Run a query that joins the Date table with the Trip table
 
     ```sql
-    SELECT TOP (1000000) dt.[DayOfWeek]
-    ,tr.[MedallionID]
-    ,tr.[HackneyLicenseID]
-    ,tr.[PickupTimeID]
-    ,tr.[DropoffTimeID]
-    ,tr.[PickupGeographyID]
-    ,tr.[DropoffGeographyID]
-    ,tr.[PickupLatitude]
-    ,tr.[PickupLongitude]
-    ,tr.[PickupLatLong]
-    ,tr.[DropoffLatitude]
-    ,tr.[DropoffLongitude]
-    ,tr.[DropoffLatLong]
-    ,tr.[PassengerCount]
-    ,tr.[TripDurationSeconds]
-    ,tr.[TripDistanceMiles]
-    ,tr.[PaymentType]
-    ,tr.[FareAmount]
-    ,tr.[SurchargeAmount]
-    ,tr.[TaxAmount]
-    ,tr.[TipAmount]
-    ,tr.[TollsAmount]
-    ,tr.[TotalAmount]
+    SELECT TOP (1000000) 
+        dt.[DayOfWeek],
+        tr.[MedallionID],
+        tr.[HackneyLicenseID],
+        tr.[PickupTimeID],
+        tr.[DropoffTimeID],
+        tr.[PickupGeographyID],
+        tr.[DropoffGeographyID],
+        tr.[PickupLatitude],
+        tr.[PickupLongitude],
+        tr.[PickupLatLong],
+        tr.[DropoffLatitude],
+        tr.[DropoffLongitude],
+        tr.[DropoffLatLong],
+        tr.[PassengerCount],
+        tr.[TripDurationSeconds],
+        tr.[TripDistanceMiles],
+        tr.[PaymentType],
+        tr.[FareAmount],
+        tr.[SurchargeAmount],
+        tr.[TaxAmount],
+        tr.[TipAmount],
+        tr.[TollsAmount],
+        tr.[TotalAmount],
     FROM [dbo].[Trip] as tr
-    join
-    dbo.[Date] as dt
-    on tr.DateID = dt.DateID
+        JOIN dbo.[Date] as dt
+        ON  tr.DateID = dt.DateID
     ```
 
-    As you might expect, the query takes much longer when you shuffle data among the nodes, especially in a join scenario like this query.
+ This query takes a while because of the join. SQL Data Warehouse has to move data amongst the nodes so it can return accurate results from the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
 
-2. Let's see how this query differs when we create statistics on the column we're joining by running the following:
+2. Statistics make a difference. Run this statement to create statistics on the join columns.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
