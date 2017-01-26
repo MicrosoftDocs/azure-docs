@@ -1,20 +1,19 @@
 ---
 title: Azure Government Services | Microsoft Docs
 description: Provides an overview of the available services in Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: zakramer
 manager: liki
-editor: ''
 
-ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.assetid: 
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 12/29/2017
 ms.author: zakramer
 
 ---
@@ -34,12 +33,13 @@ For the most current list of services, see the [Products by Region](https://azur
 * Cloud Services
 
 ## [Networking](documentation-government-networking.md)
-* Virtual Network
-* Load Balancer
-* Application Gateway
-* VPN Gateway
-* Traffic Manager
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [BGP communities support](documentation-government-networking#support-for-bgp-communities)
+* Virtual Network
+* [Load Balancer](ocumentation-government-networking#support-for-load-balancer)
+* Application Gateway
+* [Traffic Manager](documentation-government-networking#support-for-traffic-manger)
+* [VPN Gateway](documentation-government-networking#support-for-vpn-gateway)
 
 ## [Storage](documentation-government-services-storage.md)
 * [Azure Storage](documentation-government-services-storage.md#azure-storage)
@@ -85,7 +85,7 @@ For the most current list of services, see the [Products by Region](https://azur
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Scheduler
-* Traffic Manager
+* [Traffic Manager](documentation-government-networking#support-for-traffic-manger)
 * Monitoring and Diagnostics
 
 ## Next Steps
