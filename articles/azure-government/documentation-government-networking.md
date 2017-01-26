@@ -58,11 +58,11 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 
 For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you will have access to all Microsoft cloud services hosted in AzureGov.
 
-Refer to the [ExpressRoute partners and peering locations](/expressroute/expressroute-locations.md) page for a detailed list of ExpressRoute for AzureGov peering locations.
+Refer to the "Overview" tab on [ExpressRoute public documentation](../expressroute/index.md) for details on locations and partners, and a detailed list of ExpressRoute for AzureGov peering locations.
 
 You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](/expressroute/expressroute-optimize-routing.md).
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details refer to the "Get started" tab on [ExpressRoute public documentation](../expressroute/index.md) and click on "Optimize routing."
 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |
