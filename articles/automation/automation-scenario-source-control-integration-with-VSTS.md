@@ -19,7 +19,7 @@ ms.author: eamono
 # Azure Automation scenario - Automation source control integration with Visual Studio Team Services
 
 In this scenario, you will have a Visual Studio Team Services project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
-This article describes how to set up this configuration in your Azure Automation environment so that continuous integration happens for each check in.
+This article describes how to integrate VSTS with your Azure Automation environment so that continuous integration happens for each check in.
 
 ## Step 1:
 Create a personal access token in VSTS that you will use to sync the runbooks or configurations into your automation account.
