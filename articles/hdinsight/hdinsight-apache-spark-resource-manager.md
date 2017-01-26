@@ -1,6 +1,6 @@
 ---
-title: Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Docs
-description: Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance.
+title: Manage resources for Apache Spark cluster on Azure HDInsight| Microsoft Docs
+description: Learn how to use manage resources for Spark clusters on Azure HDInsight for better performance.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -18,8 +18,7 @@ ms.date: 01/03/2017
 ms.author: nitinme
 
 ---
-# Manage resources for the Apache Spark cluster on HDInsight 
-
+# Manage resources for Apache Spark cluster on Azure HDInsight 
 
 In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
 

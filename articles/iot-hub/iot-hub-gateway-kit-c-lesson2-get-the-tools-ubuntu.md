@@ -1,5 +1,5 @@
 ---
-title: Get your host computer and Azure IoT hub ready | Microsoft Docs
+title: 'SensorTag device & Azure IoT Gateway - Lesson 2: Get tools (Ubuntu) | Microsoft Docs'
 description: Install the tools and the software on your host computer running Ubuntu, create an IoT hub and register your device in the IoT hub.
 services: iot-hub
 documentationcenter: ''
