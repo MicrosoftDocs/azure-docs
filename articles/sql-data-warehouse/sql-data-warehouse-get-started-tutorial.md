@@ -239,7 +239,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 4. Create the external tables. An external table defines the format of the data and points to the location of the actual data. The structure of the table is stored in SQL Data Warehouse as metadata, and the actual data is stored in Azure blob storage. Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
-    ```sql
+```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -422,7 +422,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 5. Import the tables into your data warehouse. SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
  
-    ```sql
+```sql
     CREATE TABLE [dbo].[Date]
     WITH
     ( 
@@ -503,7 +503,7 @@ You are now ready to load data into your data warehouse. This step shows you how
    You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a Dynamic Management Views (DMV) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting. Cluster Columnstore Indexes. 
     
    
-    ```sql
+```sql
     SELECT
         r.command,
         s.request_id,
@@ -533,7 +533,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 7. View all system queries
 
-    ```sql
+```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 

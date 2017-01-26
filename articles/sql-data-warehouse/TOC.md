@@ -6,7 +6,7 @@
 
 # Get Started
 
-## [Beginner tutorial](sql-data-warehouse-get-started-tutorial)
+## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
