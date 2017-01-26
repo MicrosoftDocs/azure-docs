@@ -212,6 +212,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 	```PowerShell
 	New-AzureRmDataFactoryDataset $df -File .\InputTable.json
 	```
+
 ### Create output dataset
 Now, you create the output dataset to represent the output data stored in the Azure Blob storage.
 
