@@ -3,7 +3,7 @@ title: Backup Stretch-enabled databases | Microsoft Docs
 description: Learn how to back up Stretch\-enabled databases.
 services: sql-server-stretch-database
 documentationcenter: ''
-author: anvang
+author: Antvgski
 manager: johnmac
 editor: 'douglasl'
 
