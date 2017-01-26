@@ -30,7 +30,7 @@ Create a secure variable in your automation account to hold the token.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 ## Step 3:
-Import the runbook that will sync your runbooks or configurations into the automation account. You can get the [sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) from the PowerShellGallery.com and deploy to your automation account.
+Import the runbook that will sync your runbooks or configurations into the automation account. You can use the [VSTS sample runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) or the [VSTS with Git sample runbook] (https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) from the PowerShellGallery.com depending on if you use VSTS source control or VSTS with Git and deploy to your automation account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
@@ -38,8 +38,11 @@ You can now publish this runbook so you can create a webhook.
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 ## Step 4:
 Create a webhook for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you will need it for a service hook in VSTS. The VSAccessTokenVariableName is the name of the secure variable you created earlier to hold the personal access token. 
-
+Integrating with VSTS will take the following parameters.
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSWebhook.png)
+
+Integrating with VSTS with GIT will take the following parameters.
+![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 ## Step 5:
 Create a service hook in VSTS for check ins to the folder that triggers this webhook on code check in.
 
