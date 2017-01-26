@@ -3,7 +3,7 @@
 ## [FAQ](event-hubs-faq.md)
 
 # Get Started
-## [Create a namespace](event-hubs-create-namespace-portal.md)
+## [🔧Create a namespace](event-hubs-create-namespace-portal.md)
 ## [Send events](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### .NET Framework
@@ -21,6 +21,7 @@
 
 # How to
 ## Plan and design
+## [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 
 ## Develop
