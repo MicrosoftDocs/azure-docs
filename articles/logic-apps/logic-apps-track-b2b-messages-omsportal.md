@@ -56,15 +56,15 @@ B2B communication involves message exchanges between two running business proces
 
 ## Tracking data in OMS portal
 
-1. Post message process; the home page updates with message count   
+1.Post message process; the home page updates with message count   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-2. Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.
+2.Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.
 ![Select Logic Apps B2B Messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
 
 
-3. Selecting AS2 or X12 messages by status takes you to the message list   
+3.Selecting AS2 or X12 messages by status takes you to the message list   
 ![Select AS2 message status](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
 | Property | Description |
@@ -98,7 +98,7 @@ B2B communication involves message exchanges between two running business proces
 | Timestamp | Time at which X12 action process the message |
 | | |
 
-4. Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
+4.Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
 ![Select message status](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## Queries in OMS portal
@@ -120,7 +120,7 @@ On the search page, you can create a query, and then when you search, you can fi
 
 ### How to use a saved query
 
-1. In the log search, select **favorites** to view saved queries.  Selecting one of the gives query results
+* In the log search, select **favorites** to view saved queries.  Selecting one of the gives query results
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 
