@@ -1,5 +1,5 @@
 ---
-title: What is StorSimple? | Microsoft Docs
+title: StorSimple 8000 series solution overview | Microsoft Docs
 description: Describes StorSimple tiering, the device, virtual device, services, and storage management, and introduces key terms used in StorSimple.
 services: storsimple
 documentationcenter: NA

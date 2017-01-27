@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2016
+ms.date: 01/24/2016
 ms.author: maheshu
 
 ---
@@ -212,9 +212,9 @@ Before you begin this task, ensure you have completed the steps outlined in [Tas
 
 Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
-Configure your external DNS provider so that the DNS name of the managed domain (for example, 'contoso100.com') points to this external IP address. In our example, we need to create the following DNS entry:
+Configure your external DNS provider so that the DNS name of the managed domain (for example, 'ldaps.contoso100.com') points to this external IP address. In our example, we need to create the following DNS entry:
 
-    contoso100.com  -> 52.165.38.113
+    ldaps.contoso100.com  -> 52.165.38.113
 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
 
@@ -226,5 +226,6 @@ That's it - you are now ready to connect to the managed domain using secure LDAP
 <br>
 
 ## Related Content
+* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
-
+* [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
