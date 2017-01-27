@@ -35,6 +35,7 @@ ELK stack is a combination of Elastisearch, Logstash and Kibana that provides an
 Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to the "Universe". Search and 
 install Elastisearch, Logstash and Kibana from the DC/OS universe and in that specific order. You can learn more about configuration 
 if you go to the 'Advanced Installation' link.
+
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
 Once the ELK containers and are up and running, you need to enable kibana to be accessed through marathon-lb. Navigate to the 
