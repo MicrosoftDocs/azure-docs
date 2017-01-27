@@ -19,9 +19,9 @@ ms.author: elbutter;barbkess
 ---
 # Get started with SQL Data Warehouse
 
-This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. When you’re finished you’ll be ready to query and explore your data warehouse.
+This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. When you’re finished, you’ll be ready to query and explore your data warehouse.
 
-**Estimated time to complete:** This is an end-to-end tutorial with example code that will take about 75 minutes to complete. This includes creating an account and installing the SQL driver tools.
+**Estimated time to complete:** This is an end-to-end tutorial with example code that will takes about 30 minutes to complete once the prerequisites are done. 
 
 ## Prerequisites
 
@@ -65,12 +65,11 @@ A SQL Data Warehouse is a special type of database that is designed for massivel
 
 3. Fill out deployment details
 
-    **Database Name**: Pick anything you'd like. If you have multiple data warehouses, we recommend your names include details such as the region, environment, etc., 
-    e.g. *mydw-westus-1-test*
+    **Database Name**: Pick anything you'd like. If you have multiple data warehouses, we recommend your names include details such as the region, environment, for example *mydw-westus-1-test*.
 
     **Subscription**: Your Azure subscription
 
-    **Resource Group**: Create a new resource group or use an existing resource group.
+    **Resource Group**: Create a resource group or use an existing resource group.
     > [!NOTE]
     > Resource groups are useful for resource administration such as scoping access control and templated deployment. Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
@@ -86,7 +85,7 @@ A SQL Data Warehouse is a special type of database that is designed for massivel
     ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. 
-The portal will notify you when your data warehouse is ready to use. 
+The portal notifies you when your data warehouse is ready to use. 
 
 ## Connect to SQL Data Warehouse
 
@@ -111,28 +110,28 @@ To connect to your data warehouse, you need to connect through the logical SQL s
 
 If all goes correctly, you should now be connected to your logical SQL server. Since you logged in as the server admin, you can connect to any database hosted by the server, including the master database. 
 
-There is only one server admin account and it has the most privileges of any user, so be careful not to allow very many people in your organization to know the admin password. 
+There is only one server admin account and it has the most privileges of any user. Be careful not to allow too many people in your organization to know the admin password. 
 
-You can also have an Azure active directory admin account. We don't go into the details of that here. If you want to learn more about using Azure Active Directory authentication, see [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
+You can also have an Azure active directory admin account. We don't provide the details here. If you want to learn more about using Azure Active Directory authentication, see [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
-Next, we will explore creating additional logins and users.
+Next, we explore creating additional logins and users.
 
 
-## Create a new database user
+## Create a database user
 
-In this step, you create a new user account to access your data warehouse. We will also show you how to give that user the ability to run queries with a large amount of memory and CPU resources.
+In this step, you create a user account to access your data warehouse. We also show you how to give that user the ability to run queries with a large amount of memory and CPU resources.
 
 ### Notes about resource classes for allocating resources to queries
 
 - To keep your data safe, don't use the server admin to run queries on your production databases. It has the most privileges of any user and using it to perform operations on user data puts your data at risk. Also, since the server admin is meant to perform management operations, it runs operations with only a small allocation of memory and CPU resources. 
 
-- SQL Data Warehouse uses pre-defined database roles, called resource classes, to allocate different amounts of memory, CPU resources, and concurrency slots to users. Each user can belong to a small, medium, large, or extra-large resource class. A database user's resource class determines the resources the user for running queries and load operations.
+- SQL Data Warehouse uses pre-defined database roles, called resource classes, to allocate different amounts of memory, CPU resources, and concurrency slots to users. Each user can belong to a small, medium, large, or extra-large resource class. The user's resource class determines the resources the user has to run queries and load operations.
 
-- For loading data in a way that best optimizes compression, the user loading data usually needs large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- For optimize data compression, the user usually needs load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
-### Create a new account that can control a database
+### Create an account that can control a database
 
-Since you are currently logged in as the server admin you have permissions to create new logins and users.
+Since you are currently logged in as the server admin you have permissions to create logins and users.
 
 2. Using SSMS or another query client, open a new query for **master**.
 
@@ -161,22 +160,22 @@ Since you are currently logged in as the server admin you have permissions to cr
     > If your database name has hyphens in it, be sure to wrap it in brackets! 
     >
 
-### Give the new user extra large resource allocations
+### Give the user extra large resource allocations
 
-5. So that your database user can have the resources it needs to load data, run this T-SQL command to make it a member of the extra large resource class, which is called xlargerc. 
+1. Run this T-SQL command to make it a member of the extra large resource class, which is called xlargerc. 
 
     ```sql
     EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
     ```
 
-6. Connect to the logical server with your new credentials
+2. Connect to the logical server with the new credentials
 
     ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
 ## Load data from Azure blob storage
 
-You are now ready to load data into your data warehouse. This step shows you how to load New York City taxi cab data from a public Azure storage blob. To load the data we will define the Azure blob as an external data source and then import the data by using an external table.
+You are now ready to load data into your data warehouse. This step shows you how to load New York City taxi cab data from a public Azure storage blob. 
 
 - A common way to load data into SQL Data Warehouse is to first move the data to Azure blob storage, and then load it into your data warehouse. To make it easier to understand how to load, we have New York taxi cab data already hosted in a public Azure storage blob. 
 
@@ -185,13 +184,13 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 ### Define external data
 
-1. Create a master key. You only need to do this once per database. 
+1. Create a master key. You only need to create a master key once per database. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-2. Define the location of the Azure blob that contains the taxi cab data. To do this, create an object called an external data source. 
+2. Define the location of the Azure blob that contains the taxi cab data.  
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -207,7 +206,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
     format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
 
-	Run these two T-SQL command to define two different formats: uncompressed and compressed.
+	Run these T-SQL commands to define two different formats: uncompressed and compressed.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -237,7 +236,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     ```sql
     CREATE SCHEMA ext;
     ```
-5. Create the external tables. These tables reference data stored in Azure blob storage.   Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
+5. Create the external tables. These tables reference data stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
 ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
