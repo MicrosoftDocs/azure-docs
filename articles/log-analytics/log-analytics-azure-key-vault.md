@@ -29,7 +29,7 @@ You can use the Azure Key Vault solution in Log Analytics to review Azure Key Va
 To use the solution, you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 > [!NOTE]
-> In January 2017 the supported way of sending logs from Key Vault to Log Analytics changed. If the Key Vault solution you are using shows *(deprecated)* in the title, refer to [migrating from the old Key Vault solution](#migrating-from-the-old-key-vault-solution) for details of the changes you need to make.
+> In January 2017, the supported way of sending logs from Key Vault to Log Analytics changed. If the Key Vault solution you are using shows *(deprecated)* in the title, refer to [migrating from the old Key Vault solution](#migrating-from-the-old-key-vault-solution) for steps you need to follow.
 >
 >
 
@@ -46,10 +46,10 @@ Use the following instructions to install and configure the Azure Key Vault solu
    ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Click *Turn on diagnostics* to open the following page
    ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Click *On* to turn on diagnostics
+4. To turn on diagnostics, click *On* under *Status*
 5. Click the checkbox for *Send to Log Analytics*
 6. Select an existing Log Analytics workspace, or create a workspace
-7. Click the checkbox to enable *AuditEvent* logs
+7. To enable *AuditEvent* logs, click the checkbox under Log
 8. Click *Save* to enable the logging of diagnostics to Log Analytics
 
 ### Enable Key Vault diagnostics using PowerShell
@@ -123,7 +123,7 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | SubscriptionId |Azure subscription ID of the subscription containing the Key Vault |
 
 ## Migrating from the old Key Vault solution
-In January 2017 the supported way of sending logs from Key Vault to Log Analytics changed. These changes provide the following advantages:
+In January 2017, the supported way of sending logs from Key Vault to Log Analytics changed. These changes provide the following advantages:
 + Logs do not need to be sent to a storage account prior to being collected by Log Analytics
 + Less latency from the time when logs are generated to them being available in Log Analytics
 + Fewer configuration steps
@@ -136,12 +136,12 @@ To use the updated solution you need to:
 3. Update any saved queries, dashboards, or alerts to use the new data type
   + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
   - Instead of: `Type=KeyVaults`, use `Type=AzureDiagnostics ResourceType=VAULTS`
-  + Fields: (Field names are case sensitive)
+  + Fields: (Field names are case-sensitive)
   - For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
   - For any field that has a suffix of \_o in name, the data will now be split out into individual fields based on the nested field names. For example, the UPN of the caller will be stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Field CallerIpAddress changed to CallerIPAddress
    - Field RemoteIPCountry is no longer present
-4. Remove the the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
+4. Remove the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
 
 Data collected prior to the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
 
