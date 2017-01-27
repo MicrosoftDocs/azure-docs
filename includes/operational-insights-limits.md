@@ -1,22 +1,5 @@
----
-title: Operational Insights / Log Analytics limits table
-description: Describes system limits for Operational Insights / Log Analytics.
-services: operational-insights
-documentationcenter: NA
-author: bandersmsft
-manager: jwhit
-editor: ''
 
-ms.service: operational-insights
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 01/26/2017
-ms.author: banders
-
----
-The following limits apply to Operational Insights / Log Analytics workspaces.
+The following limits apply to each Operational Insights / Log Analytics workspaces.
 
 |  | Free | Standard | Premium | Standalone | OMS |
 | --- | --- | --- | --- | --- | --- |
