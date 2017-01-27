@@ -66,7 +66,7 @@ Before following the instructions in this article, you should already have:
 
    Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
-   SQL virtual machine images include the licensing costs for SQL Server in the per-minute pricing of the VM you create. A separate option is to use the bring-your-own-license (BYOL) and pay only for the virtual machine. These images are prefixed with {BYOL}. The following Marketplace images come with SQL Server already installed:
+   Azure Marketplace SQL Server-based virtual machine images include the licensing costs for SQL Server in the per-minute pricing of the VM you create. A separate option is to use the bring-your-own-license (BYOL) and pay only for the virtual machine. These images are prefixed with {BYOL}. The following Marketplace images come with SQL Server already installed:
 
    - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
    - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
@@ -79,7 +79,7 @@ Before following the instructions in this article, you should already have:
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
-   Alternatively, you can create the virtual machines and add SQL Servers manually. To do this, choose a **Windows Server 2016 Datacenter** image and install SQL Server. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+   Alternatively, you can use Azure Marketplace images with just the operating system. To do this, choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
    
 1. Open the firewall ports.
 
@@ -216,7 +216,21 @@ To set the cluster probe port parameter, update variables in the following scrip
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-## Test connectivity.
+## Test failover
+
+Test failover of the FCI in order to validate cluster functionality. In order to test failover:
+
+1. Connect to one of the SQL Server FCI cluster nodes with RDP.
+
+1. Open **Failover Cluster Manager**. Click **Roles**. Notice which node owns the SQL Server FCI role. 
+
+1. Right-click the SQL Server FCI role. 
+
+1. Click **Move** and click **Best Possible Node**.
+
+**Failover Cluster Manager** shows the role and its resources go offline, move and come online on the other node. 
+
+## Test connectivity
 
 To test connectivity, log in to another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
 
