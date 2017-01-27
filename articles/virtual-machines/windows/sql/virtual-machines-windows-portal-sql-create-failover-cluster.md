@@ -28,7 +28,15 @@ The following diagram shows the complete solution on Azure virtual machines:
 
 ![Availability Group](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
-In the preceding diagram, two Azure virtual machines are configured in a Windows Server Failover Cluster (WSFC). Each virtual machine has two or more data disks. S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. Then you can create a cluster shared volume (CSV) on the storage pool. The CSV are mounted on the virtual machine system drive. The SQL Server FCI cluster role uses the storage for the cluster system and data drives. In addition, the solution requires an Azure load balancer to hold the IP address for the SQL Server FCI. Finally, a single availability set holds all the resources.
+In the preceding diagram shows:
+
+- Two Azure virtual machines in a Windows Server Failover Cluster (WSFC).
+- Each virtual machine has two or more data disks.
+- S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. 
+- The storage pool presents a cluster shared volume (CSV) to the WSFC.
+- The SQL Server FCI cluster role uses the CSV for the data drives. 
+- An Azure load balancer to hold the IP address for the SQL Server FCI.
+- An Azure availability set holds all the resources.
 
 For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview). 
 
@@ -71,7 +79,7 @@ Before following the instructions in this article, you should already have:
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
-   Alternatively, you can also create the SQL Server manually. To do this, choose a **Windows Server 2016 Datacenter** image and install SQL Server. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+   Alternatively, you can create the virtual machines and add SQL Servers manually. To do this, choose a **Windows Server 2016 Datacenter** image and install SQL Server. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
    
 1. Open the firewall ports.
 
@@ -92,7 +100,7 @@ Before following the instructions in this article, you should already have:
 
    Set host caching to **Read-only**.
 
-   The storage capacity you use in production environments depend on your workload. The values described in this article are for demonstration and testing. 
+   The storage capacity you use in production environments depends on your workload. The values described in this article are for demonstration and testing. 
 
 1. Configure networking on the virtual machines. 
 
@@ -208,7 +216,7 @@ To set the cluster probe port parameter, update variables in the following scrip
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-1. Test connectivity.
+## Test connectivity.
 
 To test connectivity, log in to another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
 
