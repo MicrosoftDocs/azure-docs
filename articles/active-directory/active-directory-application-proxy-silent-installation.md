@@ -112,12 +112,9 @@ This can be accomplished using either of the following methods:
         }
 
 
-
-
-
-1. Once you have the token create a SecureString using the token: <br>
+2. Once you have the token create a SecureString using the token: <br>
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-2. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
+3. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 ## See also

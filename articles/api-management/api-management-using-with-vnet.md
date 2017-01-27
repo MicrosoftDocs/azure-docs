@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: antonba
+ms.author: apipm
 
 ---
 # How to use Azure API Management with virtual networks
