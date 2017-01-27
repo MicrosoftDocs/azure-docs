@@ -1,5 +1,5 @@
 ---
-title: Preparing your environment to back up Resource Manager-deployed virtual machines | Microsoft Docs
+title: Azure Backup: Prepare to back up virtual machines | Microsoft Docs
 description: Make sure your environment is prepared for backing up virtual machines in Azure
 services: backup
 documentationcenter: ''
