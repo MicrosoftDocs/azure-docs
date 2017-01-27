@@ -39,7 +39,7 @@ Whenever there is a critical activity that throws an error or exception, it's im
 
 For each activity that can produce an error, the runbook author can add an error link pointing to any other activity.  The destination activity can be of any type, including code activities, invoking a cmdlet, invoking another runbook, and so on.
 
-In addition, the destination activity can also have outgoing links. These links can be regular links or error links. This means the runbook author can implement complex error-handling logic without resorting to a code activity. The recommended practice is to create a dedicated error-handling runbook with common functionality, but it's not mandatory. Error-handling logic in a PowerShell code activity it isn't the only alternative.  
+In addition, the destination activity can also have outgoing links. These links can be regular links or error links. This means the runbook author can implement complex error-handling logic without resorting to a code activity. The recommended practice is to create a dedicated error-handling runbook with common functionality, but it's not mandatory. Error-handling logic in a PowerShell code activity it isn't the only option.  
 
 For example, consider a runbook that tries to start a VM and install an application on it. If the VM doesn't start correctly, it performs two actions:
 
