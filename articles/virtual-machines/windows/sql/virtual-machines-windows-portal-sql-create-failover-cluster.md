@@ -20,19 +20,19 @@ ms.author: mikeray
 
 ---
 
-# SQL Server Failover Cluster on Azure Virtual Machines
+# SQL Server Failover Cluster Instance on Azure Virtual Machines
 
-This article explains how to create a SQL Server Failover Cluster Instance (FCI) on Azure Virtual Machines Resource Manager model. In this solution, [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) provides synchronized storage to each cluster node. S2D is new in Windows Server 2016.
+This article explains how to create a SQL Server Failover Cluster Instance (FCI) on Azure Virtual Machines in Resource Manager model. In this solution, [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) provides synchronized storage to each cluster node. S2D is new in Windows Server 2016.
 
 The following diagram shows the complete solution on Azure Virtual Machines:
 
 ![Availability Group](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
-In the preceding diagram, each virtual machine has two or more data disks. S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. Then you can create a cluster shared volume (CSV) on the storage pool. The CSV are mounted on the virtual machine system drive. The SQL Server FCI cluster role uses the storage for the cluster system and data drives. In addition, the solution requires an Azure load balancer to hold the IP address for the SQL Server FCI. Finally, a single availability set holds all the resources.
+In the preceding diagram, two Azure virtual machines are configured in a Windows Server Failover Cluster (WSFC). Each virtual machine has two or more data disks. S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. Then you can create a cluster shared volume (CSV) on the storage pool. The CSV are mounted on the virtual machine system drive. The SQL Server FCI cluster role uses the storage for the cluster system and data drives. In addition, the solution requires an Azure load balancer to hold the IP address for the SQL Server FCI. Finally, a single availability set holds all the resources.
 
 For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview). 
 
-S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. For an in-depth article about hyper-converged solutions, see [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture the storage is on each SQL Server FCI node. For an in-depth article about hyper-converged solutions, see [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 
 ## Before you begin
 
@@ -43,12 +43,12 @@ Before following the instructions in this article, you should already have:
 1. An account with permission to create objects in the Azure virtual machine.
 1. An Azure virtual network and subnet with sufficient IP address space for the following components:
    - Both virtual machines.
-   - The Windows Server Failover Cluster (WSFC) IP address.
-   - The Failover Cluster Instance address.
+   - The WSFC IP address.
+   - The FCI address.
 
-## How to Configure Failover CLuster with S2D in the UI
+## Configure WSFC with S2D in the UI
 
-1. [Create the availability set](../../virtual-machines-windows-create-availability-set.md).
+1. [Create an Azure availability set](../../virtual-machines-windows-create-availability-set.md).
 
 1. Create the virtual machines in the availability set.
    
@@ -66,7 +66,7 @@ Before following the instructions in this article, you should already have:
    | **Windows Server 2016 Datacenter** | Does not contain SQL Server installation media. <br/>Place the media to a location where you can run the SQL Server installation for each node. <br/>Billed according to your license agreements. 
    
    >[!IMPORTANT]
-   > If you use an Azure Marketplace image with SQL Server installed, remove **SQL Server** immediately after Azure provisions the virtual machine. In a later step, Use the SQL Server installation media from `C:\SQLServer_<version number>_Full` to install the failover cluster instance. 
+   > If you use an Azure Marketplace image with SQL Server installed, remove **SQL Server** immediately after Azure provisions the virtual machine. In a later step, Use the SQL Server installation media from `C:\SQLServer_<version number>_Full` to install the FCI. 
 
 1. Open the firewall ports.
 
@@ -83,8 +83,8 @@ Before following the instructions in this article, you should already have:
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
    
-   Attach minimum of 2 SSD 512 premium to each VM.
-   
+   Attach a minimum of 2 Premium Storage (SSD disks) to each VM. We recommend at least P30 (1 TB) disks.
+
    Set host caching to **Read-only**.
 
    The storage capacity you use in production environments depend on your workload. The values described in this article are for demonstration and testing. 
@@ -98,20 +98,20 @@ Before following the instructions in this article, you should already have:
 
 1. [Add the virtual machines to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain) 
 
-1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
-   The preceding link shows how to add the feature in the user interface. You can also add the feature with PowerShell. For example:
+   The preceding link shows how to add the **Failover Clustering** feature in the user interface. Instead, you can add the feature with PowerShell. For example:
 
    ```PowerShell
    $nodes = ("<Server-1>", "<Server-2>")
    icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeManagementTools}
    ```
 
-1. [Create a cloud witness for the failover cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
-1. [Create the Failover cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
+1. [Create the WSFC](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
 
-   The following PowerShell creates a Windows Server failover cluster. The IP address is the same IP address specified in the load balancer front-end IP address.
+   The following PowerShell creates a WSFC. The IP address is the same IP address specified in the load balancer front-end IP address.
 
    ```PowerShell
    New-Cluster -Name \<clustername\> -Node $nodes –StaticAddress \<10.0.0.10\>.
@@ -139,16 +139,34 @@ Before following the instructions in this article, you should already have:
 
    Validate the cluster after you create the storage volume. SQL Server setup requires that the cluster has a current validation. The validation that you ran when you created the cluster did not include the storage resources. 
 
-1. Install a SQL Server failover cluster.
+## Create a SQL Server FCI
 
-   Connect to the node that owns all the cluster resources with RDP. [Create a single-node SQL Server failover cluster instance](http://msdn.microsoft.com/library/ms179530.aspx).
+After you have configured the WSFC and all cluster components including storage, you can create the SQL Server FCI. 
 
-   After you create a single-node failover cluster instance, connect to the other node with RDP and run **Setup with Add Node**.
+1. Connect to the first virtual machine with RDP. 
+
+1. In **Failover Cluster Mananager**, make sure all of the cluster core resources are on the first virtual machine. If necessary, move all resources to this virtual machine. 
+
+1. Locate the installation media. If the Virtual Machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Click **Setup**.
+
+1. In the **SQL Server Installation Center**, click **Installation**.
+
+1. Click **New SQL Server Failover Cluster Installation**. Follow the instructions in the wizard to install the SQL Server FCI. 
+
+1. After you create the SQL Server FCI on the first node, connect to the second node with RDP.
+
+1. Open the **SQL Server Installation Center**. Click **Installation**.
+
+1. Click **Add node to a SQL Servrver failover cluster**. Follow the instructions in the wizard to install SQL server and add this node to the FCI.
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-1. [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+## Configure the Azure load balancer
+
+The Azure load balancer holds the IP address for the SQL Server FCI. 
+
+[Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
    This load balancer must:
    
@@ -184,14 +202,14 @@ To set the cluster probe port parameter, update variables in the following scrip
 
 1. Test connectivity.
 
-To test connectivity, log into another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server failover cluster instance name. 
+To test connectivity, log into another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
 
 ## Limitations
-DTC is not supported on failover cluster instances because the RPC port is not supported by the load balancer.
+DTC is not supported on FCIs because the RPC port is not supported by the load balancer.
 
 ## Support
 
-[Microsoft server software support for Microsoft Azure virtual machines](http://support.microsoft.com/kb/2721672) says "SQL Server Azure virtual machines do not support Failover Cluster Instances (FCI)." 
+[Microsoft server software support for Microsoft Azure virtual machines](http://support.microsoft.com/kb/2721672) says "SQL Server Azure virtual machines do not support FCIs (FCI)." 
 
 [Support policy for Microsoft SQL Server products that are running in a hardware virtualization environment](http://support.microsoft.com/kb/956893)
 
