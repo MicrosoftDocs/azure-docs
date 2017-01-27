@@ -1,5 +1,5 @@
 ---
-title: Monitor your APIs with Azure API Management, Event Hubs and Runscope
+title: Monitor APIs with Azure API Management, Event Hubs, and Runscope | Microsoft Docs
 description: Sample application demonstrating the log-to-eventhub policy by connecting Azure API Management, Azure Event Hubs and Runscope for HTTP  logging and monitoring
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/23/2017
 ms.author: apipm
-
 ---
 # Monitor your APIs with Azure API Management, Event Hubs and Runscope
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses are transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Publisher portal dashboard, but beyond that, the details are gone.
