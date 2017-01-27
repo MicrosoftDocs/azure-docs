@@ -41,21 +41,25 @@ if you go to the 'Advanced Installation' link.
 Once the ELK containers and are up and running, you need to enable kibana to be accessed through marathon-lb. Navigate to the 
 services section in the left navigation bar and click on the 'Kibana' service. 
 Click on the edit button as shown below.
+
 ![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
+
 
 Turn the edit mode to 'JSON' and scroll down to the labels section
 You need to add a "HAPROXY_GROUP" : "external" entry here as shown below
 Once you click 'Deploy changes' , your container will restart.
+
 ![ELK5](./media/container-service-monitoring-elk/elk5.PNG)
 
-If you want to verify that kibana is registered as a service in the HAPROXY dashboard, you will need to open port 9090 on the agent cluster as 
-HAPROXY runs on port 9090.
-By default, we open ports 80, 8080 and 443.
+
+If you want to verify that kibana is registered as a service in the HAPROXY dashboard, you will need to open port 9090 on the agent cluster as HAPROXY runs on port 9090.
+By default, we open ports 80, 8080 and 443 in the ACS agent cluster.
 Instructions to open a port and provide public assess are provided [here](container-service-enable-public-access.md)
 
 In order to access the HAPROXY dashboard, open the Marathon-LB admin interface at:
 http://$PUBLIC_NODE_IP_ADDRESS:9090/haproxy?stats
-Once you navigate to the URL above, you should see the HAPROXY dashboard as shown below and you should see a service entry for Kibana
+Once you navigate to the URL above, you should see the HAPROXY dashboard as shown below and you should see a service entry for Kibana.
+
 ![ELK6](./media/container-service-monitoring-elk/elk6.PNG)
 
 
