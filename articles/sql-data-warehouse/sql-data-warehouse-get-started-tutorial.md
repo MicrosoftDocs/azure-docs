@@ -202,7 +202,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     );
     ```
 
-2. Define the external file formats
+3. Define the external file formats
 
     The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
     format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
@@ -232,12 +232,12 @@ You are now ready to load data into your data warehouse. This step shows you how
     );
     ```
 
-3.  Create a schema for your external file format. 
+4.  Create a schema for your external file format. 
 
     ```sql
     CREATE SCHEMA ext;
     ```
-1. Create the external tables. These tables reference data stored in Azure blob storage.   Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
+5. Create the external tables. These tables reference data stored in Azure blob storage.   Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
 ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -416,7 +416,9 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 ### Import the data from Azure blob storage.
 
-5. Import the tables into your data warehouse. SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+
+1. Run this script to import your data.
  
 ```sql
     CREATE TABLE [dbo].[Date]
@@ -493,9 +495,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     ;
     ```
 
-
-6. Use a Dynamic Management View to watch 
-7. as your data is loaded
+2. View your data as it is loaded.
 
    You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a Dynamic Management Views (DMV) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting. Cluster Columnstore Indexes. 
     
@@ -528,13 +528,13 @@ You are now ready to load data into your data warehouse. This step shows you how
         gb_processed desc;
     ```
 
-7. View all system queries
+3. View all system queries
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-8. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse
+4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse
 
     ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
