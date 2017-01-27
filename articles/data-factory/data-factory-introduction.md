@@ -47,8 +47,8 @@ If you need to move data to/from a data store that Copy Activity doesn't support
 ## Linked services
 Linked services define the information needed for Data Factory to connect to external resources (Examples: Azure Storage, on-premises SQL Server, Azure HDInsight). Linked services are used for two purposes in Data Factory:
 
-* To represent a **data store** including, but not limited to, an on-premises SQL Server, Oracle database, file share, or an Azure Blob Storage account. See the [Data movement activities](data-factory-data-movement-activities.md) section for a list of supported data stores.
-* To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. See [Data transformation activities](data-factory-data-transformation-activities.md) section for a list of supported compute environments.
+* To represent a **data store** including, but not limited to, an on-premises SQL Server, Oracle database, file share, or an Azure Blob Storage account. See the [Data movement activities](#data-movement-activities) section for a list of supported data stores.
+* To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. See [Data transformation activities](#data-transformation-activities) section for a list of supported compute environments.
 
 ## Datasets
 Linked services link data stores to an Azure data factory. Datasets represent data structures with in the data stores. For example, an Azure Storage linked service provides connection information for Data Factory to connect to an Azure Storage account. An Azure Blob dataset specifies the blob container and folder in the Azure Blob Storage from which the pipeline should read the data. Similarly, an Azure SQL linked service provides connection information for an Azure SQL database and an Azure SQL dataset specifies the table that contains the data.   
@@ -77,6 +77,6 @@ To learn how to build data factories with data pipelines, follow step-by-step in
 
 | Tutorial | Description |
 | --- | --- |
-| [Build a data pipeline that processes data using Hadoop cluster](data-factory-build-your-first-pipeline.md) |In this tutorial, you build your first Azure data factory with a data pipeline that **processes data** by running Hive script on an Azure HDInsight (Hadoop) cluster. |
-| [Build a data pipeline to move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |In this tutorial, you create a data factory with a pipeline that **moves data** from Blob storage to SQL database. |
-| [Build a data pipeline to move data between an on-premises data store and a cloud data store using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |In this tutorial, you build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
+| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |In this tutorial, you create a data factory with a pipeline that **moves data** from Blob storage to SQL database. |
+| [Transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) |In this tutorial, you build your first Azure data factory with a data pipeline that **processes data** by running Hive script on an Azure HDInsight (Hadoop) cluster. |
+| [Move data between an on-premises data store and a cloud data store using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |In this tutorial, you build a data factory with a pipeline that **moves data** from an **on-premises** SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
