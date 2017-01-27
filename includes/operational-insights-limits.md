@@ -1,5 +1,5 @@
 
-The following limits apply to each Operational Insights / Log Analytics workspaces.
+The following limits apply to each Operational Insights / Log Analytics workspace.
 
 |  | Free | Standard | Premium | Standalone | OMS |
 | --- | --- | --- | --- | --- | --- |
