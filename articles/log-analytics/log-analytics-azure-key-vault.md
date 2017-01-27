@@ -43,8 +43,10 @@ Use the following instructions to install and configure the Azure Key Vault solu
 
 1. In the Azure portal, navigate to the Key Vault resource to monitor
 2. Select *Diagnostics logs* to open the following page
+
    ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Click *Turn on diagnostics* to open the following page
+
    ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
 4. To turn on diagnostics, click *On* under *Status*
 5. Click the checkbox for *Send to Log Analytics*
