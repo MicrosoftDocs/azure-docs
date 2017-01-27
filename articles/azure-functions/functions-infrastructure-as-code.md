@@ -22,7 +22,7 @@ ms.author: cfowler;glenga
 
 # Automate resource deployment for your Azure Functions app
 
-In this article, you can learn how to build an Azure Resource Manager template that deploys an Azure Functions app. Learn how to define the resource baseline that's required for an Azure Functions app, and the parameters that are specified during deployment. Depending on the [triggers and bindings](functions-triggers-bindings.md) in your Functions app, you might need to deploy additional resources to implement your entire application as Infrastructure as Code.
+You can use an Azure Resource Manager template to deploy an Azure Functions app. Learn how to define the baseline resources that are required for an Azure Functions app, and the parameters that are specified during deployment. Depending on the [triggers and bindings](functions-triggers-bindings.md) in your Functions app, for a successful Infrastructure as Code configuration of your application, you might need to deploy additional resources.
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -30,7 +30,7 @@ For examples of complete templates, see [Create a Consumption plan-based Azure F
 
 ## Required resources
 
-You can use the examples in this article to create a baseline Azure Functions app. You'll need these resources for your Functions app:
+You can use the examples in this article to create a baseline Azure Functions app. You'll need these resources for your app:
 
 * [Azure Storage](../storage/index.md) account
 * Hosting plan (Consumption plan or App Service plan)
@@ -38,7 +38,7 @@ You can use the examples in this article to create a baseline Azure Functions ap
 
 ## Parameters
 
-You can use Azure Resource Manager to define parameters for values that you want to specify when your template is deployed. A template has a **Parameters** section, which has all the parameter values. Define parameters for values that vary based either on the project you are deploying, or on the environment you are deploying to.
+You can use Azure Resource Manager to define parameters for values that you want to specify when your template is deployed. A template's **Parameters** section has all the parameter values. Define parameters for values that vary based either on the project you are deploying, or on the environment you are deploying to.
 
 [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) are useful for values that don't change based on an individual deployment, and for parameters that require transformation before being used in a template (for example, to pass validation rules).
 
@@ -113,14 +113,14 @@ Where to deploy the Functions app.
     "type": "bool",
     "defaultValue": false,
     "metadata": {
-        "description": "Use 'true' if you are deploying from the base repo. Use 'false' if you are deploying from your own fork. If you use 'false', make sure that you have Administrator permissions in the repo. If you get an error, manually add GitHub integration to another web app, to associate a GitHub access token with your Azure subscription."
+        "description": "Use 'true' if you are deploying from the base repo. Use 'false' if you are deploying from your own fork. If you use 'false', make sure that you have Administrator rights in the repo. If you get an error, manually add GitHub integration to another web app, to associate a GitHub access token with your Azure subscription."
     }
 }
 ```
 
 ## Variables
 
-Azure Resource Manager templates use variables to incorporate parameters, so you can build out more specific settings in your template.
+Azure Resource Manager templates use variables to incorporate parameters, so you can use more specific settings in your template.
 
 In the next example, to meet Azure Storage account [naming requirements](../storage/storage-create-storage-account.md#create-a-storage-account), we use variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to convert the entered **appName** value to lowercase.
 
@@ -151,7 +151,7 @@ An Azure Storage account is required for an Azure Functions app.
 
 ### Hosting plan: Consumption vs. App Service
 
-In some scenarios, you might want your functions to be fully managed scaling. That means they are scaled on-demand by the platform (by using a Consumption hosting plan). Or, you might choose user-managed scaling for your functions. In user-managed scaling, your functions run 24/7 on dedicated hardware (by using an App Service hosting plan). The number of instances can be set manually or automatically. Your choice of hosting plan might be based on available features in the plan, or on architecting by cost. To learn more about hosting plans, see [Scaling Azure Functions](functions-scale.md).
+In some scenarios, you might want your functions scaled on-demand by the platform, also called fully managed scaling (by using a Consumption hosting plan). Or, you might choose user-managed scaling for your functions. In user-managed scaling, your functions run 24/7 on dedicated hardware (by using an App Service hosting plan). The number of instances can be set manually or automatically. Your choice of hosting plan might be based on available features in the plan, or on architecting by cost. To learn more about hosting plans, see [Scaling Azure Functions](functions-scale.md).
 
 #### Consumption plan
 
@@ -189,7 +189,7 @@ In some scenarios, you might want your functions to be fully managed scaling. Th
 
 ### Functions app (a site)
 
-After you've selected a scaling option, create a Functions app, which is the container that holds all your functions.
+After you've selected a scaling option, create a Functions app. The app is the container that holds all your functions.
 
 A Functions app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource and use a different [deployment option](functions-continuous-deployment.md) instead.
 
