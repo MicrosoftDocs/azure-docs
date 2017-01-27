@@ -75,7 +75,7 @@ Before following the instructions in this article, you should already have:
    - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016** 
 
    >[!TIP]
-   >Use the image with the latest service pack for SQL Server and Windows. 
+   >Use the image with the latest service pack for SQL Server. 
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
