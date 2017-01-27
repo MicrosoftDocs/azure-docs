@@ -40,7 +40,7 @@ For more information, see [Data Movement Activities](data-factory-data-movement-
 ## Data transformation activities
 [!INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
 
-Fore more information, see [Data Transformation Activities](data-factory-data-transformation-activities.md) article.
+For more information, see [Data Transformation Activities](data-factory-data-transformation-activities.md) article.
 
 If you need to move data to/from a data store that Copy Activity doesn't support, or transform data using your own logic, create a **custom .NET activity**. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
