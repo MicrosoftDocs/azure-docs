@@ -29,8 +29,7 @@ Azure Container Service. Explore the DC/OS dashboard and marathon services [here
 
 
 ## ELK (Elastisearch, Logstash, Kibana)
-ELK stack is a combination of Elastisearch, Logstash and Kibana that leads to an end to end stack that can be used to monitor containers and 
-and cluster and provide
+ELK stack is a combination of Elastisearch, Logstash and Kibana that provides an end to end stack that can be used to monitor and analyze logs in your cluster.
 
 ## Configure the ELK stack on a DC/OS cluster
 Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to the "Universe". Search and 
