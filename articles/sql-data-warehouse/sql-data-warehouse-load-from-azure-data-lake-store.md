@@ -1,6 +1,6 @@
 ---
-title: Load data from Azure Azure Data Lake Store into SQL Data Warehouse (PolyBase) | Microsoft Docs
-description: Learn how to use PolyBase to load data from Azure Data Lake Store into SQL Data Warehouse.
+title: Load - Azure Data Lake Store to SQL Data Warehouse | Microsoft Docs
+description: Learn how to use PolyBase external tables to load data from Azure Data Lake Store into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 1/17/2016
+ms.date: 01/25/2017
 ms.author: cakarst;barbkess
 
 ---
-# Load data from Azure Data Lake Store into SQL Data Warehouse (PolyBase)
+# Load data from Azure Data Lake Store into SQL Data Warehouse
 > [!div class="op_single_selector"]
 >
 > * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -38,11 +38,11 @@ In this tutorial you will learn how to:
 ## Before you begin
 To run this tutorial, you need:
 
-* Azure Active Directory Application to use for Service-to-Service authentication. To create please follow: https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory
+* Azure Active Directory Application to use for Service-to-Service authentication. To create please follow [Active directory authentication](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
   **NOTE:** You will need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
 
-* SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect please see https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-query-ssms
+* SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect please see [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms.md)
 
 * An Azure SQL Data Warehouse, to create one please follow: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
@@ -127,13 +127,7 @@ WITH
 ```
 
 ## Create the external tables
-Now that you have specified the data source and file format, you are ready to create the external tables.
-External tables are how you will interact with you external data.
-PolyBase uses recursive directory traversal to read all files in all subdirectories of the directory specified in the location parameter.
-Also,
-The example below shows how to create the object. You will need to customize the statement to work with the data you have in ADLS.
-
-
+Now that you have specified the data source and file format, you are ready to create the external tables. External tables are how you interact with external data. PolyBase uses recursive directory traversal to read all files in all subdirectories of the directory specified in the location parameter. Also, the following example shows how to create the object. You need to customize the statement to work with the data you have in ADLS.
 
 ```sql
 -- D: Create an External Table
@@ -186,7 +180,8 @@ In this example, we are creating a has distributed table called DimProduct from 
 CREATE TABLE [dbo].[DimProduct]
 WITH (DISTRIBUTION = HASH([ProductKey]  ) )
 AS
-SELECT * FROM [dbo].[DimProduct_external]             OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]             ');
+SELECT * FROM [dbo].[DimProduct_external]
+OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 ```
 
 
@@ -197,7 +192,7 @@ To optimize query performance and columnstore compression after a load, rebuild 
 
 ```sql
 
-ALTER INDEX ALL ON [dbo].[DimProduct]               REBUILD;
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
@@ -215,13 +210,8 @@ The following example is a good starting point for creating statistics. It creat
 You have successfully loaded  data into Azure SQL Data Warehouse. Great job!
 
 ##Next Steps
-Loading data is the first step to developing a Data Warehouse Solution on SQL DW.
-Check out our development resources on Tables https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-overview
-and T-SQL https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-loops
+Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
-
-
-## Next steps
 
 <!--Image references-->
 
@@ -235,8 +225,8 @@ and T-SQL https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-war
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/en-us/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/en-us/library/dn935026.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
