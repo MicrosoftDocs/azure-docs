@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning frequently asked questions (FAQ) | Microsoft Docs
+title: Azure Machine Learning frequently asked questions (FAQs) | Microsoft Docs
 description: 'Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
@@ -18,8 +18,8 @@ ms.date: 01/23/2017
 ms.author: garye
 
 ---
-# Azure Machine Learning frequently asked questions (FAQ): Billing, capabilities, limitations, and support
-This FAQ answers questions about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. This FAQ includes questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
+# Azure Machine Learning frequently asked questions: Billing, capabilities, limitations, and support
+Here are some frequently asked questions (FAQs) and corresponding answers about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. These FAQs provide questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 
 ## General questions
 **What is Azure Machine Learning?**
@@ -53,8 +53,8 @@ Machine Learning web services provide an interface between an application and a 
 
 Azure Machine Learning has two types of services:
 
-* Request-Response Service (RRS) - A low latency, highly scalable service that provides an interface to the stateless models created and deployed by using Machine Learning Studio.
-* Batch Execution Service (BES) - An asynchronous service that scores a batch for data records.
+* Request-Response Service (RRS): A low latency, highly scalable service that provides an interface to the stateless models created and deployed by using Machine Learning Studio.
+* Batch Execution Service (BES): An asynchronous service that scores a batch for data records.
 
 There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python by using the sample code that's generated for you when you deployed the web service.
 
@@ -195,7 +195,7 @@ Not currently, but you can use one or more [Execute Python Script][python] modul
 You can use the Jupyter Notebooks in Machine Learning Studio. For more information, see [Introducing Jupyter Notebooks in Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
 ## Web service
-### Retraining models programmatically
+### Retrain
 **How do I retrain Azure Machine Learning models programmatically?**
 
 Use the retraining APIs. For more information, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md). Sample code is also available in the [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/).
@@ -252,15 +252,15 @@ Modules in Machine Learning Studio support datasets of up to 10 GB of dense nume
 
 The following types of data can expand to larger datasets during feature normalization and are limited to less than 10 GB:
 
-* sparse
-* categorical
-* strings
-* binary data
+* Sparse
+* Categorical
+* Strings
+* Binary data
 
 The following modules are limited to datasets less than 10 GB:
 
 * Recommender modules
-* •	Synthetic Minority Oversampling Technique (SMOTE) module
+* Synthetic Minority Oversampling Technique (SMOTE) module
 * Scripting modules: R, Python, SQL
 * Modules where the output data size can be larger than input data size, such as Join or Feature Hashing
 * Cross-Validate, Tune Model Hyperparameters, Ordinal Regression, and One-vs-All Multiclass, when number of iterations is very large
@@ -312,11 +312,11 @@ Azure Machine Learning also has a community forum on MSDN where you can ask ques
 
 Azure Machine Learning has two components: Machine Learning Studio and Machine Learning web services.
 
-While you are evaluating Machine Learning Studio, you can use the free billing tier. The free tier also lets you deploy a classic web service that has limited capacity.
+While you are evaluating Machine Learning Studio, you can use the Free billing tier. The Free tier also lets you deploy a classic web service that has limited capacity.
 
-If you decide that Azure Machine Learning meets your needs, you can sign up for the standard tier. To sign up, you must have a Microsoft Azure subscription.
+If you decide that Azure Machine Learning meets your needs, you can sign up for the Standard tier. To sign up, you must have a Microsoft Azure subscription.
 
-In the standard tier, you are billed monthly for each workspace that you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a classic web service, transactions and compute hours are billed on the Pay As You Go basis.
+In the Standard tier, you are billed monthly for each workspace that you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a classic web service, transactions and compute hours are billed on the Pay As You Go basis.
 
 Resource Manager-based web services introduce billing plans that allow for more predictability in costs. Tiered pricing offers discounted rates to customers who need a large amount of capacity.
 
@@ -333,7 +333,7 @@ For additional billing and pricing information, see [Machine Learning Pricing](h
 
  Azure Machine Learning has a free subscription option that's explained in [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/). Machine Learning Studio has an eight-hour quick evaluation trial that's available when you sign in to [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2).
 
- In addition, when you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
+ In addition, when you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure free trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **What is a transaction?**
 
@@ -369,7 +369,7 @@ Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/en-
 
 **What specific kind of compute resources will my production API calls be run on?**
 
-The Machine Learning service is a multitenant service. Actual compute resources that are used on the backend vary and are optimized for performance and predictability.
+The Machine Learning service is a multitenant service. Actual compute resources that are used on the back end vary and are optimized for performance and predictability.
 
 ### Management of Resource Manager-based web services
 **What happens if I delete my plan?**
@@ -432,7 +432,7 @@ For information about regional availability, see [Products available by region](
 
 Yes. Plan pricing varies by region. When you deploy a web service to another region, you need to assign it a plan that is specific to that region. For more information, see [Products available by region]( https://azure.microsoft.com/regions/services/).
 
-### New Web Services - Overages
+### New web services: Overages
 **How do I check if I exceeded my web service usage?**
 
 You can view the usage on all your plans on the Plans page in the Azure Machine Learning Web Services portal. Sign in to the portal, and then click the **Plans** menu option.
@@ -471,20 +471,20 @@ The Azure Machine Learning API service is billed depending on whether it's a cla
 
 The following charges are aggregated per workspace for your subscription.
 
-* Machine Learning Workspace Subscription - The Machine Learning workspace subscription is a monthly fee that provides access to an Machine Learning Studio workspace. The subscription is required to run experiments in the studio and to utilize the production APIs.
-* Studio Experiment hours - This meter aggregates all compute charges that are accrued by running experiments in Machine Learning Studio and running production API calls in the staging environment.
+* Machine Learning Workspace Subscription: The Machine Learning workspace subscription is a monthly fee that provides access to a Machine Learning Studio workspace. The subscription is required to run experiments in the studio and to utilize the production APIs.
+* Studio Experiment hours: This meter aggregates all compute charges that are accrued by running experiments in Machine Learning Studio and running production API calls in the staging environment.
 * Access data by connecting to an on-premises server that runs SQL Server in your models for your training and scoring.
 * For classic web services:
-  * Production API Compute Hours - This meter includes compute charges that are accrued by web services running in production.
-  * Production API Transactions (in 1000s) - This meter includes charges that are accrued per call to your production web service.
+  * Production API Compute Hours: This meter includes compute charges that are accrued by web services running in production.
+  * Production API Transactions (in 1000s): This meter includes charges that are accrued per call to your production web service.
 
 Apart from the preceding charges, in the case of Resource Manager-based web service, charges are aggregated to the selected plan:
 
-* Standard S1/S2/S3 API Plan (Units) - This meter represents the type of instance that's selected for Resource Manager-based web services.
-* Standard S1/S2/S3 Overage API Compute Hours - This meter includes compute charges that are accrued by Resource Manager-based web services that run in production after the included quantities in existing instances are used up. The additional usage is charged at the overate rate that's associated with S1/S2/S3 plan tier.
-* Standard S1/S2/S3 Overage API Transactions (in 1,000s) - This meter includes charges that are accrued per call to your production Resource Manager-based web service after the included quantities in existing instances are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
-* Included Quantity API Compute Hours - With Resource Manager-based web services, this meter represents the included quantity of API compute hours.
-* Included Quantity API Transactions (in 1,000s) - With Resource Manager-based web services, this meter represents the included quantity of API transactions.
+* Standard S1/S2/S3 API Plan (Units): This meter represents the type of instance that's selected for Resource Manager-based web services.
+* Standard S1/S2/S3 Overage API Compute Hours: This meter includes compute charges that are accrued by Resource Manager-based web services that run in production after the included quantities in existing instances are used up. The additional usage is charged at the overate rate that's associated with S1/S2/S3 plan tier.
+* Standard S1/S2/S3 Overage API Transactions (in 1,000s): This meter includes charges that are accrued per call to your production Resource Manager-based web service after the included quantities in existing instances are used up. The additional usage is charged at the overate rate associated with S1/S2/S3 plan tier.
+* Included Quantity API Compute Hours: With Resource Manager-based web services, this meter represents the included quantity of API compute hours.
+* Included Quantity API Transactions (in 1,000s): With Resource Manager-based web services, this meter represents the included quantity of API transactions.
 
 **How do I sign up for Azure Machine Learning Free tier?**
 
@@ -502,9 +502,9 @@ No, the Standard tier is equivalent to the version of the Machine Learning servi
 
 **Can I deploy my machine learning models as APIs in the Free tier?**
 
-Yes, you can operationalize machine learning models to staging API services as part of the free tier. To put the staging API service into production and get a production endpoint for the operationalized service, you must use the Standard tier.
+Yes, you can operationalize machine learning models to staging API services as part of the Free tier. To put the staging API service into production and get a production endpoint for the operationalized service, you must use the Standard tier.
 
-**What is the difference between Azure Free trial and Azure Machine Learning Free tier?**
+**What is the difference between Azure free trial and Azure Machine Learning Free tier?**
 
 The [Microsoft Azure free trial](https://azure.microsoft.com/free/) offers credits that you can apply to any Azure service for one month. The Azure Machine Learning Free tier offers continuous access specifically to Azure Machine Learning for non-production workloads.
 
@@ -526,7 +526,7 @@ Workspace charges are broken out separately for each applicable meter on a singl
 
 **What specific kind of compute resources will my experiments be run on?**
 
-The Machine Learning service is a multitenant service. Actual compute resources that are used on the backend vary and are optimized for performance and predictability.
+The Machine Learning service is a multitenant service. Actual compute resources that are used on the back end vary and are optimized for performance and predictability.
 
 ### Guest Access
 **What is Guest Access to Azure Machine Learning Studio?**
