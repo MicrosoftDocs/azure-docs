@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 01/27/2017
 ms.author: richrund
 
 ---
@@ -28,13 +28,32 @@ You can use the Azure Key Vault solution in Log Analytics to review Azure Key Va
 
 To use the solution, you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
+> [!NOTE]
+> In January 2017 the supported way of sending logs from Key Vault to Log Analytics changed. If the Key Vault solution you are using shows *(deprecated)* in the title, refer to [migrating from the old Key Vault solution](#migrating-from-the-old-key-vault-solution) for details of the changes you need to make.
+>
+>
+
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
 
-1. Use `Set-AzureRmDiagnosticSetting` to enable diagnostics logging for the Key Vault resources to monitor: 
+1. Enable diagnostics logging for the Key Vault resources to monitor, using either the portal or PowerShell 
 2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
 
-The following PowerShell script provides an example of how to enable diagnostic logging for Key Vault:
+### Enable Key Vault diagnostics in the portal
+
+1. In the Azure portal, navigate to the Key Vault resource to monitor
+2. Select *Diagnostics logs* to open the following page
+   ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+3. Click *Turn on diagnostics* to open the following page
+   ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+4. Click *On* to turn on diagnostics
+5. Click the checkbox for *Send to Log Analytics*
+6. Select an existing Log Analytics workspace, or create a workspace
+7. Click the checkbox to enable *AuditEvent* logs
+8. Click *Save* to enable the logging of diagnostics to Log Analytics
+
+### Enable Key Vault diagnostics using PowerShell
+The following PowerShell script provides an example of how to use `Set-AzureRmDiagnosticSetting` to enable diagnostic logging for Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -102,6 +121,29 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | ResultSignature |HTTP status (for example, *OK*) |
 | ResultType |Result of REST API request (for example, *Success*) |
 | SubscriptionId |Azure subscription ID of the subscription containing the Key Vault |
+
+## Migrating from the old Key Vault solution
+In January 2017 the supported way of sending logs from Key Vault to Log Analytics changed. These changes provide the following advantages:
++ Logs do not need to be sent to a storage account prior to being collected by Log Analytics
++ Less latency from the time when logs are generated to them being available in Log Analytics
++ Fewer configuration steps
++ A common format for all types of Azure diagnostics
+
+To use the updated solution you need to:
+
+1. [Configure diagnostics to be sent directly to Log Analytics from Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
+2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
+3. Update any saved queries, dashboards, or alerts to use the new data type
+  + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
+  - Instead of: `Type=KeyVaults`, use `Type=AzureDiagnostics ResourceType=VAULTS`
+  + Fields: (Field names are case sensitive)
+  - For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
+  - For any field that has a suffix of \_o in name, the data will now be split out into individual fields based on the nested field names. For example, the UPN of the caller will be stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   - Field CallerIpAddress changed to CallerIPAddress
+   - Field RemoteIPCountry is no longer present
+4. Remove the the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
+
+Data collected prior to the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure Key Vault data.
