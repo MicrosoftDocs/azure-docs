@@ -30,16 +30,13 @@ When a new storage account is created, Azure generates two 512-bit storage acces
 Media Services depends on a storage key provided to it. Specifically, the locators that are used to stream or download your assets depend on the specified storage access key. When an AMS account is created it takes a dependency on the primary storage access key by default but as a user you can update the storage key that AMS has. You must make sure to let Media Services know which key to use by following steps described in this topic.  
 
 >[!NOTE]
-> If you have multiple storage accounts, you would perform this procedure with each storage account.
+> If you have multiple storage accounts, you would perform this procedure with each storage account. The order in which you rotate storage keys is not fixed. You can rotate the secondary key first and then the primary key or vice versa.
 >
 > Before executing steps described in this topic on a production account, make sure to test them on a pre-production account.
 >
 
 ## Steps to rotate storage keys 
-
->[!NOTE]
-> The order in which you rotate storage keys is not fixed. You can rotate the secondary key first and then the primary key.
-
+ 
  1. Change the storage account Primary key through the powershell cmdlet or [Azure](https://portal.azure.com/) portal.
  2. Call Sync-AzureRmMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
  
@@ -52,9 +49,9 @@ Media Services depends on a storage key provided to it. Specifically, the locato
  5. Call Sync-AzureRmMediaServiceStorageKeys powershell with appropriate params to force media account to pick up new storage account keys. 
  6. Wait an hour or so. Verify the streaming scenarios are working.
  
-### A complete example 
+### A powershell cmdlet example 
 
-The following example demonstrates how to get the storage account and sync the AMS account with the storage account.
+The following example demonstrates how to get the storage account and sync it with the AMS account.
 
 	$regionName = "West US"
 	$resourceGroupName = "SkyMedia-USWest-App"
