@@ -20,19 +20,19 @@ ms.author: parakhj
 ## Single-page apps (JavaScript)
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
-* The security characteristics of these apps are significantly different from traditional server based web applications.
+* The security characteristics of these apps are significantly different from traditional server-based web applications.
 * Many authorization servers & identity providers do not support CORS requests.
 * Full page browser redirects away from the app become particularly invasive to the user experience.
 
-In order to support these applications, Azure AD B2C uses the OAuth 2.0 implicit flow.  The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  In this flow, the app receives tokens directly from the Azure AD authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
+To support these applications, Azure AD B2C uses the OAuth 2.0 implicit flow.  The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  In this flow, the app receives tokens directly from the Azure AD authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
 
-Azure AD B2C extends the standard OAuth 2.0 implicit flows to do more than simple authentication and authorization. It introduces the [**policy parameter**](active-directory-b2c-reference-policies.md), which enables you to use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. Here we'll show how to use the implicit flow and Azure AD to implement each of these experiences in your single-page applications.  You can also look at our [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) or [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) samples to help you get started.
+Azure AD B2C extends the standard OAuth 2.0 implicit flows to do more than simple authentication and authorization. It introduces the [**policy parameter**](active-directory-b2c-reference-policies.md), which enables you to use OAuth 2.0 to add user experiences to your app, such as sign-up, sign-in, and profile management. Here we show how to use the implicit flow and Azure AD to implement each of these experiences in your single-page applications.  You can also look at our [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) or [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) samples to help you get started.
 
-The example HTTP requests below will use our sample B2C directory, **fabrikamb2c.onmicrosoft.com**, as well as our sample application and policies. You're free to try the requests out yourself by using these values, or you can replace them with your own.
+The example HTTP requests below will use our sample B2C directory, **fabrikamb2c.onmicrosoft.com**, and our sample application and policies. You're free to try out the requests yourself by using these values, or you can replace them with your own.
 Learn how to [get your own B2C directory, application, and policies](#use-your-own-b2c-tenant).
 
 ## Protocol diagram
-The entire implicit sign in flow looks something like this - each of the steps are described in detail below.
+The entire implicit sign-in flow looks something like this - each of the steps are described in detail below.
 
 ![OpenId Connect Swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
@@ -133,7 +133,7 @@ error=access_denied
 | --- | --- |
 | error |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
-| state |See the full description in the previous table. If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
+| state |See the full description in the previous table. If a state parameter is included in the request, the same value should appear in the response.  The app should verify that the state values in the request and response are identical.|
 
 ## Validate the id_token
 Just receiving an id_token is not enough to authenticate the user--you must validate the id_token's signature and verify the claims in the token as per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
@@ -202,7 +202,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode |recommended |Specifies the method that should be used to send the resulting token back to your app.  Can be one of `query`, `form_post`, or `fragment`. |
 | state |recommended |A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for preventing cross-site request forgery attacks.  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | nonce |required |A value included in the request, generated by the app, that will be included in the resulting id_token as a claim.  The app can then verify this value to mitigate token replay attacks.  The value is typically a randomized, unique string that can be used to identify the origin of the request. |
-| prompt |required |For refreshing & getting tokens in a hidden iframe, you should use `prompt=none` to ensure that the iframe does not hang on the v2.0 sign in page, and returns immediately. |
+| prompt |required |For refreshing & getting tokens in a hidden iframe, you should use `prompt=none` to ensure that the iframe does not hang on the sign-in page, and returns immediately. |
 | login_hint |required |For refreshing & getting tokens in a hidden iframe, you must include the username of the user in this hint in order to distinguish between multiple sessions the user may have at a given point in time. You can extract the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |required |Can be one of `consumers` or `organizations`.  For refreshing & getting tokens in a hidden iframe, you must include the domain_hint in the request.  You should extract the `tid` claim from the id_token of a previous sign-in to determine which value to use.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, you should use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
 
