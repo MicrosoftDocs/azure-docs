@@ -28,7 +28,7 @@ The following diagram shows the complete solution on Azure virtual machines:
 
 ![Availability Group](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
-In the preceding diagram shows:
+The preceding diagram shows:
 
 - Two Azure virtual machines in a Windows Server Failover Cluster (WSFC).
 - Each virtual machine has two or more data disks.
