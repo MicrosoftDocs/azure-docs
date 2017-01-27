@@ -18,7 +18,7 @@
 | Media Reserved Units (RUs) per AMS account |25 (S1, S2)<br/>10 (S3) <sup>1</sup> | 
 | Storage accounts | 1,000<sup>5</sup> (fixed) |
 | Policies | 1,000,000<sup>6</sup> |
-| File size| In some scenarios there is a limit on the file size<sup>7</sup> |
+| File size| In some scenarios there is a limit on the maximum file size supported for processing in Media Services. <sup>7</sup> |
  
 <sup>1</sup> S3 RUs are not available in India West.
 
