@@ -42,7 +42,8 @@ Single sign on is supported via web browser based clients and Office clients tha
 |Windows 8.1|Yes|Yes|Yes*|N/A
 |Windows 8|Yes|Yes|Yes*|N/A
 |Windows 7|Yes|Yes|Yes*|N/A
-|Mac|N/A|N/A|N/A|N/A
+|Mac|N/A|?|Yes*|N/A
+|Linux|N/A|?|Yes*|N/A
 
 *Requires separate configuration.
 
@@ -107,6 +108,9 @@ Your users are now ready for single sign on.
 
 >[!NOTE]
 >By default, Chrome will use the same set of trusted site URLs as Internet Explorer.  If you have configured different settings for Chrome you will need to update these separately.
+
+>[!NOTE]
+>Firefox requires the preference network.negotiate-auth.trusted-uris to include "https://autologon.microsoftazuread-sso.com,https://aadg.windows.net.nsatc.net"
 
 ## Troubleshooting single sign on issues
 It is important to make sure the client is correctly configured for single sign on including the following:
