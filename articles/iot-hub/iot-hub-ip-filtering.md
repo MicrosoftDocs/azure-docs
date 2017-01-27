@@ -58,6 +58,9 @@ The **Add** option is disabled when you reach the maximum of ten IP filter rules
 
 You can edit an existing rule by double-clicking the row that contains the rule.
 
+> [!NOTE]
+> Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with the IoT hub.
+
 ## Delete an IP filter rule
 
 To delete an IP filter rule, select one or more rules in the grid and click **Delete**.
@@ -68,7 +71,7 @@ To delete an IP filter rule, select one or more rules in the grid and click **De
 
 IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
 
-For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0. If you add a last rule that rejects the range 0.0.0.0/0, you change the default behavior to whitelisting.
+For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0.
 
 You can change the order of your IP filter rules in the grid by clicking on the three vertical dots at the start of a row and using drag and drop.
 

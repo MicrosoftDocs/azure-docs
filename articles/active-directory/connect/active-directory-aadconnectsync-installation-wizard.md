@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Running the installation wizard a second time | Microsoft Docs'
+title: 'Re-running the Azure AD Connect install wizard | Microsoft Docs'
 description: Explains how the installation wizard works the second time you run it.
 keywords: The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it
 services: active-directory
@@ -7,14 +7,13 @@ documentationcenter: ''
 author: andkjell
 manager: femila
 editor: ''
-
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: billmath
 
 ---

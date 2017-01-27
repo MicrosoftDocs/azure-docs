@@ -1,5 +1,5 @@
 ---
-title: Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Docs
+title: Connect an App Service web app to Redis via the Memcache protocol - Azure | Microsoft Docs
 description: Connect a web app in Azure App service to Redis Cache using the Memcache protocol
 services: app-service\web
 documentationcenter: php
