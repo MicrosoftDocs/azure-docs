@@ -27,7 +27,7 @@ This article describes how to set up your on-premises environment to start repli
 ## Prerequisites
 
 The article assumes that you have already created:
-- A Recovery Services Vault [Azure portal](http://portal.azure.com "Azure portal")
+- A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal")
 - A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions)
 - A virtual machine on which to install the configuration server
 
@@ -40,26 +40,26 @@ The configuration server software should be deployed on a highly available VMwar
 
 ## Choose your protection goals
 
-1. In the Azure portal, go to the **Recovery Services** vaults blade and select your vault.
+1. In the Azure portal, go to the **Recovery Services** vault blade and select your vault.
 2. In the Resource Menu of the vault, go to **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals.png)
-3. In **Protection goal**, select **To Azure**, and select **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
+3. In **Protection goal**, select **To Azure**, and choose **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 
     ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
 ## Set up the source environment
-Setting up the source environment involves two main activities
+Setting up the source environment involves two main activities:
 
-- Installing and registering a configuration server with Site Recovery.
-- Discovering your on-premises virtual machines by connecting Site Recovery to your on-premises VMware vCenter or vSphere EXSi hosts
+- Install and register a configuration server with Site Recovery.
+- Discover your on-premises virtual machines by connecting Site Recovery to your on-premises VMware vCenter or vSphere EXSi hosts.
 
 ### Step 1: Install and register a configuration server
 
 1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
     ![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
+2. On the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
@@ -69,7 +69,7 @@ Setting up the source environment involves two main activities
 #### Run Azure Site Recovery Unified Setup
 
 > [!TIP]
-> Configuration server registration fails if the time on your computer's System Clock differs from local time by more than five minutes. Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+> Configuration server registration fails if the time on your computer's system clock differs from local time by more than five minutes. Synchronize your system clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
@@ -83,7 +83,7 @@ Setting up the source environment involves two main activities
 ### Step 2: Add a vCenter
 To allow Azure Site Recovery to discover virtual machines running in your on-premises environment, you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery.
 
-Click the +vCenter button to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
+Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
