@@ -17,7 +17,7 @@ ms.date: 01/27/2017
 ms.author: parakhj
 
 ---
-## Single-page apps (JavaScript)
+## Azure Active Directory B2C: Sign-in for Single-Page Apps using Auth 2.0 Implicit Flow
 Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
 * The security characteristics of these apps are significantly different from traditional server-based web applications.

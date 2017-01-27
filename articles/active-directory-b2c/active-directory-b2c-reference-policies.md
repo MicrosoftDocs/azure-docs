@@ -161,5 +161,5 @@ To enable fine-grained password reset on your application, you will need to crea
 
 ## Additional resources
 * [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
-* [Disable email verification during user signup](active-directory-b2c-reference-disable-ev.md)
+* [Disable email verification during user sign-up](active-directory-b2c-reference-disable-ev.md)
 
