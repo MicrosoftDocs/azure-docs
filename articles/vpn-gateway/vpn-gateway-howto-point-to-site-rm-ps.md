@@ -1,6 +1,6 @@
 ---
-title: 'Connect to an Azure virtual network using Point-to-Site: PowerShell | Microsoft Docs'
-description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
+title: 'Connect a computer to an Azure virtual network using Point-to-Site: PowerShell | Microsoft Docs'
+description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -40,7 +40,7 @@ The following table shows the two deployment models and available deployment met
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Basic workflow
-![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/p2srm.png "point-to-site")
+![Connect a computer to an Azure VNet - Point-to-Site connection diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
 In this scenario, you will create a virtual network with a Point-to-Site connection. The instructions will also help you generate certificates, which are required for this configuration. A P2S connection is composed of the following items: A VNet with a VPN gateway, a root certificate .cer file (public key), a client certificate, and the VPN configuration on the client. 
 
@@ -182,7 +182,7 @@ Clients connecting to Azure using P2S must have both a client certificate and a 
 3. Copy and paste the link that is returned to a web browser to download the package. Then install the package on the client computer. If you get a SmartScreen popup, click **More info**, then **Run anyway** in order to install the package.
 4. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It will show the name of the virtual network that it will connect to and looks similar to this example: 
    
-    ![VPN client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
+    ![VPN client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png)
 
 ## <a name="clientcertificate"></a>Part 6 - Install the client certificate
 Each client computer must have a client certificate in order to authenticate. When installing the client certificate, you will need the password that was created when the client certificate was exported.
@@ -194,10 +194,10 @@ Each client computer must have a client certificate in order to authenticate. Wh
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
    
-    ![VPN client connection](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png "VPN client connection")
+    ![VPN client connect to Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Your connection should now be established.
    
-    ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Connection established")
+    ![Connection established](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
 ## <a name="verify"></a>Part 8 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
@@ -226,7 +226,7 @@ You can add up to 20 trusted root certificate .cer files to Azure. Follow the st
    
     Copy the values, as shown in the following example:
    
-    ![certificate](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "certificate")
+    ![certificate](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
 2. Specify the certificate name and key information as a variable. Replace the information with your own, as shown in the following example:
    
         $P2SRootCertName2 = "ARMP2SRootCert2.cer"
