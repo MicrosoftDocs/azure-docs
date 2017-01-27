@@ -18,13 +18,7 @@ ms.author: juliako
 
 ---
 # Set up your Media Services development environment
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest)
->   <a id="create_account"></a>
-> 
-> 
+
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 
@@ -34,16 +28,19 @@ Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Ser
 <a id="setup_dev_env"></a>
 
 ## Set up the development environment
-Choose .NET or the REST API for your development environment.
 
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+To set up .NET dev environment, see [this](media-services-dotnet-how-to-use.md) topic.  
+
+To set up REST dev environment, see [this](media-services-rest-how-to-use.md) topic.  
 
 <a id="connect"></a>
 
 ## Connect programmatically
-Choose .NET or the REST API to programmatically connect to Azure Media Services.
 
-[!INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+To connect to Azure Media Services using .NET, see [this](media-services-dotnet-connect-programmatically.md) topic.  
+
+To connect to Azure Media Services using REST, see [this](media-services-rest-connect-programmatically.md) topic.  
+
 
 ## Next steps: Azure Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
