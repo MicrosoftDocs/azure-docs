@@ -1,4 +1,3 @@
-
 ---
 title: Office and SharePoint Add-in license XML schema structure
 ms.prod: MULTIPLEPRODUCTS
