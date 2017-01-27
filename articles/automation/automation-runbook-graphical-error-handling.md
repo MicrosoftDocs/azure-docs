@@ -21,7 +21,7 @@ ms.author: magoedte
 
 A key runbook design principal to consider is identifying different issues that a runbook might experience. These issues can include success, expected error states, and unexpected error conditions.
 
-Runbooks should include error handling. If you want to validate the output of an activity or handle an error with graphical runbooks, you could use a Windows PowerShell code activity, define conditional logic on the output link of the activity, or apply another method.          
+Runbooks should include error handling. To validate the output of an activity or handle an error with graphical runbooks, you could use a Windows PowerShell code activity, define conditional logic on the output link of the activity, or apply another method.          
 
 Often, if there is a non-terminating error that occurs with a runbook activity, any activity that follows is processed regardless of the error. The error is likely to generate an exception, but the next activity is still allowed to run. This is the way that PowerShell is designed to handle errors.    
 
@@ -29,24 +29,24 @@ The types of PowerShell errors that can occur during execution are terminating o
 
 * **Terminating error**: A serious error during execution that halts the command (or script execution) completely. Examples include non-existent cmdlets, syntax errors that prevent a cmdlet from running, or other fatal errors.
 
-* **Non-terminating error**: A non-serious error that allows execution to continue despite the failure. Examples include operational errors such as file not found errors, permissions problems, and so on.
+* **Non-terminating error**: A non-serious error that allows execution to continue despite the failure. Examples include operational errors such as file not found errors and permissions problems.
 
-Azure Automation graphical runbooks have been improved with the capability to include error handling. You can now turn exceptions into non-terminating errors and create error links between activities. This process allows a runbook author to catch errors and more easily manage  realized or unexpected conditions.  
+Azure Automation graphical runbooks have been improved with the capability to include error handling. You can now turn exceptions into non-terminating errors and create error links between activities. This process allows a runbook author to catch errors and manage realized or unexpected conditions.  
 
 ## When to use error handling
 
-It's important to ensure that whenever there is a critical activity that throws an error or exception, you can prevent the next activity in your runbook from processing and handle the error appropriately. This is especially critical when your runbooks are supporting a business or service operations process.
+Whenever there is a critical activity that throws an error or exception, it's important to prevent the next activity in your runbook from processing and to handle the error appropriately. This is especially critical when your runbooks are supporting a business or service operations process.
 
 For each activity that can produce an error, the runbook author can add an error link pointing to any other activity.  The destination activity can be of any type, including code activities, invoking a cmdlet, invoking another runbook, and so on.
 
-In addition, the destination activity can also have outgoing links. These links can be regular links or error links. This means the runbook author can implement complex error handling logic without resorting to a code activity. The recommended practice is to create a dedicated error handling runbook with common functionality, but it's not mandatory. Error handling logic in a PowerShell code activity it isn't the only alternative.  
+In addition, the destination activity can also have outgoing links. These links can be regular links or error links. This means the runbook author can implement complex error-handling logic without resorting to a code activity. The recommended practice is to create a dedicated error-handling runbook with common functionality, but it's not mandatory. Error-handling logic in a PowerShell code activity it isn't the only alternative.  
 
 For example, consider a runbook that tries to start a VM and install an application on it. If the VM doesn't start correctly, it performs two actions:
 
 1. It sends a notification about this problem.
 2. It starts another runbook that automatically provisions a new VM instead.
 
-One solution is to have an error link pointing to an activity that handles step 1. For example, you could connect the **Write-Warning** cmdlet to an activity for step 2, such as the **Start-AzureRmAutomationRunbook** cmdlet.
+One solution is to have an error link pointing to an activity that handles step one. For example, you could connect the **Write-Warning** cmdlet to an activity for step two, such as the **Start-AzureRmAutomationRunbook** cmdlet.
 
 You could also generalize this behavior for use in many runbooks by putting these two activities in a separate error handling runbook and following the guidance suggested earlier. Before calling this error-handling runbook, you could construct a custom message from the data in the original runbook, and then pass it as a parameter to the error-handling runbook.
 
@@ -58,7 +58,7 @@ By enabling this configuration, you are assuring that both terminating and non-t
 
 After configuring this setting, you create an activity that handles the error. If an activity produces any error, then the outgoing error links are followed, and the regular links are not, even if the activity produces regular output as well.<br><br> ![Automation runbook error link example](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-In the following example, a runbook  retrieves a variable that contains the computer name of a virtual machine. It then attempts to start the virtual machine with the next activity.<br><br> ![Automation runbook error handling example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+In the following example, a runbook retrieves a variable that contains the computer name of a virtual machine. It then attempts to start the virtual machine with the next activity.<br><br> ![Automation runbook error handling example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
 The **Get-AutomationVariable** activity and **Start-AzureRmVm** are configured to convert exceptions to errors.  If there are problems getting the variable or starting the VM, then errors are generated.<br><br> ![Automation runbook error handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
