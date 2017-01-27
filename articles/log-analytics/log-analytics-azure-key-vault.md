@@ -75,7 +75,7 @@ The following table shows data collection methods and other details about how da
 | Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | on arrival |
 
 ## Use Azure Key Vault
-After you install the solution, you can view the summary of request statuses over time for your monitored Key Vaults by using the **Azure Key Vault** tile on the **Overview** page of Log Analytics.
+After you install the solution, view the Key Vault data by clicking on the **Azure Key Vault** tile from the **Overview** page of Log Analytics.
 
 ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
@@ -106,7 +106,7 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | CallerIpAddress |IP address of the client who made the request |
 | Category | *AuditEvent* |
 | CorrelationId |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
-| DurationMs |Time it took to service the REST API request, in milliseconds. This does not include network latency, so the time that you measure on the client side might not match this time. |
+| DurationMs |Time it took to service the REST API request, in milliseconds. This time does not include network latency, so the time that you measure on the client side might not match this time. |
 | httpStatusCode_d |HTTP status code returned by the request (for example, *200*) |
 | id_s |Unique ID of the request |
 | identity_claim_appid_g | GUID for the application id |
@@ -124,12 +124,12 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 
 ## Migrating from the old Key Vault solution
 In January 2017, the supported way of sending logs from Key Vault to Log Analytics changed. These changes provide the following advantages:
-+ Logs do not need to be sent to a storage account prior to being collected by Log Analytics
++ Logs are written directly to Log Analytics without the need to use a storage account
 + Less latency from the time when logs are generated to them being available in Log Analytics
 + Fewer configuration steps
 + A common format for all types of Azure diagnostics
 
-To use the updated solution you need to:
+To use the updated solution:
 
 1. [Configure diagnostics to be sent directly to Log Analytics from Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
@@ -138,12 +138,12 @@ To use the updated solution you need to:
   - Instead of: `Type=KeyVaults`, use `Type=AzureDiagnostics ResourceType=VAULTS`
   + Fields: (Field names are case-sensitive)
   - For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
-  - For any field that has a suffix of \_o in name, the data will now be split out into individual fields based on the nested field names. For example, the UPN of the caller will be stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+  - For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names. For example, the UPN of the caller is stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Field CallerIpAddress changed to CallerIPAddress
    - Field RemoteIPCountry is no longer present
 4. Remove the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
 
-Data collected prior to the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
+Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure Key Vault data.
