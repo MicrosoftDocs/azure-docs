@@ -40,25 +40,25 @@ For more details, see:
 All users who are set up to use web services are defined as user accounts in one or more Azure AD instances. You can set up these accounts for free Azure AD capabilities like cloud application access.
 
 Azure AD paid services like Enterprise Mobility + Security complement other web services like Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
-
+- - -
 **Q:  Why can I sign in to the Azure portal but not the classic portal?**
 
 **A:**  The Azure portal does not require a valid subscription, and the classic portal does require a valid subscription.  If you do not have a subscription, you can't sign in to the classic portal.
-
+- - -
 **Q:  What are the differences between Subscription Administrator and Directory Administrator?**
 
 **A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription admin can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
-If others need to sign in and access services using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [here](../billing-add-change-azure-subscription-administrator.md) and [here](active-directory-how-subscriptions-associated-directory.md).
+If others need to sign in and access services using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things.  For additional information on Azure AD directory admins and their roles see [here.](active-directory-assign-admin-roles.md)
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 
 
 - - -
-## Getting started with Hybrid Azure AD
+## Get started with Hybrid Azure AD
 **Q: How can I connect my on-premises directory to Azure AD?**
 
-**A:** You can connect your on-premises directory to Azure AD using **Azure AD Connect**.
+**A:** You can connect your on-premises directory to Azure AD by using Azure AD Connect.
 
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
@@ -67,27 +67,27 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 **A:** You only need to set up SSO between your on-premises directory and Azure AD. As long as you access your cloud applications through Azure AD, the service automatically drives your users to correctly authenticate with their on-premises credentials.
 
-Implementing SSO from on-premises can be easily achieved with federation solutions such as ADFS or by configuring password hash sync. You can easily deploy both options using the Azure AD Connect configuration wizard.
+Implementing SSO from on-premises can be easily achieved with federation solutions such as ADFS or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
 
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 - - -
 **Q: Does Azure AD provide a self-service portal for users in my organization?**
 
-**A:** Yes, Azure AD provides you with the [Azure AD Access Panel](http://myapps.microsoft.com) for user self-service and application access. IF you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal.
+**A:** Yes, Azure AD provides you with the [Azure AD Access Panel](http://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal.
 
-For more information, see the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+For more information, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 - - -
 **Q: Does Azure AD help me manage my on-premises infrastructure?**
 
-**A:** Yes, it does. The Azure AD Premium edition provides you with **Connect Health**. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
+**A:** Yes, it does. The Azure AD Premium edition provides you with Azure AD Connect Health. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
 
 For more details, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md).  
 
 - - -
 ## Password management
-**Q: Can I use Azure AD password write-back without password sync? (AKA, I would like to use Azure AD SSPR with password write-back but I don’t want my passwords stored in the cloud?)**
+**Q: Can I use Azure AD password write-back without password sync? (In this scenario, is it possible to use Azure AD SSPR with password write-back and not store passwords in the cloud?)**
 
 **A:** You do not need to synchronize your Active Directory passwords to Azure AD in order to enable write-back. In a federated environment, Azure AD SSO relies on the on-premises directory to authenticate the user. This scenario does not require the on-premises password to be tracked in Azure AD.
 
@@ -103,15 +103,15 @@ For more details, see [Getting started with Password Management](active-director
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password related questions, see [Password Management Frequently Asked Questions](active-directory-passwords-faq.md).
-
+For more answers to password-related questions, see [Password Management Frequently Asked Questions](active-directory-passwords-faq.md).
+- - -
 **Q:  What can I do if I cannot remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation there are a couple of options.  If your organization has enabled self-service password reset then you can try this.  This may or may not work depending on how self-service password reset has been configured.  For more information see [How does the password reset portal work.](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work)
+**A:** For this type of situation there are a couple of options.  If your organization has enabled self-service password reset then you can try this.  This may or may not work depending on how self-service password reset has been configured.  For more information see [How does the password reset portal work](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
 
-For Office 365 users, your admin can reset the password using the steps outlined [here.](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)
+For Office 365 users, your admin can reset the password using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
-For Azure AD accounts, admins can reset passwords using one of the following:
+For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
 - [Reset accounts in the classic portal](active-directory-create-users-reset-password.md)
@@ -121,7 +121,7 @@ For Azure AD accounts, admins can reset passwords using one of the following:
 ## Application access
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
 
-**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, or partners. All pre-integrated applications support SSO. SSO enables you to use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning
+**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, or partners. All pre-integrated applications support SSO. SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
 
 For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
@@ -161,7 +161,7 @@ For more information, see:
 - - -
 **Q: Can I add applications I’m running on-premises?**
 
-**A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way you are accessing your SaaS apps in Azure AD. There is no need for a VPN or changing your network infrastructure.  
+**A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way you are accessing your SaaS apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
 
 For more details, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
 
@@ -177,10 +177,8 @@ For more details, see [Securing access to Office 365 and other apps connected to
 
 **A:** Azure AD allows you to automate the creation, maintenance, and removal of user identities in many popular cloud (SaaS) applications.
 
-For more information, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
-
-**Q:  Can I setup a secure LDAP connection with Azure AD?**
-
-**A:**  No.  Azure AD does not support using the LDAP protocol.
-
+For more information, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
 - - -
+**Q:  Can I set up a secure LDAP connection with Azure AD?**
+
+**A:**  No.  Azure AD does not support the LDAP protocol.
