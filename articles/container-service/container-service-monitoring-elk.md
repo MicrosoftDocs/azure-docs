@@ -45,8 +45,8 @@ Click on the edit button as shown below.
 ![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
 
 
-Turn the edit mode to 'JSON' and scroll down to the labels section
-You need to add a "HAPROXY_GROUP" : "external" entry here as shown below
+Turn the edit mode to 'JSON' and scroll down to the labels section.
+You need to add a "HAPROXY_GROUP" : "external" entry here as shown below.
 Once you click 'Deploy changes' , your container will restart.
 
 ![ELK5](./media/container-service-monitoring-elk/elk5.PNG)
