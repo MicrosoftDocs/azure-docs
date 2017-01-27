@@ -16,7 +16,8 @@
 # How To
 ## [Configure a routing method](traffic-manager-configure-routing-method.md)
 ## [Test your settings](traffic-manager-testing-settings.md)
-## [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
+## Troubleshoot
+### [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
 ## [Combining load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Use network resources](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 

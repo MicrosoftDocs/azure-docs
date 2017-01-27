@@ -1,5 +1,5 @@
 ---
-title: API Management key concepts
+title: Azure API Management overview and key concepts | Microsoft Docs
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
 documentationcenter: ''
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apipm
 ---
 # What is API Management?
 API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
