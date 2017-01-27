@@ -6,9 +6,9 @@
 ## [Set up your dev environment](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-### Connect programmatically
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
+## Connect programmatically
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
 
 ## Deliver video on demand
 ### [Portal](media-services-portal-vod-get-started.md)
