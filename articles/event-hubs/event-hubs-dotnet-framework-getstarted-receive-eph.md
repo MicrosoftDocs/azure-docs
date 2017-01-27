@@ -135,10 +135,9 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 > 
 
 <!-- Links -->
-[Event Hubs Overview]: ../articles/event-hubs/event-hubs-overview.md
-[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com
 
@@ -182,6 +181,3 @@ Now that you've built a working application that creates an Event Hub and sends 
 <!-- Links -->
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md

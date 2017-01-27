@@ -7,13 +7,13 @@
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-### Java
+### [Java](event-hubs-java-get-started-send.md)
 ### Python
 ### Node
 ## Receive events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-### Java
+### [Java](event-hubs-java-get-started-receive-eph.md)
 ### Python
 ### Node
 ## [Programming guide](event-hubs-programming-guide.md)
@@ -21,8 +21,8 @@
 
 # How to
 ## Plan and design
-## [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
-## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
+### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 
 ## Develop
 ### [🔧Available APIs](event-hubs-available-apis.md)
