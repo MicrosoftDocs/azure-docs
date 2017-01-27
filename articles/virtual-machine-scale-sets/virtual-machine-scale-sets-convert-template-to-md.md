@@ -27,7 +27,7 @@ Customers with a Resource Manager template for creating a scale set not using ma
 
 ## Making the OS disks managed
 
-In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary to specify because managed disk will automatically choose the proper type for the chosen VM size (if the VM size has a lowercase or uppercase 's' in it, then premium storage will be used, otherwise standard storage will be used; both will be locally redundant storage). New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary becuase managed disk will automatically name the underlying storage blob containers and disks.
+In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary (Standard_LRS is the default), but we could still specify it if we wished to. Note that only Standard_LRS and Premium_LRS are supported with managed disk. New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary becuase managed disk will automatically name the underlying storage blob containers and disks.
 
 ```diff
    "variables": {
@@ -90,7 +90,7 @@ In the diff below, we can see that we are removing the storage account resource 
        "location": "[resourceGroup().location]",
 ```
 
-In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. We do add one new property, though, which is "diskSizeGB", specifying the size of our OS disk in gigabytes.
+In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. We do add one new property, though, which is "diskSizeGB", specifying the size of our OS disk in gigabytes. If we wished, we could also specify "accountType": "Premium_LRS" in the "osDisk" configuration if we wanted premium OS disks.
 
 ```diff
 @@ -183,7 +158,6 @@
