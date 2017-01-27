@@ -22,10 +22,10 @@ Azure Active Directory is a comprehensive Identity as a Service (IDaaS) solution
 
 For more details, see [What is Azure Active Directory?](active-directory-whatis.md)
 
-## Accessing Azure and Azure Active Directory
+## Access Azure and Azure Active Directory
 **Q: Why do I get “No subscriptions found” when I try to access Azure Active Directory (Azure AD) in the Azure classic portal (https://manage.windowsazure.com)?**
 
-**A:** Accessing the Azure classic portal requires each user to have permissions on an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
+**A:** To access the Azure classic portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
 
 For more details, see:
 
@@ -50,7 +50,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 **A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription admin can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
 If others need to sign in and access services using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
 
 
@@ -67,7 +67,7 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 **A:** You only need to set up SSO between your on-premises directory and Azure AD. As long as you access your cloud applications through Azure AD, the service automatically drives your users to correctly authenticate with their on-premises credentials.
 
-Implementing SSO from on-premises can be easily achieved with federation solutions such as ADFS or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
+Implementing SSO from on-premises can be easily achieved with federation solutions such as ADFS, or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
 
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
@@ -105,11 +105,11 @@ For more details, see [Getting started with Password Management](active-director
 
 For more answers to password-related questions, see [Password Management Frequently Asked Questions](active-directory-passwords-faq.md).
 - - -
-**Q:  What can I do if I cannot remember my existing Office 365/Azure AD password while trying to change my password?**
+**Q:  What can I do if I can't remember my existing Office 365/Azure AD password while trying to change my password?**
 
-**A:** For this type of situation there are a couple of options.  If your organization has enabled self-service password reset then you can try this.  This may or may not work depending on how self-service password reset has been configured.  For more information see [How does the password reset portal work](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
+**A:** For this type of situation there are a couple of options.  Use self-service password reset if it's available.  Whether self-service password reset works depends on how it's configured.  For more information, see [How does the password reset portal work](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work).
 
-For Office 365 users, your admin can reset the password using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
@@ -121,14 +121,14 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 ## Application access
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
 
-**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, or partners. All pre-integrated applications support SSO. SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
+**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support SSO. SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
 
 For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 - - -
 **Q: What if the application I need is not in the Azure AD marketplace?**
 
-**A:** With Azure AD Premium, you can add and configure any application you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
+**A:** With Azure AD Premium, you can add and configure any application that you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
 
 For more details, see:
 
@@ -136,7 +136,7 @@ For more details, see:
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
 
 - - -
-**Q: How do users sign into applications using Azure AD?**
+**Q: How do users sign into applications by using Azure AD?**
 
 **A:** Azure AD provides several ways for users to view and access their applications such as:
 
@@ -166,7 +166,7 @@ For more information, see:
 For more details, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
 
 - - -
-**Q: How do I require MFA for users accessing a particular application?**
+**Q: How do I require MFA for users who access a particular application?**
 
 **A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require MFA at all times, or when users are not connected to the local network.  
 
