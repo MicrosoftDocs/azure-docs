@@ -117,7 +117,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |The length of time that the access_token is valid (in seconds). |
 | scope |The scopes that the token is valid for, which can be used for caching tokens for later use. |
 | id_token |The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user. More details on id_tokens and their contents are included in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md). |
-| state |If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
+| state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 #### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
@@ -133,7 +133,7 @@ error=access_denied
 | --- | --- |
 | error |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description |A specific error message that can help a developer identify the root cause of an authentication error. |
-| state |See the full description in the previous table. If a state parameter is included in the request, the same value should appear in the response.  The app should verify that the state values in the request and response are identical.|
+| state |See the full description in the previous table. If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical.|
 
 ## Validate the id_token
 Just receiving an id_token is not enough to authenticate the user--you must validate the id_token's signature and verify the claims in the token as per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
@@ -170,7 +170,7 @@ For more information on the claims in an id_token, see the [Azure AD B2C token r
 After you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, authorization, and so on.
 
 ## Get access tokens
-If all that your web app needs to do is execute policies, you can skip the next few sections. These sections are only applicable to web apps that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
+If all that your web app needs to do is to execute policies, you can skip the next few sections. These sections are only applicable to web apps that need to make authenticated calls to a web API and are also protected by Azure AD B2C.
 
 Now that you've signed the user into your single page app, you can get access tokens for calling web APIs secured by Azure AD.  Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
 
@@ -224,7 +224,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |The token that the app requested. |
 | token_type |Will always be `Bearer`. |
-| state |If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
+| state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 | expires_in |How long the access token is valid (in seconds). |
 | scope |The scopes that the access token is valid for. |
 
@@ -247,7 +247,7 @@ If you receive this error in the iframe request, the user must interactively sig
 ## Refreshing tokens
 Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically.  To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control Azure AD's behavior.  If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.
 
-## Send a sign out request
+## Send a sign-out request
 When you want to sign the user out of the app, redirect the user to Azure AD to sign out. If you fail to do so, the user might be able to reauthenticate to your app without entering their credentials again. This is because they will have a valid single sign-on session with Azure AD.
 
 You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described in the earlier section "Validate the id_token":
