@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 
 ---
@@ -94,8 +94,13 @@ There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Com
 
     ![Customize GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-## Task 5 - Import a custom Group Policy Object (GPO)
+## Task 5 - Create a custom Group Policy Object (GPO)
 You can create or import your own custom group policy objects. You can also link custom GPOs to a custom OU you have created in your managed domain. For more information on creating custom organizational units, see [create a custom OU on a managed domain](active-directory-ds-admin-guide-create-ou.md).
+
+> [!NOTE]
+> You need to be a member of the 'AAD DC Administrators' group, to administer Group Policy on the managed domain.
+>
+>
 
 1. In the **Group Policy Management** console, click to select your custom organizational unit (OU). Right-click the OU and click **Create a GPO in this domain, and Link it here...**.
 
