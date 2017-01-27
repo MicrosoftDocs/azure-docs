@@ -40,9 +40,6 @@ Most SQL client tools can connect to SQL Data Warehouse by using JDBC, ODBC, or 
 
 If you are running a Windows operating system, we recommend using either [Visual Studio] or [SQL Server Management Studio].
 
-
-### Create a logical SQL server
-
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
@@ -419,7 +416,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 
 1. Run this script to import your data.
 
-```sql
+    ```sql
     CREATE TABLE [dbo].[Date]
     WITH
     ( 
@@ -429,7 +426,6 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
 
     CREATE TABLE [dbo].[Geography]
     WITH
@@ -494,12 +490,12 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads
+2. View your data as it loads.
 
    You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
     
    
-```sql
+    ```sql
     SELECT
         r.command,
         s.request_id,
@@ -527,13 +523,13 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries
+3. View all system queries.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse
+4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
 
     ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
