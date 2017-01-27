@@ -1,5 +1,5 @@
 ---
-title: Account resource management with Batch Management .NET | Microsoft Docs
+title: Manage Batch account resources with the client library for .NET - Azure | Microsoft Docs
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 services: batch
 documentationcenter: .net
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 01/23/2017
 ms.author: tamram
 
 ---

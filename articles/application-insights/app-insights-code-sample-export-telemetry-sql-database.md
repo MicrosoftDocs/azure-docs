@@ -1,5 +1,5 @@
 ---
-title: 'Code sample: Parse data exported from Application Insights | Microsoft Docs'
+title: 'Sample: Parse data exported from Azure Application Insights | Microsoft Docs'
 description: Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL.
 services: application-insights
 documentationcenter: ''

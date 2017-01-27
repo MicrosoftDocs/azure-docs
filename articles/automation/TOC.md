@@ -19,8 +19,7 @@
 ### [Source control integration](automation-source-control-integration.md)
 ## Automate runbooks
 ### [Start a runbook](automation-starting-a-runbook.md)
-### [Start a runbook from a web call](automation-webhooks.md)
-### [Schedule a runbook](automation-scheduling-a-runbook.md)
+### [Start a runbook from a webhook](automation-webhooks.md)
 ### [Run runbooks in your datacenter](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
 ### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
@@ -60,7 +59,7 @@
 ### [Move Automation Account](automation-migrate-account-subscription.md)
 ## Troubleshoot
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
-### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)

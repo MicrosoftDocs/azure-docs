@@ -1,6 +1,6 @@
 ---
-title: Moving Data to and from Azure Storage | Microsoft Docs
-description: This article provides an overview of the different methods for moving data to and from Azure Storage.
+title: Moving large amounts of data to/from cloud storage in Azure | Microsoft Docs
+description: An overview of the different methods for moving data to and from Azure Storage.
 services: storage
 documentationcenter: ''
 author: micurd
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: micurd
 
 ---

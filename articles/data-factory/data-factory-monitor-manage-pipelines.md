@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage Azure Data Factory pipelines
+title: Monitor and manage pipelines using Azure Portal/PowerShell | Microsoft Docs
 description: Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created.
 services: data-factory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: spelluru
 
 ---
-# Monitor and manage Azure Data Factory pipelines
+# Monitor and manage Azure Data Factory pipelines using Azure Portal/PowerShell
 > [!div class="op_single_selector"]
 > * [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
