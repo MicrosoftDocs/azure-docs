@@ -3,16 +3,16 @@
 ## [FAQ](event-hubs-faq.md)
 
 # Get Started
-## [🔧Create a namespace](event-hubs-create-namespace-portal.md)
-## [Send events](event-hubs-dotnet-standard-getstarted-send.md)
+## [Create an Event Hub](event-hubs-create.md)
+## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### .NET Framework
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### Java
 ### Python
 ### Node
-## [Receive events](event-hubs-dotnet-standard-getstarted-receive.md)
-### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive.md)
-### .NET Framework
+## Receive events
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### Java
 ### Python
 ### Node

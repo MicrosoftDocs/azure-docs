@@ -26,7 +26,7 @@ ms.author: jotaub
 
 ## What will be accomplished
 
-This tutorial will walk-through how to create the existing solution **SampleSender** (inside this folder). You can run the solution as-is replacing the EhConnectionString/EhEntityPath with your Event Hub values, or follow this tutorial to create your own.
+This tutorial will walk through how to create the existing solution **SampleSender** (inside this folder). You can run the solution as-is replacing the EhConnectionString/EhEntityPath with your Event Hub values, or follow this tutorial to create your own.
 
 In this tutorial, we will write a .NET Core console application to send messages to an Event Hub.
 

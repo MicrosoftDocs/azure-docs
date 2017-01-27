@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 1/25/2016
 ms.author: sethm
 
 ---
 # Event Hubs quotas
 This section lists basic quotas and limits in Microsoft Azure Event Hubs.
 
-[!INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
