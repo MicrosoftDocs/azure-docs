@@ -418,7 +418,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
 
 1. Run this script to import your data.
- 
+
 ```sql
     CREATE TABLE [dbo].[Date]
     WITH
@@ -494,9 +494,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it is loaded.
+2. View your data as it loads
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a Dynamic Management Views (DMV) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting. Cluster Columnstore Indexes. 
+   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
     
    
 ```sql
@@ -566,14 +566,11 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows.
+5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-
-Take note of the time it took to run this operation.
-
 6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
 
 7. Run the query again! You should notice a significant difference. 
@@ -617,7 +614,7 @@ Take note of the time it took to run this operation.
         ON  tr.DateID = dt.DateID
     ```
 
- This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
 
 2. Statistics make a difference. Run this statement to create statistics on the join columns.
 
