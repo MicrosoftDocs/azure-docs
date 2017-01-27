@@ -109,7 +109,7 @@ Before following the instructions in this article, you should already have:
    >[!WARNING]
    >In some cases, an Azure virtual machine will become non-responsive immediately after you change the network interface settings. In this case, reboot the virtual machine. 
 
-1. [Add the virtual machines to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain) 
+1. [Add the virtual machines to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
 1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
