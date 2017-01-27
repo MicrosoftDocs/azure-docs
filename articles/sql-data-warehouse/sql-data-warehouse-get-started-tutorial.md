@@ -19,9 +19,9 @@ ms.author: elbutter;barbkess
 ---
 # Get started with SQL Data Warehouse
 
-This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. When you’re finished, you’ll be ready to query and explore your data warehouse.
+This tutorial shows how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. When you’re finished, you’ll be ready to query and explore your data warehouse.
 
-**Estimated time to complete:** This is an end-to-end tutorial with example code that will takes about 30 minutes to complete once the prerequisites are done. 
+**Estimated time to complete:** This is an end-to-end tutorial with example code that takes about 30 minutes to complete once you have met the prerequisites. 
 
 ## Prerequisites
 
