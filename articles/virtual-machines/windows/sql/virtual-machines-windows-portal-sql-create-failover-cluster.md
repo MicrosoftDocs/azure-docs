@@ -62,7 +62,7 @@ Before following the instructions in this article, you should already have:
 
 1. Create the virtual machines in the availability set.
 
-   Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). 
+   Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). 
 
    Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
@@ -79,7 +79,7 @@ Before following the instructions in this article, you should already have:
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
-   Alternatively, you can use Azure Marketplace images with just the operating system. To do this, choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
    
 1. Open the firewall ports.
 
@@ -218,7 +218,7 @@ To set the cluster probe port parameter, update variables in the following scrip
 
 ## Test failover
 
-Test failover of the FCI in order to validate cluster functionality. In order to test failover:
+Test failover of the FCI to validate cluster functionality. Do the following steps:
 
 1. Connect to one of the SQL Server FCI cluster nodes with RDP.
 
@@ -228,7 +228,7 @@ Test failover of the FCI in order to validate cluster functionality. In order to
 
 1. Click **Move** and click **Best Possible Node**.
 
-**Failover Cluster Manager** shows the role and its resources go offline, move and come online on the other node. 
+**Failover Cluster Manager** shows the role and its resources go offline. The resources then move and come online on the other node. 
 
 ## Test connectivity
 
