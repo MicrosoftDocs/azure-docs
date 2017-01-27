@@ -58,11 +58,11 @@ By enabling this configuration, you are assuring that both terminating and non-t
 
 After configuring this setting, you create an activity that handles the error. If an activity produces any error, then the outgoing error links are followed, and the regular links are not, even if the activity produces regular output as well.<br><br> ![Automation runbook error link example](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
-In the following example, a runbook retrieves a variable that contains the computer name of a virtual machine. It then attempts to start the virtual machine with the next activity.<br><br> ![Automation runbook error handling example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
+In the following example, a runbook retrieves a variable that contains the computer name of a virtual machine. It then attempts to start the virtual machine with the next activity.<br><br> ![Automation runbook error-handling example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-The **Get-AutomationVariable** activity and **Start-AzureRmVm** are configured to convert exceptions to errors.  If there are problems getting the variable or starting the VM, then errors are generated.<br><br> ![Automation runbook error handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+The **Get-AutomationVariable** activity and **Start-AzureRmVm** are configured to convert exceptions to errors.  If there are problems getting the variable or starting the VM, then errors are generated.<br><br> ![Automation runbook error-handling activity settings](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
-Error links flow from these activities to a single **error management** activity (a code activity). This activity is configured with a simple PowerShell expression that uses the *Throw* keyword to stop processing, along with *$Error.Exception.Message* to get the message that describes the current exception.<br><br> ![Automation runbook error handling code Example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Error links flow from these activities to a single **error management** activity (a code activity). This activity is configured with a simple PowerShell expression that uses the *Throw* keyword to stop processing, along with *$Error.Exception.Message* to get the message that describes the current exception.<br><br> ![Automation runbook error-handling code example](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
 ## Next steps
