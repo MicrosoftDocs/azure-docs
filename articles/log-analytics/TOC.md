@@ -45,6 +45,9 @@
 #### [Change Tracking](log-analytics-change-tracking.md)
 #### [Containers](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
+#### Logic Apps B2B Messages
+##### [Logic Apps B2B Messages solution](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Malware Assessment](log-analytics-malware.md)
 #### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 #### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
