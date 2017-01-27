@@ -30,7 +30,7 @@
 ### [Manage streaming endpoints](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
+### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 
 ## Upload content
@@ -116,7 +116,7 @@
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
 ### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
-### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
+### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
 ### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
