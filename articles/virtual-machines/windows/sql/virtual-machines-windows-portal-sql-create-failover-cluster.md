@@ -32,7 +32,7 @@ In the preceding diagram, two Azure virtual machines are configured in a Windows
 
 For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview). 
 
-S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture the storage is on each SQL Server FCI node. For an in-depth article about hyper-converged solutions, see [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node. For an in-depth article about hyper-converged solutions, see [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 
 ## Before you begin
 
@@ -56,7 +56,7 @@ Before following the instructions in this article, you should already have:
 
    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sqls-server-provision.md). 
 
-   Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For the  For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
    SQL virtual machine images include the licensing costs for SQL Server in the per-minute pricing of the VM you create. A separate option is to use the bring-your-own-license (BYOL) and pay only for the virtual machine. These images are prefixed with {BYOL}. The following Marketplace images come with SQL Server already installed:
 
@@ -71,7 +71,7 @@ Before following the instructions in this article, you should already have:
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
-   You can also create the SQL Server manually. To do this choose a **Windows Server 2016 Datacenter** image. This does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+   You can also create the SQL Server manually. To do this, choose a **Windows Server 2016 Datacenter** image. This method does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
    
 1. Open the firewall ports.
 
@@ -88,7 +88,7 @@ Before following the instructions in this article, you should already have:
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
    
-   Attach a minimum of 2 Premium Storage (SSD disks) to each VM. We recommend at least P30 (1 TB) disks.
+   Attach a minimum of two Premium Storage (SSD disks) to each VM. We recommend at least P30 (1 TB) disks.
 
    Set host caching to **Read-only**.
 
@@ -151,7 +151,7 @@ After you have configured the WSFC and all cluster components including storage,
 
 1. Connect to the first virtual machine with RDP. 
 
-1. In **Failover Cluster Mananager**, make sure all of the cluster core resources are on the first virtual machine. If necessary, move all resources to this virtual machine. 
+1. In **Failover Cluster Manager**, make sure all cluster core resources are on the first virtual machine. If necessary, move all resources to this virtual machine. 
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Click **Setup**.
 
@@ -163,7 +163,7 @@ After you have configured the WSFC and all cluster components including storage,
 
 1. Open the **SQL Server Installation Center**. Click **Installation**.
 
-1. Click **Add node to a SQL Servrver failover cluster**. Follow the instructions in the wizard to install SQL server and add this server to the FCI.
+1. Click **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL server and add this server to the FCI.
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -191,7 +191,7 @@ The Azure load balancer holds the IP address for the SQL Server FCI.
 
 The load balancer for an FCI requires a floating IP address with direct server return.  
 
-## Configure cluter probe port parameter
+## Configure cluster probe port parameter
 
 Set the cluster probe port parameter in PowerShell.
 
@@ -210,7 +210,7 @@ To set the cluster probe port parameter, update variables in the following scrip
 
 1. Test connectivity.
 
-To test connectivity, log into another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
+To test connectivity, log in to another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
 
 ## Limitations
 DTC is not supported on FCIs because the RPC port is not supported by the load balancer.
