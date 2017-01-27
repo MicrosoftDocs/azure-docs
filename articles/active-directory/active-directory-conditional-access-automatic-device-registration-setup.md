@@ -347,7 +347,7 @@ To register domain-joined computers running Windows 8.1, Windows 7, Windows Serv
 * [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 * [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
 
-Deploy the package by using a software distribution system like System Center Configuration Manager. The package supports the standard silent install options with the *quiet* parameter. System Center Configuration Manager 2016 offers additional benefits from earlier versions, like the ability to track completed registrations. For more information, see [System Center 2016](https://www.microsoft.com/en-us/cloud-platform/system-center).
+Deploy the package by using a software distribution system like System Center Configuration Manager. The package supports the standard silent install options with the *quiet* parameter. System Center Configuration Manager Current Branch offers additional benefits from earlier versions, like the ability to track completed registrations. For more information, see [System Center Configuration Manager](https://www.microsoft.com/en-us/cloud-platform/system-center-configuration-manager).
 
 The installer creates a scheduled task on the system that runs in the user’s context. The task is triggered when the user signs in to Windows. The task silently registers the device with Azure AD with the user credentials after authenticating through IWA. To see the scheduled task, go to **Microsoft** > **Workplace Join**, and then go to the Task Scheduler library.
 
