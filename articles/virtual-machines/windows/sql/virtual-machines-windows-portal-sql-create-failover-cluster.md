@@ -71,7 +71,7 @@ Before following the instructions in this article, you should already have:
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
-   You can also create the SQL Server manually. To do this, choose a **Windows Server 2016 Datacenter** image. This method does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+   Alternatively, you can also create the SQL Server manually. To do this, choose a **Windows Server 2016 Datacenter** image and install SQL Server. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
    
 1. Open the firewall ports.
 
