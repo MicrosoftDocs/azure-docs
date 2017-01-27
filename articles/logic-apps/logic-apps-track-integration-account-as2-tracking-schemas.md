@@ -1,6 +1,6 @@
 ---
-title: AS2 tracking schemas | Microsoft Docs
-description: Learn more about AS2 tracking schemas
+title: AS2 tracking schemas for B2B monitoring - Azure Logic Apps | Microsoft Docs
+description: Use AS2 tracking schemas to monitor B2B messages from transactions in your Azure Integration Account.
 author: padmavc
 manager: anneta
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 
 ---
