@@ -426,7 +426,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-
+    
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -437,8 +437,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-
-
+    
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -448,7 +447,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-
+    
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -458,7 +457,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-
+    
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -468,7 +467,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-
+    
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -478,7 +477,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-
+    
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -494,7 +493,6 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 
    You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
     
-   
     ```sql
     SELECT
         r.command,
@@ -612,7 +610,8 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 
     This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
 
-2. Statistics make a difference. Run this statement to create statistics on the join columns.
+2. Statistics make a difference. 
+3. Run this statement to create statistics on the join columns.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
