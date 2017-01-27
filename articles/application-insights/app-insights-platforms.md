@@ -65,7 +65,7 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-* [Orchard](https://orchardazureappinsights.codeplex.com)
+* [Orchard](https://github.com/Lombiq/Orchard-Azure-Application-Insights)
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
