@@ -52,7 +52,7 @@ ms.author: rnagpal
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
 * Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
 * Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
-* Added various resource quota stats as part of the response for document collection read requests when PopulateQuotaInfo request option is set.
+* Populated various resource quota stats in the ResourceResponse for document collection read requests when PopulateQuotaInfo request option is set.
 
 ### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
