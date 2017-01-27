@@ -59,7 +59,7 @@ You can link up to 10 virtual networks to a standard ExpressRoute circuit. All v
     ![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
 
 
-1. After your connection has been successfully configured, your connection object will show the information for the connection.
+3. After your connection has been successfully configured, your connection object will show the information for the connection.
    
     ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
@@ -89,16 +89,14 @@ The *circuit owner* has the power to modify and revoke authorizations at any tim
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
-
-
 1. In the ExpressRoute blade, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
 
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
-
 2. Once the configuration is saved, copy the **Resource ID** and the **Authorization Key**.
 
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+
 
 **Deleting authorizations**
 
@@ -109,29 +107,22 @@ You can delete a connection by selecting the Delete icon on the blade for your c
    > [!NOTE]
    > The circuit user needs the resource ID and an authorization key from the circuit owner. 
 
-
 **Redeeming connection authorizations**
 
 1.	Click on the **+New** button.
-
-
 	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
 2.	Search for **"Connection"** in the Marketplace, select it and click **Create**.
-
-
 	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
 3.	Make sure the **Connection type** is set to "ExpressRoute".
+
 4.	Fill in the details and click **OK** in the Basics tab.
-
 	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
-
 
 5.	In the **Settings** tab, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
 
 6.	Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**
-
 	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 
 7.	Review the information in the **Summary** tab and click **OK**
@@ -142,4 +133,3 @@ You can release an authorization by deleting the connection that links the Expre
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-
