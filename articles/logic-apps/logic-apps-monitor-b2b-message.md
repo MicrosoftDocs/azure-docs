@@ -1,6 +1,6 @@
 ---
-title: Monitor B2B messages in Azure lLogic Apps | Microsoft Docs
-description: How to monitor Integration Account
+title: Monitor messages in B2B transactions - Azure Logic Apps | Microsoft Docs
+description: Monitor and track messages during B2B communication between processes and apps using Logic Apps in your Integration Account.
 author: padmavc
 manager: anneta
 editor: ''
