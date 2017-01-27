@@ -1,8 +1,8 @@
 ---
 title: Reviewing Job Status with Copy Log Files | Microsoft Docs
 description: Learn how to use the log files created when the import or export job was run to see the status of the Import-Export Job. 
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/26/2017
+ms.author: muralikk
 
 ---
 
