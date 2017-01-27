@@ -36,17 +36,17 @@ and cluster and provide
 Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to the "Universe". Search and 
 install Elastisearch, Logstash and Kibana from the DC/OS universe and in that specific order. You can learn more about configuration 
 if you go to the 'Advanced Installation' link.
-(./media/container-service-monitoring-elk/elk1.PNG) (./media/container-service-monitoring-elk/elk2.PNG) (./media/container-service-monitoring-elk/elk3.PNG) 
+![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
 Once the ELK containers and are up and running, you need to enable kibana to be accessed through marathon-lb. Navigate to the 
 services section in the left navigation bar and click on the 'Kibana' service. 
 Click on the edit button as shown below.
-(./media/container-service-monitoring-elk/elk4.PNG)
+![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
 
 Turn the edit mode to 'JSON' and scroll down to the labels section
 You need to add a "HAPROXY_GROUP" : "external" entry here as shown below
 Once you click 'Deploy changes' , your container will restart.
-(./media/container-service-monitoring-elk/elk5.PNG)
+![ELK5](./media/container-service-monitoring-elk/elk5.PNG)
 
 If you want to verify that kibana is registered as a service in the HAPROXY dashboard, you will need to open port 9090 on the agent cluster as 
 HAPROXY runs on port 9090.
@@ -56,7 +56,7 @@ Instructions to open a port and provide public assess are provided [here](contai
 In order to access the HAPROXY dashboard, open the Marathon-LB admin interface at:
 http://$PUBLIC_NODE_IP_ADDRESS:9090/haproxy?stats
 Once you navigate to the URL above, you should see the HAPROXY dashboard as shown below and you should see a service entry for Kibana
-(./media/container-service-monitoring-elk/elk6.PNG)
+![ELK6](./media/container-service-monitoring-elk/elk6.PNG)
 
 
 To access the Kibana dashboard, which is deployed on port 5601, you will need to open port 5601. Follow instructions [here]((container-service-enable-public-access.md)
