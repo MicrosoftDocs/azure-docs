@@ -293,9 +293,6 @@ namespace OIAPIExample
 {
     class ApiExample
     {
-// An example JSON object, with key/value pairs
-        static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
-
 // Update customerId to your Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
@@ -310,6 +307,9 @@ namespace OIAPIExample
 
         static void Main()
         {
+// An example JSON object, with key/value pairs
+            string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
+        
 // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
