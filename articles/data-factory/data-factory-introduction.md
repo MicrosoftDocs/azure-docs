@@ -25,6 +25,7 @@ Data Factory is a cloud-based data integration service that orchestrates and aut
 Data Factory service allows you to create data pipelines that move and transform data, and then run the pipelines on a specified schedule (hourly, daily, weekly, etc.). It also provides rich visualizations to display the lineage and dependencies between your data pipelines, and monitor the pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.
 
 ![Diagram: Data Factory Overview, a data integration service](./media/data-factory-introduction/what-is-azure-data-factory.png)
+
 **Figure1.** Ingest data from various data sources, prepare, transform, and analyze the data, and then publish ready-to-use data for consumption.
 
 ## Pipelines and activities
