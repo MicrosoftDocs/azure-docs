@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2016
+ms.date: 01/27/2016
 ms.author: maheshu
 
 ---
@@ -80,13 +80,17 @@ You can use the Group Policy management console on the domain-joined virtual mac
 2. Click **Group Policy Management** to launch the Group Policy Management console.
 
     ![Group Policy Console](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. Click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain. There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain.
+
+## Task 4 - Customize built-in Group Policy Objects
+There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain. You can customize these GPOs to configure group policy on the managed domain.
+
+1. Click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain.
 
     ![Built-in GPOs](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
+2. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
 
     ![Edit built-in GPO](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. You can now use the **Group Policy Management Editor** console to edit the built-in GPO. For instance, the following screenshot shows how to customize the built-in 'AADDC Computers' GPO.
+3. You can now use the **Group Policy Management Editor** console to edit the built-in GPO. For instance, the following screenshot shows how to customize the built-in 'AADDC Computers' GPO.
 
     ![Customize GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
