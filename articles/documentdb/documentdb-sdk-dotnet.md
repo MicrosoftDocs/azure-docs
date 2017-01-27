@@ -167,9 +167,9 @@ ms.author: rnagpal
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
     
-        **NB: Possible breaking change** 
+    **NB: Possible breaking change** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
