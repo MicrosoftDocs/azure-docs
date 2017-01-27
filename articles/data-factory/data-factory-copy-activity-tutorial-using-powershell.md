@@ -51,9 +51,9 @@ The following table lists the steps you perform as part of the tutorial.
 | --- | --- |
 | [Create an Azure data factory](#create-data-factory) |In this step, you create an Azure data factory named **ADFTutorialDataFactoryPSH**. |
 | [Create linked services](#create-linked-services) |In this step, you create two linked services: **StorageLinkedService** and **AzureSqlLinkedService**. The StorageLinkedService links an Azure Storage service and AzureSqlLinkedService links an Azure SQL database to the ADFTutorialDataFactoryPSH. |
-| [Create input and output data sets](#create-datasets) |In this step, you define two data sets (**EmpTableFromBlob** and **EmpSQLTable**). These data sets are used as input and output tables for **Copy Activity** in the ADFTutorialPipeline that you create in the next step. |
+| [Create input and output datasets](#create-datasets) |In this step, you define two datasets (**EmpTableFromBlob** and **EmpSQLTable**). These datasets are used as input and output tables for **Copy Activity** in the ADFTutorialPipeline that you create in the next step. |
 | [Create and run a pipeline](#create-pipeline) |In this step, you create a pipeline named **ADFTutorialPipeline** in the data factory ADFTutorialDataFactoryPSH. The pipeline uses Copy Activity to copy data from an Azure blob to an output Azure database table. |
-| [Monitor data sets and pipeline](#monitor-pipeline) |In this step, you monitor the data sets and the pipeline by using Azure PowerShell. |
+| [Monitor datasets and pipeline](#monitor-pipeline) |In this step, you monitor the datasets and the pipeline by using Azure PowerShell. |
 
 ## Create data factory
 In this step, you use Azure PowerShell to create an Azure data factory named **ADFTutorialDataFactoryPSH**.
@@ -164,10 +164,10 @@ If you close Azure PowerShell in the middle of the tutorial, you have run the Ge
    4. In the **Firewall settings** blade, click **ON** for **Allow access to Azure services**.
    5. Click the **ACTIVE** hub on the left to switch to the **Data Factory** blade you were on.
 
-## Create data sets
-In the previous step, you created services to link an Azure Storage account and Azure SQL database to the data factory. In this step, you create data sets that represent the input and output data for Copy Activity in the pipeline you create in the next step.
+## Create datasets
+In the previous step, you created services to link an Azure Storage account and Azure SQL database to the data factory. In this step, you create datasets that represent the input and output data for Copy Activity in the pipeline you create in the next step.
 
-A table is a rectangular data set. Currently, it is the only type of data set that is supported. The input table in this tutorial refers to a blob container in Azure Storage. The output table refers to a SQL table in the Azure SQL database.  
+A table is a rectangular dataset. Currently, it is the only type of dataset that is supported. The input table in this tutorial refers to a blob container in Azure Storage. The output table refers to a SQL table in the Azure SQL database.  
 
 ### Prepare Azure Blob storage and Azure SQL Database for the tutorial
 Skip this step if you have gone through the tutorial from [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -201,8 +201,8 @@ Perform the following steps to prepare the Blob storage and SQL Database for thi
 
     If your client is not allowed to access the SQL database server, you need to set up the firewall for your SQL database server to allow access from your machine (IP Address). For the steps, see [this article](../sql-database/sql-database-configure-firewall-settings.md).
 
-### Create input data set
-A table is a rectangular data set, and has a schema. In this step, you create a table, named **EmpBlobTable**. This table points to a blob container in Azure Storage represented by the **StorageLinkedService** linked service. This blob container (**adftutorial**) contains the input data in the file **emp.txt**.
+### Create input dataset
+A table is a rectangular dataset, and has a schema. In this step, you create a table, named **EmpBlobTable**. This table points to a blob container in Azure Storage represented by the **StorageLinkedService** linked service. This blob container (**adftutorial**) contains the input data in the file **emp.txt**.
 
 1. Create a JSON file named **EmpBlobTable.json** in the **C:\ADFGetStartedPSH** folder, with the following content:
 
@@ -239,7 +239,7 @@ A table is a rectangular data set, and has a schema. In this step, you create a 
 
    Note the following points:
 
-   * data set **type** is set to **AzureBlob**.
+   * dataset **type** is set to **AzureBlob**.
    * **linkedServiceName** is set to **StorageLinkedService**.
    * **folderPath** is set to the **adftutorial** container.
    * **fileName** is set to **emp.txt**. If you do not specify the name of the blob, data from all blobs in the container is considered as input data.  
@@ -264,14 +264,14 @@ A table is a rectangular data set, and has a schema. In this step, you create a 
          ],
 
    For details about JSON properties, see the [JSON Scripting Reference](data-factory-data-movement-activities.md).
-2. Run the following command to create the Data Factory data set.
+2. Run the following command to create the Data Factory dataset.
 
 	```  
 	New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 	```
 
-### Create output data set
-In this step, you create an output data set named **EmpSQLTable**. This data set points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table.
+### Create output dataset
+In this step, you create an output dataset named **EmpSQLTable**. This dataset points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table.
 
 1. Create a JSON file named **EmpSQLTable.json** in the **C:\ADFGetStartedPSH** folder with the following content:
 
@@ -302,12 +302,12 @@ In this step, you create an output data set named **EmpSQLTable**. This data set
 
    Note the following points:
 
-   * data set **type** is set to **AzureSqlTable**.
+   * dataset **type** is set to **AzureSqlTable**.
    * **linkedServiceName** is set to **AzureSqlLinkedService**.
    * **tablename** is set to **emp**.
    * There are three columns, **ID**, **FirstName**, and **LastName**, in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
    * **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**). The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
-2. Run the following command to create the data factory data set.
+2. Run the following command to create the data factory dataset.
 
 	```   
 	New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
@@ -444,14 +444,14 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 For comprehensive documentation on Data Factory cmdlets, see the [Data Factory Cmdlet Reference][cmdlet-reference].
 
 ## Summary
-In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used PowerShell to create the data factory, linked services, data sets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
+In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used PowerShell to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
 
 1. Created an Azure **data factory**.
 2. Created **linked services**:
 
    a. An **Azure Storage** linked service to link your Azure Storage account that holds input data.     
    b. An **Azure SQL** linked service to link your SQL database that holds the output data.
-3. Created **data sets** that describe input data and output data for pipelines.
+3. Created **datasets** that describe input data and output data for pipelines.
 4. Created a **pipeline** with **Copy Activity**, with **BlobSource** as the source and **SqlSink** as the sink.
 
 ## See also
@@ -460,7 +460,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 | [Data Movement Activities](data-factory-data-movement-activities.md) |This article provides detailed information about the Copy Activity feature you used in the tutorial. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of the Azure Data Factory application model. |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
-| [Data sets](data-factory-create-datasets.md) |This article helps you understand data sets in Azure Data Factory. |
+| [datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Monitor and manage pipelines by using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines by using the Monitoring & Management App. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
