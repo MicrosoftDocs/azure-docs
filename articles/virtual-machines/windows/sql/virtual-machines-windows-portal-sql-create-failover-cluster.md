@@ -20,7 +20,7 @@ ms.author: mikeray
 
 ---
 
-# SQL Server Failover Cluster Instance on Azure Virtual Machines
+# Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
 
 This article explains how to create a SQL Server Failover Cluster Instance (FCI) on Azure virtual machines in Resource Manager model. In this solution, [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) provides synchronized storage to each cluster node. S2D is new in Windows Server 2016.
 
@@ -54,7 +54,7 @@ Before following the instructions in this article, you should already have:
    - The WSFC IP address.
    - The FCI address.
 
-## Configure WSFC with S2D in the Azure portal
+## Configure WSFC
 
 1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
 
@@ -153,7 +153,7 @@ Before following the instructions in this article, you should already have:
 
    Validate the cluster after you create the storage volume. SQL Server setup requires that the cluster has a current validation. The validation that you ran when you created the cluster did not include the storage resources. 
 
-## Create a SQL Server FCI
+## Create SQL Server FCI
 
 After you have configured the WSFC and all cluster components including storage, you can create the SQL Server FCI. 
 
@@ -176,7 +176,7 @@ After you have configured the WSFC and all cluster components including storage,
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-## Configure the Azure load balancer
+## Configure Azure load balancer
 
 The Azure load balancer holds the IP address for the SQL Server FCI. 
 
@@ -199,7 +199,7 @@ The Azure load balancer holds the IP address for the SQL Server FCI.
 
 The load balancer for an FCI requires a floating IP address with direct server return.  
 
-## Configure cluster probe port parameter
+## Configure cluster probe
 
 Set the cluster probe port parameter in PowerShell.
 
