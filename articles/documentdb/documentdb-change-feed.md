@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/25/2017
 ms.author: arramac
 
 ---
@@ -176,15 +176,19 @@ Each partition key range includes the metadata properties in the following table
 
 You can do this using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrieve partition key ranges in .NET.
 
+    string pkRangesResponseContinuation = null;
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-    FeedResponse<PartitionKeyRange> response;
 
     do
     {
-        response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-        partitionKeyRanges.AddRange(response);
+        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+            collectionUri, 
+            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
+        partitionKeyRanges.AddRange(pkRangesResponse);
+        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     }
-    while (response.ResponseContinuation != null);
+    while (pkRangesResponseContinuation != null);
 
 DocumentDB supports retrieval of documents per partition key range by setting the optional `x-ms-documentdb-partitionkeyrangeid` header. 
 
@@ -265,15 +269,19 @@ The .NET SDK provides the [CreateDocumentChangeFeedQuery](https://msdn.microsoft
         string collection,
         Dictionary<string, string> checkpoints)
     {
+        string pkRangesResponseContinuation = null;
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+                collectionUri, 
+                new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
+
             partitionKeyRanges.AddRange(pkRangesResponse);
+            pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
         }
-        while (pkRangesResponse.ResponseContinuation != null);
+        while (pkRangesResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {

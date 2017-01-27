@@ -15,7 +15,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
+ms.date: 01/25/2017
 ms.author: rclaus
 
 ---
@@ -260,7 +260,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 * Use the `discard` mount option in `/etc/fstab`, for example:
 
     ```bash
-    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail,discard   1   2
     ```
 * In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
   
@@ -277,7 +277,11 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     sudo yum install util-linux
     sudo fstrim /datadrive
     ```
+Make the drive writable by using this command:
 
+    ```bash
+    sudo chmod go+w /datadrive
+    ```
 ## Troubleshooting
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 

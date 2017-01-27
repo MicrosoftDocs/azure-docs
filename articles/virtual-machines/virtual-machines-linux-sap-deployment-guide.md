@@ -768,6 +768,8 @@ These settings must also be valid for the LocalSystem account to access the Inte
 4. Open the Connections tab and click on LAN settings
 5. Disable "Automatically detect settings"
 6. Enable "Use a proxy server for your LAN" and enter the proxy address and port
+7. Click on Advanced
+8. Add IP address 168.63.129.16 to the exceptions list
 
 #### Linux
 Configure the correct proxy in the configuration file of the Microsoft Azure Guest Agent, which is located at /etc/waagent.conf. The following parameters must be set:

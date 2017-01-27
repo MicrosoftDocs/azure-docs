@@ -1,5 +1,5 @@
 ---
-title: Deploy and manage VM with templates | Microsoft Docs
+title: Deploy Windows VMs with Azure templates | Microsoft Docs
 description: Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI.
 services: virtual-machines-windows
 documentationcenter: ''

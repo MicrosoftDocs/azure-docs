@@ -33,7 +33,7 @@ To determine the correct two-step verification solution, first we must answer th
 | --- |:---:|:---:|
 | First-party Microsoft apps |● |● |
 | SaaS apps in the app gallery |● |● |
-| IIS applications published through Azure AD App Proxy |● |● |
+| Web applications published through Azure AD App Proxy |● |● |
 | IIS applications not published through Azure AD App Proxy | |● |
 | Remote access such as VPN, RDG | |● |
 
@@ -59,8 +59,8 @@ The following table is a comparison of the features that are available with Mult
 | One-way SMS as second factor | ● | ● |
 | Two-way SMS as second factor | | ● |
 | Hardware Tokens as second factor | | ● |
-| App passwords for clients that don’t support MFA | ● | |
-| Admin control over authentication methods | | ● |
+| App passwords for Office 365 clients that don’t support MFA | ● | |
+| Admin control over authentication methods | ● | ● |
 | PIN mode | | ● |
 | Fraud alert |● | ● |
 | MFA Reports |● | ● |
@@ -70,7 +70,7 @@ The following table is a comparison of the features that are available with Mult
 | Trusted IPs | ● | ● |
 | Remember MFA for trusted devices | ● | |
 | Conditional access | ● | ● |
-| Cache | ● | ● |
+| Cache |  | ● |
 
 Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication. **Select the icon that represents your scenario!**
 
