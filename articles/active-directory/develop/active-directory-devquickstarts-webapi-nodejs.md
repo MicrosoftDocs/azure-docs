@@ -254,7 +254,7 @@ Create a `config.js` file in our favorite editor and add the following informati
     // you cannot have users from multiple tenants sign in to your server unless you use the common endpoint
   // example: https://login.microsoftonline.com/common/.well-known/openid-configuration
      identityMetadata: 'https://login.microsoftonline.com/<your tenant id>/.well-known/openid-configuration',
-     validateIssuer: true, // if you have validation on, you cannot have users from multiple tenants sign in to your server
+     validateIssuer: false, // if you have validation on, you cannot have users from multiple tenants sign in to your server
      passReqToCallback: false,
      loggingLevel: 'info' // valid are 'info', 'warn', 'error'. Error always goes to stderr in Unix.
 
