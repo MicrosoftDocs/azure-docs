@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub glossary | Microsoft Docs
+title: Azure IoT Hub glossary of terms | Microsoft Docs
 description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
 services: iot-hub
 documentationcenter: .net
@@ -99,7 +99,7 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 The [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
 
 ## Device identities REST API
-The [Device identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+The [Device identities REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
 ## Device identity
 The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
@@ -111,7 +111,7 @@ Device management encompasses the full lifecycle associated with managing the de
 [IoT hub](#iot-hub) enables common device management patterns including rebooting, performing factory resets, and performing firmware updates on your devices.
 
 ## Device messaging REST API
-You can use the [Device messaging REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+You can use the [Device messaging REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
 
 ## Device provisioning
 Device provisioning is the process of adding the initial [device data](#device-data) to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub [identity registry](#identity-registry). As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
@@ -172,6 +172,9 @@ The [iothub-explorer](https://github.com/azure/iothub-explorer) is a cross-platf
 
 ## Job
 Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
+
+## Job API
+The [job api](https://docs.microsoft.com/rest/api/iothub/jobapi) is a REST API that enables you manage [jobs](#job) running in your IoT hub.
 
 ## Module
 In the [Azure IoT Gateway SDK](iot-hub-linux-gateway-sdk-get-started.md), a [module](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. The Azure IoT Gateway SDK includes a set of sample modules. You can also create your own custom modules.

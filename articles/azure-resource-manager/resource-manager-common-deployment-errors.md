@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/18/2017
 ms.author: tomfitz
 
 ---
@@ -34,19 +34,17 @@ The following image shows the activity log for a subscription. There are three o
 
 Validation errors arise from scenarios that can be pre-determined to cause a problem. Validation errors include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. For example, a deployment error might arise from trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never started.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](resource-group-audit.md). However, validation errors do not appear in your deployment history because the deployment never started.
 
 
 ## Error codes
-Deployment errors return the code **DeploymentFailed**. However, this error code is a general deployment error. The error code that actually helps you resolve the issue is usually one level below that error. The following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
-
-![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
 
 The following error codes are described in this topic:
 
 * [AccountNameInvalid](#accountnameinvalid)
 * [Authorization failed](#authorization-failed)
 * [BadRequest](#badrequest)
+* [DeploymentFailed](#deploymentfailed)
 * [InvalidContentLink](#invalidcontentlink)
 * [InvalidTemplate](#invalidtemplate)
 * [MissingSubscriptionRegistration](#noregisteredproviderfound)
@@ -60,6 +58,67 @@ The following error codes are described in this topic:
 * [SkuNotAvailable](#skunotavailable)
 * [StorageAccountAlreadyExists](#storagenamenotunique)
 * [StorageAccountAlreadyTaken](#storagenamenotunique)
+
+### DeploymentFailed
+
+This error code indicates a general deployment error, but it is not the error code you need to start troubleshooting. The error code that actually helps you resolve the issue is usually one level below this error. For example, the following image shows the **RequestDisallowedByPolicy** error code that is under the deployment error.
+
+![show error code](./media/resource-manager-common-deployment-errors/error-code.png)
+
+### SkuNotAvailable
+
+When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
+
+```
+Code: SkuNotAvailable
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>' 
+for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+```
+
+You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. To resolve this issue, you need to determine which SKUs are available in a region. You can use either the portal or a REST operation to find available SKUs.
+
+- To use the [portal](https://portal.azure.com), log in to the portal and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
+
+    ![available SKUs](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+- To use the REST API for virtual machines, send the following request:
+
+  ```HTTP 
+  GET
+  https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
+  ```
+
+  It returns available SKUs and regions in the following format:
+
+  ```json
+  {
+    "value": [
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A0",
+        "tier": "Standard",
+        "size": "A0",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      {
+        "resourceType": "virtualMachines",
+        "name": "Standard_A1",
+        "tier": "Standard",
+        "size": "A1",
+        "locations": [
+          "eastus"
+        ],
+        "restrictions": []
+      },
+      ...
+    ]
+  }    
+  ```
+
+If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 ### InvalidTemplate
 This error can result from several different types of errors.
@@ -263,7 +322,7 @@ When deploying resource, you may receive the following error code and message:
 
 ```
 Code: NoRegisteredProviderFound
-Message: No registered resource provider found for location {ocation}
+Message: No registered resource provider found for location {location}
 and API version {api-version} for type {resource-type}.
 ```
 
@@ -432,23 +491,6 @@ For more information about policies, see [Use Policy to manage resources and con
 You may receive an error during deployment because the account or service principal attempting to deploy the resources does not have access to perform those actions. Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. For example, if your account is assigned to the Reader role, you are not able to create resources. In that case, you see an error message indicating that authorization failed.
 
 For more information about role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
-
-### SkuNotAvailable
-
-When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
-
-```
-Code: SkuNotAvailable
-Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
-```
-
-You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
-
-- Log in to the portal and add a resource through the UI. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
-
-    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
-
-- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 ## Troubleshooting tricks and tips
 
@@ -626,4 +668,4 @@ The following table lists troubleshooting topics for other Azure services. It fo
 
 ## Next steps
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-* To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-troubleshoot-deployments-portal.md).
+* To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-deployment-operations.md).

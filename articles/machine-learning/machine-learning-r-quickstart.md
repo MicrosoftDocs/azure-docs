@@ -14,12 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: garye
 
 ---
 # Quickstart tutorial for the R programming language for Azure Machine Learning
-Stephen F Elston, Ph.D.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## Introduction
 This quickstart tutorial helps you quickly start extending Azure Machine Learning by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Azure Machine Learning. As you work through tutorial, you will create a complete forecasting solution by using the R language in Azure Machine Learning.  

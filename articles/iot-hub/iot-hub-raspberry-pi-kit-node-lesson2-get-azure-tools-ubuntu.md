@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (Ubuntu 16.04) | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Get tools (Ubuntu) | Microsoft Docs'
 description: Install Python and the Azure command-line interface (Azure CLI) on Ubuntu.
 services: iot-hub
 documentationcenter: ''

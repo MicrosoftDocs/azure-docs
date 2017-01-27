@@ -128,11 +128,4 @@ Learn how to configure Load Balancer to deliver high availability and network pe
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Load Balancer Documentation
-        </div>
-    </a>
-</div>
+

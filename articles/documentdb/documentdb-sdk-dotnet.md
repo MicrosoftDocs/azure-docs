@@ -1,5 +1,5 @@
 ---
-title: DocumentDB .NET API & SDK | Microsoft Docs
+title: .NET API & SDK Resources - Azure DocumentDB | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/27/2017
 ms.author: rnagpal
 
 ---
@@ -48,12 +48,14 @@ ms.author: rnagpal
 
 ## Release Notes
 
-> [!NOTE]
-> Starting with version 1.9.2 release, you may receive System.NotSupportedException when running queries on partitioned collections if your host process is 32-bit. To avoid this exception, ensure that your host process is 64-bit. For more information, see [Troubleshooting](#troubleshooting).
+### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Fix for an issue wherein the session container was not being updated with the token for failed requests.
+* Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
+* Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
 
 ### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
-* Peformance fix in the SDK for scenarios that involve high degree of concurrent requests.
+* Performance fix in the SDK for scenarios that involve high degree of concurrent requests.
 
 ### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
 * Support for new classes and methods to process the [change feed](documentdb-change-feed.md) of documents within a collection.
@@ -189,6 +191,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |
@@ -196,8 +199,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.9.4](#1.9.4) |August 24, 2016 |--- |
 | [1.9.3](#1.9.3) |August 15, 2016 |--- |
 | [1.9.2](#1.9.2) |July 23, 2016 |--- |
-| 1.9.1 |Deprecated |--- |
-| 1.9.0 |Deprecated |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |
 | [1.7.1](#1.7.1) |May 06, 2016 |--- |
 | [1.7.0](#1.7.0) |April 26, 2016 |--- |
@@ -213,13 +214,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.2.0](#1.2.0) |July 06, 2015 |--- |
 | [1.1.0](#1.1.0) |April 30, 2015 |--- |
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
-
-## Troubleshooting
-
-If you receive an error that partition routing information cannot be extracted from the query when running in a 32-bit process, do one of the following in Visual Studio:
-- For executable applications, on the **Project** menu, click *Project name* **Properties...** Then, on the **Build** tab, clear the **Prefer 32-bit** box.
-- For VSTest based test projects, on the Test menu, select **Test Settings** | **Default Processor Architecture as X64**.
-- For locally deployed ASP.NET Web applications, on the  **Tools** menu, select **Options** | **Projects and Solutions** | **Web Projects**, and then check the **Use the 64 bit version of IIS Express for web sites and projects** box.
 
 
 ## FAQ

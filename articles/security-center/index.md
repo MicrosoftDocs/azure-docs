@@ -81,11 +81,4 @@ Learn how to use Security Center to get visibility into and control over the sec
     </li>
 </ul>	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Security Center Documentation
-        </div>
-    </a>
-</div>
+

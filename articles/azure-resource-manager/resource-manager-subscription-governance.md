@@ -248,5 +248,3 @@ The [Azure Security Center](../security-center/security-center-intro.md) provide
 ## Next steps
 * Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md).
 
-*[Karl Kuhnhausen](https://github.com/karlkuhnhausen) contributed to this topic.*
-

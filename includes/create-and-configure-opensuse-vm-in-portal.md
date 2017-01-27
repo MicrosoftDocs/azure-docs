@@ -1,11 +1,3 @@
----
-writer: cynthn
-editor: tysonn
-manager: timlt
-
-{}
-
----
 1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
 2. On the command bar at the bottom of the window, click **New**.
 3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -35,7 +35,7 @@ Each Job can have one or more Tasks depending on the type of processing that you
 * Tasks can be defined inline through the Tasks navigation property on Job entities, or
 * through OData batch processing.
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
+It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -60,13 +60,13 @@ The following example shows you how to create and post a Job with one Task set t
 
 Request:
 
-POST https://media.windows.net/API/Jobs HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
-Authorization: Bearer <token value>
+	POST https://media.windows.net/API/Jobs HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
