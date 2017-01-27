@@ -67,7 +67,78 @@ You can link up to 10 virtual networks to a standard ExpressRoute circuit. All v
 You can delete a connection by selecting the **Delete** icon on the blade for your connection.
 
 ## Connect a virtual network in a different subscription to a circuit
-At this time, you cannot connect virtual networks across subscriptions by using the Azure portal. However, you can use PowerShell to do this. See the [PowerShell](expressroute-howto-linkvnet-arm.md) article for more information.
+You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
+
+Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization can use their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit.
+
+> [!NOTE]
+> Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
+> 
+> 
+
+![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
+
+### Administration
+The *circuit owner* is an authorized power user of the ExpressRoute circuit resource. The circuit owner can create authorizations that can be redeemed by *circuit users*. *Circuit users* are owners of virtual network gateways (that are not within the same subscription as the ExpressRoute circuit). *Circuit users* can redeem authorizations (one authorization per virtual network).
+
+The *circuit owner* has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
+
+### Circuit owner operations
+
+**Creating an authorization**
+
+The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
+
+
+
+1. In the ExpressRoute blade, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
+
+![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+
+
+2. Once the configuration is saved, copy the **Resource ID** and the **Authorization Key**.
+
+![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+
+**Deleting authorizations**
+
+You can delete a connection by selecting the Delete icon on the blade for your connection.
+
+### Circuit user operations
+
+   > [!NOTE]
+   > The circuit user needs the resource ID and an authorization key from the circuit owner. 
+
+
+**Redeeming connection authorizations**
+
+1.	Click on the **+New** button.
+
+
+	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+
+2.	Search for **"Connection"** in the Marketplace, select it and click **Create**.
+
+
+	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+
+3.	Make sure the **Connection type** is set to "ExpressRoute".
+4.	Fill in the details and click **OK** in the Basics tab.
+
+	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+
+
+5.	In the **Settings** tab, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
+
+6.	Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**
+
+	![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+
+7.	Review the information in the **Summary** tab and click **OK**
+
+**Releasing connection authorizations**
+
+You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
