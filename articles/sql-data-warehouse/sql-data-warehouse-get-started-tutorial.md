@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 01/20/2017
+ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 
 ---
@@ -25,16 +25,16 @@ This tutorial teaches you how to provision and load data into Azure SQL Data War
 
 ## Prerequisites
 
-The tutorial assumes you are familiar with SQL Data Warehouse. If you need an introduction, see [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
+The tutorial assumes you are familiar with SQL Data Warehouse basic concepts. If you need an introduction, see [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
 
 ### Sign up for Microsoft Azure
-If you don't already have a Microsoft Azure account, you must sign up for one to use this service. If you already have an account, you may skip this step. 
+If you don't already have a Microsoft Azure account, you need to sign up for one to use this service. If you already have an account, you may skip this step. 
 
 1. Navigate to the account pages [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Create a free Azure account, or purchase an account.
 3. Follow the instructions
 
-### Install appropriate SQL Client Driver and tools
+### Install appropriate SQL client drivers and tools
 
 Most SQL client tools can connect to SQL Data Warehouse by using JDBC, ODBC, or ADO.NET. Due to the large number of T-SQL features that SQL Data Warehouse supports, some client applications are not fully compatible with SQL Data Warehouse.
 
@@ -47,12 +47,12 @@ If you are running a Windows operating system, we recommend using either [Visual
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Create a SQL data warehouse
+## Create a SQL Data Warehouse
 
-A SQL data warehouse is a special type of database that is designed for massively parallel processing. The database is distributed across multiple nodes and processes queries in parallel. SQL Data Warehouse has a control node that orchestrates the activities of all the nodes. The nodes themselves use SQL Database to manage your data.  
+A SQL Data Warehouse is a special type of database that is designed for massively parallel processing. The database is distributed across multiple nodes and processes queries in parallel. SQL Data Warehouse has a control node that orchestrates the activities of all the nodes. The nodes themselves use SQL Database to manage your data.  
 
 > [!NOTE]
-> Creating a SQL data warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a SQL Data Warehouse might result in a new billable service.  For more information, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
 ### Create a data warehouse
@@ -70,7 +70,7 @@ A SQL data warehouse is a special type of database that is designed for massivel
 
     **Subscription**: Your Azure subscription
 
-    **Resource Group**: Create new (or use existing if you plan on using your data warehouse with other SQL databases.)
+    **Resource Group**: Create a new resource group or use an existing resource group.
     > [!NOTE]
     > Resource groups are useful for resource administration such as scoping access control and templated deployment. Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 
@@ -88,7 +88,7 @@ A SQL data warehouse is a special type of database that is designed for massivel
 5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. 
 The portal will notify you when your data warehouse is ready to use. 
 
-## Connect to SQL Data Warehouse with SSMS
+## Connect to SQL Data Warehouse
 
 This tutorial uses SQL Server Management Studio (SSMS) to connect to the data warehouse. You can connect to SQL Data Warehouse through these supported connectors: ADO.NET, JDBC, ODBC, and PHP. Remember, functionality might be limited for tools that are not supported by Microsoft.
 
@@ -118,15 +118,15 @@ You can also have an Azure active directory admin account. We don't go into the 
 Next, we will explore creating additional logins and users.
 
 
-## Create a new user account to access your data warehouse
+## Create a new database user
 
 In this step, you create a new user account to access your data warehouse. We will also show you how to give that user the ability to run queries with a large amount of memory and CPU resources.
 
 ### Notes about resource classes for allocating resources to queries
 
-- A best practice, you should not use the server admin to run queries on your production databases. It has the most privileges of any user and therefore over-using it will put your data at risk. Also, since the server admin is meant to perform management operations, it runs operations with only a small allocation of memory and CPU resources. 
+- To keep your data safe, don't use the server admin to run queries on your production databases. It has the most privileges of any user and using it to perform operations on user data puts your data at risk. Also, since the server admin is meant to perform management operations, it runs operations with only a small allocation of memory and CPU resources. 
 
-- SQL Data Warehouse provides a way to allocate different amounts of memory and CPU resources to queries. This key performance feature uses pre-defined resource classes. Each user can belong to a small, medium, large, or extra large resource class. A database user's resource class membership determines the resources the user has when it runs queries and load operations.
+- SQL Data Warehouse uses pre-defined database roles, called resource classes, to allocate different amounts of memory, CPU resources, and concurrency slots to users. Each user can belong to a small, medium, large, or extra-large resource class. A database user's resource class determines the resources the user for running queries and load operations.
 
 - For loading data in a way that best optimizes compression, the user loading data usually needs large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
@@ -178,7 +178,7 @@ Since you are currently logged in as the server admin you have permissions to cr
 
 You are now ready to load data into your data warehouse. This step shows you how to load New York City taxi cab data from a public Azure storage blob. To load the data we will define the Azure blob as an external data source and then import the data by using an external table.
 
-- A common way to load data into a SQL data warehouse is to first move the data to Azure blob storage, and then load it into your data warehouse. To make it easier to understand how to load, we have New York taxi cab data already hosted in a public Azure storage blob. 
+- A common way to load data into SQL Data Warehouse is to first move the data to Azure blob storage, and then load it into your data warehouse. To make it easier to understand how to load, we have New York taxi cab data already hosted in a public Azure storage blob. 
 
 - For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
@@ -193,6 +193,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 2. Define the location of the Azure blob that contains the taxi cab data. To do this, create an object called an external data source. 
 
+    ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
     WITH
     (
@@ -236,8 +237,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     ```sql
     CREATE SCHEMA ext;
     ```
-
-4. Create the external tables. An external table defines the format of the data and points to the location of the actual data. The structure of the table is stored in SQL Data Warehouse as metadata, and the actual data is stored in Azure blob storage. Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
+1. Create the external tables. These tables reference data stored in Azure blob storage.   Run the following T-SQL command to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
 ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -282,9 +282,8 @@ You are now ready to load data into your data warehouse. This step shows you how
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
-    )
-
-
+    );
+    
     CREATE EXTERNAL TABLE [ext].[Geography]
     (
         [GeographyID] int NOT NULL,
@@ -302,10 +301,9 @@ You are now ready to load data into your data warehouse. This step shows you how
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0 
-    )
-    ;
+    );
+        
     
-
     CREATE EXTERNAL TABLE [ext].[HackneyLicense]
     (
         [HackneyLicenseID] int NOT NULL,
@@ -321,8 +319,8 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
+        
     
-
     CREATE EXTERNAL TABLE [ext].[Medallion]
     (
         [MedallionID] int NOT NULL,
@@ -338,8 +336,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
-
-
+        
     CREATE EXTERNAL TABLE [ext].[Time]
     (
         [TimeID] int NOT NULL,
@@ -361,8 +358,8 @@ You are now ready to load data into your data warehouse. This step shows you how
         REJECT_VALUE = 0
     )
     ;
-
-
+    
+    
     CREATE EXTERNAL TABLE [ext].[Trip]
     (
         [DateID] int NOT NULL,
@@ -399,7 +396,6 @@ You are now ready to load data into your data warehouse. This step shows you how
     )
     ;
     
-
     CREATE EXTERNAL TABLE [ext].[Weather]
     (
         [DateID] int NOT NULL,
@@ -418,7 +414,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     ;
     ```
 
-### Use Create Table as Select (CTAS) to import data from Azure blob storage.
+### Import the data from Azure blob storage.
 
 5. Import the tables into your data warehouse. SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
  
@@ -498,7 +494,8 @@ You are now ready to load data into your data warehouse. This step shows you how
     ```
 
 
-6. Use a Dynamic Management View to watch as your data is loaded
+6. Use a Dynamic Management View to watch 
+7. as your data is loaded
 
    You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a Dynamic Management Views (DMV) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting. Cluster Columnstore Indexes. 
     
@@ -533,7 +530,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 7. View all system queries
 
-```sql
+    ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
@@ -544,7 +541,7 @@ You are now ready to load data into your data warehouse. This step shows you how
 
 ## Improve query performance
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data warehouse is designed to provide.  
+There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
 
 ### See the effect of scaling on query performance 
 
@@ -554,7 +551,7 @@ In this step, you compare performance at two different DWU settings.
 
 First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
 
-1. Go to the portal and select your SQL data warehouse.
+1. Go to the portal and select your SQL Data Warehouse.
 
 2. Select scale in the SQL Data Warehouse blade. 
 
@@ -621,7 +618,7 @@ Take note of the time it took to run this operation.
         ON  tr.DateID = dt.DateID
     ```
 
- This query takes a while because of the join. SQL Data Warehouse has to move data amongst the nodes so it can return accurate results from the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+ This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
 
 2. Statistics make a difference. Run this statement to create statistics on the join columns.
 
@@ -638,8 +635,7 @@ Take note of the time it took to run this operation.
     > used in the WHERE clause and columns found in GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in
-query performance will not be as drastic as scaling up, you should notice a discernable speed-up. 
+3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
 
 ## Next steps
 
@@ -652,16 +648,15 @@ savings by pausing and scaling to meet your business needs.
 
 ## Useful readings
 
-[Concurrency and Workload Management]
+[Concurrency and Workload Management][]
 
-[Best practices for Azure SQL Data Warehouse]
+[Best practices for Azure SQL Data Warehouse][]
 
-[Query Monitoring]
+[Query Monitoring][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]
+[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
 
-[Migrating Data to Azure SQL Data Warehouse]
-
+[Migrating Data to Azure SQL Data Warehouse][]
 
 [Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
 [Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
