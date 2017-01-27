@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 01/28/2017
 ms.author: milanga;cenkdin;juliako
 
 ---
@@ -37,35 +37,37 @@ Media Services depends on a storage key provided to it. Specifically, the locato
 
 ## Steps to rotate storage keys 
 
- 1. Change storage account Primary key through the powershell cmdlet or [Azure](https://portal.azure.com/) portal.
+>[!NOTE]
+> The order in which you rotate storage keys is not fixed. You can rotate the secondary key first and then the primary key.
+
+ 1. Change the storage account Primary key through the powershell cmdlet or [Azure](https://portal.azure.com/) portal.
  2. Call Sync-AzureRmMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
  
     The following example shows how to sync keys to storage accounts.
   
          Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
- 3. Wait 6 hours. Verify the streaming scenarios are working.
+ 3. Wait an hour or so. Verify the streaming scenarios are working.
  4. Change storage account secondary key through the powershell cmdlet or Azure portal.
  5. Call Sync-AzureRmMediaServiceStorageKeys powershell with appropriate params to force media account to pick up new storage account keys. 
- 6. Verify the streaming scenarios are working.
+ 6. Wait an hour or so. Verify the streaming scenarios are working.
  
- ## Steps to add storage accounts to your AMS account
-  
-The following sample shows how to use [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media) to add two storage accounts to the AMS account.
+### A complete example 
+
+The following example demonstrates how to get the storage account and sync the AMS account with the storage account.
 
 	$regionName = "West US"
-	$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
 	$resourceGroupName = "SkyMedia-USWest-App"
 	$mediaAccountName = "sky"
-	$storageAccount1Name = "skystorage1"
-	$storageAccount2Name = "skystorage2"
-	$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-	$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-	$storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-	$storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-	$storageAccounts = @($storageAccount1, $storageAccount2)
-	
-	Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+	$storageAccountName = "skystorage"
+	$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+	Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+
+ 
+## Steps to add storage accounts to your AMS account
+
+The following topic shows how to add storage accounts to your AMS account: [Attach multiple storage accounts to a Media Services account](meda-services-managing-multiple-storage-accounts.md).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
