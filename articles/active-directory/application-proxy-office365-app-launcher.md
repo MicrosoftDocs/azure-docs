@@ -3,7 +3,8 @@ title: Set a custom home page for your published application using Azure AD App 
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: kgrembanmanager: femila
+author: kgremban
+manager: femila
 
 ms.assetid: 
 ms.service: active-directory
