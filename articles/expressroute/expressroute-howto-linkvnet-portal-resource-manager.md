@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/27/2017
 ms.author: cherylmc
 
 ---
@@ -45,23 +45,20 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. You can link a virtual networks outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
 ## Connect a virtual network in the same subscription to a circuit
+
 ### To create a connection
+
 1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image.
-   
     ![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
    
    > [!NOTE]
    > BGP configuration information will not show up if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you should be able to create connections.
    > 
-   > 
 2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** blade, and then configure the values. See the following reference example.
-
     ![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
 
-
 3. After your connection has been successfully configured, your connection object will show the information for the connection.
-   
-    ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+     ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 ### To delete a connection
 You can delete a connection by selecting the **Delete** icon on the blade for your connection.
@@ -75,7 +72,6 @@ Each of the smaller clouds within the large cloud is used to represent subscript
 > Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
 > 
 > 
-
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### Administration
@@ -90,13 +86,10 @@ The *circuit owner* has the power to modify and revoke authorizations at any tim
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
 1. In the ExpressRoute blade, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
-
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
 2. Once the configuration is saved, copy the **Resource ID** and the **Authorization Key**.
-
 ![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
-
 
 **Deleting authorizations**
 
