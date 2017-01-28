@@ -40,11 +40,12 @@ In order to use EventProcessorHost, you must have an [Azure Storage account][Azu
 1. Log on to the [Azure classic portal][Azure classic portal], and click **NEW** at the bottom of the screen.
 2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
    
-    ![][11]
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+
 3. Click the newly created storage account, and then click **Manage Access Keys**:
    
-    ![][12]
-   
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+
     Copy the primary access key to use later in this tutorial.
 
 ### Create a Java project using the EventProcessor Host
@@ -231,10 +232,10 @@ Now you are ready to run the applications.
 
 1. Run the **Receiver** project.
    
-   ![][21]
+   ![](./media/event-hubs-java-get-started-receive-eph/ephjava.png)
 2. Run the **Sender** project.
    
-   ![][22]
+   ![](./media/event-hubs-java-get-started-receive-eph/java-send.png)
 
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
@@ -243,10 +244,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
 
 For more information, see the [Java Developer Center](/develop/java/).
-
-<!-- Images. -->
-[21]: ./media/event-hubs-java-get-started-receive-eph/ephjava.png
-[22]: ./media/event-hubs-java-get-started-receive-eph/java-send.png
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md

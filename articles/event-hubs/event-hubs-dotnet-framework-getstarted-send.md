@@ -89,10 +89,6 @@ In this section, you'll write a Windows console app that sends events to your Ev
     SendingRandomMessages();
     ```
 
-
-
-[!INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
-
 ## Run the applications
 Now you are ready to run the applications.
 

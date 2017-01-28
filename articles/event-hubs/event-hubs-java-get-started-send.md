@@ -89,29 +89,5 @@ Then, create a singular event by turning a string into its UTF-8 byte encoding. 
 
 ``` 
 
-[!INCLUDE [service-bus-event-hubs-get-started-receive-ephjava](../../includes/service-bus-event-hubs-get-started-receive-ephjava.md)]
-
-## Run the applications
-Now you are ready to run the applications.
-
-1. Run the **Receiver** project.
-   
-   ![][21]
-2. Run the **Sender** project.
-   
-   ![][22]
-
-## Next steps
-Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
-
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
-* The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
-
-For more information, see the [Java Developer Center](/develop/java/).
-
-<!-- Images. -->
-[21]: ./media/event-hubs-java-get-started-receive-eph/ephjava.png
-[22]: ./media/event-hubs-java-get-started-receive-eph/java-send.png
-
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
