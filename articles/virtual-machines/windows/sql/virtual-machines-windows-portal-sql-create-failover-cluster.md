@@ -44,11 +44,20 @@ S2D supports two types of architectures - converged and hyper-converged. The arc
 
 ## Before you begin
 
+There are a few things you need to know and a couple of things that you need in place before you proceed.
+
+### What to know
+In addition to an operational understanding of cluster technologies, you should know a little bit about:
+
+- S2D hyperconverged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+- Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
+
+
+### What to have
+
 Before following the instructions in this article, you should already have:
 
-- Familiarity with S2D hyperconverged solution. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - A Microsoft Azure subscription.
-- Familiarity with Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
 - A Windows domain on Azure virtual machines.
 - An account with permission to create objects in the Azure virtual machine.
 - An Azure virtual network and subnet with sufficient IP address space for the following components:
