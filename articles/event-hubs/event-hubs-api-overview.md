@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: sethm
+ms.date: 01/27/2017
+ms.author: jotaub;sethm
 
 ---
 # Event Hubs API overview
@@ -27,143 +27,142 @@ To perform the following management operations, you must have **Manage** permiss
 
 ### Create
 ```csharp
-// Create the Event Hub
-EventHubDescription ehd = new EventHubDescription(eventHubName);
-ehd.PartitionCount = SampleManager.numPartitions;
-namespaceManager.CreateEventHubAsync(ehd).Wait();
+    // Create the Event Hub
+    var ehd = new EventHubDescription(eventHubName);
+    ehd.PartitionCount = SampleManager.numPartitions;
+    await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### Update
 ```csharp
-EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
+    var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
-// Create a customer SAS rule with Manage permissions
-ehd.UserMetadata = "Some updated info";
-string ruleName = "myeventhubmanagerule";
-string ruleKey = SharedAccessAuthorizationRule.GenerateRandomKey();
-ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new AccessRights[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send} )); 
-namespaceManager.UpdateEventHubAsync(ehd).Wait();
+    // Create a customer SAS rule with Manage permissions
+    ehd.UserMetadata = "Some updated info";
+    var ruleName = "myeventhubmanagerule";
+    var ruleKey = SharedAccessAuthorizationRule.GenerateRandomKey();
+    ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new AccessRights[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send} )); 
+    await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### Delete
 ```csharp
-namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
+    await namespaceManager.DeleteEventHubAsync("Event Hub name");
 ```
 
 ## Run-time APIs
 ### Create publisher
 ```csharp
-// EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
+    // EventHubClient model (uses implicit factory instance, so all links on same connection)
+    var eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Publish message
 ```csharp
-// Create the device/temperature metric
-MetricEvent info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
-EventData data = new EventData(new byte[10]); // Byte array
-EventData data = new EventData(Stream); // Stream 
-EventData data = new EventData(info, serializer) //Object and serializer 
+    // Create the device/temperature metric
+    var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
+    var data = new EventData(new byte[10]); // Byte array
+    var data = new EventData(Stream); // Stream 
+    var data = new EventData(info, serializer) //Object and serializer 
     {
-       PartitionKey = info.DeviceId.ToString()
+        PartitionKey = info.DeviceId.ToString()
     };
 
-// Set user properties if needed
-data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
+    // Set user properties if needed
+    data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
 
-// Send single message async
-await client.SendAsync(data);
+    // Send single message async
+    await client.SendAsync(data);
 ```
 
 ### Create consumer
 ```csharp
-// Create the Event Hubs client
-EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
+    // Create the Event Hubs client
+    var eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get the default consumer group
-EventHubConsumerGroup defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
+    // Get the default consumer group
+    var defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
-// All messages
-EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);
+    // All messages
+    var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);
 
-// From one day ago
-EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
+    // From one day ago
+    var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
 
-// From specific offset, -1 means oldest
-EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
+    // From specific offset, -1 means oldest
+    var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
 ```
 
 ### Consume message
 ```csharp
-var message = await consumer.ReceiveAsync();
+    var message = await consumer.ReceiveAsync();
 
-// Provide a serializer
-var info = message.GetBody<Type>(Serializer)
+    // Provide a serializer
+    var info = message.GetBody<Type>(Serializer)
 
-// Get a byte[]
-var info = message.GetBytes(); 
-msg = UnicodeEncoding.UTF8.GetString(info);
+    // Get a byte[]
+    var info = message.GetBytes(); 
+    msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## Event processor host APIs
 These APIs provide resiliency to worker processes that may become unavailable, by distributing shards across available workers.
 
 ```csharp
-// Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
-// Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+    // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
+    // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
-string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
-string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
+    var eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
+    var blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
-EventHubDescription eventHubDescription = new EventHubDescription(EventHubName);
-EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
-            host.RegisterEventProcessorAsync<SimpleEventProcessor>();
+    var eventHubDescription = new EventHubDescription(EventHubName);
+    var host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
+    await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// To close
-host.UnregisterEventProcessorAsync().Wait();   
+    // To close
+    await host.UnregisterEventProcessorAsync();
 ```
 
 The [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface is defined as follows:
 
 ```csharp
-public class SimpleEventProcessor : IEventProcessor
-{
-    IDictionary<string, string> map;
-    PartitionContext partitionContext;
-
-    public SimpleEventProcessor()
+    public class SimpleEventProcessor : IEventProcessor
     {
-        this.map = new Dictionary<string, string>();
-    }
+        IDictionary<string, string> map;
+        PartitionContext partitionContext;
 
-    public Task OpenAsync(PartitionContext context)
-    {
-        this.partitionContext = context;
-
-        return Task.FromResult<object>(null);
-    }
-
-    public async Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-    {
-        foreach (EventData message in messages)
+        public SimpleEventProcessor()
         {
-            Process messages here
+            this.map = new Dictionary<string, string>();
         }
 
-        // Checkpoint when appropriate
-        await context.CheckpointAsync();
-
-    }
-
-
-    public async Task CloseAsync(PartitionContext context, CloseReason reason)
-    {
-        if (reason == CloseReason.Shutdown)
+        public Task OpenAsync(PartitionContext context)
         {
+            this.partitionContext = context;
+
+            return Task.FromResult<object>(null);
+        }
+
+        public async Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (EventData message in messages)
+            {
+                Process messages here
+            }
+
+            // Checkpoint when appropriate
             await context.CheckpointAsync();
+
+        }
+
+        public async Task CloseAsync(PartitionContext context, CloseReason reason)
+        {
+            if (reason == CloseReason.Shutdown)
+            {
+                await context.CheckpointAsync();
+            }
         }
     }
-}
 ```
 
 ## Next steps
@@ -178,4 +177,3 @@ The .NET API references are here:
 
 * [Service Bus and Event Hubs .NET API references](/dotnet/api)
 * [Event processor host API reference](/dotnet/api)
-
