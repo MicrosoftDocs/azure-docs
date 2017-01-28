@@ -134,16 +134,16 @@ Before following the instructions in this article, you should already have:
 
    >[!TIP]
    >Use a link-local address for the cluster static address. For example, <192.254.0.1>. This address cannot be used anywhere else within the subnet. 
-
+   
 1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
-
+   
 1. [Clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
-
-The disks for S2D need to be empty and without partitions or other data. Follow the instructions in the preceding link to verify that the disks are clean.
-
+   
+   The disks for S2D need to be empty and without partitions or other data. Follow the instructions in the preceding link to verify that the disks are clean.
+   
 1. [Enable Store Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
-  The following PowerShell enables storage spaces direct.  
+   The following PowerShell enables storage spaces direct.  
 
    ```PowerShell
    Enable-ClusterS2D
