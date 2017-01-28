@@ -20,7 +20,7 @@ ms.author: padmavc
 # Get started with Encode X12 Message
 Validates EDI and partner-specific properties, converts XML-encoded messages into EDI transaction sets in the interchange and requests a Technical and/or Functional acknowledgment
 
-## Prereqss
+## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account is required to use Encode x12 message connector. See details on how to create an [Integration Account](logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md), and [X12 agreement](logic-apps-enterprise-integration-x12.md)
 
@@ -49,8 +49,7 @@ Validates EDI and partner-specific properties, converts XML-encoded messages int
     ![integration account connection details](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage3.png) 
 
 #### Encode X12 messages by agreement name
-Select X12 agreement from the drop-down, and the XML message to encode:
-   
+Select X12 agreement from the drop-down, and the XML message to encode:     
     ![provide mandatory fields](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png) 
 
 #### Encode X12 messages by identities
