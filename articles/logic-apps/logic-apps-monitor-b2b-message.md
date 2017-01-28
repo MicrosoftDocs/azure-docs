@@ -22,13 +22,14 @@ ms.author: padmavc
 B2B communication involves message exchanges between 
 two running business processes or applications. 
 The relationship defines an agreement between business processes. 
-After the communication has been established, 
-there needs to be a way to monitor if the 
-communication is working as expected. 
-Message tracking has been implemented 
-for the B2B protocols: AS2, X12, and EDIFACT. 
-You can configure your Integration Account 
-to use Diagnostics for richer details and debugging.
+After communication is established, 
+you can set up message monitoring 
+to check that communication is working as expected.
+For richer details and debugging, 
+you can set up diagnostics for your integration account.
+
+Message tracking is available 
+for these B2B protocols: AS2, X12, and EDIFACT. 
 
 ## Prerequisites
 
