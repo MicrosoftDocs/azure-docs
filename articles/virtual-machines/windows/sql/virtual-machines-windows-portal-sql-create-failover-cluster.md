@@ -66,7 +66,9 @@ Before following the instructions in this article, you should already have:
    - An IP address for each FCI.
 - DNS configured on the Azure Network, pointing to the domain controllers. 
 
-## Configure WSFC
+With these prerequisites in place, you can proceed with building your WSFC. The first step is to create the virtual machines. 
+
+## Step 1: Create virtual machines
 
 1. Log in to the [Azure portal](http://portal.azure.com) with your subscription.
 
@@ -118,6 +120,14 @@ Before following the instructions in this article, you should already have:
 
 1. [Add the virtual machines to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
+After the virtual machines are created and configured, you can configure the WSFC.
+
+## Step 2: Configure storage spaces direct (S2d)
+
+The next step is to configure storage spaces direct. In this step you will validate and configure the cluster, and then add storage. 
+
+1. To begin, connnect to the first virtual machine with RDP.
+
 1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
    The preceding link shows how to add the **Failover Clustering** feature in the user interface. Instead, you can add the feature with PowerShell. For example:
@@ -127,22 +137,25 @@ Before following the instructions in this article, you should already have:
    icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeManagementTools}
    ```
 
+   The next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct). 
+
 1. [Run cluster validation](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
    ```PowerShell
    Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-1. [Create the WSFC](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
+1. [Create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
-   The following PowerShell creates a WSFC. The IP address is the same IP address specified in the load balancer front-end IP address.
+   To create the WSFC in the UI, see [the create cluster step of the Always On Availability Group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
+
+   Alternatively, the following PowerShell creates a WSFC. 
 
    ```PowerShell
    New-Cluster -Name <clustername> -Node $nodes –StaticAddress <192.254.0.1> -NoStorage
    ```
    
-   For details, refer to [Create a cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
-
+   For details, refer to [Create a cluster].
 
    >[!TIP]
    >Use a link-local address for the cluster static address. For example, <192.254.0.1>. This address cannot be used anywhere else within the subnet. 
