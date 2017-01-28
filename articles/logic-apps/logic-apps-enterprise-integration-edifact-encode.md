@@ -20,7 +20,7 @@ ms.author: padmavc
 # Get started with Encode EDIFACT Message
 Validates EDI and partner-specific properties 
 
-## Prereqss
+## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account is required to use Encode EDIFACT message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](logic-apps-enterprise-integration-partners.md) and [EDIFACT agreement](../logic-apps/logic-apps-enterprise-integration-edifact.md)
 
@@ -53,8 +53,7 @@ Enter the EDIFACT agreement name and the XML message to encode:
    ![provide mandatory fields](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
 #### Encode EDIFACT Message by identities
-Enter the sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the EDIFACT agreement.  Select the XML message to encode:
-   
+Enter the sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the EDIFACT agreement. Select the XML message to encode:  
     ![provide mandatory fields](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
 ## EDIFACT Encode details
