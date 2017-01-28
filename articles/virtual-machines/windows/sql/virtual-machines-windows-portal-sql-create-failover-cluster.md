@@ -50,9 +50,9 @@ S2D supports two types of architectures - converged and hyper-converged. The arc
 There are a few things you need to know and a couple of things that you need in place before you proceed.
 
 ### What to know
-In addition to an operational understanding of cluster technologies, you should know a little bit about:
+In addition to an operational understanding of Windows cluster technologies in general and SQL Server Failover Cluster Instances specifically, you should know a little bit about:
 
-- S2D hyperconverged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+- S2D hyper-converged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
 
 
@@ -89,7 +89,16 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). 
 
-   Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Place both virtual machines:
+   
+   - In the same Azure resource group that your availability set is in. 
+   - On the same network as your domain controller.
+   - On a subnet with sufficient IP address space for both virtual machines, and all FCIs that you will include on this cluster. 
+   - In the Azure availability set.   
+      >[!IMPORTANT]
+      >You cannot set or change availability set after a virtual machine has been created.
+
+   Choose an image from the Azure Marketplace. You can use a Marketplace image with a SQL Server instance or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
    Azure Marketplace SQL Server-based virtual machine images include the licensing costs for SQL Server in the per-minute pricing of the VM you create. A separate option is to use the bring-your-own-license (BYOL) and pay only for the virtual machine. These images are prefixed with {BYOL}. The following Marketplace images come with SQL Server already installed:
 
@@ -101,23 +110,31 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
    >[!TIP]
    >Use the image with the latest service pack for SQL Server. 
-
-   After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
+   After you create the virtual machine, remove the SQL Server image. Use pre-installed media when it is time to create the SQL Server FCI. 
+
    Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
 
-   Place both virtual machines:
-   
-   - In the same Azure resource group that your availability set is in. 
-   - On the same network as your domain controller.
-   - On a subnet with sufficient IP address space for the other virtual machine, and all FCIs that you will include on this cluster. 
-   - In the Azure availability set. 
-   
-    >[!IMPORTANT]
-    >You cannot set or change availability set after a virtual machine has been created. 
-   
+
+1. After azure creates your virtual machines, connect to each virtual machine with RDP. 
+
+   When you first connect to a virtual machine with RDP, the computer will ask if you want to allow this PC to be discoverable on the network. Click **Yes**. 
+
+1. If you are using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
+
+   - In **Programs and Features** right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**. 
+   - Click **Remove**. 
+   - Select the default instance.
+   - Remove all features under **MSSQLSERVER**. Do not remove **Shared Features**. 
+
+      ![Remove Features](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+
+
+
 1. Open the firewall ports.
    
+   On each virtual machine, open the following ports on the Windows Firewall. 
+
    On each virtual machine, open the following ports:
 
    | Purpose | TCP Port | Notes
@@ -291,7 +308,7 @@ DTC is not supported on FCIs because the RPC port is not supported by the load b
 
 [Setup S2D with remote desktop (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment) 
 
-[Hyperconverged solution with storage spaces direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Hyper-converged solution with storage spaces direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
 [Storage Space Direct Overview](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
