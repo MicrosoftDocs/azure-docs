@@ -18,7 +18,6 @@ ms.author: jotaub;sethm
 
 ---
 # Get started with Event Hubs
-[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.

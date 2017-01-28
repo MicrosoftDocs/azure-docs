@@ -34,3 +34,5 @@ ms.author: jotaub
 ## [User notifications](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications)
 ## [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
 ## [Scaled out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+## [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql)
+## [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb)

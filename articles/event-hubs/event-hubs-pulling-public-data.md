@@ -1,3 +1,3 @@
 ---
-redirect_url: https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb
+redirect_url: /azure/event-hubs/event-hubs-samples
 ---
