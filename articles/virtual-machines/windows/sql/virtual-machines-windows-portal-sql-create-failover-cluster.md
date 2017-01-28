@@ -38,6 +38,9 @@ The preceding diagram shows:
 - An Azure load balancer to hold the IP address for the SQL Server FCI.
 - An Azure availability set holds all the resources.
 
+   >[!NOTE]
+   >In the complete solution, all of the items in the diagram are in the same Azure resource group.
+
 For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview). 
 
 S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
@@ -74,11 +77,17 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
 1. [Create an Azure availability set](../../virtual-machines-windows-create-availability-set.md).
 
+   The availability set is a group of virtual machines that are deployed across fault domains and update domains. The availability set  makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers. 
+
+   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the resource group use the following settings:
+   
+   - Under **Create availability set**, **Resource group**, choose **Create New**.
+   - Set a name for the resource group.
+   - For **Location** choose the same Azure location for your virtual machines. 
+
 1. Create the virtual machines in the availability set.
 
    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). 
-
-   Place both virtual machines in a single Azure resource group. You can create the resource group when you create the first virtual machine. 
 
    Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
@@ -96,9 +105,19 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
    Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+
+   Place both virtual machines:
+   
+   - In the same Azure resource group that your availability set is in. 
+   - On the same network as your domain controller.
+   - On a subnet with sufficient IP address space for the other virtual machine, and all FCIs that you will include on this cluster. 
+   - In the Azure availability set. 
+   
+    >[!IMPORTANT]
+    >You cannot set or change availability set after a virtual machine has been created. 
    
 1. Open the firewall ports.
-
+   
    On each virtual machine, open the following ports:
 
    | Purpose | TCP Port | Notes
