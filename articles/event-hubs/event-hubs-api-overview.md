@@ -147,7 +147,7 @@ The [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.serv
         {
             foreach (EventData message in messages)
             {
-                Process messages here
+                // Process messages here
             }
 
             // Checkpoint when appropriate
