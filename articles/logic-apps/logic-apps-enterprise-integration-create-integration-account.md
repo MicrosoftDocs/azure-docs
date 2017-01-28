@@ -44,7 +44,8 @@ For your Logic apps to access to maps, schemas, agreements, and other artifacts 
 * An integration account
 * A ogic app
 
-> [!NOTE] Be sure your integration account and Logic app are in the **same Azure location** before you begin.
+> [!NOTE] 
+> Be sure your integration account and Logic app are in the **same Azure location** before you begin.
 
 1. Select **Settings** link from the menu of your Logic app:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)   
