@@ -40,19 +40,21 @@ The preceding diagram shows:
 
 For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview). 
 
-S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node. For an in-depth article about hyper-converged solutions, see [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
 
 ## Before you begin
 
 Before following the instructions in this article, you should already have:
 
-1. A Microsoft Azure subscription.
-1. A Windows domain on Azure virtual machines.
-1. An account with permission to create objects in the Azure virtual machine.
-1. An Azure virtual network and subnet with sufficient IP address space for the following components:
+- Familiarity with S2D hyperconverged solution. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+- A Microsoft Azure subscription.
+- A Windows domain on Azure virtual machines.
+- An account with permission to create objects in the Azure virtual machine.
+- An Azure virtual network and subnet with sufficient IP address space for the following components:
    - Both virtual machines.
    - The WSFC IP address.
-   - The FCI address.
+   - An IP address for each FCI.
+- DNS configured on the Azure Network, pointing to the domain controllers. 
 
 ## Configure WSFC
 
@@ -79,7 +81,7 @@ Before following the instructions in this article, you should already have:
 
    After you create the virtual machine, remove SQL Server. Use pre-installed media when it is time to create the SQL Server FCI. 
    
-   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
+   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
    
 1. Open the firewall ports.
 
@@ -102,13 +104,6 @@ Before following the instructions in this article, you should already have:
 
    The storage capacity you use in production environments depends on your workload. The values described in this article are for demonstration and testing. 
 
-1. Configure networking on the virtual machines. 
-
-   Set the DNS server to the appropriate value for your domain. 
-
-   >[!WARNING]
-   >In some cases, an Azure virtual machine will become non-responsive immediately after you change the network interface settings. In this case, reboot the virtual machine. 
-
 1. [Add the virtual machines to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
 1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
@@ -120,20 +115,33 @@ Before following the instructions in this article, you should already have:
    icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeManagementTools}
    ```
 
-1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Run cluster validation](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+
+   ```PowerShell
+   Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   ```
 
 1. [Create the WSFC](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
 
    The following PowerShell creates a WSFC. The IP address is the same IP address specified in the load balancer front-end IP address.
 
    ```PowerShell
-   New-Cluster -Name <clustername> -Node $nodes –StaticAddress <192.254.0.1>.
+   New-Cluster -Name <clustername> -Node $nodes –StaticAddress <192.254.0.1> -NoStorage
    ```
    
+   For details, refer to [Create a cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+
+
    >[!TIP]
    >Use a link-local address for the cluster static address. For example, <192.254.0.1>. This address cannot be used anywhere else within the subnet. 
 
-1. Enable Store Spaces Direct (S2D).
+1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+
+1. [Clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+
+The disks for S2D need to be empty and without partitions or other data. Follow the instructions in the preceding link to verify that the disks are clean.
+
+1. [Enable Store Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
   The following PowerShell enables storage spaces direct.  
 
@@ -141,17 +149,13 @@ Before following the instructions in this article, you should already have:
    Enable-ClusterS2D
    ```
 
-1. Create a volume.
+1. [Create a volume](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV. 
 
    ```PowerShell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
-
-1. [Validate the cluster](http://technet.microsoft.com/library/jj134244.aspx#BKMK_RUN_TESTS).
-
-   Validate the cluster after you create the storage volume. SQL Server setup requires that the cluster has a current validation. The validation that you ran when you created the cluster did not include the storage resources. 
 
 ## Create SQL Server FCI
 
