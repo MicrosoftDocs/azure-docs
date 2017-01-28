@@ -14,7 +14,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2016
+>ms.date: 07/08/2016
 ms.author: deonhe
 
 ---
@@ -23,6 +23,7 @@ ms.author: deonhe
 An integration account allows enterprise integration apps to manage artifacts, including schemas, maps, certificates, partners and agreements. Any integration app you create uses an integration account to access these schemas, maps, certificates, and so on.
 
 ## Create an integration account
+
 1. Select **Browse**   
    ![](./media/logic-apps-enterprise-integration-accounts/account-1.png)  
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
@@ -43,7 +44,8 @@ For your Logic apps to access to maps, schemas, agreements, and other artifacts 
 * An integration account
 * A Logic app
 
-> [!NOTE] Be sure your integration account and Logic app are in the **same Azure location** before you begin. 
+> [!NOTE] 
+> Be sure your integration account and Logic app are in the **same Azure location** before you begin. 
 
 1. Select **Settings** link from the menu of your Logic app:  
    ![](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)   
