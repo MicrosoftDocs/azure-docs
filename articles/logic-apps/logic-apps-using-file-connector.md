@@ -55,7 +55,8 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
 
 6. Save your Logic App, and test it by uploading a file to Dropbox. You should see the file being copied to the on-premises file share, and receive an email notification on the operation.
 
-	> [!TIP] Check out how to [monitor your Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+	> [!TIP] 
+	> Check out how to [monitor your Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 7. All done, now you have a working Logic App using the file system connector. You can start exploring other functionalities it offers:
 
