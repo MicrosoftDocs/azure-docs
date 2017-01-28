@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/28/2017
 ms.author: billmath
 ---
 
@@ -29,10 +29,10 @@ SSO is a feature that is enabled through Azure AD Connect and works with passwor
 - Have a direct connection to a domain controller, for example on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
 - Define the Kerberos end-points in the cloud as part of the browser's Intranet zone.
 
-If any of the above items are not present, such as the machine is off the corporate network and Active Directory is not available, then the user is prompted to enter their password as they would without single sign-on.
+If any of these requirements are not present, such as the machine is off the corporate network, then the user is prompted to enter their password as they would without single sign-on.
 
 ## Supported Clients
-Single sign-on is supported via web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga) on machines that are capable of Kerberos authentication, such as Windows. The matrix below provides details of the browser-based clients on various operating systems.
+Single sign-on is supported via web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga) on machines capable of Kerberos authentication, such as Windows. The matrix below provides details of the browser-based clients on various operating systems.
 
 | OS\Browser |Internet Explorer|Chrome|Firefox|Edge
 | --- | --- |--- | --- | --- |
@@ -55,7 +55,7 @@ Once this setup is complete, the process of authentication is the same as any ot
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso2.png)
 
-First the user attempts to access a resource that trusts tokens issued from Azure AD, such as SharePoint Online. SharePoint Online then redirects the user to authenticate with Azure AD. The user then provides their username so that Azure AD can establish if single sign-on is enabled for their organization. Assuming single sign-on is enabled for the organization the following occurs.
+First the user attempts to access a resource that trusts tokens issued from Azure AD, such as SharePoint Online. SharePoint Online then redirects the user to authenticate with Azure AD. The user then provides their username so that Azure AD can establish if single sign-on is enabled for their organization. Assuming single sign-on is enabled for the organization the following traffic occurs.
 
 1.	Azure AD challenges the client, via a 401 Unauthorized response, to provide a Kerberos ticket.
 2.	The client requests a ticket from Active Directory for Azure AD.
@@ -66,7 +66,7 @@ First the user attempts to access a resource that trusts tokens issued from Azur
 Single sign-on is an opportunistic feature, which means that if it fails for some reason, the user only needs to enter their password on the sign-in page as usual.
 
 ## Enabling SSO with Pass-through Authentication or Password Sync
-Azure AD Connect provides a simple process to enable single sign-on with Pass-through authentication or Password sync. You need to ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account. The username and password is not stored in Azure AD Connect or Azure AD and are used only for this operation.
+Azure AD Connect provides a simple process to enable single sign-on with Pass-through authentication or Password sync. Ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account. The username and password is not stored in Azure AD Connect or Azure AD and are used only for this operation.
 
 When installing Azure AD Connect, select a custom installation so that you are able to select the single sign-on option on the user sign-in page. For more information, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
@@ -104,9 +104,9 @@ Because the URLs used for single sign-on in Azure AD contain a period, they need
 Your users are now ready for single sign-on.
 
 >[!NOTE]
->By default, Chrome will use the same set of trusted site URLs as Internet Explorer. If you have configured different settings for Chrome, you will need to update these sites separately.
+>By default, Chrome uses the same set of trusted site URLs as Internet Explorer. If you have configured different settings for Chrome, then you need to update these sites separately.
 
-## Troubleshooting single sign on issues
+## Troubleshooting single sign-on issues
 It is important to make sure the client is correctly configured for single sign-on including the following:
 
 1.	Both https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net are defined within the Intranet zone.
@@ -116,7 +116,7 @@ It is important to make sure the client is correctly configured for single sign-
 5.	Ensure that the machine's time is synchronized with the Active Directory and the domain controllers time is within 5 minutes of the correct time.
 6.	Purge the clients existing Kerberos tickets, for example by running the command **klist purge** from a command prompt.
 
-If you have been able to confirm the above requirements, then you can review the console logs of the browser for additional information. The console logs can be found under developer tools. These logs will help you determine the potential problem.
+If you have been able to confirm the above requirements, then you can review the console logs of the browser for additional information. The console logs can be found under developer tools. These logs help you determine the potential problem.
 
 ## Event log entries
 If success auditing is enabled, then every time a user sign in with single sign-on an entry is recorded in the event log of the domain controller. To find these events, you can review the Event logs for the security Event 4769 associated with computer account **AzureADSSOAcc$**. The filter below finds all security events associated with the computer account:

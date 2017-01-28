@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/28/2017
 ms.author: billmath
 ---
 
 # What is Azure AD Pass-through Authentication
-Using the same credential (username and password) to access your corporate resources and cloud based services ensures that users don’t have to remember different credentials and reduces the chances that they forget how to sign in. This also has the benefit of reducing the involvement of help desk for password reset events.
+Using the same credential (username and password) to access your corporate resources and cloud based services ensures that users don’t have to remember different credentials. It reduces the chances that they forget how to sign in and has the benefit of reducing the involvement of help desk for password reset events.
 
 While many organizations are comfortable with using Azure AD [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) to provide users with a single credential to access on-premises and cloud services, other organizations require that passwords, even in a hashed form, do not leave their internal organizational boundary.
 
-Azure AD pass-through authentication provides a simple solution for these customers. It ensures that password validation for Azure AD services is performed against their on-premises Active Directory, without the need for complex network infrastructure or for the on-premises passwords to exist in the cloud in any form.
+Azure AD pass-through authentication provides a simple solution for these customers. It ensures that password validation for Azure AD services is performed against their on-premises Active Directory. Passwords can be validated without the need for complex network infrastructure or for the on-premises passwords to exist in the cloud in any form.
 
-When combined with the [Single Sign on](active-directory-aadconnect-sso.md) option, users do not need to type their password to sign in to Azure AD or other cloud services, providing these customers with a truly integrated experience on their corporate machines.
+When combined with the [Single Sign on](active-directory-aadconnect-sso.md) option, users do not need to type their password to sign in to Azure AD or other cloud services. This feature provides these customers with a truly integrated experience on their corporate machines.
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -38,7 +38,7 @@ Pass-through authentication can be configured with Azure AD Connect and utilizes
 ## Supported Clients in the preview
 Pass-through authentication is supported via web browser-based clients and Office clients that support [modern authentication](https://aka.ms/modernauthga). For clients that are not supported, such as legacy Office clients and Exchange active sync (that is, native email clients on mobile devices), customers are encouraged to use the modern authentication equivalent. These clients not only allow pass-through authentication, but also allow conditional access to be applied, such as multi-factor authentication.
 
-For customers using Windows 10 joined to Azure AD, pass-through authentication is not currently supported. However, customers can utilize password sync as an automatic fallback for Windows 10 in addition for legacy clients mentioned above.
+For customers using Windows 10 joined to Azure AD, pass-through authentication is not currently supported. However, customers can utilize password sync as an automatic fallback for Windows 10 in addition for legacy clients.
 
 >[!NOTE]
 >During the preview, Password synchronization is enabled by default when Pass-through authentication is selected as the sign-in option in Azure AD Connect. This setting can be disabled on the Options page of Azure AD Connect.
@@ -46,7 +46,7 @@ For customers using Windows 10 joined to Azure AD, pass-through authentication i
 ## How Azure AD Pass-through Authentication works
 When a user enters their username and password into the Azure AD sign-in page, Azure AD places the username and password on the appropriate on-premises connector queue for validation. One of the available on-premises connectors then retrieves the username and password and validates it against Active Directory. The validation occurs over standard Windows APIs similar to how Active Directory Federation Services validates password.
 
-The on-premises Domain Controller then evaluates the request and returns a response to the connector, which in turn returns this response to Azure AD. Azure AD then evaluates the response and responds to the user as appropriate, for example by issuing a token or asking for Multifactor Authentication. The diagram below shows the various steps.
+The on-premises Domain Controller then evaluates the request and returns a response to the connector, which in turn returns this response to Azure AD. Azure AD then evaluates the response and responds to the user as appropriate, for example by issuing a token or asking for Multifactor Authentication. This diagram shows the various steps:
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
@@ -123,15 +123,15 @@ Additional information can also be found in the trace logs for the connector in 
 	    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-You can get the details of the error by starting a command prompt and running the following command. (Replace '1328' with the error number in the request.)
+You can get the details of the error by starting a command prompt and running the following command: (Replace '1328' with the error number in the request.)
 
 `Net helpmsg 1328`
 
-The result is similar to the following.
+The result is similar to the following response:
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta3.png)
 
-Additional information can also be found in the security logs of the Domain Controllers, if audit logging is enabled. A simple query for authentication requests by the connector would be as follows:
+If audit logging is enabled, then additional information can also be found in the security logs of the Domain Controllers. A simple query for authentication requests by the connector would be as follows:
 
 ```
     <QueryList>
@@ -148,5 +148,5 @@ Other errors reported on the Azure AD sign-in screen are detailed below together
 |AADSTS80001|Unable to connect to Active Directory|Ensure that the connector machines are domain joined and are able to connect to Active Directory.  
 |AADSTS8002|A timeout occurred connecting to Active Directory|Check to ensure that Active Directory is available and responding to requests from the connector.
 |AADSTS80004|The username passed to the connector was not valid|Ensure the user is attempting to sign in with the right username.
-|AADSTS80005|Validation encountered unpredictable WebException|This is a transient problem. Please retry the request. Should it continue to fail, please contact Microsoft support.
+|AADSTS80005|Validation encountered unpredictable WebException|This error is a transient problem. Retry the request. Should it continue to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the connector logs for more information and verify that Active Directory is operating as expected.
