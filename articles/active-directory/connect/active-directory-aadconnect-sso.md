@@ -96,7 +96,7 @@ Because the URLs used for single sign-on in Azure AD contain a period, they need
     	Data: 1  
     	Value: https://aadg.windows.net.nsatc.net  
     	Data: 1  
-5.	It should look similar to the following:
+5.	It should look similar to the following:  
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
 
 6.	Click **OK** and **OK** again.
