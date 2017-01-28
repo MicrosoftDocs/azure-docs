@@ -90,7 +90,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    ![Image capture successful](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## Next steps
-The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](/cli/azure/get-started-with-az-cli2). 
+The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). 
 
 Alternatively, use the [Azure classic portal][Azure classic portal] to create a custom VM by using the **From Gallery** method and selecting the image you created. For more information, see [How to Create a Custom VM][How to Create a Custom Virtual Machine].
 
