@@ -30,7 +30,7 @@ The following diagram shows the complete solution on Azure virtual machines:
 
 The preceding diagram shows:
 
-- Two Azure virtual machines in a Windows Server Failover Cluster (WSFC).
+- Two Azure virtual machines in a Windows Server Failover Cluster (WSFC). When a virtual machines is in a WSFC it is also called a *cluster node*, or *nodes*.
 - Each virtual machine has two or more data disks.
 - S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. 
 - The storage pool presents a cluster shared volume (CSV) to the WSFC.
@@ -48,6 +48,7 @@ Before following the instructions in this article, you should already have:
 
 - Familiarity with S2D hyperconverged solution. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - A Microsoft Azure subscription.
+- Familiarity with Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
 - A Windows domain on Azure virtual machines.
 - An account with permission to create objects in the Azure virtual machine.
 - An Azure virtual network and subnet with sufficient IP address space for the following components:
@@ -65,6 +66,8 @@ Before following the instructions in this article, you should already have:
 1. Create the virtual machines in the availability set.
 
    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). 
+
+   Place both virtual machines in a single Azure resource group. You can create the resource group when you create the first virtual machine. 
 
    Choose an image from the Azure Marketplace. You can use a Marketplace image with SQL Server or a Windows Server 2016 image. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
@@ -135,7 +138,9 @@ Before following the instructions in this article, you should already have:
    >[!TIP]
    >Use a link-local address for the cluster static address. For example, <192.254.0.1>. This address cannot be used anywhere else within the subnet. 
    
-1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+
+   Create the cloud witness in the same resource group as the Azure virtual machines. 
    
 1. [Clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
    
