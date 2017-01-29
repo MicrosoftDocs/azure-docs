@@ -119,7 +119,7 @@ To create a multi-step test, you record the scenario by using Visual Studio, and
 Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
 
 #### 1. Record a scenario
-Use Visual Studio Enterprise or Ultimate to record a web session.
+Use Visual Studio Enterprise to record a web session.
 
 1. Create a web performance test project.
 
