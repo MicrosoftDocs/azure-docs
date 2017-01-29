@@ -219,12 +219,10 @@ After reprotection the VM you can initiate a failover from Azure to On-premises.
 After failback completes, you will need to commit the virtual machine to ensure the VMs recovered in Azure are deleted.
 
 1. Right click on the protected item and click Commit. A job will trigger that will remove the former recovered virtual machines in Azure.
-
-After commit completes your data will be back on the on-premises site, but won’t be protected. To start replicating to Azure again do the following:
-
-1. In the Vault > Setting > Replicated items, select the VMs that have failed back and click **Re-Protect**.
-2. Give the value of Process server that needs to be used to send data back to Azure.
-3. Click OK to begin the re-protect job.
+2. After commit completes your data will be back on the on-premises site, but won’t be protected. To start replicating to Azure again do the following:
+ - In the Vault > Setting > Replicated items, select the VMs that have failed back and click **Re-Protect**.
+ Give the value of Process server that needs to be used to send data back to Azure.
+ Click OK to begin the re-protect job.
 
 Once the reprotect completes, the VM will be replicating back to Azure and you can do a failover.
 
