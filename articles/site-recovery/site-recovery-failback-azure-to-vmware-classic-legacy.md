@@ -25,15 +25,9 @@ ms.author: ruturajd@microsoft.com
 >
 >
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
+This article describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site after you've replicated from your on-premises site to Azure using [Azure Site Recovery?](site-recovery-overview.md).
 
-## Overview
-This article describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site after you've replicated from your on-premises site to Azure.
-
-> [!NOTE]
-> This article describes a legacy scenario. You should only use the instructions in this article if you replicated to Azure using [these legacy instructions](site-recovery-vmware-to-azure-classic-legacy.md). If you set up replication using the [enhanced deployment](site-recovery-vmware-to-azure-classic-legacy.md) then follow the instructions in [this article](site-recovery-failback-azure-to-vmware-classic.md) to fail back.
->
->
+This article describes an old configuration and shouldn't be used for new vaults.
 
 ## Architecture
 This diagram represents the failover and failback scenario. The blue lines are the connections used during failover. The red lines are the connections used during failback. The lines with arrows go over the internet.
@@ -170,7 +164,7 @@ snappy-1.1.0-1.el6.x86\_64.rpm
 
 wget-1.12-5.el6\_6.1.x86\_64.rpm
 
-NOTE: If the source machine uses Reiser or XFS filesystem for the root or boot
+If the source machine uses Reiser or XFS filesystem for the root or boot
 device, then following packages should be downloaded and installed on
 Linux master target prior to protection.
 
