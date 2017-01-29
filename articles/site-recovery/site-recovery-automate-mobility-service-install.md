@@ -1,5 +1,5 @@
 ---
-title: Deploy the Site Recovery Mobility service with Azure Automation DSC
+title: Deploy the Site Recovery Mobility service with Azure Automation DSC | Microsoft Docs
 description: Describes how to use Azure Automation DSC to automatically deploy the Azure Site Recovery Mobility service and Azure agent for VMware VM and physical server replication to Azure
 services: site-recovery
 documentationcenter: ''
