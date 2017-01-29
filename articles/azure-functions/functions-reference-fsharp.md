@@ -34,6 +34,8 @@ This article assumes that you've already read the [Azure Functions developer ref
 ## How .fsx works
 An `.fsx` file is an F# script. It can be thought of as an F# project that's contained in a single file. The file contains both the code for your program (in this case, your Azure Function) and directives for managing dependencies.
 
+NOTE: Because the Azure Functions integration uses the `byref<>` feature f# 4.1 is required.
+
 When you use an `.fsx` for an Azure Function, commonly required assemblies are automatically included for you, allowing you to focus on the function rather than "boilerplate" code.
 
 ## Binding to arguments
