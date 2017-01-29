@@ -26,7 +26,7 @@ You can set up web tests for any HTTP or HTTPS endpoint that is accessible from 
 There are two types of web test:
 
 * [URL ping test](#create): a simple test that you can create in the Azure portal.
-* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
+* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Enterprise and upload to the portal.
 
 You can create up to 10 web tests per application resource.
 
