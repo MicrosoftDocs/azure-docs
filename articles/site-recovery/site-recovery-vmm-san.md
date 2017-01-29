@@ -1,5 +1,5 @@
 ---
-title: Replicate Hyper-V VMs in VMM clouds with SAN | Microsoft Docs
+title: Replicate Hyper-V VMs in VMM clouds with SAN using Azure Site Recovery | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines between two sites with Azure Site Recovery using SAN replication.
 services: site-recovery
 documentationcenter: ''
