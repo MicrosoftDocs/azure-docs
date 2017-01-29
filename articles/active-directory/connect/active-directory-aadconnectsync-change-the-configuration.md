@@ -1,5 +1,5 @@
 ---
-title: 'Making a configuration change in Azure AD Connect | Microsoft Docs'
+title: 'Azure AD Connect sync: Make a configuration change in Azure AD Connect sync | Microsoft Docs'
 description: Walks you through how to make a change to the configuration in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 01/29/2017
 ms.author: billmath
 
 ---
@@ -50,7 +50,7 @@ The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every
    ![Inbound rule filtering](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
    * Name: Give the rule a descriptive name.
    * Description: Some clarification so someone else can understand what the rule is for.
-   * Connected system: The system the object can be found in. In this case, we select the Active Directory Connector.
+   * Connected system: The system the object can be found in. In this case, select the Active Directory Connector.
    * Connected System/Metaverse Object Type: Select **User** and **Person** respectively.
    * Link Type: Change this value to **Join**.
    * Precedence: Provide a value that is unique in the system. A lower numeric value indicates higher precedence.
@@ -103,7 +103,7 @@ To create a rule with other attribute flows, do the following:
 
 * Start **Synchronization Rule Editor** from the start menu.
 * With **Inbound** still selected to the left, click the button **Add new rule**.
-* Give the rule a name and description. Select the on-premises Active Directory and the relevant object types.  In **Link Type**, select **Join**. For precedence, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
+* Give the rule a name and description. Select the on-premises Active Directory and the relevant object types. In **Link Type**, select **Join**. For precedence, pick a number that is not used by another rule. The out-of-box rules start with 100, so the value 50 can be used in this example.
   ![Attribute flow 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
 * Leave scope empty (that is, should apply to all user objects in the forest).
 * Leave join rules empty (that is, let the out-of-box rule handle any joins).
@@ -129,7 +129,7 @@ In this expression, take everything left of the first @-sign (Word) and concaten
 Some attributes in Active Directory are multi-valued in the schema even though they look single valued in Active Directory Users and Computers. An example is the description attribute.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-In this expression in case the attribute has a value, we take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
+In this expression in case the attribute has a value, take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
 
 ### Do not flow an attribute
 For background on the scenario for this section, see [Control the attribute flow process](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
@@ -157,4 +157,3 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 
 * [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
