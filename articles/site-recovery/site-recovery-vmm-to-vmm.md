@@ -1,5 +1,5 @@
 ---
-title: Replicate Hyper-V VMs in VMM to a secondary site | Microsoft Docs
+title: Replicate Hyper-V VMs in VMM to a secondary site with Azure Site Recovery | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using the Azure portal.
 services: site-recovery
 documentationcenter: ''
