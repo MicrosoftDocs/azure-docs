@@ -45,6 +45,10 @@ For details about S2D, see [Windows Server 2016 Datacenter edition Storage Space
 
 S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
 
+## Example Azure template
+
+You can create the entire solution in Azure from a template. An example of a template is available for free in the GitHub [Azure Quickstart Templates](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad). This example is not designed or tested for any specific workload. You can evaluate the template, and modify it for your purposes. 
+
 ## Before you begin
 
 There are a few things you need to know and a couple of things that you need in place before you proceed.
@@ -125,11 +129,11 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    - In **Programs and Features** right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**. 
    - Click **Remove**. 
    - Select the default instance.
-   - Remove all features under **MSSQLSERVER**. Do not remove **Shared Features**. 
+   - Remove all features under **MSSQLSERVER**. Do not remove **Shared Features**. See the following picture:
 
       ![Remove Features](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-
+   - Click **Next**, and then click **Remove**.
 
 1. Open the firewall ports.
    
@@ -142,7 +146,9 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. 
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer health probe and the cluster to use this port.  
 
-1. Add storage to the virtual machine. [Add storage](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)
+1. Add storage to the virtual machine. [Add storage](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+
+   Both virtual machines need at least two data disks.
 
    Attach raw disks - not NTFS formatted disks. 
       >[!NOTE]
@@ -154,32 +160,34 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
    The storage capacity you use in production environments depends on your workload. The values described in this article are for demonstration and testing. 
 
-1. [Add the virtual machines to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+1. [Add the virtual machines to your pre-existing domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
 After the virtual machines are created and configured, you can configure the WSFC.
 
-## Step 2: Configure storage spaces direct (S2d)
+## Step 2: Configure WSFC with S2D
 
-The next step is to configure storage spaces direct. In this step you will validate and configure the cluster, and then add storage. 
+The next step is to configure the WSFC with S2D. In this step you will validate and configure the cluster, and then add storage. 
 
-1. To begin, connnect to the first virtual machine with RDP.
+1. To begin, connnect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
 
 1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
-   The preceding link shows how to add the **Failover Clustering** feature in the user interface. Instead, you can add the feature with PowerShell. For example:
+   To install Failover Clustering feature from the UI, do the following steps on both virtual machines. 
+   - In **Server Manager**, click **Manage**, and then click **Add Roles and Features**. 
+   - In **Add Roles and Features Wizard**, click **Next** until you get to **Select Features**.
+   - In **Select Features**, click **Failover Clustering**. Include all required features and the management tools. Click **Add Features**.
+   - Click **Next** and then click **Finish** to install the features. 
 
-   ```PowerShell
-   $nodes = ("<Server-1>", "<Server-2>")
-   icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeManagementTools}
-   ```
 
    The next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct). 
 
-1. [Run cluster validation](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+1. [Validate cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
-   ```PowerShell
-   Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
-   ```
+   To validate the cluster with the UI, do the following steps from one of the virtual machines. 
+   - In **Server Manager**, click **Tools**, then click **Failover Cluster Manager**. 
+   - In **Failover Cluster Manager**, click **Action**, then click **Validate Configuration...**.
+   - Click **Next**. 
+   - On **Select Servers or a Cluster** type the name of both virtual machines.
 
 1. [Create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
