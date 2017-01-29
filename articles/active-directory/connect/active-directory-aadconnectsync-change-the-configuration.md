@@ -79,7 +79,7 @@ Start **Synchronization Service** from the start menu. The steps in this section
    ![Full sync](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    The objects are now updated in the metaverse. You now want to look at the object in the metaverse.
 2. **Preview and full sync on a single object**  
-   Select **Connectors** at the top. Identify the Connector you made a change to in the previous section, in this case the Active Directory Domain Services, and select it. Select **Search Connector Space**. Use scope to find an object you want to use to test the change. Select the object and click **Preview**. In the new screen, select **Commit Preview**.
+   Select **Connectors** at the top. Identify the Connector you made a change to in the previous section, in this case the Active Directory Domain Services, and select it. Select **Search Connector Space**. Use scope to find an object you want to use to test the change. Select the object and click **Preview**. In the new screen, select **Commit Preview**.  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
    The change is now committed to the metaverse.
 
