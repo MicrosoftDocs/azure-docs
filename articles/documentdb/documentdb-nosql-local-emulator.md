@@ -222,11 +222,15 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 
 ## <a id="set-partitioncount"></a>Change the number of collections
 
-By default, you can create up to 25 single partition collections, or 1 partitioned collection using the DocumentDB Emulator. By modifying the **PartitionCount** value, you can create up to 250 single partition collections or 10 partitioned collections, or any combination of the two that does not exceed 250 single partitions (where a 1 partitioned collection = 25 single partition collection).
+By default, you can create up to 25 single partition collections, or 1 partitioned collection using the DocumentDB Emulator. By modifying the **PartitionCount** value, you can create up to 250 single partition collections or 10 partitioned collections, or any combination of the two that does not exceed 250 single partitions (where 1 partitioned collection = 25 single partition collection).
 
 If you attempt to create a collection after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
 
-    Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again. Please do not hesitate to email docdbswat@microsoft.com at any time or for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
+    Sorry, we are currently experiencing high demand in this region, 
+    and cannot fulfill your request at this time. We work continuously 
+    to bring more and more capacity online, and encourage you to try again. 
+    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 To change the number of collections available to the DocumentDB Emulator, do the following:
 
