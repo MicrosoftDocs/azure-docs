@@ -42,7 +42,7 @@ For your Logic apps to access to maps, schemas, agreements, and other artifacts 
 
 #### Prereqs
 * An integration account
-* A ogic app
+* A logic app
 
 > [!NOTE] 
 > Be sure your integration account and Logic app are in the **same Azure location** before you begin.
