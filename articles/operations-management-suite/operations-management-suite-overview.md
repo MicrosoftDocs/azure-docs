@@ -121,7 +121,7 @@ Azure Backup and Azure Site Recovery contribute to business continuity and disas
 #### Azure Backup
 Azure Backup provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
 
-Azure can further protect your data by copying it to multiple replicas within the same region or even across regions for further resiliency.
+Azure protects your data by copying it to multiple replicas within the same region, and you can add further resiliency by replicating it across multiple regions.
 
 Azure Backup has three fundamental scenarios.
 
