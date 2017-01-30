@@ -235,11 +235,10 @@ If you attempt to create a collection after the current partition count has been
 To change the number of collections available to the DocumentDB Emulator, do the following:
 
 1. Delete all local DocumentDB Emulator data by right-clicking the **DocumentDB Emulator** icon on the system tray, and then clicking **Reset Data…**.
-2. Exit all open instances by right-clicking the **DocumentDB Emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
-3. Install the latest version of the [DocumentDB Emulator](https://aka.ms/documentdb-emulator).
-3. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\DocumentDB Emulator>DocumentDB.Emulator.exe /PartitionCount=100`.
-
-
+2. Delete all emulator data in this folder C:\Users\user_name\AppData\Local\DocumentDBEmulator.
+3. Exit all open instances by right-clicking the **DocumentDB Emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
+4. Install the latest version of the [DocumentDB Emulator](https://aka.ms/documentdb-emulator).
+5. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\DocumentDB Emulator>DocumentDB.Emulator.exe /PartitionCount=100`.
 
 ## Troubleshooting
 
