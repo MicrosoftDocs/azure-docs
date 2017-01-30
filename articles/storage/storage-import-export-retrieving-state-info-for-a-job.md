@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Retrieving State Information for a Job
+# Retrieving state information for an Import/Export job
 You can call the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation to retrieve information about both import and export jobs. The information returned includes:
 
 -   The current status of the job.

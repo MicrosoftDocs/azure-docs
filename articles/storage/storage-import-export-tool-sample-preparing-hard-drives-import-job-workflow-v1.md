@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Sample Workflow to Prepare Hard Drives for an Import Job
+# Sample workflow to prepare hard drives for an import job
 This topic walks you through the complete process of preparing drives for an import job.  
   
 This example imports the following data into a Window Azure storage account named `mystorageaccount`:  
