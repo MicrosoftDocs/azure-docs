@@ -19,11 +19,6 @@ ms.author: sstein
 
 ---
 # SQL Database Advisor
-> [!div class="op_single_selector"]
-> * [SQL Database Advisor Overview](sql-database-advisor.md)
-> * [Portal](sql-database-advisor-portal.md)
-> 
-> 
 
 Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
 
