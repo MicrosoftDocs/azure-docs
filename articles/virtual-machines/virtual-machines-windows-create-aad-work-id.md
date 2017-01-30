@@ -1,5 +1,5 @@
 ---
-title: Create a work or school identity in AAD | Microsoft Docs
+title: Create a work or school identity in AAD for Windows | Microsoft Docs
 description: Learn how to create a work or school identity in Azure Active Directory to use with your Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''

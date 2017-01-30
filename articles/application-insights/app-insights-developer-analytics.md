@@ -1,5 +1,5 @@
 ---
-title: Developer Analytics
+title: Performance & usage analytics for web developers - Azure Application Insights | Microsoft Docs
 description: DevOps with Visual Studio, Application Insights, and HockeyApp
 author: alancameronwills
 services: application-insights

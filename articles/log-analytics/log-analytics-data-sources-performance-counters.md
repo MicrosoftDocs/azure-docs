@@ -1,10 +1,10 @@
 ---
-title: Windows and Linux performance counters in Log Analytics | Microsoft Docs
+title: Collect and analyze performance counters in Log Analytics | Microsoft Docs
 description: Performance counters are collected by Log Analytics to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the OMS repository, and how to analyze them in the OMS portal.
 services: log-analytics
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 
 ---
