@@ -1,4 +1,4 @@
-1. On your Configuration Server, launch the CSPSConfigtool.exe. It is available as a shortcut on the desktop and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
+1. On your configuration server, launch CSPSConfigtool.exe. It is available as a shortcut on the desktop and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
 2. Click **Manage Accounts** > **Add Account**.
 
     ![Add account](./media/site-recovery-add-vcenter-account/credentials1.png)

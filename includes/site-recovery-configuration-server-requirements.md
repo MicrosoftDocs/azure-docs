@@ -2,9 +2,9 @@
 | --- |---|
 | Number of CPU cores| 8 |
 | RAM| 12 GB|
-| Number of disks | There are three disks: <br> - OS disk<br> - Process Server cache disk<br> - Retention drive (for failback)|
+| Number of disks | There are three disks:  <br> - OS disk<br> - Process Server cache disk<br> - Retention drive (for failback)|
 | Disk free space (Process Server cache) | 600 GB
-| Disk Free Space (retention disk) | 600 GB|
+| Disk free space (retention disk) | 600 GB|
 | **Software** | |
 | Operating system version | Windows Server 2012 R2 |
 | Operating system locale | English (en-us)|
