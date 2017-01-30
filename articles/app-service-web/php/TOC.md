@@ -10,15 +10,20 @@
 
 # Tutorials
 
-## Build a site using Laravel and MySQL
+## Laravel app with MySQL
+## CodeIgniter
+## CakePHP
 ## WordPress
 
 # How to guides
 ## Develop your app	
 ### Set up your PHP project for App Service
-### Connect to cloud DB
-### Connect to localDB
-		
+### Configure PHP runtime
+### Configure IIS server (Windows)
+### Configure Apache server (Linux)
+### Use app settings
+### Use connection strings
+
 ## Deploy to App Service	
 ### Deployment Overview
 ### Deploy via FTP
@@ -30,45 +35,44 @@
 ### Automate deployment with CLI
 ### Test in production
 ### Set deployment credentials
-		
-## Configure PHP runtime	
-		
-## Configure web server
-### Configure IIS server
-### Configure Apache on Linux
-		
-## Configure application	
-### Use app settings
-### Use connection strings
-		
-## Debug your app	
-### Enable logs 
-### Debug remotely
-### Profile your app
-		
-## Service administration	
-### Assign custom domain
+### Assign custom domain name
 ### Assign custom SSL
+
+## Connect to DB/resources
+### Connect to MySQL DB in Azure
+### Connect to LocalDB
+### Connect to on-premises data (Hybrid Connections)
+### Connect to Azure Virtual Network
+
+## Secure app
 ### Authenticate users
-### Load balance app geographically
-### Monitor app
-### Back up app
-### Restore app from backup
+### Configure 3rd-party SSL
+### Enforce HTTPS
+
+## Scale app
 ### Scale up
 ### Scale out
-### Connect to on-prem (hybrid connection)
-### Connect to VNET
-		
+### Load-balance with Azure Traffic Manager
+### Achieve high scale with App Service Environments
+### Optimize global reach with Azure CDN
+
+## Monitor app
+### Enable logs
+### Stream logs
+
+## Back up content
+### Back up your app
+### Restore your app from backup
+
 # Concepts	
 ## App Service	
 ## Service architecture
 ### Service types
 ### App state (warm vs. cold)
-		
 ## App Service plan	
-## App Service Environments	
-		
+## App Service Environments
 ## Deployment slots	
+## Authentication/Authorization
 		
 ## Extensibility	
 ### API
