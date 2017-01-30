@@ -28,7 +28,7 @@ This article describes how to set up your on-premises environment to start repli
 
 The article assumes that you already have
 1. A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal").
-3. A physical computer on which to install the Configuration Server.
+3. A physical computer on which to install the configuration server.
 
 ### Configuration server minimum requirements
 The following table lists the minimum hardware, software, and network requirements for a configuration server.
@@ -62,7 +62,7 @@ The following table lists the minimum hardware, software, and network requiremen
 #### Run Azure Site Recovery Unified Setup
 
 > [!TIP]
-> Configuration Server registration fails if the time on your computer's system clock is more than five minutes off of local time. Synchronize your system clock with a [time server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+> Configuration server registration fails if the time on your computer's system clock is more than five minutes off of local time. Synchronize your system clock with a [time server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
