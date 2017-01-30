@@ -156,37 +156,37 @@ Activity windows can be in one of the following statuses:
 <td>ActivityResume</td><td>The activity is paused and can't run the activity windows until it's resumed.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Activity execution has been retried.</td>
+<td>Retry</td><td>The activity execution is being retried.</td>
 </tr>
 <tr>
 <td>Validation</td><td>Validation hasn't started yet.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
+<td>ValidationRetry</td><td>Validation is waiting to be retried.</td>
 </tr>
 <tr>
-<tr
+<tr>
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validation is in progress.</td>
 </tr>
 <td>-</td>
 <td>The activity window is being processed.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>Execution took longer than that is allowed by the activity.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>The activity execution took longer than what is allowed by the activity.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>Canceled by user action.</td>
+<td>Canceled</td><td>The activity window was canceled by user action.</td>
 </tr>
 <tr>
 <td>Validation</td><td>Validation has failed.</td>
 </tr>
 <tr>
-<td>-</td><td>Failed to generate and/or validate the activity window.</td>
+<td>-</td><td>The activity window failed to be generated or validated.</td>
 </tr>
 <td>Ready</td><td>-</td><td>The activity window is ready for consumption.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>-</td><td>The activity window isn't processed.</td>
+<td>Skipped</td><td>-</td><td>The activity window wasn't processed.</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>An activity window used to exist with a different status, but has been reset.</td>
