@@ -71,13 +71,13 @@ In this section we will write a C app to send events to your Event Hub. We will 
     #include <unistd.h>
     #include <stdlib.h>
    
-    #define check(messenger)                                                     \
-      {                                                                          \
-        if(pn_messenger_errno(messenger))                                        \
-        {                                                                        \
-          printf("check\n");                                                     \
-          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
-        }                                                                        \
+    #define check(messenger)                                                     
+      {                                                                          
+        if(pn_messenger_errno(messenger))                                        
+        {                                                                        
+          printf("check\n");                                                     
+          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); 
+        }                                                                        
       }  
    
     pn_timestamp_t time_now(void)
