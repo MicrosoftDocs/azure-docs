@@ -20,7 +20,7 @@ ms.author: larryfr
 
 # Add additional Azure storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster.
+Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster that uses Linux as the operating system.
 
 > [!IMPORTANT]
 > The information in this document is about adding additional storage to a cluster after it has been created. For information on adding additional storage accounts during cluster creation, see the __Use additional storage__ section of the [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage) document.

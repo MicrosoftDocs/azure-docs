@@ -98,11 +98,4 @@ Learn how to use SQL Data Warehouse, which combines the SQL Server relational da
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Data Warehouse Documentation
-        </div>
-    </a>
-</div>
+

@@ -1,6 +1,6 @@
 ---
 title: Query performance tuning recommendations - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
+description: The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance.
 services: sql-database
 documentationcenter: ''
 author: stevestein

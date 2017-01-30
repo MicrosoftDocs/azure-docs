@@ -142,11 +142,4 @@ Learn how to use Azure monitoring and diagnostics services to track performance,
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Monitoring and Diagnostics Documentation
-        </div>
-    </a>
-</div>
+

@@ -4,7 +4,7 @@ description: Describes How to Create a Support Ticket for Azure Billing and Subs
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 

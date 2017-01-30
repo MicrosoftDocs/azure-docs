@@ -4,7 +4,7 @@ description: Steps to identify and resolve common connection errors for Azure SQ
 services: sql-database
 documentationcenter: ''
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: ''
 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 
 ---

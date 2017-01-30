@@ -1,6 +1,6 @@
 ---
-title: Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using cURL and the Azure REST API | Microsoft Docs
-description: Learn how to create Linux-based HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.
+title: Create Azure HDInsight (Hadoop) using cURL and REST | Microsoft Docs
+description: Learn how to create HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -18,17 +18,14 @@ ms.date: 11/28/2016
 ms.author: larryfr
 
 ---
-# Create Linux-based clusters in HDInsight using cURL and the Azure REST API
+# Create HDInsight clusters using cURL and the Azure REST API
 
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as Linux-based HDInsight clusters. In this document, you will learn how to create Azure Resource Manager templates to configure an HDInsight cluster and associated storage, then use cURL to deploy the template to the Azure REST API to create a new HDInsight cluster.
+The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters. In this document, you will learn how to create Azure Resource Manager templates to configure an HDInsight cluster and associated storage, then use cURL to deploy the template to the Azure REST API to create a new HDInsight cluster.
 
 > [!IMPORTANT]
-> The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
->
-> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -263,6 +260,11 @@ For example, the following is a merger of the template and parameters files from
     }
 
 This example will be used in the steps in this document. You must replace the placeholder *values* in the **Parameters** section at the end of the document with the values you wish to use for your cluster.
+
+> [!IMPORTANT]
+> The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+>
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## Login to your Azure subscription
 

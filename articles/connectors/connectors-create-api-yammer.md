@@ -32,7 +32,7 @@ With Yammer, you can:
 * Use triggers for when there is a new message in a group, or a feed your following.
 * Use actions to post a message, get all messages, and more. These actions get a response, and then make the output available for other actions. For example, when a new message appears, you can send an email using Office 365.
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Triggers and actions
 Yammer includes the following triggers and actions. 
@@ -177,7 +177,7 @@ If group ID is provided, message will be posted to the specified group else it w
 | full_name |string |no |
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png 

@@ -1,5 +1,5 @@
 ---
-title: Sizes for cloud services | Microsoft Docs
+title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
 documentationcenter: ''
@@ -77,90 +77,90 @@ The following tables show the sizes and the capacities they provide.
 * Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput increases accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
 ## A-series
-| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| ExtraSmall |1 |0.768 |20 |1 |1x500 |1 / low |
-| Small |1 |1.75 |70 |2 |2x500 |1 / moderate |
-| Medium |2 |3.5 GB |135 |4 |4x500 |1 / moderate |
-| Large |4 |7 |285 |8 |8x500 |2 / high |
-| ExtraLarge |8 |14 |605 |16 |16x500 |4 / high |
-| A5 |2 |14 |135 |4 |4X500 |1 / moderate |
-| A6 |4 |28 |285 |8 |8x500 |2 / high |
-| A7 |8 |56 |605 |16 |16x500 |4 / high |
+| Size            | CPU cores | Memory: GiB  | Local HDD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| ExtraSmall      | 1         | 0.768        | 20                   | 1 / low |
+| Small           | 1         | 1.75         | 225                  | 1 / moderate |
+| Medium          | 2         | 3.5 GB       | 490                  | 1 / moderate |
+| Large           | 4         | 7            | 1000                 | 2 / high |
+| ExtraLarge      | 8         | 14           | 2040                 | 4 / high |
+| A5              | 2         | 14           | 490                  | 1 / moderate |
+| A6              | 4         | 28           | 1000                 | 2 / high |
+| A7              | 8         | 56           | 2040                 | 4 / high |
 
 ## A-series - compute-intensive instances
 For information and considerations about using these sizes, see [About the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Size | CPU cores | Memory: GiB | Local HDD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| A8* |8 |56 |382 |16 |16x500 |2 / high |
-| A9* |16 |112 |382 |16 |16x500 |4 / very high |
-| A10 |8 |56 |382 |16 |16x500 |2 / high |
-| A11 |16 |112 |382 |16 |16x500 |4 / very high |
+| Size            | CPU cores | Memory: GiB  | Local HDD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| A8*             |8          | 56           | 1817                 | 2 / high |
+| A9*             |16         | 112          | 1817                 | 4 / very high |
+| A10             |8          | 56           | 1817                 | 2 / high |
+| A11             |16         | 112          | 1817                 | 4 / very high |
 
 \*RDMA capable
 
 ## Av2-series
 
-| Size        | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1 / moderate              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2 / moderate              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8x500              | 4 / high                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16x500             | 8 / high                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4X500              | 2 / moderate              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8x500              | 4 / high                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16x500             | 8 / high                  |
+| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_A1_v2  | 1         | 2            | 10                   | 1 / moderate                 |
+| Standard_A2_v2  | 2         | 4            | 20                   | 2 / moderate                 |
+| Standard_A4_v2  | 4         | 8            | 40                   | 4 / high                     |
+| Standard_A8_v2  | 8         | 16           | 80                   | 8 / high                     |
+| Standard_A2m_v2 | 2         | 16           | 20                   | 2 / moderate                 |
+| Standard_A4m_v2 | 4         | 32           | 40                   | 4 / high                     |
+| Standard_A8m_v2 | 8         | 64           | 80                   | 8 / high                     |
 
 
 ## D-series
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3.5 |50 |2 |2x500 |1 / moderate |
-| Standard_D2 |2 |7 |100 |4 |4x500 |2 / high |
-| Standard_D3 |4 |14 |200 |8 |8x500 |4 / high |
-| Standard_D4 |8 |28 |400 |16 |16x500 |8 / high |
-| Standard_D11 |2 |14 |100 |4 |4x500 |2 / high |
-| Standard_D12 |4 |28 |200 |8 |8x500 |4 / high |
-| Standard_D13 |8 |56 |400 |16 |16x500 |8 / high |
-| Standard_D14 |16 |112 |800 |32 |32x500 |8 / very high |
+| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1     | 1         | 3.5          | 50                   | 1 / moderate |
+| Standard_D2     | 2         | 7            | 100                  | 2 / high |
+| Standard_D3     | 4         | 14           | 200                  | 4 / high |
+| Standard_D4     | 8         | 28           | 400                  | 8 / high |
+| Standard_D11    | 2         | 14           | 100                  | 2 / high |
+| Standard_D12    | 4         | 28           | 200                  | 4 / high |
+| Standard_D13    | 8         | 56           | 400                  | 8 / high |
+| Standard_D14    | 16        | 112          | 800                  | 8 / very high |
 
 ## Dv2-series
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3.5 |50 |2 |2x500 |1 / moderate |
-| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / high |
-| Standard_D3_v2 |4 |14 |200 |8 |8x500 |4 / high |
-| Standard_D4_v2 |8 |28 |400 |16 |16x500 |8 / high |
-| Standard_D5_v2 |16 |56 |800 |32 |32x500 |8 / extremely high |
-| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2 / high |
-| Standard_D12_v2 |4 |28 |200 |8 |8x500 |4 / high |
-| Standard_D13_v2 |8 |56 |400 |16 |16x500 |8 / high |
-| Standard_D14_v2 |16 |112 |800 |32 |32x500 |8 / extremely high |
-| Standard_D15_v2 |20 |140 |1,000 |40 |40x500 |8 / extremely high |
+| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1_v2  | 1         | 3.5          | 50                   | 1 / moderate |
+| Standard_D2_v2  | 2         | 7            | 100                  | 2 / high |
+| Standard_D3_v2  | 4         | 14           | 200                  | 4 / high |
+| Standard_D4_v2  | 8         | 28           | 400                  | 8 / high |
+| Standard_D5_v2  | 16        | 56           | 800                  | 8 / extremely high |
+| Standard_D11_v2 | 2         | 14           | 100                  | 2 / high |
+| Standard_D12_v2 | 4         | 28           | 200                  | 4 / high |
+| Standard_D13_v2 | 8         | 56           | 400                  | 8 / high |
+| Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremely high |
+| Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremely high |
 
 ## G-series
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / high |
-| Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / high |
-| Standard_G3 |8 |112 |1,536 |16 |16 x 500 |4 / very high |
-| Standard_G4 |16 |224 |3,072 |32 |32 x 500 |8 / extremely high |
-| Standard_G5 |32 |448 |6,144 |64 |64 x 500 |8 / extremely high |
+| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_G1     | 2         | 28           | 384                  |1 / high |
+| Standard_G2     | 4         | 56           | 768                  |2 / high |
+| Standard_G3     | 8         | 112          | 1,536                |4 / very high |
+| Standard_G4     | 16        | 224          | 3,072                |8 / extremely high |
+| Standard_G5     | 32        | 448          | 6,144                |8 / extremely high |
 
 ## H-series
 Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD-based storage.
 
 In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
 
-| Size | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |8 / high |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |8 / very high |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |8 / high |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |8 / very high |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |8 / very high |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |8 / very high |
+| Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_H8     | 8         | 56           | 1000                 | 8 / high |
+| Standard_H16    | 16        | 112          | 2000                 | 8 / very high |
+| Standard_H8m    | 8         | 112          | 1000                 | 8 / high |
+| Standard_H16m   | 16        | 224          | 2000                 | 8 / very high |
+| Standard_H16r*  | 16        | 112          | 2000                 | 8 / very high |
+| Standard_H16mr* | 16        | 224          | 2000                 | 8 / very high |
 
 \*RDMA capable
 

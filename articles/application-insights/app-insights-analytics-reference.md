@@ -12,15 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
 
+Additional sources of information:
+
+* Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
+* [The tutorial page](app-insights-analytics-tour.md) gives a step-by-step introduction to the language features.
 * [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
 * [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
  
@@ -909,9 +911,8 @@ The input rows are arranged into groups having the same values of the `by` expre
 
 The result has as many rows as there are distinct combinations of `by` values. If you want to summarize over ranges of numeric values, use `bin()` to reduce ranges to discrete values.
 
-**Note**
-
-Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
+> [!NOTE]
+> Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
 
 ### take operator
 Alias of [limit](#limit-operator)

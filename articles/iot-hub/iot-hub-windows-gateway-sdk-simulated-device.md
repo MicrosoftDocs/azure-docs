@@ -31,7 +31,11 @@ To build the sample:
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository.
+3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds 
+the solution. You can find the Visual Studio solution in the **build** folder in your local copy of 
+the **azure-iot-gateway-sdk** repository. Additional parameters can be given to the script to build 
+and run unit and end to end tests. These paramaters are **--run-unittests** and **--run-e2e-tests**
+respectively.
 
 To run the sample:
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 
 ---
 # Administer Group Policy on an Azure AD Domain Services managed domain
-Azure Active Directory Domain Services includes built-in Group Policy Objects (GPOs) for the 'AAD DC Users' and 'AAD DC Computers' containers. You can customize these built-in GPOs to configure Group Policy on the managed domain. Additionally, members of the 'AAD DC Administrators' group can create their own custom OUs in the managed domain. They can also create custom GPOs and link them to these custom OUs. Users who belong to the 'AAD DC Administrators' group are granted Group Policy administration privileges on the managed domain.
+Azure Active Directory Domain Services includes built-in Group Policy Objects (GPOs) for the 'AADDC Users' and 'AADDC Computers' containers. You can customize these built-in GPOs to configure Group Policy on the managed domain. Additionally, members of the 'AAD DC Administrators' group can create their own custom OUs in the managed domain. They can also create custom GPOs and link them to these custom OUs. Users who belong to the 'AAD DC Administrators' group are granted Group Policy administration privileges on the managed domain.
 
 ## Before you begin
 To perform the tasks listed in this article, you need:
@@ -80,15 +80,40 @@ You can use the Group Policy management console on the domain-joined virtual mac
 2. Click **Group Policy Management** to launch the Group Policy Management console.
 
     ![Group Policy Console](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. Click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain. There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain.
+
+## Task 4 - Customize built-in Group Policy Objects
+There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain. You can customize these GPOs to configure group policy on the managed domain.
+
+1. In the **Group Policy Management** console, click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain.
 
     ![Built-in GPOs](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
+2. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
 
     ![Edit built-in GPO](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. You can now use the **Group Policy Management Editor** console to edit the built-in GPO. For instance, the following screenshot shows how to customize the built-in 'AADDC Computers' GPO.
+3. You can now use the **Group Policy Management Editor** console to edit the built-in GPO. For instance, the following screenshot shows how to customize the built-in 'AADDC Computers' GPO.
 
     ![Customize GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+## Task 5 - Create a custom Group Policy Object (GPO)
+You can create or import your own custom group policy objects. You can also link custom GPOs to a custom OU you have created in your managed domain. For more information on creating custom organizational units, see [create a custom OU on a managed domain](active-directory-ds-admin-guide-create-ou.md).
+
+> [!NOTE]
+> You need to be a member of the 'AAD DC Administrators' group, to administer Group Policy on the managed domain.
+>
+>
+
+1. In the **Group Policy Management** console, click to select your custom organizational unit (OU). Right-click the OU and click **Create a GPO in this domain, and Link it here...**.
+
+    ![Create a custom GPO](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. Specify a name for the new GPO and click **OK**.
+
+    ![Specify a name for GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+3. A new GPO is created and linked to your custom OU. Right-click the GPO and click **Edit...** from the menu.
+
+    ![Newly created GPO](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. You can customize the newly created GPO using the **Group Policy Management Editor**.
+
+    ![Customize new GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
 More information about using [Group Policy Management Console](https://technet.microsoft.com/library/cc753298.aspx) is available on Technet.

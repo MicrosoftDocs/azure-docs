@@ -1,5 +1,5 @@
 ---
-title: Service Bus architecture | Microsoft Docs
+title: Azure Service Bus message processing architecture overview | Microsoft Docs
 description: Describes the message and relay processing architecture of Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na

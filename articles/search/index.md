@@ -128,8 +128,8 @@ Learn how to add search capabilities to your custom web or mobile apps using Azu
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET Management</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Management)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Management)</a></p>
                    </div>
                 </div>
             </div>
@@ -150,11 +150,4 @@ Learn how to add search capabilities to your custom web or mobile apps using Azu
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Search Documentation
-        </div>
-    </a>
-</div>
+
