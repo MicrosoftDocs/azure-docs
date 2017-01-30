@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2017
+ms.date: 01/30/2017
 ms.author: arramac
 
 ---
@@ -100,7 +100,7 @@ If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mo
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-Using the DocumentDB emulator, you can create up to 25 single partition collections or one partitioned collection. If you attempt to create a collection after these limits have been exceeded, the emulator throws a ServiceUnavailable exception. In order to fix the issue causing the exception, please delete any existing collections to meet the limits.
+Using the DocumentDB emulator, by default, you can create up to 25 single partition collections or 1 partitioned collection. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
 
 ## Export the DocumentDB Emulator SSL certificate
 
@@ -202,6 +202,12 @@ To view the list of options, type `DocumentDB.Emulator.exe /?` at the command pr
   <td>DocumentDB.Emulator.exe /noexplorer</td>
   <td></td>
 </tr>
+<tr>
+  <td>partitioncount</td>
+  <td>Specifies the maximum number of partitioned collections. See [Change the number of collections](#set-partitioncount) for more information.</td>
+  <td>DocumentDB.Emulator.exe /partitioncount=&lt;partitioncount&gt;</td>
+  <td>&lt;partitioncount&gt;: Maximum number of allowed single partition collections. Default is 25. Maximum allowed is 250.</td>
+</tr>
 </table>
 
 ## Differences between the DocumentDB Emulator and Azure DocumentDB 
@@ -213,6 +219,23 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 * The DocumentDB Emulator does not simulate [multi-region replication](documentdb-distribute-data-globally.md).
 * The DocumentDB Emulator does not support the service quota overrides that are available in the Azure DocumentDB service (e.g. document size limits, increased partitioned collection storage).
 * As your copy of the DocumentDB Emulator might not be up to date with the most recent changes with the Azure DocumentDB service, please [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
+
+## <a id="set-partitioncount"></a>Change the number of collections
+
+By default, you can create up to 25 single partition collections, or 1 partitioned collection using the DocumentDB Emulator. By modifying the **PartitionCount** value, you can create up to 250 single partition collections or 10 partitioned collections, or any combination of the two that does not exceed 250 single partitions (where a 1 partitioned collection = 25 single partition collection).
+
+If you attempt to create a collection after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
+
+    Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again. Please do not hesitate to email docdbswat@microsoft.com at any time or for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
+
+To change the number of collections available to the DocumentDB Emulator, do the following:
+
+1. Delete all local DocumentDB Emulator data by right-clicking the **DocumentDB Emulator** icon on the system tray, and then clicking **Reset Data…**.
+2. Exit all open instances by right-clicking the **DocumentDB Emulator** icon on the system tray, and then clicking **Exit**. It may take a minute for all instances to exit.
+3. Install the latest version of the [DocumentDB Emulator](https://aka.ms/documentdb-emulator).
+3. Launch the emulator with the PartitionCount flag by setting a value <= 250. For example: `C:\Program Files\DocumentDB Emulator>DocumentDB.Emulator.exe /PartitionCount=100`.
+
+
 
 ## Troubleshooting
 
