@@ -23,7 +23,10 @@ ms.author: cephalin
 
 This article shows you how to manually map a custom domain name to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
->[!NOTE] You can always just [buy a custom domain name directly from Azure](custom-dns-web-site-buydomains-web-app.md).
+> [!NOTE] 
+> You can always just [buy a custom domain name directly from Azure](custom-dns-web-site-buydomains-web-app.md).
+>
+>
 
 There are three main steps to map the custom domain to your app:
 
