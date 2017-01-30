@@ -31,7 +31,7 @@ In addition to storage management, StorSimple data protection features enable yo
 
 ![video icon](./media/storsimple-overview/video_icon.png) Watch the video for a quick introduction to Microsoft Azure StorSimple.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 > 
 > 
 

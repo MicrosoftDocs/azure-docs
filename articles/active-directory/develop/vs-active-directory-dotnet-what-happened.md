@@ -1,5 +1,5 @@
 ---
-title: What happened to my MVC project (Visual Studio Azure Active Directory connected service) | Microsoft Docs
+title: Changes made to a MVC project when you connect to Azure AD | Microsoft Docs
 description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
 services: active-directory
 documentationcenter: na
