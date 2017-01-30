@@ -12,7 +12,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-brokered-tutorial-rest.md)
+### [REST](/rest/api/servicebus/queues)
 ## Use topics and subscriptions
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
