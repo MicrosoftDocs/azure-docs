@@ -133,10 +133,10 @@ The first thing that you do when you create an SSH tunnel on Linux or OS X is to
     **PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key that corresponds to the public key you provided when you created the cluster. Use this option with the `-i` flag.
 
     ```bash
-    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
-    > The SSH connection port is 2200--not the standard port 22. In a cluster with more than one master VM, this is the connection port to the first master VM.
+    > The SSH connection port is 2200 and not the standard port 22. In a cluster with more than one master VM, this is the connection port to the first master VM.
     > 
 
 
@@ -150,7 +150,7 @@ To open a tunnel for DC/OS endpoints, run a command like the following:
 sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 ```
 
-> [!TIP]
+> [!NOTE]
 > You can specify a local port other than port 80, such as port 8888. However, some web UI links might not work when you use this port.
 
 You can now access the DC/OS endpoints from your local system through the following URLs (assuming local port 80):
