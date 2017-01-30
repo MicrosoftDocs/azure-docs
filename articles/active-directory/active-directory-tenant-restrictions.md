@@ -63,15 +63,18 @@ The following configuration is required to enable Tenant Restrictions through yo
 
 #### Configuration
 
-- For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert an HTTP header with the name `Restrict-Access-To-Tenants`  
+For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: `Restrict-Access-To-Tenants` and `Restrict-Access-Context`.
 
-- The header should include the following elements: 
-  - A value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-  - A value of \<Restricted-Access-Context\> with a value of a single tenant ID, declaring the tenant setting Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+The header should include the following elements: 
+- A value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- A value of \<Restricted-Access-Context\> with a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
-- To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
+> [!TIP]
+> You can find the directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 
-- Clients must be forced to use the proxy for all requests to login.microsoftonline.com, login.microsoft.com, and login.windows.net. For example, if PAC files are used to direct clients to use the proxy, end users should not be able to edit or disable the PAC files.
+To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
+
+Clients must be forced to use the proxy for all requests to login.microsoftonline.com, login.microsoft.com, and login.windows.net. For example, if PAC files are used to direct clients to use the proxy, end users should not be able to edit or disable the PAC files.
 
 ## The user experience
 
@@ -87,7 +90,7 @@ An example user is on the Contoso network, but is trying to access the Fabrikam 
 
 While configuration of Tenant Restrictions is done on the corporate proxy infrastructure, admins can access the Tenant Restrictions reports in the Azure portal directly. To view the reports, go to the Azure Active Directory Overview page, then look under ‘Other capabilities’.
 
-The admin for the tenant specified as the “Restricted-Access-Context” tenant can use this report to see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target Tenant ID.
+The admin for the tenant specified as the “Restricted-Access-Context” tenant can use this report to see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID.
 
 ![Use the Azure portal to view restricted sign-in attempts](./media/active-directory-tenant-restrictions/portal-report.png)
 
@@ -118,10 +121,10 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.	Configure Fiddler to insert the Restrict-Access-To-Tenants header using custom rules.
   1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
-  2. Add the following lines at the beginning of the *OnBeforeRequest* function, replacing \<tenant ID\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com:
+  2. Add the following lines at the beginning of the *OnBeforeRequest* function, replacing \<directory ID\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com:
 
   ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant ID>";}
+  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){oSession.oRequest["Restrict-Access-To-Tenants"] = "<directory ID>";}
   ```
 
   If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
