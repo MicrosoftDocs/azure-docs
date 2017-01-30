@@ -1,5 +1,5 @@
 ---
-title: Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI | Microsoft Docs
+title: Migrate VMs to Resource Manager using Azure CLI | Microsoft Docs
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''

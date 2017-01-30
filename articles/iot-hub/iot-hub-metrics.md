@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub metrics | Microsoft Docs
+title: Use metrics to monitor Azure IoT Hub | Microsoft Docs
 description: How to use Azure IoT Hub metrics to assess and monitor the overall health of your IoT hubs.
 services: iot-hub
 documentationcenter: ''
