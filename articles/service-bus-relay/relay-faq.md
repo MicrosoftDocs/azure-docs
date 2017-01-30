@@ -1,5 +1,5 @@
 ---
-title: Relay FAQ | Microsoft Docs
+title: Azure Relay frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Relay.
 services: service-bus-relay
 documentationcenter: na

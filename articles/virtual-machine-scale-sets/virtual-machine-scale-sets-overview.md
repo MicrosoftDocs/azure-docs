@@ -37,7 +37,7 @@ A set of example templates for VM scale sets can be found in the Azure Quickstar
 
 In the detail pages for these templates you'll see a button that links to the portal deployment feature. To deploy the VM scale set, click on the button and then fill in any parameters that are required in the portal. If you're not sure whether a resource supports upper or mixed case it is safer to always use lower case parameter values. There is also a handy video dissection of a VM scale set template here:
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## Scaling a VM scale set out and in
 To increase or decrease the number of virtual machines in a VM scale set, simply change the *capacity* property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
@@ -93,7 +93,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q** What other resource limits exist for VM scale sets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits](../azure-subscription-service-limits.md) apply.
 
 **Q.** Are Data Disks Supported within VM scale sets?
 
@@ -107,11 +107,11 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** Which Azure regions support VM scale sets?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**A.** All regions support VM scale sets.
 
 **Q.** How do you create a VM scale set using a custom image?
 
-**A.** Leave the vhdContainers property blank, for example:
+**A.** Leave the vhdContainers property blank (or omit it) and provide image property's uri, for example:
 
     "storageProfile": {
         "osDisk": {
