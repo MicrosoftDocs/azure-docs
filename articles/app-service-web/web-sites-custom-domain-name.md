@@ -210,6 +210,11 @@ domain name (FQDN) of your custom domain to the list.
 7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. 
 8. Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
+## Migrate an active domain name
+
+If the domain name you want to map is already in use by an existing website, and you want to avoid downtime, see 
+[Migrate an active custom domain to App Service](app-service-custom-domain-name-migrate.md).
+
 <a name="verify"></a>
 
 ## Verify DNS propagation
