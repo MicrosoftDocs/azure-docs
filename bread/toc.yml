@@ -37,6 +37,10 @@
     - name: Web Apps
       tocHref: /azure/app-service-web/
       topicHref: /azure/app-service-web/app-service-web-overview
+      items:
+      - name: PHP
+        tocHref: /azure/app-service-web/php/
+        topicHref: /azure/app-service-web/php/index
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
