@@ -1,6 +1,6 @@
 ---
-title: Track B2B messages in OMS portal | Microsoft Docs
-description: How to track B2B messages in OMS portal
+title: Track B2B messages in Operations Management Suite portal - Azure | Microsoft Docs
+description: How to track B2B messages in Operations Management Suite portal
 author: padmavc
 manager: anneta
 editor: ''
@@ -17,13 +17,13 @@ ms.date: 11/13/2016
 ms.author: padmavc
 
 ---
-# Tracking B2B messages in OMS portal
-B2B communication involves message exchanges between two running business processes or applications. Tracking B2B messages in OMS portal provides a rich, web-based tracking capabilities that allow to view whether messages processed correctly.  You can track
+# Tracking B2B messages in Operations Management Suite portal
+B2B communication involves the exchange of messages between two running business processes or applications. Use the following web-based tracking features in Operations Management Suite portal to confirm whether messages are processed correctly:
 
-* Count and status of messages
+* Message count and status
 * Acknowledgments status
-* Correlating messages with acknowledgments
-* Detailed error description for failures
+* Correlate messages with acknowledgments
+* Detailed error descriptions for failures
 * Search capabilities
 
 ## Prerequisites
@@ -107,7 +107,7 @@ On the search page, you can create a query, and then when you search, you can fi
 
 ### How to create a query
 
-1. In the log search, write a query and select **Save**.  [Here](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md) are the steps to write a query 
+1. In the log search, write a query and select **Save**.  [Here](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md) are the steps to write a query
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
 
 2. **Save Search** opens.  Give a **name**, **category**, and click **Save**   
@@ -128,4 +128,4 @@ On the search page, you can create a query, and then when you search, you can fi
 [Custom Tracking Schema](logic-apps-track-integration-account-custom-tracking-schema.md "Learn about Custom Tracking Schema")   
 [AS2 Tracking Schema](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [X12 Tracking Schema](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
-[Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+[Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
