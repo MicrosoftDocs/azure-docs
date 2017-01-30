@@ -110,6 +110,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 Choose the right image according to how you want to pay for the SQL Server license: 
 
    **Pay per usage licensing**
+   
    The per-minute cost of these images include the SQL Server licensing.
       - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
@@ -121,7 +122,7 @@ Choose the right image according to how you want to pay for the SQL Server licen
 
    
    >[!IMPORTANT]
-   >After you create the virtual machine, remove the SQL Server image. Later, you will use pre-installed media to create the SQL Server FCI. 
+   >After you create the virtual machine, remove the SQL Server image. Later, you will use the pre-installed media to create the SQL Server FCI. 
 
    Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
 
