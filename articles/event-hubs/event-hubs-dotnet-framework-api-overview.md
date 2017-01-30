@@ -1,60 +1,78 @@
 ---
-title: .NET Standard API overview | Microsoft Docs
-description: .NET Standard API overview
+title: Overview of the Azure Event Hubs .NET Framework APIs | Microsoft Docs
+description: A summary of some of the key Event Hubs .NET Framework client APIs.
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
+ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
-ms.author: jotaub
+ms.author: jotaub;sethm
+
 ---
+# Event Hubs .NET Framework API overview
+This article summarizes some of the key Event Hubs .NET Framework client APIs. There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-# Event Hubs .NET Standard API overview
-This article summarizes some of the key Event Hubs .NET Standard client APIs. There are currently two .NET Standard client libraries:
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-  *  This library provides all basic runtime operations.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * This library adds additional functionality that allows for 
+Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api) and [EventProcessorHost API](/dotnet/api) references.
 
-## Event Hub Client
-An `EventHubClient` is the primary object for which you will use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and will create a new connection to the Event Hubs endpoint.
+## Management APIs
+To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:
 
-### Create an Event Hub client
-An `EventHubClient` is created from a connection string. The simplest way to instantiate a new client is shown below:
-
+### Create
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
+// Create the Event Hub
+var ehd = new EventHubDescription(eventHubName);
+ehd.PartitionCount = SampleManager.numPartitions;
+await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-In case you need to programmatically edit the connection string, you can use the `ConnectionStringBuilder` class, and pass the connection string as a parameter to `EventHubClient.CreateFromConnectionString()`.
-
+### Update
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
+
+// Create a customer SAS rule with Manage permissions
+ehd.UserMetadata = "Some updated info";
+var ruleName = "myeventhubmanagerule";
+var ruleKey = SharedAccessAuthorizationRule.GenerateRandomKey();
+ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new AccessRights[] {AccessRights.Manage, AccessRights.Listen, AccessRights.Send} )); 
+await namespaceManager.UpdateEventHubAsync(ehd);
+```
+
+### Delete
+```csharp
+await namespaceManager.DeleteEventHubAsync("Event Hub name");
+```
+
+## Run-time APIs
+### Create publisher
+```csharp
+// EventHubClient model (uses implicit factory instance, so all links on same connection)
+var eventHubClient = EventHubClient.Create("Event Hub name");
+```
+
+### Publish message
+```csharp
+// Create the device/temperature metric
+var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
+var data = new EventData(new byte[10]); // Byte array
+var data = new EventData(Stream); // Stream 
+var data = new EventData(info, serializer) //Object and serializer 
 {
-    EntityPath = EhEntityPath
+    PartitionKey = info.DeviceId.ToString()
 };
 
-var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
-```
-
-### Send events
-In order to send events to an event hub, you will need to use the `EventData` class. The body must be a `byte` array, or a `byte` array segment.
-
-```csharp
-// Create a new EventData object by encoding a string as a byte array
-var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
 // Set user properties if needed
-data.Properties.Add("Type", "Informational");
+data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
+
 // Send single message async
-await eventHubClient.SendAsync(data);
+await client.SendAsync(data);
 ```
 
 ### Create consumer
@@ -156,5 +174,5 @@ To learn more about Event Hubs scenarios, visit these links:
 
 The .NET API references are here:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
+* [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+* [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)

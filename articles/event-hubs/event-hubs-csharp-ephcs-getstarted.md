@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-send
+redirect_url: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
 ---

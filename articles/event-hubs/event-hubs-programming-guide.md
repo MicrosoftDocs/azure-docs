@@ -67,7 +67,7 @@ EventHubClient.CreateFromConnectionString("your_connection_string");
 
 The connection string will be in the same format as it appears in the App.config file for the previous methods:
 
-```xml
+```
 Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 

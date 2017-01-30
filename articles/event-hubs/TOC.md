@@ -8,16 +8,14 @@
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
-### Python
-### Node
+### [C](event-hubs-c-getstarted-send.md)
 ## Receive events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
-### Python
-### Node
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## [Programming guide](event-hubs-programming-guide.md)
-## [Samples](event-hubs-samples.md)
+## [🔧Samples](event-hubs-samples.md)
 
 # How to
 ## Plan and design
@@ -25,9 +23,9 @@
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 
 ## Develop
-### [🔧Available APIs](event-hubs-available-apis.md)
+### [🔧Available APIs](event-hubs-api-overview.md)
 #### [🔧.NET Standard](event-hubs-dotnet-standard-api-overview.md)
-#### [.NET Framework](event-hubs-api-overview.md)
+#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 ### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
@@ -44,6 +42,7 @@
 ### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
