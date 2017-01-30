@@ -1,5 +1,5 @@
 ---
-title: Create HDInsight clusters with Azure Data Lake Store using the portal | Microsoft Docs
+title: Use a web browser to create Azure HDInsight and Data Lake Store | Microsoft Docs
 description: Use Azure Portal to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
 documentationcenter: ''

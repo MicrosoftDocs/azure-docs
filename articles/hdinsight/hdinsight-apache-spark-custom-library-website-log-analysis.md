@@ -1,5 +1,5 @@
 ---
-title: Use custom libraries with an HDInsight Spark cluster to analyze website logs | Microsoft Docs
+title: Use Python libraries to analyze website logs in Azure Spark cluster | Microsoft Docs
 description: Use custom libraries with an HDInsight Spark cluster to analyze website logs
 services: hdinsight
 documentationcenter: ''

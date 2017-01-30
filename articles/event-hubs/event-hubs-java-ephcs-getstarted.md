@@ -1,5 +1,5 @@
 ---
-title: Get Started with Event Hubs in Java | Microsoft Docs
+title: Send events with Azure Event Hubs in Java, receive in C# | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in C# using the EventProcessorHost.
 services: event-hubs
 documentationcenter: ''

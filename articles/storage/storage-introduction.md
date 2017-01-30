@@ -1,5 +1,5 @@
 ---
-title: Introduction to Storage | Microsoft Docs
+title: Introduction to Azure Storage | Microsoft Docs
 description: An overview of Azure Storage, Microsoft's online data storage in the cloud. Learn how to use the best available cloud storage solution in your applications.
 services: storage
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 
 ---

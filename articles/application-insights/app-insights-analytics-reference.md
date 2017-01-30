@@ -911,9 +911,8 @@ The input rows are arranged into groups having the same values of the `by` expre
 
 The result has as many rows as there are distinct combinations of `by` values. If you want to summarize over ranges of numeric values, use `bin()` to reduce ranges to discrete values.
 
-**Note**
-
-Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
+> [!NOTE]
+> Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
 
 ### take operator
 Alias of [limit](#limit-operator)
