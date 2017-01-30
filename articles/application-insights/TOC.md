@@ -12,6 +12,7 @@
 ### [Web apps already live](app-insights-monitor-performance-live-website-now.md)
 ### [Windows services](app-insights-windows-services.md)
 ### [Windows desktop](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Monitor Java apps
 ### [Web apps](app-insights-java-get-started.md)
@@ -26,9 +27,8 @@
 ### [SharePoint sites](app-insights-sharepoint.md)
 ### [More platforms](app-insights-platforms.md)
 
-## [FAQ for ASP.NET](app-insights-troubleshoot-faq.md)
 
-# How to
+# How To
 ## Plan and design
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Developer Analytics with Application Insights and HockeyApp](app-insights-developer-analytics.md)
@@ -36,14 +36,11 @@
 ### [Usage analysis with Application Insights](app-insights-overview-usage.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
-## Migrate
-### [Migration from Azure Endpoint Monitoring to Availability tests](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Configure
-### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
+
 ### Azure
 #### [Diagnostics](app-insights-azure-diagnostics.md)
-## [IP addresses](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Collect more telemetry](app-insights-asp-net-more.md)
@@ -59,14 +56,14 @@
 #### [Unix metrics](app-insights-java-collectd.md)
 #### [Dependencies](app-insights-java-agent.md)
 
-### Alerts
+## Alerts
 
-#### [Availability](app-insights-monitor-web-app-availability.md)
-#### [Metric Alerts](app-insights-alerts.md)
+### [Availability](app-insights-monitor-web-app-availability.md)
+### [Metric Alerts](app-insights-alerts.md)
 
-### [Smart Detection](app-insights-proactive-diagnostics.md)
-#### [Failure anomalies](app-insights-proactive-failure-diagnostics.md)
-#### [Performance anomalies](app-insights-proactive-performance-diagnostics.md)
+## [Smart detection](app-insights-proactive-diagnostics.md)
+### [Failure detection](app-insights-proactive-failure-diagnostics.md)
+### [Anomaly detection](app-insights-proactive-performance-diagnostics.md)
 
 ## Analyze
 
@@ -75,15 +72,14 @@
 #### [Dashboards](app-insights-dashboards.md)
 #### [Search](app-insights-diagnostic-search.md)
 #### [Metrics](app-insights-metrics-explorer.md)
-#### Analytics
-
-##### [Analytics](app-insights-analytics.md)
-##### [A tour of Analytics](app-insights-analytics-tour.md)
-##### [Using Analytics](app-insights-analytics-using.md)
-
 #### [Application Map](app-insights-app-map.md)
 #### [HockeyApp data](app-insights-hockeyapp-bridge-app.md)
 #### [Create a resource](app-insights-create-new-resource.md)
+
+### [Analytics](app-insights-analytics.md)
+#### [A tour of Analytics](app-insights-analytics-tour.md)
+#### [Using Analytics](app-insights-analytics-using.md)
+#### [Import data](app-insights-analytics-import.md)
 
 ### Visual Studio
 
@@ -102,52 +98,60 @@
 ## Integrate
 
 ### [Continuous export](app-insights-export-telemetry.md)
+#### [Export data model](app-insights-export-data-model.md)
 ### [Export to Power BI](app-insights-export-power-bi.md)
 
 ## Develop
 
 ### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
-### [Filtering and preprocessing telemetry](app-insights-api-filtering-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
+### [Filtering - ASP.NET](app-insights-api-filtering-sampling.md)
+### [Filtering - Java](app-insights-java-filter-telemetry.md)
+### [Sampling](app-insights-sampling.md)
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 
 
 ## Manage
 ### [Manage pricing and quota](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
-##Export
-## [Export data model](app-insights-export-data-model.md)
 
 ## Secure
 ### [Data collection, retention and storage](app-insights-data-retention-privacy.md)
 ### [Resources, roles, and access control](app-insights-resources-roles-access-control.md)
+### [IP Addresses](app-insights-ip-addresses.md)
+
 ## Troubleshoot
-### [No data for .NET](app-insights-asp-net-troubleshoot-no-data.md)
+### [ASP.NET](app-insights-troubleshoot-faq.md)
+### [No data with ASP.NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analytics](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Reference
+## [Analytics](app-insights-analytics-reference.md)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
 
 # Resources
-## [Analytics reference](app-insights-analytics-reference.md)
-## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Developer analytics: languages, platforms, and integrations](app-insights-platforms.md)
-### [Sampling](app-insights-sampling.md)
-### [Samples and walkthroughs](app-insights-code-samples.md)
-#### [Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-#### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-#### [Code sample: Parse exported data](app-insights-code-sample-export-telemetry-sql-database.md)
-## [Release notes for Application Insights SDK for Windows Phone and Store](app-insights-release-notes-windows.md)
-## [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
-## [SDK release notes Application Insights](app-insights-release-notes.md)
+
+## [Languages and platforms](app-insights-platforms.md)
+
+## [Samples and walkthroughs](app-insights-code-samples.md)
+### [Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
+### [Parse exported data](app-insights-code-sample-export-telemetry-sql-database.md)
+### [Telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
+
+## [SDK release notes](app-insights-release-notes.md)
+### [SDK release notes for Visual Studio](app-insights-release-notes-vsix.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+
+## Help
+### [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+### [Support](app-insights-get-dev-support.md)
+
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
 ## [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
-## [Support](app-insights-get-dev-support.md)
 
 
