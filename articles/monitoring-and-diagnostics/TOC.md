@@ -43,6 +43,11 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Azure Diagnostics Schema](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics-schema)
+### [Diagnostics Schema 1.0](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0)
+### [Diagnostics Schema 1.2](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2)
+### [Diagnostics Schema 1.3 to 1.5](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5)
+
 
 # Resources
 ## [PowerShell Samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
