@@ -17,19 +17,20 @@ ms.date: 01/16/2017
 ms.author: sasolank
 
 ---
-# Integrate API Management in Internal VNET with Application Gateway 
-
-The API Management service in Internal VNET mode, allows you to setup a service that can only be accessed from within the Virtual network. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service, and provides among its offering a Web Application Firewall(WAF).
+# Integrate API Management in an Internal VNET with Application Gateway 
 
 ##<a name="overview"> </a> Overview
-Using API Management in Internal VNET mode and combining it with Application Gateway frontend you can achieve the following scenarios
+ 
+The API Management service can be configured in a virtual network in internal mode which makes it accessible only from within the virtual network. Azure Application Gateway is a PAAS Service which provides a Layer-7 load balancer. It acts as a reverse-proxy service, and provides among its offering a Web Application Firewall (WAF).
 
-* Use the same API Management resource, for consumption by internal consumers and external consumers.
-* Use a single API Management resource, and have a subset of APIs defined in API Management available for external consumers.
-* Provides you with a turn-key solution to switch-On and switch-Off access to your API Management resource from Internet. 
+Combining API Management provisioned in an internal VNET with the Application Gateway frontend enables the following scenarios:
+
+* Use the same API Management resource for consumption by both internal consumers and external consumers.
+* Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
+* Provide a turn-key way to switch access to API Management from the public Internet on and off. 
 
 ##<a name="scenario"> </a> Scenario
-In this post, we will cover, how you can have a single API Management service for both Internal and External consumers. The API Management service could provide Proxy Frontend to all your On-Prem and Cloud APIs. You can then choose to expose only a subset of those APIs (highlighted in green) for External Consumption also, using the PathBasedRouting functionality available in Application Gateway.
+This post we will cover how to use a single API Management service for both internal and external consumers and make it act as a single frontend for both on-prem and cloud APIs. You can then choose to expose only a subset of those APIs (highlighted in green) for External Consumption also, using the PathBasedRouting functionality available in Application Gateway.
 
 In this setup, all your APIs are managed only from within your Virtual network. Internal consumers (highlighted in orange), can access all your Internal and External APIs. Internal consumers benefit from the traffic never going out to Internet, with high speed provided via Express Route circuits.
 
