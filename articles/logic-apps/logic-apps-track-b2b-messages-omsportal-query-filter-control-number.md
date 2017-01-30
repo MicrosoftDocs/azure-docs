@@ -1,4 +1,4 @@
----
+7---
 title: Track AS2, X12, EDIFACT messages using a query - Azure logic apps  | Microsoft Docs
 description: Use queries to track business-to-business messages in the Operations Management Suite portal 
 author: padmavc
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 
 ---
