@@ -22,7 +22,7 @@ ms.author: jotaub
 ## Introduction
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
 
-This tutorial shows how to use the Azure portal to create an Event Hub. It also shows you how to collect messages into an Event Hub using a console application written in C#, and how to retrieve them in parallel using the C# [Event Processor Host][Event Processor Host] library.
+This tutorial shows how to use the [Azure portal](https://portal.azure.com) to create an Event Hub. It also shows how to send events to an Event Hub using a console application written in C# using the .NET Framework. To receive events using the .NET Framework, see the [Receive events using the .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md) article, or click the appropriate receiving language in the left-hand table of contents.
 
 To complete this tutorial, you'll need the following:
 
@@ -89,35 +89,19 @@ In this section, you'll write a Windows console app that sends events to your Ev
     SendingRandomMessages();
     ```
 
-## Run the applications
-Now you are ready to run the applications.
-
-1. From within Visual Studio, open the **Receiver** project you created earlier.
-2. Right-click the **Receiver** solution, then click **Add**, and then click **Existing Project**.
-3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
-4. Again, right-click the **Receiver** solution and then click **Properties**. The **Receiver** property page is displayed.
-5. Click **Startup Project**, then click the **Multiple startup projects** button. Set the **Action** box for both the **Receiver** and **Sender** projects to **Start**.
-   
-    ![][19]
-6. Click **Project Dependencies**. In the **Projects** box, click **Sender**. In the **Depends on** box, make sure **Receiver** is checked.
-   
-    ![][20]
-7. Click **OK** to dismiss the **Properties** dialog.
-8. Press F5 to run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
-   
-   ![][21]
-9. The **Sender** project will run automatically. Press **Enter** in the console window, and see the events appear in the receiver window.
-   
-   ![][22]
-
-Press **Ctrl+C** in the **Sender** window to end the Sender application, then press **Enter** in the Receiver window to shut down that application.
-
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
 
+<<<<<<< Updated upstream
 * A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
 * [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
+=======
+Now that you've built a working application that creates an Event Hub and sends data, you can move on to the following scenarios:
+
+* [Overview of Event Hubs samples on MSDN](event-hubs-samples.md)
+* [Event Processor Host namespace](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+>>>>>>> Stashed changes
 * [Event Hubs overview][Event Hubs overview]
 
 <!-- Images. -->
@@ -129,7 +113,4 @@ Now that you've built a working application that creates an Event Hub and sends 
 <!-- Links -->
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 

@@ -1,5 +1,5 @@
 ---
-title: Send events with Azure Event Hubs in Java | Microsoft Docs
+title: Send events in Java with Azure Event Hubs | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in using the EventProcessorHost.
 services: event-hubs
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: jtaubensee
 manager: timlt
 editor: ''
 
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
+ms.assetid: 
 ms.service: event-hubs
 ms.workload: core
 ms.tgt_pltfrm: na
