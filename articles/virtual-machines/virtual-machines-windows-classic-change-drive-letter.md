@@ -49,20 +49,9 @@ First, you'll need to attach the data disk to the virtual machine.
 1. Once the VM restarts, log back on to the VM.
 2. Click the **Start** menu and type **diskmgmt.msc** and hit Enter. Disk Management will start.
 3. Right-click on **D**, the Temporary Storage drive, and select **Change Drive Letter and Paths**.
-4. Under Drive letter, select drive **G** and then click **OK**. 
+4. Under Drive letter, select a new drive such as **T** and then click **OK**. 
 5. Right-click on the data disk, and select **Change Drive Letter and Paths**.
 6. Under Drive letter, select drive **D** and then click **OK**. 
-7. Right-click on **G**, the Temporary Storage drive, and select **Change Drive Letter and Paths**.
-8. Under Drive letter, select drive **E** and then click **OK**. 
-
-> [!NOTE]
-> If your VM has other disks or drives, use the same method to reassign the drive letters of the other disks and drives. You want the disk configuration to be:  
-> 
-> * C: OS disk  
-> * D: Data Disk  
-> * E: Temporary disk
-> 
-> 
 
 ## Move pagefile.sys back to the temporary storage drive
 1. Right-click the **Start** menu and select **System**
@@ -71,7 +60,7 @@ First, you'll need to attach the data disk to the virtual machine.
 4. Select the **Advanced** tab.
 5. In the **Virtual memory** section, select **Change**.
 6. Select the OS drive **C** and click **No paging file** and then click **Set**.
-7. Select the temporary storage drive **E** and then click **System managed size** and then click **Set**.
+7. Select the temporary storage drive **T** and then click **System managed size** and then click **Set**.
 8. Click **Apply**. You will get a warning that the computer needs to be restarted for the changes to take affect.
 9. Restart the virtual machine.
 

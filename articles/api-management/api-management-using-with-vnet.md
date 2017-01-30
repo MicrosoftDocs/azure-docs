@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: antonba
+ms.author: apipm
 
 ---
 # How to use Azure API Management with virtual networks
@@ -68,6 +68,10 @@ Click **Save** at the top of the screen.
 > The VIP address of the API Management instance will change each time VNET is enabled or disabled.  
 > The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
 > 
+
+
+> [!IMPORTANT] 
+> If you remove API Management from a VNET or change the one it is deployed in, the previously used VNET can remain locked for up to 4 hours. During this period it will not be possible to delete the VNET or deploy a new resource to it.
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets

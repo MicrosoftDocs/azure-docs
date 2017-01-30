@@ -88,11 +88,3 @@ Learn how to use Container Service to deploy and manage fully portable applicati
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Container Service Documentation
-        </div>
-    </a>
-</div>

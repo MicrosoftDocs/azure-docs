@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Advisor
+title: Performance recommendations for Azure SQL Database | Microsoft Docs
 description: The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance.
 services: sql-database
 documentationcenter: ''

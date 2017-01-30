@@ -1,5 +1,5 @@
 ---
-title: StorSimple system limits | Microsoft Docs
+title: StorSimple 8000 series system limits | Microsoft Docs
 description: Describes system limits and recommended sizes for StorSimple 8000 series components and connections.
 services: storsimple
 documentationcenter: NA
