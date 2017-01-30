@@ -1,6 +1,6 @@
 ---
-title: What happened to my WebApi project (Visual Studio Azure Active Directory connected service) | Microsoft Docs
-description: Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio
+title: Changes made to a WebApi project when you connect to Azure AD | Microsoft Docs
+description: Describes what happens to your WebApi project when you connect to Azure AD by using Visual Studio
 services: active-directory
 documentationcenter: ''
 author: TomArcher
@@ -56,7 +56,7 @@ If you already had a Startup class in your project, the **Configuration** method
 The following configuration entries have been added.
 
 ```
-    `<appSettings>
+    <appSettings>
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
             <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
             <add key="ida:Audience" value="The App ID Uri from the wizard" />
@@ -96,7 +96,7 @@ Each of following files was backed up before being replaced. Backup files are lo
 The following additional configuration entries have been added.
 
 ```
-    `<appSettings>
+    <appSettings>
         <add key="ida:Password" value="Your Azure AD App's new password" />
     </appSettings>`
 ```

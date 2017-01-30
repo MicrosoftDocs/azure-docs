@@ -59,7 +59,7 @@
 ### [Table design guide](storage-table-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
-### [Overview](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Overview](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use Virtual Machine Disks
@@ -75,7 +75,10 @@
 ### [Performance and scalability checklist](storage-performance-checklist.md)
 ### [Concurrency](storage-concurrency.md)
 ## Develop
-### [Samples](storage-samples.md)
+### Samples
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [Designing HA Apps using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Configure connection strings](storage-configure-connection-string.md)
 ### [Use the Storage Emulator](storage-use-emulator.md)
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
@@ -149,8 +152,8 @@
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
-### [Resource manager](/dotnet/api/microsoft.azure.management.storage)
-### [Data movement](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
+### [Data movement](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, Queues, Tables, and Files](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -183,7 +186,7 @@
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 
-## Nuget packages
+## NuGet packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 ### [Azure Storage Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 ### [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)

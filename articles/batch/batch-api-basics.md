@@ -1,5 +1,5 @@
 ---
-title: Azure Batch feature overview for developers | Microsoft Docs
+title: Overview of Azure Batch for developers | Microsoft Docs
 description: Learn the features of the Batch service and its APIs from a development standpoint.
 services: batch
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 
 ---

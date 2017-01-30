@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage Azure Data Factory pipelines
+title: Monitor and manage data pipelines - Azure | Microsoft Docs
 description: Learn how to use Monitoring and Management App to monitor and manage Azure data factories and pipelines.
 services: data-factory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: spelluru
 
 ---
-# Monitor and manage Azure Data Factory pipelines using new Monitoring and Management App
+# Monitor and manage Azure Data Factory pipelines using Monitoring and Management App
 > [!div class="op_single_selector"]
 > * [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
