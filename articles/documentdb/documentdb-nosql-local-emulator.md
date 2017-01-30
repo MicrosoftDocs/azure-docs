@@ -143,69 +143,69 @@ To view the list of options, type `DocumentDB.Emulator.exe /?` at the command pr
   <td></td>
 </tr>
 <tr>
-  <td>shutdown</td>
+  <td>Shutdown</td>
   <td>Shuts down the DocumentDB Emulator.</td>
-  <td>DocumentDB.Emulator.exe /shutdown</td>
+  <td>DocumentDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
-  <td>datapath</td>
+  <td>DataPath</td>
   <td>Specifies the path in which to store data files. Default is %LocalAppdata%\DocumentDBEmulator.</td>
-  <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>DocumentDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: An accessible path</td>
 </tr>
 <tr>
-  <td>port</td>
+  <td>Port</td>
   <td>Specifies the port number to use for the emulator.  Default is 8081.</td>
-  <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
+  <td>DocumentDB.Emulator.exe /Port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>mongoport</td>
+  <td>MongoPort</td>
   <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250.</td>
-  <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>DocumentDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>directports</td>
+  <td>DirectPorts</td>
   <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254.</td>
-  <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
+  <td>DocumentDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: Comma-delimited list of 4 ports</td>
 </tr>
 <tr>
-  <td>key</td>
+  <td>Key</td>
   <td>Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector.</td>
-  <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
+  <td>DocumentDB.Emulator.exe /Key:&lt;key&gt;</td>
   <td>&lt;key&gt;: Key must be the base-64 encoding of a 64-byte vector</td>
 </tr>
 <tr>
-  <td>enableratelimiting</td>
+  <td>EnableRateLimiting</td>
   <td>Specifies that request rate limiting behavior is enabled.</td>
-  <td>DocumentDB.Emulator.exe /enableratelimiting</td>
+  <td>DocumentDB.Emulator.exe /EnableRateLimiting</td>
   <td></td>
 </tr>
 <tr>
-  <td>disableratelimiting</td>
+  <td>DisableRateLimiting</td>
   <td>Specifies that request rate limiting behavior is disabled.</td>
-  <td>DocumentDB.Emulator.exe /disableratelimiting</td>
+  <td>DocumentDB.Emulator.exe /DisableRateLimiting</td>
   <td></td>
 </tr>
 <tr>
-  <td>noui</td>
+  <td>NoUI</td>
   <td>Do not show the emulator user interface.</td>
-  <td>DocumentDB.Emulator.exe /noui</td>
+  <td>DocumentDB.Emulator.exe /NoUI</td>
   <td></td>
 </tr>
 <tr>
-  <td>noexplorer</td>
+  <td>NoExplorer</td>
   <td>Don't show document explorer on startup.</td>
-  <td>DocumentDB.Emulator.exe /noexplorer</td>
+  <td>DocumentDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>
 <tr>
-  <td>partitioncount</td>
+  <td>PartitionCount</td>
   <td>Specifies the maximum number of partitioned collections. See [Change the number of collections](#set-partitioncount) for more information.</td>
-  <td>DocumentDB.Emulator.exe /partitioncount=&lt;partitioncount&gt;</td>
+  <td>DocumentDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: Maximum number of allowed single partition collections. Default is 25. Maximum allowed is 250.</td>
 </tr>
 </table>
