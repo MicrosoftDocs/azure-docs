@@ -1,5 +1,5 @@
 ---
-title: What are VM scale sets? | Microsoft Docs
+title: Create Azure VM Scale Sets with the Azure CLI | Microsoft Docs
 description: Learn about VM scale sets.
 keywords: linux virtual machine,virtual machine scale sets
 services: virtual-machines-linux

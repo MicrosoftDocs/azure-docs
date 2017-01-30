@@ -1,5 +1,5 @@
 ---
-title: Configure an application gateway for SSL offload by using classic deployment | Microsoft Docs
+title: Configure SSL offload - Azure Application Gateway - PowerShell classic | Microsoft Docs
 description: This article provides instructions to create an application gateway with SSL offload by using the Azure classic deployment model.
 documentationcenter: na
 services: application-gateway
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---

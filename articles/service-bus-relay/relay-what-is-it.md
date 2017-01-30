@@ -1,5 +1,5 @@
 ---
-title: What is Azure relay? | Microsoft Docs
+title: What is Azure Relay and why use it overview | Microsoft Docs
 description: Overview of Azure Relay
 services: service-bus-relay
 documentationcenter: .net

@@ -1,5 +1,5 @@
 ---
-title: Pig Activity
+title: Transform data using Pig Activity in Azure Data Factory | Microsoft Docs
 description: Learn how you can use the Pig Activity in an Azure data factory to run Pig scripts on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/23/2017
 ms.author: shlo
 
 ---
-# Pig Activity
+# Transform data using Pig Activity in Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  

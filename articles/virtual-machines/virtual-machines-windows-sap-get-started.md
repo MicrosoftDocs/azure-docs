@@ -1,5 +1,5 @@
 ---
-title: Getting started with SAP Solutions | Microsoft Docs
+title: Getting started with SAP on Windows VMs in Azure | Microsoft Docs
 description: Learn about SAP solutions running on virtual machines (VMs) in Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''

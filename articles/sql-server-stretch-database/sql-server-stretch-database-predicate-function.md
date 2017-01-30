@@ -1,5 +1,5 @@
 ---
-title: Select rows to migrate by using a filter function (Stretch Database) | Microsoft Docs
+title: Select rows to migrate for Stretch Database - Azure | Microsoft Docs
 description: Learn how to select rows to migrate by using a filter function.
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -22,8 +22,8 @@ If you store cold data in a separate table, you can configure Stretch Database t
 
 > [!NOTE]
 > If you provide a filter function that performs poorly, data migration also performs poorly. Stretch Database applies the filter function to the table by using the CROSS APPLY operator.
-> 
-> 
+>
+>
 
 If you don't specify a filter function, the entire table is migrated.
 
@@ -77,9 +77,9 @@ A primitive condition can do one of the following comparisons.
 ```
 
 * Compare a function parameter to a constant expression. For example, `@column1 < 1000`.
-  
+
   Here's an example that checks whether the value of a *date* column is &lt; 1/1/2016.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
   RETURNS TABLE
@@ -88,7 +88,7 @@ A primitive condition can do one of the following comparisons.
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
   GO
-  
+
   ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
       MIGRATION_STATE = OUTBOUND
@@ -96,9 +96,9 @@ A primitive condition can do one of the following comparisons.
   ```
 * Apply the IS NULL or IS NOT NULL operator to a function parameter.
 * Use the IN operator to compare a function parameter to a list of constant values.
-  
+
   Here's an example that checks whether the value of a *shipment\_status*  column is `IN (N'Completed', N'Returned', N'Cancelled')`.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
   RETURNS TABLE
@@ -107,7 +107,7 @@ A primitive condition can do one of the following comparisons.
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (N'Completed', N'Returned', N'Cancelled')
   GO
-  
+
   ALTER TABLE table1 SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(shipment_status),
       MIGRATION_STATE = OUTBOUND
@@ -154,8 +154,8 @@ You can't drop the inline table\-valued function as long as a table is using the
 
 > [!NOTE]
 > To improve the performance of the filter function, create an index on the columns used by the function.
-> 
-> 
+>
+>
 
 ### Passing column names to the filter function
 When you assign a filter function to a table, specify the column names passed to the filter function with a one-part name. If you specify a three-part name when you pass the column names, subsequent queries against the Stretch\-enabled table will fail.
@@ -184,7 +184,7 @@ ALTER TABLE SensorTelemetry
 If you want use a function that you can't create in the **Enable Database for Stretch** Wizard, you can run the ALTER TABLE statement to specify a function after you exit the wizard. Before you can apply a function, however, you have to stop the data migration that's already in progress and bring back migrated data. (For more info about why this is necessary, see [Replace an existing filter function](#replacePredicate).  
 
 1. Reverse the direction of migration and bring back the data already migrated. You can't cancel this operation after it starts. You also incur costs on Azure for outbound data transfers \(egress\). For more info, see [How Azure pricing works](https://azure.microsoft.com/pricing/details/data-transfers/).  
-   
+
     ```tsql  
     ALTER TABLE <table name>  
          SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
@@ -192,7 +192,7 @@ If you want use a function that you can't create in the **Enable Database for St
 2. Wait for migration to finish. You can check the status in **Stretch Database Monitor** from SQL Server Management Studio, or you can query the **sys.dm_db_rda_migration_status** view. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) or [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
 3. Create the filter function that you want to apply to the table.  
 4. Add the function to the table and restart data migration to Azure.  
-   
+
     ```tsql  
     ALTER TABLE <table name>  
         SET ( REMOTE_DATA_ARCHIVE  
@@ -295,7 +295,7 @@ COMMIT ;
 
 ## More examples of valid filter functions
 * The following example combines two primitive conditions by using the AND logical operator.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate((@column1 datetime, @column2 nvarchar(15))
   RETURNS TABLE
@@ -304,14 +304,14 @@ COMMIT ;
   RETURN    SELECT 1 AS is_eligible
     WHERE @column1 < N'20150101' AND @column2 IN (N'Completed', N'Returned', N'Cancelled')
   GO
-  
+
   ALTER TABLE table1 SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(date, shipment_status),
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
 * The following example uses several conditions and a deterministic conversion with CONVERT.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example1(@column1 datetime, @column2 int, @column3 nvarchar)
   RETURNS TABLE
@@ -322,7 +322,7 @@ COMMIT ;
   GO
   ```
 * The following example uses mathematical operators and functions.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example2(@column1 float)
   RETURNS TABLE
@@ -333,7 +333,7 @@ COMMIT ;
   GO
   ```
 * The following example uses the BETWEEN and NOT BETWEEN operators. This usage is valid because the resulting function conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
   RETURNS TABLE
@@ -345,7 +345,7 @@ COMMIT ;
   GO
   ```
   The preceding function is equivalent to the following function after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example4(@column1 int, @column2 int)
   RETURNS TABLE
@@ -358,7 +358,7 @@ COMMIT ;
 
 ## Examples of filter functions that aren't valid
 * The following function isn't valid because it contains a non\-deterministic conversion.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example5(@column1 datetime)
   RETURNS TABLE
@@ -369,7 +369,7 @@ COMMIT ;
   GO
   ```
 * The following function isn't valid because it contains a non\-deterministic function call.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example6(@column1 datetime)
   RETURNS TABLE
@@ -380,7 +380,7 @@ COMMIT ;
   GO
   ```
 * The following function isn't valid because it contains a subquery.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example7(@column1 int)
   RETURNS TABLE
@@ -391,7 +391,7 @@ COMMIT ;
   GO
   ```
 * The following functions aren't valid because expressions that use algebraic operators or built\-in functions must evaluate to a constant when you define the function. You can't include column references in algebraic expressions or function calls.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example8(@column1 int)
   RETURNS TABLE
@@ -400,7 +400,7 @@ COMMIT ;
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 % 2 =  0
   GO
-  
+
   CREATE FUNCTION dbo.fn_example9(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
@@ -410,7 +410,7 @@ COMMIT ;
   GO
   ```
 * The following function isn't valid because it violates the rules described here  after you replace the BETWEEN operator with the equivalent AND expression.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example10(@column1 int, @column2 int)
   RETURNS TABLE
@@ -421,7 +421,7 @@ COMMIT ;
   GO
   ```
   The preceding function is equivalent to the following function after you replace the BETWEEN operator with the equivalent AND expression. This function isn't valid because primitive conditions can only use the OR logical operator.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example11(@column1 int, @column2 int)
   RETURNS TABLE
@@ -543,4 +543,3 @@ A compromised account with db_owner privileges can do the following things.
 
 ## See also
 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
-

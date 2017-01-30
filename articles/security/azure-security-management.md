@@ -1,10 +1,10 @@
 ---
-title: Security Management in Azure | Microsoft Docs
+title: Enhance remote management security in Azure | Microsoft Docs
 description: "This article discusses steps for enhancing remote management security while administering Microsoft Azure environments, including cloud services, Virtual Machines, and custom applications."
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Deploy a Linux VM into an existing Azure Virtual Network using the portal | Microsoft Docs
+title: Deploy Linux VMs into existing networks - Azure portal | Microsoft Docs
 description: Deploy a Linux VM into an existing Azure Virtual Network using the portal.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux

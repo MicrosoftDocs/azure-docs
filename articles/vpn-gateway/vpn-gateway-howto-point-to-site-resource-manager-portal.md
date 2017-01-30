@@ -1,5 +1,5 @@
 ---
-title: Configure a Point-to-Site VPN gateway connection to virtual network using the Resource Manager deployment model and the Azure portal | Microsoft Docs
+title: 'Connect a computer to an Azure virtual network using Point-to-Site: Portal | Microsoft Docs'
 description: Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection using Resource Manager and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
@@ -40,7 +40,7 @@ The following table shows the two deployment models and available deployment met
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Basic workflow
-![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-rm-ps/p2srm.png "point-to-site")
+![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
 ### <a name="example"></a>Example values
 * **Name: VNet1**
@@ -123,24 +123,24 @@ A client certificate is required for authentication. After generating the client
 ## <a name="addresspool"></a>Part 7 - Add the client address pool
 1. Once the virtual network gateway has been created, navigate to the **Settings** section of the virtual network gateway blade. In the **Settings** section, click **Point-to-site configuration** to open the **Configuration** blade.
    
-    ![point to site blade](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png "point to site blade")
+    ![Point-to-Site blade](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration.png)
 2. **Address pool** is the pool of IP addresses from which clients that connect will receive an IP address. Add the address pool, and then click **Save**.
    
-    ![client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png "client address pool")
+    ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
 ## <a name="uploadfile"></a>Part 8 - Upload the root certificate .cer file
 After the gateway has been created, you can upload the .cer file for a trusted root certificate to Azure. You can upload files for up to 20 root certificates. You do not upload the private key for the root certificate to Azure. Once the .cer file is uploaded, Azure uses it to authenticate clients that connect to the virtual network.
 
 1. Navigate to the **Point-to-site configuration** blade. You will add the .cer files in the **Root certificate** section of this blade.
    
-    ![point to site blade](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcert.png "point to site blade")
+    ![Point-to-Site blade root certificate](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcert.png)
 2. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export it in this format so that you can open the certificate with text editor.
 3. Open the certificate with a text editor, such as Notepad. Copy only the following section:
    
-    ![certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png "certificate data")
+    ![Certificate data](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/copycert.png)
 4. Paste the certificate data into the **Public Certificate Data** section of the portal. Put the name of the certificate in the **Name** space, and then click **Save**. You can add up to 20 trusted root certificates.
    
-    ![certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploadcert.png "certificate upload")
+    ![Certificate upload](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploadcert.png)
 
 ## <a name="clientconfig"></a>Part 9 - Download and install the VPN client configuration package
 Clients connecting to Azure using P2S must have both a client certificate, and a VPN client configuration package installed. VPN client configuration packages are available for Windows clients. 
@@ -149,12 +149,12 @@ The VPN client package contains information to configure the VPN client software
 
 1. On the **Point-to-site configuration** blade, click **Download VPN client** to open the **Download VPN client** blade.
    
-    ![VPN client download](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadclient.png "VPN client download")
+    ![VPN client download](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadclient.png)
 2. Select the correct package for your client, then click **Download**. For 64-bit clients, select **AMD64**. For 32-bit clients, select **x86**.
 3. Install the package on the client computer. If you get a SmartScreen popup, click **More info**, then **Run anyway** in order to install the package.
 4. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It will show the name of the virtual network that it will connect to and looks similar to this example: 
    
-    ![VPN client](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png "VPN client")
+    ![VPN client](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpn.png)
 
 ## <a name="installclientcert"></a>Part 10 - Install the client certificate
 Each client computer must have a client certificate in order to authenticate. When installing the client certificate, you will need the password that was created when the client certificate was exported.
@@ -166,10 +166,10 @@ Each client computer must have a client certificate in order to authenticate. Wh
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
 2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
    
-    ![VPN client 2](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png "VPN client connection")
+    ![VPN client connect to Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Your connection should now be established.
    
-    ![VPN client 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
+    ![VPN client connected to Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
 ## <a name="verify"></a>Part 12 - Verify your connection
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.

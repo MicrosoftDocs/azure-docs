@@ -1,5 +1,5 @@
 ---
-title: SQL Database Authentication and Authorization | Microsoft Docs
+title: Azure SQL logins and users | Microsoft Docs
 description: Learn about SQL Database security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 
 ---

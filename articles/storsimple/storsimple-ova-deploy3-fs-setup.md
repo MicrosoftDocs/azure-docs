@@ -1,5 +1,5 @@
 ---
-title: Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server
+title: Set up StorSimple Virtual Array as file server | Microsoft Docs
 description: This third tutorial in StorSimple Virtual Array deployment instructs you to set up a virtual device as file server.
 services: storsimple
 documentationcenter: NA
@@ -175,7 +175,7 @@ You will now need to connect to the share(s) that you created in the previous st
 
 Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
