@@ -24,27 +24,27 @@ ms.author: spelluru
 >
 >
 
-This article describes how to use the Monitoring and Management app to monitor, manage, and debug your pipelines, and create alerts to get notified on failures. You can also watch the following video to learn about using the Monitoring and Management app.
+This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Azure Data Factory pipelines--and create alerts to get notified on failures. You can also watch the following video to learn about using the Monitoring and Management app.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
 >
 
-## Opening the Monitoring and Management app
+## Open the Monitoring and Management app
 To open the Monitor and Management app, click the **Monitor & Manage** tile on the **Data Factory** blade for your data factory.
 
 ![Monitoring tile on the Data Factory home page](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
-You should see the Monitoring and Management app opened in a separate window.  
+You should see the Monitoring and Management app open in a separate window.  
 
 ![Monitoring and Management app](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> If you see that the web browser is stuck at "Authorizing...", clear the **Block third-party cookies and site data** check box--or keep it selected, create an exception for **login.microsoftonline.com**, and then try opening the app again.
+> If you see that the web browser is stuck at "Authorizing...", clear the **Block third-party cookies and site data** check box--or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
 
 If you don't see activity windows in the list at the bottom, click the **Refresh** button on the toolbar to refresh the list. In addition, set the right values for the **Start time** and **End time** filters.  
 
-## Understanding the Monitoring and Management app
+## Understand the Monitoring and Management app
 There are three tabs on the left: **Resource Explorer**, **Monitoring Views**, and **Alerts**. The first tab (**Resource Explorer**) is selected by default.
 
 ### Resource Explorer
@@ -67,17 +67,17 @@ In Resource Explorer, you see all resources (pipelines, datasets, linked service
 See the [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for detailed conceptual information about activity windows.
 
 ### Diagram View
-The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the Diagram View:
+The Diagram View of a data factory provides a single pane of glass to monitor and manage a data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the Diagram View:
 
 * The data factory entity is selected in the tree view.
 * The associated activity windows are highlighted in the Activity Windows list.
 * The properties of the selected object are shown in the Properties window.
 
-When the pipeline is enabled (not in a paused state), it is shown with a green line:
+When the pipeline is enabled (not in a paused state), it's shown with a green line:
 
 ![Pipeline running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-There are three command buttons for the pipeline in the Diagram View. You can use the second button to pause the pipeline. Pausing doesn't terminate the currently running activities and lets them proceed to completion. The third button pauses the pipeline and terminates its existing executing activities. The first button resumes the pipeline. When your pipeline is paused, the color of the pipeline changes to yellow:
+There are three command bar buttons for the pipeline in the Diagram View. You can use the second button to pause the pipeline. Pausing doesn't terminate the currently running activities and lets them proceed to completion. The third button pauses the pipeline and terminates its existing executing activities. The first button resumes the pipeline. When your pipeline is paused, the color of the pipeline changes to yellow:
 
 ![Pause/resume on tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
@@ -105,7 +105,7 @@ In the right pane, switch to the **Activity Window Explorer** tab to see more de
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-You also see **resolved variables** for each activity run attempt in the **Attempts** section.
+You also see **resolved variables** for each run attempt for an activity in the **Attempts** section.
 
 ![Resolved variables](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
@@ -119,11 +119,11 @@ You can see activity windows in three places:
 * The Activity Window Explorer in the right pane.
 * The Activity Windows list in the bottom pane.
 
-In the Activity Windows pop-up and Activity Window Explorer, you can scroll to previous week and next week using left and right arrows.
+In the Activity Windows pop-up and Activity Window Explorer, you can scroll to the previous week and the next week by using the left and right arrows.
 
 ![Activity Window Explorer left/right arrows](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-At the bottom of the Diagram View, you see these buttons: Zoom In, Zoom Out, Zoom to Fit, Zoom 100%, Lock layout. The **Lock layout** button prevents you from accidentally moving tables and pipelines in the Diagram View. It is on by default. You can turn it off and move entities around in the diagram. When you turn it off, you can use the last button to automatically position tables and pipelines. You can also zoom in or out by using the mouse wheel.
+At the bottom of the Diagram View, you see these buttons: Zoom In, Zoom Out, Zoom to Fit, Zoom 100%, Lock layout. The **Lock layout** button prevents you from accidentally moving tables and pipelines in the Diagram View. It's on by default. You can turn it off and move entities around in the diagram. When you turn it off, you can use the last button to automatically position tables and pipelines. You can also zoom in or out by using the mouse wheel.
 
 ![Diagram View zoom commands](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -166,7 +166,7 @@ Activity windows can be in one of the following statuses:
 </tr>
 <tr>
 <tr
-<td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validation is in progress.</td>
 </tr>
 <td>-</td>
 <td>The activity window is being processed.</td>
@@ -199,44 +199,44 @@ When you click an activity window in the list, you see details about it in the *
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### Refresh activity windows
-The details are not automatically refreshed, so use the refresh button (the second button) on the command bar to manually refresh the activity windows list.  
+The details aren't automatically refreshed, so use the refresh button (the second button) on the command bar to manually refresh the activity windows list.  
 
 ### Properties window
 The Properties window is in the right-most pane of the Monitoring and Management app.
 
 ![Properties window](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-It displays properties for the item that you selected in the Resource Explorer (tree view) or Diagram View or Activity Windows list.
+It displays properties for the item that you selected in the Resource Explorer (tree view), Diagram View, or Activity Windows list.
 
 ### Activity Window Explorer
 The **Activity Window Explorer** window is in the right-most pane of the Monitoring and Management app. It displays details about the activity window that you selected in the Activity Windows pop-up window or the Activity Windows list.
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-You can switch to another activity window by clicking it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous week or next week.
+You can switch to another activity window by clicking it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous week or the next week.
 
 You can use the toolbar buttons in the bottom pane to rerun the activity window or refresh the details in the pane.
 
 ### Script
-You can use the **Script** tab to view the JSON definition of the selected Data Factory entity (linked service, dataset, and pipeline).
+You can use the **Script** tab to view the JSON definition of the selected Data Factory entity (linked service, dataset, or pipeline).
 
 ![Script tab](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-## Using system views
+## Use system views
 The Monitoring and Management app includes pre-built system views (**Recent activity windows**, **Failed activity windows**, **In-Progress activity windows**) that allow you to view recent/failed/in-progress activity windows for your data factory.
 
 Switch to the **Monitoring Views** tab on the left by clicking it.
 
 ![Monitoring Views tab](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Currently, there are three system views supported. Select an option to see recent activity windows, failed activity windows, or in-progress activity windows in the Activity Windows list (at the bottom of the middle pane).
+Currently, there are three system views that are supported. Select an option to see recent activity windows, failed activity windows, or in-progress activity windows in the Activity Windows list (at the bottom of the middle pane).
 
-When you select the **Recent activity windows** option, you see all recent activity windows in the descending order of the **last attempt time**.
+When you select the **Recent activity windows** option, you see all recent activity windows in descending order of the **last attempt time**.
 
 You can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window or the **Activity Window Explorer**. You can also download any logs for a failed activity window.
 
-## Sorting and filtering activity windows
-Change the **start time** and **end time** settings in the command bar to filter activity windows. After you change the start time and end time, click the button next to end time to refresh the Activity Windows list.
+## Sort and filter activity windows
+Change the **start time** and **end time** settings in the command bar to filter activity windows. After you change the start time and end time, click the button next to the end time to refresh the Activity Windows list.
 
 ![Start and end Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
@@ -251,11 +251,11 @@ In the **Activity Windows list**, click the name of a column (for example: Statu
 
 You can do the following:
 
-* Sort in the ascending order.
-* Sort in the descending order.
-* Filter by one or more values (Ready, Waiting, and so on)
+* Sort in ascending order.
+* Sort in descending order.
+* Filter by one or more values (Ready, Waiting, and so on).
 
-When you specify a filter on a column, you see the filter button enabled for that column to indicate that the values in the column are filtered values.
+When you specify a filter on a column, you see the filter button enabled for that column, which indicates that the values in the column are filtered values.
 
 ![Filter on a column of the Activity Windows list](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
@@ -263,19 +263,19 @@ You can use the same pop-up window to clear filters. To clear all filters for th
 
 ![Clear all filters for the Activity Windows list](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
-## Performing batch actions
+## Perform batch actions
 ### Rerun selected activity windows
 Select an activity window, click the down arrow for the first command bar button, and select **Rerun** / **Rerun with upstream in pipeline**. When you select the **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well.
     ![Rerun an activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-You can also select multiple activity windows in the list and rerun them at the same time. You might want to filter activity windows based on the status (for example: **Failed**), and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
+You can also select multiple activity windows in the list and rerun them at the same time. You might want to filter activity windows based on the status (for example: **Failed**)--and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
 
 ### Pause/resume multiple pipelines
 You can multiselect two or more pipelines by using the Ctrl key. You can use the command bar buttons (which are highlighted in the red rectangle in the following image) to pause/resume them.
 
 ![Pause/resume on the command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
-## Creating alerts
+## Create alerts
 The **Alerts** page lets you create an alert and view/edit/delete existing alerts. You can also disable/enable an alert. To see the Alerts page, click the **Alerts** tab.
 
 ![Alerts tab](./media/data-factory-monitor-manage-app/AlertsTab.png)
@@ -287,10 +287,10 @@ The **Alerts** page lets you create an alert and view/edit/delete existing alert
 2. Specify the **Name** and **Description** for the alert, and click **Next**. You should see the **Filters** page.
 
     ![Create Alerts - Filters page](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Select the **event**, **status**, and **substatus** (optional) for which you want the Data Factory service to alert you, and click **Next**. You should see the **Recipients** page.
+3. Select the **event**, **status**, and **substatus** (optional) that you want to create a Data Factory service alert for, and click **Next**. You should see the **Recipients** page.
 
     ![Create Alerts - Recipients page](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Select the **Email subscription admins** option and/or enter **additional administrator email**, and click **Finish**. You should see the alert in the list.
+4. Select the **Email subscription admins** option and/or enter an **additional administrator email**, and click **Finish**. You should see the alert in the list.
 
     ![Alerts list](./media/data-factory-monitor-manage-app/AlertsList.png)
 
@@ -299,7 +299,7 @@ In the Alerts list, use the buttons that are associated with the alert to edit/d
 ### Event/status/substatus
 The following table provides the list of available events and statuses (and substatuses).
 
-| Event name | Status | Sub status |
+| Event name | Status | Substatus |
 | --- | --- | --- |
 | Activity Run Started |Started |Starting |
 | Activity Run Finished |Succeeded |Succeeded |
@@ -309,4 +309,7 @@ The following table provides the list of available events and statuses (and subs
 | On-Demand HDI Cluster Deleted |Succeeded |-|
 
 ### To edit, delete, or disable an alert
+
+Use the following buttons (highlighted in red) to edit, delete, or disable an alert.
+
 ![Alerts buttons](./media/data-factory-monitor-manage-app/AlertButtons.png)
