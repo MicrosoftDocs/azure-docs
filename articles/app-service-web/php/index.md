@@ -8,13 +8,13 @@ Learn how to use App Service Web Apps to build and host PHP websites and web app
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-web/app-service-web-overview">
+        <a href="/azure/app-service-web/app-service-web-overview?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/app-service-web.svg" alt="" />
+                            <img src="../media/index/app-service-web.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Learn how to use App Service Web Apps to build and host PHP websites and web app
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Learn how to use App Service Web Apps to build and host PHP websites and web app
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="../media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -63,13 +63,13 @@ Learn how to use App Service Web Apps to build and host PHP websites and web app
     </li>
        
      <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-php">
+        <a href="/azure/app-service-web/app-service-web-get-started-php?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="../media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -81,13 +81,13 @@ Learn how to use App Service Web Apps to build and host PHP websites and web app
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-php-web-site-gallery">
+        <a href="/azure/app-service-web/web-sites-php-web-site-gallery?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="../media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
