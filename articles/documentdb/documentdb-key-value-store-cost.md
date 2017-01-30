@@ -1,5 +1,5 @@
 ---
-title: Using Azure DocumentDB as a key value store – Cost overview | Microsoft Docs
+title: Azure DocumentDB as a key value store – Cost overview | Microsoft Docs
 description: Learn about the low cost of using Azure DocumentDB as a key value store.
 keywords: key value store
 services: documentdb
@@ -20,7 +20,7 @@ ms.author: acomet
 
 ---
 
-# Using Azure DocumentDB as a key value store – Cost overview
+# DocumentDB as a key value store – Cost overview
 
 Azure DocumentDB is a fully managed, globally distributed NoSQL database service for building highly available, large scale, [globally distributed](documentdb-distribute-data-globally.md) applications easily. By default, DocumentDB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](documentdb-sql-query.md) (and [JavaScript](documentdb-programming.md)) queries on any kind of data. 
 
