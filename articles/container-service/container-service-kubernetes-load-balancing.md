@@ -12,7 +12,7 @@ keywords: Containers, Micro-services, Kubernetes, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
