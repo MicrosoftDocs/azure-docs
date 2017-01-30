@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/20/2017
+ms.date: 01/30/2017
 ms.author: bwren
 
 ---
@@ -35,7 +35,7 @@ Operations Management Suite (also known as OMS) is a collection of management se
 - **Global knowledge.**  Management solutions in OMS continuously have access to the latest information.  The Security and Audit solution for example, can perform a threat analysis using the latest threats being detected around the world.
 - **Access from anywhere.**  Access your management environment from anywhere you have a browser.  Install the OMS app on your smartphone for ready access to your monitoring data.
 
-## Is it just for the cloud?
+### Is it just for the cloud?
 Just because OMS services run in the cloud doesn’t meant that they can’t effectively manage your on-premise environment.  Put an agent on any Windows or Linux computer in your data center, and it will send data to Log Analytics where it can be analyzed along with all other data collected from cloud or on-premise services.  Use Azure Backup and Azure Site Recovery to leverage the cloud for backup and high availability for on-premise resources.  
 Runbooks in the cloud can’t typically access your on-premise resources, but you can install an agent on one or more computers to that will host runbooks in your data center.  When you start a runbook, you simply specify whether you want it to run in the cloud or on a local worker.
 
@@ -56,6 +56,8 @@ The core functionality of OMS is provided by a set of services that run in Azure
 ### Log Analytics
 [Log Analytics](../log-analytics/log-analytics-overview.md) provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
 
+![Log Analytics overview](media/operations-management-suite-overview/overview-log-analytics.png)
+
 #### Collecting data
 There are a variety of ways that you can get data into the repository for Log Analytics to analyze.
 
@@ -63,10 +65,10 @@ There are a variety of ways that you can get data into the repository for Log An
 - **Azure services.**  Log Analytics collects telemetry from [Azure Diagnostics and Azure Monitoring](../log-analytics/log-analytics-azure-storage.md) into the repository so that you can monitor Azure resources.
 - **Data Collector API.**  Log Analytics has a [REST API for populating data from any client](../log-analytics/log-analytics-data-collector-api.md).  This allows you to collect data from third party applications or implement custom management scenarios.  A common method is to use a runbook in Azure Automation to collect data and then use the Data Collector API to write it to the repository.
 
-#### Analyzing Data
+#### Reporting and analyzing data
 Log Analytics includes a powerful query language to extract data stored in the repository.  Since data from all sources are stored as records, you can analyze data from multiple sources in a single query.
   
-In addition to ad hoc analysis, Log Analytics provides multiple ways to leverage data from a query.
+In addition to ad hoc analysis, Log Analytics provides multiple ways to report and analyze data from a query.
 
 - **Views and dashboards.**  [Views](../log-analytics/log-analytics-view-designer.md) and [dashboards](../log-analytics/log-analytics-dashboards.md) visualize the results of a query in the portal.  Management solutions will typically include views that analyze the data from the solution.  You can also create your own custom views to analyze data and make it readily available in your custom portal.
 - **Export.**  You have the option to export the results of any query so that you can analyze it outside of Log Analytics.  You can even schedule a regular export to [Power BI](../log-analytics/log-analytics-powerbi.md) which provides significant visualization and analysis capabilities.
@@ -109,7 +111,7 @@ Runbooks can be [started through a number of methods](../automation/automation-s
 - **Log Analytics Alert.**  An alert in Log Analytics can automatically start a runbook to attempt to correct the issue identified by the alert.
 
 #### Configuration Management
-PowerShell Desired State Configuration (DSC) is a management platform in Windows PowerShell that allows you to deploy and enforce the configuration of physical and virtual machines.  Azure Automation manages DSC configurations and provides a pull server in the cloud that agents can access to retrieve required configurations.
+[PowerShell Desired State Configuration (DSC)](automation-dsc-overview.md) is a management platform in Windows PowerShell that allows you to deploy and enforce the configuration of physical and virtual machines.  Azure Automation manages DSC configurations and provides a pull server in the cloud that agents can access to retrieve required configurations.
 
 ![Azure Automation DSC](media/operations-management-suite-overview/overview-dsc.png)
 
@@ -119,13 +121,15 @@ Azure Backup and Azure Site Recovery contribute to business continuity and disas
 #### Azure Backup
 Azure Backup provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
 
+Azure can further protect your data by copying it to multiple replicas within the same region or even across regions for further resiliency.
+
 Azure Backup has three fundamental scenarios.
 
-- **Windows machine with Azure Backup agent.** This allows you to backup files and folders from any Windows server or client directly to your Azure backup vault.
-- **System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server.** This allows you to leverage DPM or Microsoft Azure Backup Server to backup files and folders in addition to application workloads such as SQL and SharePoint to local storage and then replicate to your Azure backup vault.
-- **Azure Virtual Machine Extensions.** This allows you to backup Azure virtual machines to your Azure backup vault.
+- **Windows machine with Azure Backup agent.** Backup files and folders from any Windows server or client directly to your Azure backup vault.<br><br>![Windows machine with Azure Backup agent](media/operations-management-suite-overview/overview-backup-01.png)
+- **System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server.** Leverage DPM or Microsoft Azure Backup Server to backup files and folders in addition to application workloads such as SQL and SharePoint to local storage and then replicate to your Azure backup vault. Supports Windows and Linux virtual machines on Hyper-V or VMware.<br><br>![System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server](media/operations-management-suite-overview/overview-backup-02.png)
+- **Azure Virtual Machine Extensions.** Backup Windows or Linux virtual machines in Azure to your Azure backup vault.<br><br>![Azure Virtual Machine Extensions](media/operations-management-suite-overview/overview-backup-03.png)
 
-![Azure Backup](media/operations-management-suite-overview/overview-backup.png)
+
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further redundancy .
 
@@ -136,11 +140,10 @@ Azure Site Recovery provides high availability for servers and applications.  It
 
 Azure Site Recovery has three fundamental replication scenarios.
 
-- **Replication of Hyper-V virtual machines.**  If Hyper-V virtual machines are managed in VMM clouds, you can replicate to a secondary data center or to Azure storage. Replication to Azure is over a secure internet connection. Replication to a secondary datacenter is over the LAN.  If Hyper-V virtual machines aren’t managed by VMM, you can replicate to Azure storage only. Replication to Azure is over a secure internet connection.
-- **Replication of VMWare virtual machines.**  You can replicate VMware virtual machines to a secondary datacenter running VMware or to Azure storage. Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel.
-- **Replication of physical Windows and Linux servers.**  You can replicate physical servers to a secondary datacenter or to Azure storage. Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel. Azure Site Recovery has an OMS solution that displays some statistics, but you must use the Azure portal for any operations.
+- **Replication of Hyper-V virtual machines.**  If Hyper-V virtual machines are managed in VMM clouds, you can replicate to a secondary data center or to Azure storage. Replication to Azure is over a secure internet connection. Replication to a secondary datacenter is over the LAN.  If Hyper-V virtual machines aren’t managed by VMM, you can replicate to Azure storage only. Replication to Azure is over a secure internet connection.<br><br>![Replication of Hyper-V virtual machines](media/operations-management-suite-overview/overview-siterecovery-hyperv.png)
+- **Replication of VMware virtual machines.**  You can replicate VMware virtual machines to a secondary datacenter running VMware or to Azure storage. Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel.<br><br>![Replication of VMware virtual machines](media/operations-management-suite-overview/overview-siterecovery-vmware.png)
+- **Replication of physical Windows and Linux servers.**  You can replicate physical servers to a secondary datacenter or to Azure storage. Replication to Azure can occur over a site-to-site VPN or Azure ExpressRoute or over a secure Internet connection. Replication to a secondary datacenter occurs over the InMage Scout data channel. Azure Site Recovery has an OMS solution that displays some statistics, but you must use the Azure portal for any operations.<br><br>![Replication of physical Windows and Linux servers](media/operations-management-suite-overview/overview-siterecovery-physical.png)
 
-![Azure Site Recovery](media/operations-management-suite-overview/overview-site-recovery.png)
 
 Site Recovery stores metadata in vaults located in a particular geographic Azure region. No replicated data is stored by the Site Recovery service .
 
