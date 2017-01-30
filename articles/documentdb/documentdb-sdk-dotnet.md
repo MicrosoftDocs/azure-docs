@@ -1,5 +1,5 @@
 ---
-title: DocumentDB .NET API & SDK | Microsoft Docs
+title: .NET API & SDK Resources - Azure DocumentDB | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 01/27/2017
 ms.author: rnagpal
 
 ---
@@ -48,7 +48,7 @@ ms.author: rnagpal
 
 ## Release Notes
 
-### <a name="1.11.2"/>[1.11.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.2)
+### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
 * Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
 * Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
@@ -167,9 +167,9 @@ ms.author: rnagpal
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
     
-        **NB: Possible breaking change** 
+    **NB: Possible breaking change** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
@@ -191,7 +191,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.11.2](#1.11.2) |January 18, 2017 |--- |
+| [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |
@@ -199,8 +199,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.9.4](#1.9.4) |August 24, 2016 |--- |
 | [1.9.3](#1.9.3) |August 15, 2016 |--- |
 | [1.9.2](#1.9.2) |July 23, 2016 |--- |
-| 1.9.1 |Deprecated |--- |
-| 1.9.0 |Deprecated |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |
 | [1.7.1](#1.7.1) |May 06, 2016 |--- |
 | [1.7.0](#1.7.0) |April 26, 2016 |--- |

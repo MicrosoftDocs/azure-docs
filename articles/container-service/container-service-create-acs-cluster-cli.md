@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Container Service cluster with CLI | Microsoft Docs
+title: Deploy a Docker container cluster - Azure CLI | Microsoft Docs
 description: Deploy an Azure Container Service cluster using Azure CLI 2.0 Preview
 services: container-service
 documentationcenter: ''
@@ -12,7 +12,7 @@ keywords: ''
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016

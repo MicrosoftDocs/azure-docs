@@ -1,5 +1,5 @@
 ---
-title: Deploy the blink application to your Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Deploy app | Microsoft Docs'
 description: Clone the sample C application from GitHub, and run gulp to deploy this application to your Intel Edison board. This sample application blinks the LED connected to the board every two seconds.
 services: iot-hub
 documentationcenter: ''

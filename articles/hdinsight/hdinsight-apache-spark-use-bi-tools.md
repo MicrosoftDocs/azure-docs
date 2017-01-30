@@ -1,5 +1,5 @@
 ---
-title: Use BI tools with Apache Spark on HDInsight | Microsoft Docs
+title: Use BI tools with Apache Spark on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as Hive tables, and then use BI tools on the Hive table for data analytics
 services: hdinsight
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 01/06/2017
 ms.author: nitinme
 
 ---
-# Use BI tools with Apache Spark cluster on HDInsight
+# Use BI tools with Apache Spark cluster on Azure HDInsight
 
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 

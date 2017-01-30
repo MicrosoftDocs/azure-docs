@@ -1,5 +1,5 @@
 ---
-title: An overview of Apache Spark in HDInsight | Microsoft Docs
+title: An overview of Apache Spark on Azure HDInsight | Microsoft Docs
 description: An introduction to Apache Spark in HDInsight and scenarios in which to use Spark on HDInsight in your applications.
 services: hdinsight
 documentationcenter: ''
