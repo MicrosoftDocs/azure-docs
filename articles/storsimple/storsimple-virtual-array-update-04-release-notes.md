@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/20/2017
+ms.date: 01/30/2017
 ms.author: alkohli
 
 ---
@@ -34,13 +34,13 @@ Update 0.4 corresponds to the software version **10.0.10289.0**.
 ## What's new in the Update 0.4
 Update 0.4 is primarily a bug-fix build coupled with a few enhancements. In this version, several bugs resulting in backup failures in the previous version have been addressed. The main enhancements and bug-fixes are as follows:
 
-- Backup performance enhancements - This release has made several key enhancements to improve the backup performance. As a result, the backups that involve a large number of files will see a significant reduction in the time to complete, for full and incremental backups. 
+- **Backup performance enhancements** - This release has made several key enhancements to improve the backup performance. As a result, the backups that involve a large number of files will see a significant reduction in the time to complete, for full and incremental backups. 
 
-- Improvements to Support package - The improvements include logging in the statistics for disk, CPU, memory, network, and cloud into the Support package thereby improving the process of diagnosing/debugging device issues.
+- **Improvements to Support package** - The improvements include logging in the statistics for disk, CPU, memory, network, and cloud into the Support package thereby improving the process of diagnosing/debugging device issues.
 
-- Limit locally pinned iSCSI volumes to 200 GB - For locally pinned volumes, we recommend that you limit to a 200 GB iSCSI volume on your StorSimple Virtual Array. The local reservation for tiered volumes continues to be 10 % of the provisioned volume size but is capped at 200 GB. 
+- **Limit locally pinned iSCSI volumes to 200 GB** - For locally pinned volumes, we recommend that you limit to a 200 GB iSCSI volume on your StorSimple Virtual Array. The local reservation for tiered volumes continues to be 10 % of the provisioned volume size but is capped at 200 GB. 
 
-- Backup-related bug fixes - In previous versions of software, there were issues related to backups that would cause backup failures. These bugs have been addressed in this release.
+- **Backup-related bug fixes** - In previous versions of software, there were issues related to backups that would cause backup failures. These bugs have been addressed in this release.
 
 
 ## Issues fixed in the Update 0.4
