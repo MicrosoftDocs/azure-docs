@@ -36,7 +36,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Web Apps Video Library</h3>
+                        <h3>Network Watcher video library</h3>
                     </div>
                 </div>
             </div>
