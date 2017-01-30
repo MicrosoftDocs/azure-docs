@@ -2,6 +2,8 @@
 ## [What is ExpressRoute?](expressroute-introduction.md)
 ## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Locations and partners](expressroute-locations.md)
+### [Providers by location](expressroute-locations-providers.md)
+### [Locations by provider](expressroute-locations.md)
 
 # Get Started
 ## [Circuits and routing domains](expressroute-circuit-peerings.md)
@@ -16,21 +18,23 @@
 
 # How To
 ## Create and modify a circuit
-### [Create and modify a circuit using the Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [Create and modify a circuit using PowerShell](expressroute-howto-circuit-arm.md)
-### [Create and modify a circuit using PowerShell (Classic)](expressroute-howto-circuit-classic.md)
+### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-circuit-arm.md)
+### [PowerShell (Classic)](expressroute-howto-circuit-classic.md)
 ## Create and modify routing configuration
-### [Create and modify routing configuration using the Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-### [Create and modify routing configuration using PowerShell](expressroute-howto-routing-arm.md)
-### [Create and modify routing configuration using PowerShell (Classic)](expressroute-howto-routing-classic.md)
+### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-routing-arm.md)
+### [PowerShell (Classic)](expressroute-howto-routing-classic.md)
 ## Link a virtual network to an ExpressRoute circuit
-### [Link a virtual network to an ExpressRoute circuit using the Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [Link a virtual network to an ExpressRoute circuit using PowerShell](expressroute-howto-linkvnet-arm.md)
-### [Link a virtual network to an ExpressRoute circuit using PowerShell (Classic)](expressroute-howto-linkvnet-classic.md)
+### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [PowerShell (Classic)](expressroute-howto-linkvnet-classic.md)
 ## Configure a virtual network gateway for ExpressRoute
-### [Configure a virtual network gateway for ExpressRoute using PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-### [Configure a virtual network gateway for ExpressRoute using PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
-## [Create Site-to-Site and ExpressRoute coexisting connections](expressroute-howto-coexist-classic.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [PowerShell (Classic)](expressroute-howto-add-gateway-classic.md)
+## Create Site-to-Site VPN Gateway and ExpressRoute coexisting connections
+### [PowerShell](expressroute-howto-coexist-resource-manager.md)
+### [PowerShell (Classic)](expressroute-howto-coexist-classic.md)
 ## [Migrate a circuit from classic to Resource Manager](expressroute-howto-move-arm.md)
 ## Configure a router for ExpressRoute
 ### [Router configuration setup samples](expressroute-config-samples-routing.md)
@@ -41,13 +45,13 @@
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
 
 ## Troubleshoot
+### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [REST (resource manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # Related
@@ -63,7 +67,7 @@
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Subscription and Service Limits](../azure-subscription-service-limits.md)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Create an ExpressRoute circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [How to set up Private Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Set up Public Peering for your circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
@@ -73,4 +77,4 @@
 ### [Connect a virtual network gateway to a circuit](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Evolve your network infrastructure for connectivity](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Hybrid partnerships: Enabling on-premises scenarios](https://go.microsoft.com/fwlink/p/?LinkId=615125)
-## [Service updates](https://azure.microsoft.com/updates/?product=expressroute) 
+## [Service updates](https://azure.microsoft.com/updates/?product=expressroute)

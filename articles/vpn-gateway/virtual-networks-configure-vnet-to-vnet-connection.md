@@ -1,10 +1,10 @@
-﻿---
-title: Configure a VNet-to-VNet connection for the classic deployment model| Microsoft Docs
+---
+title: 'Connect an Azure virtual network to another VNet: Classic | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure classic portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -57,7 +57,7 @@ You may want to connect virtual networks for the following reasons:
   * If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
   * For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
 
-### VNet-to-VNet FAQ for classic VNets
+### VNet-to-VNet considerations for classic VNets
 * The virtual networks can be in the same or different subscriptions.
 * The virtual networks can be in the same or different Azure regions (locations).
 * A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
@@ -136,12 +136,14 @@ Use the steps above to create the local network site "VNet2Local". You can refer
 ### Configure each VNet to point to a local network
 Each VNet must point to the respective local network that you want to route traffic to. 
 
-#### For VNet1
+**For VNet1**
+
 1. Navigate to the **Configure** page for virtual network **VNet1**. 
 2. Under site-to-site connectivity, select "Connect to the local network", and then select **VNet2Local** as the local network from the dropdown. 
 3. Save your settings.
 
-#### For VNet2
+**For VNet2**
+
 1. Navigate to the **Configure** page for virtual network **VNet2**. 
 2. Under site-to-site connectivity, select "Connect to the local network", then select **VNet1Local** from the dropdown as the local network. 
 3. Save your settings.
@@ -164,7 +166,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 2. On the **Specify the address space** page, click the checkmark on the lower right without making any changes.
 
 ## Step 7 - Create the VPN connection
-When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
+When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
 1. Open Windows PowerShell and log in.
    
@@ -183,15 +185,12 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 
         Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-1. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
+4. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
    
     ![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
    
-    [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Next steps
-You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more information.
-
-[1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
-[2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) for more information.
 

@@ -1,9 +1,25 @@
 ---
 layout: LandingPage
----
-#Windows Virtual Machines Documentation
+description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
 
-Azure Virtual Machines (VM) is one of several types of on-demand scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. And, you keep control of configuration, patching, and installing the software that runs on the VM.
+title: Azure Virtual Machines for Windows Documentation, Tutorials and API Reference | Microsoft Docs
+services: virtual-machines
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.assetid: 
+ms.service: virtual-machines
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+
+---
+# Windows Virtual Machines Documentation
+
+Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -99,36 +115,49 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
 </ul>
 
 ---
+ 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-##Reference
 
-###PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###Azure CLI
-[Install the Azure CLI](/cli/azure/install-az-cli2)
-
-###.NET
-[Managed Reference API](/dotnet/api/)
-
-###Java SDK
-[Java API Reference](/java/api/)
-
-###Rest (Compute)
-[Compute REST API Reference](/rest/api/compute)
-
-###REST (Network)
-[Network REST API Reference for Network](https://msdn.microsoft.com/library/mt163658)
-
-###REST (Storage)
-[Storage REST API Reference](/rest/api/storage)
-
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Windows Virtual Machine Documentation
-        </div>
-    </a>
-</div>

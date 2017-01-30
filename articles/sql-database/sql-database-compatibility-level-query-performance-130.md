@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compatibility level, how to assess | Microsoft Docs
 description: Steps and tools for determining which compatibility level is best for your database on Azure SQL Database or Microsoft SQL Server
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 8619f90b-7516-46dc-9885-98429add0053
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.workload: data-management
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -170,7 +171,7 @@ ALTER DATABASE MyTestDB
     SET COMPATIBILITY_LEVEL = 130;
 GO 
 
-– The scan and aggregate are in batch mode,
+-- The scan and aggregate are in batch mode,
 -- and force MAXDOP to 1 to show that batch mode
 -- also now works in serial mode.
 

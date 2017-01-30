@@ -1,6 +1,6 @@
-﻿---
-title: Manage reverse DNS records for your Azure (classic) services using PowerShell | Microsoft Docs
-description: 'How to manage reverse DNS records or PTR records for Azure services using PowerShell in the classic deployment model. '
+---
+title: Reverse DNS records for your classic Azure services using PowerShell | Microsoft Docs
+description: Azure DNS allows you to manage reverse DNS records or PTR records for Azure services using PowerShell in the classic deployment model.
 services: DNS
 documentationcenter: na
 author: s-malone
@@ -26,8 +26,8 @@ ms.author: smalone
 [!INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](dns-reverse-dns-record-operations-ps.md).
 
 ## Validation of reverse DNS records
 To ensure a third party can’t create reverse DNS records mapping to your DNS domains, Azure only allows the creation of a reverse DNS record where one of the following is true:

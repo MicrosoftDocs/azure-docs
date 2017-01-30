@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure Stack storage accounts  | Microsoft Docs
 description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2016
+ms.date: 12/2/2016
 ms.author: anirudha
 
 ---
@@ -158,12 +158,11 @@ retention period and immediately reclaim capacity. To do so –
    Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Run this cmdlet:
    
-   ```
-   PS C:\\>; Clear-ACSStorageAccount -ResourceGroupName system
-   -FarmName <your farmname>
-   ```
+    ```PowerShell
+    Clear-ACSStorageAccount -ResourceGroupName system -FarmName <your farmname>
+    ```
 
-> For more details, please refer to [AzureStack powershell documentation](https://msdn.microsoft.com/library/mt637964.aspx)
+For more details, please refer to [AzureStack powershell documentation](https://msdn.microsoft.com/library/mt637964.aspx)
 > 
 > [!NOTE]
 > Running this cmdlet will permanently delete the account and its

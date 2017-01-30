@@ -1,6 +1,6 @@
-﻿---
-title: Archive an Azure SQL database to a BACPAC file by using PowerShell
-description: Archive an Azure SQL database to a BACPAC file by using PowerShell
+---
+title: 'PowerShell: Export an Azure SQL database to a BACPAC file | Microsoft Docs'
+description: Export an Azure SQL database to a BACPAC file by using PowerShell
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 9439dd83-812f-4688-97ea-2a89a864d1f3
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 08/15/2016
 ms.author: sstein
@@ -17,7 +18,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
-# Archive an Azure SQL database to a BACPAC file by using PowerShell
+# Export an Azure SQL database to a BACPAC file by using PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
@@ -25,7 +26,7 @@ ms.tgt_pltfrm: NA
 > * [PowerShell](sql-database-export-powershell.md)
 > 
 
-This article provides directions for archiving your Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored in Azure Blob storage) using PowerShell.
+This article provides directions for exporting your Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored in Azure Blob storage) using PowerShell.
 
 When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of .bacpac. A BACPAC file can later be stored in Azure Blob storage or in local storage in an on-premises location. It can also be imported back into Azure SQL Database or into a SQL Server installation on-premises.
 
@@ -60,13 +61,13 @@ The [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt70
 > 
 > 
 
-     $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+     $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 
 
 ## Monitor the progress of the export operation
-After running [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx), you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status : Succeeded** the export is complete.
+After running [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx), you can check the status of the request by running [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). Running this immediately after the request usually returns **Status : InProgress**. When you see **Status: Succeeded** the export is complete.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -90,8 +91,8 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
     $ServerName = "SERVER-NAME"
     $serverAdmin = "ADMIN-NAME"
     $serverPassword = "ADMIN-PASSWORD" 
-    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-    $creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    $securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+    $creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
     # Generate a unique filename for the BACPAC
     $bacpacFilename = $DatabaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
@@ -102,9 +103,9 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
     $StorageKeytype = "StorageAccessKey"
     $StorageKey = "YOUR STORAGE KEY"
 
-    $exportRequest = New-AzureRmSqlDatabaseExport –ResourceGroupName $ResourceGroupName –ServerName $ServerName `
-       –DatabaseName $DatabaseName –StorageKeytype $StorageKeytype –StorageKey $StorageKey -StorageUri $BacpacUri `
-       –AdministratorLogin $creds.UserName –AdministratorLoginPassword $creds.Password
+    $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
+       -DatabaseName $DatabaseName -StorageKeytype $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri `
+       -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
     $exportRequest
 
     # Check status of the export
@@ -112,7 +113,8 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
 
 ## Automate export using Azure Automation
 
-You can use Azure automation to archive SQL databases periodically according to a schedule of your choice. You can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). Please see [Azure Automation Overview](../automation/automation-intro.md) for more details about Azure Automation.
+Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1, 2017. After December 1, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+
 
 ## Next steps
 * To learn how to import an Azure SQL database by using Powershell, see [Import a BACPAC using PowerShell](sql-database-import-powershell.md).

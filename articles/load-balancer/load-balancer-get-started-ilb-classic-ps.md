@@ -1,10 +1,10 @@
-﻿---
-title: Create an internal load balancer using PowerShell in the classic deployment model | Microsoft Docs
+---
+title: Create an Azure Internal load balancer - PowerShell classic | Microsoft Docs
 description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
-ms.author: sewhee
+ms.date: 01/23/2017
+ms.author: kumud
 ---
 
 # Get started creating an internal load balancer (classic) using PowerShell
@@ -28,7 +28,7 @@ ms.author: sewhee
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -47,12 +47,12 @@ To create an internal load balancer set and the servers that will send their tra
 For an existing cloud service or a cloud service deployed under a regional virtual network, you can create an Internal Load Balancing instance with the following Windows PowerShell commands:
 
 ```powershell
-    $svc="<Cloud Service Name>"
-    $ilb="<Name of your ILB instance>"
-    $subnet="<Name of the subnet within your virtual network>"
-    $IP="<The IPv4 address to use on the subnet-optional>"
+$svc="<Cloud Service Name>"
+$ilb="<Name of your ILB instance>"
+$subnet="<Name of the subnet within your virtual network>"
+$IP="<The IPv4 address to use on the subnet-optional>"
 
-    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
+Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 ```
 
 Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
@@ -62,15 +62,15 @@ Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library
 Here is an example:
 
 ```powershell
-    $svc="mytestcloud"
-    $vmname="DB1"
-    $epname="TCP-1433-1433"
-    $lbsetname="lbset"
-    $prot="tcp"
-    $locport=1433
-    $pubport=1433
-    $ilb="ilbset"
-    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+$svc="mytestcloud"
+$vmname="DB1"
+$epname="TCP-1433-1433"
+$lbsetname="lbset"
+$prot="tcp"
+$locport=1433
+$pubport=1433
+$ilb="ilbset"
+Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
 ### Step 3: Configure your servers to send their traffic to the new Internal Load Balancing endpoint
@@ -80,15 +80,15 @@ You have to  configure the servers whose traffic is going to be load balanced to
 If you specified the IP address during the creation of the Internal Load Balancing instance, you already have the VIP. Otherwise, you can see the VIP from the following commands:
 
 ```powershell
-    $svc="<Cloud Service Name>"
-    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+$svc="<Cloud Service Name>"
+Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
 To use these commands, fill in the values and remove the < and >. Here is an example:
 
 ```powershell
-    $svc="mytestcloud"
-    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+$svc="mytestcloud"
+Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
 From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.
@@ -116,20 +116,20 @@ The configuration consists of the following:
 The following commands configure a new Internal Load Balancing instance named **ILBset** and add endpoints to the virtual machines corresponding to the two database servers:
 
 ```powershell
-    $svc="mytestcloud"
-    $ilb="ilbset"
-    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
-    $prot="tcp"
-    $locport=1433
-    $pubport=1433
-    $epname="TCP-1433-1433"
-    $lbsetname="lbset"
-    $vmname="DB1"
-    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+$svc="mytestcloud"
+$ilb="ilbset"
+Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
+$prot="tcp"
+$locport=1433
+$pubport=1433
+$epname="TCP-1433-1433"
+$lbsetname="lbset"
+$vmname="DB1"
+Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-    $epname="TCP-1433-1433-2"
-    $vmname="DB2"
-    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+$epname="TCP-1433-1433-2"
+$vmname="DB2"
+Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
 ## Remove an Internal Load Balancing configuration
@@ -137,10 +137,10 @@ The following commands configure a new Internal Load Balancing instance named **
 To remove a virtual machine as an endpoint from an internal load balancer instance, use the following commands:
 
 ```powershell
-    $svc="<Cloud service name>"
-    $vmname="<Name of the VM>"
-    $epname="<Name of the endpoint>"
-    Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+$svc="<Cloud service name>"
+$vmname="<Name of the VM>"
+$epname="<Name of the endpoint>"
+Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
 To use these commands, fill in the values, removing the < and >.
@@ -148,17 +148,17 @@ To use these commands, fill in the values, removing the < and >.
 Here is an example:
 
 ```powershell
-    $svc="mytestcloud"
-    $vmname="DB1"
-    $epname="TCP-1433-1433"
-    Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+$svc="mytestcloud"
+$vmname="DB1"
+$epname="TCP-1433-1433"
+Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 ```
 
 To remove an internal load balancer instance from a cloud service, use the following commands:
 
 ```powershell
-    $svc="<Cloud service name>"
-    Remove-AzureInternalLoadBalancer -ServiceName $svc
+$svc="<Cloud service name>"
+Remove-AzureInternalLoadBalancer -ServiceName $svc
 ```
 
 To use these commands, fill in the value and remove the < and >.
@@ -166,8 +166,8 @@ To use these commands, fill in the value and remove the < and >.
 Here is an example:
 
 ```powershell
-    $svc="mytestcloud"
-    Remove-AzureInternalLoadBalancer -ServiceName $svc
+$svc="mytestcloud"
+Remove-AzureInternalLoadBalancer -ServiceName $svc
 ```
 
 ## Additional information about internal load balancer cmdlets
@@ -175,10 +175,10 @@ Here is an example:
 To obtain additional information about Internal Load Balancing cmdlets, run the following commands at a Windows PowerShell prompt:
 
 ```powershell
-    Get-Help New-AzureInternalLoadBalancerConfig -full
-    Get-Help Add-AzureInternalLoadBalancer -full
-    Get-Help Get-AzureInternalLoadbalancer -full
-    Get-Help Remove-AzureInternalLoadBalancer -full
+Get-Help New-AzureInternalLoadBalancerConfig -full
+Get-Help Add-AzureInternalLoadBalancer -full
+Get-Help Get-AzureInternalLoadbalancer -full
+Get-Help Remove-AzureInternalLoadBalancer -full
 ```
 
 ## Next steps

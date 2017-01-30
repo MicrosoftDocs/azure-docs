@@ -4,7 +4,7 @@ description: Describes How to Create a Support Ticket for Azure Billing and Subs
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 11/29/2016
 ms.author: genli
 
 ---
@@ -22,11 +22,11 @@ ms.author: genli
 This article provides the information you will need to open a ticket with Azure Support.
 
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support**>**New support request**.
-   
+
     ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 2. In the **Basics** blade, choose the issue type, subscription and support plan.
 3. In the **Problem** blade, provide the following information:
-   
+
    * **Severity**. Choose an option that represents the severity of your request. For more information about the severity types, see to the [Microsoft Azure Incident Severity Table](http://support.microsoft.com/gp/AzureSevDetails).
    * **Problem type**. Choose a problem type.
    * **Details**. Provide an incident title for your request and then use the text boxes provide required information and to include any additional information about your request.
@@ -40,9 +40,8 @@ You can also submit an support request from the Azure Support web site or from t
 
 * To submit a support ticket from the [Azure Support web site](https://azure.microsoft.com/support/options/), click **Get support**.
 * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
-  
+
   > [!NOTE]
   > Only the Azure account administrator has permission to access the Account Center. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
-  > 
-  > 
-
+  >
+  >

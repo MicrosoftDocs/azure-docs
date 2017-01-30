@@ -1,14 +1,14 @@
 ---
 title: Service Bus REST tutorial using relayed messaging | Microsoft Docs
 description: Build a simple Service Bus relay host application that exposes a REST-based interface.
-services: service-bus
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

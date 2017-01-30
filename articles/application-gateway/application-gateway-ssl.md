@@ -1,10 +1,10 @@
 ---
-title: Configure an application gateway for SSL offload by using classic deployment| Microsoft Docs
+title: Configure SSL offload - Azure Application Gateway - PowerShell classic | Microsoft Docs
 description: This article provides instructions to create an application gateway with SSL offload by using the Azure classic deployment model.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
 # Configure an application gateway for SSL offload by using the classic deployment model
+
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
 ## Before you begin
+
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
 3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
@@ -42,6 +42,7 @@ To configure SSL offload on an application gateway, do the following steps in th
 6. [Verify the gateway status](#verify-the-gateway-status)
 
 ## Create an application gateway
+
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
 ```powershell
@@ -57,6 +58,7 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 ## Upload SSL certificates
+
 Use `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in *pfx* format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
 
 This following sample shows the cmdlet, replace the values in the sample with your own.
@@ -85,10 +87,9 @@ State..........: Provisioned
 
 > [!NOTE]
 > The certificate password has to be between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
-> 
-> 
 
 ## Configure the gateway
+
 An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
 
 The values are:
@@ -158,6 +159,7 @@ To construct your configuration by using a configuration XML file, use the follo
 ```
 
 ## Set the gateway configuration
+
 Next, you set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with either a configuration object or with a configuration XML file.
 
 ```powershell
@@ -165,6 +167,7 @@ Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
 ## Start the gateway
+
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
 
 > [!NOTE]
@@ -177,6 +180,7 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## Verify the gateway status
+
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of the gateway. If `Start-AzureApplicationGateway` succeeded in the previous step, *State* should be Running, and *VirtualIPs* and *DnsName* should have valid entries.
 
 This sample shows an application gateway that is up, running, and is ready to take traffic.
@@ -198,6 +202,7 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 ```
 
 ## Next steps
+
 If you want more information about load balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)

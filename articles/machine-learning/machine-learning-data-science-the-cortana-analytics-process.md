@@ -12,9 +12,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2016
+ms.topic: deprecated
+ms.date: 01/18/2017
 ms.author: bradsev
+
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: data-science-process-overview
 
 ---
 # What is the Team Data Science Process (TDSP)?

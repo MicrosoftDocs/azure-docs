@@ -9,9 +9,12 @@
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
+      - name: Connect Health
+        tocHref: /azure/active-directory/connect-health/
+        topicHref: /azure/active-directory/connect-health/
       - name: Develop
         tocHref: /azure/active-directory/develop/
-        topicHref: azure/active-directory/develop/
+        topicHref: /azure/active-directory/develop/
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -30,18 +33,22 @@
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: API Apps
-    tocHref: /azure/app-service-api/
-    topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+    items:
+    - name: Web Apps
+      tocHref: /azure/app-service-web/
+      topicHref: /azure/app-service-web/app-service-web-overview
+    - name: Mobile Apps
+      tocHref: /azure/app-service-mobile/
+      topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
+    - name: API Apps
+      tocHref: /azure/app-service-api/
+      topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+  - name: Advisor
+    tocHref: /azure/advisor/
+    topicHref: /azure/advisor/advisor-overview
   - name: Logic Apps
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
-  - name: App Service Mobile
-    tocHref: /azure/app-service-mobile/
-    topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
-  - name: App Service Web
-    tocHref: /azure/app-service-web/
-    topicHref: /azure/app-service-web/app-service-web-overview
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
@@ -51,12 +58,15 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
+  - name: Container Registry
+    tocHref: /azure/container-registry/
+    topicHref: /azure/container-registry/container-registry-intro
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
   - name: Government
     tocHref: /azure/azure-government/
-    topicHref: /azure/azure-government/documentation-government-overview
+    topicHref: /azure/azure-government-overview
   - name: Portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/azure-portal-overview

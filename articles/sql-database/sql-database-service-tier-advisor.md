@@ -1,4 +1,4 @@
-﻿---
+---
 title: Pricing tier recommendations for Azure SQL Database
 description: When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload. Pricing tiers describe the service tier and performance level of a SQL database.
 services: sql-database
@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: 265beec9-7478-4abd-9ab5-4094e2e75fe4
 ms.service: sql-database
+ms.custom: v11
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -21,7 +22,7 @@ ms.author: sstein
  Pricing tier recommendations suggest the service tier and performance level that is best suited for running an existing Azure SQL database’s workload.
 
 > [!NOTE]
-> Pricing tier recommendations are only available for Web and Business databases and elastic database pools -- and only available in the [Azure portal](https://portal.azure.com/).
+> Pricing tier recommendations are only available for Web and Business databases and elastic pools -- and only available in the [Azure portal](https://portal.azure.com/).
 >
 >
 
@@ -30,7 +31,7 @@ Get pricing tier recommendations during the following tasks:
 * [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
 * [Upgrade Azure SQL server to V12](sql-database-upgrade-server-portal.md)
 * Browse to your V12 server. See [SQL Database pricing tier recommendations](sql-database-service-tier-advisor.md).
-* [Create an elastic database pool](sql-database-elastic-pool.md#which-databases-go-in-a-pool)
+* [Create an elastic pool](sql-database-elastic-pool.md#which-databases-go-in-a-pool)
 
 ## Overview
 The SQL Database service analyzes current performance and feature requirements by assessing historical resource usage for a SQL database. In addition, the minimum acceptable service tier is determined based on the size of the database, and enabled [business continuity](sql-database-business-continuity.md) features.

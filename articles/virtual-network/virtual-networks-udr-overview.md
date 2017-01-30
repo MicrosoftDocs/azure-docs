@@ -26,6 +26,7 @@ This flow of communication is possible because Azure uses a series of system rou
 * From a subnet to another within a VNet.
 * From VMs to the Internet.
 * From a VNet to another VNet through a VPN gateway.
+* From a VNet to another VNet through VNet Peering (Service Chaining).
 * From a VNet to your on-premises network through a VPN gateway.
 
 The figure below shows a simple setup with a VNet, two subnets, and a few VMs, along with the system routes that allow IP traffic to flow.

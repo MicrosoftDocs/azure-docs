@@ -3,9 +3,8 @@ title: Create custom DNS records for a web app | Microsoft Docs
 description: How to create custom domain DNS records for web app using Azure DNS.
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: georgewallace
+manager: timlt
 
 ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
@@ -14,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create DNS records for a web app in a custom domain
@@ -46,7 +45,7 @@ An A record is used to map a name to its IP address. In the following example we
 Create an A record and assign to a variable $rs
 
 ```powershell
-    $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
+$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
 ```
 
 ### Step 2
@@ -56,7 +55,7 @@ Add the IPv4 value to the previously created record set "@" using the $rs variab
 To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service-web/web-sites-custom-domain-name.md#vip).
 
 ```powershell
-    Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 ```
 
 ### Step 3
@@ -64,7 +63,7 @@ To find the IP address for a web app, follow the steps in [Configure a custom do
 Commit the changes to the record set. Use `Set-AzureRMDnsRecordSet` to upload the changes to the record set to Azure DNS:
 
 ```powershell
-    Set-AzureRMDnsRecordSet -RecordSet $rs
+Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
 ## 2. Create a CNAME record for your custom domain
@@ -109,7 +108,7 @@ Using the previously assigned variable "$rs" you can use the PowerShell command 
 Commit the changes using the `Set-AzureRMDnsRecordSet` cmdlet:
 
 ```powershell
-    Set-AzureRMDnsRecordSet -RecordSet $rs
+Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
 You can validate the record was created correctly by querying the "www.contoso.com" using nslookup, as shown below:
@@ -169,7 +168,7 @@ Once the record set "awverify" is created, assign the CNAME record set alias. In
 Commit the changes using the `Set-AzureRMDnsRecordSet cmdlet`, as shown in the command below.
 
 ```powershell
-    Set-AzureRMDnsRecordSet -RecordSet $rs
+Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
 ## Next steps

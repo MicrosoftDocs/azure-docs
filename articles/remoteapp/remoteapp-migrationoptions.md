@@ -1,4 +1,3 @@
-﻿
 ---
 title: Options for migrating out of Azure RemoteApp | Microsoft Docs
 description: Learn about the options for migrating out of Azure RemoteApp.
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
-ms.author: elizapo
+ms.date: 01/07/2017
+ms.author: mbaldwin
 
 ---
 # Options for migrating out of Azure RemoteApp
@@ -146,6 +145,59 @@ Azure RemoteApp migration solutions: Yes, [learn more](http://www.acuutech.com/a
   Suite 200, Houston, TX 77098
   
   Phone: +1 713 691 0800
+
+#### **SaaSplaza**
+[SaaSplaza](http://www.saasplaza.com/) offers complete Microsoft Dynamics portfolio (NAV, AX, GP, SL, CRM) private and public cloud (Azure).
+
+Primary location: Netherlands
+
+Operation Region: Worldwide
+
+Partner status: [Gold](https://partnercenter.microsoft.com/pcv/solution-providers/saasplaza_4295495801/791011_2?k=saasplaza)
+
+Microsoft Cloud Service Provider: Yes
+
+Offer session-based RemoteApp and Desktop solutions: Yes, both
+
+**Contact:**
+
+- EMEA:
+
+   Prins Mauritslaan 29-35
+
+   71 LP Badhoevedorp
+
+   The Netherlands
+
+   Phone: +31 20 547 8060 
+
+- Americas:
+
+   171 Saxony Road, Suite 105
+
+   Encinitas, CA 92024
+
+   San Diego
+
+   United States
+
+   Phone: +1 858 385 8900 
+
+- APAC:
+
+   105 Cecil Street
+   
+   \#11-08, The Octagon
+
+   Singapore 069534
+
+   Singapore
+   
+   Phone - Singapore: +65 6222 6591
+
+   Phone - Australia: +61 2 8310 5568 
+   
+   Phone - New Zealand: +64 4 488 0321
 
 ## Need more help?
 Still need help choosing or have further questions? Use one of the following methods to get help. 

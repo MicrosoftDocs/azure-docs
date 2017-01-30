@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to silently install the Azure AD Application Proxy Connector | Microsoft Docs
 description: Covers how to perform a silent installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
@@ -19,6 +19,12 @@ ms.author: kgremban
 ---
 # How to silently install the Azure AD Application Proxy Connector
 You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic explains how to create a Windows PowerShell script that enables unattended installation to install and register your Azure AD Application Proxy Connector.
+
+Use the command line to install the connector without using the UI when you want to: 
+* Install the connector on machines with no UI layer or when you cannot RDP to the machine. 
+* Install and register many connectors at once. 
+* Integrate the connector installation and registration as part of another procedure. 
+* Create a standard server image that contains the connector bits but is not registered. 
 
 ## Enabling Access
 Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this is entered during Connector installation in a pop up dialog box. Alternatively, you can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.

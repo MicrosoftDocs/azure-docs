@@ -23,6 +23,9 @@ Hive and Pig are great for working with data in Azure HDInsight, but sometimes y
 
 In this document, learn how to use C# with Hive and Pig.
 
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## Prerequisites
 * Windows 7 or newer.
 * Visual Studio with the following versions:
@@ -38,8 +41,7 @@ The .NET common language runtime (CLR) and frameworks are installed by default o
 
 > [!NOTE]
 > Currently there is no support for running .NET Framework UDFs on Linux-based HDInsight clusters.
->
->
+
 
 ## .NET and streaming
 Streaming involves Hive and Pig passing data to an external application over stdout, and receiving the results over stdin. For C# applications, this is most easily accomplished via `Console.ReadLine()` and `Console.WriteLine()`.
@@ -187,12 +189,10 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
     The `DEFINE` statement creates an alias of `streamer` for the pigudf.exe applications, and `SHIP` distributes it across the nodes in the cluster. Later, `streamer` is used with the `STREAM` operator to process the single lines contained in LOG and return the data as a series of columns.
 
-> [!NOTE]
-> The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and ' (single quote) when used with `SHIP`.
->
->
+    > [!NOTE]
+    > The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and ' (single quote) when used with `SHIP`.
 
-1. After entering the last line, the job should start. Eventually it will return output similar to the following:
+4. After entering the last line, the job should start. Eventually it will return output similar to the following:
 
         (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
         (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)

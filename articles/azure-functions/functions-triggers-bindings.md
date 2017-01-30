@@ -1,6 +1,6 @@
 ---
-title: Azure Functions triggers and bindings | Microsoft Docs
-description: Understand how to use triggers and bindings in Azure Functions.
+title: Work with triggers and bindings in Azure Functions | Microsoft Docs
+description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,16 +15,22 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 01/23/2017
 ms.author: chrande
 
 ---
-# Azure Functions triggers and bindings developer reference
-This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
 
-If you are looking for detailed information around configuring and coding a specific type of trigger or binding, you may want to click on one of the trigger or bindings listed below instead:
+# Learn how to work with triggers and bindings in Azure Functions 
+This topic shows you how to use triggers and bindings in Azure Functions to connect your code to a variety of triggers and Azure services and other cloud-based services. It features some of the advanced binding features and syntax supported by all binding types.  
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+For detailed information about working with a specific type of trigger or binding, see one of the following reference topics:
+
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Mobile Apps](functions-bindings-mobile-apps.md) | [Service Bus](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Storage Table](functions-bindings-storage-table.md) |  
+| [Event Hubs](functions-bindings-event-hubs.md) | [Notification Hubs](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
 
@@ -58,7 +64,7 @@ A queue trigger binding contains this information for an Azure function. Here is
 }
 ```
 
-Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this, you can setup an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
+Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To do this, you create an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
 
 ```json
 {
@@ -122,7 +128,7 @@ For more code examples and more specific information regarding Azure storage typ
 To use the more advanced binding features in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
 
 ## Random GUIDs
-Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax will write output to a new BLOB with a unique name in an Azure Storage container: 
+Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax writes output to a new BLOB with a unique name in a Storage container: 
 
 ```json
 {
@@ -179,7 +185,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-This same approach is demonstrated below with Node.js.
+This same approach is demonstrated with Node.js, as follows:
 
 ```javascript
 module.exports = function (context, input) {
@@ -189,7 +195,7 @@ module.exports = function (context, input) {
 }
 ```
 
-F# example provided below.
+The following is an F# example:
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -226,7 +232,7 @@ Instead of a static configuration setting for your output binding properties, yo
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -253,7 +259,7 @@ You might want to send the customer an SMS text message using your Twilio accoun
 },
 ```
 
-Now your function code only has to initialize the output parameter as follows. During execution the output properties will be bound to the desired input data.
+Now your function code only has to initialize the output parameter as follows. During execution, the output properties are bound to the desired input data.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -297,70 +303,92 @@ module.exports = function (context, myNewOrderItem) {
 }
 ```
 
-## Advanced binding with Binder
-Using `Binder`/ `IBinder` is an advanced binding technique that allows you to perform bindings imperatively in your code as opposed to declarative via the *function.json* metadata file. You might need to do this in cases where the computation of binding path or other inputs needs to happen at run-time in your function. Note that when using an `Binder` parameter, you **should not** include a corresponding entry in *function.json* for that parameter.
+## Advanced binding at runtime (imperative binding)
 
-In the below example, we're dynamically binding to a blob output. As you can see, because you're declaring the binding in code, your path info can be computed in any way you wish. Note that you can bind to any of the other raw binding attributes as well (e.g. QueueAttribute/EventHubAttribute/ServiceBusAttribute/etc.) You can also do so iteratively to bind multiple times.
+The standard input and output binding pattern using *function.json* is called [*declarative*](https://en.wikipedia.org/wiki/Declarative_programming) binding,
+where the binding is defined by the JSON declaration. However, you can use [imperative](https://en.wikipedia.org/wiki/Imperative_programming)
+binding. With this patttern, you can bind to any number of supported input and output binding on-the-fly in your function code.
+You might need imperative binding in cases where the computation of binding path or other inputs needs to happen at run time in your function
+instead of design time. 
 
-Note that the type parameter passed to `BindAsyn`c (in this case TextWriter) must be a type that the target binding supports.
+Define an imperative binding as follows:
 
-Bindings in function.json:
+- **Do not** include an entry in *function.json* for your desired imperative bindings.
+- Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 
+or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
+- Use the following C# pattern to perform the data binding.
 
-```json
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 {
-  "bindings": [
-    {
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "res",
-      "type": "http",
-      "direction": "out"
-    }
-  ]
+    ...
 }
 ```
 
-C# function code:
+where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
+supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
+Mobile Apps table output binding supports 
+[six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
+but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 
+or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
+	
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#storage-blob-output-binding)
+with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
-using System;
-using System.Net;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Binder binder, TraceWriter log)
+public static async Task Run(string input, Binder binder)
 {
-    log.Verbose($"C# HTTP function processed RequestUri={req.RequestUri}");
-
-    // determine the path at runtime in any way you choose
-    string path = "samples-output/path";
-
-    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute(path)))
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
     {
         writer.Write("Hello World!!");
     }
-
-    return new HttpResponseMessage(HttpStatusCode.OK); 
 }
 ```
 
-There are bind overloads that take an array of attributes. In cases where you need to control the target storage account, you pass in a collection of attributes, starting with the binding type attribute (e.g. `BlobAttribute`) and inlcuding a `StorageAccountAttribute` instance pointing to the account to use. For example:
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
+defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and 
+[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
+As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a 
+custom app setting to use by adding the 
+[StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+and passing the attribute array into `BindAsync<T>()`. For example,
 
 ```cs
-var attributes = new Attribute[]
-{
-    new BlobAttribute(path),
-    new StorageAccountAttribute("MyStorageAccount")
-};
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
 
-using (var writer = await binder.BindAsync<TextWriter>(attributes))
+public static async Task Run(string input, Binder binder)
 {
-    writer.Write("Hello World!");
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
 }
 ```
+
+The following table shows you the corresponding .NET attribute to use for each binding type and which package to reference.
+
+> [!div class="mx-codeBreakAll"]
+| Binding | Attribute | Add reference |
+|------|------|------|
+| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
+| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
+| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
+| Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
+| Storage queue | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Storage blob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Storage table | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Schedules in Azure Automation | Microsoft Docs
 description: Automation schedules are used to schedule runbooks in Azure Automation to start automatically. Describes how to create and manage a schedule in so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: mgoedtel
+ms.author: magoedte
 
 ---
 # Scheduling a runbook in Azure Automation
@@ -26,7 +26,7 @@ To schedule a runbook in Azure Automation to start at a specified time, you link
 > 
 
 ## Windows PowerShell Cmdlets
-The cmdlets in the following table are used to create and manage schedules with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md).
+The cmdlets in the following table are used to create and manage schedules with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs).
 
 | Cmdlets | Description |
 |:--- |:--- |

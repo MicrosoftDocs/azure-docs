@@ -12,7 +12,7 @@
 ## [Manage AD licensing](active-directory-licensing-what-is.md)
 ## [Get Azure for your organization](sign-up-organization.md)
 ## [FAQs](active-directory-faq.md)
-
+## [SaaS app tutorials](active-directory-saas-tutorial-list.md)
 
 # How to
 ## Manage users
@@ -66,7 +66,6 @@
 
 #### [Audit events](active-directory-reporting-audit-events.md)
 #### [Retention](active-directory-reporting-retention.md)
-#### [Backfill](active-directory-reporting-backfill.md)
 #### [Latencies](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 ### Understand reports
@@ -140,12 +139,15 @@
 
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
-#### [Publish apps](active-directory-application-proxy-publish.md)
+#### Publish apps
+##### [Azure portal](application-proxy-publish-azure-portal.md)
+##### [Classic portal](active-directory-application-proxy-publish.md)
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure portal](application-proxy-sso-azure-portal.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Conditional access](active-directory-application-proxy-conditional-access.md)
@@ -203,6 +205,7 @@
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Overview](active-directory-b2b-collaboration-overview.md)
 #### [How it works](active-directory-b2b-how-it-works.md)
@@ -212,7 +215,7 @@
 #### [CSV file format](active-directory-b2b-references-csv-file-format.md)
 #### [User objects](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [User tokens](active-directory-b2b-references-external-user-token-format.md)
-### [Integrate on-premises identities using Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Delegate access to resources
@@ -237,12 +240,12 @@
 ## Secure your identities
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
-#### [Sign-in experience](active-directory-identityprotection-flows.md)
-#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
-#### [Risk event types](active-directory-identityprotection-risk-events-types.md)
-#### [Simulate risk events](active-directory-identityprotection-playbook.md)
+#### [Risk events](active-directory-identity-protection-risk-events.md)
 #### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Sign-in experience](active-directory-identityprotection-flows.md)
+#### [Simulate risk events](active-directory-identityprotection-playbook.md)
+#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -279,19 +282,20 @@
 # Reference
 ## [PowerShell cmdlets](/powershell/ )
 ## [Java API Reference](/java/api)
-## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)

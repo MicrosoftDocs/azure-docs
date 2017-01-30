@@ -1,4 +1,3 @@
-﻿
 ---
 title: Using attributes to create advanced rules| Microsoft Docs
 description: How-to's to create advanced rules for a group including supported expression rule operators and parameters.
@@ -23,6 +22,15 @@ The Azure classic portal provides you with the ability to create advanced rules 
 
 When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
 
+> [!NOTE]
+> You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
+> 
+> Dynamic memberships for groups require an Azure AD Premium license to be assigned to
+> 
+> * The administrator who manages the rule on a group
+> * All members of the group
+> 
+
 ## To create the advanced rule
 1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
 2. Select the **Groups** tab, and then open the group you want to edit.
@@ -43,11 +51,20 @@ The following are examples of a properly constructed advanced rule:
 
 For the complete list of supported parameters and expression rule operators, see sections below.
 
+Note that the property must be prefixed with the correct object type: user or device.
+The below rule will fail the validation:
+mail –ne null
+
+The correct rule would be: 
+
+user.mail –ne null
+
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
+> String and regex operations are case insensitive. 
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
+> Only use quotes for string type values, and only use English quotes.
 > 
 > 
 
@@ -64,6 +81,26 @@ The following table lists all the supported expression rule operators and their 
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
+
+## Operator precedence
+
+All Operators are listed below per precedence from lower to higher, operator in same line are in equal precedence
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+ 
+All operators can be used with or without hyphen prefix.
+
+Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements
+For example:
+
+   user.department –eq "Marketing" –and user.country –eq "US" 
+   
+is equivalent to: 
+
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 
 ## Query error remediation
 The following table lists potential errors and how to correct them if they occur
@@ -139,6 +176,14 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Use of Null values
+
+To specify a null value in a rule, you can use "null" or $null. Example: 
+
+   user.mail –ne null 
+is equivalent to
+   user.mail –ne $null
+
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
 
@@ -154,8 +199,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
+## Support for multi-value properties
+
+To include a multi-value property in a rule, use the "-any" operator, as in
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+  
 ## Direct Reports Rule
-You can now populate members in a group based on the manager attribute of a user.
+You can populate members in a group based on the manager attribute of a user.
 
 **To configure a group as a “Manager” group**
 
@@ -179,16 +230,16 @@ You can also create a rule that selects device objects for membership in a group
 | displayName |any string value |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |any string value |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |any string value |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| isDirSynced |true false null |(device.isDirSynced -eq true) |
+| isManaged |true false null |(device.isManaged -eq false) |
+| isCompliant |true false null |(device.isCompliant -eq true) |
 | deviceCategory |any string value |(device.deviceCategory -eq "") |
 | deviceManufacturer |any string value |(device.deviceManufacturer -eq "Microsoft") |
 | deviceModel |any string value |(device.deviceModel -eq "IPhone 7+") |
 | deviceOwnership |any string value |(device.deviceOwnership -eq "") |
 | domainName |any string value |(device.domainName -eq "contoso.com") |
 | enrollmentProfileName |any string value |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.isRooted -eq "true") |
+| isRooted |true false null |(device.isRooted -eq true) |
 | managementType |any string value |(device.managementType -eq "") |
 | organizationalUnit |any string value |(device.organizationalUnit -eq "") |
 | deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |

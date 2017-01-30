@@ -1,5 +1,5 @@
-﻿---
-title: Application Performance Management with Application Insights | Microsoft Docs
+---
+title: Application Performance Management with Azure Application Insights | Microsoft Docs
 description: Track performance and usage of your live web application.  Detect, triage and diagnose problems.
 services: application-insights
 documentationcenter: ''
@@ -79,7 +79,7 @@ Measure the effectiveness of each new feature that you deploy.
 * Base each development cycle on hard evidence from telemetry.
 
 ## Get started
-Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights. If your organization already has a subscription, they could add your Microsoft account to it.
+Application Insights is one of the many services hosted within Microsoft Azure, and telemetry is sent there for analysis and presentation. So before you do anything else, you'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and if you choose the basic [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights, there's no charge until your application has grown to have substantial usage. If your organization already has a subscription, they could add your Microsoft account to it.
 
 There are several ways to get started. Begin with whichever works best for you. You can add the others later.
 
@@ -184,6 +184,10 @@ For diagnostic purposes, there's a custom event `TrackTrace(message)` that you c
 
 If you already use a logging framework such as Log4Net, NLog, Log4J, or System.Diagnostic.Trace, then those trace calls can be captured by Application Insights, and will appear alongside the other telemetry. The Visual Studio tools automatically add the appropriate SDK module.
 
+## Profiling your live site
+
+No idea where the time goes? The Application Insights profiler will trace HTTP calls to your live site and show you which functions in your code took the longest time. The profiler is currently in limited preview - you can [sign up to try it](https://aka.ms/AIProfilerPreview).
+
 ## Dashboards
 Many applications consist of several components such as a web service and one or more back end processors. Each component will be monitored by a separate Application Insights resource. If your system runs on Azure, you might be using - and monitoring - services such as event hubs and machine learning as well.
 
@@ -239,7 +243,7 @@ It's also useful if you have some [custom telemetry](app-insights-api-custom-eve
   * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
   * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
-## Trends
+### Trends
 Trends is a tool in Visual Studio for visualizing how your app behaves over time.
 
 Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties.
@@ -257,11 +261,13 @@ Live Metrics Stream shows you your application metrics right at this very moment
 Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
 ### Annotations
-[Release annotations](app-insights-annotations.md) on metrics charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
+[Release annotations](app-insights-annotations.md) on metrics charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) and by web deployments from Visual Studio. You can also [create them from PowerShell](#create-annotations-from-powershell).
 
 ![Example of annotations with visible correlation with server response time](./media/app-insights-overview/00.png)
 
 Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services.
+
+
 
 ## Alerts
 If something goes wrong with your app, you'll want to know about it immediately.
@@ -287,13 +293,13 @@ You can configure [metric alerts](app-insights-alerts.md) to tell you when any m
 
 ![Web test example](./media/app-insights-overview/appinsights-10webtestresult.png)
 
-## Export
+## Export and API
 There are several ways you can get your telemetry data out of the Application Insights portal:
 
+* The [Data Access REST API](https://dev.applicationinsights.io/) can be used to search for and extract data, including running Analytics queries. 
+* Export [Analytics queries to Power BI](app-insights-export-power-bi.md) dashboards and view the results in Power BI visualizations, which can be automatically refreshed.
 * [Continuous Export](app-insights-export-telemetry.md) is ideal if you want to keep large parts of your telemetry for longer than the standard retention period.
 * [Metrics](app-insights-metrics-explorer.md#export-to-excel)  tables, search results, and [Analytics](app-insights-analytics.md) results can all be exported to an Excel spreadsheet.
-* The Data Access REST API can be used to search for and extract data, including running Analytics queries. The API is currently in private preview. [Learn about joining the preview](https://visualstudio.uservoice.com/forums/357324-application-insights/suggestions/4999529-make-data-accessible-via-apis-for-custom-processin).
-* You can export [Analytics queries to Power BI](app-insights-export-power-bi.md) dashboards and view the results in Power BI visualizations, which can be automatically refreshed.
 
 ![Viewing data in Power BI](./media/app-insights-overview/210.png)
 

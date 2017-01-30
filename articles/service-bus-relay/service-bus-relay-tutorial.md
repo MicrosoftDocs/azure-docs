@@ -1,14 +1,14 @@
 ---
 title: Service Bus WCF Relay tutorial | Microsoft Docs
 description: Build a Service Bus client application and service using Service Bus WCF Relay.
-services: service-bus
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: tysonn
 
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

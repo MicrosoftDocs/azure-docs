@@ -1,14 +1,14 @@
 ---
-title: Service Bus transactions | Microsoft Docs
+title: Overview of transaction processing in Azure Service Bus | Microsoft Docs
 description: Overview of Azure Service Bus atomic transactions and send via
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

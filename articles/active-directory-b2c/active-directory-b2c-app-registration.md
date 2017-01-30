@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 
 ---
@@ -48,7 +48,7 @@ You can also access the blade by clicking **Browse** and then **Azure AD B2C** i
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
 > [!IMPORTANT]
-> Applications created in the B2C features blade have to managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
+> Applications created in the B2C features blade have to be managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
 > 
 > 
 

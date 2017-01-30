@@ -1,5 +1,5 @@
-﻿---
-title: Migrate Azure IaaS virtual machines from one Azure region to another with Site Recovery | Microsoft Docs
+---
+title: Migrate Azure IaaS VMs between Azure regions | Microsoft Docs
 description: Use Azure Site Recovery to migrate Azure IaaS virtual machines from one Azure region to another.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---

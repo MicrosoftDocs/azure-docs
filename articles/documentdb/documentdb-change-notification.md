@@ -1,4 +1,4 @@
-﻿---
+---
 title: DocumentDB change notifications using Logic Apps | Microsoft Docs
 description: .
 keywords: change notification
@@ -23,7 +23,7 @@ This article came about from a question I saw posted one of the Azure DocumentDB
 
 I have worked with BizTalk Server for many years, and this is a very common scenario when using the [WCF LOB Adapter](https://msdn.microsoft.com/library/bb798128.aspx). So I decided to see if I could duplicate this functionality in DocumentDB for new and/or modified documents.
 
-This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+This article provides an overview of the components of the change notification solution, which includes a [trigger](documentdb-programming.md#trigger) and a [Logic App](../logic-apps/logic-apps-what-are-logic-apps.md). Important code snippets are provided inline and the entire solution is available on [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## Use case
 The following story is the use case for this article.
@@ -74,7 +74,7 @@ The steps are as follows:
 Now that you have an idea of what the workflow does, let's take a look at how you implement it.
 
 ### Let's start with the main Logic App
-If you're not familiar with Logic Apps, they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+If you're not familiar with Logic Apps, they are available in the [Azure Marketplace](https://portal.azure.com/), and you can learn more about them in [What are Logic Apps?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 When you create a new Logic App, you are asked **How would you like to start?**
 

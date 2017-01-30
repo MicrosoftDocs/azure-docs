@@ -5,8 +5,10 @@
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |Only limit is the 500 TB storage account capacity |
 | Max size of a single blob container, table, or queue |500 TB |
 | Max number of blocks in a block blob or append blob |50,000 |
-| Max size of a block in a block blob or append blob |4 MB |
-| Max size of a block blob or append blob |50,000 X 4 MB (approx. 195 GB) |
+| Max size of a block in a block blob |100 MB |
+| Max size of a block blob |50,000 X 100 MB (approx. 4.75 TB) |
+| Max size of a block in an append blob |4 MB |
+| Max size of an append blob |50,000 X 4 MB (approx. 195 GB) |
 | Max size of a page blob |1 TB |
 | Max size of a table entity |1 MB |
 | Max number of properties in a table entity |252 |
@@ -18,7 +20,7 @@
 | Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |Only limit is the 500 TB storage account capacity |
 | Max number of stored access policies per container, file share, table, or queue |5 |
-| Total Request Rate (assuming 1KB object size) per storage account |Up to 20,000 IOPS, entities per second, or messages per second |
+| Total Request Rate (assuming 1 KB object size) per storage account |Up to 20,000 IOPS, entities per second, or messages per second |
 | Target throughput for single blob |Up to 60 MB per second, or up to 500 requests per second |
 | Target throughput for single queue (1 KB messages) |Up to 2000 messages per second |
 | Target throughput for single table partition (1 KB entities) |Up to 2000 entities per second |

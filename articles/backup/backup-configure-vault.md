@@ -1,4 +1,4 @@
-﻿---
+---
 title: Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Docs
 description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
 services: backup
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/16/2016
 ms.author: jimpark; trinadhk; markgal
 
 ---
@@ -179,7 +179,7 @@ To complete the initial backup, you use the Microsoft Azure backup agent.
 10. On the Confirmation page, review the information, and then click **Finish**.
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
-### Enable network throttling (optional)
+### Enable network throttling
 The backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
 
 > [!NOTE]

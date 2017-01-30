@@ -140,7 +140,7 @@ In addition, the following assemblies are special cased and may be referenced by
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`
+* `Microsoft.AspNet.WebHooks.Common`
 * `Microsoft.Azure.NotificationHubs`
 
 If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
@@ -245,11 +245,15 @@ public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Ord
     log.Info(req.ToString());
     log.Info("Submitting to processing queue.");
 
-    await outputQueueItem.AddAsync(req);
-
-    return req == null
-        ? new HttpResponseMessage(HttpStatusCode.BadRequest)
-        : new HttpResponseMessage(HttpStatusCode.OK);
+    if (req.orderId == null)
+    {
+        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+    }
+    else
+    {
+        await outputQueueItem.AddAsync(req);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+    }
 }
 ```
 

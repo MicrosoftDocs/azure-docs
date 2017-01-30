@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Security Center Troubleshooting Guide | Microsoft Docs
 description: This document helps to troubleshoot issues in Azure Security Center.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/04/2016
 ms.author: yurid
 
 ---

@@ -1,5 +1,5 @@
-﻿---
-title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery | Microsoft Docs
+---
+title: Replicate VMware VMs and physical servers to Azure in the classic portal | Microsoft Docs
 description: This article describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
@@ -216,7 +216,7 @@ Set up an Azure network so that Azure VMs will be connected to a network after f
 [Read more](../virtual-network/virtual-networks-overview.md) about Azure networks.
 
 > [!NOTE]
-> [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 >
 >
 
@@ -246,7 +246,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 >
 >
 
-[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. On the **Quick Start** page download the unified installation file to the server.
@@ -334,7 +335,7 @@ Where:
 * /ProxySettingsFilePath. Optional. Specifies settings for a custom proxy (either default proxy on the server that requires authentication, or custom proxy)
 
 ## Step 6: Set up credentials for the vCenter server
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -376,7 +377,7 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## Step 8: Create a protection group
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -507,7 +508,7 @@ After running the wizard you can modify the IP address of the management server 
 
 **You can also install from the command line**:
 
-1. Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server, and save it as "passphrase.txt" on the management server. Then run these commands. In our example the management server IP address is 104.40.75.37 and the HTTPS port should be 443:
+Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server, and save it as "passphrase.txt" on the management server. Then run these commands. In our example the management server IP address is 104.40.75.37 and the HTTPS port should be 443:
 
 To install on a production server:
 
@@ -544,7 +545,8 @@ Add machines to a protection group:
 4. In **Specify Target Resources** select the storage account you're using for replication and select whether the settings should be used for all workloads. Note that premium storage accounts aren't currently supported.
 
    > [!NOTE]
-   > 1.We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           2.[Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+   > 1. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           
+   > 2. [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
    >
    >
 
@@ -587,7 +589,7 @@ In addition, protection status can be monitored in **Protected Items** > <protec
      * If the network adapter of the source machine is configured to use a static IP address then you can specify a static IP address for the Azure VM. If you don't provide a static IP address then any available IP address will be allocated. If the target IP address is specified but it's already in use by another VM in Azure then failover will fail. If the network adapter of the source machine is configured to use DHCP then you'll have DHCP as the setting for Azure.
 
 ## Step 12: Create a recovery plan and run a failover
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 

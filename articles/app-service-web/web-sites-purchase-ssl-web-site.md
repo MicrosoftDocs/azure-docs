@@ -1,4 +1,4 @@
-﻿---
+---
 title: Buy and Configure an SSL Certificate for your Azure App Service
 description: Learn how to Buy and Configure an SSL Certificate for your Azure App Service.
 services: app-service
@@ -199,7 +199,7 @@ If you selected **IP based SSL** and your custom domain is configured using an A
 * [Azure Management Portal](https://manage.windowsazure.com)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

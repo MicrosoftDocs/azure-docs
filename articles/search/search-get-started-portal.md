@@ -24,7 +24,7 @@ This code-free introduction gets you started with Microsoft Azure Search using c
 The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
 
 > [!NOTE]
-> This Get Started tutorial requires an [Azure subscription](/pricing/free-trial/?WT.mc_id=A261C142F) and an [Azure Search service](search-create-service-portal.md). 
+> This Get Started tutorial requires an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and an [Azure Search service](search-create-service-portal.md). 
 > 
 > 
 

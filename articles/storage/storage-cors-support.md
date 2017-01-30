@@ -1,4 +1,4 @@
-﻿---
+---
 title: Cross-Origin Resource Sharing (CORS) Support | Microsoft Docs
 description: Learn how to enable CORS Support for the Microsoft Azure Storage Services.
 services: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/17/2016
 ms.author: cbrooks
 
 ---
@@ -54,15 +54,17 @@ CORS rules are set at the service level, so you need to enable or disable CORS f
 
 Here is a sample of a single CORS rule, specified via a Set Service Properties operation:
 
-    <Cors>    
-        <CorsRule>
-            <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
-            <AllowedMethods>PUT,GET</AllowedMethods>
-            <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
-            <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
-            <MaxAgeInSeconds>200</MaxAgeInSeconds>
-        </CorsRule>
-    <Cors>
+```xml
+<Cors>    
+    <CorsRule>
+        <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
+        <AllowedMethods>PUT,GET</AllowedMethods>
+        <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
+        <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
+        <MaxAgeInSeconds>200</MaxAgeInSeconds>
+    </CorsRule>
+<Cors>
+```
 
 Each element included in the CORS rule is described below:
 
@@ -98,29 +100,31 @@ Since the rules are processed in the order they are present in the request body,
 ### Example – CORS rules evaluation
 The following example shows a partial request body for an operation to set CORS rules for the storage services. See [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx) for details on constructing the request.
 
-    <Cors>
-        <CorsRule>
-            <AllowedOrigins>http://www.contoso.com</AllowedOrigins>
-            <AllowedMethods>PUT,HEAD</AllowedMethods>
-            <MaxAgeInSeconds>5</MaxAgeInSeconds>
-            <ExposedHeaders>x-ms-*</ExposedHeaders>
-            <AllowedHeaders>x-ms-blob-content-type, x-ms-blob-content-disposition</AllowedHeaders>
-        </CorsRule>
-        <CorsRule>
-            <AllowedOrigins>*</AllowedOrigins>
-            <AllowedMethods>PUT,GET</AllowedMethods>
-            <MaxAgeInSeconds>5</MaxAgeInSeconds>
-            <ExposedHeaders>x-ms-*</ExposedHeaders>
-            <AllowedHeaders>x-ms-blob-content-type, x-ms-blob-content-disposition</AllowedHeaders>
-        </CorsRule>
-        <CorsRule>
-            <AllowedOrigins>http://www.contoso.com</AllowedOrigins>
-            <AllowedMethods>GET</AllowedMethods>
-            <MaxAgeInSeconds>5</MaxAgeInSeconds>
-            <ExposedHeaders>x-ms-*</ExposedHeaders>
-            <AllowedHeaders>x-ms-client-request-id</AllowedHeaders>
-        </CorsRule>
-    </Cors>
+```xml
+<Cors>
+    <CorsRule>
+        <AllowedOrigins>http://www.contoso.com</AllowedOrigins>
+        <AllowedMethods>PUT,HEAD</AllowedMethods>
+        <MaxAgeInSeconds>5</MaxAgeInSeconds>
+        <ExposedHeaders>x-ms-*</ExposedHeaders>
+        <AllowedHeaders>x-ms-blob-content-type, x-ms-blob-content-disposition</AllowedHeaders>
+    </CorsRule>
+    <CorsRule>
+        <AllowedOrigins>*</AllowedOrigins>
+        <AllowedMethods>PUT,GET</AllowedMethods>
+        <MaxAgeInSeconds>5</MaxAgeInSeconds>
+        <ExposedHeaders>x-ms-*</ExposedHeaders>
+        <AllowedHeaders>x-ms-blob-content-type, x-ms-blob-content-disposition</AllowedHeaders>
+    </CorsRule>
+    <CorsRule>
+        <AllowedOrigins>http://www.contoso.com</AllowedOrigins>
+        <AllowedMethods>GET</AllowedMethods>
+        <MaxAgeInSeconds>5</MaxAgeInSeconds>
+        <ExposedHeaders>x-ms-*</ExposedHeaders>
+        <AllowedHeaders>x-ms-client-request-id</AllowedHeaders>
+    </CorsRule>
+</Cors>
+```
 
 Next, consider the following CORS requests:
 

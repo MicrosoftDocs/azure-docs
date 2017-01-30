@@ -1,5 +1,5 @@
-﻿---
-title: Install your StorSimple 8100 device | Microsoft Docs
+---
+title: Install Microsoft Azure StorSimple 8100 device | Microsoft Docs
 description: Describes how to unpack, rack mount, and cable your StorSimple 8100 device before you deploy and configure the software.
 services: storsimple
 documentationcenter: NA
@@ -243,5 +243,5 @@ Perform the following steps to cable your serial port.
 Your device is now cabled for power, network access, and serial connectivity. The next step is to configure the software and deploy your device.
 
 ## Next steps
-Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 

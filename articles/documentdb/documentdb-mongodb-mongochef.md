@@ -1,5 +1,5 @@
 ---
-title: Use MongoChef with a DocumentDB account with protocol support for MongoDB | Microsoft Docs
+title: Use MongoChef for MongoDB with Azure DocumentDB | Microsoft Docs
 description: Learn how to use MongoChef with a DocumentDB account with protocol support for MongoDB, now available for preview.
 keywords: mongochef
 services: documentdb
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/29/2016
 ms.author: anhoh
 
 ---
@@ -28,41 +28,41 @@ To connect to an Azure DocumentDB account with protocol support for MongoDB usin
 To add your DocumentDB account with protocol support for MongoDB to the MongoChef connection manager, perform the following steps.
 
 1. Retrieve your DocumentDB with protocol support for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
-   
+
     ![Screen shot of the connection string blade](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
-   
+
     ![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
 3. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the DocumentDB account with protocol support for MongoDB and the PORT.
-   
+
     ![Screen shot of the MongoChef connection manager server tab](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. In the **New Connection** window, on the **Authentication** tab, choose Authentication Mode **Standard (MONGODB-CR or SCARM-SHA-1)** and enter the USERNAME and PASSWORD.  Accept the default authentication db (admin) or provide your own value.
-   
+
     ![Screen shot of the MongoChef connection manager authentication tab](./media/documentdb-mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
-5. In the **New Connection** window, on the **SSL** tab, check the **Use SSL protocol to connect** check box and the **Accept self-signed SSL certificates** radio button.
-   
+5. In the **New Connection** window, on the **SSL** tab, check the **Use SSL protocol to connect** check box and the **Accept server self-signed SSL certificates** radio button.
+
     ![Screen shot of the MongoChef connection manager SSL tab](./media/documentdb-mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Click the **Test Connection** button to validate the connection information, click **OK** to return to the New Connection window, and then click **Save**.
-   
+
     ![Screen shot of the MongoChef test connection window](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
 ## Use MongoChef to create a database, collection, and documents
 To create a database, collection, and documents using MongoChef, perform the following steps.
 
 1. In **Connection Manager**, highlight the connection and click **Connect**.
-   
+
     ![Screen shot of the MongoChef connection manager](./media/documentdb-mongodb-mongochef/ConnectToAccount.png)
 2. Right click the host and choose **Add Database**.  Provide a database name and click **OK**.
-   
+
     ![Screen shot of the MongoChef Add Database option](./media/documentdb-mongodb-mongochef/AddDatabase1.png)
 3. Right click the database and choose **Add Collection**.  Provide a collection name and click **Create**.
-   
+
     ![Screen shot of the MongoChef Add Collection option](./media/documentdb-mongodb-mongochef/AddCollection.png)
 4. Click the **Collection** menu item, then click **Add Document**.
-   
+
     ![Screen shot of the MongoChef Add Document menu item](./media/documentdb-mongodb-mongochef/AddDocument1.png)
 5. In the Add Document dialog, paste the following and then click **Add Document**.
-   
+
         {
         "_id": "AndersenFamily",
         "lastName": "Andersen",
@@ -80,7 +80,7 @@ To create a database, collection, and documents using MongoChef, perform the fol
         "isRegistered": true
         }
 6. Add another document, this time with the following content.
-   
+
         {
         "_id": "WakefieldFamily",
         "parents": [
@@ -89,27 +89,26 @@ To create a database, collection, and documents using MongoChef, perform the fol
         ],
         "children": [
             {
-                "familyName": "Merriam", 
-                 "givenName": "Jesse", 
+                "familyName": "Merriam",
+                 "givenName": "Jesse",
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
                     { "givenName": "Shadow" }
                 ]
             },
-            { 
-                "familyName": "Miller", 
-                 "givenName": "Lisa", 
-                 "gender": "female", 
+            {
+                "familyName": "Miller",
+                 "givenName": "Lisa",
+                 "gender": "female",
                  "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
         }
 7. Execute a sample query. For example, search for families with the last name 'Andersen' and return the parents and state fields.
-   
+
     ![Screen shot of Mongo Chef query results](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## Next steps
 * Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
-

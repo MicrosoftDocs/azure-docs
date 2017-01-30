@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure portal dashboards | Microsoft Docs
 description: This article explains how to create and edit dashboards in the Azure portal.
 services: azure-portal
@@ -30,7 +30,7 @@ To create a dashboard, select the **New dashboard** button next to the current d
 
 ![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), by resource type, by [tag](../resource-group-using-tags.md), or by searching for your resource by name.  
+This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), by resource type, by [tag](../azure-resource-manager/resource-group-using-tags.md), or by searching for your resource by name.  
 
 ![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -94,6 +94,6 @@ After your dashboard is published, the **Sharing + access** control pane will re
 ![manage access control](./media/azure-portal-dashboards/manage-access.png)
 
 ## Next steps
-* To manage resources, see [Manage Azure resources through portal](resource-group-portal.md).
-* To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+* To manage resources, see [Manage Azure resources through portal](../azure-resource-manager/resource-group-portal.md).
+* To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

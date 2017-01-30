@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2015
+ms.date: 11/10/2016
 ms.author: awills
 
 ---
@@ -25,21 +25,21 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
 
 * Lifecycle telemetry about all the containers running on the host - start, stop, and so on.
 * Performance counters for all the containers. CPU, memory, network usage, and more.
-* If you [installed Application Insights SDK](app-insights-java-live.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you'll easily be able to filter your app telemetry by host.
+* If you [installed Application Insights SDK for Java](app-insights-java-live.md) in the apps running in the containers, all the telemetry of those apps will have additional properties identifying the container and host machine. So for example, if you have instances of an app running in more than one host, you'll easily be able to filter your app telemetry by host.
 
 ![example](./media/app-insights-docker/00.png)
 
 ## Set up your Application Insights resource
 1. Sign into [Microsoft Azure Portal](https://azure.com) and open the Application Insights resource for your app; or [create a new one](app-insights-create-new-resource.md). 
    
-    *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you'll need to [create a new Application Insights resource](app-insights-create-new-resource.md). This is where you view and analyze the telemetry. (Select 'Other' for the app type.)
+    *Which resource should I use?* If the apps that you are running on your host were developed by someone else, then you'll need to [create a new Application Insights resource](app-insights-create-new-resource.md). This is where you view and analyze the telemetry. (Select 'General' for the app type.)
    
     But if you're the developer of the apps, then we hope you [added Application Insights SDK](app-insights-java-live.md) to each of them. If they're all really components of a single business application, then you might configure all of them to send telemetry to one resource, and you'll use that same resource to display the Docker lifecycle and performance data. 
    
     A third scenario is that you developed most of the apps, but you are using separate resources to display their telemetry. In that case, you'll probably also want to create a separate resource for the Docker data. 
 2. Add the Docker tile: Choose **Add Tile**, drag the Docker tile from the gallery, and then click **Done**. 
    
-   ![example](./media/app-insights-docker/03.png)
+    ![example](./media/app-insights-docker/03.png)
 3. Click the **Essentials** drop-down and copy the Instrumentation Key. You'll use this to tell the SDK where to send its telemetry.
 
     ![example](./media/app-insights-docker/02-props.png)

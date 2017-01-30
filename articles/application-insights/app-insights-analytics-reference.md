@@ -1,10 +1,10 @@
-﻿---
-title: Reference in Analytics in Application Insights | Microsoft Docs
+---
+title: Reference for Analytics in Azure Application Insights | Microsoft Docs
 description: 'Reference for statements in Analytics, the powerful search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -12,24 +12,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/20/2017
 ms.author: awills
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
 
-> [!NOTE]
-> [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
-> 
-> 
+Additional sources of information:
+
+* Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
+* [The tutorial page](app-insights-analytics-tour.md) gives a step-by-step introduction to the language features.
+* [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
+* [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
+ 
 
 ## Index
 **Let** [let](#let-clause)
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -61,8 +62,14 @@ ms.author: awills
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
-    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+    let us_date = (t:datetime)
+    {
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
+    };
+    requests 
+    | summarize count() by bin(timestamp, 1h) 
+    | project count_, pacificTime=us_date(timestamp-8h)
 
 A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
 
@@ -359,6 +366,70 @@ traces
     Age = now() - timestamp
 ```
 
+### find operator
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Find rows that match a predicate across a set of tables.
+
+**Syntax**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Arguments**
+
+* *Table1* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
+* *Predicate* A boolean expression evaluated for every row in the specified tables.
+* *Column1* The `project` option allows you to specify which columns must always appear in the output. 
+
+**Result**
+
+By default, the output table contains:
+
+* `source_` - An indicator of the source table for each row.
+* Columns explicitly mentioned in the predicate
+* Non-empty columns common to all the input tables.
+* `pack_` - A property bag containing the data from the other columns.
+
+Notice that this format can change with changes in the input data or predicate. To specify a fixed set of columns, use `project`.
+
+**Example**
+
+Get all the requests and exceptions, excluding those from availability tests and robots:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Find all requests and exceptions from UK, excluding those from availability tests and robots:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Find most recent telemetry where any field contains the term 'test':
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Performance Tips**
+
+* Add time-based terms to the `where` predicate.
+* Use `let` clauses rather than writing queries inline.
+
+
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -382,10 +453,10 @@ A table with:
 
 * A column for every column in each of the two tables, including the matching keys. The columns of the right side will be automatically renamed if there are name clashes.
 * A row for every match between the input tables. A match is a row selected from one table that has the same value for all the `on` fields as a row in the other table. 
-* `Kind` unspecified
+* `Kind` unspecified or `= innerunique`
   
     Only one row from the left side is matched for each value of the `on` key. The output contains a row for each match of this row with rows from the right.
-* `Kind=inner`
+* `kind=inner`
   
      There's a row in the output for every combination of matching rows from left and right.
 * `kind=leftouter` (or `kind=rightouter` or `kind=fullouter`)
@@ -394,16 +465,22 @@ A table with:
 * `kind=leftanti`
   
      Returns all the records from the left side that do not have matches from the right. The result table just has the columns from the left side. 
+* `kind=leftsemi` (or `leftantisemi`)
 
-If there are several rows with the same values for those fields, you'll get rows for all the combinations.
+    Returns a row from the left table if there is (or is not) a match for it in the right table. The result does not include data from the right.
+
 
 **Tips**
+
+There is a limit of 64MB on the result table.
 
 For best performance:
 
 * Use `where` and `project` to reduce the numbers of rows and columns in the input tables, before the `join`. 
 * If one table is always smaller than the other, use it as the left (piped) side of the join.
 * The columns for the join match must have the same name. Use the project operator if necessary to rename a column in one of the tables.
+
+
 
 **Example**
 
@@ -513,7 +590,7 @@ Splits an exception record into rows for each item in the details field.
     with * "got" counter:long " " present "for" * "was" year:long * 
 
     T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got" present "for .*?" year:long * 
+    with "(I|She) got " present " for .*?" year:long * 
 
 Extracts values from a string. Can use simple or regular expression matching.
 
@@ -609,21 +686,21 @@ When the input contains a correct match for every typed column, a relaxed parse 
 // Run a test without reading a table:
 range x from 1 to 1 step 1 
 // Test string:
-| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 07:31, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 06:20:00 ) }" 
 // Parse it:
 | parse kind=regex s 
-  with ".*?[a-zA-Z]*=" resource 
+  with ".*?=" resource 
        ", total.*?sliceNumber=" slice:long *
        "lockTime=" lock
        ",.*?releaseTime=" release 
        ",.*?previousLockTime=" previous:date 
-       ".*\\)"
+       @".*\)" *
 | project-away x, s
 ```
 
 | resource | slice | lock | release | previous |
 | --- | --- | --- | --- | --- |
-| Scheduler |16 |02/17/2016 08:41:00 |02/17/2016 08:41 |2016-02-17T08:40:00Z |
+| Scheduler |16 |02/17/2016 07:31:00 |02/17/2016 08:41 |2016-02-17T06:20:00Z |
 
 ### project operator
     T | project cost=price*quantity, price
@@ -834,9 +911,8 @@ The input rows are arranged into groups having the same values of the `by` expre
 
 The result has as many rows as there are distinct combinations of `by` values. If you want to summarize over ranges of numeric values, use `bin()` to reduce ranges to discrete values.
 
-**Note**
-
-Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
+> [!NOTE]
+> Although you can provide arbitrary expressions for both the aggregation and grouping expressions, it's more efficient to use simple column names, or apply `bin()` to a numeric column.
 
 ### take operator
 Alias of [limit](#limit-operator)
@@ -908,36 +984,55 @@ Takes two or more tables and returns the rows of all of them.
 
 A table with as many rows as there are in all the input tables, and as many columns as there are unique column names in the inputs.
 
-**Example**
-
-```AIQL
-
-let ttrr = requests | where timestamp > ago(1h);
-let ttee = exceptions | where timestamp > ago(1h);
-union tt* | count
-```
-Union of all tables whose names begin "tt".
+There is no guaranteed ordering in the rows.
 
 **Example**
 
+Union of all tables whose names begin "tt":
+
 ```AIQL
 
-union withsource=SourceTable kind=outer Query, Command
-| where Timestamp > ago(1d)
-| summarize dcount(UserId)
+    let ttrr = requests | where timestamp > ago(1h);
+    let ttee = exceptions | where timestamp > ago(1h);
+    union tt* | count
 ```
+
+**Example**
+
 The number of distinct users that have produced
-either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command".
+either a `exceptions` event or a `traces` event over the past day. In the result, the 'SourceTable' column will indicate either "Query" or "Command":
 
 ```AIQL
-exceptions
-| where Timestamp > ago(1d)
-| union withsource=SourceTable kind=outer 
-   (Command | where Timestamp > ago(1d))
-| summarize dcount(UserId)
+
+    union withsource=SourceTable kind=outer Query, Command
+    | where Timestamp > ago(1d)
+    | summarize dcount(UserId)
 ```
 
-This more efficient version produces the same result. It filters each table before creating the union.
+This more efficient version produces the same result. It filters each table before creating the union:
+
+```AIQL
+
+    exceptions
+    | where Timestamp > ago(12h)
+    | union withsource=SourceTable kind=outer 
+       (Command | where Timestamp > ago(12h))
+    | summarize dcount(UserId)
+```
+
+#### Forcing an order of results
+
+Union doesn't guarantee a specific ordering in the rows of results.
+To get the same order every time you run the query, append a tag column to each input table:
+
+    let r1 = (traces | count | extend tag = 'r1');
+    let r2 = (requests | count| extend tag = 'r2');
+    let r3 = (pageViews | count | extend tag = 'r3');
+    r1 | union r2,r3 | sort by tag
+
+#### See also
+
+Consider the [join operator](#join-operator) as an alternative.
 
 ### where operator
      requests | where resultCode==200
@@ -949,11 +1044,13 @@ Filters a table to the subset of rows that satisfy a predicate.
 **Syntax**
 
     T | where Predicate
+    T | where * has Term
 
 **Arguments**
 
 * *T:* The tabular input whose records are to be filtered.
 * *Predicate:* A `boolean` [expression](#boolean) over the columns of *T*. It is evaluated for each row in *T*.
+* *Term* - a string that must match the whole of a word in a column.
 
 **Returns**
 
@@ -1569,7 +1666,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 | * |Multiply |
 | / |Divide |
 | % |Modulo |
-|  | |
 | `<` |Less |
 | `<=` |Less or Equals |
 | `>` |Greater |

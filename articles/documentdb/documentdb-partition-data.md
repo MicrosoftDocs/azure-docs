@@ -1,4 +1,4 @@
-﻿---
+---
 title: Partitioning and scaling in Azure DocumentDB | Microsoft Docs
 description: Learn about how partitioning works in Azure DocumentDB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
 services: documentdb
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 01/16/2017
 ms.author: arramac
 
 ---
@@ -27,6 +27,11 @@ After reading this article, you will be able to answer the following questions:
 * What are partition keys, and how do I pick the right partition key for my application?
 
 To get started with code, please download the project from [DocumentDB Performance Testing Driver Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
+
+Partitioning and partition keys are also covered in this Azure Friday video with Scott Hanselman and DocumentDB Principal Engineering Manager, Shireesh Thota.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-DocumentDB-Elastic-Scale-Partitioning/player]
+> 
 
 ## Partitioning in DocumentDB
 In DocumentDB, you can store and query schema-less JSON documents with order-of-millisecond response times at any scale. DocumentDB provides containers for storing data called **collections**. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by DocumentDB based on the storage size and the provisioned throughput of the collection. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are **practically unlimited** in terms of storage and throughput. 
@@ -75,7 +80,7 @@ The following table shows examples of partition key definitions and the JSON val
 Let's take a look at how the choice of partition key impacts the performance of your application.
 
 ### Partitioning and provisioned throughput
-DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **[request units](documentdb-request-units.md) (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+DocumentDB is designed for predictable performance. When you create a collection, you reserve throughput in terms of **[request units](documentdb-request-units.md) (RU) per second**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU and IO consumed by the operation. A read of a 1 kB document with Session consistency consumes 1 request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger documents require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 When DocumentDB stores documents, it distributes them evenly among partitions based on the partition key value. The throughput is also distributed evenly among the available partitions i.e. the throughput per partition = (total throughput per collection)/ (number of partitions). 
 
@@ -87,14 +92,12 @@ When DocumentDB stores documents, it distributes them evenly among partitions ba
 ## Single Partition and Partitioned Collections
 DocumentDB supports the creation of both single-partition and partitioned collections. 
 
-* **Partitioned collections** can span multiple partitions and support very large amounts of storage and throughput. You must specify a partition key for the collection.
-* **Single-partition collections** have lower price options and the ability to query and perform transactions across all collection data. They have the scalability and storage limits of a single partition. You do not have to specify a partition key for these collections. 
+* **Partitioned collections** can span multiple partitions and support unlimited storage and throughput. You must specify a partition key for the collection. 
+* **Single-partition collections** have lower price options, but they are limited in terms of maximum low storage and throughput. You do not have to specify a partition key for these collections. We recommend using partitioned collections over single-partitioned collections for all scenarios, except in situations where you expect only a small amount of data storage and requests.
 
 ![Partitioned collections in DocumentDB][2] 
 
-For scenarios that do not need large volumes of storage or throughput, single partition collections are a good fit. Note that single-partition collections have the scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. 
-
-Partitioned collections can support very large amounts of storage and throughput. The default offers however are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits.md) to have these increased for your account.
+Partitioned collections can support unlimited storage and throughput.
 
 The following table lists differences in working with a single-partition and partitioned collections:
 
@@ -123,7 +126,7 @@ The following table lists differences in working with a single-partition and par
         <tr>
             <td valign="top"><p>Maximum Storage</p></td>
             <td valign="top"><p>10 GB</p></td>
-            <td valign="top"><p>Unlimited (250 GB by default)</p></td>
+            <td valign="top"><p>Unlimited</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Minimum Throughput</p></td>
@@ -133,7 +136,7 @@ The following table lists differences in working with a single-partition and par
         <tr>
             <td valign="top"><p>Maximum Throughput</p></td>
             <td valign="top"><p>10,000 request units per second</p></td>
-            <td valign="top"><p>Unlimited (250,000 request units per second by default)</p></td>
+            <td valign="top"><p>Unlimited</p></td>
         </tr>
         <tr>
             <td valign="top"><p>API versions</p></td>
@@ -306,7 +309,7 @@ The choice of the partition key is an important decision that you’ll have to m
 Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you could set the same partition key for all your documents, but this may limit the scalability of your solution. At the other extreme, you could assign a unique partition key for each document, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient cardinality to ensure your solution is scalable. 
 
 ### Avoiding storage and performance bottlenecks
-It is also important to pick a property which allows writes to be distributed across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. The total storage size for documents with the same partition key can also not exceed 10 GB in storage. 
+It is also important to pick a property which allows writes to be distributed across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. Since all the data for a single partition key must be stored within a partition, it is also recommended to avoid partition keys that have high volumes of data for the same value. 
 
 ### Examples of good partition keys
 Here are a few examples for how to pick the partition key for your application:
@@ -339,7 +342,6 @@ In this article, we've described how partitioning works in Azure DocumentDB, how
 * Perform scale and performance testing with DocumentDB. See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) for a sample.
 * Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 * Learn about [provisioned throughput in DocumentDB](documentdb-performance-levels.md)
-* If you would like to customize how your application performs partitioning, you can plug in your own client-side partitioning implementation. See [Client-side partitioning support](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png

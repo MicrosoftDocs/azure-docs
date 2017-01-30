@@ -1,5 +1,5 @@
-﻿---
-title: DocumentDB Node.js API & SDK | Microsoft Docs
+---
+title: Node.js API & SDK Resources - Azure DocumentDB | Microsoft Docs
 description: Learn all about the Node.js API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK.
 services: documentdb
 documentationcenter: nodejs
@@ -13,17 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 12/22/2016
 ms.author: rnagpal
 
 ---
 # DocumentDB APIs and SDKs
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
@@ -49,6 +51,11 @@ ms.author: rnagpal
 </table></br>
 
 ## Release notes
+
+### <a name="1.10.1"/>1.10.1</a>
+* Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
+* Added support for enabling script logging during stored procedure execution.
+
 ### <a name="1.10.0"/>1.10.0</a>
 * Added support for cross partition parallel queries.
 * Added support for TOP/ORDER BY queries for partitioned collections.
@@ -131,15 +138,11 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
-> [!WARNING]
-> All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**.
-> 
-> 
-
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.10.1](#1.10.1) |December 22, 2016 |--- |
 | [1.10.0](#1.10.0) |October 03, 2016 |--- |
 | [1.9.0](#1.9.0) |July 07, 2016 |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |
@@ -162,11 +165,6 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.0.2](#1.0.2) |May 23, 2015 |--- |
 | [1.0.1](#1.0.1) |May 15, 2015 |--- |
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
-| 0.9.4-prerelease |April 06, 2015 |February 29, 2016 |
-| 0.9.3-prerelease |January 14, 2015 |February 29, 2016 |
-| 0.9.2-prerelease |December 18, 2014 |February 29, 2016 |
-| 0.9.1-prerelease |August 22, 2014 |February 29, 2016 |
-| 0.9.0-prerelease |August 21, 2014 |February 29, 2016 |
 
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

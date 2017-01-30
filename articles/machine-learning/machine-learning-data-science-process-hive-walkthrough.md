@@ -1,5 +1,8 @@
-﻿---
-title: 'The Team Data Science Process in action: Use Hadoop clusters | Microsoft Docs'
+---
+
+
+
+title: Explore data in a Hadoop cluster and create models in Azure Machine Learning | Microsoft Docs
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset.
 services: machine-learning,hdinsight
 documentationcenter: ''
@@ -13,11 +16,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+
+ms.date: 01/29/2017
+
 ms.author: hangzh;bradsev
 
 ---
-# The Team Data Science Process in action: using HDInsight Hadoop clusters
+# The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
 In this walkthrough, we use the [Team Data Science Process (TDSP)](data-science-process-overview.md) in an end-to-end scenario using an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built with Azure Machine Learning to handle binary and multiclass classification and regression predictive tasks.
 
 For a walkthrough that shows how to handle a larger (1 terabyte) dataset for a similar scenario using HDInsight Hadoop clusters for data processing, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](machine-learning-data-science-process-hive-criteo-walkthrough.md).
@@ -745,7 +750,7 @@ If the table is an internal table and it is populated, its contents must show he
 
 Here is a snapshot of the Hive query and the [Import Data][import-data] module:
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
+![Hive query for Import Data module](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
 Note that since our down sampled data resides in the default container, the resulting Hive query from Azure Machine Learning is very simple and is just a "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data".
 
@@ -762,17 +767,17 @@ a. For this problem, our target (or class) label is "tipped". Our original down-
 
 The snapshot below shows our experiment to predict whether or not a tip was paid for a given trip.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
+![Experiment snapshot](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
 
 b. For this experiment, our target label distributions were roughly 1:1.
 
 The snapshot below shows the distribution of tip class labels for the binary classification problem.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
+![Distribution of tip class labels](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
 
 As a result, we obtain an AUC of 0.987 as shown in the figure below.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
+![AUC value](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
 **2. Multiclass classification**: To predict the range of tip amounts paid for the trip, using the previously defined classes.
 
@@ -782,15 +787,15 @@ a. For this problem, our target (or class) label is "tip\_class" which can take 
 
 The snapshot below shows our experiment to predict in which bin a tip is likely to fall ( Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20)
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
+![Experiment snapshot](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
 
 We now show what our actual test class distribution looks like. We see that while Class 0 and Class 1 are prevalent, the other classes are rare.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
+![Test class distribution](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
 
 b. For this experiment, we use a confusion matrix to look at our prediction accuracies. This is shown below.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
+![Confusion matrix](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
 
 Note that while our class accuracies on the prevalent classes is quite good, the model does not do a good job of "learning" on the rarer classes.
 
@@ -802,11 +807,11 @@ a. For this problem, our target (or class) label is "tip\_amount". Our target le
 
 The snapshot belows shows our experiment to predict the amount of the given tip.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
+![Experiment snapshot](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
 
 b. For regression problems, we measure the accuracies of our prediction by looking at the squared error in the predictions, the coefficient of determination, and the like. We show these below.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
+![Prediction statistics](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
 
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 

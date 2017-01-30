@@ -1,10 +1,10 @@
-﻿---
-title: Analytics - the powerful search tool of Application Insights | Microsoft Docs
+---
+title: Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
@@ -12,17 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 11/23/2016
 ms.author: awills
 
 ---
 # Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage. 
+ Analytics query language. 
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+* **[SQL-users' cheat sheet](https://aka.ms/sql-analytics)** translates the most common idioms.
+* **[Language Reference](app-insights-analytics-reference.md)** Learn how to use all the powerful features of the Analytics query language.
 
 ## Queries in Analytics
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 
@@ -57,17 +59,21 @@ The language has many attractive features:
 * Powerful statistical [aggregations](app-insights-analytics-reference.md#aggregations).
 * Just as powerful as SQL, but much easier for complex queries: instead of nesting statements, you pipe the data from one elementary operation to the next.
 * Immediate and powerful visualizations.
+* [Pin charts to Azure dashboards](app-insights-analytics-using.md#pin-to-dashboard).
+* [Export queries to Power BI](app-insights-analytics-using.md#export-to-power-bi).
+* There's a [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from Powershell.
+
 
 ## Connect to your Application Insights data
 Open Analytics from your app's [overview blade](app-insights-dashboards.md) in Application Insights: 
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
 
-## Limits
-At present, query results are limited to just over a week of past data.
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 ## Next steps
 * We recommend you start with the [language tour](app-insights-analytics-tour.md).
+
 

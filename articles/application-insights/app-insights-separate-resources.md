@@ -1,5 +1,5 @@
 ---
-title: Separate Application Insights resources for dev, test and production
+title: Monitor dev, test and production in Azure Application Insights | Microsoft Docs
 description: Monitor the performance and usage of your application at different stages of development
 services: application-insights
 documentationcenter: ''
@@ -56,6 +56,8 @@ Where you have multiple iKeys for different application components:
 
 ## Separate iKeys for Dev/Test and Production
 To make it easier to change the key automatically when your app is released, set the iKey in code, instead of in ApplicationInsights.config.
+
+(If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](app-insights-cloudservices.md).)
 
 ### <a name="dynamic-ikey"></a> Dynamic instrumentation key
 Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:

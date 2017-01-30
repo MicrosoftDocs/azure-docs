@@ -20,20 +20,19 @@ ms.author: nitinme
 
 ---
 # Hadoop tutorial: Get started using Hadoop in HDInsight on Windows
+
 > [!div class="op_single_selector"]
 > * [Linux-based](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows-based](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you 
-how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the 
-results in Microsoft Excel.
 
-> [!NOTE]
-> The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-> 
-> 
+
+To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the results in Microsoft Excel.
+
+> [!IMPORTANT]
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For information on creating Linux-based clusters, see [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Assume you have a large unstructured data set and you want to run a Hive query on it 
 to extract some meaningful information. That's exactly what you are going to do in this 
@@ -91,7 +90,7 @@ about HDInsight versions and their SLAs, see
    | Resource Group |Select an existing Azure resource group or create a new resource group. A basic HDInsight cluster contains a cluster and its default storage account.  You can group the two into a resource group for easy management. |
    | Credentials |Enter the cluster login username and password. Windows based cluster can have 2 user accounts.  The cluster user (or HTTP user) is used to manage the cluster and submit jobs.  You can optionally create a remote desktop (RDP) user account to remote connect to the cluster. If you choose to enable remote desktop, you will create the RDP user account. |
    | Data Source |Click Create New to create a new default Azure storage account. Use the cluster name as the default container name. Every HDinsight cluster has a default Blob container on an Azure storage accont.  The location of the default Azure storage account determines the location of the HDInsight cluster. |
-   | Node Pricing Tiers |Use 1 or 2 worker nodes with the default worker node and head note pricing tier for this tutorial. |
+   | Node Pricing Tiers |Use 1 or 2 worker nodes with the default worker node and head node pricing tier for this tutorial. |
    | Optional Configuration |Skip this part. |
 4. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
    
@@ -240,8 +239,8 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#step-1-install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#step-1-install
 
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png

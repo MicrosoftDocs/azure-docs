@@ -14,41 +14,52 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/27/2016
+ms.date: 11/17/2016
 ms.author: larryfr
 
 ---
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
+
 Learn how to create a C# Storm topology by using the HDInsight tools for Visual Studio. This tutorial walks through the process of creating a new Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
 
 You will also learn how to create hybrid topologies that use C# and Java components.
 
 > [!IMPORTANT]
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies.
+> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. __Only Linux-based clusters created after 10/28/2016 support SCP.NET topologies__.
 > 
 > To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
 > 
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-> 
-> 
+
 
 ## Prerequisites
-* One of the following versions of Visual Studio
+
+* [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
+
+  * The **JAVA_HOME** environment variable must point to the directory that contains Java.
+  * The **%JAVA_HOME%/bin** directory must be in the path
+
+* One of the following versions of Visual Studio:
   
   * Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+
 * Azure SDK 2.9.5 or later
+
 * HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
   
   > [!NOTE]
   > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
-  > 
-  > 
+
 * Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## Templates
-The HDInsight Tools for Visual Studio provide the following templates::
+
+The HDInsight Tools for Visual Studio provide the following templates:
 
 | Project type | Demonstrates |
 | --- | --- |
@@ -63,14 +74,21 @@ The HDInsight Tools for Visual Studio provide the following templates::
 | Storm Hybrid Sample |How to use a Java component |
 | Storm Sample |A basic word count topology |
 
-> [!NOTE]
-> The HBase reader and writer samples use the HBase REST API to communicate with an HBase on HDInsight cluster, not the HBase Java API.
-> 
-> 
-
 In the steps in this document, you will use the basic Storm Application project type to create a new topology.
 
+### HBase templates notes
+
+The HBase reader and writer templates use the HBase REST API to communicate with an HBase on HDInsight cluster, not the HBase Java API.
+
+### EventHub templates notes
+
+> [!IMPORTANT]
+> The Java-based EventHub spout component included with the EventHub Reader template will not work with Storm on HDInsight version 3.5. Instead, use the EventHub spout component from [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar).
+
+For an example topology that uses this component and works with Storm on HDInsight 3.5, see [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
+
 ## Create a C# topology
+
 1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 2. Open Visual Studio, select **File** > **New**, and then **Project**.
 3. From the **New Project** screen, expand **Installed** > **Templates**, and select **HDInsight**. From the list of templates, select **Storm Application**. At the bottom of the screen, enter **WordCount** as the name of the application.
@@ -379,22 +397,21 @@ For an example hybrid topology, create a new project, and select **Storm Hybrid 
 
 * **Java spout** and **C# bolt**: Defined in **HybridTopology_javaSpout_csharpBolt**
   
-  * A transactional version is defined in **HybridTopologyTx_javaSpout_csharpBolt**
+    * A transactional version is defined in **HybridTopologyTx_javaSpout_csharpBolt**
+
 * **C# spout** and **Java bolt**: Defined in **HybridTopology_csharpSpout_javaBolt**
   
-  * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
-    
-    > [!NOTE]
-    > This version also demonstrates how to use Clojure code from a text file as a Java component.
-    > 
-    > 
+    * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
+  
+  > [!NOTE]
+  > This version also demonstrates how to use Clojure code from a text file as a Java component.
+
 
 To switch between the topology that is used when the project is submitted, simply move the `[Active(true)]` statement to the topology you want to use before submitting it to the cluster.
 
 > [!NOTE]
 > All the Java files that are required are provided as part of this project in the **JavaDependency** folder.
-> 
-> 
+
 
 Consider the following when creating and submitting a hybrid topology:
 
@@ -460,7 +477,9 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 > 
 
 ## Troubleshooting
+
 ### Null pointer exceptions
+
 When using a C# topology with a Linux-based HDInsight cluster, bolt and spout components that use ConfigurationManager to read configuration settings at runtime may return null pointer exceptions. This happens because the configuration for the loaded domain is not from the assembly that contains your project.
 
 The configuration for your project is passed into the Storm topology as a key/value pair in the topology context, and can be retrieved from the dictionary object that is passed to your components when they are initialized.
@@ -468,6 +487,7 @@ The configuration for your project is passed into the Storm topology as a key/va
 The following example demonstrates loading the configuration values from the topology context, see the [ConfigurationManager](#configurationmanager) section of this document.
 
 ### System.TypeLoadException
+
 When using a C# topology with a Linux-based HDInsight cluster, you may encounter the following error:
 
     System.TypeLoadException: Failure has occurred while loading a type.
@@ -477,6 +497,7 @@ This usually occurrs when you are using a binary that is not compatible with the
 For Linux-based HDInsight clusters, you should make sure that your project uses binaries compiled for .NET 4.5.
 
 ### Test a topology locally
+
 Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
 
 > [!WARNING]
@@ -609,6 +630,7 @@ Although testing a basic word count application locally is pretty trivial, the r
 > 
 
 ### Log information
+
 You can easily log information from your topology components by using `Context.Logger`. For example, the following will create an informational log entry:
 
     Context.Logger.Info("Component started");
@@ -621,12 +643,21 @@ Logged information can be viewed from the **Hadoop Service Log**, which is found
 > 
 
 ### View error information
+
 To view errors that have occurred in a running topology, use the following steps:
 
 1. From **Server Explorer**, right-click the Storm on HDInsight cluster, and select **View Storm topologies**.
 2. For the **Spout** and **Bolts**, the **Last Error** column will have information on the last error that has occurred.
 3. Select the **Spout Id** or **Bolt Id** for the component that has an error listed. On the details page that is displayed, additional error information will be listed in the **Errors** section at the bottom of the page.
 4. To obtain more information, select a **Port** from the **Executors** section of the page to see the Storm worker log for the last few minutes.
+
+### Errors submitting topologies
+
+If you encounter errors submitting a topology to HDInsight, you can find logs for the server-side components that handle topology submission on your HDInsight cluster. To retrieve these logs, use the following command from a command line:
+
+    scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
+
+Replace __sshuser__ with the SSH user account for the cluster. Replace __clustername__ with the name of the HDInsight cluster. If you used a password for the SSH account, you will be prompted to enter it. The command will download the file to the directory that the command is ran from.
 
 ## Next steps
 Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).

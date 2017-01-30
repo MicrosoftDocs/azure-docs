@@ -1,5 +1,5 @@
 ---
-title: Create a virtual machine for a web application| Microsoft Docs
+title: Create a Windows virtual machine for a web application| Microsoft Docs
 description: Creating a VM for a web project using Visual Studio and Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/09/2016
 ms.author: tarcher
 
 ---
 # Creating a virtual machine for a web application with Visual Studio
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 [!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
 

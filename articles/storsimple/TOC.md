@@ -1,7 +1,4 @@
-# StorSimple Overview
-
 # StorSimple Virtual Array
-
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
 
@@ -10,16 +7,41 @@
 #### [Review requirements](storsimple-ova-system-requirements.md)
 #### [Understand limits](storsimple-ova-limits.md)
 #### [Review best practices](storsimple-ova-best-practices.md)
-### Deploy
+
+### Deploy (Azure portal)
+#### [Prepare to deploy](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
+#### [Provision in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [Provision in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [Set up as iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### Deploy (Classic portal)
 #### [Prepare to deploy](storsimple-ova-deploy1-portal-prep.md)
-#### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
+##### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
 #### [Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-ova-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-ova-deploy3-fs-setup.md)
 #### [Set up as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## How to
-### [Manage via Azure portal](storsimple-ova-manager-service-administration.md)
+### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
+#### [Install latest Update](storsimple-virtual-array-install-update.md)
+#### [Create & manage backups](storsimple-virtual-array-backup.md)
+#### [Clone from backups](storsimple-virtual-array-clone.md)
+#### [Failover and DR](storsimple-virtual-array-failover-dr.md)
+#### [Deactivate and delete](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [Manage shares](storsimple-virtual-array-manage-shares.md)
+#### [Manage volumes](storsimple-virtual-array-manage-volumes.md)
+#### [View service summary](storsimple-virtual-array-service-summary.md)
+#### [View device summary](storsimple-virtual-array-device-summary.md)
+#### [Manage storage accounts](storsimple-virtual-array-manage-storage-accounts.md)
+#### [Manage ACRs](storsimple-virtual-array-manage-acrs.md)
+#### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
+#### [Change device password](storsimple-virtual-array-change-device-admin-password.md)
+#### [Configure MPIO on Windows Server host](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Manage via Azure classic portal](storsimple-ova-manager-service-administration.md)
 #### [Install latest Update](storsimple-ova-install-update-01.md)
 #### [Create & manage backups](storsimple-ova-backup.md)
 #### [Restore from backups](storsimple-ova-restore.md)
@@ -54,8 +76,9 @@
 ### Install
 #### [Review safety](storsimple-safety.md)
 #### [Unpack, rack, cable an 8100](storsimple-8100-hardware-installation.md)
+
 #### [Unpack, rack, cable an 8600](storsimple-8600-hardware-installation.md)
-#### [Supported hardware for 10 GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+#### [Supported hardware for 10-GbE network interfaces](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Deploy
 #### [StorSimple Manager service](storsimple-manage-service.md)
@@ -63,6 +86,7 @@
 ##### [Physical device in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Physical device in Azure - GA](storsimple-deployment-walkthrough.md)
 #### [Physical device in Government Portal - current](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Physical device in Government Portal - Update 1](storsimple-deployment-walkthrough-gov.md)
 #### [Virtual device in Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -114,13 +138,18 @@
 ##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Build solutions
-#### [Distributed global namespace](https://www.microsoft.com/download/details.aspx?id=45507)
+#### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple with Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple with Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Automate file server DR to Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple with Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [StorSimple with VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [StorSimple with Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [Distributed global namespace](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### Monitor
 #### [Using service dashboard](storsimple-service-dashboard.md)
-#### [Using device dashbaord](storsimple-device-dashboard.md)
+#### [Using device dashboard](storsimple-device-dashboard.md)
 #### [Using service alerts](storsimple-manage-alerts.md)
 #### [Using hardware status](storsimple-monitor-hardware-status.md)
 #### [Using monitoring LEDs](storsimple-monitoring-indicators.md)
@@ -139,7 +168,7 @@
 ##### [Create Support package](storsimple-create-manage-support-package.md)
 
 ### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
@@ -160,17 +189,32 @@
 ### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
+
+# StorSimple Data Manager (Private preview)
+
+## Overview
+### [What is the solution?](storsimple-data-manager-overview.md)
+
+## Get started
+### [Using StorSimple Data Manager](storsimple-data-manager-ui.md)
+
+## How to
+### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
 
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Resources
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Marketing blog](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Support blog](http://blogs.msdn.com/b/storsimple/)
-## [Third party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
-## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Third-party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+
+
+

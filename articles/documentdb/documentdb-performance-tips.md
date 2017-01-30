@@ -1,5 +1,5 @@
-﻿---
-title: DocumentDB performance tips | Microsoft Docs
+---
+title: Performance tips - Azure DocumentDB NoSQL | Microsoft Docs
 description: Learn client configuration options to improve Azure DocumentDB database performance
 keywords: how to improve database performance
 services: documentdb
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/16/2016
 ms.author: mimig
 
 ---
@@ -34,6 +34,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    2. Direct Mode
 
       Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
+<a id="use-tcp"></a>
 2. **Connection policy: Use the TCP protocol**
 
     When leveraging Direct Mode, there are two protocol options available:
@@ -47,15 +48,15 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
-       var serviceEndpoint = new Uri("https://contoso.documents.net");
-       var authKey = new "your authKey from Azure Mngt Portal";
-       DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-       new ConnectionPolicy
-       {
+         var serviceEndpoint = new Uri("https://contoso.documents.net");
+         var authKey = new "your authKey from Azure Mngt Portal";
+         DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+         new ConnectionPolicy
+         {
 
-           ConnectionMode = ConnectionMode.Direct,
-           ConnectionProtocol = Protocol.Tcp
-       });
+             ConnectionMode = ConnectionMode.Direct,
+             ConnectionProtocol = Protocol.Tcp
+         });
 
      Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
 
@@ -105,7 +106,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Reducing the frequency of garbage collection may help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to true.
 6. **Implement backoff at RetryAfter intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the  backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), and version 1.9.0 and above of the [Node.js](documentdb-sdk-node.md) and [Python](documentdb-sdk-python.md). For more information, see [Exceeding reserved throughput limits](documentdb-request-units.md#RequestRateTooLarge) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the  backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), version 1.9.0 and above of the [Node.js](documentdb-sdk-node.md) and [Python](documentdb-sdk-python.md), and all supported versions of the [.NET Core](documentdb-sdk-dotnet-core.md) SDKs. For more information, see [Exceeding reserved throughput limits](documentdb-request-units.md#RequestRateTooLarge) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Scale out your client-workload**
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the DocumentDB account further by scaling out your client applications across multiple servers.
@@ -170,9 +171,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
              }
 
     The request charge returned in this header is a fraction of your provisioned throughput (i.e., 2000 RUs / second). For example, if the query above returns 1000 1KB documents, the cost of the operation will be 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](documentdb-request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Handle rate limiting/request rate too large**
 
-    When a client attempts to exceed the reserved throughput for an account, there are no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+    When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

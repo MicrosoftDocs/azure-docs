@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/20/2017
 ms.author: owend
 
 ---
@@ -50,6 +50,14 @@ To get started, you need:
 Create usually takes under a minute; often just a few seconds. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **More services** > **Analysis Services** to see if your server is ready. If it doesn't appear refresh the list.
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
+
+## Automate server creation
+You can automate server provisioning on-the-fly with Azure Resource Manager template files. Watch this helpful video to learn more.
+
+>[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation/player]
+>
+>
+
 
 ## Next steps
 Once you've created your server, you can [deploy a  model](analysis-services-deploy.md) to it by using SSDT or with SSMS.

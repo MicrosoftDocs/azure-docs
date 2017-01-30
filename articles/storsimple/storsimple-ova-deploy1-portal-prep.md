@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy StorSimple Virtual Array 1 - Portal Preparation
 description: First tutorial to deploy StorSimple virtual array involves preparing the portal
 services: storsimple
@@ -134,7 +134,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 Watch the video for step-by-step instructions to get started with the StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
