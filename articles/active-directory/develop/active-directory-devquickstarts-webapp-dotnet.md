@@ -1,6 +1,6 @@
 ---
 title: Azure AD .NET Getting Started | Microsoft Docs
-description: Build a .NET MVC Web App that integrates with Azure AD for sign in.
+description: Build a .NET MVC web app that integrates with Azure AD for easy user sign-in and sign-out.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -17,26 +17,26 @@ ms.date: 01/07/2017
 ms.author: dastrock
 
 ---
-# ASP.NET Web App Sign In & Sign Out with Azure AD
+# ASP.NET web app sign-in and sign-out with Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (AD) makes it simple for you to outsource web-app identity management. You can sign in and sign out of ASP.NET web apps by using the Microsoft implementation of Open Web Interface for .NET (OWIN) middleware. OWIN is the community-driven middleware that's included in .NET Framework 4.5. In this article, we use OWIN to:
+By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (AD) makes it simple for you to outsource web-app identity management. You can sign users in and out of ASP.NET web apps by using the Microsoft implementation of Open Web Interface for .NET (OWIN) middleware. Community-driven OWIN middleware is included in .NET Framework 4.5. This article shows how to use OWIN to:
 
 * Sign users in to web apps by using Azure AD as the identity provider.
-* Display some information about the users.
-* Sign user out of the app.
+* Display some user information.
+* Sign users out of the apps.
 
 ## Before you get started
 * Download the [app skeleton](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) or download the [completed sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
-* You also need an Azure AD tenant in which to register your app. If you don't already have an Azure AD tenant, [learn how to get one](active-directory-howto-tenant.md).
+* You also need an Azure AD tenant in which to register the app. If you don't already have an Azure AD tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 When you are ready, perform the procedures in the next four sections.
 
 ## Step 1: Register the new app with Azure AD
-To set up your app to authenticate users, first register it in your tenant by doing the following:
+To set up the app to authenticate users, first register it in your tenant by doing the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account name and, under the **Directory** list, select the Active Directory tenant where you want to register your app.
+2. On the top bar, click your account name and, under the **Directory** list, select the Active Directory tenant where you want to register the app.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a new **Web Application and/or WebAPI**.
@@ -45,10 +45,10 @@ To set up your app to authenticate users, first register it in your tenant by do
   * The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 6. After you've completed the registration, Azure AD assigns the app a unique Application ID. Copy the value from the app page to use in the next sections.
 
-## Step 2: Set up your app to use the OWIN authentication pipeline
-Here, you configure the OWIN middleware to use the OpenID Connect authentication protocol. You use OWIN to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
+## Step 2: Set up the app to use the OWIN authentication pipeline
+In this step, you configure the OWIN middleware to use the OpenID Connect authentication protocol. You use OWIN to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
 
-1. To begin, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
+1. To begin, add the OWIN middleware NuGet packages to the project by using the Package Manager Console.
 
  ```
  PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -56,8 +56,8 @@ Here, you configure the OWIN middleware to use the OpenID Connect authentication
  PM> Install-Package Microsoft.Owin.Host.SystemWeb
  ```
 
-2. Add an OWIN Startup class to the project called `Startup.cs`  Right click on the project --> **Add** --> **New Item** --> Search for "OWIN". The OWIN middleware will invoke the `Configuration(...)` method when your app starts.
-* Change the class declaration to `public partial class Startup` - we've already implemented part of this class for you in another file. In the `Configuration(...)` method, make a call to ConfgureAuth(...) to set up authentication for your web app  
+2. To add an OWIN Startup class to the project called `Startup.cs`, right-click the project, select **Add**, select **New Item**, and then search for **OWIN**. The OWIN middleware invokes the **Configuration(...)** method when the app starts.
+3. Change the class declaration to `public partial class Startup` (we've already implemented part of this class for you in another file). In the **Configuration(...)** method, make a call to **ConfgureAuth(...)** to set up authentication for the app.  
 
  ```C#
  public partial class Startup
@@ -69,7 +69,7 @@ Here, you configure the OWIN middleware to use the OpenID Connect authentication
  }
  ```
 
-3. Open the App_Start\Startup.Auth.cs file, and then implement the **ConfigureAuth(...)** method. The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for your app to communicate with Azure AD. You also need to set up Cookie Authentication, because the OpenID Connect middleware uses cookies in the background.
+4. Open the App_Start\Startup.Auth.cs file, and then implement the **ConfigureAuth(...)** method. The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the app to communicate with Azure AD. You also need to set up cookie authentication, because the OpenID Connect middleware uses cookies in the background.
 
  ```C#
  public void ConfigureAuth(IAppBuilder app)
@@ -88,13 +88,13 @@ Here, you configure the OWIN middleware to use the OpenID Connect authentication
  }
  ```
 
-5. Open the web.config file in the root of the project, and then enter the configuration values in the "`<`appSettings`>`" section.
+5. Open the web.config file in the root of the project, and then enter the configuration values in the **`<`appSettings`>`** section.
   * `ida:ClientId`: the GUID you copied from the Azure portal in "Step 1: Register the new app with Azure AD"
   * `ida:Tenant`: the name of your Azure AD tenant (for example, contoso.onmicrosoft.com)
   * `ida:PostLogoutRedirectUri`: indicates to Azure AD where a user should be redirected after a sign-out request is successfully completed
 
 ## Step 3: Use OWIN to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with Azure AD by using the OpenID Connect authentication protocol. OWIN has handled all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is to give your users a way to sign in and sign out.
+The app is now properly configured to communicate with Azure AD by using the OpenID Connect authentication protocol. OWIN has handled all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is to give your users a way to sign in and sign out.
 
 1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About controller.
 
@@ -149,7 +149,7 @@ Your app is now properly configured to communicate with Azure AD by using the Op
  ```
 
 ## Step 4: Display user information
-When it authenticates users with OpenID Connect, Azure AD returns an id_token to the app that contains "claims," or assertions about the user. You can use these claims to personalize your app by doing the following:
+When it authenticates users with OpenID Connect, Azure AD returns an id_token to the app that contains "claims," or assertions about the user. You can use these claims to personalize the app by doing the following:
 
 1. Open the Controllers\HomeController.cs file. You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
@@ -172,7 +172,7 @@ When it authenticates users with OpenID Connect, Azure AD returns an id_token to
 
   b. Sign out, and then sign back in as another user in your tenant.
 
-  c. If you're feeling particularly ambitious, register and run another instance of this app (with its own clientId), and watch see single sign-in in action.
+  c. If you're feeling particularly ambitious, register and run another instance of this app (with its own clientId), and watch single sign-in in action.
 
 For reference, see [the completed sample](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (without your configuration values).
 
