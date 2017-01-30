@@ -24,7 +24,7 @@ Learn how to formulate a data science question in Data Science for Beginners vid
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 > 
 > 
 
