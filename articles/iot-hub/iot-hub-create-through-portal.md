@@ -107,7 +107,7 @@ There are two main built-in endpoints: **Cloud to device feedback** and **Events
 
 **Retention Time**: Set to one day by default but can be customized to other values using the drop-down list. This value is in days for Device to Cloud and not in hours, as is the similar setting for Cloud to Device.
 
-**Consumer Groups**: Consumer Groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs.
+**Consumer Groups**: Consumer Groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs. When using the free tier, you will only be able to use the $Default consumer group.
 
 > [!NOTE]
 > The default consumer group cannot be edited or deleted.
