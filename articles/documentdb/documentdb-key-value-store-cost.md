@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 01/30/2017
 ms.author: acomet
 
 ---
@@ -26,9 +26,9 @@ Azure DocumentDB is a fully managed, globally distributed NoSQL database service
 
 This article describes the cost of DocumentDB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of documents. Besides guaranteeing 99.99% high availability, DocumentDB offers guaranteed <10ms latency for reads and <15 ms latency for the (indexed) writes respectively, at the 99th percentile. 
 
-## Request units as a single currency
+## Why we use Request Units (RUs)
 
-DocumentDB performance is based on the amount of provisioned [Request Units](documentdb-programming.md) (RU) for the partition. The provisioning is at a second granularity and is purchased in RUs/sec ([not to be confused with the hourly billing](https://azure.microsoft.com/pricing/details/documentdb/)). RUs should be considered a currency that simplifies the provisioning of required throughput for the application. Our customers do not have to think of differentiating between read and write capacity units. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency and high availability. 
+DocumentDB performance is based on the amount of provisioned [Request Units](documentdb-programming.md) (RU) for the partition. The provisioning is at a second granularity and is purchased in RUs/sec ([not to be confused with the hourly billing](https://azure.microsoft.com/pricing/details/documentdb/)). RUs should be considered a currency that simplifies the provisioning of required throughput for the application. Our customers do not have to think of differentiating between read and write capacity units. The single currency model of RUs creates efficiencies to share the provisioned capacity between reads and writes. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency and high availability. Finally, we use RU to model throughput but each provisionned RU has also a defined amount of resources (Memory, Core). RU/sec is not only IOPS.
 
 As a globally distributed database system, DocumentDB is the only Azure service that provides an SLA on latency, throughput and consistency in addition to high availability. The throughput you provision is applied to each of the regions associated with your DocumentDB database account. For reads, DocumentDB offers multiple, well-defined [consistency levels](documentdb-consistency-levels.md) for you to choose from. 
 
@@ -41,6 +41,8 @@ The following table shows the number of RUs required to perform read and write t
 |10 KB|10 RUs|50 RUs|
 |50 KB|50 RUs|250 RUs|
 |100 KB|100 RUs|500 RUs|
+
+## Cost of running DocumentDB in Read/Write mode without indexing
 
 If you provision 1,000 RU/sec, this amounts to 3.6m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1KB size document, this means that you can consume 3.6m reads or 0.72m writes (3.6mRU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.:
 
@@ -56,4 +58,4 @@ Most of the basic blob or object stores like AWS S3 or Azure Blob Storage servic
 
 ## Next steps
 
-Interested in learning more about DocumentDB? Read the [Introduction to DocumentDB](documentdb-introduction.md).
+Stay tuned for new articles on optimizing DocumentDB resource provisioning. In the meantime, feel free to use our [RU calculator](https://www.documentdb.com/capacityplanner).
