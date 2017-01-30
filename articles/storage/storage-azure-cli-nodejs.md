@@ -3,7 +3,7 @@ title: Using the Azure CLI 1.0 with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) 1.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI is a cross-platform tool
 services: storage
 documentationcenter: na
-author: micurd
+author: seguler
 manager: jahogg
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: seguler
 
 ---
 # Using the Azure CLI 1.0 with Azure Storage
