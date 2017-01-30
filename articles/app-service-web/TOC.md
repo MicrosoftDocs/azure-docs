@@ -147,6 +147,7 @@
 ### Custom domains
 #### [Buy and configure custom domains](custom-dns-web-site-buydomains-web-app.md)
 #### [Map your own custom domain](web-sites-custom-domain-name.md)
+#### [Migrate an active custom domain](app-service-custom-domain-name-migrate.md)
 #### [Configure GoDaddy domains](web-sites-godaddy-custom-domain-name.md)
 #### [Custom domains with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
