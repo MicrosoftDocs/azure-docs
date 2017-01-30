@@ -3,4 +3,4 @@
     ![VMware](./media/site-recovery-add-vcenter/vmware-server.png)
 
    > [!NOTE]
-   > If you're adding the VMwaer vCenter server or VMware vSphere host with an account that doesn't have administrator privileges on the vCenter or host server, make sure that the account has these privileges enabled: Datacenter, Datastore, Folder, Host, Network, Resource, Virtual machine, and vSphere Distributed Switch. In addition, the VMware vCenter server needs the Storage views privilege enabled.
+   > If you're adding the VMware vCenter server or VMware vSphere host with an account that doesn't have administrator privileges on the vCenter or host server, make sure that the account has these privileges enabled: Datacenter, Datastore, Folder, Host, Network, Resource, Virtual machine, and vSphere Distributed Switch. In addition, the VMware vCenter server needs the Storage views privilege enabled.

@@ -4,7 +4,7 @@
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
     ![Third=party software](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
-4. In **Registration**, browse and select the registration key you downloaded from the vault.
+4. In **Registration**, select the registration key you downloaded from the vault.
 
     ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
 5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the internet.
@@ -33,7 +33,7 @@
 
     ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
- In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need it when you enable replication, so copy it and keep it in a secure location.
+ 11. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You will need it when you enable replication, so copy it and keep it in a secure location.
 
 	![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 

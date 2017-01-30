@@ -1,7 +1,7 @@
 ### Installation failures
 | **Sample error message** | **Recommended action** |
 |--------------------------|------------------------|
-|ERROR   Failed to load Accounts. Error: System.IO.IOException: Unable to read data from the transport connection when installing and registering the CS server.| Ensure TLS 1.0 is enabled on the computer. |
+|ERROR   Failed to load Accounts. Error: System.IO.IOException: Unable to read data from the transport connection when installing and registering the CS server.| Ensure that TLS 1.0 is enabled on the computer. |
 
 ### Registration failures
 Registration failures can be debugged by reviewing the logs in the **%ProgramData%\ASRLogs** folder.
