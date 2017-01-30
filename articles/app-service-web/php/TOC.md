@@ -1,19 +1,19 @@
-#Overview	
-## What is App Service?
+# Overview	
+## [What is App Service?](../../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## App Service for developers 
 ## App Service everywhere
 
 # Get started
 
-## First PHP app	
+## [First PHP app](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
 ## First PHP app for Linux
 
 # Tutorials
 
-## Laravel app with MySQL
+## [Laravel app with MySQL](../app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
 ## CodeIgniter
 ## CakePHP
-## WordPress
+## [WordPress](../web-sites-php-web-site-gallery?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # How to guides
 ## Develop your app	
@@ -25,19 +25,19 @@
 ### Use connection strings
 
 ## Deploy to App Service	
-### Deployment Overview
-### Deploy via FTP
-### Deploy via cloud sync
-### Deploy continuously
-### Deploy to staging
-### Deploy from local Git
-### Deploy WebJobs
+### [Deployment Overview](../web-sites-deploy.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Deploy via FTP](../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Deploy via cloud sync](../web-sites-deploy.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Deploy continuously](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Deploy to staging](../web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Deploy from local Git](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Deploy WebJobs](../websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ### Automate deployment with CLI
 ### Test in production
 ### Set deployment credentials
 ### Assign custom domain name
 ### Assign custom SSL
-
+	
 ## Connect to DB/resources
 ### Connect to MySQL DB in Azure
 ### Connect to LocalDB
