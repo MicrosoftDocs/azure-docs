@@ -296,21 +296,21 @@ namespace OIAPIExample
 // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
-// Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-// For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+        // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-// LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Log Analytics
         static string LogName = "DemoExample";
 
-// You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
         {
-// Create a hash for the API signature
+            // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
@@ -319,7 +319,7 @@ namespace OIAPIExample
             PostData(signature, datestring, json);
         }
 
-// Build the API signature
+        // Build the API signature
         public static string BuildSignature(string message, string secret)
         {
             var encoding = new System.Text.ASCIIEncoding();
@@ -332,7 +332,7 @@ namespace OIAPIExample
             }
         }
 
-// Send a request to the POST API endpoint
+        // Send a request to the POST API endpoint
         public static void PostData(string signature, string date, string json)
         {
             string url = "https://"+ customerId +".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";

@@ -3,9 +3,9 @@ title: Connecting DocumentDB with Azure Search using indexers | Microsoft Docs
 description: This article shows you how to use to Azure Search indexer with DocumentDB as a data source.
 services: documentdb
 documentationcenter: ''
-author: dennyglee
+author: mimig1
 manager: jhubbard
-editor: mimig
+editor: ''
 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
 ms.service: documentdb
@@ -13,8 +13,10 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/08/2016
-ms.author: denlee
+ms.date: 01/10/2017
+ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Connecting DocumentDB with Azure Search using indexers
@@ -72,7 +74,6 @@ You will also need to add `_ts` in the projection and `WHERE` clause for your qu
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-
 ### <a id="DataDeletionDetectionPolicy"></a>Capturing deleted documents
 When rows are deleted from the source table, you should delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
@@ -86,6 +87,42 @@ When rows are deleted from the source table, you should delete those rows from t
 > You will need to include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
 > 
 > 
+
+### <a id="LeveagingQueries"></a>Leveraging Queries
+In addition to capturing changed and deleted documents, specifying a DocumentDB query can be used to flatten nested properties, unwind arrays, project json properties, and filter the data to be indexed. Manipulating the data to be indexed can improve performance of the Azure Search indexer.
+
+Example Document:
+
+    {
+        "userId": 10001,
+        "contact": {
+            "firstName": "andy",
+            "lastName": "hoh"
+        },
+        "company": "microsoft",
+        "tags": ["azure", "documentdb", "search"]
+    }
+
+
+Flatten query:
+
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    
+    
+Projection query:
+
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+
+
+Unwind array query:
+
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    
+    
+Filter query:
+
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+
 
 ### <a id="CreateDataSourceExample"></a>Request body example
 The following example creates a data source with a custom query and policy hints:

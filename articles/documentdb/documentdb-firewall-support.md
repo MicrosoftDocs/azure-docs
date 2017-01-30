@@ -1,5 +1,5 @@
 ---
-title: DocumentDB firewall support | Microsoft Docs
+title: Azure DocumentDB firewall support & IP access control | Microsoft Docs
 description: Learn how to use IP access control policies for firewall support on Azure DocumentDB database accounts.
 keywords: IP access control, firewall support
 services: documentdb

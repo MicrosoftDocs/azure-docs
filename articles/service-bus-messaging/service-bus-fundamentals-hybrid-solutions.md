@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus | Microsoft Docs
+title: Overview of Azure Service Bus fundamentals | Microsoft Docs
 description: An introduction to using Service Bus to connect Azure applications to other software.
 services: service-bus-messaging
 documentationcenter: .net
@@ -50,7 +50,7 @@ Suppose you decide to connect two applications using a Service Bus queue. Figure
 
 The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as Figure 2 shows. Or, multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver. For a multi-cast service, you should use a topic instead.
 
-Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+Each message has two parts: a set of properties, each a key/value pair, and a message payload. The payload can be binary, text, or even XML. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
 
 A receiver can read a message from a Service Bus queue in two different ways. The first option, called *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
 

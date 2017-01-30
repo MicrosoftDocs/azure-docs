@@ -1,8 +1,8 @@
 ---
 title: Using the Azure Import/Export service REST API | Microsoft Docs
 description: Learn how to use the Azure Import/Export service REST API
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 
 ---
 # Using the Azure Import/Export service REST API

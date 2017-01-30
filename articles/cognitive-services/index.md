@@ -93,11 +93,4 @@ Learn how to enable natural and contextual interaction within your applications 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Cognitive Services Documentation
-        </div>
-    </a>
-</div>
+

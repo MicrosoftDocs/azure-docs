@@ -37,7 +37,7 @@ ms.author: awills
 
 ## Is it free?
 
-Yes, for experimental use. In the default pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
+Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development, and publishing an app for a small number of users. You can set a cap to prevent more than a specified amount of data from being processed.
 
 You need to use the Enterprise plan to get certain features such as Continuous Export. That incurs a daily charge.
 

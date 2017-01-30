@@ -1,5 +1,5 @@
 ---
-title: Get the tools for your Azure IoT Starter Kit (macOS 10.10) | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 1: Get tools (macOS) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on macOS.
 services: iot-hub
 documentationcenter: ''

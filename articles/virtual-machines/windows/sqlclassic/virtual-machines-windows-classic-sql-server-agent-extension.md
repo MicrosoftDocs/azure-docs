@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/18/2017
 ms.author: jroth
 
 ---
@@ -79,7 +79,7 @@ If you update to the latest version of the SQL IaaS Agent Extension, you must re
 > 
 
 ## Status
-One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select **All settings** in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSAgent** extension listed.
+One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select a virtual machine listed in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSAgent** extension listed.
 
 ![SQL Server IaaS Agent Extension in Azure Portal](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-portal.png)
 
@@ -88,7 +88,7 @@ You can also use the **Get-AzureVMSqlServerExtension** Azure Powershell cmdlet.
     Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## Removal
-In the Azure Portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Delete**.
+In the Azure Portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** blade of your virtual machine properties. Then click **Uninstall**.
 
 ![Uninstall the SQL Server IaaS Agent Extension in Azure Portal](./media/virtual-machines-windows-classic-sql-server-agent-extension/azure-sql-server-iaas-agent-uninstall.png)
 

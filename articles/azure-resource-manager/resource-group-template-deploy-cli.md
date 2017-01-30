@@ -31,7 +31,7 @@ This topic explains how to use Azure CLI with Resource Manager templates to depl
 > [!TIP]
 > For help with debugging an error during deployment, see:
 > 
-> * [View deployment operations with Azure CLI](resource-manager-troubleshoot-deployments-cli.md) to learn about getting information that helps you troubleshoot your error
+> * [View deployment operations](resource-manager-deployment-operations.md) to learn about getting information that helps you troubleshoot your error
 > * [Troubleshoot common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md) to learn how to resolve common deployment errors
 > 
 > 
