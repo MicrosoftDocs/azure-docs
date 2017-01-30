@@ -17,7 +17,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
-# Repairing an Export Job
+# Repairing an export job
 After an export job has completed, you can run the Microsoft Azure Import/Export tool on premise to:  
   
 1.  Download any files that the Azure Import/Export service was unable to export.  

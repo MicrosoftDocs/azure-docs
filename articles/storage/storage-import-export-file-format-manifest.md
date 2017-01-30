@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Azure Import/Export Service Manifest File Format
+# Azure Import/Export service manifest file format
 The drive manifest file describes the mapping between blobs in Azure Blob storage and files on drive comprising an import or export job. For an import operation, the manifest file is created as a part of the drive preparation process, and is stored on the drive before the drive is sent to the Azure data center. During an export operation, the manifest is created and stored on the drive by the Azure Import/Export service.  
   
 For both import and export jobs, the drive manifest file is stored on the import or export drive; it is not transmitted to the service via any API operation.  

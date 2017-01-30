@@ -17,7 +17,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 
 ---
-# Azure Import/Export Service Metadata and Properties File Format
+# Azure Import/Export service metadata and properties file format
 You can specify metadata and properties for one or more blobs as part of an import job or an export job. To set metadata or properties for blobs being created as part of an import job, you provide a metadata or properties file on the hard drive containing the data to be imported. For an export job, metadata and properties are written to a metadata or properties file that is included on the hard drive returned to you.  
   
 ## Metadata File Format  

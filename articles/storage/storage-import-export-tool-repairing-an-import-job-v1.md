@@ -18,7 +18,7 @@ ms.author: muralikk
 
 ---
 
-# Repairing an Import Job
+# Repairing an import job
 The Microsoft Azure Import/Export service may fail to copy some of your files or parts of a file to the Windows Azure Blob service. Some reasons for failures include:  
   
 -   Corrupted files  
