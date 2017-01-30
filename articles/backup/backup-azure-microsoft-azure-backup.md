@@ -1,6 +1,8 @@
 ---
-title: Preparing your environment to back up workloads using Azure Backup Server | Microsoft Docs
-description: Prepare your environment to use Azure Backup Server to protect or back up workloads.
+
+title: Use Azure Backup Server to back up workloads to Azure | Microsoft Docs
+description: Use Azure Backup Server to protect or back up workloads to the Azure portal.
+
 services: backup
 documentationcenter: ''
 author: PVRK

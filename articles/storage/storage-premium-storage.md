@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/17
+ms.date: 01/23/2017
 ms.author: yuemlu
 
 ---

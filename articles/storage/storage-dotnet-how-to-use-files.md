@@ -35,7 +35,7 @@ For information on scalability and performance targets of File storage, see [Azu
 ## Video: Using Azure File storage with Windows
 Here's a video that demonstrates how to create and use Azure File shares on Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
