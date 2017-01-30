@@ -54,7 +54,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Packet Capture</h3>
+                        <h3>Get started with packet capture</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Security Group View</h3>
+                        <h3>Get started with security group view</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Next hop</h3>
+                        <h3>Get started with next hop</h3>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Topology</h3>
+                        <h3>Get started with topology</h3>
                     </div>
                 </div>
             </div>
