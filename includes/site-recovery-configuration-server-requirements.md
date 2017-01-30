@@ -2,7 +2,7 @@
 | --- |---|
 | Number of CPU cores| 8 |
 | RAM| 12 GB|
-| Number of disks | There are three disks:  <br> - OS disk<br> - Process Server cache disk<br> - Retention drive (for failback)|
+| Number of disks | 3<br>  <br> - OS disk<br> - Process Server cache disk<br> - Retention drive (for failback)|
 | Disk free space (Process Server cache) | 600 GB
 | Disk free space (retention disk) | 600 GB|
 | **Software** | |
