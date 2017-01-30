@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: bc120d57-5a87-4546-b70d-42e25663aebf
 ms.service: event-hubs
 ms.workload: na
-ms.tgt_pltfrm: c
+ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/30/2017
@@ -234,10 +234,10 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
     This class creates a new Event Hubs spout, using the properties in the configuration file to instantiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the Event Hub, in order to use the maximum parallelism allowed by that Event Hub.
 
 <!-- Links -->
-[Event Hubs overview]: ../articles/event-hubs/event-hubs-overview.md
-[HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
-[HDInsight sensor analysis tutorial]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Event Hubs overview]: event-hubs-overview.md
+[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[HDInsight sensor analysis tutorial]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
-[12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
+[12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
