@@ -44,7 +44,7 @@ Learn how to use Network Watcher, a service that enables you to monitor and diag
         </a>
     </li>
     <li>
-        <a href="/azure/network-watcher/network-watcher-packet-capture">
+        <a href="/azure/network-watcher/network-watcher-packet-capture-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
