@@ -185,7 +185,7 @@ This use case follows the pattern #5c below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
-## See also
+## Next steps
 * [Enable Application Proxy](active-directory-application-proxy-enable.md)
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 * [Enable conditional access](active-directory-application-proxy-conditional-access.md)
