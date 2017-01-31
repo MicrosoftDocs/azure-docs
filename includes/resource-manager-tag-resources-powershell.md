@@ -4,7 +4,7 @@ Version 3.0 of the AzureRm.Resources module included significant changes in how 
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-If your results show version 3.0 or later, the examples in this topic work with your environment. If you do not have version 3.0 or later, please [update your version](/powershell/azureps-cmdlets-docs/) by using PowerShell Gallery or Web Platform Installer before proceeding with this topic.
+If your results show version 3.0 or later, the examples in this topic work with your environment. If you do not have version 3.0 or later, [update your version](/powershell/azureps-cmdlets-docs/) by using PowerShell Gallery or Web Platform Installer before proceeding with this topic.
 
 ```powershell
 Version
@@ -12,7 +12,7 @@ Version
 3.5.0
 ```
 
-Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether or not the resource or resource group has existing tags that you want to preserve. To add tags to a:
+Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags that you want to preserve. To add tags to a:
 
 * resource group without existing tags.
 
@@ -58,7 +58,7 @@ To remove all tags, pass an empty hash table.
 Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
 ```
 
-To get resource groups with a specific tag, use `Find-AzureRmResourceGroup` cmdlet, as shown below:
+To get resource groups with a specific tag, use `Find-AzureRmResourceGroup` cmdlet.
 
 ```powershell
 (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 

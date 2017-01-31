@@ -109,7 +109,7 @@ Or, you can pass an object with tag keys and values, as shown in the following e
 
 With Azure CLI 2.0 (Preview), you can add tags to resources and resource group, and query resources by tag values.
 
-Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether or not the resource or resource group has existing tags that you want to preserve. To add tags to a:
+Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags that you want to preserve. To add tags to a:
 
 * resource group without existing tags.
 
@@ -148,13 +148,13 @@ Reapply the existing tags to the resource, and add the new tags.
 az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
 ``` 
 
-To get resource groups with a specific tag, use `az group list`, as shown below:
+To get resource groups with a specific tag, use `az group list`.
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-To get all the resources with a particular tag and value, use `az resource list`, as shown below:
+To get all the resources with a particular tag and value, use `az resource list`.
 
 ```azurecli
 az resource list --tag Dept=Finance
