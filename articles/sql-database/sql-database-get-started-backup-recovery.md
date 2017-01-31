@@ -1,5 +1,5 @@
 ---
-title: Get Started with backup and restore of Azure SQL databases for data protection and recovery | Microsoft Docs 
+title: 'Azure portal: Backup and restore-Azure SQL database | Microsoft Docs' 
 description: "This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault"
 keywords: sql database tutorial
 services: sql-database
@@ -19,7 +19,7 @@ ms.date: 12/08/2016
 ms.author: carlrab
 
 ---
-# Get Started with Backup and Restore for Data Protection and Recovery
+# Tutorial: Backup and restore of an Azure SQL Database using the Azure portal
 In this getting-started tutorial, you learn how to use the Azure portal to:
 
 - View existing backups of a database
