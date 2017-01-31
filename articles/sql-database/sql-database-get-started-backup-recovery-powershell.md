@@ -21,7 +21,7 @@ ms.author: sstein
 ---
 
 
-# Tutorial: Backup and restore of an Azure SQL Database using PowerShell
+# Tutorial: Backup and restore an Azure SQL Database using PowerShell
 
 In this tutorial, you learn how to use Azure PowerShell to:
 
