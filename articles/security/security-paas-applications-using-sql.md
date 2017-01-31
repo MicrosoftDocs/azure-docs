@@ -22,7 +22,7 @@ ms.author: terrylan
 In this article, we discuss a collection of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) and [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
 ## Azure SQL Database and SQL Data Warehouse
-Azure SQL Database and SQL Data Warehouse provide a relational database service for your Internet-based applications. Let’s look at services that help protect your applications and data when using Azure SQL Database and SQL Data Warehouse in a PaaS deployment:
+[Azure SQL Database](../sql-database/sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) provide a relational database service for your Internet-based applications. Let’s look at services that help protect your applications and data when using Azure SQL Database and SQL Data Warehouse in a PaaS deployment:
 
 - Azure Active Directory authentication (instead of SQL Server authentication)
 - Azure SQL firewall
@@ -38,7 +38,7 @@ Azure SQL databases can be configured to use one of two types of authentication:
 
 - **Azure Active Directory Authentication** uses identities managed by Azure Active Directory and is supported for managed and integrated domains. To use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can.
 
-[Azure Active Directory authentication](../active-directory/develop/active-directory-authentication-scenarios.md) is a mechanism of connecting to Microsoft Azure SQL Database and SQL Data Warehouse by using identities in Azure Active Directory (AD). Azure AD provides an alternative to SQL Server authentication so you can stop the proliferation of user identities across database servers. Azure AD authentication enables you to centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.  
+[Azure Active Directory authentication](../active-directory/develop/active-directory-authentication-scenarios.md) is a mechanism of connecting to Azure SQL Database and SQL Data Warehouse by using identities in Azure Active Directory (AD). Azure AD provides an alternative to SQL Server authentication so you can stop the proliferation of user identities across database servers. Azure AD authentication enables you to centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management.  
 
 Benefits of using Azure AD authentication instead of SQL authentication include:
 
@@ -48,7 +48,7 @@ Benefits of using Azure AD authentication instead of SQL authentication include:
 - Uses contained database users to authenticate identities at the database level.
 - Supports token-based authentication for applications connecting to SQL Database.
 - Supports ADFS (domain federation) or native user/password authentication for a local Azure AD without domain synchronization.
-- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 To learn more about Azure AD authentication, see:
 
@@ -75,7 +75,7 @@ To learn more about Azure SQL Firewall and IP restrictions, see:
 ### Encryption of data at rest
 [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) encrypts SQL Server, Azure SQL Database, and Azure SQL Data Warehouse data files, known as encrypting data at rest. You can take several precautions to help secure the database such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers. However, in a scenario where the physical media (such as drives or backup tapes) are stolen, a malicious party can restore or attach the database and browse the data. One solution is to encrypt the sensitive data in the database and protect the keys that are used to encrypt the data with a certificate. This prevents anyone without the keys from using the data but this kind of protection must be planned in advance.
 
-TDE protects data "at rest", meaning the data and log files. It provides the ability to comply with many laws, regulations, and guidelines established in various industries. This enables software developers to encrypt data by using industry standard encryption algorithms without changing existing applications.
+TDE protects data at rest, meaning the data and log files. It provides the ability to comply with many laws, regulations, and guidelines established in various industries. This enables software developers to encrypt data by using industry standard encryption algorithms without changing existing applications.
 
 TDE should be used if regulations explicitly specify such encryption. Be aware, though, that this will not stop an attacker using the normal access path. TDE is used to protect against the highly unlikely case that you might need to use additional application level encryption, either through Azure SQL provided encryption against rows and columns or through application level encryption.
 
