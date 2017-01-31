@@ -56,7 +56,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
  <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
 <system.net>
-v<defaultProxy enabled="false"></defaultProxy>
+<defaultProxy enabled="false"></defaultProxy>
 </system.net>
  <runtime>
 <gcServer enabled="true"/>
@@ -96,7 +96,7 @@ To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\Applicatio
 <system.net>  
     <defaultProxy>   
       <proxy proxyaddress="http://proxyserver:8080" bypassonlocal="True" usesystemdefault="True"/>   
-v    </defaultProxy>  
+    </defaultProxy>  
 </system.net>
   <runtime>
      <gcServer enabled="true"/>
