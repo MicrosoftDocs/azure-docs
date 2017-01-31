@@ -1,5 +1,5 @@
 ---
-title: Migrate a virtual network from an affinity group to a region | Classic | Microsoft Docs
+title: Migrate an Azure virtual network from an affinity group to a region | Classic | Microsoft Docs
 description: Learn how to migrate a virtual network from an affinity group to a region.
 services: virtual-network
 documentationcenter: na
