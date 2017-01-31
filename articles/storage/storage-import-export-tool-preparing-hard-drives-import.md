@@ -405,3 +405,5 @@ WAImportExport Tool reads and writes files batch by batch, one batch contains ma
 **.xml** - For each hard drive that you prepare with the WAImportExport tool, the tool will create a single journal file with name "&lt;DriveID&gt;.xml" where drive Id is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure portal. This journal file can also be used to resume drive preparation if the tool is interrupted.
 
 **.jrn** - The journal file with suffix .jrn contains the status for all copy sessions for a hard drives. It also contains the information needed to create the import job. You must always specify a journal file when running the WAImportExport tool, as well as a copy session ID.
+
+Note: For some disks the DriveID may appear with letters swapped, eg BCDEFGHI could be returned as CBEDGFIH. Azure Import/Export service handles this automatically and proceeds to complete the job.
