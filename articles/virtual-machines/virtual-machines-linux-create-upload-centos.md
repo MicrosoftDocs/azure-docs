@@ -46,21 +46,21 @@ This article assumes that you have already installed a CentOS (or similar deriva
     **Note:** If the package is not already installed, this command will fail with an error message. This is expected.
 4. Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
    
-     NETWORKING=yes
-     HOSTNAME=localhost.localdomain
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 5. Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
    
-     DEVICE=eth0
-     ONBOOT=yes
-     BOOTPROTO=dhcp
-     TYPE=Ethernet
-     USERCTL=no
-     PEERDNS=yes
-     IPV6INIT=no
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
 6. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
    
-   # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
-   # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 7. Ensure the network service will start at boot time by running the following command:
    
         # sudo chkconfig network on
@@ -119,7 +119,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     **Note:** The rest of this guide will assume you are using at least the [openlogic] repo, which will be used to install the Azure Linux agent below.
 11. Add the following line to /etc/yum.conf:
     
-     http_caching=packages
+        http_caching=packages
     
     And **on CentOS 6.3 only** add the following line:
     
@@ -129,19 +129,19 @@ This article assumes that you have already installed a CentOS (or similar deriva
         set enabled=0
 13. Run the following command to clear the current yum metadata:
     
-    # yum clean all
+        # yum clean all
 14. **On CentOS 6.3 only**, update the kernel using the following command:
     
         # sudo yum --disableexcludes=all install kernel
 15. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
     
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
     
     This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in the kernel version used by CentOS 6.
     
     In addition to the above, it is recommended to *remove* the following parameters:
     
-     rhgb quiet crashkernel=auto
+        rhgb quiet crashkernel=auto
     
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
     
@@ -156,16 +156,16 @@ This article assumes that you have already installed a CentOS (or similar deriva
     
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
     
-     ResourceDisk.Format=y
-     ResourceDisk.Filesystem=ext4
-     ResourceDisk.MountPoint=/mnt/resource
-     ResourceDisk.EnableSwap=y
-     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 19. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
     
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 20. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 - - -
@@ -184,20 +184,20 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 2. Click **Connect** to open a console window for the virtual machine.
 3. Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
    
-     NETWORKING=yes
-     HOSTNAME=localhost.localdomain
+        NETWORKING=yes
+        HOSTNAME=localhost.localdomain
 4. Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
    
-     DEVICE=eth0
-     ONBOOT=yes
-     BOOTPROTO=dhcp
-     TYPE=Ethernet
-     USERCTL=no
-     PEERDNS=yes
-     IPV6INIT=no
+        DEVICE=eth0
+        ONBOOT=yes
+        BOOTPROTO=dhcp
+        TYPE=Ethernet
+        USERCTL=no
+        PEERDNS=yes
+        IPV6INIT=no
 5. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
    
-   # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+        # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 6. Ensure the network service will start at boot time by running the following command:
    
         # sudo chkconfig network on
@@ -252,50 +252,50 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 1. Run the following command to clear the current yum metadata and install any updates:
    
-   # sudo yum clean all
-   # sudo yum -y update
+        # sudo yum clean all
+        # sudo yum -y update
 2. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/etc/default/grub" in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
    
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+        GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
    
-    rhgb quiet crashkernel=auto
+        rhgb quiet crashkernel=auto
    
    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
    
    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 3. Once you are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
    
-       # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+        # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 4. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 5. **Only if building the image from VMWare, VirtualBox or KVM:** Add Hyper-V modules into initramfs:
    
    Edit `/etc/dracut.conf`, add content:
    
-    add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
    
    Rebuild the initramfs:
    
-   # dracut –f -v
+        # dracut –f -v
 6. Install the Azure Linux Agent by running the following command:
    
-       # sudo yum install WALinuxAgent
-       # sudo systemctl enable waagent
+        # sudo yum install WALinuxAgent
+        # sudo systemctl enable waagent
 7. Do not create swap space on the OS disk.
    
    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
    
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+        ResourceDisk.Format=y
+        ResourceDisk.Filesystem=ext4
+        ResourceDisk.MountPoint=/mnt/resource
+        ResourceDisk.EnableSwap=y
+        ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
-   # sudo waagent -force -deprovision
-   # export HISTSIZE=0
-   # logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps

@@ -76,7 +76,6 @@ The following table lists every connection problem topic that applies directly t
 | 6 |[SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) |Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
 | 7 |[Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) |Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
 | 8 |[SQL Database Development Overview](sql-database-develop-overview.md) |Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
-| 9 |Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Provides directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or PowerShell. |
 
 ## Next steps
 * [Troubleshoot Azure SQL Database performance issues](sql-database-troubleshoot-performance.md)
