@@ -1,5 +1,5 @@
 ---
-title: Fail back VMware virtual machines and physical servers to the on-premises site | Microsoft Docs
+title: Fail back VMware VMs from Azure to on-premises | Microsoft Docs
 description: Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure.
 services: site-recovery
 documentationcenter: ''
@@ -19,11 +19,9 @@ ms.author: ruturajd
 ---
 # Fail back VMware virtual machines and physical servers to the on-premises site
 > [!div class="op_single_selector"]
-> * [Azure portal](site-recovery-failback-azure-to-vmware.md)
-> * [Azure classic portal](site-recovery-failback-azure-to-vmware-classic.md)
-> * [Azure classic portal (legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
->
->
+> * [Azure Portal](site-recovery-failback-azure-to-vmware.md)
+> * [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
+> * [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions here when you're ready to fail back your VMware virtual machines or Windows or Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
@@ -51,18 +49,18 @@ After you’ve failed over to Azure, you fail back to your on-premises site in t
 ### Fail back to the original location or an alternate location
 After you fail over a VMware VM, you can fail back to the same source VM if it still exists on-premises. In this scenario, only the deltas are failed back.
 
-If you failed over a physical server, failback is always to a new VMware VM. Before you fail back a physical machine, consider the following:
+If you failed over physical servers, failback is always to a new VMware VM. Before failing back a physical machine, note that:
+* A protected physical machine will come back as a virtual machine when it is failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 physical machine, if it is protected and failed over to Azure, cannot be failed back. A Windows Server 2008 R2 SP1 that started as a virtual machine on-premises will be able to failback.
+* Ensure that you discover at least one master target server along with the necessary ESX/ESXi hosts that you need to fail back to.
 
-* Protected physical machines come back as virtual machines when they are failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 physical machine, if it is protected and failed over to Azure, cannot be failed back. A Windows Server 2008 R2 SP1 that started as a virtual machine on-premises can be failed back.
-* Ensure that you discover at least one master target server along with the necessary ESX or ESXi hosts that you need to fail back to.
+If you fail back to the original VM, the following are required:
 
-To fail back to the original VM, you must meet the following requirements:
+* If the VM is managed by a vCenter server, the master target's ESX host should have access to the VMs datastore.
+* If the VM is on an ESX host but isn’t managed by vCenter, the hard disk of the VM must be in a datastore that's accessible by the MT's host.
+* If your VM is on an ESX host and doesn't use vCenter, you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
+* Another option (if the on-premises VM exists) is to delete it before you do a failback. Failback then creates a new VM on the same host as the master target ESX host.
 
-  * If the VM is managed by a vCenter server, the master target's ESX host should have access to the VM's datastore.
-  * If the VM is on an ESX host but it isn’t managed by a vCenter server, the hard disk of the VM must be in a datastore that's accessible by the master target's host.
-  * If your VM is on an ESX host and doesn't use a vCenter server, you should complete the discovery of the master target's ESX host before you reprotect it. This requirement also applies if you're failing back physical servers.
-  * Another option (if the on-premises VM exists) is to delete the VM before you do a failback. The failback then creates a new VM on the same host as the master target's ESX host.
-  * When you fail back to an alternate location, the data is recovered to the same datastore and the same ESX host that's used by the on-premises master target server.
+When you fail back to an alternate location, the data is recovered to the same datastore and the same ESX host as that used by the on-premises master target server.
 
 ## Prerequisites
 * To fail back VMware VMs and physical servers, you need a VMware environment. Failing back to a physical server isn’t supported.
@@ -135,7 +133,6 @@ The master target server receives the failback data. The server is automatically
 
 > [!NOTE]
 > To set up a master target server on Linux, skip to the next procedure. Use only CentOS 6.6 minimal operating system as the master target OS.
->
 
 1. If you're setting up the master target server on Windows, open the quick-start page from the VM that you're installing the master target server on.
 2. Download the installation file for the Azure Site Recovery Unified Setup wizard.
@@ -210,8 +207,6 @@ You can also reprotect at a recovery plan level. If you have a replication group
 
 > [!NOTE]
 > Replication groups should be protected back with the same master target. If they are protected back with different master target servers, a common point in time cannot be determined for them.
->
->
 
 ### Run a failover to the on-premises site
 After you reprotect the VM, you can initiate a failover from Azure to on-premises.
