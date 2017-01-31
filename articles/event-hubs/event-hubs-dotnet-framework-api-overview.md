@@ -105,7 +105,7 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## Event processor host APIs
+## Event Processor Host APIs
 These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers.
 
 ```csharp

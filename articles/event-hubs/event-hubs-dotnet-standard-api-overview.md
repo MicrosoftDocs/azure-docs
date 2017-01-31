@@ -24,17 +24,17 @@ This article summarizes some of the key Event Hubs .NET Standard client APIs. Th
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
   * This library adds additional functionality that allows for 
 
-## Event Hub Client
-An `EventHubClient` is the primary object you use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and creates a new connection to the Event Hubs endpoint.
+## Event Hub client
+[**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) is the primary object you use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and creates a new connection to the Event Hubs endpoint.
 
 ### Create an Event Hub client
-An `EventHubClient` is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
+An [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
 
 ```csharp
 var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
 ```
 
-To programmatically edit the connection string, you can use the `ConnectionStringBuilder` class, and pass the connection string as a parameter to `EventHubClient.CreateFromConnectionString()`.
+To programmatically edit the connection string, you can use the [**EventHubsConnectionStringBuilder**](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) class, and pass the connection string as a parameter to [**EventHubClient.CreateFromConnectionString**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
@@ -46,7 +46,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### Send events
-To send events to an Event hub, use the `EventData` class. The body must be a `byte` array, or a `byte` array segment.
+To send events to an Event Hub, use the [**EventData**](/dotnet/api/microsoft.azure.eventhubs.eventdata) class. The body must be a `byte` array, or a `byte` array segment.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -87,7 +87,7 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## Event processor host APIs
+## Event Processor Host APIs
 These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers.
 
 ```csharp
@@ -105,7 +105,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-The [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface is defined as follows:
+The [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface is defined as follows:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
