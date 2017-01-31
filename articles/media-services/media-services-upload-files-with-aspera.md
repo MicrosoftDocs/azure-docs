@@ -1,13 +1,13 @@
 ---
-title: " Upload files into a Media Services account using an Aspera On Demand Service on Azure | Microsoft Docs"
-description: This tutorial walks you through the steps of uploading files into a Media Services account using an Aspera On Demand Service on Azure.
+title: Upload files into an Azure Media Services account using Aspera | Microsoft Docs
+description: This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
 manager: erikre
 editor: ''
 
-ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
+ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -17,20 +17,23 @@ ms.date: 01/28/2017
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using the an Aspera On Demand service on Azure
+# Upload files into a Media Services account using the Aspera Server On Demand service on Azure
 
 ## Overview
  
-> [!NOTE]
-> To complete this tutorial, you need a Windows Live ID and an [Azure account](https://azure.microsoft.com). For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-> 
+**Aspera Server On Demand** for Azure is a transfer service available for purchase from the [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). In order to complete a purchase Aspera Server On Demand for Azure, please log into Azure Marketplace with your Windows Live ID.
 
-This article is for customers who are ready to get started with an **Aspera On Demand Service** on Azure.  If you are still investigating Aspera On Demand options and want to learn more, please view the [Aspera Cloud](http://cloud.asperasoft.com/) site for more info. 
+This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure. For information about Aspera On Demand, see the [Aspera Cloud](http://cloud.asperasoft.com/) site. 
 
->[!NOTE]
->Aspera has two offerings in the Azure marketplace. **Aspera Server on Demand** and **Aspera Faspex** on demand. Aspera software that has been purchased for on premise deployments, is not allowed to be installed on virtual machines running on the Azure platform. 
+Aspera has two offerings in the Azure marketplace. **Aspera Server on Demand** and **Aspera Faspex on Demand**. Aspera software that has been purchased for on premise deployments and is not allowed to be installed on virtual machines running on the Azure platform. 
 
-**Aspera Server On Demand** for Azure is a transfer service available for purchase from the Azure Marketplace.  You can find the **Aspera Service** in Azure [here](https://azure.microsoft.com/en-us/marketplace/). In order to complete a purchase Aspera Server On Demand for Azure, please log into Azure Marketplace with your Windows Live ID.
+## Prerequisites 
+
+To complete this tutorial, you need:
+
+* A Windows Live ID
+* An [Azure account](https://azure.microsoft.com). For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+* An [Azure Media Services account](media-services-portal-create-account.md).
 
 ## Purchase Aspera On Demand for Azure
 
@@ -48,15 +51,15 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
-4. Click on the "Pricing Tier" and select your desired monthly volume in the sub panel.  Click on "OK" in the Plan details and then "Select" in the "Choose your Pricing Tier" Panel.
+4. Click on the **Pricing Tier** and select your desired monthly volume in the sub panel. In the **Plan details**, select **OK**. Then, in the **Choose your Pricing Tier** panel, click **Select**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera004.png)
 
-5. Click on "Legal terms" to view and accept the legal terms in the sub panel.  Once you have reviewed the legal terms, click on "Purchase".
+5. Click on **Legal terms** to view and accept the legal terms in the sub panel. Once you have reviewed the legal terms, click **Purchase**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera005.png)
 
-6. Complete the purchase by clicking on "Create".
+6. Complete the purchase by clicking **Create**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera006.png)
 
@@ -64,7 +67,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera007.png)
 
-8. Launch the Aspera management portal.   Once you have found your new Aspera service, you can gain access to the management portal, by clicking on the service.  A new panel will be launched.  From within that new panel, you need to click on the Resource Name of your new service.   In my screenshot, the resource name is 'AsperaTransferDemo'.  Once you click on that, another panel will be launched.  In that newly launched panel, you will see a 'Manage' link.  Click on the 'manage' link to launch the Aspera management portal.
+8. Launch the Aspera management portal. Once you have found your new Aspera service, you can gain access to the management portal, by clicking on the service.  A new panel will be launched. From within that new panel, you need to click on the Resource Name of your new service.  In my screenshot, the resource name is 'AsperaTransferDemo'. Once you click on that, another panel will be launched.  In that newly launched panel, you will see a 'Manage' link.  Click on the 'manage' link to launch the Aspera management portal.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
 
@@ -72,33 +75,46 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera009.png)
 
-10. Success!  At this point, you should have access to the Aspera service management portal, where you can create access keys, download Aspera clients and licenses, view usage and learn about the APIs.  Below is a screenshot of the access creation and usage reporting interfaces in the portal. 
+10. At this point, you should have access to the Aspera service management portal, where you can create access keys, download Aspera clients and licenses, view usage and learn about the APIs.
+
+	Below is a screenshot of the access creation. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
+	Below is a screenshot of the usage reporting interfaces in the portal. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
-11.Download and install the Aspera Client software:
+## Upload files with Aspera
 
-[Browser plugin](http://downloads.asperasoft.com/connect2/)
+1. Download and install the Aspera client software:
 
-[Rich client](http://downloads.asperasoft.com/en/downloads/2)
+* [Browser plugin](http://downloads.asperasoft.com/connect2/)
+* [Rich client](http://downloads.asperasoft.com/en/downloads/2)
 
-12. Your first transfer:  In order to use the Aspera client to transfer with the Aspera transfer service, you need to complete the following: 
+2. Make your first transfer. In order to use the Aspera client to transfer with the Aspera transfer service, you need to complete the following: 
 
 	1. Create an access key, using the Aspera portal.  
-	2. Create a storage account and container using the Azure management portal. 
-	3. Download, install and license the Aspera client (software can be found in the Aspera portal).  
+	2. Download, install and license the Aspera client (software can be found in the Aspera portal).  
 
-	Please read the client guide for configuration information. 
+	>[!NOTE]
+	>Please read the Aspera client guide for configuration information.
+	
+	3. Retrieve your storage account name and key using the [Azure portal](https://portal.azure.com/). Also, get the storage container name (you will place your content into the container). 
 
-In the connections screen of the Aspera client, you must specify the 'Azure' storage type as well as the blob credentials and container.
+	To get the storage info from the portal: find your storage account, click on the Access keys and copy the name and the key of your account.
 
-![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+	To get container name: select **Blobs**, select the container you want to upload the content into. 
+
+	Below is the screenshot of the Aspera client Connection Manager where you must specify the 'Azure' storage type as well as the blob credentials and container.
+
+	![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## Next steps
+
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
+
+You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ). 
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
