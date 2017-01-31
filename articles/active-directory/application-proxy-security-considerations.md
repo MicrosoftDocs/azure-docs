@@ -50,7 +50,7 @@ Azure AD Application Proxy offers the following security benefits:
 
 * Azure AD's identity protection with machine-learning driven intelligence with data feeds from our Digital Crimes Unit and Microsoft Security Response Center. Together we proactively identify compromised accounts and offer real-time protection from high-risk sign-ins. We take into account numerous factors, such as access from infected devices and through anonymizing networks, and from atypical and unlikely locations.
 * Many of these reports and events are already available through an API for integration with your SIEM systems.
-* You can read more about Azure AD Identity Protection [here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection).
+* You can read more about Azure AD Identity Protection [Azure Active Directory Identity Protection](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection).
 
 **Remote access as a service:** You don’t have to worry about maintaining and patching on-prem servers
 
