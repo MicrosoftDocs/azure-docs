@@ -45,6 +45,7 @@ There are several things you need to be aware of before setting the home page UR
 
 * If you make a change to the published application, it may reset the value of the home page URL. Therefore, when you decide to update you application, you should recheck and potentially update the homepage URL.
 
+
 In the next section, you will walk through how to setup a custom home page URL for your published applications. 
 
 ## Install the Azure AD Powershell module
@@ -55,7 +56,8 @@ Before you can define a custom home page URL using Powershell, you first need to
 
 1. Open standard PowerShell.
 2. Run the following command:
- ```
+
+```
  Install-Module -Name AzureAD -RequiredVersion 1.1.23.0
  ```
  If you are running this as a non Admin, you need to use the _-scope currentuser_ option.
@@ -74,15 +76,17 @@ Fist you must obtain the ObjectID of the application, and then search for the ap
 
 1. Open PowerShell.
 2. Import the Azure AD module.
+  
  ```
  Import-Module AzureAD
  ```
 3. Log in to the Azure AD module.  Use the cmdlet below, and follow the instructions on the screen. Make sure you log in as the tenant administrator.
+ 
  ```
  Connect-AzureAD
  ```
 4. The cmdlet below finds the applications based on the home page containing _sharepoint-iddemo_. This is the app you want to edit. You will need to replace this value with the value that works for your application.
- ```
+  ```
  Get-AzureADApplications | where { $_.Homepage -like “*sharepoint-iddemo*” } | fl DisplayName, Homepage, ObjectID
  ```
 5. You should view a result similar to the response below. The GUID (the ObjectID value below) is the item that you are will need to copy.
