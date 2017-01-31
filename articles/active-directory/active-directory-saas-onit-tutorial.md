@@ -16,6 +16,7 @@ ms.date: 01/26/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Onit
 The objective of this tutorial is to show the integration of Azure and Onit.  
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -121,13 +122,15 @@ The following screenshot shows an example for this.
    2. In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
    3. In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
    4. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.    
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
-      >    
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+      >
+      
    5. As **SSO Type**, select **SAML**.
    6. In the **SSO login button text** textbox, type a button text you like.
    7. Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
-       ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
+   
+       ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")  
 14. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
@@ -150,11 +153,11 @@ In the case of Onit, provisioning is a manual task.
    
    1. Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
    2. Click **Create**.    
-      > [!NOTE]
-      > The account owner will get an email including a link to confirm the account before it becomes active.
+   
+      >[!NOTE]
+      >The account owner will get an email including a link to confirm the account before it becomes active.
       > 
-      > 
-
+       
 
 > [!NOTE]
 > You can use any other Onit user account creation tools or APIs provided by Onit to provision AAD user accounts.
@@ -168,7 +171,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Onit, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Onit **application integration page, click **Assign users**.
+2. On the **Onit** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-onit-tutorial/IC791182.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
