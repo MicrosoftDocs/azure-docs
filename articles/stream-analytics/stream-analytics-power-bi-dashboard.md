@@ -106,6 +106,7 @@ The dataset is created with the following settings set;
 * defaultMode: pushStreaming: supports both streaming tiles and traditional report-based visuals (aka push)
 * creating datasets with other flags is unsupported at this time
 
+For more information on Power BI datasets see the [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) reference.
 
 * Click **OK**, **Test Connection** and now you output configuraiton is complete.
 
@@ -172,7 +173,7 @@ For further information on configuring a Power BI output and to utilize Power BI
 ## Limitations and best practices
 Power BI employs both concurrency and throughput constraints as described here: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI Pricing")
 
-Currently, you Power BI can be called roughly once per second. Streaming visuals support packets of size 15kb. Beyond that and streaming visuals will fail ( but push will continue to work).
+Currently, you Power BI can be called roughly once per second. Streaming visuals support packets of size 15kb. Beyond that and streaming visuals will fail (but push will continue to work).
 
 Because of those Power BI lands itself most naturally to cases where Azure Stream Analytics does a significant data load reduction.
 We recommend using TumblingWindow or HoppingWindow to ensure that data push would be at most 1 push/second and that your query lands within the throughput requirements – you can use the following equation to compute the value to give your window in seconds:
