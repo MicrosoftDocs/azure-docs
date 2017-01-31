@@ -210,7 +210,7 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 ### Possible Scenarios
 1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates.
 2. Bob's thmubnailPhoto set in Active Directory is too large to be synced in Azure AD.
-3. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned >500 ProxyAddresses.
+3. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned large number of  ProxyAddresses values. 
 
 ### How to fix
 1. Ensure that the attribute causing the error is within the allowed limitation.
