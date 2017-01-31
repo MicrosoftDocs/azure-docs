@@ -74,11 +74,7 @@ We recommend that you use an instance of TelemetryClient for each module of your
 ## TrackEvent
 In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer][metrics] as an aggregated count, and in [Diagnostic Search][diagnostic] as individual occurrences. (It isn't related to MVC or other framework "events.")
 
-Insert TrackEvent calls in your code to count how often users:
-
-* Choose a particular feature.
-* Achieve particular goals.
-* Make particular types of mistakes.
+Insert TrackEvent calls in your code to count how often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
 For example, in a game app, send an event whenever a user wins the game:
 
@@ -213,7 +209,7 @@ You can also call it yourself if you want to simulate requests in a context wher
 
     // At start of processing this request:
 
-    // Operation ID and name are attached to all telemetry and help you identify
+    // Operation.Id and Name are attached to all telemetry and help you identify
     // telemetry associated with one request:
     telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
     telemetry.Context.Operation.Name = requestName;
