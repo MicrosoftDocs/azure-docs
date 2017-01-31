@@ -124,7 +124,7 @@ The following tables summarize storage configuration support in various deployme
 NFS | Yes for VMware<br/><br/> No for physical servers | N/A | N/A
 SMB 3.0 | N/A | Yes | Yes
 SAN (ISCSI) | Yes | Yes | Yes
-Multi-path (MPIO)<br></br>Tested with: Microsoft DSM,EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes for VMware<br/><br/> | Yes | Yes
+Multi-path (MPIO)<br></br>Tested with: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes for VMware<br/><br/> | Yes | Yes
 
 ### Guest or physical server storage configuration
 
@@ -182,7 +182,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 **Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you failover to Azure. When you failback to on-premises, the virtual machines continue to use the VHDX format.
 **Bitlocker** | Not supported | Bitlocker must be disabled before protecting a virtual machine.
 **VM name** | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the virtual machine properties in Site Recovery.
-**VM type** | Generation 1<br/><br/> Generation 2 - Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB are supported.<br></br>Linux Generation 2 VM's aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+**VM type** | Generation 1<br/><br/> Generation 2 - Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## Support for Recovery Services vault actions
 
