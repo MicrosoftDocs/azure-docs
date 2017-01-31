@@ -28,29 +28,23 @@ Stream Analytics exposes two types of logs:
 ## How to enable diagnostic logs
 The diagnostics logs are turned **off** by default. To enable them follow these steps:
 
-1.	Sign on to the Azure portal.
+Sign on to the Azure portal and navigate to the streaming job blade and use the “Diagnostic logs” blade under “Monitoring”.
 
-2.	Navigate to the streaming job blade and use the “Diagnostic logs” blade under “Monitoring”.
+![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
-   ![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+Then click on the “Turn on diagnostics” link
 
-3.	Click on the “Turn on diagnostics” link
+![turn on diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
 
-   ![turn on diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
+On the opened diagnostics, change the status to “On”.
 
-4.	On the opened diagnostics change the status to “On”.
+![change status diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image3.png)
 
-   ![change status diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image3.png)
-
-5.	Configure the desired archival target (storage account, event hub, Log Analytics).
-
-6.	Selecting the categories of logs that you want to collect (Execution, Authoring).
-
-7.	Save the new diagnostics configuration.
+Configure the desired archival target (storage account, event hub, Log Analytics) and select the categories of logs that you want to collect (Execution, Authoring). Then save the new diagnostics configuration.
 
 Once saved, the configuration will take about 10 minutes to take effect and after that logs will start appearing in the configured archival target which you can see on the “Diagnostics logs” blade:
 
-   ![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![blade navigation to diagnostic logs](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
 More information about configuring diagnostics is available on the [diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) page.
 
