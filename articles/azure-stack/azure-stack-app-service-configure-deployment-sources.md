@@ -40,7 +40,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 ## Configure GitHub
 
 > [!NOTE]
-> You will require a GitHub account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+> You will require a GitHub account to complete this task.  You may wish to use an account for your organization rather than a personal account.
 
 1. Login to GitHub, browse to https://www.github.com/settings/developers and click **Register a new application**
     ![GitHub - Register a new application][3]
@@ -101,7 +101,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 ## Configure DropBox
 
 > [!NOTE]
-> You will need to have a DropBox account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+> You will need to have a DropBox account to complete this task.  You may wish to use an account for your organization rather than a personal account.
 
 1. Browse to https://www.dropbox.com/developers/apps and login using your DropBox Account
 2. Click **Create app** 
@@ -138,10 +138,10 @@ In order for the settings update in the configuration of the various deployment 
 [7]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-dashboard.png
 [8]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-add-oauth-consumer.png
 [9]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-bitbucket-access-management-add-oauth-consumer-complete.png
-[10]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-applications.png
-[11]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-application-registration.png
-[12]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-application-platform.png
-[13]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-onedrive-application-graph-permissions.png
-[14]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-dropbox-applications.png
-[15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-dropbox-application-registration.png
-[16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-dropbox-application-configuration.png
+[10]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Onedrive-applications.png
+[11]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Onedrive-application-registration.png
+[12]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Onedrive-application-platform.png
+[13]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Onedrive-application-graph-permissions.png
+[14]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-applications.png
+[15]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-registration.png
+[16]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin-Dropbox-application-configuration.png
