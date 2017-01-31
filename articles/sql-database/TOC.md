@@ -20,7 +20,7 @@
 ## [SQL Database tutorials](sql-database-explore-tutorials.md)
 ## [Solution quick-starts](sql-database-solution-quick-starts.md)
 ## Security
-### [Security Overview](sql-database-security-overview.md)
+### [Security overview](sql-database-security-overview.md)
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
 # Get Started
