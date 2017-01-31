@@ -100,7 +100,7 @@ To configure your SharePoint site for Kerberos authentication:
 
 7. At the very bottom of the **Edit Authentication** box, click **Save**.
 
-**Step C: Setting an SPN for the SharePoint Service Account**
+**Step C: Set an SPN for the SharePoint Service Account**
 
 Before configuring the KCD, we need to identify the SharePoint service running as the service account that you've configured above. We do this by setting a service principal name (SPN). For more information, see [Service Principal Names](https://technet.microsoft.com/en-us/library/cc961723.aspx).
 
@@ -143,7 +143,7 @@ Klist
   
 4. Now that you have the SPN, you need to make sure that it is configured correctly on the service account set up for the Web Application earlier. Follow the steps in the next section.
 
-**Setting the SPN**
+**Set the SPN**
 
 To set the SPN, run the command below from the command prompt as an Administrator of the domain.
 
@@ -177,7 +177,7 @@ To configure the KCD, you will need to repeat the following steps for each conne
  You should see a list of SPNs to choose from. You need to add the one that you set above. 
 6. Select that item and click **OK**. Click **OK** again to save the change.
 
-### Part 2: Enabling remote access to SharePoint
+### Part 2: Enable remote access to SharePoint
 
 Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're ready to set up single sign-on (SSO) to SharePoint. Then from the connector, you can publish SharePoint for remote access through the Azure AD Application Proxy.
 
