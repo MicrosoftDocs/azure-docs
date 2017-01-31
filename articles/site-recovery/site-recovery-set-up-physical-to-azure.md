@@ -27,7 +27,7 @@ This article describes how to set up your on-premises environment to start repli
 ## Prerequisites
 
 The article assumes that you already have
-1. A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal").
+1. A Recovery Services vault in the [Azure portal](http://portal.azure.com "Azure portal").
 3. A physical computer on which to install the configuration server.
 
 ### Configuration server minimum requirements
@@ -49,12 +49,12 @@ The following table lists the minimum hardware, software, and network requiremen
 
 ## Set up the source environment
 
-1. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
+1. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
   ![Set up source](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for **five** days after you generate it.
+5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
 	![Set up source](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.

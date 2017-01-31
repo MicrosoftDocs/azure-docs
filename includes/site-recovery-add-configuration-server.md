@@ -26,7 +26,7 @@
 8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-9. In **Install Location**, select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
+9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
 
     ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
 10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use Port 443 for sending or receiving replication traffic.
