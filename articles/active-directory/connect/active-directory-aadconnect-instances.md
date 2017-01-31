@@ -33,9 +33,9 @@ When you sign in to your Azure AD tenant, you must use an account in the onmicro
 
 Features currently not present in the Microsoft Cloud Germany:
 
-* Azure AD Connect Health is not available.
-* Automatic updates is not available.
-* Password writeback is not available.
+* **Azure AD Connect Health** is not available.
+* **Automatic updates** is not available.
+* **Password writeback** is not available.
 * Other Azure AD Premium services are not available.
 
 ## Microsoft Azure Government cloud
@@ -58,9 +58,10 @@ Azure AD Connect is not able to automatically detect that your Azure AD tenant i
 
 Features currently not present in the Microsoft Azure Government cloud:
 
-* Azure AD Connect Health is not available.
-* Automatic updates is not available.
-* Password writeback is not available.
+* **Azure AD Connect Health** is not available.
+* **Automatic updates** is not available.
+* **Password writeback** is not available.
+* Other Azure AD Premium services are not available.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
