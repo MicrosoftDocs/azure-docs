@@ -38,7 +38,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 2. [Link](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
 
-3. Create a trigger, for example using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp**
+3. Create a trigger, for example using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp**  
 ![Search lookup](media/logic-apps-enterprise-integration-metadata/image2.png)
 
 3. Select **Integration Account Artifact LookUp**  
