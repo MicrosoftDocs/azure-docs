@@ -73,8 +73,8 @@
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
 ### Do
-#### [SQL authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
-#### [AAD authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+#### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+#### [AAD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure and protect data
 ### Learn
 #### Auditing
