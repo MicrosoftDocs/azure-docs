@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
-ms.author: MikeRayMSFT
+ms.author: mikeray
 
 ---
 # High availability and disaster recovery for SQL Server in Azure Virtual Machines
