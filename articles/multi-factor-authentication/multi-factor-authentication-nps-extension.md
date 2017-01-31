@@ -19,11 +19,11 @@ ms.author: kgremban
 ---
 # Augment your existing authentication infrastructure with the Network Policy Server extension for Azure Multi-Factor Authentication
 
-The NPS extension for Azure MFA provides a simple solution to add cloud-based MFA capabilities to your authentication infrastructure using your existing Network Policy Servers (NPSs). With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure and maintain new servers. 
+The NPS extension for Azure MFA provides a simple solution to add cloud-based MFA capabilities to your authentication infrastructure using your existing Network Policy Servers (NPSs). With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
  
 When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
 
-1. NAS Server/VPN Server: VPN servers that receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
+1. NAS Server/VPN Server: VPN servers that receive requests from VPN clients and convert them into RADIUS requests to NPS servers. 
 2. NPS Server: NPS servers connect to Active Directory to perform the primary authentication for the RADIUS requests, and upon success, pass over the request to any installed extensions.  
 3. NPS Extension: Triggers an MFA request to Azure cloud-based MFA for performing the secondary authentication. Once it receives the response, and if the MFA challenge succeeds, completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
 4. Azure MFA: a cloud component that communicates with Azure Active Directory to retrieve the user’s details and performs the secondary authentication using a verification method configured to the user.
@@ -49,13 +49,13 @@ Windows Server 2008 R2 SP1 or above with the NPS component enabled
 Two libraries are required for the NPS extension. They're installed during the setup process:
 
 -	Microsoft Visual Studio 2013 C++ Redistributable (X64)
--	Microsoft Azure Active Directory Module for Windows PowerShell Ver 1.1.166
+-	Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166
 
 ### Azure Active Directory
 
 Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be enabled for MFA. Two-step verification must be [turned on for these users](multi-factor-authentication-get-started-cloud.md).
 
-When you install the extension, you need the tenant ID and admin credentials for your Azure AD tenant. You can find the tenant ID (a.k.a. ‘Directory ID’) in the [Azure Portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box.
+When you install the extension, you need the tenant ID and admin credentials for your Azure AD tenant. You can find the tenant ID (a.k.a. ‘Directory ID’) in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box.
 
 ![Find your Directory ID under Azure Active Directory properties](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
@@ -81,9 +81,9 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
 Use these steps to configure your RADIUS clients and users. Be aware that the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
 
-### Control RADIUS clients that will require MFA
+### Control RADIUS clients that require MFA
 
-Once you enable MFA for a RADIUS client using the NPS Extension, all authentications for this client will be required to perform MFA. If you want to enable MFA for some RADIUS clients but not others, you can configure two NPS servers and install the extension on only one of them. Configure RADIUS clients that you want to require MFA to send requests to the NPS server configured with the extension, and other RADIUS clients to the NPS server not configured with the extension.
+Once you enable MFA for a RADIUS client using the NPS Extension, all authentications for this client are required to perform MFA. If you want to enable MFA for some RADIUS clients but not others, you can configure two NPS servers and install the extension on only one of them. Configure RADIUS clients that you want to require MFA to send requests to the NPS server configured with the extension, and other RADIUS clients to the NPS server not configured with the extension.
 
 ### Prepare for users that aren't enrolled for MFA
 
@@ -93,7 +93,7 @@ If you have users that aren't enrolled for MFA, you can determine what happens w
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Not set (equivalent to TRUE) |
 
-The purpose of this setting is to determine what to do when a user is not enrolled for MFA. When the key does not exist, is not set, or is set to TRUE, the extension fails the MFA challenge if the user is not enrolled. When set to FALSE, authentication proceeds without performing if the user is not enrolled.
+The purpose of this setting is to determine what to do when a user is not enrolled for MFA. When the key does not exist, is not set, or is set to TRUE, and the user is not enrolled, then the extension fails the MFA challenge. When the key is set to FALSE and the user is not enrolled, authentication proceeds without performing MFA.
 
 You can choose to create this key and set it to FALSE during user onboarding. Since setting the key permits users that aren't enrolled for MFA to sign in without being challenged, you should remove this key before going to production.
 
@@ -144,4 +144,4 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 
 ## Next steps
 
-See how to integrate Azure MFA with [Active Directory](multi-factor-authentication-get-started-server-dirint), [RADIUS authentication](multi-factor-authentication-get-started-server-radius), and [LDAP authentication](multi-factor-authentication-get-started-server-ldap).
+See how to integrate Azure MFA with [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [RADIUS authentication](multi-factor-authentication-get-started-server-radius.md), and [LDAP authentication](multi-factor-authentication-get-started-server-ldap.md).
