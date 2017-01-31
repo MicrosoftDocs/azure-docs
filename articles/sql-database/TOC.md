@@ -259,9 +259,7 @@
 ### Point in time restore
 #### [Restore to a point in time](sql-database-point-in-time-restore.md)
 #### [View oldest restore point](sql-database-view-oldest-restore-point.md)
-### Geo-restore
-#### [Geo-restore using the Azure portal](sql-database-geo-restore-portal.md)
-#### [Geo-restore using PowerShell](sql-database-geo-restore-powershell.md)
+### [Restore from geo-redundant backup](sql-database-geo-restore.md)
 ## Active Geo-Replication
 ### [Configure using the Azure portal](sql-database-geo-replication-portal.md)
 ### [Configure using PowerShell](sql-database-geo-replication-powershell.md)
