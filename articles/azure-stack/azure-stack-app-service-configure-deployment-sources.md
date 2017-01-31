@@ -65,7 +65,7 @@ In order for tenants to be able to configure App Service to connect to their rep
     ![BitBucket Add OAuth Consumer][8]
 3. Enter a **Name** for the consumer, for example App Service on Azure Stack
 4. Enter a **Description** for the application
-5. Enter the **Callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain please substitute your domain for azurestack.local.  The Url must follow the capitalisation as listed here for BitBucket integration to succeed.
+5. Enter the **Callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain please substitute your domain for azurestack.local.  The Url must follow the capitalization as listed here for BitBucket integration to succeed.
 6. Enter the **URL** - this should be the Azure Stack Portal URL, for example https://portal.azurestack.local
 7. Select the **Permissions** required
     **Repositories** : **Read**
@@ -94,6 +94,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 8. Set the **Microsoft Graph Permissions** - **Delegated Permissions**
     * **Files.ReadWrite.AppFolder**
     * **User.Read**
+    
 ![OneDrive Application - Graph Permissions][13]
 9. Click **Save**
 10. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
@@ -125,7 +126,7 @@ In order for the settings update in the configuration of the various deployment 
 5. Click **Save**
 6. Click **Roles**
 7. Click **Management Server**
-8. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimise downtime.
+8. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimize downtime.
     ![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
 
 <!--Image references-->
