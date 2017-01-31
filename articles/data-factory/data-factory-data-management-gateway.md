@@ -162,8 +162,8 @@ Gateway uses the proxy server to connect to the cloud service. Click **Change** 
 There are three configuration options:
 
 * **Do not use proxy**: Gateway does not explicitly use any proxy to connect to cloud services.
-* **Use system proxy**: Gateway uses the proxy setting that is configured in diahost.exe.config.  If no proxy is configured in diahost.exe.config, gateway connects to cloud service directly without going through proxy.
-* **Use custom proxy**: Configure the HTTP proxy setting to use for gateway, instead of using configurations in diahost.exe.config.  Address and Port are required.  User Name and Password are optional depending on your proxy’s authentication setting.  All settings are encrypted with the credential certificate of the gateway and stored locally on the gateway host machine.
+* **Use system proxy**: Gateway uses the proxy setting that is configured in diahost.exe.config and diawp.exe.config.  If no proxy is configured in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy.
+* **Use custom proxy**: Configure the HTTP proxy setting to use for gateway, instead of using configurations in diahost.exe.config and diawp.exe.config.  Address and Port are required.  User Name and Password are optional depending on your proxy’s authentication setting.  All settings are encrypted with the credential certificate of the gateway and stored locally on the gateway host machine.
 
 The Data Management Gateway Host Service restarts automatically after you save the updated proxy settings.
 
@@ -183,8 +183,8 @@ You can view and update HTTP proxy by using Configuration Manager tool.
 >
 >
 
-### Configure proxy server settings in diahost.exe.config
-If you select **Use system proxy** setting for the HTTP proxy, gateway uses the proxy setting in diahost.exe.config.  If no proxy is specified in diahost.exe.config, gateway connects to cloud service directly without going through proxy. The following procedure provides instructions for updating the config file.
+### Configure proxy server settings 
+If you select **Use system proxy** setting for the HTTP proxy, gateway uses the proxy setting in diahost.exe.config and diawp.exe.config.  If no proxy is specified in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy. The following procedure provides instructions for updating the diahost.exe.config file.  
 
 1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config to back up the original file.
 2. Launch Notepad.exe running as administrator, and open text file “C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. You find the default tag for system.net as shown in the following code:
