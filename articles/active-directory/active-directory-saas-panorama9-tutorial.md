@@ -94,9 +94,11 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    
    1. In the Azure classic portal, on the **Configure single sign-on at Panorama9** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity provider URL** textbox.
    2. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate fingerprint** textbox.    
-      > [!TIP]
-      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+   
+      >[!TIP]
+      >For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
       > 
+      
    3. Click **Save**.
 9. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
