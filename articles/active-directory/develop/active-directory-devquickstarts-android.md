@@ -30,10 +30,10 @@ For Android clients that need to access protected resources, Azure AD provides t
 * Gets a user's to-do list.
 * Signs out users.
 
-To get started, you'll need an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
+To get started, you need an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 > [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/Android) that will help you get up and running with Azure Active Directory in just a few minutes. The developer portal will walk you through the process of registering an app and integrating Azure AD into your code. When you’re finished, you'll have a simple application that can authenticate users in your tenant and a back end that can accept tokens and perform validation.
+> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/Android), which will help you get up and running with Azure AD in just a few minutes. The developer portal will walk you through the process of registering an app and integrating Azure AD into your code. When you’re finished, you'll have a simple application that can authenticate users in your tenant and a back end that can accept tokens and perform validation.
 >
 >
 
@@ -68,7 +68,7 @@ You must register your web application in this sample. This allows your applicat
 We're assuming that you're registering the sample application referenced earlier. But this procedure works for any app that you're developing.
 
 > [!NOTE]
-> You might wonder why you're putting both an application and a web API in one tenant. As you might have guessed, you can build an app that accesses an external API that is registered in Azure AD from another tenant. If you do that, your customers will be prompted to consent to the use of the API in the application. Active Directory Authentication Library for iOS takes care of this consent for you. As we get in to more advanced features, you'll see that this is an important part of the work needed to access the suite of Microsoft APIs from Azure and Office, as well as any other service provider. For now, because you registered both your web API and your application under the same tenant, you won't see any prompts for consent. This is usually the case if you're developing an application just for your own company to use.
+> You might wonder why you're putting both an application and a web API in one tenant. As you might have guessed, you can build an app that accesses an external API that is registered in Azure AD from another tenant. If you do that, your customers will be prompted to consent to the use of the API in the application. Active Directory Authentication Library for iOS takes care of this consent for you. As we explore more advanced features, you'll see that this is an important part of the work needed to access the suite of Microsoft APIs from Azure and Office, as well as any other service provider. For now, because you registered both your web API and your application under the same tenant, you won't see any prompts for consent. This is usually the case if you're developing an application just for your own company to use.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click your account. In the **Directory** list, choose the Active Directory tenant where you want to register your application.
@@ -94,7 +94,7 @@ To build with Maven, you can use pom.xml at the top level:
    You should see the app starting.
 8. Enter test user credentials to try.
 
-JAR packages will be also submitted beside the AAR package.
+JAR packages will be submitted beside the AAR package.
 
 ## Step 4: Download the Android ADAL and add it to your Eclipse workspace
 We've made it easy for you to have multiple options to use ADAL in your Android project:
@@ -229,7 +229,7 @@ Here's an explanation of the parameters:
 * *callback* is called after the authorization code is exchanged for a token. It has an object of AuthenticationResult, which has access token, date expired, and ID token information.
 * *acquireTokenSilent* is optional. You can call it to handle caching and token refresh. It also provides the sync version. It accepts *userId* as a parameter.
 
-    mContext.acquireTokenSilent(resource, clientid, userId, callback );
+        mContext.acquireTokenSilent(resource, clientid, userId, callback );
 
 By using this walkthrough, you should have what you need to successfully integrate with Azure Active Directory. For more examples of this working, visit the AzureADSamples/ repository on GitHub.
 
@@ -290,7 +290,7 @@ These are the primary sources of information for diagnosing issues:
 Note that correlation IDs are central to the diagnostics in the library. You can set your correlation IDs on a per-request basis if you want to correlate an ADAL request with other operations in your code. If you don't set a correlation ID, ADAL will generate a random one. All log messages and network calls will then be stamped with the correlation ID. The self-generated ID changes on each request.
 
 #### Exceptions
-Exceptions are the first diagnostic. We try to provide helpful error messages. If you find one that is not helpful, please file an issue and let us know. Please also provide device information such as model and SDK number.
+Exceptions are the first diagnostic. We try to provide helpful error messages. If you find one that is not helpful, please file an issue and let us know. Include device information such as model and SDK number.
 
 #### Logs
 You can configure the library to generate log messages that you can use to help diagnose issues. You configure logging by making the following call to configure a callback that ADAL will use to hand off each log message as it's generated.
@@ -339,7 +339,7 @@ You can use various tools to capture the HTTP traffic that ADAL generates.  This
 Fiddler is the easiest HTTP tracing tool. Use the following links to set it up to correctly record ADAL network traffic. For a tracing tool like Fiddler or Charles to be useful, you must configure it to record unencrypted SSL traffic.  
 
 > [!NOTE]
-> Traces generated in this way may contain highly privileged information such as access tokens, usernames, and passwords. If you're using production accounts, do not share these traces with third parties. If you need to supply a trace to someone in order to get support, reproduce the issue by using a temporary account with usernames and passwords that you don't mind sharing.
+> Traces generated in this way might contain highly privileged information such as access tokens, usernames, and passwords. If you're using production accounts, do not share these traces with third parties. If you need to supply a trace to someone in order to get support, reproduce the issue by using a temporary account with usernames and passwords that you don't mind sharing.
 
 * From the Telerik website: [Setting Up Fiddler For Android](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
 * From GitHub: [Configure Fiddler Rules For ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
@@ -350,11 +350,11 @@ The acquireToken method without activity supports a dialog prompt.
 ### Encryption
 ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced Android Keystore for 4.3 (API 18) secure storage of private keys. ADAL uses that for API 18 and higher. If you want to use ADAL for lower SDK versions, you need to provide a secret key at AuthenticationSettings.INSTANCE.setSecretKey.
 
-### Oauth2 bearer challenge
-The AuthenticationParameters class provides functionality to get authorization_uri from the Oauth2 bearer challenge.
+### OAuth2 bearer challenge
+The AuthenticationParameters class provides functionality to get authorization_uri from the OAuth2 bearer challenge.
 
 ### Session cookies in WebView
-Android WebView does not clear session cookies after the app is closed. You can handle this by using this sample code:
+Android WebView does not clear session cookies after the app is closed. You can handle that by using this sample code:
 
     CookieSyncManager.createInstance(getApplicationContext());
     CookieManager cookieManager = CookieManager.getInstance();
@@ -364,7 +364,7 @@ Android WebView does not clear session cookies after the app is closed. You can 
 For details about cookies, see the [CookieSyncManager information on the Android site](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
 ### Resource overrides
-The ADAL library includes English strings for ProgressDialog messages. Your application should overwrite them if localized strings are desired.
+The ADAL library includes English strings for ProgressDialog messages. Your application should overwrite them if you want localized strings.
 
      <string name="app_loading">Loading...</string>
      <string name="broker_processing">Broker is processing</string>
