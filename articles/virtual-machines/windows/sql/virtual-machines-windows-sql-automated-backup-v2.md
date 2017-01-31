@@ -20,12 +20,12 @@ ms.author: jroth
 ---
 # Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)
 
-Automated Backup v2 automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the  [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
+Automated Backup v2 automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Prerequisites
-To use Automated Backup v2, consider the following prerequisites:
+To use Automated Backup v2, review the following prerequisites:
 
 **Operating System**:
 
@@ -39,12 +39,12 @@ To use Automated Backup v2, consider the following prerequisites:
 - SQL Server 2016 Developer
 
 > [!IMPORTANT]
-> Automated Backup v2 works with SQL Server 2016. If you are using SQL Server 2014, you can use Automated Backup v1 to back-up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+> Automated Backup v2 works with SQL Server 2016. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 **Database configuration**:
 
 - Target databases must use the full recovery model.
-- System databases do not have to use full recovery model. However, if you wish log backups to be taken for Model or MSDB, you must use full recovery model.
+- System databases do not have to use full recovery model. However, if you require log backups to be taken for Model or MSDB, you must use full recovery model.
 
 For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/library/ms190217.aspx).
 
@@ -52,12 +52,8 @@ For more information about the impact of the full recovery model on backups, see
 
 - Resource Manager
 
-**Azure PowerShell**:
-
-- [Install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs) if you plan to configure Automated Backup with PowerShell.
-
 > [!NOTE]
-> Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
+> Automated Backup relies on the **SQL Server IaaS Agent Extension**. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## Settings
 The following table describes the options that can be configured for Automated Backup v2. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
@@ -69,18 +65,18 @@ The following table describes the options that can be configured for Automated B
 | **Automated Backup** | Enable/Disable (Disabled) | Enables or disables Automated Backup for an Azure VM running SQL Server 2016 Standard or Enterprise. |
 | **Retention Period** | 1-30 days (30 days) | The number of days to retain backups. |
 | **Storage Account** | Azure storage account | An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files. The backup file naming convention includes the date, time, and machine name. |
-| **Encryption** |Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same `automaticbackup` container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
+| **Encryption** |Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same **automaticbackup** container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
 | **Password** |Password text | A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
 
 ### Advanced Settings
 
 | Setting | Range (Default) | Description |
 | --- | --- | --- |
-| **System Database Backups** | Enable/Disable (Disabled) | When enabled, this feature will also backup the system databases: Master, MSDB, and Model. For the MSDB and Model databases, verify that they are in full recovery mode if you want log backups to be taken. Log backups are never taken for Master. And no backups are taken for TempDB. |
+| **System Database Backups** | Enable/Disable (Disabled) | When enabled, this feature will also back up the system databases: Master, MSDB, and Model. For the MSDB and Model databases, verify that they are in full recovery mode if you want log backups to be taken. Log backups are never taken for Master. And no backups are taken for TempDB. |
 | **Backup Schedule** | Manual/Automated (Automated) | By default, the backup schedule will be automatically determined based on the log growth. Manual backup schedule allows the user to specify the time window for backups. In this case, backups will only ever take place at the specified frequency and during the specified time window of a given day. |
 | **Full backup frequency** | Daily/Weekly | Frequency of full backups. In both cases, full backups will begin during the next scheduled time window. When weekly is selected, backups could span multiple days until all databases have successfully backed up. |
 | **Full backup start time** | 00:00 – 23:00 (01:00) | Start time of a given day during which full backups can take place. |
-| **Full backup time window** | 1 – 23 hours (1 hour) | Duration of time window of a given day during which full backups can take place. |
+| **Full backup time window** | 1 – 23 hours (1 hour) | Duration of the time window of a given day during which full backups can take place. |
 | **Log backup frequency** | 5 – 60 minutes (60 minutes) | Frequency of log backups. |
 
 ## Understanding full backup frequency
@@ -91,10 +87,10 @@ You have a SQL Server VM which contains a number of very large databases.
 
 On Monday, you enable Automated Backup v2 with the following settings:
 
-- Backup schedule: Manual
-- Full backup frequency: weekly
-- Full backup start time: 01:00
-- Full backup time window: 1 hour
+- Backup schedule: **Manual**
+- Full backup frequency: **Weekly**
+- Full backup start time: **01:00**
+- Full backup time window: **1 hour**
 
 This means that the next available backup window is Tuesday at 1 AM for 1 hour. At that time, Automated Backup will begin backing up your databases one at a time. In this scenario, your databases are large enough that full backups will complete for the first couple databases. However, after one hour not all of the databases have been backed up.
 
@@ -119,13 +115,13 @@ This means that the next available backup window is Monday at 10 PM for 6 hours.
 Then, on Tuesday at 10 for 6 hours, full backups of all databases will start again.
 
 > [!IMPORTANT]
-> When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to backup.
+> When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
 
 ## Configuration in the Portal
-You can use the Azure Portal to configure Automated Backup v2 during provisioning or for existing SQL Server 2016 VMs. 
+You can use the Azure portal to configure Automated Backup v2 during provisioning or for existing SQL Server 2016 VMs. 
 
 ### New VMs
-Use the Azure Portal to configure Automated Backup v2 when you create a new SQL Server 2016 Virtual Machine in the Resource Manager deployment model. 
+Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 Virtual Machine in the Resource Manager deployment model. 
 
 In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** blade.
 
@@ -156,7 +152,7 @@ You can use PowerShell to configure Automated Backup v2. Before you begin, you m
 - Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 ### Install the SQL IaaS Extension
-If you provisioned a SQL Server virtual machine from the Azure Portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
+If you provisioned a SQL Server virtual machine from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
 
 ```powershell
 $vmname = "vmname"
@@ -186,18 +182,18 @@ If you enabled automated backup during provisioning, you can use PowerShell to c
 You should get output similar to the following:
 
 ```
-Enable                                 : True
-EnableEncryption              : False
-RetentionPeriod                : 30
-StorageUrl                          : https://test.blob.core.windows.net/
-StorageAccessKey             :  
-Password                            : 
+Enable                      : True
+EnableEncryption            : False
+RetentionPeriod             : 30
+StorageUrl                  : https://test.blob.core.windows.net/
+StorageAccessKey            :  
+Password                    : 
 BackupSystemDbs             : False
-BackupScheduleType        : Manual
-FullBackupFrequency        : WEEKLY
+BackupScheduleType          : Manual
+FullBackupFrequency         : WEEKLY
 FullBackupStartTime         : 2
-FullBackupWindowHours : 2
-LogBackupFrequency        : 60
+FullBackupWindowHours       : 2
+LogBackupFrequency          : 60
 ```
 
 If your output shows that **Enable** is set to **False**, then you have to enable automated backup. The good news is that you enable and configure Automated Backup in the same way. See the next section for this information.
@@ -254,7 +250,8 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig -VMName $vmname -ResourceGroupName $resourcegroupname
+Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+    -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
 To confirm your settings are applied, [verify the Automated Backup configuration](#verifysettings).
@@ -265,11 +262,12 @@ To disable Automated Backup, run the same script without the **-Enable** paramet
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig -VMName $vmname -ResourceGroupName $resourcegroupname
+Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+    -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
 ### Example script
-The following script provides a set of variables that you can customize to enable and configure Automated Backup for your VM. In some cases, you must customize the call to **New-AzureRmVMSqlServerAutoBackupConfig** based on your requirements. For example, this example script does not enable encryption and does enable the backup of system databases.
+The following script provides a set of variables that you can customize to enable and configure Automated Backup for your VM. In your case, you might need to customize the script based on your requirements. For example, you would have to make changes if you wanted to disable the backup of system databases or enable encryption.
 
 ```powershell
 $vmname = "yourvmname"

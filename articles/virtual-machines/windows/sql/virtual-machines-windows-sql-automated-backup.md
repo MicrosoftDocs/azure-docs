@@ -45,7 +45,7 @@ To use Automated Backup, consider the following prerequisites:
 - SQL Server 2014 Enterprise
 
 > [!IMPORTANT]
-> Automated Backup works with SQL Server 2014. If you are using SQL Server 2016, you can use Automated Backup v2 to back-up your databases. For more information, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
+> Automated Backup works with SQL Server 2014. If you are using SQL Server 2016, you can use Automated Backup v2 to back up your databases. For more information, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
 
 **Database configuration**:
 
@@ -76,10 +76,10 @@ The following table describes the options that can be configured for Automated B
 | **Password** | Password text | A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
 
 ## Configuration in the Portal
-You can use the Azure Portal to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
+You can use the Azure portal to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
 
 ### New VMs
-Use the Azure Portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
 
 In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** blade.
 
