@@ -20,9 +20,9 @@ ms.author: zivr
 ---
 # Azure Metadata Service - Scheduled Events (Preview)
 
-Note: Previews are made available to you on the condition that you agree to the terms of use. For more information, refer to [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
+Note: Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
 
-Scheduled Events is one of the sub-services under Azure Metadata Service that surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks and minimize the effect of an event. 
+Scheduled Events is one of the subservices under Azure Metadata Service that surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks and minimize the effect of an event. 
 
 
 ## Introduction - Why Scheduled Events?
@@ -41,10 +41,9 @@ Azure Metadata service exposes information about running Virtual Machines using 
 Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the **Resources** field in the event to identify which VMs are going to be impacted. 
 
 ### Discover the Endpoint
-In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of: 169.254.169.254 .
-
-In the case where a Virtual Machine is used for cloud services (PaaS) or it is not created within a Virtual Netwirk (VNet), an additional logic is required to discover the endpoint to use. 
-Refer to [This sample] to learn how to discover a host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
+In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of: 169.254.169.254 
+Otherwise, (in the default cases for cloud services and classic VMs), an additional logic is required to discover the endpoint to use. 
+Refer to this sample to learn how to [discover a host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### Versioning 
 The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
@@ -57,9 +56,9 @@ When you query the Metadata Service, you must provide the following header *Meta
 The first time you call for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
 
 ### Testing your logic with user initiated operations
-In order to test your logic, you can use the Azure portal, API, CLI, or PowerShell to initiate operations resulting in scheduled events. 
-Restarting a virtual machine will result in a scheduled event with an event type equal to Reboot. Redeploying a virtual machine will result in a scheduled event with an event type equal to Redeploy.
-Note that in both cases, the user initiated operations will take longer to complete since scheduled events enable more time for an application to gracefully shutdown. 
+To test your logic, you can use the Azure portal, API, CLI, or PowerShell to initiate operations resulting in scheduled events. 
+Restarting a virtual machine results in a scheduled event with an event type equal to Reboot. Redeploying a virtual machine results in a scheduled event with an event type equal to Redeploy.
+In both cases, the user initiated operation takes longer to complete since scheduled events enable more time for an application to gracefully shut down. 
 
 ## Using the API
 
@@ -134,7 +133,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ## C\# Sample 
-The code below is of a client surfacing APIs to communicate with the Metadata Service
+The following sample is of a client surfacing APIs to communicate with the Metadata Service
 ```csharp
    public class ScheduledEventsClient
     {
