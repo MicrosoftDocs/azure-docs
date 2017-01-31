@@ -41,7 +41,9 @@ Some things to note for successful outcomes:
 - A re-install of the operating system or a manual un-register and re-register may create a new registration on Azure AD and will result in multiple entries under the USER info tab in the Azure portal. 
 
 
-**To verify the registration status of the device:**  
+# Step 1: Retrieve the registration status 
+
+**To verify the registration status:**  
 
 1. Open the command prompt as an administrator 
 
@@ -51,8 +53,12 @@ This command displays a dialog box that provides you with more details about the
 
 ![Workplace Join for Windows](./media/active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy/01.png)
 
+
+## Step 2: Evaluate the registration status 
+
 If the join was not successful, the dialog box provides you with details about the issue that has occured.
-The most common issues are:
+
+**The most common issues are:**
 
 - A misconfigured AD FS or Azure AD
 
@@ -72,7 +78,7 @@ The most common issues are:
 
 You can also find the status information in the event log under **Applications and Services Log\Microsoft-Workplace Join**.
   
-The most common causes for a failed join are: 
+**The most common causes for a failed registration are:** 
 
 - Your computer is not on the organization’s internal network or a VPN without connection to an on-premises AD domain controller.
 
