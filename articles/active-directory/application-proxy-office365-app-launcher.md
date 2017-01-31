@@ -70,7 +70,7 @@ Now that you have the Azure AD Powershell Module installed, you're ready to set 
 1. Find the application you want to update.
 2. Update the homepage URL for the application.
 
-###Step 1 – Finding the ObjectID of the application
+###Step 1 – Find the ObjectID of the application
 
 Fist you must obtain the ObjectID of the application, and then search for the application by the homepage.
 
@@ -99,7 +99,7 @@ Fist you must obtain the ObjectID of the application, and then search for the ap
  ```
 6. Copy the GUID (ObjectID) value. You will need this for the next step.
  
-###Step 2 – Updating the Homepage URL
+###Step 2 – Update the Homepage URL
 
 You use the same PowerShell module to update the home page URL as you did to find the application ID. After logging into PowerShell, follow the steps below:
 
