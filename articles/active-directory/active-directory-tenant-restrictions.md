@@ -61,7 +61,7 @@ The following configuration is required to enable Tenant Restrictions through yo
 
 - Clients must trust the certificate chain presented by the proxy for SSL communications. For example, if certificates from an internal PKI are used, the internal issuing root certificate authority certificate must be trusted.
 
-- This feature is included in Office 365 subscriptions, but if you want to use Tenant Restrictions to control access to other SaaS apps then Azure AD Premium 1 licenses are required.  
+- This feature is included in Office 365 subscriptions, but if you want to use Tenant Restrictions to control access to other SaaS apps then Azure AD Premium 1 licenses are required.
 
 #### Configuration
 
@@ -100,7 +100,7 @@ Like other reports in the Azure portal, you can use filters to specify the scope
 
 ## Office 365 support for Tenant Restrictions
 
-Office 365 applications must meet to criteria to fully support Tenant Restrictions:
+Office 365 applications must meet two criteria to fully support Tenant Restrictions:
 
 1. The client used supports modern authentication
 2. Modern authentication is enabled as the default authentication protocol for the cloud service.
