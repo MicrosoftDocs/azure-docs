@@ -13,19 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 01/31/2017
 ms.author: tarcher
 
 ---
 
-# Create multiple VM environments with Azure Resource Manager templates
+# Create multi-VM environments with Azure Resource Manager templates
 
-The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](./devtest-lab-add-vm-with-artifacts.md). This works well for one-off VM creation. However, for scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple identical VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
+The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](./devtest-lab-add-vm-with-artifacts.md). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM has to be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
 - Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Team Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal as what they can do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaasS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
+- Users have the same VM policy control for environments as what they have for single-lab VMs.
 
 ## Configure Azure Resource Manager template repositories
 
@@ -53,8 +54,11 @@ The following steps guide you through adding a repository to your lab using the 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **More Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
-1. On the lab's blade, select **Configuration**.
-1. From the **Configuration** settings list, select **Repositories**. The **Repositories** blade lists the repositories that have been added to the lab. A repository named `Public Repo` is automatically generated for all labs, and connects to the [DevTest Labs GitHub repo](https://github.com/Azure/azure-devtestlab) that contains several VM artifacts for your use.
+1. On the lab's blade, select **Configuration and Policies**.
+
+	![Configuration and policies](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
+
+1. From the **Configuration and Policies** settings list, select **Repositories**. The **Repositories** blade lists the repositories that have been added to the lab. A repository named `Public Repo` is automatically generated for all labs, and connects to the [DevTest Labs GitHub repo](https://github.com/Azure/azure-devtestlab) that contains several VM artifacts for your use.
 
 	![Public repo](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 
@@ -92,8 +96,11 @@ Once an Azure Resource Manager template repository has been configured in the la
 1. Once the environment is created, select the environment in **My virtual machines** list to open the resource group blade and browse the resources provisioned in the environment.
 	
 	![My virtual machines list](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
-   
+
+1. Click on any of the environments to view the available actions - such as applying artifacts, attaching data disks, changing auto-shutdown time, and more.
+
+	![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
+
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Learn how to [create custom artifacts for your DevTest Labs VM](devtest-lab-artifact-author.md).
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
