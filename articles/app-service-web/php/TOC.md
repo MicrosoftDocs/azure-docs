@@ -13,7 +13,7 @@
 ## [Laravel app with MySQL](../app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
 ## CodeIgniter
 ## CakePHP
-## [WordPress](../web-sites-php-web-site-gallery?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [WordPress](../web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # How to guides
 ## Develop your app	
