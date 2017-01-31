@@ -197,7 +197,7 @@ To achieve high availability for this reference architecture, deploy to multiple
 [azure-administration]: ../automation/automation-intro.md
 [azure-audit-logs]: ../azure-resource-manager/resource-group-audit.md
 [azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
-[azure-cli]: ../virtual-machines-command-line-tools.md
+[azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
 [azure-load-balancer]: ../load-balancer/load-balancer-overview.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
