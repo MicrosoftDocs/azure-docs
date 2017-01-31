@@ -248,7 +248,7 @@ The packages that you've specified for a pool or task are downloaded and extract
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-If you have specified a default version for an application, you can omit the version suffix when you reference the application. You can specify the default application version in the Azure Portal, on the Applications blade, as shown in [Upload and manage applications](#upload-and-manage-applications).
+If you have specified a default version for an application, you can omit the version suffix when you reference the application. You can specify the default application version in the Azure portal, on the Applications blade, as shown in [Upload and manage applications](#upload-and-manage-applications).
 
 For example, if you set "2.7" as the default version for application *blender*, your tasks can reference the following environment variable and they will execute version 2.7:
 
