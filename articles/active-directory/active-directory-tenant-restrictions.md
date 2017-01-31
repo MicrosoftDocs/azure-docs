@@ -68,11 +68,11 @@ The following configuration is required to enable Tenant Restrictions through yo
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: `Restrict-Access-To-Tenants` and `Restrict-Access-Context`.
 
 The header should include the following elements: 
-- A value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- A value of \<Restricted-Access-Context\> with a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+- For `Restrict-Access-To-Tenants`, a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- For `Restrict-Access-Context`, a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
-> You can find the directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
+> You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
 
@@ -141,7 +141,7 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
   oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
   ```
 
-4. Save and close the CustomeRules file.
+4. Save and close the CustomRules file.
 
 After you configure Fiddler, you can capture traffic by going to the **File** menu and selecting **Capture Traffic**.
 
