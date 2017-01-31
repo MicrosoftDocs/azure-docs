@@ -47,8 +47,8 @@ Click **Save** to save the changes.
 
 ## Next steps
 
-- For a getting started tutorial using server-level firewalls, see [Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio](sql-database-get-started.md).
-- For a getting started tutorial with SQL Server authentication and database-level firewalls, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+- For a tutorial provisioning and connecting to a server using server-level firewalls, see [Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio](sql-database-get-started.md).
+- For a tutorial with SQL Server authentication and database-level firewalls, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
 - For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - To understand how to create additional users who can connect to databases, see [SQL Database Authentication and Authorization: Granting Access](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
