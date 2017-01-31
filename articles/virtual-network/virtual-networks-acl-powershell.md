@@ -1,5 +1,5 @@
 ---
-title: Manage endpoint access control lists | PowerShell | Classic | Microsoft Docs
+title: Manage Azure endpoint access control lists | PowerShell | Classic | Microsoft Docs
 description: Learn how to manage ACLs with PowerShell
 services: virtual-network
 documentationcenter: na
