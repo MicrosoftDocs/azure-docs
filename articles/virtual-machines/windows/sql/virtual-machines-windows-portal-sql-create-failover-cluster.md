@@ -107,16 +107,15 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key. 
-Choose the right image according to how you want to pay for the SQL Server license: 
-
-   **Pay per usage licensing**
    
-   The per-minute cost of these images include the SQL Server licensing.
+   Choose the right image according to how you want to pay for the SQL Server license: 
+
+   - **Pay per usage licensing**: The per-minute cost of these images include the SQL Server licensing:
       - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
    
-   **Bring-your-own-license (BYOL)**
+   - **Bring-your-own-license (BYOL)**
    
       - **{BYOL} SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016** 
