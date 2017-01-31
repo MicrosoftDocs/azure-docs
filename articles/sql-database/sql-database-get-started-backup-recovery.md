@@ -19,7 +19,7 @@ ms.date: 12/08/2016
 ms.author: carlrab
 
 ---
-# Tutorial: Backup and restore of an Azure SQL Database using the Azure portal
+# Tutorial: Backup and restore an Azure SQL Database using the Azure portal
 In this tutorial, you learn how to use the Azure portal to:
 
 - View existing backups of a database
