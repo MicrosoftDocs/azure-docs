@@ -150,7 +150,7 @@
 #### [Single databases](sql-database-single-database-monitor.md)
 #### [SQL Database Advisor overview](sql-database-advisor.md)
 #### [Single database guidance](sql-database-performance-guidance.md)
-#### [Workload insights in the Azure portal](sql-database-performance.md)
+#### [Performance insights: Azure portal](sql-database-performance.md)
 #### [Use batching](sql-database-use-batching-to-improve-performance.md)
 #### [Extended events](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
