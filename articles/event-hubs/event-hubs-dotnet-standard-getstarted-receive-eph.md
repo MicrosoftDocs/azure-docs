@@ -67,7 +67,7 @@ In this tutorial, we will write a .NET Core console application to receive messa
         using System.Collections.Generic;
         using System.Text;
         using System.Threading.Tasks;
-        using Microsoft.A	zure.EventHubs;
+        using Microsoft.Azure.EventHubs;
         using Microsoft.Azure.EventHubs.Processor;
     
         public class SimpleEventProcessor : IEventProcessor
