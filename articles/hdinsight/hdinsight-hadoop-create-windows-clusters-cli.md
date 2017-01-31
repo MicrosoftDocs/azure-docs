@@ -20,6 +20,8 @@ ms.author: jgao
 ---
 # Create Windows-based Hadoop clusters in HDInsight using Azure CLI
 
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+
 Learn how to create Windows-based Hadoop clusters in HDInsight using Azure CLI. 
 
 The information in this article only applies to Window-based HDInsight clusters. For information on creating Linux-based clusters, see [Create Hadoop clusters in HDInsight using Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
@@ -135,5 +137,5 @@ You can use CLI to create clusters by calling ARM templates. See [Deploy with Az
 * [Get started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - Learn how to start working with your HDInsight cluster
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
 * [Manage Hadoop clusters in HDInsight using the Azure CLI](hdinsight-administer-use-command-line.md)
-* [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](../virtual-machines-command-line-tools.md)
+* [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

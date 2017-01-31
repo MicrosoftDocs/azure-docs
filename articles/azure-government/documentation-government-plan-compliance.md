@@ -1,15 +1,14 @@
 ---
 title: Azure Government Compliance | Microsoft Docs
 description: Provides and overview of the available compliance services for Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: jomolesk
 manager: zakramer
-editor: ''
 
 ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -35,7 +34,7 @@ The CRM format is designed for utility and is conducive to focused documentation
 
 For example, control AC-1 requires documented access control policies and procedures for the system seeking an ATO. For this control, Microsoft has internal Azure-specific policies and procedures regarding access control mechanisms used to manage the Azure infrastructure and platform. Customers must also create their own access control policies and procedures used within their specific system built in Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on an annual basis.
 
-The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 baseline.
+The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines.
 
 To request a copy of the Azure Blueprint CRM or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
@@ -43,7 +42,7 @@ To request a copy of the Azure Blueprint CRM or to provide feedback, email [Azur
 
 The Azure Blueprint System Security Plan (SSP) template is customer-focused and designed for use in developing an SSP that documents both customer security control implementations as well as controls inherited from Azure. Controls which include a customer responsibility, contain guidance on documenting control implementation with a thorough and compliant response. Azure inheritance sections document how security controls are implemented by Azure on behalf of the customer.
 
-The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 baseline. 
+The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 and L5 baselines. 
 
 To request a copy of the Azure Blueprint SSP or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
@@ -259,6 +258,114 @@ Azure Active Directory group policy configurations can include security control 
 
 Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Active Directory by visiting [Microsoft Azure Docs](https://docs.microsoft.com/azure/active-directory/).
 
+### Key Vault
+
+Azure Key Vault offers safeguards for cryptographic keys and secrets used by cloud applications and services. Through the use of Azure Key Vault, customers can create, manage, and protect keys and secrets. Secure containers (vaults) can be used to store and manage cryptographic keys and secrets securely. Azure Key Vault can be used to generate cryptographic keys using HSMs that are FIPS 140-2 Level 2 validated.
+
+Azure Key Vault containers can help store cryptographic keys securely with high availability. This may include security control implementations for:
+
+-	Protection of Authenticators [NIST SP 800-53 control IA-5 (7)]
+
+  > IA-5 (7) example control implementation statement: *The use of unencrypted static authenticators embedded in applications, access scripts, or function keys is explicitly prohibited. Any script or application that uses an authenticator makes a call to an Azure Key Vault container prior to each use. Access to Azure Key Vault containers is audited, which allows detection of violations of this prohibition if a service account is used to access a system without a corresponding call to the Azure Key Vault container.*
+
+- Cryptographic Key Establishment and Management [NIST SP 800-53 control SC-12 (1)]
+
+  > SC-12 (1) example control implementation statement: *Azure Key Vault is used to store cryptographic keys and secrets. This service tracks and monitors access to secrets. This service is used to ensure that secrets are not lost.*
+
+Azure Key Vault can be used to create cryptographic keys using HSMs that meet FIPS 140-2 Level 2 validated. Azure Active Directory group policy configurations can include security control implementations for:
+
+- Cryptographic Key Establishment and Management [NIST SP 800-53 control SC-12 (2)]
+
+  > SC-12 (2) example control implementation statement: *Azure Key Vault is used to produce, control, and distribute cryptographic keys. These keys are generated using HSMs that are FIPS 140-2 Level 2 validated. These keys are stored and managed within securely encrypted containers within Azure Key Vault.*
+
+*Additional tools and resources*
+
+Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Key Vault by visiting [Microsoft Azure Docs](https://docs.microsoft.com/azure/key-vault/).
+
+### Operations Management Suite
+
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps manage and protect on-premises and cloud infrastructure. Security and Compliance helps identify, assess, and mitigate security risks to infrastructure. These features of OMS are implemented through multiple solutions, including Log Analytics, that analyze log data and monitor security configurations.
+
+OMS enabled Security and Audit services can help implement account monitoring and logging. This may include security control implementations for:
+
+- Account Management [NIST SP 800-53 control AC-2]
+
+  > AC-2.g example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used to monitor the use of system accounts. OMS creates audit logs for system accounts which can then be analyzed with OMS’s analytics and alert based on a defined set of criteria.*
+
+  > AC-2 (4) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used to generate audit logs for account management functions, such as; account creation, modification, enabling, disabling, and removal actions. OMS is used to alert the system owner if any of the above conditions have been executed.*
+
+  > AC-2 (12) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used to monitor the use of system accounts for atypical use. OMS creates audit logs for system accounts which can then be analyzed with OMS’s analytics and alert the appropriate personnel based on a defined set of criteria.*
+
+- Least Privilege [NIST SP 800-53 control AC-6]
+
+  > AC-6 (9) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used to monitor the execution of privileged functions. OMS creates audit logs for a list of specified functions which can then be analyzed with OMS’s analytics and alert based on a defined set of criteria.*
+
+ - Remote Access [NIST SP 800-53 control AC-17]
+
+  > AC-17 (1) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used to monitor and control remote access. OMS includes security, activity, and audit reports for your directory.*
+
+- Audit Events [NIST SP 800-53 control AU-2]
+
+  > AU-2 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used to audit: successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, and system events. For Web applications: all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes. As well any other customer defined set of events.*
+
+- Content of Audit Records [NIST SP 800-53 control AU-3]
+
+  > AU-3 (2) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used as a centralized management and configuration for all audit records generated by network, storage and computing equipment.*
+
+- Audit Storage Capacity [NIST SP 800-53 control AU-4]
+
+  > AU-4 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used for centralized management and configuration of all audit records generated by network, storage and computing equipment. The centralized management tool is used to configure audit record storage capacity.*
+
+- Response to Audit Processing Failures [NIST SP 800-53 control AU-5]
+
+  > AU-5 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution to alert organization defined personnel of audit processing failures.*
+
+  > AU-5 (1) control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution to alert organization defined personnel within organization defined period of time that audit record storage has reached an organization defined percentage of the maximum repository volume.*
+
+  > AU-5 (2) control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution to alert organization defined personnel in real time when auditable events defined in organization policy fail.*
+
+- Audit Review, Analysis, and Reporting [NIST SP 800-53 control AU-6]
+
+  > AU-6 (3) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution as well as the Log Analytics solution to analyze different audit log repositories to provide organization-wide situational awareness. The analytics tool is used for reporting on audit logs to provide situation awareness.*
+
+  > AU-6 (4) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used for centralized management and configuration of all audit records. The centralized management tool allows for audit records from all sources to be reviewed and analyzed.*
+
+  > AU-6 (5) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution as well as the Log Analytics solution to analyze different security related data generated from vulnerability scanning, information system monitoring and performance related data. The analysis of these different resources provide an enhanced ability to identify suspicious activity.*
+
+- Audit Reduction and Report Generation [NIST SP 800-53 control AU-7]
+
+  > AU-7 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution as well as the Log Analytics solution to generate on-demand human readable reports which allow for after-the-fact investigations of security incidents. The use of the Microsoft Log Analytics tool does not permanently or irreversibly alter the original audit record content or time ordering.*
+
+  > AU-7 (1) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution to query organization defined auditable events.*
+
+- Protection of Audit Information [NIST SP 800-53 control AU-9]
+
+  > AU-9 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with security groups to manage access to audit information and tools to prevent unauthorized access, modification, and deletion of audit records. The ability to view audit information and use auditing tools is limited to users that require these permissions.*
+
+  > AU-9 (2) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution as well as Azure Backup to backup audit logs to Azure which then replicates data in order to provide data reliability and availability. Azure Backup provides a secure place for audit logs to be stored on a system other than the one being audited.* 
+
+  > AU-9 (4) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with security groups to manage access to audit information and tools. Only personnel with a specific need to access the management of audit functionality are granted these permissions.*
+
+- Audit Record Retention [NIST SP 800-53 control AU-11]
+
+  > AU-11 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution to configure audit log retention. Audit log retention is configured to retain audit data for at least 90 days.*
+
+- Audit Generation [NIST SP 800-53 control AU-12]
+
+  > AU-12 example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution to collect the auditable events defined in AU-02 from information system components. OMS’s Security and Audit solution is used by organization-defined personnel to define which auditable events are collected from specific devices.*
+
+  > AU-12 (1) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution as well as the Log Analytics solution to compile audit records from system components which can be sorted by time stamps to create a system wide audit trail.*
+
+- Access Restrictions for Change [NIST SP 800-53 control CM-5]
+
+  > CM-5 (1) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution and Active Directory to enforce logical access restrictions via security group memberships. Actions performed by these security groups are audited by OMS.*
+
+- Information System Component Inventory [NIST SP 800-53 control CM-8]
+
+  > CM-8 (3) example control implementation statement: *Microsoft’s Operation Management Suite (OMS) is used with the Security and Audit solution as well as the Antimalware solution to detect the presence of unauthorized software. Upon detection OMS disables the infected component and sends an alert to organization defined personnel.*
+
+Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Operation Management Suite by visiting [Microsoft Azure Docs](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview/).
+
 ### Additional implementation guidance
 
 In addition to the core Azure services described above, several built-in features can help organizations meet security control compliance requirements. All Azure resources are organized into resource groups. Assets can be further organized by applying tags, which are key-value pairs that may be customer-selected to identify resources by category or any other property. Azure resource groups ensure complete identification and tracking of all customer resources deployed within Azure [NIST SP 800-53 control CM-8]. 
@@ -271,7 +378,7 @@ Azure Resource Manager templates, allow customers to define the configuration of
 
 ## Next steps
 
-For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide Blueprint feedback, email AzureBlueprint@microsoft.com.
+For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide Blueprint feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
 [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 

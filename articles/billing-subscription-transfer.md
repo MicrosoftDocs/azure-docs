@@ -4,7 +4,7 @@ description: How to transfer an Azure subscription to another user, and some fre
 services: ''
 documentationcenter: ''
 author: genlin
-manager: stevenpo
+manager: narmstr
 editor: ''
 tags: billing,top-support-issue
 

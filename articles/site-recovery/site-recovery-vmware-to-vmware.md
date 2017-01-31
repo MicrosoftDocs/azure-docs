@@ -1,5 +1,5 @@
 ---
-title: Replicate on-premises VMware virtual machines or physical servers to a secondary site | Microsoft Docs
+title: Replicate VMware VMs or physical servers to another site (classic Azure portal) | Microsoft Docs
 description: Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
@@ -17,7 +17,8 @@ ms.date: 10/20/2016
 ms.author: nisoneji
 
 ---
-# Replicate on-premises VMware virtual machines or physical servers to a secondary site
+# Replicate on-premises VMware virtual machines or physical servers to a secondary site in the classic Azure portal
+
 ## Overview
 InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
 

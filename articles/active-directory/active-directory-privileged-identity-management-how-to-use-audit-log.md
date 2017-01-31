@@ -1,23 +1,22 @@
 ---
-title: How to use the audit log | Microsoft Docs
+title: How to use the audit log in Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn how to use the audit log in the Azure Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
 editor: ''
-
 ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2016
-ms.author: kgremban
+ms.date: 01/23/2017
+ms.author: billmath
 
 ---
-# How to use the audit log in Azure AD Privileged Identity Management
+# Using the audit log in PIM
 You can use the Privileged Identity Management (PIM) audit log to see all the user assignments and activations within a given time period. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](active-directory-view-access-usage-reports.md)
 
 ## Navigate to the audit log

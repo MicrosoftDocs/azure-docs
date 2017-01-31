@@ -1,5 +1,5 @@
 ---
-title: Build an HBase application using Maven, and deploy to Windows-based HDInsight | Microsoft Docs
+title: Build a Java HBase application for Windows-based Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to a Windows-based Azure HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -177,8 +177,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
    
    > [!NOTE]
    > This is a minimal hbase-site.xml file, and it contains the bare minimum settings for the HDInsight cluster.
-   > 
-   > 
+
 6. Save the **hbase-site.xml** file.
 
 ## Create the application
@@ -362,8 +361,6 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
    
    > [!NOTE]
    > The **hbaseapp-1.0-SNAPSHOT.jar** file is an uber jar (sometimes called a fat jar,) which contains all the dependencies required to run the application.
-   > 
-   > 
 
 ## Upload the JAR file and start a job
 There are many ways to upload a file to your HDInsight cluster, as described in [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md). The following steps use Azure PowerShell.
@@ -421,9 +418,6 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
         # Get the login for the HDInsight cluster
         $creds = Get-Credential
    
-        # Get storage information
-        $storage = GetStorage -clusterName $clusterName
-   
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
    
@@ -449,9 +443,6 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
@@ -459,9 +450,6 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
    

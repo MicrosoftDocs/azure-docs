@@ -1,5 +1,5 @@
 ---
-title: Deploy your first web app to Azure in five minutes | Microsoft Docs
+title: Deploy your first HTML web app to Azure in five minutes | Microsoft Docs
 description: Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately.
 services: app-service\web
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 01/04/2017
 ms.author: cephalin
 
 ---
-# Deploy your first web app to Azure in five minutes
+# Deploy your first HTML web app to Azure in five minutes
 
 > [!div class="op_single_selector"]
 > * [First HTML site](app-service-web-get-started-html-cli-nodejs.md)
@@ -57,7 +57,7 @@ You can complete the task using one of the following CLI versions:
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
 > it for up to an hour--no credit card required, no commitments.
 > 
 > 

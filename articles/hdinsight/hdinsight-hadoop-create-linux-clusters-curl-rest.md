@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop, HBase, or Storm clusters on HDInsight using cURL and the Azure REST API | Microsoft Docs
+title: Create Azure HDInsight (Hadoop) using cURL and REST | Microsoft Docs
 description: Learn how to create HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.
 services: hdinsight
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: larryfr
 ---
 # Create HDInsight clusters using cURL and the Azure REST API
 
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters. In this document, you will learn how to create Azure Resource Manager templates to configure an HDInsight cluster and associated storage, then use cURL to deploy the template to the Azure REST API to create a new HDInsight cluster.
 
