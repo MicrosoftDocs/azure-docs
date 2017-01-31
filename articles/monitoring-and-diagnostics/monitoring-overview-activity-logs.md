@@ -13,18 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 1/27/2016
 ms.author: johnkem
 
 ---
 # Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
+The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or those for resources that use the Classic/"RDFE" model.
 
 The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource.
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 View this [video introducing the Activity Log](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
+
+> [!WARNING]
+> The Azure Activity Log is primarily for activities that occur in Azure Resource Manager, not those using the Classic/RDFE model. Note that some Classic resource types have a proxy resource provider in Azure Resource Manager (eg. Microsoft.ClassicCompute). If a user interacts with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations will apear in the Activity Log. If a user interacts with a Classic resource type in the Classic portal or otherwise outside of the Azure Resource Manager proxies, user actions will only be recorded in the Operation Log, which is accessible only in the Classic portal.
+>
+>
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
