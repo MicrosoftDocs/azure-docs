@@ -110,7 +110,7 @@ You use the same PowerShell module to update the home page URL as you did to fin
  Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
  ```
  
- Now that you have confirmed the application,  you're ready to update the homepage as follows.
+Now that you have confirmed the application,  you're ready to update the homepage as follows.
  
 2. Create a blank application object to hold the changes you want to make. This is only a variable to hold the values that you want to update, so nothing has actually been created.
   
@@ -122,7 +122,7 @@ You use the same PowerShell module to update the home page URL as you did to fin
  ```
  $appnew.Homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
  ```
-The last thing you need to do is to make the update. Remember to use the GUID that you copied from Step 1 above.
+4. The last thing you need to do is to make the update. Remember to use the GUID that you copied from Step 1 above.
   
  ```
  Set-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 - Application $appnew
