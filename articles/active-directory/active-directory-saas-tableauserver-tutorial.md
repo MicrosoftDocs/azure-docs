@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jeedes
-
 ---
+
 # Tutorial: Azure Active Directory integration with Tableau Server
 The objective of this tutorial is to show you how to integrate Tableau Server with Azure Active Directory (Azure AD).
 
@@ -36,7 +36,6 @@ To configure Azure AD integration with Tableau Server, you need the following it
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
-> 
 > 
 
 To test the steps in this tutorial, you should follow these recommendations:
@@ -129,7 +128,7 @@ Tableau Server application expects the SAML assertions in a specific format. The
    1. In the **Sign In URL** textbox, type the URL of your Tableau server. 
    2. In the **Identifier box** copy the URL.
    3. Click **Next**.
-
+h
 7. On the **Configure single sign-on at Tableau Server** page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
@@ -147,8 +146,11 @@ Tableau Server application expects the SAML assertions in a specific format. The
    4. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as http://tableau_server. Using http://localhost is not recommended. Using a URL with a trailing slash (for example, http://tableau_server/) is not supported. Copy **Tableau Server return URL** and paste it to Azure AD **Sign On URL** textbox as shown in the step 3
    5. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it to Azure AD **IDENTIFER** textbox as shown in the step 3.
    6. Click on the **Export Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it to Azure AD **Reply URL** textbox as shown in step 3. 
-   7. Click **OK** button in the Tableau Server Configiuration page.
-    > [AZURE.NOTE] If you need help configuring SAML on Tableau Server then please refer this article [Configure SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm) 
+   7. Click the **OK** button in the Tableau Server Configiuration page.
+   
+    >[!NOTE] 
+    >If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >
 
 9. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
