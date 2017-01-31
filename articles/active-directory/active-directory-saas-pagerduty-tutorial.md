@@ -16,6 +16,7 @@ ms.date: 01/26/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory Integration with Pagerduty
 The objective of this tutorial is to show the integration of Azure and Pagerduty. The scenario outlined in this tutorial assumes that you already have the following items:
 
@@ -94,7 +95,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    1. Create a **base-64 encoded** file from your downloaded certificate.  
       
       >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
       >
 
   2. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
@@ -138,11 +139,11 @@ In the case of Pagerduty, provisioning is a manual task.
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
 **To assign users to Pagerduty, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
 2. On the **Pagerduty** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-pagerduty-tutorial/IC778541.png "Assign users")
-   
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
    ![Yes](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Yes")
