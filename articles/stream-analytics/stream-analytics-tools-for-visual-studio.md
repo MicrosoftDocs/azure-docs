@@ -51,11 +51,11 @@ You will see a project **Toll** generated in **Solution Explorer**.
 2. Log in with your Azure Account. 
 
 ## Define input sources
-1.	In **Solution Explorer**, expand **Inputs** node and rename **Input.json** to **EntryStream.json**. Double click **EntryStream.json**.
+1.	In **Solution Explorer**, expand **Inputs** node and rename **Input.json** to **EntryStream.json**. Double-click **EntryStream.json**.
 2.	Your **INPUT ALIAS** now should be **EntryStream**. Please note that input alias is the one will be used in query script. 
 3.	Source Type is **Data Stream**.
 4.	Source is **Event hub**.
-5.	Service Bus Namescape should be the **tollData** one in the drop down.
+5.	Service Bus Namescape should be the **tollData** one in the drop-down.
 6.	Event hub name should be set to **entry**.
 7.	Event hub policy name is **RootManageSharedAccessKey** (the default value).
 8.	Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.
@@ -64,7 +64,7 @@ You will see a project **Toll** generated in **Solution Explorer**.
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
    
-9.	Click **Save** at the bottom of the page to finish the wizard. Now you can add another input source to create the exit stream. Right click the inputs node and click **New Item**.
+9.	Click **Save** at the bottom of the page to finish the wizard. Now you can add another input source to create the exit stream. Right-click the inputs node and click **New Item**.
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
    
@@ -72,7 +72,7 @@ You will see a project **Toll** generated in **Solution Explorer**.
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
    
-11.	Double click **ExitStream.json** in the project and follow the same steps as the entry stream to fill in. Be sure to enter values for Event Hub name as on the following screenshot.
+11.	Double-click **ExitStream.json** in the project and follow the same steps as the entry stream to fill in. Be sure to enter values for Event Hub name as on the following screenshot.
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
    
@@ -82,17 +82,17 @@ You will see a project **Toll** generated in **Solution Explorer**.
    
    Next, you will add reference data input for the blob file that contains car registration data.
    
-12.	Right click the **Inputs** node in the project, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of Data Stream and the Input Alias is **Registration**.
+12.	Right-click the **Inputs** node in the project, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of Data Stream and the Input Alias is **Registration**.
    
    ![Define input sources](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
-13.	Select Storage account that contains with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case sensitive and should be lowercase.
+13.	Select Storage account that contains with **tolldata**. The container name should be **tolldata**, and the **PATH PATTERN** should be **registration.json**. This file name is case-sensitive and should be lowercase.
 14.	Click **Save** to finish the wizard.
 
 Now all inputs are defined.
 
 ## Define output
-1.	In **Solution Explorer**, expand **Inputs** node and double click **Output.json**.
+1.	In **Solution Explorer**, expand **Inputs** node and double-click **Output.json**.
 2.	Set the Output alias to **output** and then Sink to SQL database.
 2.	Enter the database name: **TollDataDB**.
 3.	Enter **tolladmin** in the **USERNAME** field, **123toll!** in the **PASSWORD** field, and **TollDataRefJoin** in the **TABLE** field.
@@ -127,18 +127,18 @@ This folder contains the following files:
 •	Registration.json
 
 ## Question: Number of vehicles entering a toll booth
-In the project, double click Script.asaql to open the script in editor and paste the script in previous section into the editor. The query editor suppots Intellisense, syntax coloring and Error marker.
+In the project, double-click Script.asaql to open the script in editor and paste the script in previous section into the editor. The query editor supports Intellisense, syntax coloring and Error marker.
 
 ![Edit query](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-query-01.png)
  
 ### Testing Azure Stream Analytics queries locally
 
 1. You can first compile the query to see if there is any syntax error. [TBD]
-2. To validate this query against sample data, you can use local sample data by right clicking the input and select **Add local input** from the context menu.
+2. To validate this query against sample data, you can use local sample data by right-clicking the input and select **Add local input** from the context menu.
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-   In the pop up window select the sample data from your local path. Click **Save**.
+   In the pop-up window select the sample data from your local path. Click **Save**.
    
    ![Add local input](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    
@@ -160,11 +160,11 @@ In the project, double click Script.asaql to open the script in editor and paste
    
    
 ### Sample input
-You can also sample input data from input sources to local file. Right click the input config file and select **Sample Data**. 
+You can also sample input data from input sources to local file. Right-click the input config file and select **Sample Data**. 
 
 ![Sample data](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-01.png)
 
-Please note that you can only sample Event Hub or IoT Hub for now. Other input sources are not supported.  In the pop up dialog window, please fill in the local path for saving the sample data. Click **Sample**.
+Please note that you can only sample Event Hub or IoT Hub for now. Other input sources are not supported.  In the pop-up dialog window, please fill in the local path for saving the sample data. Click **Sample**.
 
 ![Sample data](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-02.png)
  
@@ -209,24 +209,24 @@ Some basic job statistics can be found in **Job Metrics**.
 
  
 ## List job in Server Explorer
-Click **Stream Analytics Jobs** in **Server Explorer** and click **Refresh**. You should be able to see you job appeared under **Stream Analytics Jobs**.
+Click **Stream Analytics Jobs** in **Server Explorer** and click **Refresh**. You should be able to see your job appeared under **Stream Analytics Jobs**.
 
 ![List jobs](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
 
 ## Open job view
-Expand your job node and double click on the **Job View** node to open job view.
+Expand your job node and double-click on the **Job View** node to open job view.
 
 ![Job view](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
 
 
 ## Export an existing job to a project
 There are two ways you can export an existing job to a project.
-1. Right click the job node under **Stream Analytics Jobs** node in **Server Explorer**. Click **Export to New Stream Analytics Project** from the context menu.
+1. Right-click the job node under **Stream Analytics Jobs** node in **Server Explorer**. Click **Export to New Stream Analytics Project** from the context menu.
    
    ![Export job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
    
-   You will see the gererated project in **Solution Explorer**.
+   You will see the generated project in **Solution Explorer**.
    
    ![Export job](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
    
