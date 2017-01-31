@@ -73,7 +73,8 @@
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
 ### Do
-#### [SQL authentication and authorization](sql-database-get-started-security.md)
+#### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+#### [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure and protect data
 ### Learn
 #### Auditing
@@ -253,6 +254,7 @@
 #### [Configure long-term backup retention](sql-database-configure-long-term-retention.md)
 #### [View backups in a Recovery Services vault](sql-database-view-backups-in-vault.md)
 #### [Restore from long-term backup retention](sql-database-restore-from-long-term-retention.md)
+#### [Delete from long-term backup retention](sql-database-long-term-retention-delete.md)
 ### Restore deleted database
 #### [Restore deleted using the Azure portal](sql-database-restore-deleted-database-portal.md)
 #### [Restore deleted using PowerShell](sql-database-restore-deleted-database-powershell.md)
