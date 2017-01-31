@@ -26,7 +26,7 @@ ms.author: jdial
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article explains how to create a virtual network with a netcfg file through the classic deployment model using the Azure classic portal. You can also [create a virtual network through the classic deployment model without using a netcfg file](virtual-networks-create-vnet-classic-pportal) or [create a virtual network through the Azure Resource Manager deployment model]((virtual-networks-create-vnet-arm-pportal.md)) using the Azure portal.
+This article explains how to create a virtual network with a netcfg file through the classic deployment model using the Azure classic portal. You can also [create a virtual network through the classic deployment model without using a netcfg file](virtual-networks-create-vnet-classic-pportal.md) or [create a virtual network through the Azure Resource Manager deployment model](virtual-networks-create-vnet-arm-pportal.md) using the Azure portal.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
