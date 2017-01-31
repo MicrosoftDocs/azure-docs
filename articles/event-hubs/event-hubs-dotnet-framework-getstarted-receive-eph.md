@@ -1,6 +1,6 @@
 ---
-title: Receive events in C# with Azure Event Hubs | Microsoft Docs
-description: Follow this tutorial to get started using Azure Event Hubs with C# and using the Event Processor Host.
+title: Receive events from Azure Event Hubs using the .NET Framework | Microsoft Docs
+description: Follow this tutorial to receive events from Azure Event Hubs using the .NET Framework.
 services: event-hubs
 documentationcenter: ''
 author: jtaubensee
