@@ -61,6 +61,8 @@ The following configuration is required to enable Tenant Restrictions through yo
 
 - Clients must trust the certificate chain presented by the proxy for SSL communications. For example, if certificates from an internal PKI are used, the internal issuing root certificate authority certificate must be trusted.
 
+- This feature is included in Office 365 subscriptions, but if you want to use Tenant Restrictions to control access to other SaaS apps then Azure AD Premium 1 licenses are required.  
+
 #### Configuration
 
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: `Restrict-Access-To-Tenants` and `Restrict-Access-Context`.
@@ -119,13 +121,18 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 
 1.	[Download and install Fiddler](http://www.telerik.com/fiddler).
 2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.	Configure Fiddler to insert the Restrict-Access-To-Tenants header using custom rules.
+3.	Configure Fiddler to insert the `Restrict-Access-To-Tenants` and `Restrict-Access-Context` headers using custom rules:
   1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
-  2. Add the following lines at the beginning of the *OnBeforeRequest* function, replacing \<directory ID\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com:
+  2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
 
   ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){oSession.oRequest["Restrict-Access-To-Tenants"] = "<directory ID>";}
+  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){
+      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
+      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+  }
   ```
+  >[!NOTE]
+  > The code snippet above should be all on one line. There are no carriage returns until after the closing bracket.
 
   If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
