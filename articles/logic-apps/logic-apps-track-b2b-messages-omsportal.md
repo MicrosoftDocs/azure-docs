@@ -62,39 +62,42 @@ B2B communication involves the exchange of messages between two running business
 2. Select **Logic Apps B2B Messages** on the home page to view the AS2 and X12 message status.  The data is based on a single day.
 ![Select Logic Apps B2B Messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Select an AS2 or X12 message by status to go to the message list. The next screenshot shows the AS2 message status. The AS2 and X12 message status property descriptions appear later in this article.  
+3. Select an AS2 or X12 message by status to go to the message list. The next screenshot shows the AS2 message status. The AS2 and X12 message status property descriptions appear later in "Message list property descriptions."  
 ![Select AS2 message status](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 4. Select a row in the AS2 or X12 message list to go to the log search.  Log search lists all of the actions that have the same run ID.
 ![Select message status](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
-### AS2 Message list property descriptions
+## Message list property descriptions
+
+#### AS2 message list property descriptions
+
 | Property | Description |
 | --- | --- |
 | Sender | The guest partner that is configured in the receive settings, or the host partner that is configured in the send settings for an AS2 agreement. |
 | Receiver | The host partner that is configured in the receive settings, or the guest partner that is configured in the send settings for an AS2 agreement. |
 | Logic App | Logic App where the AS2 actions are configured. |
-| Status | AS2 message status. Success = Received or sent a good AS2 message, no MDN configured; Success = Received or sent a good AS2 message, MDN configured and received or sent MDN; Failed = Received a bad AS2 message, no MDN configured; Pending = Received or sent a good AS2 message, MDN configured and expecting a functional ack. |
+| Status | AS2 message status. Success = Received or sent a good AS2 message, no MDN is configured; Success = Received or sent a good AS2 message, MDN is configured and received or MDN is sent; Failed = Received a bad AS2 message, no MDN is configured; Pending = Received or sent a good AS2 message, MDN is configured and a functional ack is expected. |
 | Ack | MDN message status. |
 | Direction | AS2 message direction. |
 | Correlation ID | ID to correlate all the triggers and actions within a Logic App. |
 | Message ID |  AS2 message ID, from the headers of the AS2 message. |
-| Timestamp | Time at which AS2 action processes the message. |
+| Timestamp | Time at which the AS2 action processes the message. |
 
-### X12 message list property descriptions
+#### X12 message list property descriptions
 
 | Property | Description |
 | --- | --- |
-| Sender | The guest partner configured in the receive settings or the host partner configured in the send settings for an AS2 agreement. |
-| Receiver | The host partner configured in the receive settings or the guest partner configured in the send settings for an AS2 agreement. |
+| Sender | The guest partner that is configured in the receive settings, or the host partner that is configured in the send settings for an AS2 agreement. |
+| Receiver | The host partner that is configured in the receive settings, or the guest partner that is configured in the send settings for an AS2 agreement. |
 | Logic App | Logic App where the AS2 actions are configured. |
-| Status | X12 message status. Success = Received or sent a good X12 message, no functional ack configured; Success = Received or sent a good X12 message, functional ack configured and received or sent a functional ack; Failed = Received or sent a bad X12 message; Pending: Received or sent a good X12 message, functional ack configured and expecting a functional ack. |
+| Status | X12 message status. Success = Received or sent a good X12 message, no functional ack is configured; Success = Received or sent a good X12 message, functional ack is configured and received or a functional ack is sent; Failed = Received or sent a bad X12 message; Pending: Received or sent a good X12 message, functional ack is configured and a functional ack is expected. |
 | Ack | Functional Ack (997) status.  Accepted = Received or sent a positive functional ack; Rejected = Received or sent a negative functional ack; Pending = Expecting a functional ack but didn't receive it; Pending = Generated a functional ack but couldn't send it to partner. |
 | Direction | X12 message direction. |
-| Correlation ID | ID to correlate all the triggers and actions within a Logic App. |
+| Correlation ID | ID to correlate all of the triggers and actions within a Logic App. |
 | Msg type |  EDI X12 message type. |
 | ICN | Interchange Control Number of the X12 message. |
 | TSCN | Transactional Set Control Number of the X12 message. |
-| Timestamp | Time at which X12 action process the message. |
+| Timestamp | Time at which X12 action processes the message. |
 
 ## Queries in Operations Management Suite portal
 
@@ -102,10 +105,10 @@ On the search page, you can create a query, and then when you search, you can fi
 
 ### Creating a query
 
-1. In the log search, write a query and select **Save**. To write a query, see  [Track B2B messages in the Operations Management Suite portal by using a query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
+1. In the log search, write a query and select **Save**. **Save Search** appears. To write a query, see  [Track B2B messages in the Operations Management Suite portal by using a query](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md).
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery.png)
 
-2. **Save Search** appears.  Add a **name** and **category**, and then select **Save**.   
+2. In **Save Search** add a **name** and **category**, and then select **Save**.   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery1.png)
 
 3. To view the query, select **favorites**    
