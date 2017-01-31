@@ -20,7 +20,7 @@ ms.author: jotaub
 # Get started with Event Hubs using the .NET Framework
 
 ## Receive messages with EventProcessorHost
-[EventProcessorHost][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][EventProcessorHost], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][EventProcessorHost] for a single receiver. The [Scaled out event processing][Scaled out event processing] sample shows how to use [EventProcessorHost][EventProcessorHost] with multiple receivers.
+[EventProcessorHost][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][EventProcessorHost], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use [EventProcessorHost][EventProcessorHost] with multiple receivers.
 
 To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
 
