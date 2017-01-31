@@ -38,9 +38,9 @@ You can complete the task using one of the following CLI versions:
 
 If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).
 
-Pre-requirments: Resource Group, VNet, NSG with SSH inbound, Subnet. Replace any examples with your own settings.
+Pre-requirements: Resource Group, VNet, NSG with SSH inbound, Subnet. Replace any examples with your own settings.
 
-### Deploy the VM into the VNet, NSG and connect the VNic
+### Deploy the VM into the virtual network infrastructure
 
 ```azurecli
 azure vm create myVM \
@@ -59,11 +59,11 @@ azure vm create myVM \
 
 ## Detailed walkthrough
 
-It is recommended that Azure assets like the VNets and NSGs should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.  Think about a VNet as being a traditional hardware network switch, you would not need to configure a brand new hardware switch with each deployment.  With a correctly configured VNet, we can continue to deploy new servers into that VNet over and over with few, if any, changes required over the life of the VNet.
+It is recommended that Azure assets like the VNets and NSGs should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.  Think about a VNet as being a traditional hardware network switch. You would not need to configure a brand new hardware switch with each deployment.  With a correctly configured VNet, we can continue to deploy new servers into that VNet over and over with few, if any, changes required over the life of the VNet.
 
 ## Create the Resource group
 
-First we will create a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+First we create a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure group create myResourceGroup \

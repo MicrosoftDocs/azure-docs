@@ -43,7 +43,7 @@ In the following examples, replace example parameter names with your own values.
 
 **Pre-requirements:** Azure resource group, virtual network and subnet, network security group with SSH inbound, and a virtual network interface card.
 
-### Deploy the VM into the VNet, NSG and connect the VNic
+### Deploy the VM into the virtual network infrastructure
 
 ```azurecli
 az vm create \
@@ -68,7 +68,7 @@ In the following examples, replace example parameter names with your own values.
 
 ## Create the resource group
 
-First we will create an Azure resource group to organize everything we create in this walkthrough. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westus` location:
+First we create an Azure resource group to organize everything we create in this walkthrough. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Create the resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westus` location:
 
 ```azurecli
 az group create \
@@ -149,7 +149,7 @@ az network nic create \
 
 We now have a virtual network, a subnet, and a network security group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH. The VM can now be deployed inside this existing network infrastructure.
 
-VM with [az vm create](/cli/azure/vm#create). For more information on using the Azure CLI 2.0 (Preview) to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Create your VM with [az vm create](/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 (Preview) to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ```azurecli
 az vm create \
@@ -164,7 +164,7 @@ az vm create \
     --nsg myNetworkSecurityGroup
 ```
 
-By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network. To reiterate, once a virtual network and subnet have been deployed, they can be left as static or permanent resources inside your Azure region. In this example, we did not create and assign a public IP address to the VNic, so this VM will not be publicly accessible over the Internet. For more information, see [Create a VM with a static public IP using the Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network. To reiterate, once a virtual network and subnet have been deployed, they can be left as static or permanent resources inside your Azure region. In this example, we did not create and assign a public IP address to the VNic, so this VM is not publicly accessible over the Internet. For more information, see [Create a VM with a static public IP using the Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
 For more information about ways to create virtual machines in Azure, see the following resources:
