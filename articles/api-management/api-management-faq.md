@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: mijiang
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.

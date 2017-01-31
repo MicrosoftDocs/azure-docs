@@ -1,5 +1,5 @@
 ---
-title: Create HDInsight clusters with Azure Data Lake Store using the portal | Microsoft Docs
+title: Use a web browser to create Azure HDInsight and Data Lake Store | Microsoft Docs
 description: Use Azure Portal to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
+ms.date: 01/30/2017
 ms.author: nitinme
 
 ---
@@ -120,20 +120,28 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 Once you have provisioned the cluster with Data Lake Store as storage, here are some examples on how to use HDInsight cluster to analyze the data stored in Data Lake Store.
 
-### Run a Hive query against data stored in Data Lake Store
+### Run a Hive query against data stored in Data Lake Store (as primary storage)
 
 To run a Hive query, you can use the Hive Views interface available from the Ambari portal. For instructions on how to use the Ambari Hive views, see [Use the Hive View with Hadoop in HDInsight](../hdinsight/hdinsight-hadoop-use-hive-ambari-view.md). There are a couple of things you will have to change when working with data in Data Lake Store.
 
-* If the take the example of the cluster we created above, the path to data will be `adl://<data_lake_store_account_name>/azuredatalakestore.net/path/to/file`. A Hive query to create a table from sample data stored in the Data Lake Store account will look like this:
+* If you the take the example of the cluster we created with Data Lake Store as primary storage, the path to data will be `adl://<data_lake_store_account_name>/azuredatalakestore.net/path/to/file`. A Hive query to create a table from sample data stored in the Data Lake Store account will look like this:
 
 		CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 In the query above,
 
-* `adl://hdiadlstorage.azuredatalakestore.net` is the root of the Data Lake Store account.
+* `adl://hdiadlstorage.azuredatalakestore.net/` is the root of the Data Lake Store account.
 * `/clusters/myhdiadlcluster` is the root for the cluster data that you specified while creating the cluster.
 * `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` is the location of the sample file that you use in the query
 
+### Run a Hive query against data stored in Data Lake Store (as additional storage)
+
+If the cluster you created uses Azure Storage (WASB) as default storage, the sample data will not be in the Azure Data Lake Store account that is used as additional storage. In such cases, you must first transfer the data from WASB to Azure Data Lake Store and then run the queries in the same manner as shown above.
+
+For information on how to copy data from WASB to Azure Data Lake Store, see the following:
+
+* [Use Distcp to copy data between Azure Storage Blobs and Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
+* [Use AdlCopy to copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md) 
 
 ### Use Data Lake Store with Spark cluster
 You can use a Spark cluster to run Spark jobs on data that is stored in Data Lake Store. For instructions on this, see [Use HDInsight Spark cluster to analyze data in Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).

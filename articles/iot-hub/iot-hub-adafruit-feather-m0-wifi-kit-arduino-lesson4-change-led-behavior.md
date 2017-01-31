@@ -1,5 +1,5 @@
 ---
-title: Change the LED blink behavior with messages from Azure IoT Hub | Microsoft Docs
+title: 'Connect Arduino (C) to Azure IoT - Lesson 4: Modify app | Microsoft Docs'
 description: Customize the messages to change the LED’s on and off behavior.
 services: iot-hub
 documentationcenter: ''

@@ -1,13 +1,13 @@
 ---
-title: Azure Functions developer reference | Microsoft Docs
-description: Understand Azure Functions concepts and components that are common to all languages and bindings.
+title: Guidance for developing Azure Functions | Microsoft Docs
+description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
 editor: ''
 tags: ''
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
+keywords: developer guide, azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/20/2016
+ms.date: 01/23/2017
 ms.author: chrande
 
 ---
-# Azure Functions developer reference
+# Azure Functions developers guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
 
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions is based on the WebJobs SDK. 

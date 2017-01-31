@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 01/24/2017
 ms.author: markvi
 
 ---
@@ -58,7 +58,7 @@ The device OS version must be iOS 9 and above
 
 A federation server must be configured.  
 
-Azure Authenticator is required for Office applications on iOS.  
+Microsoft Authenticator is required for Office applications on iOS.  
 
 For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
 
@@ -71,7 +71,7 @@ Azure Active Directory adds these claims to the refresh token if they are availa
 
 As a best practice, you should update the ADFS error pages with the following:
 
-* The requirement for installing the Azure Authenticator on iOS
+* The requirement for installing the Microsoft Authenticator on iOS
 * Instructions on how to get a user certificate. 
 
 For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
