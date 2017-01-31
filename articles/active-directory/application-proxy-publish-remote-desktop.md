@@ -1,5 +1,5 @@
 ---
-title: Publishing Remote Desktop with Azure Active Directory Application Proxy | Microsoft Docs
+title: Publish Remote Desktop with Azure Active Directory Application Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: kgremban
 
 ---
 
-# Publishing Remote Desktop with Azure Active Directory Application Proxy
+# Publish Remote Desktop with Azure Active Directory Application Proxy
 
 This article discusses how to make Remote Desktop deployments accessible for remote users. Such Remote Desktop deployments can reside on-premises or at private networks, such as IaaS deployments. 
 
