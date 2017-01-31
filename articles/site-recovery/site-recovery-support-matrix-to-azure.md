@@ -24,7 +24,7 @@ ms.author: rajanaki
 > * [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 
-This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about prerequisites for Azure Site Recovery, see [Site recovery best practices](site-recovery-best-practices.md).
+This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about prerequisites for Azure Site Recovery, see [Site Recovery best practices](site-recovery-best-practices.md).
 
 
 ## Support for deployment options
@@ -36,7 +36,7 @@ This article summarizes supported configurations and components for Azure Site R
 **PowerShell** | Not currently supported. | Supported | Supported
 
 
-## Support for Datacenter Management servers
+## Support for datacenter management servers
 
 ### Virtualization management entities
 
@@ -52,9 +52,9 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only).
-**Hyper-V (no VMM)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.
-**Hyper-V with VMM** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016.
+**VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
+**Hyper-V (no VMM)** | Windows Server 2016, Windows Server 2012 R2 with latest updates
+**Hyper-V (with VMM)** | Windows Server 2016, Windows Server 2012 R2 with latest updates.<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016
 
   >[!Note]
   >A Hyper-V site that mixes hosts running Windows Server 2016 and 2012 R2 isn't currently supported.
@@ -182,7 +182,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 **Hard disk format** | VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you failover to Azure. When you failback to on-premises, the virtual machines continue to use the VHDX format.
 **Bitlocker** | Not supported | Bitlocker must be disabled before protecting a virtual machine.
 **VM name** | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the virtual machine properties in Site Recovery.
-**VM type** | Generation 1<br/><br/> Generation 2 - Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+**VM type** | Generation 1<br/><br/> Generation 2 -- Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 300 GB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## Support for Recovery Services vault actions
 
