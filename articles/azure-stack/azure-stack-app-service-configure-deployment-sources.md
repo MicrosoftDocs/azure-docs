@@ -115,7 +115,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 9. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Schedule Repair of Management Roles
-In order for the settings update in the configuration of the various deployment sources to be applied, the Management Roles need to be repaired.  This process ensures that the configuration values are applied correctly and the configured Deployment Sources are made available to tenants.
+In order for the settings updated in the configuration of the various deployment sources to be applied, the Management Roles need to be repaired.  This process ensures that the configuration values are applied correctly and the configured Deployment Sources are made available to tenants.
 
 1. In a new browser tab or window Login to the Azure Stack Portal as the service administrator.
 2. Browse to **Resource Providers** and select the ** App Service Resource Provider Admin**.
