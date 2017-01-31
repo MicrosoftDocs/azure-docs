@@ -29,7 +29,7 @@ The [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) is a so
 | \*.windows.net |
 | +Certificate Revocation Lists |
 
-When you sign in to your Azure AD tenant you must use an account in the onmicrosoft.de domain.
+When you sign in to your Azure AD tenant, you must use an account in the onmicrosoft.de domain.
 
 Features currently not present in the Microsoft Cloud Germany:
 
@@ -52,9 +52,9 @@ This cloud has been supported by earlier releases of DirSync. From build 1.1.180
 Azure AD Connect is not able to automatically detect that your Azure AD tenant is located in the Government cloud. Instead you need to take the following actions when you install Azure AD Connect.
 
 1. Start the Azure AD Connect installation.
-2. As soon as you see the first page where you are supposed to accept the EULA, do not continue but leave the installation wizard running.
+2. When you see the first page where you are supposed to accept the EULA, do not continue but leave the installation wizard running.
 3. Start regedit and change the registry key `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` to the value `2`.
-4. Go back to the Azure AD Connect installation wizard, accept the EULA and continue. During installation, make sure to use the **custom configuration** installation path (and not Express installation). Then continue the installation as usual.
+4. Go back to the Azure AD Connect installation wizard, accept the EULA, and continue. During installation, make sure to use the **custom configuration** installation path (and not Express installation). Then continue the installation as usual.
 
 Features currently not present in the Microsoft Azure Government cloud:
 
