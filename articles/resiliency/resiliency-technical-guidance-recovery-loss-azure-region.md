@@ -18,7 +18,7 @@ ms.author: aglick
 
 ---
 # Azure resiliency technical guidance: recovery from a region-wide service disruption
-Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity. At the time of this writing, Azure has twenty-four regions around the world.
+Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity. For the current list of regions, see the [Azure regions page](https://azure.microsoft.com/regions/).
 
 Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Or facilities can be lost entirely, for example due to a natural disaster. This section explains the capabilities of Azure for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
 
