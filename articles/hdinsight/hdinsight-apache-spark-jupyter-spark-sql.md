@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2017
+ms.date: 01/31/2017
 ms.author: nitinme
 
 ---
@@ -67,10 +67,10 @@ In this section, you use Jupyter notebook to run Spark SQL queries against the S
 * **PySpark** (for applications written in Python)
 * **Spark** (for applications written in Scala)
 
-In this article, you will use the PySpark kernel. In the article [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) you can read in detail about the benefits of using the PySpark kernel. However, couple of key benefits of using the PySpark kernel are:
+In this article, you use the PySpark kernel. For more information about the two kernels, see [Use Jupyter notebooks kernels with Apache Spark clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Some of the key benefits of using the PySpark kernel are:
 
-* You do not need to set the contexts for Spark and Hive. These are automatically set for you.
-* You can use cell magics, such as `%%sql`, to directly run your SQL or Hive queries, without any preceding code snippets.
+* The contexts for Spark and Hive are set automatically.
+* Use cell magics, such as `%%sql`, to directly run SQL or Hive queries, without any preceding code snippets.
 * The output for the SQL or Hive queries is automatically visualized.
 
 ### Create Jupyter notebook with PySpark kernel
