@@ -1,5 +1,5 @@
 ---
-title: Send events with Azure Event Hubs in Java | Microsoft Docs
+title: Receive events in Java with Azure Event Hubs | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in using the EventProcessorHost.
 services: event-hubs
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: jotaub;sethm
 
 ---
@@ -24,7 +24,7 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, see the [Event Hubs overview][Event Hubs overview].
 
-This tutorial shows how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using the Java Event Processor Host library.
+This tutorial shows how to receive events into an Event Hub using a console application written in Java.
 
 In order to complete this tutorial, you will need the following:
 
@@ -32,6 +32,7 @@ In order to complete this tutorial, you will need the following:
 * An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ## Receive messages with EventProcessorHost in Java
+
 EventProcessorHost is a Java class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using EventProcessorHost you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use EventProcessorHost for a single receiver.
 
 ### Create a storage account
@@ -227,18 +228,8 @@ For different types of build environments, you can explicitly obtain the latest 
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-## Run the applications
-Now you are ready to run the applications.
-
-1. Run the **Receiver** project.
-   
-   ![](./media/event-hubs-java-get-started-receive-eph/ephjava.png)
-2. Run the **Sender** project.
-   
-   ![](./media/event-hubs-java-get-started-receive-eph/java-send.png)
-
 ## Next steps
-Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
+Now that you've built a working application that creates an Event Hub and sends data, you can move on to the following scenarios:
 
 * A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.

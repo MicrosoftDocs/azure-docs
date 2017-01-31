@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/27/2017
+ms.date: 01/30/2017
 ms.author: jotaub
 
 ---

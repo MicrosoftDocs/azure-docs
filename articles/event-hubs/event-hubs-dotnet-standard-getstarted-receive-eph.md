@@ -1,5 +1,5 @@
-﻿---
-title: Get started receiving events from Event Hubs | Microsoft Docs
+---
+title: Receive events from Azure Event Hubs using .NET Standard | Microsoft Docs
 description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
@@ -7,13 +7,13 @@ author: jtaubensee
 manager: timlt
 editor: ''
 
-ms.assetid: 683b4b4e-ea5a-430c-b0a5-9d7c99874352
+ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2017
+ms.date: 01/30/2017
 ms.author: jotaub
 ---
 
@@ -21,7 +21,7 @@ ms.author: jotaub
 
 ## What will be accomplished
 
-This tutorial will walk-through how to create the existing solution **SampleEphReceiver** (inside this folder). You can run the solution as-is replacing the `EhConnectionString/EhEntityPath/StorageAccount` settings with your Event Hub and storage account values, or follow this tutorial to create your own.
+This tutorial shows how to create the existing solution **SampleEphReceiver** (inside this folder). You can run the solution as-is, replacing the `EhConnectionString`, `EhEntityPath`, and `StorageAccount` strings with your Event Hub and storage account values, or follow this tutorial to create your own.
 
 In this tutorial, we will write a .NET Core console application to receive messages from an Event Hub using the **EventProcessorHost**.
 
@@ -67,7 +67,7 @@ In this tutorial, we will write a .NET Core console application to receive messa
         using System.Collections.Generic;
         using System.Text;
         using System.Threading.Tasks;
-        using Microsoft.Azure.EventHubs;
+        using Microsoft.A	zure.EventHubs;
         using Microsoft.Azure.EventHubs.Processor;
     
         public class SimpleEventProcessor : IEventProcessor

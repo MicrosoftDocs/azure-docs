@@ -1,5 +1,5 @@
 ---
-title: Get Started receiving from Event Hubs with Apache Storm | Microsoft Docs
+title: Receive events using Apache Storm with Azure Event Hubs | Microsoft Docs
 description: Get Started receiving from Event Hubs with Apache Storm
 services: event-hubs
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: jtaubensee
 manager: timlt
 editor: ''
 
-ms.assetid: bc120d57-5a87-4546-b70d-42e25663aebf
+ms.assetid: 
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
@@ -68,24 +68,20 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
         </dependency>
 ```
 9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the following values:
-```
-        eventhubspout.username = ReceiveRule
-   
-        eventhubspout.password = {receive rule key}
-   
-        eventhubspout.namespace = ioteventhub-ns
-   
-        eventhubspout.entitypath = {event hub name}
-   
-        eventhubspout.partitions.count = 16
-   
-        # if not provided, will use storm's zookeeper settings
-        # zookeeper.connectionstring=localhost:2181
-   
-        eventhubspout.checkpoint.interval = 10
-   
-        eventhub.receiver.credits = 10
-```
+
+	```java
+	eventhubspout.username = ReceiveRule
+	eventhubspout.password = {receive rule key}
+	eventhubspout.namespace = ioteventhub-ns
+	eventhubspout.entitypath = {event hub name}
+	eventhubspout.partitions.count = 16
+	   
+	# if not provided, will use storm's zookeeper settings
+	# zookeeper.connectionstring=localhost:2181
+	   
+	eventhubspout.checkpoint.interval = 10
+	eventhub.receiver.credits = 10
+	```
     The value for **eventhub.receiver.credits** determines how many events are batched before releasing them to the Storm pipeline. For the sake of simplicity, this example sets this value to 10. In production, it should usually be set to higher values; for example, 1024.
 10. Create a new class called **LoggerBolt** with the following code:
     

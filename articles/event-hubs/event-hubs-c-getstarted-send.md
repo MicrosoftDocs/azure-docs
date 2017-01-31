@@ -1,5 +1,5 @@
 ---
-title: Get Started with Event Hubs in C | Microsoft Docs
+title: Send events in C with Azure Event Hubs | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost.
 services: event-hubs
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: jtaubensee
 manager: timlt
 editor: ''
 
-ms.assetid: 5170c138-39ec-4eea-9925-e6902e5c425a
+ms.assetid: 
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -24,7 +24,7 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, please see the [Event Hubs overview][Event Hubs overview].
 
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C, and to retrieve them in parallel using the C# [Event Processor Host][Event Processor Host] library.
+In this tutorial, you will learn how to send events to an Event Hub using a console application in C. To receive events, click the appropriate receiving language in the left-hand table of contents.
 
 To complete this tutorial, you will need the following:
 
@@ -146,16 +146,6 @@ In this section we will write a C app to send events to your Event Hub. We will 
 	> [!NOTE]
 	> In this code, we use an outgoing window of 1 to force the messages out as soon as possible. In general, your application should try to batch messages to increase throughput. See [Qpid AMQP Messenger page](http://qpid.apache.org/components/messenger/index.html) for more information about how to use the Qpid Proton library in this and other environments, and from platforms for which bindings are provided (currently Perl, PHP, Python, and Ruby).
 
-
-## Run the applications
-Now you are ready to run the applications.
-
-1. Run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
-   
-   ![][21]
-2. Run the **Sender** program, and see the events appear in the receiver window.
-   
-   ![][24]
 
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:

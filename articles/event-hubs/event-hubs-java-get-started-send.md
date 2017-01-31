@@ -13,7 +13,7 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: jotaub;sethm
 
 ---
@@ -24,7 +24,7 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, see the [Event Hubs overview][Event Hubs overview].
 
-This tutorial shows how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using the Java Event Processor Host library.
+This tutorial shows how to send events to an Event Hub using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
 
 In order to complete this tutorial, you will need the following:
 

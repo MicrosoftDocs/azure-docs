@@ -1,5 +1,5 @@
 ---
-title: Send events with Azure Event Hubs in C# | Microsoft Docs
+title: Receive events in C# with Azure Event Hubs | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs with C# and using the Event Processor Host.
 services: event-hubs
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/27/2017
+ms.date: 01/30/2017
 ms.author: jotaub
 
 ---
@@ -140,29 +140,6 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 [Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com
-
-## Run the applications
-Now you are ready to run the applications.
-
-1. From within Visual Studio, open the **Receiver** project you created earlier.
-2. Right-click the **Receiver** solution, then click **Add**, and then click **Existing Project**.
-3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
-4. Again, right-click the **Receiver** solution and then click **Properties**. The **Receiver** property page is displayed.
-5. Click **Startup Project**, then click the **Multiple startup projects** button. Set the **Action** box for both the **Receiver** and **Sender** projects to **Start**.
-   
-    ![][19]
-6. Click **Project Dependencies**. In the **Projects** box, click **Sender**. In the **Depends on** box, make sure **Receiver** is checked.
-   
-    ![][20]
-7. Click **OK** to dismiss the **Properties** dialog.
-8. Press F5 to run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
-   
-   ![][21]
-9. The **Sender** project will run automatically. Press **Enter** in the console window, and see the events appear in the receiver window.
-   
-   ![][22]
-
-Press **Ctrl+C** in the **Sender** window to end the Sender application, then press **Enter** in the Receiver window to shut down that application.
 
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
