@@ -27,16 +27,17 @@ This topic is applicable only to the following clients:
 - Windows Server 2012 R2 
  
 
-This topic assumes that you have configured auto-registration of domain-joined devices as described in How to configure automatic registration of Windows domain-joined devices with Azure Directory 
-to enable the following scenario: 
+For Windows 10 or Windows Server 2016, see [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
 
-- Device-based conditional access. Learn more about Conditional access in Azure Active Directory 
+This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md).
  
 This topic provides you with troubleshooting guidance on how to resolve potential issues.  
 Some things to note for successful outcomes: 
 
 - Registration of these clients on Azure AD is per user/device. As an example: If jdoe and jharnett log in to this device, a separate registration (DeviceID) is created for each of these users in the USER info tab.  
+
 - Registration of these clients out of the box is configured to try at either logon or lock/unlock and there could be 5-minute delay that this is triggered using a Task Scheduler task. 
+
 - A re-install of the operating system or a manual un-register and re-register may create a new registration on Azure AD and will result in multiple entries under the USER info tab in the Azure portal. 
 
 
