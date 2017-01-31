@@ -106,7 +106,8 @@
 #### [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 #### [Active Geo-Replication overview](sql-database-geo-replication-overview.md)
 ### Do
-#### [Get started with SQL Database backup and restore](sql-database-get-started-backup-recovery.md)
+#### [Azure portal: Backup and restore](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: Backup and restore](sql-database-get-started-backup-recovery-powershell.md)
 ## App development
 ### Learn
 #### [Database application development overview](sql-database-develop-overview.md)
