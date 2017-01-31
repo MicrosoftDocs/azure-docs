@@ -16,6 +16,7 @@ ms.author: kgremban
 
 ---
 
+
 # Enable remote access to SharePoint with Azure AD App Proxy
 
 This article discusses how to integrate SharePoint server on-premises to Azure AD application proxy.
