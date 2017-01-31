@@ -136,13 +136,14 @@ Since you are currently logged in as the server admin you have permissions to cr
 
     ![New Query on Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. In the query window, run this T-SQL command to create a login named XLRCLOGIN. This login can connect to the logical SQL server.
+2. In the query window, run this T-SQL command to create a login named XLRCLOGIN and user named Loading User. This login can connect to the logical SQL server.
 
     ```sql
     CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
     ```
 
-3. Create a database user the XLRCLOGIN login can use to access and perform operations on databases.
+3. Now querying the *SQL Data Warehouse database*, create a database user based on the login you created to access and perform operations on the database.
 
     ```sql
     CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
