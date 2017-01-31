@@ -36,7 +36,7 @@
 ### Test in production
 ### Set deployment credentials
 ### Assign custom domain name
-### Assign custom SSL
+### Assign custom SSL 
 	
 ## Connect to DB/resources
 ### Connect to MySQL DB in Azure
