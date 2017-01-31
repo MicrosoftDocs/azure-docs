@@ -1,5 +1,5 @@
 ---
-title: Working with existing on-premises proxy servers and Azure AD | Microsoft Docs
+title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
 description: Covers how to work with existing on-premise Proxy servers.
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: kgremban
 
 ---
 
-# Working with existing on-premises proxy servers
+# Work with existing on-premises proxy servers
 
 This article explains how to configure the Application Proxy connector to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
@@ -27,7 +27,7 @@ We start by looking at these main deployment scenarios:
 
 For more information about how connectors work, see [How to provide secure remote access to on-premises applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
 
-## Configuring your connectors
+## Configure your connectors
 
 The core connector service uses Azure Service Bus to handle some of the underlying communications to the Azure AD Application Proxy service. Service Bus brings with it additional configuration requirements.
 
@@ -43,7 +43,8 @@ Fill in the necessary proxy settings as shown in the options box below.
 
  ![AzureAD Bypass local addresses](./media/application-proxy-working-with-proxy-servers/proxy-bypass-local-addresses.png)
  
-## Bypassing outbound proxies
+## Bypass outbound proxies
+
 By default, the underlying OS components used by the connector for making outbound requests automatically attempt to locate a proxy server on the network using Web Proxy Auto-Discovery (WPAD), if it is enabled in the environment.
 
 This typically works by carrying out a DNS lookup for wpad.domainsuffix. If this resolves in DNS, an HTTP request will then be made to the IP address for wpad.dat which will be the proxy configuration script in your environment. The connector will then use this to select an outbound proxy server. However, connector traffic may still not go through, because of additional configuration settings needed on the proxy. 
@@ -70,7 +71,7 @@ To ensure that the connector Updater service also bypasses the proxy, make a sim
 
 Please be sure that you make copies of the original files, in the event that you need to revert to the default .config files. 
 
-## Using the outbound proxy server
+## Use the outbound proxy server
 
 As mentioned above, in some customer environments there is a requirement for all outbound traffic to go through an outbound proxy without exception. As a result, bypassing the proxy is not an option.
 
@@ -162,7 +163,7 @@ Do not use SSL Inspection for the connector traffic as it will cause issues for 
 
 So that’s it. Now you should see all traffic flowing through the proxy. If you run into issues, the following troubleshooting steps should help.
 
-### Troubleshooting connector Proxy problems and service connectivity issues
+### Troubleshoot connector Proxy problems and service connectivity issues
 
 The single best way of identifying and troubleshooting connector connectivity issues is to take a Network capture on the connector service while starting the connector service. This can be a daunting task, so let’s look at quick tips on capturing and filtering network traces.
 
@@ -170,7 +171,7 @@ You can use the monitoring tool of your choice. For the purposes of this article
 
 The examples and filters we use below are specific to Network Monitor, but the principles can be applied to any analysis tool.
 
-### Taking a capture using Microsoft Network Monitor
+### Take a capture using Microsoft Network Monitor
 
 To start a capture, open Network Monitor and click New Capture. Then press the Start button to begin.
 
@@ -178,7 +179,7 @@ To start a capture, open Network Monitor and click New Capture. Then press the S
 
 After completing a capture, click the Stop button to end the capture.
 
-### Taking a capture of connector traffic
+### Take a capture of connector traffic
 
 For initial troubleshooting, perform the following steps: 
 
@@ -189,7 +190,7 @@ For initial troubleshooting, perform the following steps:
 
  ![AzureAD Network Monitor](./media/application-proxy-working-with-proxy-servers/services-local.png)
 
-### Looking at the connector to proxy server requests
+### Look at the connector to proxy server requests
 
 Now that you’ve got a network capture, youre ready to filter it. The key to looking at the trace is understanding how to filter the capture.
 
@@ -207,7 +208,7 @@ You now are specifically looking for the CONNECT requests that shows we are talk
 
 If you see other response codes, such as 407 or 502, this indicates that the proxy is requiring authentication or not allowing the traffic for some other reason. At this point you would engage your proxy server support team.
 
-### Identifying failed TCP connection attempts
+### Identify failed TCP connection attempts
 
 The other common scenario you may be interested in is when the connector is trying to connect directly, but it is failing. 
 
