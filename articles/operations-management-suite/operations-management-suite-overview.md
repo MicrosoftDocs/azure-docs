@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+ms.date: 01/31/2017
 ms.author: bwren
 
 ---
@@ -111,7 +111,7 @@ Runbooks can be [started through a number of methods](../automation/automation-s
 - **Log Analytics Alert.**  An alert in Log Analytics can automatically start a runbook to attempt to correct the issue identified by the alert.
 
 #### Configuration Management
-[PowerShell Desired State Configuration (DSC)](automation-dsc-overview.md) is a management platform in Windows PowerShell that allows you to deploy and enforce the configuration of physical and virtual machines.  Azure Automation manages DSC configurations and provides a pull server in the cloud that agents can access to retrieve required configurations.
+[PowerShell Desired State Configuration (DSC)](../automation/automation-dsc-overview.md) is a management platform in Windows PowerShell that allows you to deploy and enforce the configuration of physical and virtual machines.  Azure Automation manages DSC configurations and provides a pull server in the cloud that agents can access to retrieve required configurations.
 
 ![Azure Automation DSC](media/operations-management-suite-overview/overview-dsc.png)
 
