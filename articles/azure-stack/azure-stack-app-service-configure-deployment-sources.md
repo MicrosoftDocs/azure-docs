@@ -93,7 +93,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 ![OneDrive Application - Add Web Platform][12]
 8. Set the **Microsoft Graph Permissions** - **Delegated Permissions**
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**
+    - **User.Read**  
       ![OneDrive Application - Graph Permissions][13]
 9. Click **Save**
 10. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
