@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network (classic) - Classic portal | Microsoft Docs
+title: Create an Azure virtual network (classic) - Classic portal | Microsoft Docs
 description: Learn how to create a virtual network (classic) with a netcfg file in the Azure classic portal.
 services: virtual-network
 documentationcenter: ''
