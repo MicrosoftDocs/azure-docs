@@ -16,6 +16,7 @@ ms.date: 01/25/2017
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Panopto
 The objective of this tutorial is to show the integration of Azure and Panopto.  
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -97,9 +98,11 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    4. In the Azure classic portal, on the **Configure single sign-on at Panopto** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
    5. In the Azure classic portal, on the **Configure single sign-on at Panopto** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Bounce Page Url** textbox.
    6. Create a **base-64 encoded** file from your downloaded certificate.    
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
+   
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+      >
+      
    7. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Public Key** textbox
    8. Click **Save**.
 
