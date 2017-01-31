@@ -74,7 +74,7 @@
 #### [Manage logins](sql-database-manage-logins.md)
 ### Do
 #### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
-#### [AAD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
+#### [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure and protect data
 ### Learn
 #### Auditing
