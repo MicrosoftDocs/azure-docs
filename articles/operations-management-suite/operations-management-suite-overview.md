@@ -54,7 +54,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 | ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | Provide high availability for critical applications. |
 
 ### Log Analytics
-[Log Analytics](../log-analytics/log-analytics-overview.md) provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository.  This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.  This method allows you to consolidate data from a variety of sources so you can combine data from your Azure services with your existing on-premise environment.  It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.  
 
 ![Log Analytics overview](media/operations-management-suite-overview/overview-log-analytics.png)
 
@@ -86,7 +86,7 @@ In addition to creating an alert record in the Log Analytics repository, alerts 
 - **Webhook.**  An alert can start a webhook and pass it data from the results of the log search.  This allows integration with external services such as an alternate alerting system, or it may attempt to take corrective action for an external web site.
 
 ### Azure Automation
-[Azure Automation](../automation/automation-intro.md) provides process automation and configuration management to OMS.  It automates manual processes and helps to enforce configurations for physical and virtual computers.  
+[Azure Automation](http://azure.microsoft.com/documentation/services/automation) provides process automation and configuration management to OMS.  It automates manual processes and helps to enforce configurations for physical and virtual computers.  
 
 #### Process Automation
 Azure Automation automates manual processes using [runbooks](../automation/automation-runbook-types.md) which are based on PowerShell script or PowerShell workflow.  It also includes assets supporting runbooks such as variables that can be shared between multiple runbooks and credentials and connections that allow you to store encrypted information that might be required for a runbook for authentication.
@@ -119,7 +119,7 @@ Runbooks can be [started through a number of methods](../automation/automation-s
 Azure Backup and Azure Site Recovery contribute to business continuity and disaster recovery.  They each have features that help you to ensure that applications remain available when outages occur and return to normal operations when systems come back online.  Both services contribute to therecovery point objectives (RPOs) and recovery time objectives (RTOs) defined for your organization. Your RPO defines the acceptable limit in which data isn’t available during an outage, and the RTO limits the acceptable amount of time in which a service or app isn’t available during an outage.
 
 #### Azure Backup
-Azure Backup provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
+[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services for OMS.  It protects your application data and retains it for years without any capital investment and with minimal operating costs.  It can backup data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint.  It can also be used by System Center Data Protection Manager (DPM) to replicate protected data to Azure for redundancy and long term storage.
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency .
 
@@ -132,7 +132,7 @@ Azure Backup has three fundamental scenarios.
 
 
 #### Azure Site Recovery
-Azure Site Recovery provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. 
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working, and fail back when systems return to working order. 
 
 Azure Site Recovery provides high availability for servers and applications.  It contributes to your business continuity and a disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of on-premises Hyper-V virtual machines, VMware virtual machines, and physical Windows/Linux servers. You can replicate machines to a secondary data center or extend your data center by replicating them to Azure. Site Recovery also provides simple failover and recovery for workloads. It integrates with disaster recovery mechanisms such as SQL Server AlwaysOn, and provides recovery plans for easy failover of workloads that are tiered across multiple machines.
 
@@ -146,9 +146,9 @@ Azure Site Recovery has three fundamental replication scenarios.
 Site Recovery stores metadata in vaults located in a particular geographic Azure region. No replicated data is stored by the Site Recovery service .
 
 ## Management Solutions
-Management Solutions are prepackaged sets of logic that implement a particular management scenario leveraging one or more OMS services.  Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS.  As a partner you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quickstart Templates.
+[Management Solutions](operations-management-suite-solutions.md) are prepackaged sets of logic that implement a particular management scenario leveraging one or more OMS services.  Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS.  As a partner you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quickstart Templates.
 
-A good example of a solution that leverages multiple services to provide additional functionality is the Update Management solution.  This solution uses the Log Analytics agent for Windows and Linux to collect information about required updates on each agent.  It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.  When you create a deployment, runbooks in Azure Automation are used to install required updates.  You manage this entire process in the portal and don’t need to worry about the underlying details.
+A good example of a solution that leverages multiple services to provide additional functionality is the [Update Management solution](oms-solution-update-management.md).  This solution uses the Log Analytics agent for Windows and Linux to collect information about required updates on each agent.  It writes this data to the Log Analytics repository where you can analyze it with an included dashboard.  When you create a deployment, runbooks in Azure Automation are used to install required updates.  You manage this entire process in the portal and don’t need to worry about the underlying details.
 
 ![Solution](media/operations-management-suite-overview/overview-solution.png)
 
@@ -173,40 +173,40 @@ In addition to the option of subscribing to each OMS service individually, you c
 
 
 ### ![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
-The Insight & Analytics offering allows you to collect and analyze operations data to ensure that applications and systems are available and performing with required parameters.  The primary service in this offering is **Log Analytics** which provides collection and analysis of operations data.  You can configure any of the available data sources and leverage any management solutions that aren’t included in another offering.
+The [Insight & Analytics offering](https://www.microsoft.com/cloud-platform/insight-and-analytics) allows you to collect and analyze operations data to ensure that applications and systems are available and performing with required parameters.  The primary service in this offering is **Log Analytics** which provides collection and analysis of operations data.  You can configure any of the available data sources and leverage any [management solutions](../log-analytics/log-analytics-add-solutions.md) that aren’t included in another offering.
 
-**Service Map**.  This solution automatically discovers application components on Windows and Linux systems and maps the communication between services.  This solution is based on technology acquired from Bluestripe Software.  You can interact with the included console or analyze inventory data that’s stored in the Log Analytics repository.
+**[Service Map](operations-management-suite-service-map.md)**.  This solution automatically discovers application components on Windows and Linux systems and maps the communication between services.  This solution is based on technology acquired from Bluestripe Software.  You can interact with the included console or analyze inventory data that’s stored in the Log Analytics repository.
 
-**Networking Analytics**.  This solution offers near real time monitoring of network performance parameters such as loss and latency, fault localization, and diagnostics/troubleshooting of any detected network problems.  It stores the data that it collects in the Log Analytics repository so that you can analyze it with other collected data.
+**[Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)**.  This solution offers near real time monitoring of network performance parameters such as loss and latency, fault localization, and diagnostics/troubleshooting of any detected network problems.  It stores the data that it collects in the Log Analytics repository so that you can analyze it with other collected data.
 
-**System Center 2016 Operations Manager**.  The Insight & Analytics offering includes licensing for System Center Operations Manager.  This allows you to quickly manage your existing Operations Manager agents by connecting your management group to Log Analytics and to maintain your existing investment to maintain a hybrid management environment.
+**[System Center 2016 Operations Manager](https://technet.microsoft.com/system-center-docs/om/welcome-to-operations-manager)**.  The Insight & Analytics offering includes licensing for System Center Operations Manager.  This allows you to quickly manage your existing Operations Manager agents by connecting your management group to Log Analytics and to maintain your existing investment to maintain a hybrid management environment.
 
 ### ![Automation & Control](media/operations-management-suite-overview/icon-automation-control.png) Automation & Control
-The Automation & Control offering allows you to automate operational issues and manage change across your Azure and on-premise environments.  The central component of this offering is **Azure Automation** which provides runbooks for automation and PowerShell DSC for enforcing configurations.  You can create your own runbooks to automate various processes across your environment, including automating other OMS services, or install the following solutions that are included with the offering.
+The [Automation & Control offering](https://www.microsoft.com/cloud-platform/automation-and-control) allows you to automate operational issues and manage change across your Azure and on-premise environments.  The central component of this offering is **Azure Automation** which provides runbooks for automation and PowerShell DSC for enforcing configurations.  You can create your own runbooks to automate various processes across your environment, including automating other OMS services, or install the following solutions that are included with the offering.
 
-**Update Management**.  This solution identifies missing system updates and orchestrates their installation across Windows and Linux servers in any public cloud or your on-premise environment. 
+**[Update Management](oms-solution-update-management.md)**.  This solution identifies missing system updates and orchestrates their installation across Windows and Linux servers in any public cloud or your on-premise environment. 
  
-**Change Tracking**.  This solution helps you to easily identify changes to software, files, service, and daemons.  Changes are collected from Windows and Linux agents and recorded in the Log Analytics repository where you can quickly review them with an included dashboard.
+**[Change Tracking](../log-analytics/log-analytics-change-tracking.md)**.  This solution helps you to easily identify changes to software, files, service, and daemons.  Changes are collected from Windows and Linux agents and recorded in the Log Analytics repository where you can quickly review them with an included dashboard.
 
-**System Center 2016 Orchestrator**.  The Automation & Control offering includes licensing for System Center 2016 Orchestrator which provides automation of manual processes and orchestration of complex workflows for on-premise resources.  There isn’t specific integration between Azure Automation and Orchestrator, but this allows you to continue to leverage your existing investment in Orchestrator runbooks.
+**[System Center 2016 Orchestrator](https://technet.microsoft.com/system-center-docs/orch/orchestrator)**.  The Automation & Control offering includes licensing for System Center 2016 Orchestrator which provides automation of manual processes and orchestration of complex workflows for on-premise resources.  There isn’t specific integration between Azure Automation and Orchestrator, but this allows you to continue to leverage your existing investment in Orchestrator runbooks.
 
-**System Center 2016 Configuration Manager**.  The Automation & Control offering includes licensing for System Center 2016 Configuration Manager which provides inventory, configuration management, software deployment for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
+**[System Center 2016 Configuration Manager](https://docs.microsoft.com/sccm/index)**.  The Automation & Control offering includes licensing for System Center 2016 Configuration Manager which provides inventory, configuration management, software deployment for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
 
-**System Center 2016 Service Manager**.  The Automation & Control offering includes licensing for System Center 2016 Service Manager which provides service delivery for incident resolution, change control, and asset lifecycle management for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
+**[System Center 2016 Service Manager](https://technet.microsoft.com/system-center-docs/sm/service-manager)**.  The Automation & Control offering includes licensing for System Center 2016 Service Manager which provides service delivery for incident resolution, change control, and asset lifecycle management for on-premise resources.  There isn’t specific integration between Azure Automation and Configuration Manager, but this allows you to continue to leverage your existing investment.
 
 
 ### ![Protection and Recovery](media/operations-management-suite-overview/icon-protection-recovery.png) Protection and Disaster Recovery
-The Protection & Recovery offering provides integrated cloud backup and disaster recovery to protect enterprise applications and data irrespective of its location.  The primary services for this offering are ******Azure Backup** which backs up data from physical and virtual Windows servers in addition to application workloads and **Azure Site Recovery** which orchestrates replication, failover, and recovery of critical systems and applications.
+The [Protection & Recovery offering](https://www.microsoft.com/cloud-platform/protection-and-recovery) provides integrated cloud backup and disaster recovery to protect enterprise applications and data irrespective of its location.  The primary services for this offering are **Azure Backup** which backs up data from physical and virtual Windows servers in addition to application workloads and **Azure Site Recovery** which orchestrates replication, failover, and recovery of critical systems and applications.
 
-**System Center 2016 Data Protection Manager**.   The Protection & Recovery offering includes licensing for System Center 2016 Data Protection Manager which provides backup and restore of on-premise data.  Data Protection Manager can integrate with Azure Backup to use the cloud 
+**[System Center 2016 Data Protection Manager](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager)**.   The Protection & Recovery offering includes licensing for System Center 2016 Data Protection Manager which provides backup and restore of on-premise data.  Data Protection Manager can integrate with Azure Backup to use the cloud 
 
 
 ### ![OMS Security and Compliance](media/operations-management-suite-overview/icon-security-compliance.png) Security and Compliance
-The Security & Compliance offering allows you to prevent, detect, and respond to threats with increased visibility.  The primary service in this offering is Log Analytics which provides collection and analysis of security data for the included solutions.
+The [Security & Compliance offering](https://www.microsoft.com/cloud-platform/security-and-compliance) allows you to prevent, detect, and respond to threats with increased visibility.  The primary service in this offering is Log Analytics which provides collection and analysis of security data for the included solutions.
 
-**Security and Audit**.  This solution provides a comprehensive view into your organization’s security posture.  It provides search queries for identifying notable security issues and helps you perform forensic analysis, security breach pattern investigations, and audit scenarios.
+**[Security and Audit](oms-security-monitoring-resources.md)**.  This solution provides a comprehensive view into your organization’s security posture.  It provides search queries for identifying notable security issues and helps you perform forensic analysis, security breach pattern investigations, and audit scenarios.
 
-**Antimalware Assessment**.  This solution helps you identify servers that are infected or are at risk of infection by malware.
+**[Antimalware Assessment]()../log-analytics/log-analytics-malware.md)**.  This solution helps you identify servers that are infected or are at risk of infection by malware.
 
 
 ## Next steps
