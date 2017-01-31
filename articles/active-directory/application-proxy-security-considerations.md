@@ -35,7 +35,7 @@ Azure AD Application Proxy offers the following security benefits:
 **Conditional access:** Apply richer policy controls before connections to your network are established
 
 * With conditional access, it is possible to further define restrictions on what traffic is allowed to access your backend applications. You can define restrictions based on location, strength of authentication, and user risk profile.
-* This feature enables additional barriers for attackers. You can read more about conditional access [here](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
+* This feature enables additional barriers for attackers. You can read more about conditional access [Getting started with Azure Active Directory Conditional Access](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-azuread-connected-apps).
 
 **Traffic termination:** All traffic is terminated in the cloud
 
