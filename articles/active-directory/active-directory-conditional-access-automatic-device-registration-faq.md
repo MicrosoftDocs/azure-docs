@@ -97,7 +97,7 @@ For other Windows platforms that are on-premises AD domain-joined:
 
 **Q: Why do my users see “You can’t get there from here”?**
 
-**A:** If you have configured certain conditional access rules to require a specific device state and the the device does not meet the criteria, users are blocked and see this message. 
+**A:** If you have configured certain conditional access rules to require a specific device state and the device does not meet the criteria, users are blocked and see this message. 
 Please evaluate the rules and ensure that the device is able to meet the criteria to avoid this message.
 
 ---
@@ -137,7 +137,7 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
-**Q: Where can I find throubleshooting information about the automatic device registration?**
+**Q: Where can I find troubleshooting information about the automatic device registration?**
 
 **A:** For troubleshooting information, see:
 
