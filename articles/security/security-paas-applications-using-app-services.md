@@ -19,10 +19,10 @@ ms.author: terrylan
 ---
 # Securing PaaS web and mobile applications using Azure App Services
 
-In this article we discuss a collection of [Azure App Services](https://azure.microsoft.com/services/app-service/) security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
+In this article, we discuss a collection of [Azure App Services](https://azure.microsoft.com/services/app-service/) security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
 ## Azure App Services
-[Azure App Services](../app-service/app-service-value-prop-what-is.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Services includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Services brings a rich set of capabilities to web, mobile and integration scenarios.
+[Azure App Services](../app-service/app-service-value-prop-what-is.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Services includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Services brings a rich set of capabilities to web, mobile, and integration scenarios.
 
 To learn more, see overviews on [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) and [Web Apps](../app-service-web/app-service-web-overview.md).
 
