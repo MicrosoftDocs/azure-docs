@@ -70,7 +70,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Picturepark** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Picturepark** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to Picturepark** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
