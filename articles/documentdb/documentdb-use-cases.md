@@ -17,6 +17,7 @@ ms.date: 01/12/2017
 ms.author: hawong
 
 ---
+
 # Common DocumentDB use cases
 This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
 
