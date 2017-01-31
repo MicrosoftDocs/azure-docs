@@ -153,9 +153,9 @@ You can get the JAR file from the Maven repo and drop it into the **libs** folde
 2. Add the project dependency for debugging into your project settings.
 3. Update your project's AndroidManifest.xml file to include:
 
-      <uses-permission android:name="android.permission.INTERNET" />
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-      <application
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <application
             android:allowBackup="true"
             android:debuggable="true"
             android:icon="@drawable/ic_launcher"
@@ -166,8 +166,8 @@ You can get the JAR file from the Maven repo and drop it into the **libs** folde
                 android:name="com.microsoft.aad.adal.AuthenticationActivity"
                 android:label="@string/title_login_hello_app" >
             </activity>
-      ....
-      <application/>
+            ....
+        <application/>
 
 4. Create an instance of AuthenticationContext at your main activity. The details of this call are beyond the scope of this topic, but you can get a good start by looking at the [Android Native Client sample](https://github.com/AzureADSamples/NativeClient-Android). In the following example, SharedPreferences is the default cache, and Authority is in the form of `https://login.windows.net/yourtenant.onmicrosoft.com`:
 
@@ -185,7 +185,7 @@ You can get the JAR file from the Maven repo and drop it into the **libs** folde
 
 6. To ask for a token, define a callback:
 
-    private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+        private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
 
             @Override
             public void onError(Exception exc) {
