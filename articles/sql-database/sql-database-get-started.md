@@ -19,7 +19,7 @@ ms.date: 11/23/2016
 ms.author: carlrab
 
 ---
-# Tutorial: Provision and access a SQL database using the Azure portal and SQL Server Management Studio
+# Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio
 
 In this tutorial, you learn how to use the Azure portal to:
 
