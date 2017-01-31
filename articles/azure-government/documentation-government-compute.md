@@ -25,14 +25,15 @@ For details on this service and how to use it, see [Azure Virtual Machines Sizes
 ### Variations
 The products (VMs) are available in Azure Government:
 
-| Products (VMs) | US Gov VA | US Gov IA | Quota |
+| Products (VMs) | US Gov VA | US Gov IA |
 | --- | --- | --- |
 | A0-A7 |Y |Y |
 | D-series |Y |N |
 | Dv2-series |Y |Y |
 | DS-series |Y |N |
+| DSv2-series |Y |N |
 | F-series |Y |Y |
-| FS-series |N |N |
+| FS-series |Y |N |
 | G-series |Y |N |
 | GS-series |Y |N |
 
