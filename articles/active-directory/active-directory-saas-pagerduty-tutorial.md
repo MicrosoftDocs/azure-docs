@@ -93,9 +93,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    1. Create a **base-64 encoded** file from your downloaded certificate.  
       
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
->
+      >[!TIP]
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+      >
 
   2. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
   3. In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
@@ -139,9 +139,10 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 **To assign users to Pagerduty, perform the following steps:**
 1. In the Azure classic portal, create a test account.
-2. On the **Pagerduty **application integration page, click **Assign users**.
+2. On the **Pagerduty** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-pagerduty-tutorial/IC778541.png "Assign users")
+   
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
    ![Yes](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Yes")
