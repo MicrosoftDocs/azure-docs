@@ -51,7 +51,7 @@ The following table shows data collection methods and other details about how da
 
 | Platform | Direct agent | Systems Center Operations Manager agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |10 minutes |
+| Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |when logged |
 
 
 ## Azure Application Gateway analytics solution in Log Analytics
@@ -74,7 +74,7 @@ Use the following instructions to install and configure the Azure Application Ga
 
 #### Enable Azure Application Gateway diagnostics in the portal
 
-1. In the Azure portal, navigate to the Application Gateway or Network Security Group resource to monitor
+1. In the Azure portal, navigate to the Application Gateway resource to monitor
 2. Select *Diagnostics logs* to open the following page
 
    ![image of Azure Application Gateway resource](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
@@ -136,9 +136,9 @@ Use the following instructions to install and configure the Azure Networking Ana
 1. Enable diagnostics logging for the [Network Security Group](../virtual-network/virtual-network-nsg-manage-log.md) resources you want to monitor.
 2. Enable the Azure Network Security Group analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
 
-### Enable Azure network diagnostics in the portal
+### Enable Azure network security group diagnostics in the portal
 
-1. In the Azure portal, navigate to the Application Gateway or Network Security Group resource to monitor
+1. In the Azure portal, navigate to the Network Security Group resource to monitor
 2. Select *Diagnostics logs* to open the following page
 
    ![image of Azure Network Security Group resource](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
@@ -193,14 +193,18 @@ To use the updated solutions:
 2. [Configure diagnostics to be sent directly to Log Analytics from Azure Network Security Groups](#enable-azure-network-security-group-diagnostics-in-the-portal)
 2. Enable the *Azure Application Gateway Analytics* and the *Azure Network Security Group Analytics* solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md)
 3. Update any saved queries, dashboards, or alerts to use the new data type
-  + Type is change from: AzureNetwork to AzureDiagnostics. You can use the ResourceType to filter to Azure networking logs.
-  - Instead of: `Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`, use `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess`
-  - Instead of: `Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance`, use `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance`
-  - Instead of: `Type=NetworkSecuritygroups`, use `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS`
-  + Fields: (Field names are case-sensitive)
-  - For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
-  - For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.
-4. Remove the *Azure Networking Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false` 
+  + Type is to AzureDiagnostics. You can use the ResourceType to filter to Azure networking logs.
+  
+    | Instead of: | Use: |
+    | --- | --- |
+    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
+    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
+    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    
+   + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
+   + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names.
+4. Remove the *Azure Networking Analytics (Deprecated)* solution. 
+  + If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false` 
 
 Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
 
