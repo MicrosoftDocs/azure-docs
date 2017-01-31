@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 
 ---
@@ -56,7 +56,7 @@ In addition to a rich set of [device-to-cloud][lnk-d2c-guidance] and [cloud-to-d
 
 * **Device twins**. Using [Device twins][lnk-twins], you can store, synchronize, and query device metadata and state information. Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. 
 * **Per-device authentication and secure connectivity**. You can provision each device with its own [security key][lnk-devguide-security] to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can add individual devices to allow or deny lists to enable complete control over device access.
-* **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on message rules to control where your hub sends device-to-cloud messages. Message rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
+* **Route device-to-cloud messages to Azure services based on declarative rules**. IoT Hub enables you to define message routes based on routing rules to control where your hub sends device-to-cloud messages. Routing rules do not require you to write any code, and can take the place of custom post-ingestion message dispatchers.
 * **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This monitoring capability enables your IoT solution to identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 * **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 * **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocols by:
@@ -88,7 +88,7 @@ The mobile industry has used the service-assisted communication pattern at enorm
 IoT Hub is supported over ExpressRoute's public peering path.
 
 ## Next steps
-To learn how to send messages from a device and receive them from IoT Hub, as well as how to configure message routes for your IoT hub, see [Send and receive messages with IoT Hub][lnk-send-messages].
+To learn how to send messages from a device and receive them from IoT Hub, as well as how to configure message routes, see [Send and receive messages with IoT Hub][lnk-send-messages].
 
 To learn how IoT Hub enables standards-based device management for you to remotely manage, configure, and update your devices, see [Overview of device management with IoT Hub][lnk-device-management].
 
