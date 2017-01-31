@@ -72,7 +72,7 @@ The following screenshot shows an example of this.
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **PolicyStat** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **PolicyStat** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configure Single Sign-On")
 2. On the **How would you like users to sign on to PolicyStat** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -95,32 +95,33 @@ The following screenshot shows an example of this.
    
    ![Single Sign-On Configuration](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On Configuration")
    
-   a. In the **Username Attribute** textbox, type **uid**.
-   b. In the **First Name Attribute** textbox, type **firstname**.
-   c. In the **Last Name Attribute** textbox, type **lastname**.
-   d. In the **Email Attribute** textbox, type **emailaddress**.
-   e. Click **Save Changes**.
+   1. In the **Username Attribute** textbox, type **uid**.
+   2. In the **First Name Attribute** textbox, type **firstname**.
+   3. In the **Last Name Attribute** textbox, type **lastname**.
+   4. In the **Email Attribute** textbox, type **emailaddress**.
+   5. Click **Save Changes**.
 9. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
    
    ![Single Sign-On Configuration](./media/active-directory-saas-policystat-tutorial/IC808635.png "Single Sign-On Configuration")
    
-    a. Open your downloaded metadata file, copy the content, and then paste it into the **Your Identity Provider Metadata** textbox.
-    b. Click **Save Changes**.
+   1. Open your downloaded metadata file, copy the content, and then paste it into the **Your Identity Provider Metadata** textbox.
+   2. Click **Save Changes**.
 10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configure Single Sign-On")
-11. 1. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+  
+11. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
     
     ![Attributes](./media/active-directory-saas-policystat-tutorial/IC795920.png "Attributes")
 12. To add the required attribute mappings, perform the following steps:
     
     ![Attributes](./media/active-directory-saas-policystat-tutorial/IC804823.png "Attributes")
     
-    a. Click **add user attribute**.
-    b. In the **Attribute Name** textbox, type **uid**.
-    c. In the **Attribute Value** textbox, select **ExtractMailPrefix()**.
-    d. From the **Mail** list, select **User.mail**.
-    e. Click **Complete**.
+   1. Click **add user attribute**.
+   2. In the **Attribute Name** textbox, type **uid**.
+   3. In the **Attribute Value** textbox, select **ExtractMailPrefix()**.    
+   4. From the **Mail** list, select **User.mail**.
+   5. Click **Complete**.
 
 ##Configuring user provisioning
 
@@ -140,7 +141,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to PolicyStat, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **PolicyStat **application integration page, click **Assign users**.
+2. On the **PolicyStat** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-policystat-tutorial/IC808636.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

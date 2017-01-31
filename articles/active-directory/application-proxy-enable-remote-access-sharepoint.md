@@ -34,24 +34,24 @@ This article assumes that you already have SharePoint 2013 or newer already setu
 
 * We assume that you have already setup SSL for SharePoint, as we require SSL on the published URL. You will need to have SSL enabled on your internal site, to ensure that links are sent/mapped correctly. If you haven't configured SSL, then see [Configure SSL for SharePoint 2013](https://blogs.msdn.microsoft.com/fabdulwahab/2013/01/20/configure-ssl-for-sharepoint-2013), which has instructions for setting up SSL. Also, make sure that the connector machine trusts the certificate that you issue. (This does not need to be a publicly issued certificate.)
 
-##Steps to setup SharePoint
+##Steps to set up SharePoint
 
 Follow these steps to enable remote access to SharePoint with Azure AD App Proxy:
 
 **Part 1: Configure single sign-on (SSO)**
 
-  * A. Ensure that SharePoint server is running as a service account.
-  * B. Configure SharePoint for Kerberos.
-  * C. Set a service principal name (SPN) for the account that is assigned to SharePoint.
-  * D. Ensure that the connector is set as a trusted delegate to SharePoint.
+  * Step A. Ensure that SharePoint server is running as a service account.
+  * Step B. Configure SharePoint for Kerberos.
+  * Step C. Set a service principal name (SPN) for the account that is assigned to SharePoint.
+  * Step D. Ensure that the connector is set as a trusted delegate to SharePoint.
 
 **Part 2: Enable secure remote access**
 
- * E. Publish the SharePoint farm to Azure AD App Proxy.
+ * Publish the SharePoint farm to Azure AD App Proxy.
 
 **Part 3: Ensure that SharePoint knows about the external URL**
 
- * F. Set alternate access mappings in SharePoint.
+ * Set alternate access mappings in SharePoint.
 
 ### Part 1: Set up single sign-on (SSO) to SharePoint
 
@@ -180,7 +180,7 @@ To configure the KCD, you will need to repeat the following steps for each conne
 
 Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're ready to set up single sign-on (SSO) to SharePoint. Then from the connector, you can publish SharePoint for remote access through the Azure AD Application Proxy.
 
-**Step E: Publish SharePoint with Azure AD App Proxy**
+**Publish SharePoint with Azure AD App Proxy**
 
 To perform the steps below, you need to be a mamber of the Global Administrator Role within your organization's Azure Active Directory account.
 
@@ -209,11 +209,11 @@ Your application should look similar to the following:
 
   ![AzureAD Application Proxy Connectors](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 
-###Part C: Ensure SharePoint knows about the External URL
+###Part 3: Ensure SharePoint knows about the External URL
 
 The last step you need to take is to ensure that SharePoint can find the site based on the external URL, so that it will render links based on that external URL. You do this by configuring alternate access mappings for SharePoint.
 
-**Step F: Configure an alternative name for the SharePoint site**
+**Configure an alternative name for the SharePoint site**
 
 1. Open the **SharePoint 2013 Central Administration** site.
 2. Under **System Settings**, select **Configure Alternate Access Mappings**. 

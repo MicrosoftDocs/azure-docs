@@ -79,15 +79,15 @@ The following screenshot shows an example for this.
    ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.png "Attributes")
 2. To add the required attribute mappings, perform the following steps:
 
-    |Attribute Name|Attribute Value|
-    |---|---|
-    |name|User.userprincipalname|
-    |email|User.mail|
+   |Attribute Name|Attribute Value|
+   |---|---|
+   |name|User.userprincipalname|
+   |email|User.mail|
 
-    a.  For each data row in the table above, click **add user attribute**.
-    b.  In the **Attribute Name** textbox, type the attribute name shown for that row.
-    c.  From the **Attribute Value** list, select the attribute value shown for that row.
-    d.  Click **Complete**.
+   1.  For each data row in the table above, click **add user attribute**.
+   2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+   3.  From the **Attribute Value** list, select the attribute value shown for that row.
+   4.  Click **Complete**.
 
 3. Click **Apply Changes**.
 4. In your browser, click **Back** to open the **Quick Start** dialog again.
@@ -115,21 +115,18 @@ The following screenshot shows an example for this.
     ![Edit Company Information](./media/active-directory-saas-onit-tutorial/IC791176.png "Edit Company Information")
 13. On the **Security** tab, perform the following steps:
     
-    ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
+   ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
     
-    a. As **Authentication Strategy**, select **Single Sign On and Password**.
-    b. In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
-    c. In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
-    e. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.  
-       
-       > [!TIP]
-       > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
-       > 
-   
-    f. As **SSO Type**, select **SAML**.
-    g. In the **SSO login button text** textbox, type a button text you like.
-    h. Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
-    
+   1. As **Authentication Strategy**, select **Single Sign On and Password**.
+   2. In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
+   3. In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
+   4. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.    
+      > [!TIP]
+      > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+      >    
+   5. As **SSO Type**, select **SAML**.
+   6. In the **SSO login button text** textbox, type a button text you like.
+   7. Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
        ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
 14. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
@@ -151,9 +148,8 @@ In the case of Onit, provisioning is a manual task.
    
    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
    
-   a. Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
-   b. Click **Create**.  
-      
+   1. Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
+   2. Click **Create**.    
       > [!NOTE]
       > The account owner will get an email including a link to confirm the account before it becomes active.
       > 

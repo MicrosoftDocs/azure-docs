@@ -16,6 +16,7 @@ ms.date: 01/20/2017
 ms.author: kgremban
 
 ---
+
 # Network topology considerations when using Azure AD Application Proxy
 > [!NOTE]
 > Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).

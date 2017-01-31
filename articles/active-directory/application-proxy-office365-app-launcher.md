@@ -16,20 +16,22 @@ ms.date: 01/25/2017
 ms.author: kgremban
 
 ---
+
 # Set a custom home page for your published application using Azure AD App Proxy
 
-This article discusses how you can configure your application to direct users to a custom home page page, when users access your application from the Azure AD access panel and the Office 365 App Launcher.
-> [!NOTE]
-> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+This article discusses how you can configure your application to direct users to a custom home page, when users access your application from the Azure AD access panel and the Office 365 App Launcher.
+
+>[!NOTE]
+>Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 > 
  
-Using the Azuare AD Powershell module, you can define custom home page URLs, for those instances when you want users to land on a specific page within your application; for example https://expenseApp-contoso.msappproxy.net/login/login.aspx.
+Using the Azure AD Powershell module, you can define custom home page URLs, for those instances when you want users to land on a specific page within your application; for example https://expenseApp-contoso.msappproxy.net/login/login.aspx.
 
->!NOTE
+>[!NOTE]
 >When you provide users access to your published applications, we display your apps in the [Azure AD Access panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 App Launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher). 
 >
 
-When users launch your apps, by default they're directed to the root domain URL for the published app. The landing page is typically set to as the home page URL. For example, for this backend application http://ExpenseApp it is published as https://expenseApp-contoso.msappproxy.net. By default, the home page URL is set to https://expenseApp-contoso.msappproxy.net.
+When users launch your apps, by default they're directed to the root domain URL for the published app. The landing page is typically set to the home page URL. For example, for this backend application http://ExpenseApp it is published as https://expenseApp-contoso.msappproxy.net. By default, the home page URL is set to https://expenseApp-contoso.msappproxy.net.
 
 ## Determine the home page URL
 

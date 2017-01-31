@@ -68,7 +68,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Pagerduty** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Pagerduty** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778531.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Pagerduty** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -91,17 +91,18 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    ![Enable single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778537.png "Enable single sign-on")
    
-   a. Create a **base-64 encoded** file from your downloaded certificate.  
+   1. Create a **base-64 encoded** file from your downloaded certificate.  
       
       > [!TIP]
       > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 >
 
-   b. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
-   c. In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-   d. In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-   e. Select **Turn on Single Sign-on**.
-   f. Click **Save Changes**.
+  2. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
+  3. In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
+  4. In the Azure classic portal, on the **Configure single sign-on at Pagerduty** dialogue page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
+  5. Select **Turn on Single Sign-on**.
+  6. Click **Save Changes**.
+
 9. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Configure single sign-on")

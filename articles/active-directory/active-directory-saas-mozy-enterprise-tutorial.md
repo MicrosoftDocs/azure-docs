@@ -87,20 +87,18 @@ As part of this procedure, you are required to upload a base-64 encoded certific
    
    ![Authentication policy](./media/active-directory-saas-mozy-enterprise-tutorial/IC777315.png "Authentication policy")
    
-   a. Select **Directory Service** as **Provider**.
-   b. Select **Use LDAP Push**.
-   c. Click the **SAML Authentication** tab.
-   d. In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, copy the **Authentication Request URL** value, and then paste it into the **Authentication URL** textbox.
-   e. In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, copy the **Identity Provider ID** value, and then paste it into the **SAML Endpoint** textbox.
-   f. Create a **Base-64 encoded** file from your downloaded certificate.  
-      
+   1. Select **Directory Service** as **Provider**.
+   2. Select **Use LDAP Push**.
+   3. Click the **SAML Authentication** tab.
+   4. In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, copy the **Authentication Request URL** value, and then paste it into the **Authentication URL** textbox.
+   5. In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, copy the **Identity Provider ID** value, and then paste it into the **SAML Endpoint** textbox.
+   6. Create a **Base-64 encoded** file from your downloaded certificate.  
       > [!TIP]
       > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-     
-   g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **SAML Certificate** textbox.
-   h. Select **Enable SSO for Admins to log in with their network credentials**.
-   i. Click **Save Changes**.
+      >  
+   7. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **SAML Certificate** textbox.
+   8. Select **Enable SSO for Admins to log in with their network credentials**.
+   9. Click **Save Changes**.
 8. In the Azure classic portal, on the **Configure single sign-on at Mozy Enterprise** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
    
    ![Configure single sign-on](./media/active-directory-saas-mozy-enterprise-tutorial/IC777316.png "Configure single sign-on")
@@ -125,17 +123,15 @@ In the case of Mozy Enterprise, provisioning is a manual task.
    
    ![Add Users](./media/active-directory-saas-mozy-enterprise-tutorial/IC777318.png "Add Users")
    
-   a. From the **Choose a Group** list, select a group.
-   b. From the **What type of user** list, select a type.
-   c. In the **Username** textbox, type the name of the Azure AD user.
-   d. In the **Email** textbox, type the email address of the Azure AD user.
-   e. Select **Send user instruction email**.
-   f. Click **Add User(s)**.
-   
+  1. From the **Choose a Group** list, select a group.
+  2. From the **What type of user** list, select a type.
+  3. In the **Username** textbox, type the name of the Azure AD user.
+  4. In the **Email** textbox, type the email address of the Azure AD user.
+  5. Select **Send user instruction email**.
+  6. Click **Add User(s)**.
    > [!NOTE]
    > After creating the user, an email will be sent to the Azure AD user that includes a link to confirm the account before it becomes active.
-   > 
-    
+
 
 > [!NOTE]
 > You can use any other Mozy Enterprise user account creation tools or APIs provided by Mozy Enterprise to provision AAD user accounts.

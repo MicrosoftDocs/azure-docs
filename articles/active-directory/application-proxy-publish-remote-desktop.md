@@ -15,6 +15,7 @@ ms.date: 01/25/2017
 ms.author: kgremban
 
 ---
+
 # Publishing Remote Desktop with Azure Active Directory Application Proxy
 
 This article discusses how to make Remote Desktop deployments accessible for remote users. Such Remote Desktop deployments can reside on-premises or at private networks, such as IaaS deployments. 

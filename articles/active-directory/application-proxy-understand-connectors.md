@@ -13,7 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
+
 ---
+
 # Understand Azure AD Application Proxy connectors
 
 This article discusses connectors, which are the secret sauce of Azure AD Application Proxy. They are simple, easy to deploy and maintain, and super powerful.

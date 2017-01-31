@@ -76,14 +76,14 @@ Configuring single sign-on for NetDocuments requires you to retrieve a thumbprin
    
    ![Configure App URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configure App URL")
    
-   a. In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-   b. In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.  
+   1. In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+   2. In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.  
       
       > [!NOTE]
       > You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
       > 
       
-   c. Click **Next**.
+   3. Click **Next**.
 4. On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
    
    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configure Single Sign-On")
@@ -99,9 +99,9 @@ Configuring single sign-on for NetDocuments requires you to retrieve a thumbprin
    
    ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Federated Identitty")
    
-   a. As **Federated identity server type**, select **Active Directory Federation Services**.
-   b. Click **Choose file**, to upload the downloaded metadata file.
-   c. Click **OK**.
+   1. As **Federated identity server type**, select **Active Directory Federation Services**.
+   2. Click **Choose file**, to upload the downloaded metadata file.
+   3. Click **OK**.
 10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
     
     ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")

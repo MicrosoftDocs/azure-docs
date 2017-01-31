@@ -107,14 +107,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Azure AD Single Sign-On][8] 
    
-     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your PerformanceCentre site (e.g.: *http://companyname.performancecentre.com/saml/SSO*).
-   
-     b. Click **Next**.
+   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your PerformanceCentre site (e.g.: *http://companyname.performancecentre.com/saml/SSO*).
+   2. Click **Next**.
 4. On the **Configure single sign-on at PerformanceCentre** page, perform the following steps:
    
     ![Azure AD Single Sign-On][9] 
    
-    a. Click **Download metadata**, and then save the file on your computer.
+  * Click **Download metadata**, and then save the file on your computer.
 5. Sign-on to your **PerformanceCentre** company site as administrator.
 6. In the tab on the left side, click **Configure**.
    
@@ -159,23 +158,20 @@ The objective of this section is to create a test user in the Azure classic port
    
     ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_05.png)  
    
-    a. As Type Of User, select New user in your organization.
+   1. As Type Of User, select New user in your organization.
+   2. In the User Name **textbox**, type **BrittaSimon**.
+   3. Click **Next**.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps: 
    
    ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+   1. In the **First Name** textbox, type **Britta**.  
+   2. In the **Last Name** textbox, type, **Simon**.
+   3. In the **Display Name** textbox, type **Britta Simon**.
+   4. In the **Role** list, select **User**.
+   5. Click **Next**.
    
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_07.png) 
@@ -183,9 +179,8 @@ The objective of this section is to create a test user in the Azure classic port
    
     ![Creating an Azure AD test user](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+    1. Write down the value of the **New Password**.
+    2. Click **Complete**.   
 
 ### Creating a PerformanceCentre test user
 The objective of this section is to create a user called Britta Simon in PerformanceCentre.
@@ -200,16 +195,14 @@ The objective of this section is to create a user called Britta Simon in Perform
    
     ![Create User][401]
    
-    a. Type the required attributes for Britta Simon into related textboxes.
-   
+   1. Type the required attributes for Britta Simon into related textboxes.
    > [!IMPORTANT]
    > Britta's User Name attribute in PerformanceCentre must be the same as the User Name in Azure AD.
    > 
    > 
-
-    b. Select **Client Administrator** as **Choose Role**. 
-
-    c. Click **Save**.   
+ 
+   2. Select **Client Administrator** as **Choose Role**.
+   3. Click **Save**.   
 
 
 ### Assigning the Azure AD test user

@@ -93,11 +93,11 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
    
    ![Identity provider configuration](./media/active-directory-saas-picturepark-tutorial/IC795064.png "Identity provider configuration")
    
-   a. Click **Add**.
-   b. Type a name for your configuration.
-   c. Select **Set as default**.
-   d. In the Azure classic portal, on the **Configure single sign-on at Picturepark** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Issuer URI** textbox.
-   e. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Trusted Issuer Thumb Print** textbox.  
+   1. Click **Add**.
+   2. Type a name for your configuration.
+   3. Select **Set as default**.
+   4. In the Azure classic portal, on the **Configure single sign-on at Picturepark** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Issuer URI** textbox.
+   5. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Trusted Issuer Thumb Print** textbox.  
       
       > [!TIP]
       > For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
@@ -128,9 +128,9 @@ In the case of Picturepark, provisioning is a manual task.
    
    ![Create User](./media/active-directory-saas-picturepark-tutorial/IC795069.png "Create User")
    
-   a. Type the : **Email Address**, **Password**, **Confirm Password**, **First Name**, **Last Name**, **Company**, **Country**, **ZIP**, **City** of a valid Azure Active Directory User you want ot provision into the related textboxes.
-   b. Select a **Language**.
-   c. Click **Create**.
+  1. Type the : **Email Address**, **Password**, **Confirm Password**, **First Name**, **Last Name**, **Company**, **Country**, **ZIP**, **City** of a valid Azure Active Directory User you want to provision into the related textboxes.
+  2. Select a **Language**.
+  3. Click **Create**.
 
 > [!NOTE]
 > You can use any other Picturepark user account creation tools or APIs provided by Picturepark to provision AAD user accounts.
@@ -143,7 +143,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Picturepark, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Picturepark **application integration page, click **Assign users**.
+2. On the **Picturepark** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-picturepark-tutorial/IC795070.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

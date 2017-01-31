@@ -1,5 +1,5 @@
 ---
-title: Security considerations when accessing apps remotely using Azure AD Application Proxy
+title: Security considerations when accessing apps remotely using Azure AD Application Proxy | Microsoft Docs
 description: Covers security considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
@@ -16,11 +16,12 @@ ms.date: 01/12/2017
 ms.author: kgremban
 
 ---
+
 # Security considerations when accessing apps remotely using Azure AD Application Proxy
-> [!NOTE]
-> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-> 
-> 
+
+>[!NOTE]
+>Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+>  
 
 This article explains how Azure AD Application Proxy provides a secure service for publishing and accessing your applications remotely. 
 
@@ -76,7 +77,9 @@ This section includes details about how the flows are secured. A flow between th
 * The Connector pulls configuration information from the App Proxy service, including the connector group that each connector is a member of.
 * A user accesses a published application.
 
-**Note** All communications occur over SSL, and always originate at the Connector to the App Proxy service. This service is outbound only.  
+>[!NOTE]
+>All communications occur over SSL, and always originate at the Connector to the App Proxy service. This service is outbound only.
+>
 
 The connector uses a client certificate to authenticate to the App Proxy service for all calls. The only exception to this is the initial setup step where the client certificate is established.
 
@@ -108,9 +111,16 @@ The following flow happens when users access a published application.
  * App Proxy then validates the token to ensure that it was issued to the application that the user was requesting access to. It does this along with other checks, such as ensuring that the token was signed by Azure AD, and is still within the valid window, etc.
  * App Proxy sets an encrypted authentication cookie (such as a non-persisted cookie) to indicate that authentication to the application has occurred.  This cookie includes an expiration timestamp based on the token from Azure AD and other data, such as the user name that the authentication is based on.  This cookie is encrypted using a private key known only to the App Proxy service.
  * App Proxy redirects the user back to the originally requested URL.
- * **NOTE:** If any part of the pre-authentication steps fails, the user’s request is denied, and the user is shown a message indicating the source of the problem.
+ >[!NOTE] 
+ >If any part of the pre-authentication steps fails, the user’s request is denied, and the user is shown a message indicating the source of the problem.
+ >
+
 2. App Proxy, upon receiving the request from the client, validates that the pre-authentication condition has been meet and that the cookie is still valid (as required). It then places a request in the appropriate queue for an on-premises connector to handle. 
- * **Note** All requests from the connector are outbound to the App Proxy service. Connectors keep an outbound connection open to App Proxy. When a request comes in, the App Proxy queues up the request on one of the open connections for the connector to pick up.
+
+ >[!NOTE]
+ >All requests from the connector are outbound to the App Proxy service. Connectors keep an outbound connection open to App Proxy. When a request comes in, the App Proxy queues up the request on one of the open connections for the connector to pick up.
+ >
+
  * The request includes items from the application, such as the headers of the request and data from the encrypted cookie, the user making the request, and the request ID.  But, the encrypted authentication cookie is not sent to the connector.
 3. The connector receives the request from the queue, based on a long-lived outbound connection. App Proxy will do one of the following based on the request:
  * The connector confirms whether it can identify the application.  If not, the connector establishes a connection to the App Proxy service to gather details about the application, and caches it locally.
@@ -120,8 +130,8 @@ The following flow happens when users access a published application.
 5. Once a response is received, the connector makes an outbound connection to the App Proxy service, to return the header details and begin streaming the return data.
 6. App Proxy "streams" the data to the user.  Some processing of the headers may occur here, as needed and defined by the application.
 
-If you need assistance communicating from an Azure web application by way of a client browser to an on-premise Windows-authenticated Simple Object Access Protocal (SOAP) endpoint, go [here](http://www.azurefieldnotes.com/2016/12/02/claims-to-windows-identity-translation-solutions-and-its-flaws-when-using-azure-ad-application-proxy). 
+If you need assistance communicating from an Azure web application by way of a client browser to an on-premise Windows-authenticated Simple Object Access Protocal (SOAP) endpoint, see this [Azure Field Notes Blog](http://www.azurefieldnotes.com/2016/12/02/claims-to-windows-identity-translation-solutions-and-its-flaws-when-using-azure-ad-application-proxy). 
 
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog).
+##Next steps
+[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
 

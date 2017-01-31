@@ -63,7 +63,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 **To configure single sign-on, perform the following steps:**
 
-1. In the Azure classic portal, on the **Projectplace** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **Projectplace** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Configure Single SignOn")
 2. On the **How would you like users to sign on to Projectplace** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -75,7 +75,7 @@ The objective of this section is to outline how to enable users to authenticate 
 4. On the **Configure single sign-on at Projectplace** page, click **Download metadata**, and then save the metadata file on your computer.
    
    ![Configure Single SignOn](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configure Single SignOn")
-5. Send the metadatafile to the Projectplace support team.
+5. Send the metadata file to the Projectplace support team.
    
    > [!NOTE]
    > The single sign-on configuration has to be performed by the Projectplace support team. You will get a notification as soon as the configuration has been completed.
@@ -102,8 +102,8 @@ In order to enable Azure AD users to log into Projectplace, they must be provisi
    
    ![New Members](./media/active-directory-saas-projectplace-tutorial/IC790233.png "New Members")
    
-   a. In the **New Members** textbox, type the email address of a valid AAD account you want to provision into the related textboxes.
-   b. Click **Send**.
+   1. In the **New Members** textbox, type the email address of a valid AAD account you want to provision into the related textboxes.
+   2. Click **Send**.
 
  An email including a link to confirm the account before it becomes active is sent to the Azure Active Directory account holder.
 
@@ -119,7 +119,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 **To assign users to Projectplace, perform the following steps:**
 
 1. In the Azure classic portal, create a test account.
-2. On the **Projectplace **application integration page, click **Assign users**.
+2. On the **Projectplace** application integration page, click **Assign users**.
    
    ![Assign Users](./media/active-directory-saas-projectplace-tutorial/IC790234.png "Assign Users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
