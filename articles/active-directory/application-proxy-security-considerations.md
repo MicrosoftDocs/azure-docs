@@ -83,7 +83,7 @@ This section includes details about how the flows are secured. A flow between th
 
 The connector uses a client certificate to authenticate to the App Proxy service for all calls. The only exception to this is the initial setup step where the client certificate is established.
 
-#### Installing the Connector
+#### Install the Connector
 
 The following flow happens when the connector is first set up.
 
@@ -93,7 +93,7 @@ The following flow happens when the connector is first set up.
 4. The connector uses this client certificate for future communication with the App Proxy service.
 4. The connector performs an initial pull of the system configuration data from the srvice using its client certificate and is ready to take requests.
 
-#### Ongoing configuration updates
+#### Periodic configuration updates
 
 The following flow happens periodically, every time the App Proxy service updates the configuration settings.
 
@@ -101,7 +101,7 @@ The following flow happens periodically, every time the App Proxy service update
 2. Once the client certificate has been validated, the App Proxy service returns configuration data to the connector; for example, the connector group that the connector should be part of.
 3. The connector generates a new certificate request if the current certificate is more than 30 days old, effectively rolling the client certificate every 30 days.
 
-#### Accessing published applications
+#### Accesss published applications
 
 The following flow happens when users access a published application.
 
