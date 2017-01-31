@@ -1,5 +1,5 @@
 ---
-title: Manage access to cloud apps by restricting tenants | Microsoft Docs
+title: Manage access to cloud apps by restricting tenants - Azure | Microsoft Docs
 description: How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
 documentationcenter: ''
@@ -31,7 +31,7 @@ This article focuses on Tenant Restrictions for Office 365, but the feature shou
 
 The overall solution comprises the following components: 
 
-1. **Azure AD** – If the header `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants. 
+1. **Azure AD** – If the `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants. 
 
 2. **On-premises proxy server infrastructure** – a proxy device capable of SSL inspection, configured to insert the header containing the list of permitted tenants into traffic destined for Azure AD. 
 
@@ -67,7 +67,7 @@ The following configuration is required to enable Tenant Restrictions through yo
 
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
 
-The header should include the following elements: 
+The headers should include the following elements: 
 - For *Restrict-Access-To-Tenants*, a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
 - For *Restrict-Access-Context*, a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
