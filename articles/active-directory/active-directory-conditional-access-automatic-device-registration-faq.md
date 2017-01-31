@@ -1,5 +1,5 @@
 ---
-title: Automatic device registration FAQ
+title: Automatic device registration FAQ | Microsoft Docs
 description: Automatic device registration with Azure Active Directory FAQ.
 services: active-directory
 documentationcenter: ''
@@ -52,7 +52,7 @@ For more details, see the [Get-MsolDevice](https://docs.microsoft.com/en-us/powe
 
 **Q: Why is a device I have deleted in the Azure portal or using Windows PowerShell still listed as registered?**
 
-This is by design. The device will not have access to resources in the cloud. 
+**A:** This is by design. The device will not have access to resources in the cloud. 
 If you want to re-register the device, a manual action needs to be taken on the device. 
 
 For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
@@ -110,9 +110,9 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 ---
 
-**Q: Why to I get a "username or password is incorrect" message for a device I have just joined to Azue AD?**
+**Q: Why do I get a "username or password is incorrect" message for a device I have just joined to Azure AD?**
 
-Common reasons for this scenario are:
+**A:** Common reasons for this scenario are:
 
 1.	You user credentials are no longer valid.
 
