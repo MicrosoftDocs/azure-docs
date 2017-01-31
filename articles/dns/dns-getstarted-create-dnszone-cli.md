@@ -90,28 +90,30 @@ If you haven't yet delegated your domain to use the new zone in Azure DNS, you n
 
 The following example uses 'dig' to query the domain contoso.com using the name servers assigned to the DNS zone. Be sure the substitute the correct values for your zone.
 
-     > dig @ns1-01.azure-dns.com contoso.com
-     
-     <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
-    (1 server found)
-    global options: +cmd
-     Got answer:
-    ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
-     flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-     WARNING: recursion requested but not available
+```
+  > dig @ns1-01.azure-dns.com contoso.com
+  
+  <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
+(1 server found)
+global options: +cmd
+  Got answer:
+->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
+  flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+  WARNING: recursion requested but not available
 
-     OPT PSEUDOSECTION:
-     EDNS: version: 0, flags:; udp: 4000
-      QUESTION SECTION:
-    contoso.com.                        IN      A
+  OPT PSEUDOSECTION:
+  EDNS: version: 0, flags:; udp: 4000
+  QUESTION SECTION:
+contoso.com.                        IN      A
 
-     AUTHORITY SECTION:
-    contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
+  AUTHORITY SECTION:
+contoso.com.         3600     IN      SOA     ns1-01.azure-dns.com. azuredns-hostmaster.microsoft.com. 1 3600 300 2419200 300
 
-    Query time: 93 msec
-    SERVER: 208.76.47.5#53(208.76.47.5)
-    WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
-    MSG SIZE  rcvd: 120
+Query time: 93 msec
+SERVER: 208.76.47.5#53(208.76.47.5)
+WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
+MSG SIZE  rcvd: 120
+```
 
 ## Next steps
 

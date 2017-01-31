@@ -80,22 +80,24 @@ You can test your DNS zone is present on the Azure DNS name servers by using DNS
 
 If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the following example:
 
-    nslookup
-    > set type=SOA
-    > server ns1-01.azure-dns.com
-    > contoso.com
+```
+nslookup
+> set type=SOA
+> server ns1-01.azure-dns.com
+> contoso.com
 
-    Server: ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server: ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    contoso.com
-            primary name server = ns1-01.azure-dns.com
-            responsible mail addr = azuredns-hostmaster.microsoft.com
-            serial  = 1
-            refresh = 3600 (1 hour)
-            retry   = 300 (5 mins)
-            expire  = 2419200 (28 days)
-            default TTL = 300 (5 mins)
+contoso.com
+        primary name server = ns1-01.azure-dns.com
+        responsible mail addr = azuredns-hostmaster.microsoft.com
+        serial  = 1
+        refresh = 3600 (1 hour)
+        retry   = 300 (5 mins)
+        expire  = 2419200 (28 days)
+        default TTL = 300 (5 mins)
+```
 
 ## Next steps
 
