@@ -50,3 +50,13 @@ To get all the resources with a particular tag and value, use the `Find-AzureRmR
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
+
+To apply all tags from a resource group to the resources in the resource group **without retaining any existing tags on the resources**, use the following script:
+
+```powershell
+$groups = Get-AzureRmResourceGroup
+foreach ($g in $groups) 
+{
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+}
+```

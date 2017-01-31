@@ -105,9 +105,6 @@ Or, you can pass an object with tag keys and values, as shown in the following e
 ## PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## Azure CLI 1.0
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
-
 ## Azure CLI 2.0 (Preview)
 
 With Azure CLI 2.0 (Preview), you can add tags to resources and resource group, and query resources by tag values.
@@ -156,6 +153,9 @@ To get all the resources with a particular tag and value, use `az resource list`
 ```azurecli
 az resource list --tag Dept=Finance
 ```
+
+## Azure CLI 1.0
+[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
 
 ## REST API
 The portal and PowerShell both use the [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
