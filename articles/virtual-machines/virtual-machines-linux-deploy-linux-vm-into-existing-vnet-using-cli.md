@@ -30,7 +30,7 @@ This article shows you how to use the Azure CLI 2.0 (Preview) to deploy a virtua
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-machines-linuxdeploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
 - [Azure CLI 2.0 (Preview)](#quick-commands) - our next generation CLI for the resource management deployment model (this article)
 
 
