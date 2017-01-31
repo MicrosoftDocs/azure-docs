@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Tutorials, API references and other documentation show you how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
 ---
 # Cloud Services Documentation
 
-Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. It is designed to support applications that are scalable, reliable, and cost-effective to operate. With Cloud Services, you have the benefit of virtualization, but you also have control over the virtual machine to configure, patch, and install software.  
+Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs.  Tutorials, API references and other documentation show you how to manage virtual machine hosts and configure, patch, and install software.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -111,11 +112,4 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Cloud Services Documentation
-        </div>
-    </a>
-</div>
+

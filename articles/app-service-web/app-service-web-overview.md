@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 
 ---
@@ -55,7 +55,20 @@ In addition, a web app can take advantage of features offered by [API Apps](../a
 Besides Web Apps in App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, Web Apps is the best choice.  For microservice architecture, consider [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), and if you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](choose-web-site-cloud-service-vm.md).
 
 ## Getting started
-To get started by deploying sample code to a new web app in App Service, follow the [Deploy your first web app to Azure in 5 minutes](app-service-web-get-started.md) tutorial. You'll need a free Azure account.
+To get started by deploying sample code to a new web app in App Service, follow one of the tutorials in the following dropdown box. You'll need a free Azure account.
 
-If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> [!div class="op_single_selector"]
+> * [Deploy your first HTML site to Azure in 5 minutes](app-service-web-get-started-html-cli-nodejs.md)
+> * [Deploy your first ASP.NET web app to Azure in 5 minutes](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Deploy your first PHP web app to Azure in 5 minutes](app-service-web-get-started-php-cli-nodejs.md)
+> * [Deploy your first Node.js web app to Azure in 5 minutes](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Deploy your first Python web app to Azure in 5 minutes](app-service-web-get-started-python-cli-nodejs.md)
+> * [Deploy your first Java web app to Azure in 5 minutes](app-service-web-get-started-java.md)
+> 
+> 
 
+> [!NOTE]
+> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
+> it for up to an hour--no credit card required, no commitments.
+> 
+> 

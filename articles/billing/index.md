@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Learn how to understand your Azure billing, as well as manage and monitor usage and costs. Tutorials, FAQs, API references, and other documentation.
 ---
 # Azure Billing Documentation
 
-Customers and partners require the ability to accurately predict and manage their Azure costs. As they move from a Capex to an Opex model, they also need the ability to do showback vs. chargeback analysis, as well as provide mode fidelity in estimation and billing, especially for large cloud deployments.
+Learn how to understand your Azure billing, and monitor usage and costs. Tutorials, FAQs, API references, and other documentation show you how to manage your account.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -94,13 +95,4 @@ Customers and partners require the ability to accurately predict and manage thei
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/billing.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Billing Documentation
-        </div>
-    </a>
-</div>

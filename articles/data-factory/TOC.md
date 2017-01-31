@@ -25,7 +25,7 @@
 
 # How To
 ## Move Data
-### [Data Factory Copy Wizard](data-factory-copy-wizard.md)
+### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Copy Activity](data-factory-data-movement-activities.md)
 #### [Performance & Tuning Guide](data-factory-copy-activity-performance.md)
@@ -34,6 +34,7 @@
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
 #### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
 #### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
+#### [Azure Search](data-factory-azure-search-connector.md)
 #### [Azure SQL Database](data-factory-azure-sql-connector.md)
 #### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 #### [Azure Table Storage](data-factory-azure-table-connector.md)
@@ -83,7 +84,6 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure Data Factory Developer Reference](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Resources

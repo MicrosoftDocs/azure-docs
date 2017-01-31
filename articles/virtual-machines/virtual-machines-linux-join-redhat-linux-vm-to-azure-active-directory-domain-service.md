@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2016
+ms.date: 12/14/2016
 ms.author: v-livech
 
 ---
@@ -30,7 +30,7 @@ This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual m
 
 ## Quick Commands
 
-Replace any examples with your own settings.
+_Replace any examples with your own settings._
 
 ### Switch the azure-cli to classic deployment mode
 
@@ -50,16 +50,17 @@ azure vm image list | grep "Red Hat"
 azure vm create myVM \
 -o a879bbefc56a43abb0ce65052aac09f3__RHEL_7_2_Standard_Azure_RHUI-20161026220742 \
 -g ahmet \
--p P@ssw0rd! \
+-p myPassword \
+-e 22 \
+-t "~/.ssh/id_rsa.pub" \
 -z "Small" \
--e \
 -l "West US"
 ```
 
 ### SSH to the VM
 
 ```bash
-ssh -i ~/.ssh/id_rsa ahmet@
+ssh -i ~/.ssh/id_rsa ahmet@myVM
 ```
 
 ### Update YUM packages

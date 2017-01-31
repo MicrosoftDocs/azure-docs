@@ -47,7 +47,7 @@ You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 ## Send interactive messages from a simulated device app
 In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
-1. In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code.
+- In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code.
    
     ```
     private static async void SendDeviceToCloudMessagesAsync()
@@ -88,7 +88,7 @@ In this section, you modify the simulated device app you created in the [Get sta
         }
     ```
    
-     This randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+     This randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
    > [!NOTE]
    > You can use message properties to route messages for a variety of scenarios including cold-path processing, in addition to the hot path example shown here.

@@ -1,10 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to configure and manage a private ExpressRoute connection to Microsoft cloud services from your on-premises infrastructure or colocation facility.
 ---
 #ExpressRoute Documentation
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
-
+Learn how to use ExpressRoute to set up a fast, private connection to Microsoft cloud services from your on-premises infrastructure or colocation facility. Tutorials, REST APIs, and other documentation help you configure and manage an ExpressRoute circuit.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -94,11 +94,4 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download ExpressRoute Documentation
-        </div>
-    </a>
-</div>
+

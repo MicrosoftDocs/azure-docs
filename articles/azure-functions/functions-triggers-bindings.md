@@ -1,6 +1,6 @@
 ---
-title: Azure Functions triggers and bindings | Microsoft Docs
-description: Understand how to use triggers and bindings in Azure Functions.
+title: Work with triggers and bindings in Azure Functions | Microsoft Docs
+description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,13 +15,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: chrande
 
 ---
 
-# Azure Functions triggers and bindings developer reference
-This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
+# Learn how to work with triggers and bindings in Azure Functions 
+This topic shows you how to use triggers and bindings in Azure Functions to connect your code to a variety of triggers and Azure services and other cloud-based services. It features some of the advanced binding features and syntax supported by all binding types.  
 
 For detailed information about working with a specific type of trigger or binding, see one of the following reference topics:
 
@@ -232,7 +232,7 @@ Instead of a static configuration setting for your output binding properties, yo
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -318,12 +318,14 @@ Define an imperative binding as follows:
 or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Use the following C# pattern to perform the data binding.
 
-		using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-		{
-				...
-		}
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
-	where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
+where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
 supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
 Mobile Apps table output binding supports 
 [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
@@ -333,16 +335,18 @@ or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/s
 The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#storage-blob-output-binding)
 with blob path that's defined at run time, then writes a string to the blob.
 
-		using Microsoft.Azure.WebJobs;
-		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-		
-		public static async Task Run(string input, Binder binder)
-		{
-				using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-				{
-						writer.Write("Hello World!!");
-				}
-		}
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and 
@@ -352,24 +356,28 @@ custom app setting to use by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 and passing the attribute array into `BindAsync<T>()`. For example,
 
-		using Microsoft.Azure.WebJobs;
-		using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-		
-		public static async Task Run(string input, Binder binder)
-		{
-				var attributes = new Attribute[]
-				{
-						new BlobAttribute("samples-output/path"),
-						new StorageAccountAttribute("MyStorageAccount")
-				};
-				using (var writer = await binder.BindAsync<TextWriter>(attributes))
-				{
-						writer.Write("Hello World!");
-				}
-		}
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 The following table shows you the corresponding .NET attribute to use for each binding type and which package to reference.
 
+> [!div class="mx-codeBreakAll"]
 | Binding | Attribute | Add reference |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |

@@ -44,7 +44,7 @@ Open the SQL database page for the database you want to copy:
    ![SQL Database](./media/sql-database-copy-portal/sql-database-copy.png)
 4. On the **Copy** page, a default database name is provided. Type a different name if you want (all databases on a server must have unique names).
 5. Select a **Target server**. The target server is where the database copy is created. You can copy the database to the same server, or a different server. You can create a server or select an existing server from the list. 
-6. After selecting the **Target server**, the **Elastic database pool**, and **Pricing tier** options will be enabled. If the server has a pool, you can copy the database into it.
+6. After selecting the **Target server**, the **elastic pool**, and **Pricing tier** options will be enabled. If the server has a pool, you can copy the database into it.
 7. Click **OK** to start the copy process.
    
    ![SQL Database](./media/sql-database-copy-portal/copy-page.png)

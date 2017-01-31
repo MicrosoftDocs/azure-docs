@@ -1,5 +1,5 @@
 ---
-title: DocumentDB .NET API & SDK | Microsoft Docs
+title: .NET API & SDK Resources - Azure DocumentDB | Microsoft Docs
 description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
 services: documentdb
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/27/2017
 ms.author: rnagpal
 
 ---
@@ -47,6 +47,15 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
+
+### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Fix for an issue wherein the session container was not being updated with the token for failed requests.
+* Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
+* Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
+
+### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
+* Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
+* Performance fix in the SDK for scenarios that involve high degree of concurrent requests.
 
 ### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
 * Support for new classes and methods to process the [change feed](documentdb-change-feed.md) of documents within a collection.
@@ -107,7 +116,7 @@ ms.author: rnagpal
 * Implemented [partitioned collections](documentdb-partition-data.md) and [user-defined performance levels](documentdb-performance-levels.md). 
 
 ### <a name="1.5.3"/>[1.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-* **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream.
+* **[Fixed]** Querying DocumentDB endpoint throws: 'System.Net.Http.HttpRequestException: Error while copying content to a stream'.
 
 ### <a name="1.5.2"/>[1.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
 * Expanded LINQ support including new operators for paging, conditional expressions and range comparison.
@@ -158,9 +167,9 @@ ms.author: rnagpal
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
     
-        **NB: Possible breaking change** 
+    **NB: Possible breaking change** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
@@ -171,15 +180,6 @@ ms.author: rnagpal
 ### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 * GA SDK
 
-> [!NOTE]
-> There was a change of NuGet package name between preview and GA. We moved from **Microsoft.Azure.Documents.Client** to **Microsoft.Azure.DocumentDB**
-> <br/>
-> 
-> 
-
-### <a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
-* Preview SDKs [Obsolete]
-
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
@@ -187,23 +187,18 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
-> [!WARNING]
-> All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** will be retired on **February 29, 2016**. 
-> 
-> 
-
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.3](#1.11.3) |January 26, 2017 |--- |
+| [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |
 | [1.9.5](#1.9.5) |September 01, 2016 |--- |
 | [1.9.4](#1.9.4) |August 24, 2016 |--- |
 | [1.9.3](#1.9.3) |August 15, 2016 |--- |
 | [1.9.2](#1.9.2) |July 23, 2016 |--- |
-| 1.9.1 |Deprecated |--- |
-| 1.9.0 |Deprecated |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |
 | [1.7.1](#1.7.1) |May 06, 2016 |--- |
 | [1.7.0](#1.7.0) |April 26, 2016 |--- |
@@ -219,10 +214,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 | [1.2.0](#1.2.0) |July 06, 2015 |--- |
 | [1.1.0](#1.1.0) |April 30, 2015 |--- |
 | [1.0.0](#1.0.0) |April 08, 2015 |--- |
-| [0.9.3-prelease](#0.9.x-preview) |March 12, 2015 |February 29, 2016 |
-| [0.9.2-prelease](#0.9.x-preview) |January , 2015 |February 29, 2016 |
-| [.9.1-prelease](#0.9.x-preview) |October 13, 2014 |February 29, 2016 |
-| [0.9.0-prelease](#0.9.x-preview) |August 21, 2014 |February 29, 2016 |
+
 
 ## FAQ
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

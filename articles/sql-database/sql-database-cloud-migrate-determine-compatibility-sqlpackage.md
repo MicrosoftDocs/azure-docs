@@ -1,6 +1,7 @@
 ---
-title: Determine SQL Database compatibility using SqlPackage.exe | Microsoft Docs
-description: Microsoft Azure SQL Database, database migration, SQL Database compatibility, SqlPackage
+title: 'SQLPackage: Azure SQL Server database compatibility | Microsoft Docs'
+description: In this article, you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the SqlPackage
+keywords: Microsoft Azure SQL Database, database migration, SQL Database compatibility, SqlPackage
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -45,7 +46,7 @@ In this article, you learn to determine if a SQL Server database is compatible t
    | < schema_name.table_name > |the tables for which data are output to the target file |
    | < output_file > |the file name and location for the output file with errors, if any |
    
-    The reason for the /p:TableName argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > contains the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
+    The reason for the /p:TableData argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > contains the report of any errors. The "2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
    
     ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 

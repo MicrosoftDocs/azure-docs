@@ -1,10 +1,10 @@
 ---
-title: Create, start, or delete an application gateway by using Azure Resource Manager | Microsoft Docs
+title: Create and manage an Azure Application Gateway - PowerShell | Microsoft Docs
 description: This page provides instructions to create, configure, start, and delete an Azure application gateway by using Azure Resource Manager
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 866e9b5f-0222-4b6a-a95f-77bc3d31d17b
@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 
 ---
 # Create, start, or delete an application gateway by using Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
@@ -36,8 +34,6 @@ This article walks you through the steps to create, configure, start, and delete
 
 > [!IMPORTANT]
 > Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](../azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document covers creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md).
-> 
-> 
 
 ## Before you begin
 
@@ -105,8 +101,6 @@ In the example above, we created a resource group called **appgw-RG** and locati
 
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
-> 
-> 
 
 ## Create a virtual network and a subnet for the application gateway
 
@@ -144,9 +138,9 @@ Create a public IP resource **publicIP01** in resource group **appgw-rg** for th
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-## Create an application gateway configuration object
+## Create the application gateway configuration objects
 
-You must set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+You have to set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
 ### Step 1
 
@@ -214,8 +208,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 > [!NOTE]
 > The default value for **InstanceCount** is 2, with a maximum value of 10. The default value for **GatewaySize** is Medium. You can choose between **Standard_Small**, **Standard_Medium**, and **Standard_Large**.
-> 
-> 
 
 ## Create an application gateway by using New-AzureRmApplicationGateway
 
@@ -224,8 +216,6 @@ Create an application gateway with all configuration items from the preceding st
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
-
-### Step 9
 
 Retrieve DNS and VIP details of the application gateway from the public IP resource attached to the application gateway.
 
@@ -261,8 +251,6 @@ Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -F
 
 > [!NOTE]
 > The **-force** switch can be used to suppress the remove confirmation message.
-> 
-> 
 
 To verify that the service has been removed, you can use the `Get-AzureRmApplicationGateway` cmdlet. This step is not required.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database and performance for single databases | Microsoft Docs
+title: Azure SQL Database performance for single databases | Microsoft Docs
 description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
 services: sql-database
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: carlrab
 
 ---
@@ -22,7 +22,7 @@ ms.author: carlrab
 Azure SQL Database offers three [service tiers](sql-database-service-tiers.md): Basic, Standard, and Premium. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
-> This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic database pools, see [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic database pool, and get similar performance benefits.
+> This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
 > 
 > 
 
@@ -59,15 +59,8 @@ Each service tier and performance level is associated with different limits and 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-The next sections have more information about how to view use related to these limits.
-
 ### Maximum In-Memory OLTP storage
 You can use the **sys.dm_db_resource_stats** view to monitor your Azure In-Memory storage use. For more information about monitoring, see [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md).
-
-> [!NOTE]
-> Currently, Azure In-Memory online transaction processing (OLTP) preview is supported only for single databases. You cannot use it in databases in elastic database pools.
-> 
-> 
 
 ### Maximum concurrent requests
 To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
@@ -90,7 +83,7 @@ You can analyze your user and application patterns to get an idea of the frequen
 If multiple clients use the same connection string, the service authenticates each login. If 10 users simultaneously connect to a database by using the same username and password, there would be 10 concurrent logins. This limit applies only to the duration of the login and authentication. If the same 10 users connect to the database sequentially, the number of concurrent logins would never be greater than 1.
 
 > [!NOTE]
-> Currently, this limit does not apply to databases in elastic database pools.
+> Currently, this limit does not apply to databases in elastic pools.
 > 
 > 
 
@@ -113,7 +106,10 @@ Again, these queries return a point-in-time count. If you collect multiple sampl
 For SQL Database analysis, you can get historical statistics on sessions. Query **sys.resource_stats**, and use the **active_session_count** column. See the next section for more information about using this view.
 
 ## Monitor resource use
-Two views can help you monitor resource use for a SQL database relative to its service tier:
+
+You can monitor resource usage using [SQL Database Query Performance Insight](sql-database-query-performance.md) and [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+
+You can also monitor usage using these two views:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -436,6 +432,6 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 * For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)
-* For more information about elastic database pools, see [What is an Azure elastic database pool?](sql-database-elastic-pool.md)
-* For information about performance and elastic database pools, see [When to consider an elastic database pool](sql-database-elastic-pool-guidance.md)
+* For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
+* For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Use Zeppelin notebooks with Spark cluster on HDInsight Linux | Microsoft Docs
-description: Step-by-step instructions on how to use Zeppelin notebooks with Spark clusters on HDInsight Linux.
+title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight | Microsoft Docs
+description: Step-by-step instructions on how to use Zeppelin notebooks with Apache Spark clusters on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,17 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: nitinme
 
 ---
-# Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux
+# Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
+
 HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
+
+> [!NOTE]
+> By default, Zeppelin notebooks are available only for Spark 1.6.2 on HDInsight cluster version 3.5. If you want to use Zeppelin on other versions of HDInsight Spark clusters, you can install Zeppelin using script action. For instructions, see [Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
+> 
+>
 
 **Prerequisites:**
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Launch a Zeppelin notebook
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.

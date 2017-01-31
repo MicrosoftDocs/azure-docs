@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to set up data modeling with Analysis Services in the cloud. Documentation shows you how to create an enterprise BI solution using tabular data.
 ---
 # Analysis Services Documentation
 
-Built on the proven analytics engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
+Learn how to set up and manage data modeling with Analysis Services. Tutorials and other documentation show you how to create an enterprise-grade BI solution using tabular data in the cloud or on-premises.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -72,7 +73,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -92,13 +93,4 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Analysis Services Documentation
-        </div>
-    </a>
-</div>

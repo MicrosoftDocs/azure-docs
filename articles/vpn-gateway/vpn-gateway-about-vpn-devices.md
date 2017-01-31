@@ -1,6 +1,6 @@
 ---
-title: About VPN Devices for Site-to-Site VPN Gateway connections for Azure Virtual Networks | Microsoft Docs
-description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway connections and contains links to configuration instructions and samples.
+title: About VPN devices for cross-premises Azure connections | Microsoft Docs
+description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway cross-premises connections. Links are provided to configuration instructions and samples.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 
 ---
 # About VPN devices for Site-to-Site VPN Gateway connections
-A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters.
+A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters.
 
 > [!NOTE]
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
@@ -63,7 +63,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Open Systems AG |Mission Control Security Gateway |N/A |[Installation guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Installation guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Coming soon) |Not compatible |
 | Palo Alto Networks |All devices running PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 or later<br>RouteBased: 7.0.5 or later |[Configuration instructions](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuration instructions](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration instructions](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration instructions](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration instructions](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration instructions](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 Series routers only support PolicyBased VPNs.
 
@@ -112,7 +112,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | **Property** | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
 | --- | --- | --- |
 | IKE Version |IKEv1 |IKEv2 |
-| Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128) |
+| Hashing Algorithm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Phase 2 Security Association (SA) Lifetime (Time) |3,600 seconds |3,600 seconds |
 | Phase 2 Security Association (SA) Lifetime (Throughput) |102,400,000 KB |- |
 | IPsec SA Encryption & Authentication Offers (in the order of preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |See *RouteBased Gateway IPsec Security Association (SA) Offers* (below) |

@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use API Management to publish APIs securely and at scale. Documentation shows how to create modern API gateways for existing backend services.
 ---
 # API Management Documentation
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services.  API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing backend services hosted anywhere.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,13 +126,6 @@ API Management helps organizations publish APIs to external, partner and interna
     </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download API Management Documentation
-        </div>
-    </a>
-</div>
+
+

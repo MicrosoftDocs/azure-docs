@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
-ms.custom: migrate and move; how to
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 08/31/2016
 ms.author: sstein
@@ -19,7 +19,6 @@ ms.tgt_pltfrm: NA
 
 ---
 # Import a BACPAC file to create an Azure SQL database
-**Single database**
 
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-import.md)
@@ -62,7 +61,7 @@ Open the SQL Server blade:
 5. Click **Storage** and select your storage account, blob container, and .bacpac file and click **OK**.
    
    ![configure storage options][2]
-6. Select the pricing tier for the new database and click **Select**. Importing a database directly into an elastic pool is not supported, but you can first import into a single database and then move the database into a pool.
+6. Select the pricing tier for the new database and click **Select**. Importing a database directly into an elastic pool is not supported, but you can first import as a standalone database and then move the database into a pool.
    
    ![select pricing tier][3]
 7. Enter a **DATABASE NAME** for the database you are creating from the BACPAC file.
@@ -81,8 +80,7 @@ Clicking **Create** submits an import database request to the service. Depending
    ![import export history][5]
    ![import export history][6]
 
-## Verify the database is live on the server
-1. Click **SQL databases** and verify the new database is **Online**.
+4. To verify the database is live on the server, click **SQL databases** and verify the new database is **Online**.
 
 ## Next steps
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)

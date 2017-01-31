@@ -1,6 +1,6 @@
 ---
-title: Binary Classifier | Microsoft Docs
-description: Binary Classifier
+title: (deprecated) Binary Classifier - Azure | Microsoft Docs
+description: (deprecated) Binary Classifier
 services: machine-learning
 documentationcenter: ''
 author: jaymathe
@@ -12,12 +12,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
 
+ROBOTS: NOINDEX, NOFOLLOW
+#To remove completely, uncomment the following metadata
+#redirect_url: https://gallery.cortanaintelligence.com/
+
 ---
-# Binary Classifier
+# (deprecated) Binary Classifier
+
+> [!NOTE]
+> The Microsoft DataMarket is being retired and this API has been deprecated. 
+> 
+> You can find many useful example experiments and APIs in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). For more information about the Gallery, see [Share and discover resources in the Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Suppose you have a dataset and would like to predict a binary dependent variable based on the independent variables. ‘Logistic Regression’ is a popular statistical technique used for such predictions. Here the dependent variable is binary or dichotomous, and p is the probability of presence of the characteristic of interest. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

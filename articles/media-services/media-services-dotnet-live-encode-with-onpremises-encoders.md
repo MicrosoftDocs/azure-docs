@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/05/2017
 ms.author: cenkdin;juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: cenkdin;juliako
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -55,6 +55,9 @@ The following code example demonstrates how to achieve the following tasks:
 * Get locators for all your streaming endpoints
 * Shut down resources
 
+>[!NOTE]
+>Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
+	
 For information on how to configure a live encoder, see [Azure Media Services RTMP Support and Live Encoders](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;

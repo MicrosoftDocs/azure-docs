@@ -13,23 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: mimig
 
 ---
 # Monitor DocumentDB requests, usage, and storage
 You can monitor your Azure DocumentDB accounts in the [Azure portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
 
-Metrics can be reviewed on the Account blade or on the new Metrics blade.
+Metrics can be reviewed on the Account blade, the new Metrics blade, or in Azure Monitor.
 
 ## View performance metrics on the Metrics blade
-1. In a new window, open the [Azure portal](https://portal.azure.com/), click **More Services**, click **DocumentDB (NoSQL)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
-2. In the resource menu, click **Metrics**.
+1. In the [Azure portal](https://portal.azure.com/), click **More Services**, scroll to **Databases**, click **NoSQL (DocumentDB)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
+2. In the resource menu, under **Monitoring**, click **Metrics**.
 
 The Metrics blade opens, and you can select the collection to review. You can review Availability, Requests, Throughput, and Storage metrics and compare them to the DocumentDB SLAs.
 
+## View performance metrics by using Azure Monitoring
+1. In the [Azure portal](https://portal.azure.com/), click **Monitor** on the Jumpbar.
+2. In the resource menu, click **Metrics**.
+3. In the **Monitor - Metrics** window, in the **esource group** drop-down menu, select the resource group associated with the DocumentDB account that you'd like to monitor. 
+4. In the **Resource** drop-down menu, select the database account to monitor.
+5. In the list of **Available metrics**, select the metrics to display. Use the CTRL button to multi-select. 
+
+    Your metrics are displayed on in the **Plot** window. 
+
 ## View performance metrics on the account blade
-1. In a new window, open the [Azure portal](https://portal.azure.com/), click **More Services**, click **DocumentDB (NoSQL)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
+1. In the [Azure portal](https://portal.azure.com/), click **More Services**, scroll to **Databases**, click **NoSQL (DocumentDB)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
 2. The **Monitoring** lens displays the following tiles by default:
    
    * Total requests for the current day.
@@ -38,7 +47,7 @@ The Metrics blade opens, and you can select the collection to review. You can re
    If your table displays **No data available** and you believe there is data in your database, see the [Troubleshooting](#troubleshooting) section.
    
    ![Screen shot of the Monitoring lens which shows the requests and the storage usage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Clicking on the **Requests** or **Storage** tile opens a detailed **Metric** blade.
+3. Clicking on the **Requests** or **Usage Quota** tile opens a detailed **Metric** blade.
 4. The **Metric** blade shows you details about the metrics you have selected.  At the top of the blade is a graph of requests charted hourly, and below that is table that shows aggregation values for throttled and total requests.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).   
    
    ![Screenshot of the Metric blade which includes throttled requests](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -110,5 +119,5 @@ If your monitoring tiles display the **No data available** message, and you rece
    ![Screen shot of the updated Total requests past hour tile](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## Next steps
-To learn more about DocumentDB capacity, see [Manage DocumentDB capacity](documentdb-manage.md).
+To learn more about DocumentDB capacity planning, see the [DocumentDB capacity planner calculator](https://www.documentdb.com/capacityplanner).
 

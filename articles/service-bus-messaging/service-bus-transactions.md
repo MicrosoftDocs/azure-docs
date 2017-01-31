@@ -1,5 +1,5 @@
 ---
-title: Service Bus transactions | Microsoft Docs
+title: Overview of transaction processing in Azure Service Bus | Microsoft Docs
 description: Overview of Azure Service Bus atomic transactions and send via
 services: service-bus-messaging
 documentationcenter: .net

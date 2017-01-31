@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 
 ---

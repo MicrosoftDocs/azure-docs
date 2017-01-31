@@ -1,10 +1,10 @@
 ---
 layout: LandingPage
-
+description: Learn how to use Mobile Apps in Azure App Service to build and host native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova.
 ---
 # Mobile Apps Documentation
 
-Mobile Apps in Azure App Service offers a scalable, mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova. Tutorials, videos, client SDK documentation, and more show you how to build and host the backend for any mobile app.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -181,8 +181,13 @@ Mobile Apps in Azure App Service offers a scalable, mobile application developme
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Windows/Xamarin client SDK</a></p>
+                    </div>
                 </div>
             </div>
         </div>

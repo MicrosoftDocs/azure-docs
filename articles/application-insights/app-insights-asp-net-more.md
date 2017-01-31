@@ -60,7 +60,7 @@ You've installed the SDK that sends telemetry data from the server (back end) of
 Add the Application Insights JavaScript snippet to each web page, to get telemetry from client browsers.
 
 1. In Azure, open the Application Insights resource for your app.
-2. Open Getting Started, Monitor Client Side, and copy the snippet.
+2. Open Getting Started, Monitor and diagnose client side application, and copy the snippet.
 3. Paste it so that it appears in the head of each web page - typically you can do this by pasting into the master layout page.
 
 ![Extend in Azure](./media/app-insights-asp-net-more/100.png)

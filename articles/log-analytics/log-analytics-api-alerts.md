@@ -48,13 +48,18 @@ Use the Get method with a schedule ID to retrieve a particular schedule for a sa
 
 Following is a sample response for a schedule.
 
-    {
-        "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
-        "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
-        "properties": {
-        "Interval": 15,
-        "QueryTimeSpan": 15
-    }
+```json
+{
+	"value": [{
+		"id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
+		"etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
+		"properties": {
+			"Interval": 15,
+			"QueryTimeSpan": 15
+		}
+	}]
+}
+```
 
 ### Creating a schedule
 Use the Put method with a unique schedule ID to create a new schedule.  Note that two schedules cannot have the same ID even if they are associated with different saved searches.  When you create a schedule in the OMS console, a GUID is created for the schedule ID.

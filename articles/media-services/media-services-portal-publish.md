@@ -59,7 +59,7 @@ For more information, see [Delivering content overview](media-services-deliver-c
 > 
 > 
 
-To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
 ### To use the portal to publish an asset
 To use the portal to publish an asset, do the following:
@@ -87,7 +87,6 @@ Some considerations apply:
 * Make sure the video has been published.
 * This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * The streaming endpoint from which you are streaming must be running.  
-* To stream from a streaming endpoint, you should add at least one streaming unit. For more information, see [this](media-services-portal-scale-streaming-endpoints.md) topic.   
 
 ## Next steps
 Review Media Services learning paths.

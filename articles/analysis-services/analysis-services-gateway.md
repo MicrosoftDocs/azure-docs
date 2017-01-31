@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 01/20/2017
 ms.author: owend
 
 ---
@@ -61,8 +61,8 @@ For preview, the gateway supports connections between your Azure Analysis Servic
 2. Choose an installation location and accept the license terms.
 3. Sign in to Azure.
 4. Specify your Azure Analysis Server name. You can only specify one server per gateway. Click **Configure** and you're good to go.
-   
-    ![sign in to azure](./media\\analysis-services-gateway\\aas-gateway-configure-server.png)
+
+    ![sign in to azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
 ## How it works
 The gateway runs as a Windows service, **On-premises data gateway**, on a computer in your organization's network. The gateway you install for use with Azure Analysis Services is based on the same gateway used for other services like Power BI, but with some differences in how it's configured.
@@ -90,8 +90,8 @@ It's recommended you whitelist the IP addresses for your data region in your fir
 
 > [!NOTE]
 > The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. For example, 10.0.0.0/24 does not mean 10.0.0.0 through 10.0.0.24. Learn more about the [CIDR notation](http://whatismyipaddress.com/cidr).
-> 
-> 
+>
+>
 
 The following are the fully qualified domain names used by the gateway.
 
@@ -129,4 +129,3 @@ If you think you're encountering proxy issues, with the gateway, see [Configurin
 ## Next steps
 * [Manage Analysis Services](analysis-services-manage.md)
 * [Get data from Azure Analysis Services](analysis-services-connect.md)
-

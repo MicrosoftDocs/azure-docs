@@ -10,7 +10,7 @@
 ## [Log Analytics FAQ](log-analytics-faq.md)
 
 # How To
-## Integrate
+## Collect data
 ### Connected sources
 #### [Windows agents](log-analytics-windows-agents.md)
 #### [Linux agents](log-analytics-linux-agents.md)
@@ -19,7 +19,7 @@
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
-### Data Sources
+### Data sources
 #### [Data sources overview](log-analytics-data-sources.md)
 #### [Windows events](log-analytics-data-sources-windows-events.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
@@ -27,11 +27,15 @@
 #### [IIS logs](log-analytics-data-sources-iis-logs.md)
 #### [Custom logs](log-analytics-data-sources-custom-logs.md)
 #### [Custom fields](log-analytics-custom-fields.md)
-## Develop
+## Query data
 ### [Log searches overview](log-analytics-log-searches.md)
 ### [Search reference](log-analytics-search-reference.md)
 ### [Computer groups](log-analytics-computer-groups.md)
 ### [Alerts](log-analytics-alerts.md)
+## Analyze data
+### [Dashboards](log-analytics-dashboards.md)
+### [View Designer](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### Solutions
 #### [Solutions overview](log-analytics-add-solutions.md)
 #### [AD Assessment](log-analytics-ad-assessment.md)
@@ -41,21 +45,21 @@
 #### [Change Tracking](log-analytics-change-tracking.md)
 #### [Containers](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
+#### Logic Apps B2B Messages
+##### [Logic Apps B2B Messages solution](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Malware Assessment](log-analytics-malware.md)
 #### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 #### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
 #### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
+#### [Service Map](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [SQL Assessment](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
 #### [SCOM Assessment](log-analytics-scom-assessment.md)
-## Analyze
-### [Dashboards](log-analytics-dashboards.md)
-### [View Designer](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## Automate
+## Develop
 ### [Data collector API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)

@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to deploy multi-factor authentication with a range of verification methods that provide a simple sign-in process. Tutorials, an SDK, and more.
 ---
 # Multi-factor Authentication Documentation
 
-Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification methods, including phone call, text message, or mobile app verification.
+Learn how to deploy and manage Azure Multi-Factor Authentication, a two-step identity verification system. Tutorials, an SDK, and other documentation show you how to deliver strong authentication with a range of verification methods while providing a simple sign-in process.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,11 +101,4 @@ Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification sol
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/multi-factor-authentication.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Multi-factor Authentication Documentation
-        </div>
-    </a>
-</div>
+

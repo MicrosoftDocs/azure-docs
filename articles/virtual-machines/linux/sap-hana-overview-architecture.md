@@ -22,11 +22,11 @@ This is a five-part architecture and technical deployment guide that provides in
 
 The five parts of this guide cover the following topics:
 
-- [Overview and architecture](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infrastructure and connectivity](./sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA installation](./sap-hana-overview-sap-hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [High Availability and Disaster Recovery](./sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Troubleshooting and monitoring](./sap-hana-overview-troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Overview and architecture](sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infrastructure and connectivity](sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA installation](sap-hana-overview-sap-hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [High Availability and Disaster Recovery](sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Troubleshooting and monitoring](sap-hana-overview-troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Definitions
 
@@ -94,7 +94,7 @@ The above architecture is divided into three sections:
 
 The Azure Large Instance stamp itself combines the following components:
 
-- **Computing:**  Rack-mounted servers that are based on Intel Xeon E7-8890v3 processors that provide the necessary computing capability and are SAP HANA certified.
+- **Computing:**  Servers that are based on Intel Xeon E7-8890v3 processors that provide the necessary computing capability and are SAP HANA certified.
 - **Network:**  A unified high-speed network fabric that interconnects the computing, storage, and LAN components.
 - **Storage:**  A storage infrastructure that is accessed through a unified network fabric. Specific storage capacity is provided depending on the specific SAP HANA on Azure (Large Instances) configuration being deployed (more storage capacity is available at an additional monthly cost).
 
@@ -104,14 +104,16 @@ As with Azure VMs, SAP HANA on Azure (Large Instances) is offered in multiple Az
 
 Just as you can choose between different VM types with Azure Virtual Machines, you can choose from different SKUs of HANA Large Instances that are tailored for different workload types of SAP HANA. SAP applies memory to processor socket ratios for varying workloads based on the Intel processor generations—there are four different SKU types offered:
 
-As of October 2016, SAP HANA on Azure (Large Instances) is available in four configurations:
+As of December 2016, SAP HANA on Azure (Large Instances) is available in six configurations in the Azure Regions of US West and US East:
 
 | SAP Solution | CPU | RAM | Storage |
 | --- | --- | --- | --- |
 | Optimized for OLAP: SAP BW, BW/4HANA<br /> or SAP HANA for generic OLAP workload | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  768 GB |  3 TB |
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB |
+| --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4 |  2.0 TB |  8 TB |
 | Optimized for OLTP: SAP Business Suite<br /> on SAP HANA or S/4HANA (OLTP),<br /> generic OLTP | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB |
-|---| SAP HANA on Azure S144m<br /> – 4 x Intel Xeon® Processor E7-8890 v3 |  3 TB |  12 TB |
+|---| SAP HANA on Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3 |  3.0 TB |  12 TB |
+|---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4 |  4.0 TB |  16 TB |
 
 The different configurations above are referenced in [SAP Support Note #2316233 – SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E).
 
@@ -147,7 +149,7 @@ The following list provides more detail on each of the layers and your responsib
 
 **SDDC:** The management software that is used to manage the data centers as a software defined entity. It allows Microsoft to pool resources for scale, availability and performance reasons.
 
-**O/S:** The OS you choose (SUSE Linux or Red Hat Linux) that is running on the servers. The OS images you are provided will be optimized for HANA and will require you to have a subscription with the OS vendor for the specific HANA-optimized image. Your responsibilities include registering the images with the OS vendor, as well as monitoring and capacity-planning:
+**O/S:** The OS you choose (SUSE Linux or Red Hat Linux) that is running on the servers. The OS images you are provided will be the images provided by the individual Linux vendor to Microsoft for the purpose of running SAP HANA. You are required to have a subscription with the Linux vendor for the specific SAP HANA-optimized image. Your responsibilities include registering the images with the OS vendor. From the point of handover by Microsoft, you are also responsible for any further patching of the Linux operating system. This relates to additional packages that might be necessary for a successful SAP HANA installation (please refer to SAP's HANA installation documentation and SAP Notes) and which have not been included by the specific Linux vendor in their SAP HANA optimized OS images. The responsibility of the customer also includes patching of the OS that is related to malfunction/optimization of the OS and its drivers related to the specific server hardware. Or any security or functional patching of the OS. Customer's responsibility is as well monitoring and capacity-planning of:
 
 - CPU resource consumption
 - Memory consumption
@@ -194,22 +196,24 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 
 **Network Connectivity:**
 
-- Azure ExpressRoute. Preferably a 1 Gbps connection speed for high-speed connectivity between on-premises network and the SAP application landscape deployed in Azure.
-
-> [!NOTE] 
-> The ExpressRoute connection between Azure and SAP HANA on Azure (Large Instances) is included in the price of HANA Large Instances, so no action is required for this specific connectivity.
+- Azure ExpressRoute between on-premises to Azure: Make sure to order at leat a 1 Gbps connection from your ISP to connect your on-premises datacenter to Azure
 
 **Operating System:**
 
 - Licenses for SUSE Linux Enterprise Server 12 for SAP Applications.
 
 > [!NOTE] 
-> The most current service pack is always installed by Microsoft prior to initial hand-over.
+> The Operating System delivered by Microsoft is not registered with SUSE, nor is it connected with an SMT instance.
 
 - SUSE Linux Subscription Management Tool (SMT) deployed in Azure on an Azure VM. This
-provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE (as there is no internet access within HANA Large Instances data center).
+provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE (as there is no internet access within HANA Large Instances data center). 
 - Licenses for Red Hat Enterprise Linux 6.7 or 7.2 for SAP HANA.
+
+> [!NOTE]
+> The Operating System delivered by Microsoft is not registered with Red Hat, nor is it connected to a Red Hat Subscription Manager Instance.
+
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. This provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
+- Servie and support contract with the Linux provider that is either implicitely included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
 
 **Database:**
 
@@ -245,7 +249,7 @@ Azure networking in the context of SAP systems deployed in Azure is not complica
 - All SAP systems in Azure need to be set up in Azure VNets to communicate with each other.
 - Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute.
 
-**Recommendation:** Deploy the complete Azure landscape within a single Azure subscription. Many procedures within an SAP landscape require transparent, and possibly less, network connectivity between SAP development, test and production instances, and the SAP NetWeaver architecture has many automatisms that rely on this transparent networking between these different instances. Therefore, keeping the complete SAP landscape in one Azure subscription, even when the landscape is deployed over multiple Azure regions, is highly advisable.
+**Recommendation:** Deploy the complete SAP landscape on Azure within a single Azure subscription. Many procedures within an SAP landscape require transparent, and possibly less, network connectivity between SAP development, test and production instances, and the SAP NetWeaver architecture has many automatisms that rely on this transparent networking between these different instances. Therefore, keeping the complete SAP landscape in one Azure subscription, even when the landscape is deployed over multiple Azure regions, is highly advisable.
 
 The architecture and processes around SAP HANA on Azure (Large Instances) is built on the above recommendation.
 
@@ -299,8 +303,7 @@ For a more scalable network architecture:
 
 ![Deploying SAP application layer over multiple Azure VNets](./media/sap-hana-overview-architecture/image4-networking-architecture.png)
 
-Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, may introduce unavoidable latency overhead that occurs during communication between the applications hosted in those Azure VMs. The network traffic between Azure VMs located in different VNets will occur through the MSEE Routers.
-
+Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occured during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets will occur through the MSEE Routers in this configuration. However since September 2016 this can be avoided and optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure Vnets can use the Azure network backbone to directly communicate with each other. Thereby showing similiar latency as if the VMs would be in the same VNet. Whereas traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
 ### Minimal deployment
 
 For a small SAP system (minimal deployment), Azure VMs host the SAP application layer in native Azure (within a single VNet) and connect to Large Instance stamp through ExpressRoute. Follow these steps to get SAP HANA on Azure (Large Instances) ready for use:

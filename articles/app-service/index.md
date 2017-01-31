@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use App Service to create web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation.
 ---
 #App Service Documentation
 
-App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Create web and mobile apps for any platform or device. Integrate your apps with SaaS solutions, connect with on-premises applications, and automate your business processes.
+Learn how to use App Service to develop and host web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation. Learn how to integrate apps with SaaS solutions, connect with on-premises applications, and automate your business processes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -116,45 +117,4 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
     </li>
 </ul>
 
----
 
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize"><p />
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Resources</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service%2ftoc.json">Azure portal</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service%2ftoc.json">App Service reference</a></p>
-                        <p><a href="/azure/app-service-web/app-service-best-practices?toc=%2fazure%2fapp-service%2ftoc.json">Best practices</a></p>
-                        <p><a href="/azure/app-service-web/websites-webjobs-resources?toc=%2fazure%2fapp-service%2ftoc.json">WebJob resources</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service%2ftoc.json">WebJobs SDK</a></p>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize"><p />
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/appservice/">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download App Service Documentation
-        </div>
-    </a>
-</div>

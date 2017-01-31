@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: ''
 
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
@@ -13,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
 
 ---
 # Attribute-based app provisioning with scoping filters
@@ -40,7 +39,7 @@ If you have multiple scope groups defined, each user must pass at least one of t
 
 In other words, you can think of scope groups as being OR’d together, and you can think of the clauses within them as being AND’d together.For example, consider the scoping filter below:
 
-![Scoping Group Name][2]  
+![Scoping Group Name][3]  
 
 According to this scoping filter, users must satisfy the following criteria, in order to be provisioned:
 
@@ -60,4 +59,4 @@ According to this scoping filter, users must satisfy the following criteria, in 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./active-directory-saas-scoping-filters/ic782813.png
+[3]: ./media/active-directory-saas-scoping-filters/ic782813.png

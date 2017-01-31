@@ -19,13 +19,19 @@ ms.author: gwallace
 # Create DNS record sets and records by using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-create-recordset-portal.md)
+> * [Azure portal](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
-This article walks you through the process of creating records and records sets by using Azure PowerShell. To do this, you first need to understand DNS records and record sets.
+This article walks you through the process of creating records and records sets by using Azure PowerShell.
+
+## Introduction
+
+Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
+
+For more information about DNS records in Azure DNS, see [DNS zones and records](dns-zones-records.md).
 
 ## Create a record set and record
 
@@ -33,7 +39,7 @@ This section describes how to create DNS records in Azure DNS. The examples assu
 
 The examples on this page all use the 'A' DNS record type. For other record types and further details on how to manage DNS records and record sets, see [Manage DNS records and record sets by using PowerShell](dns-operations-recordsets.md).
 
-If your new record has the same name and type as an existing record, you will need to [add it to the existing record set](#add-a-record-to-an-existing-record-set). If your new record has a different name and type to all existing records, you will need to [create a new record set](#create-records-in-a-new-record-set). 
+If your new record has the same name and type as an existing record, you need to [add it to the existing record set](#add-a-record-to-an-existing-record-set). If your new record has a different name and type to all existing records, you need to [create a new record set](#create-records-in-a-new-record-set). 
 
 ### Create records in a new record set
 
@@ -58,7 +64,7 @@ New-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName
 
 ### Add a record to an existing record set
 
-To add a record to an existing record set, follow the following 3 steps:
+To add a record to an existing record set, follow the following three steps:
 
 1. Get the existing record set
 
@@ -82,7 +88,7 @@ To add a record to an existing record set, follow the following 3 steps:
 
 You can test your DNS records are present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
-If you haven't yet delegated your domain to use the new zone in Azure DNS, you will need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the command below.
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the following example:
 
     nslookup
     > set type=A

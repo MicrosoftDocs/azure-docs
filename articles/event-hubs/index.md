@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
 ---
 #Event Hubs Documentation
 
-Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or any batching or storage adapter.
+Learn how to use Event Hubs to collect and manage millions of events per second from connected IoT devices and applications. Tutorials, API references, and other documentation show you how set up scalable ingestion for events on a broad set of platforms.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -111,11 +112,4 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Event Hubs Documentation
-        </div>
-    </a>
-</div>
+

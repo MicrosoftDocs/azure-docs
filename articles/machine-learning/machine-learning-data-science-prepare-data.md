@@ -1,5 +1,5 @@
 ---
-title: Tasks to prepare data for enhanced machine learning | Microsoft Docs
+title: Clean and prepare data for Azure Machine Learning | Microsoft Docs
 description: Pre-process and clean data to prepare it for machine learning.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---

@@ -1,9 +1,9 @@
 ---
-title: Job preparation and cleanup in Batch | Microsoft Docs
+title: Use job preparation and release tasks - Azure Batch | Microsoft Docs
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/16/2016
-ms.author: marsma
+ms.date: 01/23/2017
+ms.author: tamram
 
 ---
 # Run job preparation and completion tasks on Azure Batch compute nodes
