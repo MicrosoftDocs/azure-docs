@@ -35,6 +35,8 @@ Features currently not present in the Microsoft Cloud Germany:
 
 * Azure AD Connect Health is not available.
 * Automatic updates is not available.
+* Password writeback is not available.
+* Other Azure AD Premium services are not available.
 
 ## Microsoft Azure Government cloud
 The [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/) is a cloud for US government.
