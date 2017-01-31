@@ -204,7 +204,7 @@ In this section, you modify the app so that it does not sync on app start or whe
 
 **Objective-C**:
 
-1. In **QSTodoListViewController.m**, change the **viewDidLoad** method to remove the call to `[self refresh]` at the end of the method. Now the data is not synced with the server on app start but, instead, is synced with the contents of the local store.
+1. In **QSTodoListViewController.m**, change the **viewDidLoad** method to remove the call to `[self refresh]` at the end of the method. Now the data is not synced with the server on app start. Instead, it's synced with the contents of the local store.
 2. In **QSTodoService.m**, modify the definition of `addItem` so that it doesn't sync after the item is inserted. Remove the `self syncData` block and replace it with the following:
 
    ```objc
@@ -267,7 +267,7 @@ When we synchronized the local store with the server, we used the **MSSyncTable.
 
 ## Additional resources
 * [Offline Data Sync in Mobile Apps]
-* [Cloud Cover: Offline Sync in Azure Mobile Services] \(Note: The video is about Mobile Services, but Mobile Apps offline sync works in a similar way.\)
+* [Cloud Cover: Offline Sync in Azure Mobile Services] \(The video is about Mobile Services, but Mobile Apps offline sync works in a similar way.\)
 
 <!-- URLs. -->
 
