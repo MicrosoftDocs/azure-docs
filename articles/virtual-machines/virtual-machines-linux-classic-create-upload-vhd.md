@@ -35,7 +35,7 @@ This article assumes that you have the following items:
 > [!NOTE]
 > The newer VHDX format is not supported in Azure. When you create a VM, specify VHD as the format. If needed, you can convert VHDX disks to VHD using [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) or the [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet. Further, Azure does not support uploading dynamic VHDs, so you need to convert such disks to static VHDs before uploading. You can use tools such as [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) to convert dynamic disks during the process of uploading to Azure.
 
-* **Azure Command-line Interface** - Install the latest [Azure Command-Line Interface](../virtual-machines-command-line-tools.md) to upload the VHD.
+* **Azure Command-line Interface** - Install the latest [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to upload the VHD.
 
 <a id="prepimage"> </a>
 
@@ -106,7 +106,7 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 To create your own VMs, provide your own username + password, location, DNS name, and image name.
 
 ## Next steps
-For more information, see [Azure CLI reference for the Azure classic deployment model](../virtual-machines-command-line-tools.md).
+For more information, see [Azure CLI reference for the Azure classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect

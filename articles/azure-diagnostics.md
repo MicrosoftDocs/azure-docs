@@ -17,7 +17,7 @@ ms.date: 10/25/2016
 ms.author: robb
 
 ---
-# What is Microsoft Azure Diagnostics
+# What is Azure Diagnostics
 Azure Diagnostics is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service Web and Worker Roles, Azure Virtual Machines running Microsoft Windows and Service Fabric. Other Azure services have their own separate diagnostics.
 
 ## Data you can collect
