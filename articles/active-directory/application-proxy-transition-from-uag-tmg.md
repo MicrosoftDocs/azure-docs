@@ -26,7 +26,7 @@ This article describes how to move from Microsoft Forefront's Threat Management 
  
 Many customers are asking us how to move from Forefront UAG and TMG to the new Application Proxies. For information, see this [whitepaper](http://download.microsoft.com/download/3/E/3/3E335D93-6DB8-4834-90A8-B86105419F05/Microsoft%20TMG%20and%20UAG%20EOL%20and%20transitioning%20to%20WAP%20and%20AADAP.docx) that describes the transition in detail. 
  
- ## TMG/UAG conversion to Azure AD Application Proxy table
+## TMG/UAG conversion to Azure AD Application Proxy table
  
 |**TMG/UAG Functionality**|**Web Application Proxy (WAP) / Azure AD Application Proxy (AADAP)**|
 |:-----|:-----|
