@@ -99,7 +99,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    6. Create a **base-64 encoded** file from your downloaded certificate.    
    
       >[!TIP]
-      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+      >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
       >
       
    7. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Public Key** textbox
