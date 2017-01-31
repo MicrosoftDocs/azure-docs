@@ -47,7 +47,9 @@ We recommend using the Anniversary Update for enabling the scenarios above.
 
 2.	Type **dsregcmd /status**
 
-    +----------------------------------------------------------------------+
+
+
+    `+----------------------------------------------------------------------+
     | Device State                                                         |
     +----------------------------------------------------------------------+
     
@@ -88,7 +90,7 @@ We recommend using the Anniversary Update for enabling the scenarios above.
     WamDefaultAuthority : organizations
            WamDefaultId : https://login.microsoft.com
          WamDefaultGUID : {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)
-             AzureAdPrt : YES
+             AzureAdPrt : YES`
 
 
 
