@@ -1,5 +1,5 @@
 ---
-title: Manage security alerts in Azure Security Center | Microsoft Docs
+title: Handling security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to handle security incidents.
 services: security-center
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 01/31/2017
 ms.author: yurid
 
 ---
@@ -24,6 +24,8 @@ This document discusses how to use security alert capability in Security Center 
 
 ## What is a security incident?
 In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence.
+
+When Azure Security Center detects and alerts on a potential threat, additional information can be collection for forensics purposes. A VM disk snapshot can be captured and analyzed, and machine artifacts can be extracted to provide further insight that can be used to investigate and recover from an attack. For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
 
 ## Managing security incidents
 You can review your current security incidents by looking at the security alerts tile. Access the Azure Portal and follow the steps below to see more details about each security incident:

@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2017
+ms.date: 1/31/2017
 ms.author: yurid
 
 ---
@@ -26,7 +26,8 @@ This document helps you use Azure Security Center to manage and respond to secur
 >
 
 ## What are security alerts?
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. Azure Security Center also aggregates alerts that align to kill chain patterns into [Incidents](security-center-incident.md).
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. When Azure Security Center detects and alerts on a potential threat, additional information can be collection for forensics purposes. A VM disk snapshot can be captured and analyzed, and machine artifacts can be extracted to provide further insight that can be used to investigate and recover from an attack. Azure Security Center also aggregates alerts that align to kill chain patterns into [Incidents](security-center-incident.md).
+
 
 > [!NOTE]
 > For more information about how Security Center detection capabilities work, read [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md).
