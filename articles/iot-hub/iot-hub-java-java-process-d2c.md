@@ -1,6 +1,6 @@
 ---
 title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
-description: How to process IoT Hub device-to-cloud messages by using routing rules and additional endpoints to dispatch messages to other back-end services.
+description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -125,7 +125,7 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
     
     ![Adding an endpoint][31]
     
-4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as an additional endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
+4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as a custom endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
     
     ![Adding a route][32]
     

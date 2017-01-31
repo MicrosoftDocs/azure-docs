@@ -116,12 +116,12 @@ There are two built-in endpoints: **Cloud to device feedback** and **Events**.
     > 
     > 
 
-### Additional endpoints
-You can create additional endpoints on your IoT hub using the portal. From the **Endpoints** blade, click **Add** at the top to open the **Add endpoint** blade. Enter the required information, then click **OK**. Your additional endpoint is now listed in the main **Endpoints** blade.
+### Custom endpoints
+You can add custom endpoints on your IoT hub using the portal. From the **Endpoints** blade, click **Add** at the top to open the **Add endpoint** blade. Enter the required information, then click **OK**. Your custom endpoint is now listed in the main **Endpoints** blade.
 
 ![][13]
 
-You can read more about additional endpoints in [Reference - IoT hub endpoints][lnk-devguide-endpoints].
+You can read more about custom endpoints in [Reference - IoT hub endpoints][lnk-devguide-endpoints].
 
 ## Routes
 Click **Routes** to manage how IoT Hub dispatches your device-to-cloud messages.

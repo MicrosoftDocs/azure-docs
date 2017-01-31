@@ -28,7 +28,7 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 
 IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT, AMQP, and HTTP). To support seamless interoperability across protocols, IoT Hub defines a [common message format][lnk-message-format] that all device-facing protocols support.
 
-IoT Hub exposes a built-in [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end apps to read the device-to-cloud messages received by the hub. You can also create additional endpoints in your IoT hub by linking other services in your subscription to the hub.
+IoT Hub exposes a built-in [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end apps to read the device-to-cloud messages received by the hub. You can also create custom endpoints in your IoT hub by linking other services in your subscription to the hub.
 
 ### When to use
 Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to the device app.
@@ -51,7 +51,7 @@ This implementation has the following implications:
 There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
 
 * As explained in the [Control access to IoT Hub][lnk-devguide-security] section, IoT Hub allows per-device authentication and access control.
-* IoT Hub allows you to create up to 10 additional endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub.
+* IoT Hub allows you to create up to 10 custom endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub.
 * IoT Hub allows millions of simultaneously connected devices (see [Quotas and throttling][lnk-quotas]), while Event Hubs is limited to 5000 AMQP connections per namespace.
 * IoT Hub does not allow arbitrary partitioning using a **PartitionKey**. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 * Scaling IoT Hub is slightly different than scaling Event Hubs. For more information, see [Scaling IoT Hub][lnk-guidance-scale].
@@ -81,7 +81,7 @@ IoT Hub enables you to route messages to IoT Hub endpoints based on message prop
 
 A single message may match the condition on multiple routing rules, in which case IoT Hub delivers the message to the endpoint associated with each matched rule. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple rules that all have the same destination, it is only written to that destination once.
 
-For more information about creating additional endpoints in IoT Hub, see [IoT Hub endpoints][lnk-devguide-endpoints].
+For more information about creating custom endpoints in IoT Hub, see [IoT Hub endpoints][lnk-devguide-endpoints].
 
 ### Built-in endpoint: messages/events
 
@@ -231,7 +231,7 @@ For more information, see [Create IoT hubs][lnk-portal].
 ## Read device-to-cloud messages
 IoT Hub exposes the **messages/events** built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
-You can also create additional endpoints in IoT Hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as additional endpoints. For more information about reading from those services, see: reading from [Event Hubs][lnk-getstarted-eh], reading from [Service Bus queues][lnk-getstarted-queue], reading from [Service Bus topics][lnk-getstarted-topic].
+You can also create custom endpoints in IoT Hub. IoT Hub currently supports Event Hubs, Service Bus queues, and Service Bus topics as custom endpoints. For more information about reading from those services, see: reading from [Event Hubs][lnk-getstarted-eh], reading from [Service Bus queues][lnk-getstarted-queue], reading from [Service Bus topics][lnk-getstarted-topic].
 
 ### Reading from the built-in endpoint
 
