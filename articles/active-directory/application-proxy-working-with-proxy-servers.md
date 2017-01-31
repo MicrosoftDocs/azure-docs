@@ -66,7 +66,7 @@ v<defaultProxy enabled="false"></defaultProxy>
   </appSettings>
 </configuration>
 ```
-vTo ensure that the connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+To ensure that the connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file located at C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
 Please be sure that you make copies of the original files, in the event that you need to revert to the default .config files. 
 
