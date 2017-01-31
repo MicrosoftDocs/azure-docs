@@ -41,7 +41,7 @@ Some things to note for successful outcomes:
 - A re-install of the operating system or a manual un-register and re-register may create a new registration on Azure AD and will result in multiple entries under the USER info tab in the Azure portal. 
 
 
-# Step 1: Retrieve the registration status 
+## Step 1: Retrieve the registration status 
 
 **To verify the registration status:**  
 
