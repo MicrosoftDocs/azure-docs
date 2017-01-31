@@ -53,8 +53,8 @@ Azure Active Directory schema does not allow two or more objects to have the sam
 > [!NOTE]
 > [Azure AD Attribute Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) feature is also being rolled out as the default behavior of Azure Active Directory.  This will reduce the number of synchronization errors seen by Azure AD Connect (as well as other sync clients) by making Azure AD more resilient in the way it handles duplicated ProxyAddresses and UserPrincipalName attributes present in on premises AD environments. This feature does not fix the duplication errors. So the data still needs to be fixed. But it allows provisioning of new objects which are otherwise blocked from being provisioned due to duplicated values in Azure AD. This will also reduce the number of synchronization errors returned to the synchronization client.
 > If this feature is enabled for your Tenant, you will not see the InvalidSoftMatch synchronization errors seen during provisioning of new objects.
-> 
-> 
+>
+>
 
 #### Example Scenarios for InvalidSoftMatch
 1. Two or more objects with the same value of ProxyAddresses attribute exists in on premises Active Directory. Only one is getting provisioned in Azure AD.
@@ -97,8 +97,8 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
 
 > [!NOTE]
 > ImmutableId, by definition, should not change in the lifetime of the object. If Azure AD Connect was not configured with some of the scenarios in mind from the above list, you could end up in a situation where Azure AD Connect calculates a different value of the SourceAnchor for the AD object that represents the same entity (same user/group/contact etc) that has an existing Azure AD Object that you wish to continue using.
-> 
-> 
+>
+>
 
 #### Related Articles
 * [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/en-us/kb/2647098)
@@ -199,6 +199,9 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
    `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
 
+#### Related Articles
+* [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+
 ## LargeObject
 ### Description
 When an attribute exceeds the allowed size limit, length limit or count limit set by Azure Active Directory schema, the synchronization operation will result in the **LargeObject** or **ExceededAllowedLength** sync error. Typically this error occurs for the following attributes
@@ -218,4 +221,3 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 ## Related links
 * [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx)
 * [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-
