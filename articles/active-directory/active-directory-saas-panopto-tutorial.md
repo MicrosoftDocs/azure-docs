@@ -18,8 +18,7 @@ ms.author: jeedes
 ---
 
 # Tutorial: Azure Active Directory integration with Panopto
-The objective of this tutorial is to show the integration of Azure and Panopto.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+The objective of this tutorial is to show the integration of Azure and Panopto. The scenario outlined in this tutorial assumes that you already have the following items:
 
 * A valid Azure subscription
 * A Panopto tenant
