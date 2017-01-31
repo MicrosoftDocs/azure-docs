@@ -27,23 +27,21 @@ In this article, learn how create your own custom business intelligence tools by
 
 ## Prerequisites
 * Microsoft Azure Account
-* An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage. This tutorial assumes an Event Hub exists in a resource group already.
+* An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage.  
 * Work or school account for Power BI
 
 ## Create Azure Stream Analytics job
-From the [Azure portal](https://portal.azure.com), click the green plus to add a service and then type **Stream Analytics**.
+From [Azure Classic Portal](https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
 
-Specifiy the following values and check the box for **Pin to dashboard**:
+Specifiy the following values, then click **Create Stream Analytics job**:
 
 * **Job Name** - Enter a job name. For example, **DeviceTemperatures**.
-* **Resource group** - select a resource group for the demonstration. For example, **DeviceTemperaturesRG**.
-* **Region** - Select the region where you want the job located. In this example I selected **East US 2**.
+* **Region** - Select the region where you want the job located. Consider placing the job and the event hub in the same region to ensure optimal performance and avoid incurring data transfer costs between regions.
+* **Storage Account** - Choose the Storage Account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage Account or create a new one.
 
- Then click **Create**.
+Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
-[create the powerbi job]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
-
-Next you can select the **DeviceTemperatures** on the dashboard to bring up the job properties.
+![graphic1][graphic1]
 
 > [!TIP]
 > The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
@@ -53,12 +51,12 @@ Next you can select the **DeviceTemperatures** on the dashboard to bring up the 
 ## Specify job input
 For this tutorial, we are assuming you are using Event Hub as an input with JSON serialization and UTF-8 encoding.
 
+* Click the job name.
 * Click **Inputs** from the top of the page, and then click **Add Input**. The dialog that opens will walk you through a number of steps to set up your input.
-* **Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
-* Select **Data Stream**
-* Select **Event Hub**
+* Select **Data Stream**, and then click the right button.
+* Select **Event Hub**, and then click the right button.
 * Type or select the following values on the third page:
-
+  * **Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
   * **Event Hub** - If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
 * If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **Service Bus Namespace**, **Event Hub Name**, **Event Hub Policy Name**, **Event Hub Policy Key**, and **Event Hub Partition Count**.
 
