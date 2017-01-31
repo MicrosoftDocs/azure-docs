@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: apipm
+ms.author: apimpm
 ---
 # Azure API Management template data model reference
 This topic describes the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.  
