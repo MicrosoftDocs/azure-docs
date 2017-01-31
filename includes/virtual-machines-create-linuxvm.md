@@ -52,5 +52,5 @@
     ```
 
 ## Next steps
-For details on all these Azure CLI virtual machine commands, read the [Using the Azure CLI with the Classic deployment API](../articles/virtual-machines-command-line-tools.md).
+For details on all these Azure CLI virtual machine commands, read the [Using the Azure CLI with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

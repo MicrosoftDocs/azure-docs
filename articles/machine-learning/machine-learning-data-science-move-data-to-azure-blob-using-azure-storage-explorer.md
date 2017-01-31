@@ -1,5 +1,5 @@
 ---
-title: Move Data to and from Azure Blob Storage using Azure Storage Explorer | Microsoft Docs
+title: Move Data to and from Blob Storage with Azure Storage Explorer | Microsoft Docs
 description: Move Data to and from Azure Blob Storage using Azure Storage Explorer
 services: machine-learning,storage
 documentationcenter: ''

@@ -1,6 +1,8 @@
 ---
 title: 'Azure Backup: Prepare to back up virtual machines | Microsoft Docs'
-description: Make sure your environment is prepared for backing up virtual machines in Azure
+
+description: Make sure your environment is prepared for backing up virtual machines in Azure.
+
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,8 +16,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 1/30/2017
+ms.author: trinadhk;jimpark;markgal;
 
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
@@ -71,7 +73,7 @@ To create a recovery services vault:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Click the Browse button and type Recovery Services. When you see the Recovery Services vault option, click it to open the Recovery Services vault blade.](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
     The list of Recovery Services vaults is displayed.
 3. On the **Recovery Services vaults** menu, click **Add**.
