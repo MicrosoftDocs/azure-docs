@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage an elastic pool with C# | Microsoft Docs
+title: 'C#: Manage an Azure SQL Database elastic pool | Microsoft Docs'
 description: Use C# database development techniques to manage an Azure SQL Database elastic pool.
 services: sql-database
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: f6e6ff3b-6b60-43c1-afe9-575991e38237
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp
@@ -36,7 +36,7 @@ Learn how to manage an [elastic pool](sql-database-elastic-pool.md) using C&#x23
 
 To complete the steps in this article, you need the following items:
 
-* An elastic pool (the pool you want to manage). To create a pool, see [Create an elastic pool with C#](sql-database-elastic-pool-create-csharp.md).
+* An elastic pool. To create a pool, see [Create an elastic pool with C#](sql-database-elastic-pool-create-csharp.md).
 * Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 ## Move a database into an elastic pool

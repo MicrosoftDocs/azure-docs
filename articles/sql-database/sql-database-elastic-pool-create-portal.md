@@ -10,12 +10,12 @@ editor: ''
 
 ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
 ms.workload: data-management
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
@@ -86,7 +86,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
 
 	![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -96,7 +96,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
 ## Understand pool recommendations
 
-The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using standalone databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
+The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
 ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -109,7 +109,7 @@ The pool recommendation comprises:
 
 The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
 
-The service evaluates resource needs and cost effectiveness of moving the standalone databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
+The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
 ### Dynamic recommendations
 

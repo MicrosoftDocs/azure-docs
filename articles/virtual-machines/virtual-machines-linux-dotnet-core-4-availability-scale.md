@@ -252,7 +252,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 The `copyIndex` function is used several times in the Music Store sample template. Resources and functions utilizing `copyIndex` include anything specific to a single instance of the virtual machine such as network interface, load balancer rules, and any depends on functions. 
 
-For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../resource-group-create-multiple.md).
+For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../azure-resource-manager/resource-group-create-multiple.md).
 
 ## Next step
 <hr>

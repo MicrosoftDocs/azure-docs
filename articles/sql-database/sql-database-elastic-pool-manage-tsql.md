@@ -1,6 +1,6 @@
 ---
-title: Create or move an Azure SQL database into an elastic pool using T-SQL | Microsoft Docs
-description: Use T-SQL to create an Azure SQL database in an elastic pool. Or use T-SQL to move the datbase in and out of pools.
+title: 'T-SQL: Manage an Azure SQL Database elastic pool | Microsoft Docs'
+description: Use T-SQL to manage an Azure SQL Database elastic pool. 
 services: sql-database
 documentationcenter: ''
 author: srinia
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -71,7 +71,7 @@ Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/l
     ORDER BY end_time DESC;
 
 ## Get resource usage for an elastic database
-Use the [sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for a standalone database.
+Use the [sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for a single database.
 
 ## Next steps
 After creating an elastic pool, you can manage elastic databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md). 

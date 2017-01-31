@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
 # What is Microsoft Power BI Embedded?
 With **Power BI Embedded**, you can integrate Power BI reports right into your web or mobile applications.
 
-![](media\\powerbi-embedded-whats-is\\what-is.png)
+![](media/powerbi-embedded-whats-is/what-is.png)
 
 Power BI Embedded is an **Azure service** that enables ISVs and app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Embedded. You don’t need a Power BI account to use your app. You can continue to sign in to your application just like before, and view and interact with the Power BI reporting experience without requiring any additional licensing.
 
@@ -29,7 +29,7 @@ Power BI Embedded is an **Azure service** that enables ISVs and app developers t
 In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is not the responsibility of the end-user.  Instead, **sessions** are purchased by the developer of the app that is consuming the visuals, and are charged to the subscription that owns those resources. Additional information can be found on the pricing page (https://azure.microsoft.com/en-us/pricing/details/power-bi-embedded/).
 
 ## Microsoft Power BI Embedded Conceptual Model
-![](media\\powerbi-embedded-whats-is\\model.png)
+![](media/powerbi-embedded-whats-is/model.png)
 
 Like any other service in Azure, resources for Power BI Embedded are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**.
 
@@ -52,7 +52,7 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 ## Authentication and authorization with app tokens
 **Microsoft Power BI Embedded** defers to your application to perform all the necessary user authentication and authorization. There is no explicit requirement that your end users be customers of Azure Active Directory (Azure AD).  Instead, your application expresses to **Microsoft Power BI Embedded** authorization to render a Power BI report by using **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wants to render a report.
 
-![](media\\powerbi-embedded-whats-is\\app-tokens.png)
+![](media/powerbi-embedded-whats-is/app-tokens.png)
 
 **Application Authentication Tokens (App Tokens)** are used to authenticate against **Microsoft Power BI Embedded**.  There are three types of **App Tokens**:
 

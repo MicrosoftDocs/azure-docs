@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 5eb2d256-025d-4f5a-99d4-17f702b37f14
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/29/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 
 ---

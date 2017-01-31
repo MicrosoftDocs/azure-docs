@@ -1,7 +1,7 @@
 ---
-title: Migrate data to Azure DocumentDB account with protocol support for MongoDB | Microsoft Docs
+title: Use mongoimport & mongorestore with Azure DocumentDB | Microsoft Docs
 description: Learn how to use mongoimport and mongorestore to import data to a DocumentDB account with protocol support for MongoDB, now available for preview.
-keywords: migrate
+keywords: mongoimport, mongorestore
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
@@ -18,59 +18,50 @@ ms.date: 12/07/2016
 ms.author: anhoh
 
 ---
-# Migrate data to DocumentDB with protocol support for MongoDB
-To migrate to an Azure DocumentDB account with protocol support for MongoDB, you must:
+# Migrate data to DocumentDB by using mongoimport and mongorestore
+To migrate data to an Azure DocumentDB account with protocol support for MongoDB, you must:
 
-* Download either *mongoimport.exe* or *mongorestore.exe* from [MongoDB](https://www.mongodb.com/download-center)
-* Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information
+* Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
+* Get your [DocumentDB support for MongoDB connection string](documentdb-connect-mongodb-account.md).
 
-## Things to know before Migrating
+## Before you begin
 
-1. **Increase throughput** - The duration of your data migration will be influenced by how much throughput you provision for your collections. Make sure you increase the throughput for larger data migrations. Afterwards, make sure to decrease the throughput back down to save costs. Instructions on how to increase throughput in the [Azure Portal](https://portal.azure.com) can be found in [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
 
-2. **Enable SSL** - DocumentDB has strict security requirements and standards. Make sure to enable SSL when interacting with your account. The examples below include how to enable SSL for *mongoimport* and *mongorestore*.
+* Enable SSL: DocumentDB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. The procedures in the rest of the article include how to enable SSL for *mongoimport* and *mongorestore*.
 
-## Find your Connection Information (Host, Port, Username, and Password)
+## Find your connection string information (host, port, username, and password)
 
-1. Head over to the [Azure Portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **NoSQL (DocumentDB)** entry.
+2. In the **Subscriptions** pane, select your account name.
+3. In the **Connection String** blade, click **Connection String**.  
+The right pane contains all the information you need to successfully connect to your account.
 
-2. Click on the **NoSQL (DocumentDB)** entry on the Portal's left-hand resource navigation.
-
-3. Find and click on your **DocumentDB with protocol support for MongoDB Account Name** in the list of DocumentDB accounts.
-
-4. In the newly opened Account blade, click on **Connection String** in left-hand navigation.
-
-    ![Screen shot of the Connection Blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
-
-5. The **Connection String** blade will contain all the information to successfully connect to your account.
+    ![The "Connection String" blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongoimport
 
-1. Fill in the *host*, *username*, and *password* with the values specific for your account.
+To import data to your DocumentDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.  
 
-    Template:
+Template:
 
-        mongoimport.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
+    mongoimport.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
 
-    Example:
+Example:  
 
-        mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
-
-2. Congratulations! You have successfully imported data to your DocumentDB account.
+    mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongorestore
 
-1. Fill in the *host*, *username*, and *password* with the values specific for your account.
+To restore data to your DocumentDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values specific to your account.
 
-    Template:
+Template:
 
-        mongorestore.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+    mongorestore.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
 
-    Example:
+Example:
 
-        mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
-
-2. Congratulations! You have successfully restored data to your DocumentDB account.
+    mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## Next steps
-* Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
+* For more information, explore [DocumentDB protocol support for MongoDB samples](documentdb-mongodb-samples.md).

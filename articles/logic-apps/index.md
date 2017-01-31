@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: Learn how to develop logic apps that automate and simplify business workflows across on-premises and the cloud. Tutorials, templates, and API references.
 ---
 # Logic Apps Documentation
 
-Logic Apps is a design tool for modeling and automating processes into workflows. There are many connectors across the cloud and on-premises to quickly integrate across services and protocols. A logic app begins with a trigger (like 'When an account is added to Dynamics CRM') and after firing can begin many combinations actions, conversions, and condition logic.
+Learn how to develop Logic Apps that simplify and integrate scalable workflows in the cloud. Tutorials, templates, and API references help you design and deploy automated business workflows across on-premises and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
+        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +44,7 @@ Logic Apps is a design tool for modeling and automating processes into workflows
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
+        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +62,7 @@ Logic Apps is a design tool for modeling and automating processes into workflows
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <a href="/azure/logic-apps/logic-apps-arm-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +80,7 @@ Logic Apps is a design tool for modeling and automating processes into workflows
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <a href="/azure/logic-apps/logic-apps-create-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -120,8 +121,8 @@ Logic Apps is a design tool for modeling and automating processes into workflows
                 <div class="card">
                     <div class="cardText">
                         <h3>Schema History</h3>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">GA</a></p>
-                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Preview</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">GA</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Preview</a></p>
                    </div>
                 </div>
             </div>
@@ -141,11 +142,4 @@ Logic Apps is a design tool for modeling and automating processes into workflows
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Logic Apps Documentation
-        </div>
-    </a>
-</div>
+

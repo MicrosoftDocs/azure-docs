@@ -4,7 +4,7 @@ description: Steps to identify and resolve common connection errors for Azure SQ
 services: sql-database
 documentationcenter: ''
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: ''
 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 
 ---
@@ -74,7 +74,7 @@ The following table lists every connection problem topic that applies directly t
 | 4 |[Troubleshoot connectivity issues with Microsoft Azure SQL Database](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |This tool helps identity your problem solve connection errors. |
 | 5 |[Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error](sql-database-troubleshoot-connection.md) |Describes how to identify and resolve a 40613 error: "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later." |
 | 6 |[SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md) |Provides info about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. |
-| 7 |[Azure SQL Database performance guidance for standalone databases](sql-database-performance-guidance.md) |Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
+| 7 |[Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) |Provides guidance to help you determine which service tier is right for your application. Also provides recommendations for tuning your application to get the most out of your Azure SQL Database. |
 | 8 |[SQL Database Development Overview](sql-database-develop-overview.md) |Provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. |
 | 9 |Upgrade to Azure SQL Database v12 page ([Azure portal](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Provides directions for upgrading existing Azure SQL Database V11 servers and databases to Azure SQL Database V12 by using Azure portal or PowerShell. |
 

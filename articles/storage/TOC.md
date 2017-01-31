@@ -59,7 +59,7 @@
 ### [Table design guide](storage-table-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Use files
-### [Overview](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Overview](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use Virtual Machine Disks
@@ -75,13 +75,17 @@
 ### [Performance and scalability checklist](storage-performance-checklist.md)
 ### [Concurrency](storage-concurrency.md)
 ## Develop
-### [Samples](storage-samples.md)
+### Samples
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [Designing HA Apps using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Configure connection strings](storage-configure-connection-string.md)
 ### [Use the Storage Emulator](storage-use-emulator.md)
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
 ## Manage
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (Preview)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## Secure
 ### [Security guide](storage-security-guide.md)
@@ -107,26 +111,61 @@
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
 ### [AzCopy command-line utility](storage-use-azcopy.md)
-### [Import/Export service for Blob storage](storage-import-export-service.md)
-
+### [Using the Import-Export service](storage-import-export-service.md)
+### [Using the Import-Export Tool](storage-import-export-tool-how-to.md)
+#### [Setting up the Import-Export Tool](storage-import-export-tool-setup.md)
+#### [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import.md)
+##### [Setting Properties and Metadata during the import process](storage-import-export-tool-setting-properties-metadata-import.md)
+##### [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
+##### [Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference.md)
+#### [Previewing drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [Troubleshooting the Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+#### [Import-Export Service Manifest File format](storage-import-export-file-format-manifest.md)
+#### [Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md)
+#### [Import-Export Service Log File format](storage-import-export-file-format-log.md)
+### [Using the Import-Export Tool (v1)](storage-import-export-tool-how-to-v1.md)
+#### [Setting up the Import-Export Tool](storage-import-export-tool-setup-v1.md)
+#### [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md)
+##### [Setting Properties and Metadata during the import process](storage-import-export-tool-setting-properties-metadata-import-v1.md)
+##### [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
+##### [Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference-v1.md)
+#### [Previewing drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+#### [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
+#### [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
+#### [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
+#### [Troubleshooting the Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+#### [Import-Export Service Manifest File format](storage-import-export-file-format-manifest.md)
+#### [Import-Export Service Metadata and Properties File format](storage-import-export-file-format-metadata-and-properties.md)
+#### [Import-Export Service Log File format](storage-import-export-file-format-log.md)
+### [Using the Azure Import-Export Service REST API](storage-import-export-using-the-rest-api.md)
+#### [Creating an import job](storage-import-export-creating-an-import-job.md)
+#### [Creating an export job](storage-import-export-creating-an-export-job.md)
+#### [Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md)
+#### [Enumerating jobs](storage-import-export-enumerating-jobs.md)
+#### [Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md)
+#### [Backing Up Drive Manifests](storage-import-export-backing-up-drive-manifests.md)
+#### [Diagnostics and Error Recovery for Import-Export jobs](storage-import-export-diagnostics-and-error-recovery.md)
 # Reference
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
-### [Resource manager](/dotnet/api/microsoft.azure.management.storage)
-### [Data movement](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
+### [Data movement](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, Queues, Tables, and Files](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Resource provider](/rest/api/storagerp)
-### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Import/export](/rest/api/storageimportexport)
 
 # Related
 ## Classic Portal
@@ -147,7 +186,7 @@
 ### [Storage Explorer (Preview)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Manage blobs with Storage Explorer (Preview)](../vs-azure-tools-storage-explorer-blobs.md)
 
-## Nuget packages
+## NuGet packages
 ### [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 ### [Azure Storage Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 ### [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)

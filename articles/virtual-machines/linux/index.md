@@ -1,9 +1,25 @@
 ---
 layout: LandingPage
----
-#Linux Virtual Machine Documentation
+description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
 
-Use Azure Virtual Machines to create and run Linux virtual machines on Azure's compute, networking, and storage infrastructure.  Scale to thousands of machines for internet-wide deployments, or run one for a few minutes to crunch some serious numbers:  you'll get both speed and consistency.
+
+title: Azure Virtual Machines for Linux Documentation, Tutorials and API Reference | Microsoft Docs
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+---
+# Linux Virtual Machine Documentation
+
+Learn how to run Virtual Machines on Azure using the Linux distribution of your choice. Documentation, API references, and samples show you different ways to create and deploy VM templates.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -126,11 +142,4 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Linux Virtual Machine Documentation
-        </div>
-    </a>
-</div>
+

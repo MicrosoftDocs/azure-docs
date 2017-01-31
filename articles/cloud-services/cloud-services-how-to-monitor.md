@@ -3,7 +3,7 @@ title: How to monitor a cloud service | Microsoft Docs
 description: Learn how to monitor cloud services by using the Azure classic portal.
 services: cloud-services
 documentationcenter: ''
-author: rboucher
+author: thraka
 manager: timlt
 editor: ''
 
@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
-ms.author: robb
-
+ms.author: adegeo
 ---
 # How to Monitor Cloud Services
 [!INCLUDE [disclaimer](../../includes/disclaimer.md)]

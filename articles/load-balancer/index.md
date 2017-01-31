@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Load Balancer for network performance of apps. Manage traffic for virtual machines and cloud resources, and in cross-premises virtual networks.
 ---
 #Load Balancer Documentation
 
-Azure Load Balancer delivers high availability and network performance to your applications.  Load Balancer can be configured to load balance incoming Internet traffic to virtual machines, traffic between cloud resources, traffic in a cross-premises virtual network, or external traffic to a specific virtual machine.
+Learn how to configure Load Balancer to deliver high availability and network performance to your applications. Documentation shows you how to load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,11 +128,4 @@ Azure Load Balancer delivers high availability and network performance to your a
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Load Balancer Documentation
-        </div>
-    </a>
-</div>
+

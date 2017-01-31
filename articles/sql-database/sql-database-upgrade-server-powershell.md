@@ -31,7 +31,7 @@ This article provides directions for upgrading existing SQL Database V11 servers
 
 During the process of upgrading to V12, you upgrade any Web and Business databases to a new service tier so directions for upgrading Web and Business databases are included.
 
-In addition, migrating to an [elastic pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for standalone databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers, consider moving them into the same server and taking advantage of putting them into a pool.
+In addition, migrating to an [elastic pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers, consider moving them into the same server and taking advantage of putting them into a pool.
 
 You can follow the steps in this article to easily migrate databases from V11 servers directly into elastic pools.
 
@@ -104,7 +104,7 @@ When you run this command upgrade process will begin. You can customize the outp
 
 
 ## Custom upgrade mapping
-If the recommendations are not appropriate for your server and business case, then you can choose how your databases are upgraded and can map them to either standalone databases or elastic pools.
+If the recommendations are not appropriate for your server and business case, then you can choose how your databases are upgraded and can map them to either single databases or elastic pools.
 
 ElasticPoolCollection and DatabaseCollection parameters are optional:
 
@@ -119,7 +119,7 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
     $elasticPool.Name = "elasticpool_1"
     $elasticPool.StorageMb = 800
 
-    # Creating standalone database mapping for 2 databases. DBMain1 mapped to S0 and DBMain2 mapped to S2
+    # Creating single database mapping for 2 databases. DBMain1 mapped to S0 and DBMain2 mapped to S2
     #
     $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
     $databaseMap1.Name = "DBMain1"
@@ -133,7 +133,7 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
 
     # Starting the upgrade
     #
-    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -ServerVersion 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
+    Start-AzureRmSqlServerUpgrade -ResourceGroupName resourcegroup1 -ServerName server1 -ServerVersion 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
 
 
 
@@ -155,7 +155,7 @@ In addition to monitoring individual databases you can monitor elastic pools [us
 
 Additional monitoring information:
 
-* [Azure SQL Database performance guidance for standalone databases](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+* [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx).
 * [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 * [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
 

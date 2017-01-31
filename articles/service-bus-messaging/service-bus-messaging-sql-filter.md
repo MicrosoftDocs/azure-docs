@@ -1,5 +1,5 @@
 ---
-title: SQLFilter syntax reference | Microsoft Docs
+title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
 description: Details about SQLFilter grammar.
 services: service-bus-messaging
 documentationcenter: na

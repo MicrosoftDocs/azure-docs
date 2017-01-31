@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description: Learn SQL Database, a database-as-a-service in the cloud. Tutorials, videos, and other documentation show how to set up, connect, and manage a relational database.
 ---
 
 # SQL Database Documentation
 
-Azure SQL Database is a relational database service in the cloud with mission-critical capabilities based on the Microsoft SQL Server engine. It delivers predictable performance, scalability with no downtime, business continuity and data protection - all with minimal administration. Because it's based on the SQL Server engine, SQL Database supports existing SQL Server tools, libraries, and APIs, making it easier to move and extend to the cloud.
+Learn how to use SQL Database, a relational database-as-a-service in the cloud built on the Microsoft SQL Server engine. Tutorials, videos, and other documentation show you how to set up, connect, and manage a SQL database.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -122,7 +123,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/">.NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
@@ -148,11 +149,4 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download SQL Database Documentation
-        </div>
-    </a>
-</div>
+

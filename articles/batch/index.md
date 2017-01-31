@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently. Tutorials, API references, and other documentation.
 ---
 #Batch Documentation
 
-Azure Batch lets you run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. With the Batch service, you define Azure compute resources to execute your applications in parallel and at scale. You can run on-demand or scheduled jobs without worrying about manually creating or managing the infrastructure.
+Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently in the cloud. Tutorials, API references, and other documentation show you how to define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -123,7 +124,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -143,11 +144,4 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Batch Documentation
-        </div>
-    </a>
-</div>
+

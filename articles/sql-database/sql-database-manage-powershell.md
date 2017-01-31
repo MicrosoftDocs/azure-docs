@@ -9,11 +9,11 @@ editor: monicar
 
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: sstein
 
@@ -27,6 +27,10 @@ ms.author: sstein
 > 
 
 This topic shows the PowerShell cmdlets that are used to perform many Azure SQL database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
+
+> [!TIP]
+> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, connect and query the master database, create a sample database and a blank database, query database properties, connect and query the sample database, see [Get Started Tutorial](sql-database-get-started-powershell.md).
+>
 
 ## How do I create a resource group?
 To create a resource group for your SQL database and related Azure resources, use the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837\(v=azure.300\).aspx) cmdlet.
@@ -51,8 +55,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `

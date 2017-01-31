@@ -134,8 +134,6 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
     ![Fallback route][33]
 
 
-3. Add the following class-level variable to the **App** class. Replace **{yourstorageaccountconnectionstring}** with the Azure Storage account connection string you made a note of previously in the [Provision an Azure Storage account and a Service Bus queue](#provision-an-azure-storage-account-and-a-service-bus-queue) section:
-
 ## (Optional) Read from the queue endpoint
 You can optionally read the messages from the queue endpoint by following the instructions in [Get started with queues][lnk-sb-queues-java]. Name the app **read-critical-queue**.
 
@@ -224,5 +222,5 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-c2d]: iot-hub-java-java-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-create-an-iot-hub]: iot-hub-java-java-getstarted.md#create-an-iot-hub

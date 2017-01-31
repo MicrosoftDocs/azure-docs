@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
 ---
 # Site Recovery Documentation
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises virtual machines and physical servers. You can replicate servers and VMs from your primary on-premises datacenter to Azure or to a secondary datacenter. If an outage occurs in your primary site, you fail over to the secondary site to keep workloads accessible and available.
+Learn how to use Site Recovery for business continuity and disaster recovery strategy for private clouds. Tutorials and other documentation show you how to plan, deploy, and manage the orchestration of replicating on-premises physical servers and virtual machines to the cloud or to a secondary datacenter.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -75,11 +76,4 @@ Azure Site Recovery contributes to your business continuity and disaster recover
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Site Recovery Documentation
-        </div>
-    </a>
-</div>
+

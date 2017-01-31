@@ -1,11 +1,11 @@
 ---
-title: Working with Azure AD Application Proxy connectors | Microsoft Docs
+title: Classic portal Azure AD App Proxy connectors | Microsoft Docs
 description: Covers how to create and manage groups of connectors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 
 ---
@@ -21,8 +21,8 @@ ms.author: kgremban
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure classic portal](active-directory-application-proxy-connectors.md)
-> 
-> 
+>
+>
 
 Connector groups are useful for various scenarios, including:
 
@@ -65,4 +65,3 @@ The last step is to set each application to the connector group that will serve 
 * [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-

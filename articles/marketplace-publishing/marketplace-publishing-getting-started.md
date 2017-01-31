@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 
 ---
@@ -39,10 +39,12 @@ The first thing you would want to do as a publisher is to define what kind of so
 ![draw](media/marketplace-publishing-getting-started/img01.png)
 
 ### 1. Nominate your solution for pre-approval
-> [!IMPORTANT]
-> Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
+- Complete the solution nomination form for **Microsoft Azure Certified for Virtual Machines** [here](https://createopportunity.azurewebsites.net)
 
-- [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
+>[!NOTE]
+> If you are working with a Partner Account Manager or a DX Partner Manager, please ask them to nominate your solution for the Azure Certified program OR go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage, fill out the application form and enter the email of your Partner Account Manager or DX Partner Manager in the Microsoft Sponsor Contact field.
+
+If the eligibility criteria is met per the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833) and your application is approved, we will start working with you to onboard your solution to the Azure Marketplace.
 
 ### 2. Register your account as a Microsoft seller
 - [Register your Microsoft account as a Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md)

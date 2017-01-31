@@ -1,6 +1,6 @@
 ---
-title: Use SSH keys with  Linux-based Hadoop from Linux, Unix, or OS X | Microsoft Docs
-description: " You can access Linux-based HDInsight using Secure Shell (SSH). This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients."
+title: Use SSH with HDInsight (Hadoop) from Windows, Linux, Unix, or OS X | Microsoft Docs
+description: " You can access HDInsight using Secure Shell (SSH). This document provides information on using SSH with HDInsight from Windows, Linux, Unix, or OS X clients."
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
-# Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X
+# Use SSH with HDInsight (Hadoop) from Windows, Linux, Unix, or OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) allows you to log in to a Linux-based HDInsight cluster and run commands using a command line interface. This document provides basic information about SSH and specific information about using SSH with HDInsight.
 

@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to use Container Service to deploy and manage application containers using DC/OS, Docker Swarm, or Kubernetes. Tutorials, API references, and more.
 ---
 
 # Azure Container Service Documentation
 
-Azure Container Service makes it simple for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. Container Service uses an optimized configuration of popular open-source scheduling and orchestration tools. This lets you use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
+Learn how to use Container Service to deploy and manage fully portable application containers. Tutorials, API references, and other documentation show you how to scale and orchestrate containers using DC/OS, Docker Swarm, or Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -87,11 +88,3 @@ Azure Container Service makes it simple for you to create, configure, and manage
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Container Service Documentation
-        </div>
-    </a>
-</div>

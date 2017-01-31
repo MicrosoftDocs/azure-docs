@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -249,7 +249,7 @@ However, if you are interested in implementation details, you can find the sourc
 4. Enter **EntryStream** as **INPUT ALIAS**.
 5. Source Type is **Data Stream**
 6. Source is **Event hub**.
-7. **Service bus namescape** should be the TollData one in the drop down.
+7. **Service bus namespace** should be the TollData one in the drop down.
 8. **Event hub name** should be set to **entry**.
 9. **Event hub policy name*is **RootManageSharedAccessKey**  (the default value).
 10. Select **JSON** for **EVENT SERIALIZATION FORMAT** and **UTF8** for **ENCODING**.

@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: Learn how to use a virtual network in the cloud. Documentation shows how to deploy a VNet, use it to launch resources, and integrate with an on-premises network.
 ---
 # Virtual Network Documentation
 
-An Azure Virtual Network (VNet) is a logical representation of your own network in the cloud.  With VNet you can fully control elements of the network and segment your VNet into subnets and use it to launch Azure Virtual Machines or Cloud Services.  Additionally, you can connect the VNet to you on-premises network using one of the connectivity options available in Azure, expanding your network to the cloud while keeping control over resources.
+Learn how to use Virtual Network (VNet), a logical representation of your network in the cloud. Documentation shows you how set up and manage a VNet, use it to launch Virtual Machines or Cloud Services, connect the VNet to your on-premises network, and expand your network to the cloud while keeping control over resources.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -144,11 +145,4 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Virtual Network Documentation
-        </div>
-    </a>
-</div>
+
