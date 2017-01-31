@@ -1,5 +1,5 @@
 ---
-title: .NET Standard API overview | Microsoft Docs
+title: Overview of the Azure Event Hubs .NET Standard APIs | Microsoft Docs
 description: .NET Standard API overview
 services: event-hubs
 documentationcenter: na
@@ -25,16 +25,16 @@ This article summarizes some of the key Event Hubs .NET Standard client APIs. Th
   * This library adds additional functionality that allows for 
 
 ## Event Hub Client
-An `EventHubClient` is the primary object for which you will use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and will create a new connection to the Event Hubs endpoint.
+An `EventHubClient` is the primary object you use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and creates a new connection to the Event Hubs endpoint.
 
 ### Create an Event Hub client
-An `EventHubClient` is created from a connection string. The simplest way to instantiate a new client is shown below:
+An `EventHubClient` is created from a connection string. The simplest way to instantiate a new client is shown in the following example:
 
 ```csharp
 var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
 ```
 
-In case you need to programmatically edit the connection string, you can use the `ConnectionStringBuilder` class, and pass the connection string as a parameter to `EventHubClient.CreateFromConnectionString()`.
+To programmatically edit the connection string, you can use the `ConnectionStringBuilder` class, and pass the connection string as a parameter to `EventHubClient.CreateFromConnectionString()`.
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
@@ -46,7 +46,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### Send events
-In order to send events to an event hub, you will need to use the `EventData` class. The body must be a `byte` array, or a `byte` array segment.
+To send events to an Event hub, use the `EventData` class. The body must be a `byte` array, or a `byte` array segment.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -88,7 +88,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## Event processor host APIs
-These APIs provide resiliency to worker processes that may become unavailable, by distributing shards across available workers.
+These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers.
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.

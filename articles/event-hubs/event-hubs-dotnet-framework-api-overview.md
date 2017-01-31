@@ -84,13 +84,13 @@ var eventHubClient = EventHubClient.Create(EventHubName);
 var defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
 // All messages
-var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);
+var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index);
 
 // From one day ago
-var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
+var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
 
 // From specific offset, -1 means oldest
-var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
+var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index,startingOffset:-1); 
 ```
 
 ### Consume message
@@ -106,7 +106,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## Event processor host APIs
-These APIs provide resiliency to worker processes that may become unavailable, by distributing shards across available workers.
+These APIs provide resiliency to worker processes that may become unavailable, by distributing partitions across available workers.
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
