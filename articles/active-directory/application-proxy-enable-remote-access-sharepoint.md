@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 
+---
 
 # Enable remote access to SharePoint with Azure AD App Proxy
 
