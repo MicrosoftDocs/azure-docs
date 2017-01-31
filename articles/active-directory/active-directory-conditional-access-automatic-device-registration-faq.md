@@ -66,8 +66,8 @@ For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
 For other Windows platforms that are on-premises AD domain-joined:
 
 1.	Open the command prompt as an administrator.
-2.	Type **"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"**.
-3.	Type **"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"**.
+2.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 

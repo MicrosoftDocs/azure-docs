@@ -47,7 +47,7 @@ Some things to note for successful outcomes:
 
 1. Open the command prompt as an administrator 
 
-2. Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"
+2. Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
 This command displays a dialog box that provides you with more details about the join status.
 
@@ -94,4 +94,4 @@ You can also find the status information in the event log under **Applications a
 
 ## Next steps
 
-For more information, see the FAQ 
+For more information, see the [Automatic device registration FAQ](active-directory-conditional-access-automatic-device-registration-faq.md) 

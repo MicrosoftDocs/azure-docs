@@ -51,31 +51,31 @@ We recommend using the Anniversary Update for enabling the scenarios above.
         | Device State                                                         |
         +----------------------------------------------------------------------+
 
-           AzureAdJoined : YES
-         nterpriseJoined : NO
-                DeviceId : 5820fbe9-60c8-43b0-bb11-44aee233e4e7
-              Thumbprint : B753A6679CE720451921302CA873794D94C6204A
-          KeyContainerId : bae6a60b-1d2f-4d2a-a298-33385f6d05e9
-             KeyProvider : Microsoft Platform Crypto Provider
-            TpmProtected : YES
-            KeySignTest: : MUST Run elevated to test.
-                     Idp : login.windows.net
-                TenantId : 72b988bf-86f1-41af-91ab-2d7cd011db47
-              TenantName : Contoso
-             AuthCodeUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize
-          AccessTokenUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token
-                  MdmUrl : https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc
-               MdmTouUrl : https://portal.manage-beta.microsoft.com/TermsOfUse.aspx
-         dmComplianceUrl : https://portal.manage-beta.microsoft.com/?portalAction=Compliance
-             SettingsUrl : eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ==
-          JoinSrvVersion : 1.0
-              JoinSrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/device/
-               JoinSrvId : urn:ms-drs:enterpriseregistration.windows.net
-           KeySrvVersion : 1.0
-               KeySrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/key/
-                KeySrvId : urn:ms-drs:enterpriseregistration.windows.net
-            DomainJoined : YES
-              DomainName : CONTOSO
+            AzureAdJoined : YES
+         EnterpriseJoined : NO
+                 DeviceId : 5820fbe9-60c8-43b0-bb11-44aee233e4e7
+               Thumbprint : B753A6679CE720451921302CA873794D94C6204A
+           KeyContainerId : bae6a60b-1d2f-4d2a-a298-33385f6d05e9
+              KeyProvider : Microsoft Platform Crypto Provider
+             TpmProtected : YES
+             KeySignTest: : MUST Run elevated to test.
+                      Idp : login.windows.net
+                 TenantId : 72b988bf-86f1-41af-91ab-2d7cd011db47
+               TenantName : Contoso
+              AuthCodeUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize
+           AccessTokenUrl : https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token
+                   MdmUrl : https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc
+                MdmTouUrl : https://portal.manage-beta.microsoft.com/TermsOfUse.aspx
+          dmComplianceUrl : https://portal.manage-beta.microsoft.com/?portalAction=Compliance
+              SettingsUrl : eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ==
+           JoinSrvVersion : 1.0
+               JoinSrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/device/
+                JoinSrvId : urn:ms-drs:enterpriseregistration.windows.net
+            KeySrvVersion : 1.0
+                KeySrvUrl : https://enterpriseregistration.windows.net/EnrollmentServer/key/
+                 KeySrvId : urn:ms-drs:enterpriseregistration.windows.net
+             DomainJoined : YES
+               DomainName : CONTOSO
 
         +----------------------------------------------------------------------+
         | User State                                                           |
@@ -147,3 +147,5 @@ If they show ‘NO’ the following are possible causes:
 3.	HTTP Proxy not found
 
 ## Next steps
+
+For more information, see the [Automatic device registration FAQ](active-directory-conditional-access-automatic-device-registration-faq.md) 
