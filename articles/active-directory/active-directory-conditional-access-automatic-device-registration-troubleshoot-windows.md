@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 01/31/2017
 ms.author: markvi
 
 ---
@@ -50,7 +50,7 @@ Verify the registration state of the device:
         +----------------------------------------------------------------------+
 
            AzureAdJoined : YES
-        EnterpriseJoined : NO
+         nterpriseJoined : NO
                 DeviceId : 5820fbe9-60c8-43b0-bb11-44aee233e4e7
               Thumbprint : B753A6679CE720451921302CA873794D94C6204A
           KeyContainerId : bae6a60b-1d2f-4d2a-a298-33385f6d05e9
