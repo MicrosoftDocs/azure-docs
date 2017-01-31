@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 02/01/2017
 ms.author: jeffstok
 
 ---
@@ -101,6 +101,12 @@ Provide values as below:
 > 
 > 
 
+The dataset is created with the following settings set;
+* defaultRetentionPolicy: BasicFIFO - data is FIFO, 200k maximum rows
+* defaultMode: pushStreaming: supports both streaming tiles and traditional report-based visuals (aka push)
+* creating datasets with other flags is unsupported at this time
+
+
 * Click **OK**, **Test Connection** and now you output configuraiton is complete.
 
 > [!WARNING]
@@ -166,6 +172,8 @@ For further information on configuring a Power BI output and to utilize Power BI
 ## Limitations and best practices
 Power BI employs both concurrency and throughput constraints as described here: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI Pricing")
 
+Currently, you Power BI can be called roughly once per second. Streaming visuals support packets of size 15kb. Beyond that and streaming visuals will fail ( but push will continue to work).
+
 Because of those Power BI lands itself most naturally to cases where Azure Stream Analytics does a significant data load reduction.
 We recommend using TumblingWindow or HoppingWindow to ensure that data push would be at most 1 push/second and that your query lands within the throughput requirements – you can use the following equation to compute the value to give your window in seconds:
 
@@ -190,10 +198,6 @@ Which means we would change the original query to:
         TUMBLINGWINDOW(ss,4),
         dspl
 
-### PowerBI view refresh
-A common question is "Why doesn't the dashboard auto-update in PowerBI?".
-
-To achieve this, in PowerBI utilize Q&A and asking a question such as "Maximum value by temp where Timestamp is today" and pin that tile to the dashboard.
 
 ### Renew authorization
 You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
