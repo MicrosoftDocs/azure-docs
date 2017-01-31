@@ -20,12 +20,17 @@ ms.author: juliako
 # Upload files into a Media Services account using the Aspera Server On Demand service on Azure
 
 ## Overview
- 
-**Aspera Server On Demand** for Azure is a transfer service available for purchase from the [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). In order to complete a purchase Aspera Server On Demand for Azure, please log into Azure Marketplace with your Windows Live ID.
 
-This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure. For information about Aspera On Demand, see the [Aspera Cloud](http://cloud.asperasoft.com/) site. 
+**Aspera** is a high-speed file transfer software. **Aspera Server On Demand** for Azure enables high-speed upload and download of large files directly into Azure Blob object storage. For information about **Aspera On Demand**, see the [Aspera Cloud](http://cloud.asperasoft.com/) site. 
+  
+**Aspera Server On Demand** for Azure is available for purchase from the [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). In order to complete a purchase Aspera Server On Demand for Azure, please log into Azure Marketplace with your Windows Live ID.
 
-Aspera has two offerings in the Azure marketplace: **Aspera Server on Demand** and **Aspera Faspex on Demand**. Aspera software that has been purchased for on premise deployments is not allowed to be installed on virtual machines running on the Azure platform. 
+This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure. 
+
+
+>[!NOTE]
+>There is a limit to the maximum file size supported for processing with Azure Media Services media processors (MPs). Please see [this](media-services-quotas-and-limitations.md) topic for details about the file size limitation.
+>
 
 ## Prerequisites 
 
@@ -100,7 +105,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 	>[!NOTE]
 	>Please read the Aspera client guide for configuration information.
 	
-	3. Retrieve your storage account name and key using the [Azure portal](https://portal.azure.com/). Also, get the storage container name (you will place your content into the container). 
+	3. Retrieve some information of your storage account that is associated with your Azure Media Account using the [Azure portal](https://portal.azure.com/). Specifically, name and key, and the storage blob container name in to which you want to place your content. 
 
 		* To get the storage info from the portal: find your storage account, click on the Access keys and copy the name and the key of your account.
 		* To get the container name: find your storage account, select **Blobs**, select the name of the container you want to upload the content into. 
