@@ -25,21 +25,23 @@ This topic is applicable to the following clients:
 
 For other Windows clients, see [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
 
-This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md).
+This topic assumes that you have configured auto-registration of domain-joined devices as outlined in described in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md) to spport the following scenarios:
 
-1.	Device-based conditional access. Learn more about Conditional access in Azure Active Directory
+1.	[Device-based conditional access](active-directory-conditional-access-automatic-device-registration-setup.md)
 
-2.	Enterprise roaming of settings <link to document about Windows 10 experiences>
+2.	[Enterprise roaming of settings](active-directory-windows-enterprise-state-roaming-overview.md)
 
-3.	Windows Hello for Business <link to document about Windows 10 experiences>
+3.	[Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 
 
 This document provides troubleshooting guidance on how to resolve potential issues. 
 
-Some things to note for successful outcomes:
-•	Registration is supported in the Windows 10 November 2015 Update and above. We recommend the Anniversary Update for enabling the scenarios above.
+The registration is supported in the Windows 10 November 2015 Update and above.  
+We recommend using the Anniversary Update for enabling the scenarios above.
 
-Verify the registration state of the device:
+## Step 1: Retrieve the registration status 
+
+**To retrieve the registration status:**
 
 1.	Open the command prompt as an administrator.
 
@@ -90,14 +92,16 @@ Verify the registration state of the device:
 
 
 
+## Step 2: Evaluate the registration status 
 
 Review the following fields and make sure that they have the expected values:
 
-**AzureAdJoined : YES**  
+### AzureAdJoined : YES  
+
 This field shows whether the device is registered with Azure AD. 
 If the value shows as ‘NO’, registration has not completed. 
 
-Possible causes:
+**Possible causes:**
 
 1.	Authentication of the computer for registration failed.
 
@@ -119,17 +123,20 @@ Possible causes:
 
 ---
 
-**DomainJoined : YES**  
+### DomainJoined : YES  
+
 This field shows whether the device is joined to an on-premises Active Directory or not. If the value shows as ‘NO’, the device cannot auto-register with Azure AD. Check first that the device joins to the on-premises Active Directory before it can register with Azure AD. If you are looking for joining the computer to Azure AD directly, please go to Learn about capabilities of Azure Active Directory Join.
 
 ---
 
-**WorkplaceJoined : NO**  
+### WorkplaceJoined : NO  
+
 This field shows whether the device is registered with Azure AD but as a personal device (marked as ‘Workplace Joined’). If this value should show as ‘NO’ for a domain joined computer registered with Azure AD, however if it shows as YES it means that a work or school account was added prior to the computer completing registration. In this case the account will be ignored if using the Anniversary Update version of Windows 10 (1607 when running the WinVer command in the ‘Run’ window or a command prompt window).
 
 ---
 
-**WamDefaultSet : YES and AzureADPrt : YES**  
+### WamDefaultSet : YES and AzureADPrt : YES
+  
 These fields show that the user has successfully authenticated to Azure AD upon signing in to the device. 
 If they show ‘NO’ the following are possible causes:
 
@@ -139,4 +146,4 @@ If they show ‘NO’ the following are possible causes:
 
 3.	HTTP Proxy not found
 
----
+## Next steps
