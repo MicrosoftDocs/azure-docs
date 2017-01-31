@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 01/30/2017
 ms.author: jgao
 
 ---
@@ -162,6 +162,7 @@ In addition, each Data Lake Analytics account requires at least one Data Lake St
   
 ### Create a Data Lake Store account
 The following code shows how to create a Data Lake store account. 
+
     var adlsParameters = new DataLakeStoreAccount(location: _location);
     _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
@@ -485,7 +486,7 @@ To read data from a blob on a linked Azure Storage account, you must use the ful
 
 For example, if a source file (SearchLog.tsv) is stored in a blob container named "samples" in the "contso_33" sorage account, the path for the FROM statement would be:
 
-    wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv
+    FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 
 ## Azure Resource Groups and Data Lake Analytics
 Applications are typically made up of many components, for example a web app, database, database server, storage,
