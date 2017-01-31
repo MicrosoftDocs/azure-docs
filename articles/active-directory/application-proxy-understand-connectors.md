@@ -53,7 +53,7 @@ Enable Application Proxy in the Azure portal](active-directory-application-proxy
 
 As a result of having only outbound traffic, there is no need to setup load balancing between the connectors or configure inbound access through your firewalls.
 
-For information about configuring outbound firewall rules, see [Working with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md).
+For information about configuring outbound firewall rules, see [Work with existing on-premise Proxy servers](application-proxy-working-with-proxy-servers.md).
 
 ## Network security
 
@@ -151,6 +151,6 @@ You can examine the state of the service in the Services window. The connector i
 For information about resolving errors  the Application Proxy Connector, see [Troubleshoot Application Proxy](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ##Next steps
-[Working with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)<br>
+[Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)<br>
 [How to silently install the Azure AD Application Proxy Connector ](active-directory-application-proxy-silent-installation.md)
 
