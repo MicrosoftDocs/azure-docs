@@ -43,7 +43,7 @@ Scheduled events are surfaced to all Virtual Machines in a cloud service or to a
 ### Discover the Endpoint
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of: 169.254.169.254 
 Otherwise, (in the default cases for cloud services and classic VMs), an additional logic is required to discover the endpoint to use. 
-Refer to this sample to learn how to [discover a host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
+Refer to this sample to learn how to [discover the host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### Versioning 
 The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
