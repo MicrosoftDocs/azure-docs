@@ -5,14 +5,14 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: harshja
 
-ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
-ms.service: active-directoryms.workload: identity
+ms.assetid: 
+ms.service: active-directory
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 01/12/2017
 ms.author: kgremban
 
 ---
