@@ -18,7 +18,44 @@ ms.author: jrj;barbkess
 
 ---
 # Create Table As Select (CTAS) in SQL Data Warehouse
-Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. You can consider it to be a supercharged version of `SELECT..INTO` if you would like. This document provides both examples and best practices for `CTAS`.
+Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. This document provides both examples and best practices for `CTAS`.
+
+## SELECT..INTO vs. CTAS
+You can consider `CTAS` as a super-charged version of `SELECT..INTO`.
+
+Below is an example of a simple `SELECT..INTO` statement:
+
+```sql
+SELECT *
+INTO    [dbo].[FactInternetSales_new]
+FROM    [dbo].[FactInternetSales]
+```
+
+In the example above `[dbo].[FactInternetSales_new]` would be created as ROUND_ROBIN distributed table with a CLUSTERED COLUMNSTORE INDEX on it as these are the table defaults in Azure SQL Data Warehouse.
+
+`SELECT..INTO` however does not allow you to change either the distribution method or the index type as part of the operation. This is where `CTAS` comes in.
+
+To convert the above to `CTAS` is quite straight-forward:
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_new]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN
+,	CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+;
+```
+
+With `CTAS` you are able to change both the distribution of the table data as well as the table type. 
+
+> [!NOTE]
+> If you are only trying to change the index in your `CTAS` operation and the source table is hash distributed then your `CTAS` operation will perform best if you maintain the same distribution column and data type. This will avoid cross distribution data movement during the operation which is more efficient.
+> 
+> 
 
 ## Using CTAS to copy a table
 Perhaps one of the most common uses of `CTAS` is creating a copy of a table so that you can change the DDL. If for example you originally created your table as `ROUND_ROBIN` and now want change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to change partitioning, indexing, or column types.
@@ -98,43 +135,6 @@ DROP TABLE FactInternetSales_old;
 
 > [!NOTE]
 > Try to think "CTAS first". If you think you can solve a problem using `CTAS` then that is generally the best way to approach it - even if you are writing more data as a result.
-> 
-> 
-
-## SELECT..INTO vs. CTAS
-You may find `SELECT..INTO` appears in a number of places in your solution.
-
-Below is an example of a simple `SELECT..INTO` statement:
-
-```sql
-SELECT *
-INTO    [dbo].[FactInternetSales_new]
-FROM    [dbo].[FactInternetSales]
-```
-
-In the example above `[dbo].[FactInternetSales_new]` would be created as ROUND_ROBIN distributed table with a CLUSTERED COLUMNSTORE INDEX on it as these are the table defaults in Azure SQL Data Warehouse.
-
-`SELECT..INTO`however does not allow you to change either the distribution method or the index type as part of the operation. This is where `CTAS` comes in.
-
-To convert the above to `CTAS` is quite straight-forward:
-
-```sql
-CREATE TABLE [dbo].[FactInternetSales_new]
-WITH
-(
-    DISTRIBUTION = ROUND_ROBIN
-,	CLUSTERED COLUMNSTORE INDEX
-)
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-;
-```
-
-With `CTAS` you are able to change both the distribution of the table data as well as the table type. 
-
-> [!NOTE]
-> If you are only trying to change the index in your `CTAS` operation and the source table is hash distributed then your `CTAS` operation will perform best if you maintain the same distribution column and data type. This will avoid cross distribution data movement during the operation which is more efficient.
 > 
 > 
 
