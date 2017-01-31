@@ -114,7 +114,7 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 **A:** Common reasons for this scenario are:
 
-1.	You user credentials are no longer valid.
+1.	Your user credentials are no longer valid.
 
 2.	Your computer is unable to communicate with Azure Active Directory. Check for any network connectivity issues.
 
