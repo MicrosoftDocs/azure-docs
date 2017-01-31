@@ -110,7 +110,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    
    Choose the right image according to how you want to pay for the SQL Server license: 
 
-   - **Pay per usage licensing**: The per-minute cost of these images include the SQL Server licensing:
+   - **Pay per usage licensing**: The per-minute cost of these images includes the SQL Server licensing:
       - **SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
