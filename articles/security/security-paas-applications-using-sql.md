@@ -1,6 +1,6 @@
 ---
 title: Securing PaaS web and mobile applications using SQL Database and SQL Data Warehouse | Microsoft Docs
-description: " Understand the security advantages of PaaS versus other cloud service models and learn recommended practices for securing your Azure PaaS deployment. "
+description: " Learn about Azure SQL Database and SQL Data Warehouse security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
 author: TerryLanfear
