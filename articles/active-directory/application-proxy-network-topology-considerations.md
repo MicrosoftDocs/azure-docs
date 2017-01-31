@@ -179,16 +179,16 @@ This use case follows the pattern #5b below.
 
 One other variant to this use-case that you can consider employing is below.
 
-If most users in the organization are in the US, then chances are that your network ‘extends’ to the US as well. If that is the case, the connector can be placed in the US and can leverage the dedicated internal corporate network line to the application in the EU. This way hop #2 and hop#3 are optimized.
+If most users in the organization are in the US, then chances are that your network ‘extends’ to the US as well. If that is the case, the connector can be placed in the US and can leverage the dedicated internal corporate network line to the application in the EU. This way hop #2 and hop #3 are optimized.
 
 This use case follows the pattern #5c below.
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
 ## Next steps
-* [Enable Application Proxy](active-directory-application-proxy-enable.md)
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
-* [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+[Enable Application Proxy](active-directory-application-proxy-enable.md)<br>
+[Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)<br>
+[Enable conditional access](active-directory-application-proxy-conditional-access.md)<br>
+[Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 
