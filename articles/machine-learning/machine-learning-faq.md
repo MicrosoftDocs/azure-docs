@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning FAQ | Microsoft Docs
+title: Azure Machine Learning frequently asked questions (FAQ) | Microsoft Docs
 description: 'Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/26/2016
+ms.date: 01/23/2017
 ms.author: garye
 
 ---
@@ -286,9 +286,6 @@ If you accidentally deleted the storage account, recreate the storage account wi
 Machine Learning Studio relies on a user supplied Azure storage account to store intermediary data when executing the workflow. This storage account is provided to Machine Learning Studio at the time a workspace is created and the Access Keys are associated with that workspace. if the Access Keys are changed, after the workspace is created, the workspace can no longer access the storage account. It will stop functioning and all experiments in that workspace will fail.
 
 If you have changed storage account Access Keys, resync the Access Keys in the workspace using the Azure classic portal.  
-
-## Azure Marketplace
-See the [FAQ for publishing and using apps in the Machine Learning Marketplace](machine-learning-marketplace-faq.md).
 
 ## Support and training
 **Where can I get training for Azure Machine Learning?**

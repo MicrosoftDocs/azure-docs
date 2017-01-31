@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 12/19/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
@@ -38,7 +38,7 @@ Let's walk through the steps to build a **Workspace Collection** using the Azure
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. Under **Data + Analytics** click **Power BI Embedded**.
-4. On the **Creation Blade**, enter the required information. For **Pricing**, see [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. On the **Workspace Collection Blade**, enter the required information. For **Pricing**, see [Power BI Embedded pricing](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. Click **Create**.

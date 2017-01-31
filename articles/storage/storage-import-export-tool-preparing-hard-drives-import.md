@@ -1,8 +1,8 @@
 ---
 title: Preparing hard drives for an Azure Import/Export import job | Microsoft Docs
 description: Learn how to prepare hard drives using the WAImportExport tool to create an import job for the Azure Import/Export service.
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 
 ---
 # Preparing hard drives for an Import Job
@@ -86,7 +86,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export Service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) for more information.  |
 | Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk.Available options are: rename&#124;overwite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If the object with same name present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
 | MetadataFile | **[Optional]** <br/>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information |
-| PropertiesFile | **[Optional]** <br/>Path to the property file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](/rest/api/storageservices/importexport/import-export-service-metadata-and-properties-file-format) for more information. |
+| PropertiesFile | **[Optional]** <br/>Path to the property file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information. |
 
 ## Prepare InitialDriveSet or AdditionalDriveSet CSV file
 

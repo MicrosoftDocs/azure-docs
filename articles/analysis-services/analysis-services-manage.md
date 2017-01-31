@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 01/20/2017
 ms.author: owend
 
 ---
@@ -52,51 +52,8 @@ Connecting to your server in Azure is just like connecting to a server instance 
 
 Since managing your server in Azure by using SSMS is much the same as managing an on-premises server, we're not going to go into details here. All the help you need can be found in [Analysis Services Instance Management](https://msdn.microsoft.com/library/hh230806.aspx) on MSDN.
 
-## Server administrators
-You can use **Analysis Services Admins** in the control blade for your server in Azure portal or SSMS to manage server administrators. Analysis Services Admins are database server administrators with  rights for common database administration tasks such as adding and removing databases and managing users. By default, the user that creates the server in Azure portal is automatically added as an Analysis Services Admin.
-
-You should also know:
-
-* Windows Live ID is not a supported identity type for Azure Analysis Services.  
-* Analysis Services Admins must be valid Azure Active Directory users.
-* If creating an Azure Analysis Services server via Azure Resource Manager  templates, Analysis Services Admins takes a JSON array of users that should be added as admins.
-
-Analysis Services Admins can be different from Azure resource administrators, which can manage resources for Azure subscriptions. This maintains compatibility with existing XMLA and TSML manage behaviors in Analysis Services and to allow you to segregate duties between Azure resource management and Analysis Services database management.
-
-To view all roles and access types for your Azure Analysis Services resource, use Access control (IAM) on the control blade.
-
-## Database users
-Azure Analysis Services model database users must be in your Azure Active Directory. Usernames specified for the model database must be by organizational email address or UPN. This is different from on-premises model databases which support users by Windows domain usernames.
-
-You can add users by using [role assignments in Azure Active Directory](../active-directory/role-based-access-control-configure.md) or by using [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) in SQL Server Management Studio.
-
-**Sample TMSL script**
-
-```
-{
-  "createOrReplace": {
-    "object": {
-      "database": "SalesBI",
-      "role": "Users"
-    },
-    "role": {
-      "name": "Users",
-      "description": "All allowed users to query the model",
-      "modelPermission": "read",
-      "members": [
-        {
-          "memberName": "user1@contoso.com",
-          "identityProvider": "AzureAD"
-        },
-        {
-          "memberName": "group1@contoso.com",
-          "identityProvider": "AzureAD"
-        }
-      ]
-    }
-  }
-}
-```
+## Server administrators and database users
+In Azure Analysis Services there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. This is different from on-premises tabular model databases which support server administrators and database users by Windows domain usernames. To learn more, see [Manage users in Azure Analysis Services](analysis-services-manage-users.md).
 
 ## Enable Azure Active Directory authentication
 To enable the Azure Active Directory authentication feature for SSMS in the registry, create a text file named EnableAAD.reg, then copy and paste the following:

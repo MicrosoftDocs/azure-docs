@@ -47,7 +47,7 @@ You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 ## Send interactive messages from a simulated device app
 In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
-1. In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code.
+- In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code.
    
     ```
     private static async void SendDeviceToCloudMessagesAsync()

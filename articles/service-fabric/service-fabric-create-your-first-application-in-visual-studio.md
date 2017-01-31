@@ -1,5 +1,5 @@
 ---
-title: Create your first Service Fabric application in Visual Studio | Microsoft Docs
+title: Create your first Azure microservices application | Microsoft Docs
 description: Create, deploy, and debug a Service Fabric application using Visual Studio
 services: service-fabric
 documentationcenter: .net
@@ -33,7 +33,7 @@ Before you get started, make sure that you have [set up your development environ
 ## Video walkthrough
 The following video walks through the steps in this tutorial:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -128,6 +128,7 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
+* Try deploying a [Windows container](service-fabric-deploy-container.md) or an existing app as a [guest executable](service-fabric-deploy-existing-app.md).
 * Learn how to expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
 * Walk through a [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) and create a stateless service, configure monitoring and health reports, and perform an application upgrade.
 * Learn about [Service Fabric support options](service-fabric-support.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database server-level firewall rules using the REST API | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL databases.
+title: 'REST API: Azure SQL Database server-level firewall rules | Microsoft Docs'
+description: Learn how to configure server-level firewall rules for IP addresses that access Azure SQL databases using the REST API.
 services: sql-database
 documentationcenter: ''
 author: stevestein

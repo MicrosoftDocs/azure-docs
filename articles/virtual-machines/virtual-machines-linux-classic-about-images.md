@@ -1,5 +1,5 @@
 ---
-title: About Linux images for VMs | Microsoft Docs
+title: About Linux VM images in Azure | Microsoft Docs
 description: Learn about how Linux images are used with virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''

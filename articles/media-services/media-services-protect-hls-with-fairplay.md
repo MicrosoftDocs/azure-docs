@@ -1,5 +1,5 @@
 ---
-title: Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady | Microsoft Docs
+title: Protect HLS content with Microsoft PlayReady or Apple FairPlay - Azure | Microsoft Docs
 description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: juliako
 
 ---
@@ -40,6 +40,7 @@ This topic demonstrates how to use Azure Media Services to dynamically encrypt y
 >
 
 ## Requirements and considerations
+
 * The following are required when using AMS to deliver HLS encrypted with FairPlay and to deliver FairPlay licenses.
 
   * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -159,8 +160,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see: [configure streaming endpoints](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Overwrite the code in your Program.cs file with the code shown in this section.
+7. Overwrite the code in your Program.cs file with the code shown in this section.
 
         using System;
         using System.Collections.Generic;

@@ -3,7 +3,7 @@ title: 'Tutorial: Azure Active Directory integration with PlanMyLeave | Microsof
 description: Learn how to configure single sign-on between Azure Active Directory and PlanMyLeave.
 services: active-directory
 documentationCenter: na
-authors: jeevansd
+author: jeevansd
 manager: femila
 
 ms.assetid: b0d31cbe-7ae2-488b-9cf3-4927391fa744
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 01/04/2017
 ms.author: jeedes
 
 ---

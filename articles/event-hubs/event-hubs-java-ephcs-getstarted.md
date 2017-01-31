@@ -1,5 +1,5 @@
 ---
-title: Get Started with Event Hubs in Java | Microsoft Docs
+title: Send events with Azure Event Hubs in Java, receive in C# | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in C# using the EventProcessorHost.
 services: event-hubs
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/04/2017
 ms.author: jotaub;sethm
 
 ---
@@ -62,7 +62,6 @@ For more information, see the [Java Developer Center](/develop/java/).
 [22]: ./media/event-hubs-java-ephcs-getstarted/java-send.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

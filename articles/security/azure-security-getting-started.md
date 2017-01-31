@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2016
+ms.date: 01/09/2017
 ms.author: yurid
 
 ---
@@ -191,4 +191,3 @@ Azure has security controls in place to implement threat mitigation and also to 
 [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Active Directory Blog](http://blogs.technet.com/b/ad/)
-
