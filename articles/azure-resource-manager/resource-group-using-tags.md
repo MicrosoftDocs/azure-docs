@@ -117,12 +117,6 @@ Every time you apply tags to a resource or resource group, you overwrite the exi
   az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
   ```
 
-* resource group with existing tags.
-
-  ```azurecli
-
-  ```
-
 * resource without existing tags.
 
   ```azurecli
