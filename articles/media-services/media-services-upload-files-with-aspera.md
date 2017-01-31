@@ -3,7 +3,7 @@ title: Upload files into an Azure Media Services account using Aspera | Microsof
 description: This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On Demand** service on Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: johndeu
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/28/2017
+ms.date: 01/30/2017
 ms.author: juliako
 
 ---
@@ -71,7 +71,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
 
-9. By clicking on that manage link, you will get to the registration page, which is required to access the service.
+9. By clicking on the manage link, you will get to the registration page, which is required to access the service.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera009.png)
 
@@ -103,7 +103,7 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 	3. Retrieve your storage account name and key using the [Azure portal](https://portal.azure.com/). Also, get the storage container name (you will place your content into the container). 
 
 		* To get the storage info from the portal: find your storage account, click on the Access keys and copy the name and the key of your account.
-		* To get container name: find your storage account, select **Blobs**, select the name of the container you want to upload the content into. 
+		* To get the container name: find your storage account, select **Blobs**, select the name of the container you want to upload the content into. 
 
 	Below is the screenshot of the Aspera client **Connection Manager** where you must specify the 'Azure' storage type and credentials as well as the blob container.
 
