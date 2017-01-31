@@ -117,6 +117,7 @@ Choose the right image according to how you want to pay for the SQL Server licen
       - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
    
    **Bring-your-own-license (BYOL)**
+   
       - **{BYOL} SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016** 
 
