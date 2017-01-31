@@ -1,6 +1,6 @@
 ---
-title: Send events with Azure Event Hubs in C# | Microsoft Docs
-description: Follow this tutorial to get started using Azure Event Hubs with C# and using the Event Processor Host.
+title: Send events to Azure Event Hubs using the .NET Framework | Microsoft Docs
+description: Get started sending events to Event Hubs using the .NET Framework
 services: event-hubs
 documentationcenter: ''
 author: jtaubensee
@@ -17,7 +17,7 @@ ms.date: 01/30/2017
 ms.author: jotaub
 
 ---
-# Get started with Event Hubs using the .NET Framework
+# Send events to Azure Event Hubs using the .NET Framework
 
 ## Introduction
 Event Hubs is a service that processes large amounts of event data (telemetry) from connected devices and applications. After you collect data into Event Hubs, you can store the data using a storage cluster or transform it using a real-time analytics provider. This large-scale event collection and processing capability is a key component of modern application architectures including the Internet of Things (IoT).
