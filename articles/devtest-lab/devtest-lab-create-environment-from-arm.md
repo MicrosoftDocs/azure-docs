@@ -92,6 +92,14 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 	![Add blade](./media/devtest-lab-create-environment-from-arm/add.png)
 
+> [!NOTE]
+> There are several parameter values that - even if specified - are displayed as empty values. Therefore, if users assign those values to parameters in an ARM template, DevTest Labs will not show the values; instead showing blank input fields where the lab users need to enter a value when creating the environment.
+> 
+> - GEN-UNIQUE
+> - GEN-UNIQUE-[N]
+> - GEN-SSH-PUB-KEY
+> - GEN-PASSWORD 
+ 
 1. Select **Add** to create the environment. The environment starts provisioning immediately with the status displaying in the **My virtual machines** list. A new resource group is automatically created by the lab to provision all the resources defined in the Azure Resource Manager template.
 1. Once the environment is created, select the environment in **My virtual machines** list to open the resource group blade and browse the resources provisioned in the environment.
 	
@@ -103,4 +111,4 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 ## Next steps
 * Once a VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
-* Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
+* Explore the [Azure Resource Manager templates from Azure QuickStart template gallery](https://github.com/Azure/azure-quickstart-templates)
