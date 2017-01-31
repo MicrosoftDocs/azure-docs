@@ -26,7 +26,7 @@ ms.author: jdial
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article explains how to create a virtual network (classic) with a netcfg file using the Azure classic portal. You can also [create a virtual network through the Azure Resource Manager deployment model using the Azure portal](virtual-networks-create-vnet-arm-pportal.md).
+This article explains how to create a virtual network with a netcfg file through the classic deployment model using the Azure classic portal. You can also [create a virtual network through the classic deployment model without using a netcfg file](virtual-networks-create-vnet-classic-pportal) or [create a virtual network through the Azure Resource Manager deployment model]((virtual-networks-create-vnet-arm-pportal.md)) using the Azure portal.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -37,6 +37,7 @@ To create a VNet using a netcfg file through the Azure classic portal, complete 
 
 1. From a browser, navigate to http://manage.windowsazure.com and, if necessary, sign in with your Azure account.
 2. Scroll down the list of services, click **NETWORKS**, then **EXPORT**, as shown in the following picture:
+
 	![Azure virtual networks](./media/virtual-networks-create-vnet-classic-portal/networks.png)
 3. In the **Export network configuration** dialog box, select the subscription you want to export the virtual network configuration from, then click the check mark button at the bottom-right corner of the box.
 4. Follow your browser instructions to save the **NetworkConfig.xml** file. Make sure you note where you are saving the file.
@@ -66,12 +67,13 @@ To create a VNet using a netcfg file through the Azure classic portal, complete 
 	```
 7. Save the network configuration file.
 8. In the Azure classic portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, and click **IMPORT CONFIGURATION** as shown in the following picture:
+
 	![Import configuration](./media/virtual-networks-create-vnet-classic-portal/import.png)
 10. In the **Import the network configuration file** dialog box, click **BROWSE FOR FILE...**, navigate to the folder you saved the file to in step 7, select the file, and click **Open**, as shown in the following picture:
 
 	![Import network configuration file page](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure4.png)
 
-	On the bottom-right corner of the box, click the arrow button to move to the next step.
+	In the bottom-right corner of the box, click the arrow button to move to the next step.
 
 9. In the **Building your network** dialog box, notice the entry for the new VNet, as shown in the following picture:
 
