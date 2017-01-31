@@ -93,7 +93,7 @@ Once an Azure Resource Manager template repository has been configured in the la
 	![Add blade](./media/devtest-lab-create-environment-from-arm/add.png)
 
 > [!NOTE]
-> There are several parameter values that - even if specified - are displayed as empty values. Therefore, if users assign those values to parameters in an ARM template, DevTest Labs will not show the values; instead showing blank input fields where the lab users need to enter a value when creating the environment.
+> There are several parameter values that - even if specified - are displayed as empty values. Therefore, if users assign those values to parameters in an Azure Resource Manager template, DevTest Labs does not display the values; instead showing blank input fields where the lab users need to enter a value when creating the environment.
 > 
 > - GEN-UNIQUE
 > - GEN-UNIQUE-[N]
@@ -105,7 +105,7 @@ Once an Azure Resource Manager template repository has been configured in the la
 	
 	![My virtual machines list](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
-1. Click on any of the environments to view the available actions - such as applying artifacts, attaching data disks, changing auto-shutdown time, and more.
+1. Click any of the environments to view the available actions - such as applying artifacts, attaching data disks, changing auto-shutdown time, and more.
 
 	![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
