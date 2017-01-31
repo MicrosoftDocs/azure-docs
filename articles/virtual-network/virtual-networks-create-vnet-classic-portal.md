@@ -31,7 +31,7 @@ This article explains how to create a virtual network (classic) with a netcfg fi
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 ## How to create a VNet with a network config file in the Microsoft Azure classic portal
-Azure uses an xml file to define all VNets available to a subscription. You can download this file and edit it to create new VNets through the classic deployment model or to modify or delete existing VNets. This article explains how to download this file, referred to as a network configuration (or netcfg) file, add a new VNet to it, and upload the file to create the new VNet. Check the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) to learn more about the network configuration file.
+Azure uses an xml file to define all VNets available to a subscription. You can download this file and edit it to create VNets through the classic deployment model or to modify or delete existing VNets. This article explains how to download this file, referred to as a network configuration (or netcfg) file, add a VNet to it, and upload the file to create the VNet. To learn more about the network configuration file, review the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 To create a VNet using a netcfg file through the Azure classic portal, complete the following steps:
 
@@ -40,7 +40,7 @@ To create a VNet using a netcfg file through the Azure classic portal, complete 
 	![Azure virtual networks](./media/virtual-networks-create-vnet-classic-portal/networks.png)
 3. In the **Export network configuration** dialog box, select the subscription you want to export the virtual network configuration from, then click the check mark button at the bottom-right corner of the box.
 4. Follow your browser instructions to save the **NetworkConfig.xml** file. Make sure you note where you are saving the file.
-5. Open the file you saved in step 4 above using any XML or text editor application, and look for the `<VirtualNetworkSites>` element within the `<VirtualNetworkConfiguration>` element. If you have any networks already created, each network will be displayed as its own `<VirtualNetworkSite>` element. If the file does not contain a `<VirtualNetworkSites>` element within the `<VirtualNetworkConfiguration>` element, create one.
+5. Open the file you saved in step 4 using any XML or text editor application, and look for the `<VirtualNetworkSites>` element within the `<VirtualNetworkConfiguration>` element. If you have any existing VNets, each is listed in its own `<VirtualNetworkSite>` element. If the file does not contain a `<VirtualNetworkSites>` element within the `<VirtualNetworkConfiguration>` element, create one.
 6. If your existing NetworkConfig file doesn't have any VNets in it, your NetworkConfig.xml file will resemble the following example after you add the VNet described in this scenario to it:
 
 	```xml
@@ -65,9 +65,9 @@ To create a VNet using a netcfg file through the Azure classic portal, complete 
 	</NetworkConfiguration>
 	```
 7. Save the network configuration file.
-8. In the Azure classic portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, and then click **IMPORT CONFIGURATION** as shown in the following picture:
+8. In the Azure classic portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, and click **IMPORT CONFIGURATION** as shown in the following picture:
 	![Import configuration](./media/virtual-networks-create-vnet-classic-portal/import.png)
-10. In the **Import the network configuration file** dialog box, click **BROWSE FOR FILE...**, navigate to the folder you saved the file to in step 7 above, select the file, and then click **Open**, as shown in the following picture:
+10. In the **Import the network configuration file** dialog box, click **BROWSE FOR FILE...**, navigate to the folder you saved the file to in step 7, select the file, and click **Open**, as shown in the following picture:
 
 	![Import network configuration file page](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure4.png)
 
@@ -76,6 +76,6 @@ To create a VNet using a netcfg file through the Azure classic portal, complete 
 9. In the **Building your network** dialog box, notice the entry for the new VNet, as shown in the following picture:
 
 	![Building your network page](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure5.png)
-10. Click the check mark button on the bottom-right corner of the box in the previous picture to create the VNet. After a few seconds the VNet will appear in the list of available VNets, as shown in the following picture:
+10. To create the VNet, click the check mark button in the bottom-right corner of the box in the previous picture. After a few seconds the VNet appears in the list of available VNets, as shown in the following picture:
 
 	![New virtual network](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
