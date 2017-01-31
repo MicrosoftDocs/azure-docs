@@ -8,11 +8,11 @@ manager: jhubbard
 tags: azure-service-management
 
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: jroth
 

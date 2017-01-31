@@ -1,5 +1,5 @@
 ---
-title: Azure Subscription and Accounts Guidelines | Microsoft Docs
+title: Subscription and account for Linux VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for subscriptions and accounts on Azure.
 documentationcenter: ''
 services: virtual-machines-linux

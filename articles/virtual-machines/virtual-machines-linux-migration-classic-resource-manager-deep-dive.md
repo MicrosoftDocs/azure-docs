@@ -1,5 +1,5 @@
 ---
-title: Resource migration to Azure Resource Manager | Microsoft Docs
+title: Migration between deployments models for Linux VMS in Azure | Microsoft Docs
 description: This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
