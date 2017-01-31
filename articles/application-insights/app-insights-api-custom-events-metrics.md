@@ -209,7 +209,7 @@ You can also call it yourself if you want to simulate requests in a context wher
 
     // At start of processing this request:
 
-    // Operation.Id and Name are attached to all telemetry and help you identify
+    // Operation Id and Name are attached to all telemetry and help you identify
     // telemetry associated with one request:
     telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
     telemetry.Context.Operation.Name = requestName;
