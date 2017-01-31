@@ -69,8 +69,7 @@
 #### [Copy a SQL database](sql-database-copy.md)
 ## Firewall rules, authentication, and authorization
 ### Learn
-#### [Overview](sql-database-security.md)
-#### [Security guidelines](sql-database-security-guidelines.md)
+#### [Access control](sql-database-control-access.md)
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
 ### Do
