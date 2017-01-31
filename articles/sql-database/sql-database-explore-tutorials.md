@@ -126,7 +126,7 @@ In the following tutorials, you will learn about [creating and managing logins a
 | Tutorial | Description |
 | --- | --- | --- |
 | [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using SQL Server authentication, and adding them to roles as well as granting them permissions |
-| [AAD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using Azure Active Directory authentication |
+| [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using Azure Active Directory authentication |
 | [Create an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md) |In this tutorial, you learn how to configure a SQL Database server-level firewall using the Azure portal. |
 | [Create a database-level firewall rule using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules) |In this tutorial, you will learn how to create a database-level firewall rule using Transact-SQL. |
 | [Manage server-level firewall rules using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using Transact-SQL. |
