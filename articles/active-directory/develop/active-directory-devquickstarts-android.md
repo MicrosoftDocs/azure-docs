@@ -215,19 +215,19 @@ You can get the JAR file from the Maven repo and drop it into the **libs** folde
             }
         };
 
-7. Finally, ask for a token using that callback:
+7. Finally, ask for a token by using that callback:
 
     `mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
                    callback);`
 
 Here's an explanation of the parameters:
 
-* Resource is required and is the resource you're trying to access.
-* Clientid is required and comes from Azure AD.
-* RedirectUri is not required to be provided for the acquireToken call. You can set it up as your package name.
-* PromptBehavior helps to ask for credentials to skip the cache and cookie.
-* Callback will be called after the authorization code is exchanged for a token. Callback will have an object of AuthenticationResult, which has accesstoken, date expired, and idtoken info.
-* acquireTokenSilent is optional. You can call it to handle caching and token refresh. It provides the sync version as well. It accepts userid as a parameter.
+* *resource* is required and is the resource you're trying to access.
+* *clientid* is required and comes from Azure AD.
+* *RedirectUri* is not required to be provided for the acquireToken call. You can set it up as your package name.
+* *PromptBehavior* helps to ask for credentials to skip the cache and cookie.
+* *callback* is called after the authorization code is exchanged for a token. It has an object of AuthenticationResult, which has access token, date expired, and ID token information.
+* *acquireTokenSilent* is optional. You can call it to handle caching and token refresh. It also provides the sync version. It accepts *userId* as a parameter.
 
     mContext.acquireTokenSilent(resource, clientid, userId, callback );
 
@@ -238,9 +238,9 @@ By using this walkthrough, you should have what you need to successfully integra
 Your application resources can overwrite library project resources. This happens when your app is being built. For this reason, you can customize authentication activity layout the way you want. Be sure to keep the ID of the controls that ADAL uses (WebView).
 
 ### Broker
-The Microsoft Intune Company Portal app provides the broker component. The account is created in Account Manager. The account type is "com.microsoft.workaccount." It allows only a single SSO account. It will create an SSO cookie for the user after completing the device challenge for one of the apps.
+The Microsoft Intune Company Portal app provides the broker component. The account is created in AccountManager. The account type is "com.microsoft.workaccount." AccountManager allows only a single SSO account. It creates an SSO cookie for the user after completing the device challenge for one of the apps.
 
-ADAL will use the broker account, if one user account is created at this authenticator and you choose not to skip it. You can skip the broker user with:
+ADAL uses the broker account if one user account is created at this authenticator and you choose not to skip it. You can skip the broker user with:
 
    `AuthenticationSettings.Instance.setSkipBroker(true);`
 
@@ -248,9 +248,9 @@ You need to register a special RedirectUri for broker usage. RedirectUri is in t
 
 The current broker model is for one user. AuthenticationContext provides the API method to get the broker user.
 
-   `String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.`
+   `String brokerAccount =  mContext.getBrokerUser(); //Broker user is returned if account is valid.`
 
-Your app manifest should have permissions to use Account Manager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html
+Your app manifest should have the following permissions to use AccountManager accounts. For details, see the [AccountManager information on the Android site](http://developer.android.com/reference/android/accounts/AccountManager.html).
 
 * GET_ACCOUNTS
 * USE_CREDENTIALS
@@ -259,10 +259,10 @@ Your app manifest should have permissions to use Account Manager accounts: http:
 ### Authority URL and AD FS
 Active Directory Federation Services (AD FS) is not recognized as production STS, so you need to turn of instance discovery and pass false at the AuthenticationContext constructor.
 
-The authority URL needs an STS instance and tenant name: https://login.windows.net/yourtenant.onmicrosoft.com
+The authority URL needs an STS instance and a [tenant name](https://login.windows.net/yourtenant.onmicrosoft.com).
 
 ### Querying cache items
-ADAL provides a default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext with:
+ADAL provides a default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext by using:
 
     ITokenCacheStore cache = mContext.getCache();
 
@@ -271,23 +271,23 @@ You can also provide your cache implementation, if you want to customize it.
     mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 
 ### Prompt behavior
-ADAL provides an option to specify prompt behavior. PromptBehavior.Auto will pop up the UI if the refresh token is invalid and user credentials are required. PromptBehavior.Always will skip the cache usage and always show the UI.
+ADAL provides an option to specify prompt behavior. PromptBehavior.Auto will show the UI if the refresh token is invalid and user credentials are required. PromptBehavior.Always will skip the cache usage and always show the UI.
 
 ### Silent token request from cache and refresh
 A silent token request does not use the UI pop-up and does not require an activity. It returns a token from the cache if available. If the token is expired, this method tries to refresh it. If the refresh token is expired or failed, it returns AuthenticationException.
 
     Future<AuthenticationResult> result = mContext.acquireTokenSilent(resource, clientid, userId, callback );
 
-You can also make a sync call with this method. You can set null to callback or use acquireTokenSilentSync.
+You can also make a sync call by using this method. You can set null to callback or use acquireTokenSilentSync.
 
 ### Diagnostics
-The following are the primary sources of information for diagnosing issues:
+These are the primary sources of information for diagnosing issues:
 
 * Exceptions
 * Logs
 * Network traces
 
-Also, note that correlation IDs are central to the diagnostics in the library. You can set your correlation IDs on a per request basis if you want to correlate an ADAL request with other operations in your code. If you don't set a correlation ID, ADAL will generate a random one. All log messages and network calls will then be stamped with the correlation ID. The self-generated ID changes on each request.
+Note that correlation IDs are central to the diagnostics in the library. You can set your correlation IDs on a per-request basis if you want to correlate an ADAL request with other operations in your code. If you don't set a correlation ID, ADAL will generate a random one. All log messages and network calls will then be stamped with the correlation ID. The self-generated ID changes on each request.
 
 #### Exceptions
 Exceptions are the first diagnostic. We try to provide helpful error messages. If you find one that is not helpful, please file an issue and let us know. Please also provide device information such as model and SDK number.
@@ -326,7 +326,7 @@ You set the log level like this:
 
     Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
- All log messages are sent to logcat in addition to any custom log callbacks.
+ All log messages are sent to logcat, in addition to any custom log callbacks.
  You can get a log to a file from logcat as follows:
 
     adb logcat > "C:\logmsg\logfile.txt"
@@ -334,21 +334,21 @@ You set the log level like this:
  For details about adb commands, see the [logcat information on the Android site](https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat).
 
 #### Network traces
-You can use various tools to capture the HTTP traffic that ADAL generates.  This is most useful if you are familiar with the OAuth protocol or if you need to provide diagnostic information to Microsoft or other support channels.
+You can use various tools to capture the HTTP traffic that ADAL generates.  This is most useful if you're familiar with the OAuth protocol or if you need to provide diagnostic information to Microsoft or other support channels.
 
 Fiddler is the easiest HTTP tracing tool. Use the following links to set it up to correctly record ADAL network traffic. For a tracing tool like Fiddler or Charles to be useful, you must configure it to record unencrypted SSL traffic.  
 
 > [!NOTE]
 > Traces generated in this way may contain highly privileged information such as access tokens, usernames, and passwords. If you're using production accounts, do not share these traces with third parties. If you need to supply a trace to someone in order to get support, reproduce the issue by using a temporary account with usernames and passwords that you don't mind sharing.
 
-* [Setting Up Fiddler For Android](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
-* [Configure Fiddler Rules For ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
+* From the Telerik website: [Setting Up Fiddler For Android](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
+* From GitHub: [Configure Fiddler Rules For ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
 
 ### Dialog mode
 The acquireToken method without activity supports a dialog prompt.
 
 ### Encryption
-ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced Android Keystore for 4.3 (API18) secure storage of private keys. ADAL uses that for API18 and higher. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey.
+ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced Android Keystore for 4.3 (API 18) secure storage of private keys. ADAL uses that for API 18 and higher. If you want to use ADAL for lower SDK versions, you need to provide a secret key at AuthenticationSettings.INSTANCE.setSecretKey.
 
 ### Oauth2 bearer challenge
 The AuthenticationParameters class provides functionality to get authorization_uri from the Oauth2 bearer challenge.
@@ -361,7 +361,7 @@ Android WebView does not clear session cookies after the app is closed. You can 
     cookieManager.removeSessionCookie();
     CookieSyncManager.getInstance().sync();
 
-For details about cookies, see the [CookieSyncManager info on the Android site](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
+For details about cookies, see the [CookieSyncManager information on the Android site](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
 
 ### Resource overrides
 The ADAL library includes English strings for ProgressDialog messages. Your application should overwrite them if localized strings are desired.
@@ -374,10 +374,10 @@ The ADAL library includes English strings for ProgressDialog messages. Your appl
      <string name="http_auth_dialog_login">Login</string>
      <string name="http_auth_dialog_cancel">Cancel</string>
 
-### NTLM dialog
-ADAL version 1.1.0 supports an NTLM dialog that is processed through the onReceivedHttpAuthRequest event from WebViewClient. Dialog layout and strings can be customized.
+### NTLM dialog box
+ADAL version 1.1.0 supports an NTLM dialog box that is processed through the onReceivedHttpAuthRequest event from WebViewClient. You can customize the layout and strings for the dialog box.
 
 ### Cross-app SSO
-Learn [how to enable cross-app SSO on Android using ADAL](active-directory-sso-android.md).  
+Learn [how to enable cross-app SSO on Android by using ADAL](active-directory-sso-android.md).  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
