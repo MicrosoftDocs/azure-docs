@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 01/31/2017
 ms.author: magoedte
 ---
 
@@ -36,13 +36,13 @@ A webhook allows you to start a particular runbook in Azure Automation through a
 
 ## Calling a runbook directly
 
-If you have the Automation solution installed and configured in your OMS workspace, when configuring the Runbook actions option for the alert, you can view all runbooks from the **Select a runbook** dropdown list and select the specific runbook you want to run in response to the alert.  The selected runbook can run in a workspace in the Azure cloud or on a hybrid runbook worker.  When the alert is created using the runbook option, a webhook will be created for the runbook.  You can see the webhook if you go to the Automation account and navigate to the runbook webhook blade.  If you delete the alert, the webhook is not deleted, but the user can delete the webhook manually.  It is not a problem if the webhook is not deleted, it is just an orphaned item that will eventually need to be deleted in order to maintain an organized Automation account.  
+If you have the Automation & Control offering installed and configured in your OMS workspace, when configuring the Runbook actions option for the alert, you can view all runbooks from the **Select a runbook** dropdown list and select the specific runbook you want to run in response to the alert.  The selected runbook can run in a workspace in the Azure cloud or on a hybrid runbook worker.  When the alert is created using the runbook option, a webhook will be created for the runbook.  You can see the webhook if you go to the Automation account and navigate to the webhook blade of the selected runbook.  If you delete the alert, the webhook is not deleted, but the user can delete the webhook manually.  It is not a problem if the webhook is not deleted, it is just an orphaned item that will eventually need to be deleted in order to maintain an organized Automation account.  
 
 ## Characteristics of a runbook (for both options)
 
 Both methods for calling the runbook from the Log Analytics alert have different behavior characteristics that need to be understood before you configure your alert rules.  
 
-* You must have a runbook input parameter called **WebhookData** that is **Object** type.  It can be mandatory or optional.  The alert passed the search results to the runbook using this input parameter.
+* You must have a runbook input parameter called **WebhookData** that is **Object** type.  It can be mandatory or optional.  The alert passes the search results to the runbook using this input parameter.
 
         param  
 	     (  
@@ -50,7 +50,7 @@ Both methods for calling the runbook from the Log Analytics alert have different
 	      [object] $WebhookData  
          )
   
-*  You must have code to convert the WebhookData to a PS object.
+*  You must have code to convert the WebhookData to a PowerShell object.
 
 	`$SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value`
 
@@ -69,11 +69,11 @@ Thus in the code example above, you will need to get *.SearchResult* if the aler
 
 We will demonstrate how this works by using the following example graphical runbook, which starts a Windows service.<br><br> ![Start Windows Service Graphical Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
 
-The runbook has one input parameter, an **Object** type that will include the webhook data passed from the alert containing *.SearchResults*.<br><br> ![Runbook input parameters](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
+The runbook has one input parameter of type **Object** that is called **WebhookData** and includes the webhook data passed from the alert containing *.SearchResults*.<br><br> ![Runbook input parameters](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
 
-In Log Analytics, two custom fields have been created to extract the service display name and the state of the service (i.e. running or stopped) from the event written to the System event log.  The custom fields are named *SvcDisplayName_CF* and *SvcState_CF* respectively.  We've created an alert rule with the following search query, `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` so that we can detect when the Print Spooler service is stopped on the Windows system.  It can be any service of interest, but for this example we are referencing one of the pre-existing services that are included with the Windows OS.  The alert action is configured to execute our runbook used in this example and run on the Hybrid Runbook Worker, which are enabled on the target systems.   
+For this example, in Log Analytics we created two custom fields, *SvcDisplayName_CF* and *SvcState_CF*, to extract the service display name and the state of the service (i.e. running or stopped) from the event written to the System event log.  We then create an alert rule with the following search query: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` so that we can detect when the Print Spooler service is stopped on the Windows system.  It can be any service of interest, but for this example we are referencing one of the pre-existing services that are included with the Windows OS.  The alert action is configured to execute our runbook used in this example and run on the Hybrid Runbook Worker, which are enabled on the target systems.   
 
-The runbook code activity **Get Service Name from LA** will convert the JSON-formatted string into an object type and filter on the item *SvcDisplayName_CF to extract the display name of the Windows service and pass this onto the next activity which will verify the service is stopped before attempting to restart it.  *SvcDisplayName_CF* is a [custom field](../log-analytics/log-analytics-custom-fields.md) I created in Log Analytics.
+The runbook code activity **Get Service Name from LA** will convert the JSON-formatted string into an object type and filter on the item *SvcDisplayName_CF to extract the display name of the Windows service and pass this onto the next activity which will verify the service is stopped before attempting to restart it.  *SvcDisplayName_CF* is a [custom field](../log-analytics/log-analytics-custom-fields.md) created in Log Analytics to demonstrate this example.
 
     $SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value
     $SearchResults.SvcDisplayName_CF  
