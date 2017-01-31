@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 01/31/2017
 ms.author: tomfitz
 
 ---
@@ -109,31 +109,37 @@ Or, you can pass an object with tag keys and values, as shown in the following e
 
 With Azure CLI 2.0 (Preview), you can add tags to resources and resource group, and query resources by tag values.
 
-To add tags to a resource group that does not have existing tags, use `az group update` and specify tags.
+Every time you apply tags to a resource or resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether or not the resource or resource group has existing tags that you want to preserve. To add tags to a:
+
+* resource group without existing tags.
+
+  ```azurecli
+  az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
+  ```
+
+* resource group with existing tags.
+
+  ```azurecli
+
+  ```
+
+* resource without existing tags.
+
+  ```azurecli
+  az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+  ``` 
+
+To add tags to a resource that already has tags, first retrieve the existing tags: 
 
 ```azurecli
-az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
-```
-
-To add tags to a resource that does not have existing tags, use `az resource tag` and specify tags.
-
-```azurecli
-az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
-``` 
-
-Tags are updated as a whole. To add tags to a resource that already has tags, retrieve the existing tags with the `az resource show` command: 
-
-```azurecli
-az resource show --query tags -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
 ```
 
 Which returns the following format:
 
-```json
-{
-  "Dept": "Finance",
-  "Environment": "Test"
-}
+```
+Dept        : Finance
+Environment : Test
 ```
 
 Reapply the existing tags to the resource, and add the new tags.
