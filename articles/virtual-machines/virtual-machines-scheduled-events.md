@@ -18,47 +18,33 @@ ms.date: 12/10/2016
 ms.author: zivr
 
 ---
-# Azure Metadata Service - Scheduled Events
+# Azure Metadata Service - Scheduled Events (Preview)
 
-Azure Metadata Service enables you to discover information about your Virtual Machine hosted in Azure. Scheduled Events, one of the exposed categories, surfaces information regarding upcoming events (for example, reboot) 
-so your application can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS and IaaS. The service gives your Virtual Machine time to perform 
-preventive tasks and minimize the effect of an event. For example, your service might drain sessions, elect a new leader, or copy data after observing that an instance is scheduled for reboot to avoid 
-disruption.
+Note: Previews are made available to you on the condition that you agree to the terms of use. For more information, refer to [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
 
+Scheduled Events is one of the sub-services under Azure Metadata Service that surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks and minimize the effect of an event. 
 
 
 ## Introduction - Why Scheduled Events?
 
-With Scheduled Events, you can learn of (discover) upcoming events that may impact the availability of your Virtual Machine and take proactive operations to limit the impact on your service.
-Multi-instance workloads, which use replication techniques to maintain state, may be vulnerable to frequent outages happening across multiple instances. Such outages may result in expensive tasks 
-(for example, rebuilding indexes) or even a replica loss.
-In many other cases, using graceful shutdown sequence improves the overall service availability. For example, completing (or canceling) in-flight transactions, reassigning other tasks to other VMs 
-in the cluster (manual failover), remove the Virtual Machine from a load balancer pool.
-There are cases where notifying an administrator about upcoming event or even just logging such an event help improving the serviceability of applications hosted in the cloud.
-
-Azure Metadata Service surfaces scheduled events in the following use cases:
--   Platform initiated 'impactful' maintenance (for example, Host OS rollout)
--   Platform initiated 'impact-less' maintenance (for example, In-place VM Migration)
--   Interactive calls (for example, user restarts or redeploy a VM)
-
+With Scheduled Events, you can take proactive operations to limit the impact on your service. Multi-instance workloads, which use replication techniques to maintain state, may be vulnerable to frequent outages happening across multiple instances. Such outages may result in expensive tasks (for example, rebuilding indexes) or even a replica loss. In many other cases, using graceful shutdown sequence improves the overall service availability. For example, completing (or canceling) in-flight transactions, reassigning other tasks to other VMs in the cluster (manual failover), remove the Virtual Machine from a load balancer pool. There are cases where notifying an administrator about upcoming event or even just logging such an event help improving the serviceability of applications hosted in the cloud.
+Azure Metadata Service surfaces Scheduled Events in the following use cases:
+-	Platform initiated maintenance (for example, Host OS rollout)
+-	User initiated calls (for example, user restarts or redeploy a VM)
 
 
 ## Scheduled Events - The Basics  
 
-Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint from within the VM. The information is available via a Non-routable IP so that it is not exposed 
-outside the VM.
+Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint from within the VM. The information is available via a Non-routable IP so that it is not exposed outside the VM.
 
-### Scope 
-Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the **Resources** field in the event to identify which VMs are
-going to be impacted.
+### Scope
+Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the **Resources** field in the event to identify which VMs are going to be impacted. 
 
 ### Discover the Endpoint
-In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of:
-169.254.169.254
+In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of: 169.254.169.254 .
 
-In the case where a Virtual Machine is used for cloud services (PaaS), metadata service endpoint could be discovered using the registry.
-
-    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+In the case where a Virtual Machine is used for cloud services (PaaS) or it is not created within a Virtual Netwirk (VNet), an additional logic is required to discover the endpoint to use. 
+Refer to [This sample] to learn how to discover a host endpoint] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### Versioning 
 The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
@@ -68,9 +54,12 @@ It is recommended that your service consumes the latest version available at: ht
 When you query the Metadata Service, you must provide the following header *Metadata: true*. 
 
 ### Enable Scheduled Events
-The first time you call for scheduled events, Azure implicitly enables the feature on your Virtual Machine. 
-As a result, you should expect a delayed response in your first call of up to a minute. 
+The first time you call for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
 
+### Testing your logic with user initiated operations
+In order to test your logic, you can use the Azure portal, API, CLI, or PowerShell to initiate operations resulting in scheduled events. 
+Restarting a virtual machine will result in a scheduled event with an event type equal to Reboot. Redeploying a virtual machine will result in a scheduled event with an event type equal to Redeploy.
+Note that in both cases, the user initiated operations will take longer to complete since scheduled events enable more time for an application to gracefully shutdown. 
 
 ## Using the API
 
@@ -83,10 +72,11 @@ A response contains an array of scheduled events. An empty array means that ther
 In the case where there are scheduled events, the response contains an array of events: 
 
 	{
+     "DocumentIncarnation":{IncarnationID},
      "Events":[
           {
                 "EventId":{eventID},
-                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "EventType":"Reboot" | "Redeploy" | "Freeze",
                 "ResourceType":"VirtualMachine",
                 "Resources":[{resourceName}],
                 "EventStatus":"Scheduled" | "Started",
@@ -96,7 +86,7 @@ In the case where there are scheduled events, the response contains an array of 
 	}
 
 EventType Captures the expected impact on the Virtual Machine where:
-- Pause: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
+- Freeze: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
 - Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
 - Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk are lost). 
 
