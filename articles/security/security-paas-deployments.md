@@ -98,8 +98,8 @@ The following summarizes a general best practices approach to managing your iden
 ## Next steps
 In this article, we focused on security advantages of an Azure PaaS deployment. Next, learn recommended practices for securing your PaaS web and mobile solutions. We’ll start with Azure App Service, Azure SQL Database, and Azure SQL Data Warehouse. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
 
-- Azure App Service
-- Azure SQL Database and Azure SQL Data Warehouse
+- [Azure App Service](security-paas-applications-using-app-services.md)
+- [Azure SQL Database and Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
 - Azure Storage
 - Azure REDIS Cache
 - Azure Service Bus

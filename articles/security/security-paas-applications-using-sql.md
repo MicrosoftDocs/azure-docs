@@ -87,4 +87,4 @@ Azure SQL provided encryption against rows and columns can be done to only allow
 This article introduced you to a collection of SQL Database and SQL Data Warehouse security best practices for securing your PaaS web and mobile applications. To learn more about securing your PaaS deployments, see:
 
 - [Securing PaaS deployments](security-paas-deployments.md)
--  Securing PaaS web and mobile applications using Azure App Services
+- [Securing PaaS web and mobile applications using Azure App Services](security-paas-applications-using-app-services.md)
