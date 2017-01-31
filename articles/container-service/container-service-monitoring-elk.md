@@ -1,6 +1,6 @@
 ---
 title: Monitor an Azure DC/OS cluster - ELK stack | Microsoft Docs
-description: Monitor a DC/OS cluster in Azure Container Service cluster with ELK (Elastisearch, Logstash, and Kibana).
+description: Monitor a DC/OS cluster in Azure Container Service cluster with ELK (Elasticsearch, Logstash, and Kibana).
 services: container-service
 documentationcenter: ''
 author: sauryadas
@@ -20,19 +20,19 @@ ms.author: saudas
 
 ---
 # Monitor an Azure Container Service cluster with ELK
-In this article, we demonstrate how to deploy the ELK (Elastisearch, Logstash, Kibana) stack on a DC/OS cluster in Azure Container Service. 
+In this article, we demonstrate how to deploy the ELK (Elasticsearch, Logstash, Kibana) stack on a DC/OS cluster in Azure Container Service. 
 
 ## Prerequisites
 [Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a DC/OS cluster configured by 
 Azure Container Service. Explore the DC/OS dashboard and Marathon services [here](container-service-mesos-marathon-ui.md). Also install the [Marathon Load Balancer](container-service-load-balancing.md).
 
 
-## ELK (Elastisearch, Logstash, Kibana)
-ELK stack is a combination of Elastisearch, Logstash, and Kibana that provides an end to end stack that can be used to monitor and analyze logs in your cluster.
+## ELK (Elasticsearch, Logstash, Kibana)
+ELK stack is a combination of Elasticsearch, Logstash, and Kibana that provides an end to end stack that can be used to monitor and analyze logs in your cluster.
 
 ## Configure the ELK stack on a DC/OS cluster
 Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to **Universe**. Search and 
-install Elastisearch, Logstash, and Kibana from the DC/OS Universe and in that specific order. You can learn more about configuration 
+install Elasticsearch, Logstash, and Kibana from the DC/OS Universe and in that specific order. You can learn more about configuration 
 if you go to the **Advanced Installation** link.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
@@ -61,8 +61,11 @@ Once you navigate to the URL, you should see the HAPROXY dashboard as shown belo
 ![ELK6](./media/container-service-monitoring-elk/elk6.PNG)
 
 
-To access the Kibana dashboard, which is deployed on port 5601, you  need to open port 5601. Follow instructions [here](container-service-enable-public-access.md).
+To access the Kibana dashboard, which is deployed on port 5601, you need to open port 5601. Follow instructions [here](container-service-enable-public-access.md). Then open the Kibana dashboard at:
+`http://localhost:5601`.
 
+## Next steps
 
+To learn more about Elasticsearch, Logstash, and Kibarna, see the [Elastic Stack documentation](https://www.elastic.co/guide/index.html).
  
 
