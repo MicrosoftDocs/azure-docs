@@ -20,7 +20,7 @@ ms.author: anwestg
 
 # Configure Deployment Sources
 
-App Service on Azure Stack supports on-demand deployment from multiple Source Control Providers in Technical Preview Two.  The Source Control Providers supported, in addition to local Git, are:
+App Service on Azure Stack supports on-demand deployment from multiple Source Control Providers.  This feature enables application developers to be able to deploy direct from their source control repositories.  The Source Control Providers supported, in addition to local Git, are:
 
 * GitHub
 * BitBucket
@@ -41,6 +41,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 
 > [!NOTE]
 > You will require a GitHub account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+
 1. Login to GitHub, browse to https://www.github.com/settings/developers and click **Register a new application**
     ![GitHub - Register a new application][3]
 2. Enter an **Application name** for example - App Service on Azure Stack
@@ -57,6 +58,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 
 > [!NOTE]
 > You will require a BitBucket account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+
 1. Login to BitBucket and browse to **Integrations** under your account
     ![BitBucket Dashboard - Integrations][7]
 2. Click **OAuth** under Access Management and **Add consumer**
@@ -76,6 +78,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 
 > [!NOTE]
 > OneDrive for Business Accounts are not currently supported.  You will need to have a Microsoft Account linked to a OneDrive account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+
 1. Browse to https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm and login using your Microsoft Account.
 2. Click **Add an app** under **My applications**
 ![OneDrive Applications][10]
@@ -99,6 +102,7 @@ In order for tenants to be able to configure App Service to connect to their rep
 
 > [!NOTE]
 > You will need to have a DropBox account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+
 1. Browse to https://www.dropbox.com/developers/apps and login using your DropBox Account
 2. Click **Create app** 
 ![Dropbox applications][14]
