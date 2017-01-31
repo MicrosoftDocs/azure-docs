@@ -60,6 +60,7 @@ The objective of this section is to outline how to enable the application integr
    
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
+
 ## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Picturepark with their account in Azure AD using federation based on the SAML protocol.  
@@ -105,6 +106,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 9. Click **JoinDefaultUsersGroup**.
 10. To set the **Emailaddress** attribute in the **Claim** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+
       ![Configuration](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuration")
    a. Click **Save**.
 11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
