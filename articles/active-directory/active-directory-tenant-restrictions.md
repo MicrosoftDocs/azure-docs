@@ -94,6 +94,7 @@ While configuration of Tenant Restrictions is done on the corporate proxy infras
 
 The admin for the tenant specified as the “Restricted-Access-Context” tenant can use this report to see all sign-ins blocked because of the Tenant Restrictions policy, including the identity used and the target directory ID.
 
+
 ![Use the Azure portal to view restricted sign-in attempts](./media/active-directory-tenant-restrictions/portal-report.png)
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific user, application, client, or time interval.
@@ -152,3 +153,9 @@ Depending on the capabilities of your proxy infrastructure, you may be able to s
 2.	Some proxy servers may support different configurations using groups.
 
 Refer to your proxy server documentation for specific details.
+
+## Next steps
+
+- Read about [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+
+- Review the [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
