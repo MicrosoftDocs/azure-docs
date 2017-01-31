@@ -58,7 +58,7 @@ Different types of attacks are associated with each stage and they target differ
 * Resource Analysis
 
 > [!NOTE] 
-> When Azure Security Center detects and alerts on a potential threat, additional information can be collection for forensics purposes. A VM disk snapshot can be captured and analyzed, and machine artifacts can be extracted to provide further insight that can be used to investigate and recover from an attack.
+> When Azure Security Center detects and alerts on a potential threat, additional information can be collected for forensics purposes. A VM disk snapshot can be captured and analyzed, and machine artifacts can be extracted to provide further insight that can be used to investigate and recover from an attack.
 
 ## Virtual machine behavioral analysis
 Azure Security Center can use behavioral analytics to identify compromised resources based on analysis of virtual machine event logs, for example: Process Creation Events, Login Events, etc.). In addition, there is correlation with other signals to check for supporting evidence of a widespread campaign.
