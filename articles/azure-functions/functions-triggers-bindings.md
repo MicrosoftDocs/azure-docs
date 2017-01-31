@@ -1,6 +1,6 @@
 ---
-title: Azure Functions triggers and bindings | Microsoft Docs
-description: Understand how to use triggers and bindings in Azure Functions.
+title: Work with triggers and bindings in Azure Functions | Microsoft Docs
+description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,13 +15,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: chrande
 
 ---
 
-# Azure Functions triggers and bindings developer reference
-This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
+# Learn how to work with triggers and bindings in Azure Functions 
+This topic shows you how to use triggers and bindings in Azure Functions to connect your code to a variety of triggers and Azure services and other cloud-based services. It features some of the advanced binding features and syntax supported by all binding types.  
 
 For detailed information about working with a specific type of trigger or binding, see one of the following reference topics:
 
