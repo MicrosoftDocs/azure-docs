@@ -158,11 +158,13 @@ The objective of this section is to create a test user in the Azure classic port
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png) 
     
 5. On the **Tell us about this user** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 
    
     1. As Type Of User, select New user in your organization.
     2. In the User Name **textbox**, type **BrittaSimon**.
     3. Click **Next**.
+    
 6. On the **User Profile** dialog page, perform the following steps:
 
    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 
@@ -174,9 +176,11 @@ The objective of this section is to create a test user in the Azure classic port
    5. Click **Next**.
   
 7. On the **Get temporary password** dialog page, click **create**.
+
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_07.png) 
     
 8. On the **Get temporary password** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 
    
    1. Write down the value of the **New Password**. 
