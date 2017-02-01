@@ -83,8 +83,12 @@ This topic provides a reference for the following API Management policies. For i
   
 > [!IMPORTANT]
 >  This policy can be used only once per policy document.  
->   
->  [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.  
+
+> [!IMPORTANT]
+>  [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+
+> [!IMPORTANT]
+>  The policy's throttling accuracy depends on several factors, e.g. rate limit value, renewal period and actual call rate. Therefore, the policy should be used to protect APIs against accidental and intentional spikes in call volume and is not suitable for ensuring strict contractual obligations
   
 ### Policy statement  
   
@@ -139,8 +143,8 @@ This topic provides a reference for the following API Management policies. For i
  For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
 > [!IMPORTANT]
->  This policy can be used only once per policy document.  
-  
+>  The policy's throttling accuracy depends on several factors, e.g. rate limit value, renewal period, actual call rate and whether incremental condition is specified or not. Therefore, the policy should be used to protect APIs against accidental and intentional spikes in call volume and is not suitable for ensuring strict contractual obligations.
+
 ### Policy statement  
   
 ```xml  
