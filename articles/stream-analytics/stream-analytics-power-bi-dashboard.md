@@ -28,92 +28,13 @@ In this article, learn how create your own custom business intelligence tools by
 ## Prerequisites
 * Microsoft Azure Account
 * Work or school account for Power BI
-* Sample JSON [datafile](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/SampleSensorData.json) stored in our GitHub [repository](https://github.com/Azure/azure-stream-analytics).
-
-## Create an Event Hub input
-Before a job can be created some pre-work must be completed. An Azure Event Hub needs to be made. This is a quick and easy process to complete. Simply follow the instructions below:
-
-Open the [Azure portal](https://portal.azure.com) and create a new Event Hub by clicking the **+ New** button on the top left of the portal.
-
-![new service button](./media/stream-analytics-power-bi-dashboard/new-button.png)
-
-Type 'Event Hub' and press enter. Then select **Event Hubs** and click **Create**.
-
-You'll be presented with a screen to create your namespace. This is a container of Event Hubs and other objects. Provide a few items and then you are able to create the namespace.
-
-* **Name** - provide a name for your namespace. In this demo I am using "devicetemperaturesNS"
-* **Resource Group** - I created a new resource group named "devicetemperaturesRG"
-* **Location** - pick a location and remember it as you'll want everything to be in the same region for performance
-
-You can leave pricing tier and subscription as default (unless you have a need to change them due to your specific environment).
-
-![create namespace](./media/stream-analytics-power-bi-dashboard/create-namespace.png)
-
-So next select **Create** and let Azure build the resource. When it is complete go into your new namespace object and create an Event Hub.
-
-![create Event Hub](./media/stream-analytics-power-bi-dashboard/new-eventhub.png)
-
-Once your window appears simply provide a name for your Event Hub and select **Create**. I have used "devicetemperaturesEH" in my example.
-
-![new event hub name](./media/stream-analytics-power-bi-dashboard/eventhub-name.png)
-
-Once you have selected **Create** the Event Hub will be created. Add a shared access policy by selecting **Shared access policies** and then **Add** and giving the policy a name and selecting the claim.
-
-![shared access policy](./media/stream-analytics-power-bi-dashboard/shared-access-policy.png)
-
-## Create Azure Stream Analytics job
-Now it is time to create the job itself.
-
-From [Azure portal](https://portal.azure.com), click the **+ New** button on the top left of the portal and type 'Stream Analytics' and then select **Create**.
-
-This will bring you to a wizard to create your new job.
-
-Specify the following values, then select **Create**:
-
-* **Job Name** - Enter a job name. For example, **DeviceTemperatures**.
-* **Resource Group** - Choose the Resource Group that you previously created.
-* **Location** - Select the region where you want the job located. Consider placing the job and the Event Hub in the same region to ensure optimal performance and avoid incurring data transfer costs between regions.
-
-![create job](./media/stream-analytics-power-bi-dashboard/create-job.png)
-
-Once the job is created the job dashboard will appear.
-
-> [!TIP]
-> The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
-> 
-> 
-
-## Specify job input
-To add an input simply select the inputs box in the middle of your job dashboard.
-
-![add input](./media/stream-analytics-power-bi-dashboard/create-inputs.png)
-
-Then select **Add** and create your input.
-
-* **Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
-* **Source Type** - Select **Data Stream**
-* **Source** -  Select **Event Hub**
-
-For the purposes of this demo the defaults are acceptable for all additional fields present.
-
-![add job](./media/stream-analytics-power-bi-dashboard/create-input-fields.png)
-
-> [!NOTE]
-> This sample uses the default number of partitions, which is 16.
-> 
-> 
-
-Now select **Create** at the bottom. The input will be created.
-
+* Complete the Get Started scenario [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md). This article builds upon that workflow and adds a Power BI streaming dataset output.
 
 ## Add Power BI output
-Now that an input exists for the job, an output to Power BI can be defined. Select the box in the middle of the job dashboard **Outputs**.
+Now that an input exists for the job, an output to Power BI can be defined. Select the box in the middle of the job dashboard **Outputs**. Then click the familiar **+ Add** button and create your output.
+![add output](./media/stream-analytics-power-bi-dashboard/create-pbi-output.png)
 
-![add output](./media/stream-analytics-power-bi-dashboard/create-outputs.png)
-
-Then click the familiar **+ Add** button and create your output.
-
-Provide the **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
+Provide the **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = "StreamAnalyticsRealTimeFraudPBI".
 
 Then click the **Authorize** button.
 
@@ -129,8 +50,8 @@ The authorization window will disappear when satisfied and the New output area w
 
 Define them as follows:
 * **Group Workspace** – Select a workspace in your Power BI tenant under which the dataset will be created.
-* **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
-* **Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
+* **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use "StreamAnalyticsRealTimeFraudPBI".
+* **Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it "StreamAnalyticsRealTimeFraudPBI". Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
 
 Click **Create** and now you output configuration is complete.
 
@@ -149,72 +70,55 @@ For more information on Power BI datasets see the [Power BI REST API](https://ms
 
 
 ## Write query
-Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
+Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query to catch SIM fraud in the telecommunications industry:
 
 
 ```
-    SELECT
-        MAX(hmdt) AS hmdt,
-        MAX(temp) AS temp,
-        System.TimeStamp AS time,
-        dspl
-    INTO
-        OutPBI
-    FROM
-        devicetemperatureinputs TIMESTAMP BY time
-    GROUP BY
-        TUMBLINGWINDOW(ss,1),
-        dspl
+/* Our criteria for fraud:
+ Calls made from the same caller to two phone switches in different locations (e.g. Australia and Europe) within 5 seconds) */
 
+ SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+ INTO "StreamAnalyticsRealTimeFraudPBI"
+ FROM "StreamAnalyticsRealTimeFraudInput" CS1 TIMESTAMP BY CallRecTime
+ JOIN "StreamAnalyticsRealTimeFraudInput" CS2 TIMESTAMP BY CallRecTime
+   
+/* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+ ON CS1.CallingIMSI = CS2.CallingIMSI
+
+/* ...and date between CS1 and CS2 is between 1 and 5 seconds */
+ AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+
+/* Where the switch location is different */
+ WHERE CS1.SwitchNum != CS2.SwitchNum
+ GROUP BY TumblingWindow(Duration(second, 1))
 ```
-
-Add your JSON sample [data file](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/SampleSensorData.json) to your job as test data. The easiest way to do this is to click the link and then click "Raw". This renders the raw JSON file you can then "select all" and copy/paste into an empty JSON file.
-
-To add the JSON to your input click the Input in the query pane of the portal and click the ... after your input.
-
-![add test data](./media/stream-analytics-power-bi-dashboard/add-testdata.png)
-
-Then select "Upload sample data". A field will appear on the right to select a file for upload.
-
-![add test data file](./media/stream-analytics-power-bi-dashboard/pick-json-samples.png)
-
-And then simply select **OK**.
-
-This will load the file into the input and you can then click **Test** to run the query. 
-
-![test results](./media/stream-analytics-power-bi-dashboard/test-results.png)
 
 ## Create the dashboard in Power BI
 
 Go to [Powerbi.com](https://powerbi.com) and login with your work or school account. If the Stream Analytics job query outputs results, you will see your dataset is already created:
 
-![graphic5][graphic5]
+![streaming dataset](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
 
-For creating the dashboard, go to the Dashboards option and create a new Dashboard.
+Click Add tile and select your custom streaming data.
 
-![graphic6][graphic6]
+![custom streaming dataset](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-In this example we'll label it "Demo Dashboard".
+Then select your dataset from the list:
 
-Now click on the dataset created by your Stream Analytics job (pbidemo in our current example). You will be taken to a page to create a chart on top of this dataset. The following is but one example of the reports you can create:
+![your streaming dataset](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-Select Σ temp and time fields. They will automatically go to Value and Axis for the chart:
+Now create a visualization card and select the field fraudulentcalls.
 
-![graphic7][graphic7]
+![add fraud](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
-With this, you will automatically get a chart as below:
+Now we have a fraud counter!
 
-![graphic8][graphic8]
+![fraud counter](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
 
-In the value section, click on the drop-down for temp and choose **average** for the temperature and on the chart, click on **visualization** and choose **line chart**:
+Walk through the exercise of adding a tile again but this time select line chart. Add fraudulentcalls as the value and the axis as windowend. I selected the last 10 minutes:
 
-![graphic9][graphic9]
+![fraud calls](./media/stream-analytics-power-bi-dashboard/fraud-calls.png)
 
-You will now get a line chart of average over time.  Using the pin option as below, you can pin this to your dashboard that you previously created:
-
-![graphic10][graphic10]
-
-Now when you view the dashboard with this pinned report, you will see report updating in real time. Try changing the data in your events – spike temp or something like that and you will see the real-time effect of that reflected in your dashboard.
 
 Note that this tutorial demonstrated how to create but one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
@@ -251,21 +155,9 @@ Which means we would change the original query to:
 
 
 ### Renew authorization
-You need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
+You need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs.
 
-![graphic12][graphic12]
-
-Similarly, if a job attempts to start while the token is expired, an error will occur and the job start will fail. The error will look something like below:
-
-![PowerBI validation error](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png) 
-
-To resolve this issue, stop your running job and go to your Power BI output.  Click the “Renew authorization” link, and restart your job from the Last Stopped Time to avoid data loss.
-
-![PowerBI validation renewal](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png) 
-
-Once the authorization is refreshed with Power BI you will see a green alert in the authorization area:
-
-![PowerBI validation renewal](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png) 
+Similarly, if a job attempts to start while the token is expired, an error will occur and the job start will fail. To resolve this issue, stop your running job and go to your Power BI output.  Click the “Renew authorization” link, and restart your job from the Last Stopped Time to avoid data loss. Once the authorization is refreshed with Power BI you will see a green alert in the authorization area to reflect the issue is resolved.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -277,16 +169,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-[graphic1]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
-[graphic2]: ./media/stream-analytics-power-bi-dashboard/2-stream-analytics-power-bi-dashboard.png
-[graphic3]: ./media/stream-analytics-power-bi-dashboard/3-stream-analytics-power-bi-dashboard.png
-[graphic4]: ./media/stream-analytics-power-bi-dashboard/4-stream-analytics-power-bi-dashboard.png
-[graphic5]: ./media/stream-analytics-power-bi-dashboard/5-stream-analytics-power-bi-dashboard.png
-[graphic6]: ./media/stream-analytics-power-bi-dashboard/6-stream-analytics-power-bi-dashboard.png
-[graphic7]: ./media/stream-analytics-power-bi-dashboard/7-stream-analytics-power-bi-dashboard.png
-[graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
-[graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
-[graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
-[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
-[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
-[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
