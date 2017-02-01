@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Dedicated overview | Microsoft Docs
-description: Overview of Microsoft Azure Event Hubs Dedicated capacity
+title: Overview of Azure Event Hubs Dedicated capacity | Microsoft Docs
+description: Overview of Microsoft Azure Event Hubs Dedicated capacity.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -18,26 +18,11 @@ ms.author: sethm;babanisa
 
 ---
 
-
-# Event Hubs Dedicated overview
+# Overview of Event Hubs Dedicated
 
 *Event Hubs Dedicated* capacity offers single-tenant deployments for customers with the most demanding requirements. At full scale, Azure Event Hubs can ingress over 2 million events per second or up to 2 GB per second of telemetry with fully durable storage and sub-second latency. This also enables integrated solutions by processing real-time and batch on the same system. With Event Hubs Archive included in the offering, you can reduce the complexity of your solution by having a single stream support both real-time and batch-based pipelines.
 
-The following table compares the available service tiers of Event Hubs. The Event Hubs Dedicated offering is a fixed monthly price, compared to usage pricing for most features of Standard and Basic. The Dedicated tier offers the features of the Standard plan, but with enterprise scale capacity for customers with demanding workloads.
-
-| Feature | Basic | Standard | Dedicated |
-| --- |:---:|:---:|:---:|
-| Ingress events | Pay per million events | Pay per million events | Included |
-| Throughput unit (1 MB/sec ingress, 2 MB/sec egress) | Pay per hour | Pay per hour | Included |
-| Message Size | 256 KB | 256 KB | 1 MB |
-| Publisher policies | N/A | Yes | Yes |	 
-| Consumer groups | 1 - default | 20 | 20 |
-| Message replay | Yes | Yes | Yes |
-| Maximum throughput units | 20 | 20 (flexible to 100)	| 1 CU≈200 |
-| Brokered connections | 100 included | 1,000 included | 100 K included |
-| Additional Brokered connections | N/A | Yes | Yes |
-| Message Retention | 1 day included | 1 day included | Up to 7 days included |
-| Archive (Preview) | N/A	| Pay per hour | Included |
+The pricing table in [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/) compares the available service tiers of Event Hubs. The Event Hubs Dedicated offering is a fixed monthly price, compared to usage pricing for most features of Standard and Basic. The Dedicated tier offers the features of the Standard plan, but with enterprise scale capacity for customers with demanding workloads.
 
 ## Benefits of Event Hubs Dedicated capacity
 
@@ -56,11 +41,11 @@ Event Hubs Dedicated also removes some of the throughput limitations of the Stan
 
 This service is targeted at the largest telemetry users and is available to customers with an enterprise agreement.
 
-## How to Onboard
+## How to onboard
 
 The Dedicated Event Hubs platform is offered to the public through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units and is billed at $31 per hour. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
-## Next Steps
+## Next steps
 
 For detailed information about pricing, visit the following links:
 
