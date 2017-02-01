@@ -59,7 +59,6 @@ You should have an operational understanding of [Windows cluster technologies](h
 - S2D hyper-converged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
 
-
 ### What to have
 
 Before following the instructions in this article, you should already have:
@@ -267,7 +266,7 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
 
    In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. 
 
-## Create SQL Server FCI
+## Step 3: Create SQL Server FCI
 
 After you have configured the WSFC and all cluster components including storage, you can create the SQL Server FCI. 
 
@@ -296,7 +295,7 @@ After you have configured the WSFC and all cluster components including storage,
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-## Create Azure load balancer
+## Step 4: Create Azure load balancer
 
 On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution the load balancer holds the IP address for the SQL Server FCI. 
 
@@ -390,7 +389,7 @@ To create the load balancer:
 
 1. Click **OK**. 
 
-## Configure cluster probe
+## Step 5: Configure cluster for probe
 
 Set the cluster probe port parameter in PowerShell.
 
@@ -408,7 +407,7 @@ To set the cluster probe port parameter, update variables in the following scrip
    ```
 
 
-## Test failover
+## Step 6: Test failover
 
 Test failover of the FCI to validate cluster functionality. Do the following steps:
 
@@ -422,7 +421,7 @@ Test failover of the FCI to validate cluster functionality. Do the following ste
 
 **Failover Cluster Manager** shows the role and its resources go offline. The resources then move and come online on the other node. 
 
-## Test connectivity
+### Test connectivity
 
 To test connectivity, log in to another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
 
