@@ -1,6 +1,6 @@
 ---
 title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Docs
-description: The NPS extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
+description: The Network Policy Server extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/01/2017
 ms.author: kgremban
 
 ---
-# Augment your existing authentication infrastructure with the Network Policy Server extension for Azure Multi-Factor Authentication
+# Augment your existing authentication infrastructure with the NPS extension for Azure Multi-Factor Authentication - Public preview
 
-The NPS extension for Azure MFA provides a simple solution to add cloud-based MFA capabilities to your authentication infrastructure using your existing Network Policy Servers (NPSs). With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
+The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, SMS, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
  
 When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
 
-1. NAS Server/VPN Server: VPN servers that receive requests from VPN clients and convert them into RADIUS requests to NPS servers. 
-2. NPS Server: NPS servers connect to Active Directory to perform the primary authentication for the RADIUS requests, and upon success, pass over the request to any installed extensions.  
-3. NPS Extension: Triggers an MFA request to Azure cloud-based MFA for performing the secondary authentication. Once it receives the response, and if the MFA challenge succeeds, completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
-4. Azure MFA: a cloud component that communicates with Azure Active Directory to retrieve the user’s details and performs the secondary authentication using a verification method configured to the user.
+1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
+2. **NPS Server** connects to Active Directory to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
+3. **NPS Extension** triggers a request to Azure MFA for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
+4. **Azure MFA** communicates with Azure Active Directory to retrieve the user’s details and performs the secondary authentication using a verification method configured to the user.
 
-The following diagram illustrates a high-level authentication request flow: 
+The following diagram illustrates this high-level authentication request flow: 
 
 ![Authentication flow diagram](./media/multi-factor-authentication-nps-extension/auth-flow.png)
 
@@ -38,11 +38,11 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication) (included with Azure AD Premium, EMS, or an MFA subscription).
+The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA subscription).
 
 ### Software
 
-Windows Server 2008 R2 SP1 or above with the NPS component enabled
+Windows Server 2008 R2 SP1 or above with the NPS component enabled.
 
 ### Libraries
 
@@ -53,13 +53,13 @@ Two libraries are required for the NPS extension. They're installed during the s
 
 ### Azure Active Directory
 
-Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be enabled for MFA. Two-step verification must be [turned on for these users](multi-factor-authentication-get-started-cloud.md).
+Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be enabled for MFA. 
 
-When you install the extension, you need the tenant ID and admin credentials for your Azure AD tenant. You can find the tenant ID (a.k.a. ‘Directory ID’) in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box.
+When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box and save.
 
 ![Find your Directory ID under Azure Active Directory properties](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
-## Install the extension
+## Install the NPS extension
 
 To install the NPS Extension for Azure MFA:
 
