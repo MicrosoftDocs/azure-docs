@@ -1,6 +1,6 @@
 ---
 title: Deploy Linux VM into existing network with the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: Learn how to deploy a Linux virtual machine into an existing Virtual Network using the Azure CLI 2.9 (Preview)
+description: Learn how to deploy a Linux virtual machine into an existing Virtual Network using the Azure CLI 2.0 (Preview)
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
