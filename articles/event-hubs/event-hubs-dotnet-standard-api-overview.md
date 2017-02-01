@@ -135,7 +135,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-The following is a sample implementation of the [IEventProcessor](dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
+The following is a sample implementation of the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
