@@ -71,7 +71,7 @@ ms.author: sutalasi
 1. Choose the replication policy to which you want to associate the configuration server.
 2. Choose **Dissociate**.
 3. Select the configuration server from the list of servers.
-4. Click **OK**. The configuration server should be dissociated in one to two minutes.
+4. Click **OK**. The configuration server should be dissociated in one to two minutes. 
 
 	> [!NOTE]
 	> You cannot dissociate a configuration server if there is at least one replicated item using the policy. Make sure there are no replicated items using the policy before dissociating the configuration server.
