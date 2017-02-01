@@ -30,7 +30,7 @@ The following diagram shows the complete solution on Azure virtual machines:
 
 The preceding diagram shows:
 
-- Two Azure virtual machines in a Windows Server Failover Cluster (WSFC). When a virtual machines is in a WSFC it is also called a *cluster node*, or *nodes*.
+- Two Azure virtual machines in a Windows Server Failover Cluster (WSFC). When a virtual machine is in a WSFC it is also called a *cluster node*, or *nodes*.
 - Each virtual machine has two or more data disks.
 - S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool. 
 - The storage pool presents a cluster shared volume (CSV) to the WSFC.
@@ -39,7 +39,7 @@ The preceding diagram shows:
 - An Azure availability set holds all the resources.
 
    >[!NOTE]
-   >In the complete solution, all of the items in the diagram are in the same Azure resource group.
+   >All Azure resources are in the diagram are in the same resource group.
 
 For details about S2D, see [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview). 
 
@@ -54,7 +54,7 @@ You can create the entire solution in Azure from a template. An example of a tem
 There are a few things you need to know and a couple of things that you need in place before you proceed.
 
 ### What to know
-You should have an operational understanding of [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx) and [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx). You should also know a little bit about:
+You should have an operational understanding of [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx) and [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx). Also, be familiar with the following:
 
 - S2D hyper-converged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
@@ -80,9 +80,9 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
 1. [Create an Azure availability set](../../virtual-machines-windows-create-availability-set.md).
 
-   The availability set is a group of virtual machines that are deployed across fault domains and update domains. The availability set  makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers. 
+   The availability set is a group of virtual machines that are deployed across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers. 
 
-   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the resource group use the following settings:
+   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the resource group, use the following settings:
    
    - Under **Create availability set**, **Resource group**, choose **Create New**.
    - Set a name for the resource group.
@@ -349,7 +349,7 @@ To create the load balancer:
 
    ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/3loadbalancerbackend.png)
 
-1. Click **Select** on the choose virtual machines blade.
+1. Click **Select** on the **Choose virtual machines** blade.
 
 1. Click **OK** twice. 
 
@@ -384,7 +384,7 @@ To create the load balancer:
    - **Backend pool**: Use the backend pool name that you configured earlier. 
    - **Health probe**: Use the health probe that you configured earlier.
    - **Session persistence**: None.
-   - **Idle timeout (minutes):**: 4.
+   - **Idle timeout (minutes)**: 4.
    - **Floating IP (direct server return)**: Enabled
 
 1. Click **OK**. 
@@ -397,7 +397,7 @@ To set the cluster probe port parameter, update variables in the following scrip
 
   ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name
+   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
    $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = 59999
    
