@@ -72,7 +72,9 @@ Reduce the number of concurrent open handles by closing some handles,  and then 
 ## Slow performance when accessing File storage from Windows or Linux
 * If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 * If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
-
+* Use the right copy method:
+      * Use AZCopy for any transfer between two file shares. See [Transfer data with the AzCopy Command-Line Utility](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy) for more details.
+      * Use Robocopy between a file share an on-premises computer. Please see [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) for more details.
 <a id="windowsslow"></a>
 
 ## Slow performance when accessing the File storage from Windows 8.1 or Windows Server 2012 R2
