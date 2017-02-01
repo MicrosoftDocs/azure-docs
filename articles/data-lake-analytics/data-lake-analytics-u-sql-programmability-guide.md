@@ -446,7 +446,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-And if you want to use the XML functionality, you add a system assembly reference and an assembly to the registered assembly:
+And if you want to use the XML functionality, you add a system assembly reference and a reference to the registered assembly:
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -930,9 +930,9 @@ The constructor of the class
 `IColumnWriter` writer / `IColumnReader` reader – the underlying column stream.  
 `ISerializationContext` context – enum that defines a set of flags that specifies the source or destination context for the stream during serialization. 
  
-    * *Intermediate* - specifies that the source or destination context is not a persisted store
+   * *Intermediate* - specifies that the source or destination context is not a persisted store
 
-    * *Persistence* - specifies that the source or destination context is a persisted store
+   * *Persistence* - specifies that the source or destination context is a persisted store
 
 As a regular C# type, U-SQL UDT definition may include overrides for operators such as +/==/!=, etc. Can include static methods and so on. For example, if we are going to use this UDT as a parameter to U-SQL MIN aggregate function, we have to define < operator override.
 
