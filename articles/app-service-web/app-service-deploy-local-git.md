@@ -131,6 +131,15 @@ The following are errors or problems commonly encountered when using Git to publ
     git push azure master
 
 - - -
+**Symptom**: RPC failed; result=22, HTTP code = 502.
+
+**Cause**: This error can occur if you attempt to push a large git repository over HTTPS.
+
+**Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
+
+    git config --global http.postBuffer 524288000
+
+- - -
 **Symptom**: Error - Changes committed to remote repository but your web app not updated.
 
 **Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
