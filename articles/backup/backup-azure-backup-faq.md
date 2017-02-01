@@ -15,12 +15,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 2/1/2017
 ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 
 ---
 # Azure Backup service- FAQ
-This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## What is the list of supported operating systems from which I can back up to Azure using Azure Backup? <br/>
 Azure Backup supports the following list of operating systems for backing up: files and folders, and workload applications protected using Azure Backup Server and SCDPM.
