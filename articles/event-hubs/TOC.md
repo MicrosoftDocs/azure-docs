@@ -23,7 +23,7 @@
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 
 ## Develop
-### [🔧Available APIs](event-hubs-api-overview.md)
+### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 ### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
