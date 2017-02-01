@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/01/2017
 ms.author: sasubram
 
 ---
@@ -76,7 +76,7 @@ You have been using the B2B collaboration capabilities that we had in public pre
 
 9. Auditing and reporting capabilities.
 
-## Related articles
+## Next steps
 
 Browse our other articles on Azure AD B2B collaboration:
 

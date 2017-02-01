@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/01/2017
 ms.author: sasubram
 
 ---
@@ -29,7 +29,8 @@ Any paid Azure AD features, extended to B2B users via B2B collaboration function
 ## Licensing examples
 - A customer wants to invite 100 B2B users to its Azure AD tenant, and will use Group based access management and provisioning for all users, but 50 of those users will also be requiring MFA and conditional access. The customer here must purchase 10 Azure AD Basic licenses, and 10 Azure AD Premium P1 licenses to cover all of their B2B users correctly. Similarly, if an inviting tenant plans to use Identity Protection features with B2B users, then it must have enough Azure AD Premium P2 licenses to cover all these B2B users in the 5:1 ratio.
 - A customer has 10 employees who are all currently licensed with Azure AD Premium P1. They now want to invite 60 B2B users, who will all require multi-factor authentication (MFA). Per the 5:1 licensing rule, the customer must have at least 12 Azure AD Premium P1 licenses to cover all 60 B2B collaboration users. Since they already have 10 Premium P1 licenses for their 10 employees, they already have rights to invite 50 B2B users with Premium P1 features like MFA. So in this example, they need to purchase 2 additional Premium P1 licenses to cover the remaining 10 B2B collaboration users.
-> [!NOTE]
+
+> ![NOTE]
 There is no facility or need to assign licenses to the B2B users to enable these B2B collaboration user rights.
 
 The customer who owns the inviting tenant must be the one to determine how many B2B collaboration users need paid Azure AD capabilities and depending on whether they are Basic, Premium P1, or Premium P2 level features, customers must have the sufficient number of the appropriate Azure AD paid licenses to cover their B2B collaboration users in the 5:1 ratio. If a company needs additional B2B collaboration user rights, they must purchase the required Azure AD paid licenses.
@@ -41,7 +42,7 @@ The customer who owns the inviting tenant must be the one to determine how many 
 - Every invited user gets the rights that the Azure AD Free edition offers if no paid Azure AD license exists in the tenant.
 - If a B2B collaboration user has a paid Azure AD license as an employee from his organization, he will not consume one of the B2B collaboration licenses of the inviting tenant.
 
-## Related articles
+## Next steps
 
 Browse our other articles on Azure AD B2B collaboration:
 

@@ -1,5 +1,5 @@
 ---
-title: The elements of the B2B collaboration invitation email | Microsoft Docs
+title: The elements of the Azure Active Diretory B2B collaboration invitation email | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 02/01/2017
 ms.author: sasubram
 
 ---
@@ -57,7 +57,8 @@ If the inviter hasn't yet set up their profile picture, Azure AD creates an icon
 ### Body
 This will contain the message that the inviter typed in the UX or passed through the invitation API. This is just a simple text box, which will not process html tags for security reasons.
 
-### Footer
+### Footer section
+
 The footer contains the Microsoft company brand and will let the recipient know if the email was sent from an unmonitored alias. Special cases:
 
 - The inviter doesn't have an email address in the inviting tenancy
@@ -70,7 +71,7 @@ The footer contains the Microsoft company brand and will let the recipient know 
   ![when recipient doesn't need to redeem invitation](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## Related articles
+## Next steps
 
 Browse our other articles on Azure AD B2B collaboration:
 
