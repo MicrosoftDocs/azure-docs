@@ -429,7 +429,7 @@ To set the cluster probe port parameter, update variables in the following scrip
    $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
    $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = 59999
+   [int]$ProbePort = <59999>
    
    Import-Module FailoverClusters
 
