@@ -175,7 +175,8 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
 
 1. To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml. The file should look like the following:
 
-        ```xml
+```xml
+    
         <?xml version="1.0"?>
         <web-app id="WebApp_ID" version="2.4"  
         xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -223,7 +224,7 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
             <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
         </listener>
         </web-app>
-    ```
+```
 
  - YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.  
  - YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.  
@@ -236,7 +237,8 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
 
 2. Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:  
 
-        ```xml
+```xml
+
         <beans xmlns="http://www.springframework.org/schema/beans"
             xmlns:context="http://www.springframework.org/schema/context"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -256,7 +258,7 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
                 </property>
             </bean>
         </beans>
-        ```
+```
 
     This will tell the webapp to use Spring and where to find our .jsp file which we will write below.
 
@@ -270,7 +272,8 @@ Let's make those now.
 
 1. To begin, create the `index.jsp` file located under `\webapp\`, and copy/paste the following:  
 
-        ```jsp
+```jsp
+
         <html>
         <body>
             <h2>Hello World!</h2>
@@ -279,13 +282,14 @@ Let's make those now.
             </ul>
         </body>
         </html>
-        ```
+```
 
     This simply redirects to a secure page that is protected by our filter.
 
 2. Next, in the same directory lets create an `error.jsp` file to catch any errors that might happen:  
 
-        ```jsp
+```jsp
+
         <html>
         <body>
             <h2>ERROR PAGE!</h2>
@@ -297,12 +301,13 @@ Let's make those now.
             </ul>
         </body>
         </html>
-        ```
+```
 
 3. Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`. 
 Inside this directory, let's then create an `aad.jsp` file and copy/paste the following:
 
-        ```jsp
+```jsp
+
         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
         <html>
         <head>
@@ -327,11 +332,11 @@ Inside this directory, let's then create an `aad.jsp` file and copy/paste the fo
         </ul>
         </body>
         </html>
-        ```
+```
 
-    You see that this page will redirect to specific requests which our BasicFilter servlet will read and then execute on using the `ADAJ4J` library. Rather simple, huh?
+You see that this page will redirect to specific requests which our BasicFilter servlet will read and then execute on using the `ADAJ4J` library. Rather simple, huh?
 
-    Of course, we need now need to set up our Java files so that the servlet can do its work.
+Of course, we need now need to set up our Java files so that the servlet can do its work.
 
 ## 5. Create some Java helper files (for BasicFilter MVC)
 Our goal is to create some Java files that will:
@@ -352,7 +357,7 @@ Let's write some Java files to do this work for us:
 
 2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can copy/paste this from below:
 
-        ```Java
+```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -570,11 +575,11 @@ Let's write some Java files to do this work for us:
         
         }
         
-        ```
+```
 
 3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can copy/paste this from below:
 
-        ```Java
+```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -726,14 +731,14 @@ Let's write some Java files to do this work for us:
         
         }
         
-        ```
+```
 
 ## 6. Create the Java Graph API Model files (for BasicFilter MVC)
 As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
 1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
 
-        ```Java
+```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -784,10 +789,10 @@ As indicated above, we will be using the Graph API to get data about the logged 
         
         }
         
-        ```
+```
 2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
 
-        ```Java
+```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -1300,7 +1305,7 @@ As indicated above, we will be using the Graph API to get data about the logged 
         //
         //}
         
-        ```
+```
 
 ## 7. Create the Authentication Model/Controller files (for BasicFilter)
 Yes, Java is rather verbose, but we're almost done. Next to last, before we write the BasicFilter servlet to handle our requests, let's write some more helper files that the `ADAL4J` library needs. 
@@ -1313,7 +1318,8 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
 
 2. Cut/paste the code below:  
 
-        ```Java
+```Java
+
         package com.microsoft.aad.adal4jsample;
         
         import java.util.Map;
@@ -1357,11 +1363,12 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
                 return authResponse instanceof AuthenticationSuccessResponse;
             }
         }
-        ```
+```
 
 3. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:  
 
-        ```Java
+```Java
+
         package com.microsoft.aad.adal4jsample;
         public final class AuthParameterNames {
             private AuthParameterNames() {
@@ -1372,13 +1379,14 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
         public static String ID_TOKEN = "id_token";
         public static String CODE = "code";
         }
-        ```
+```
 
 4. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.  
 
     Cut/paste the following:
 
-        ```Java
+```Java
+
         package com.microsoft.aad.adal4jsample;
         import java.net.HttpURLConnection;
         import java.net.URL;
@@ -1450,14 +1458,14 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
         
         }
         
-        ```
+```
 
 ## 8. Create the BasicFilter file (for BasicFilter MVC)
 We are finally ready to create the BasicFilter file to handle our requests from our View (JSP files).
 
 1. Create a file called `BasicFilter.java` which contains the following:
 
-        ```Java
+```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -1695,7 +1703,7 @@ We are finally ready to create the BasicFilter file to handle our requests from 
             }
         
         }
-        ```
+```
 
 2. This servlet exposes all of the methods that `ADAL4J` will expect from our application to run. This includes:
 
