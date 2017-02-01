@@ -155,7 +155,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | IT Consultancy |
-| **Europe** |Avanade Inc., Dotnet Solutions , MSG Services, Nelite |
+| **Europe** |Avanade Inc., Dotnet Solutions, MSG Services, Nelite |
 | **North America** |Avanade Inc., Equinix Professional Services, Perficient, Project Leadership |
 | **South America** |Avanade Inc. |
 ## Next steps
