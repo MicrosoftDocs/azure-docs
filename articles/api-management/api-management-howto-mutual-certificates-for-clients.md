@@ -39,7 +39,7 @@ Below policies can be configured to check the thumbprint of a client certificate
 
 ## Checking a thumbprint against certificates uploaded to API Management
 
-Below example shows how to check the thumbprint of a client certificate against certificates uploaded to API Management: 
+The following example shows how to check the thumbprint of a client certificate against certificates uploaded to API Management: 
 
 ```
 <choose>
