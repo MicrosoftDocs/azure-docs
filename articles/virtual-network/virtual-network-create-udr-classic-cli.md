@@ -1,5 +1,5 @@
 ---
-title: Control routing and use virtual appliances using the Azure CLI in the classic deployment model | Microsoft Docs
+title: Control routing in an Azure Virtual Network - CLI - Classic | Microsoft Docs
 description: Learn how to control routing in VNets using the Azure CLI in the classic deployment model
 services: virtual-network
 documentationcenter: na
