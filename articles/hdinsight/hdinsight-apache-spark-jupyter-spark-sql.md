@@ -76,7 +76,7 @@ In this article, you use the PySpark kernel. For more information about the two 
 ### Create Jupyter notebook with PySpark kernel
 
 1. Open the [Azure portal](https://portal.azure.com/).
-2. From the left menu, click **Resoruce groups**.
+2. From the left menu, click **Resource groups**.
 3. Click the resource group you created in the last section. You can use the search function if there are too many resource groups. You can see two resources in the group, the HDInsight cluster, and the default storage account.
 4. Click the cluster to open it.
  
@@ -164,7 +164,7 @@ In this article, you use the PySpark kernel. For more information about the two 
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
