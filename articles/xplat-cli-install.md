@@ -20,7 +20,7 @@ ms.author: rasquill
 ---
 # Install the Azure CLI
 > [!div class="op_single_selector"]
-> * [PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
+> * [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 > * [Azure CLI](xplat-cli-install.md)
 
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer:
