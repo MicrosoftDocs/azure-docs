@@ -140,7 +140,7 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
 
 ## [Samples and walkthroughs](app-insights-code-samples.md)
-### [Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
+### [Walkthrough: Enabling telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 ### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 ### [Code sample: Parse exported data](app-insights-code-sample-export-telemetry-sql-database.md)
 
