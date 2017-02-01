@@ -72,7 +72,7 @@ Azure AD Connect Health Performance Monitoring provides monitoring information o
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
 
-By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metric, right-click on the monitoring chart under the monitoring blade and select Edit Chart (or select the Edit Chart button) Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
+By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metric, right-click on the monitoring chart under the monitoring blade and select Edit Chart (or select the Edit Chart button). From the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
 ## Reports for AD FS
 Azure AD Connect Health provides reports about activity and performance of AD FS. These reports help administrators gain insight into activities on their AD FS servers.

@@ -27,10 +27,10 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health is an Azure AD Premium feature and requires Azure AD Premium. </br></br>For more information, see [Getting started with Azure AD Premium](../active-directory-get-started-premium.md) </br>To start a free 30-day trial, see [Start a trial.](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | You must be a global administrator of your Azure AD to get started with Azure AD Connect Health |By default, only the global administrators can install and configure the health agents to get started, access the portal, and perform any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](../active-directory-administer.md). <br><br> Using Role Based Access Control you can allow access to Azure AD Connect Health to other users in your organization. For more information, see [Role Based Access Control for Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Important:** The account used when installing the agents must be a work or school account. It cannot be a Microsoft account. For more information, see [Sign up for Azure as an organization](../sign-up-organization.md) |
-| Azure AD Connect Health Agent is installed on each targeted server | Azure AD Connect Health requires the Health Agents to be installed and configured on targeted servers to receive the data and provide the Monitoring and Analytics capabilities </br></br>For example, to get data from your AD FS infrastructure, the agent must be installed on the AD FS and  Web Application Proxy servers. Similarly, to get data on your on-premises AD DS infrastructure, the agent must be installed on the domain controllers. </br></br> |
+| Azure AD Connect Health Agent is installed on each targeted server | Azure AD Connect Health requires the Health Agents to be installed and configured on targeted servers to receive the data and provide the Monitoring and Analytics capabilities </br></br>For example, to get data from your AD FS infrastructure, the agent must be installed on the AD FS and Web Application Proxy servers. Similarly, to get data on your on-premises AD DS infrastructure, the agent must be installed on the domain controllers. </br></br> |
 | Outbound connectivity to the Azure service endpoints | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Outbound connectivity based on IP Addresses | For IP address based filtering on firewalls, refer to the [Azure IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
-| SSL Inspection for outbound traffic is filtered or disabled | The agent registration as well as operations may fail if there is SSL inspection or termination for outbound traffic. |
+| SSL Inspection for outbound traffic is filtered or disabled | The agent registration step or data upload operations may fail if there is SSL inspection or termination for outbound traffic at the network layer. |
 | Firewall ports on the server running the agent. |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li> |
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https://sts.contoso.com</li> |
 
@@ -43,7 +43,7 @@ Once the installation is finished, click Configure Now.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install2.png)
 
-This launches a PowerShell windows to initiate the agent registration process. When prompted, sign in with an Azure AD account that has access to perform agent registration. By default the Global Admin account has access.
+This launches a PowerShell window to initiate the agent registration process. When prompted, sign in with an Azure AD account that has access to perform agent registration. By default the Global Admin account has access.
 
 ![Verify Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install3.png)
 
@@ -97,7 +97,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a command prompt with elevated privileges and run the following command: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`.
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
 5. Close **Local Security Policy**, and then open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
 6. In the Actions pane, click **Edit Federation Service Properties**.
 7. In the Federation Service Properties dialog box, click the **Events** tab.
@@ -112,9 +112,9 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 6. In the Actions pane, click **Edit Federation Service Properties**.
 7. In the Federation Service Properties dialog box, click the **Events** tab.
 8. Select the **Success audits and Failure audits** check boxes and then click **OK**. This should be enabled by default.
-9. Open a PowerShell window and run the following command: `Set-AdfsProperties -AuditLevel Verbose`.
+9. Open a PowerShell window and run the following command: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Note that "basic" audit level is enabled by default. Connect Health Service will be updated to consume the audit events generated by "basic" audit level, eliminating the requirement to run this command. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
+Note that "basic" audit level is enabled by default. Read more about the [AD FS Audit enhancement in Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
 #### To locate the AD FS audit logs
@@ -126,7 +126,7 @@ Note that "basic" audit level is enabled by default. Connect Health Service will
 ![AD FS audit logs](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
 > [!WARNING]
-> A group policy can disable AD FS auditing. Azure AD Connect Health Agent will not be able to collect information login activity events if AD FS auditing is disabled. Ensure that you don’t have a group policy that may be disabling AD FS auditing.>
+> A group policy can disable AD FS auditing. If AD FS auditing is disabled, usage analytics about login activities are not available. Ensure that you don’t have a group policy that  disables AD FS auditing.>
 >
 
 
@@ -196,7 +196,7 @@ If you completed the configuration, these services should already be running. Ot
 
 
 ### Agent Registration using PowerShell
-After installing the appropriate agent setup exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command from the following:
+After installing the appropriate agent setup.exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command:
 
 ```
     Register-AzureADConnectHealthADFSAgent
@@ -206,7 +206,7 @@ After installing the appropriate agent setup exe, you can perform the agent regi
 ```
 
 These commands accept "Credential" as a parameter to complete the registration in a non-interactive manner or on a Server-Core machine.
-* The Credential can be captured in a PowerShell variable which is passed as a parameter.
+* The Credential can be captured in a PowerShell variable that is passed as a parameter.
 * You can provide any Azure AD Identity that has access to register the agents and does NOT have MFA enabled.
 * By default Global Admins have access to perform agent registration. You can also allow other less privileged identities to perform this step. Read more about [Role Based Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control).
 
