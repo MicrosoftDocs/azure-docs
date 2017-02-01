@@ -54,7 +54,12 @@ You can create the entire solution in Azure from a template. An example of a tem
 There are a few things you need to know and a couple of things that you need in place before you proceed.
 
 ### What to know
-You should have an operational understanding of [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx) and [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx). Also, be familiar with the following:
+You should have an operational understanding of the following technologies:
+
+- [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx)
+-  [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx). 
+
+Also, you should have a general understanding of the following technologies:
 
 - S2D hyper-converged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
@@ -82,12 +87,12 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
    The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers. 
 
-   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, do the following:
+   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, do the following steps:
 
    - In the Azure portal, click **+** to open the Azure Marketplace. Search for **Availability set**.
    - Click **Availability set**.
    - Click **Create**.
-   - On the **Create availability set** blade, set the following:
+   - On the **Create availability set** blade, set the following values:
       - **Name**: A name for the availability set. 
       - **Subscription**: Your Azure subscription.
       - **Resource group**: If you want to use an existing group, click **Use existing** and select the group from the drop-down list. Otherwise choose **Create New** and type a name for the group.
@@ -104,7 +109,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    
    - In the same Azure resource group that your availability set is in. 
    - On the same network as your domain controller.
-   - On a subnet with sufficient IP address space for both virtual machines, and all FCIs that you will include on this cluster. 
+   - On a subnet with sufficient IP address space for both virtual machines, and all FCIs that you may eventually use on this cluster. 
    - In the Azure availability set.   
   
       >[!IMPORTANT]
@@ -135,11 +140,11 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
 1. After azure creates your virtual machines, connect to each virtual machine with RDP. 
 
-   When you first connect to a virtual machine with RDP, the computer will ask if you want to allow this PC to be discoverable on the network. Click **Yes**. 
+   When you first connect to a virtual machine with RDP, the computer asks if you want to allow this PC to be discoverable on the network. Click **Yes**. 
 
 1. If you are using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
 
-   - In **Programs and Features** right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**. 
+   - In **Programs and Features**, right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**. 
    - Click **Remove**. 
    - Select the default instance.
    - Remove all features under **MSSQLSERVER**. Do not remove **Shared Features**. See the following picture:
@@ -179,7 +184,7 @@ After the virtual machines are created and configured, you can configure the WSF
 
 ## Step 2: Configure WSFC with S2D
 
-The next step is to configure the WSFC with S2D. In this step you will validate and configure the cluster, and then add storage. 
+The next step is to configure the WSFC with S2D. In this step, validate and configure the cluster, then add storage. 
 
 1. To begin, connect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
 
@@ -217,7 +222,7 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
 1. [Create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
    To create the WSFC, you need: 
-   - The names of the virtual machines that will be the cluster nodes. 
+   - The names of the virtual machines that become the cluster nodes. 
    - A name for the WSFC. Use a valid 
    - An IP address for the WSFC. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes. 
 
@@ -246,7 +251,7 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    
 1. [Clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
    
-   The disks for S2D need to be empty and without partitions or other data. Follow the instructions in the preceding link to verify that the disks are clean.
+   The disks for S2D need to be empty and without partitions or other data. To verify that the disks are clean, Follow the instructions in the preceding link.
    
 1. [Enable Store Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
@@ -288,7 +293,7 @@ After you have configured the WSFC and all cluster components including storage,
 
 1. Click **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI. 
 
-   Note that the FCI data directories need to be on clustered storage. With S2D, it's not a shared disk, but a mount point to a volume on each server. S2D synchronizes the volume between both nodes. The volume is presented to the cluster as a cluster shared volume. Use the CSV mount point for the data directories. 
+   The FCI data directories need to be on clustered storage. With S2D, it's not a shared disk, but a mount point to a volume on each server. S2D synchronizes the volume between both nodes. The volume is presented to the cluster as a cluster shared volume. Use the CSV mount point for the data directories. 
 
    ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
 
@@ -337,7 +342,7 @@ To create the load balancer:
   
 ### Configure the load balancer backend pool 
 
-1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click on the load balancer. 
+1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click the load balancer. 
 
 1. On the load balancer blade, click **Backend pools**. 
 
@@ -353,7 +358,7 @@ To create the load balancer:
 
 1. On the **Choose virtual machines** blade, click **Choose the virtual machines**. 
 
-   Your Azure portal should look like the following picture.
+   Your Azure portal should look like the following picture:
 
    ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-loadbalancerbackend.png)
 
@@ -370,10 +375,10 @@ To create the load balancer:
 1. On the **Add health probe** blade, <a name="probe"></a>Set the health probe parameters:
 
    - **Name**: A name for the health probe.
-   - **Protocol**: TCP
+   - **Protocol**: TCP.
    - **Port**: Set to an available TCP port. This port requires an open firewall port. Use the [same port](#ports) you set for the health probe at the firewall. 
-   - **Interval**: 5 Seconds
-   - **Unhealthy threshold**: 2 consecutive failures
+   - **Interval**: 5 Seconds.
+   - **Unhealthy threshold**: 2 consecutive failures.
 
 1. Click OK.
 
