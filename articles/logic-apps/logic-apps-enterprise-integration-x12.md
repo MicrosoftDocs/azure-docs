@@ -24,7 +24,7 @@ Before you can exchange X12 messages, you need to create an X12 agreement and st
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
 * At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) configured with EDI X12 qualifier under business identities.   
-* Required [Schema](../logic-apps/logic-appslogic-apps-enterprise-integration-schemas.md) to be uploaded to [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) to be uploaded to [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 
 ## Create an X12 agreement
 After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
