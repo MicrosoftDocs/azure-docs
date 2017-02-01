@@ -306,16 +306,18 @@ The Azure load balancer holds the IP address for the SQL Server FCI.
    
    - Be in the same network and subnet as the cluster nodes.
    - Have a static IP address for the SQL Server Virtual IP.
-      
-      >[!TIP]
-      >You can create the load balancer with a dynamic IP address and then change it to a static address after it is created. 
-
+   - Have the same IP address as the SQL Server FCI.
    - Include a backend pool consisting of the virtual machines.
    - Use the TCP port probe specific to the IP address.
    - Configure load balancer with direct server return (floating IP).
 
    >[!NOTE]
    >On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time.
+
+   The following picture shows the Azure portal blade to create a load balancer.
+
+   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+   
 
 The load balancer for an FCI requires a floating IP address with direct server return.  
 
