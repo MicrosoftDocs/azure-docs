@@ -19,7 +19,7 @@ Access is granted by assigning the appropriate RBAC role to users, groups, and a
 Let’s take an example: As a resource group owner with read permissions at the subscription scope, you can manage all the resources under the resource group, like websites, virtual machines, and subnets.
 However, when you try to create a support request against the virtual machine resource, you encounter the following error
 
-![Subscription error](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/subscription-error.png)
+![Subscription error](./media/create-manage-support-requests-using-access-control/subscription-error.png)
 
 In support request management, you need write permission or a role that has the Support action Microsoft.Support/* at the Subscription scope to be able to create and manage support requests.
 
@@ -63,32 +63,32 @@ You wish to give access to your peer, Joe, the ability to create and manage supp
 
 1. The first step is to go to the subscription and under "Settings" you see a list of users. Click the user Joe who has reader access on the Subscription and let’s assign a new custom role to him.
 
-    ![Add role](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/add-role.png)
+    ![Add role](./media/create-manage-support-requests-using-access-control/add-role.png)
 
 2. Click "Add" under the "Users" blade. Select the custom role "Support Request Contributor" from the list of roles
 
-    ![Add support contributor role](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/add-support-contributor-role.png)
+    ![Add support contributor role](./media/create-manage-support-requests-using-access-control/add-support-contributor-role.png)
 
 3. After selecting the role name, click "Add users" and enter the Joe's email credentials. Click "Select"
 
-    ![Add users](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/add-users.png)
+    ![Add users](./media/create-manage-support-requests-using-access-control/add-users.png)
 
 4. Click "Ok" to proceed
 
-    ![Add access](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/add-access.png)
+    ![Add access](./media/create-manage-support-requests-using-access-control/add-access.png)
 
 5. Now you see the user with the newly added custom role "Support Request Contributor" under the Subscription for which you are the owner
 
-    ![User added](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/user-added.png)
+    ![User added](./media/create-manage-support-requests-using-access-control/user-added.png)
 
     When Joe logs in the portal, he sees the subscription to which he was added.
 
 7. Joe clicks "New Support request" from the "Help and Support" blade and can create support requests for "Visual Studio Ultimate with MSDN"
 
-    ![New support request](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/new-support-request.png)
+    ![New support request](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
 8. Clicking "All support requests" Joe can see the list of support requests created for this Subscription
-    ![Case details view](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/case-details-view.png)
+    ![Case details view](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## Remove support request access in the Azure portal
 
@@ -96,12 +96,12 @@ Just as it is possible to grant access to a user to create and manage support re
 To remove the ability to create and manage support requests, go to the Subscription, click "Settings" and click the user (in this case, Joe).
 Right-click the role name, "Support Request Contributor" and click "Remove"
 
-    ![Remove support request access](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/remove-support-request-access.png)
+![Remove support request access](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
 When Joe logs in to the portal and tries to create a support request, he encounters the following error
 
-    ![Subscription error-2](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/subscription-error-2.png)
+![Subscription error-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
 Joe cannot see any support requests when he clicks "All support requests"
 
-    ![case details view-2](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/case-details-view-2.png)
+![case details view-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
