@@ -54,7 +54,7 @@ You can create the entire solution in Azure from a template. An example of a tem
 There are a few things you need to know and a couple of things that you need in place before you proceed.
 
 ### What to know
-In addition to an operational understanding of Windows cluster technologies in general and SQL Server Failover Cluster Instances specifically, you should know a little bit about:
+You should have an operational understanding of [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx) and [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx). You should also know a little bit about:
 
 - S2D hyper-converged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 - Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
@@ -174,7 +174,7 @@ After the virtual machines are created and configured, you can configure the WSF
 
 The next step is to configure the WSFC with S2D. In this step you will validate and configure the cluster, and then add storage. 
 
-1. To begin, connnect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
+1. To begin, connect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
 
 1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
@@ -201,7 +201,7 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    - Click **Next**. 
    - On **Select Servers or a Cluster** type the name of both virtual machines.
 
-   To validate the cluster with PowerShell, ron the following script from an administrator PowerShell session on one of the virtual machines.
+   To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
    ```PowerShell
    Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
