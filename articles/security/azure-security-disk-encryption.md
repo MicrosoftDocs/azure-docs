@@ -935,7 +935,7 @@ To configure encryption during the distribution installation, do the following:
 3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Do not run the last step (deprovisioning the VM) yet.
 
 To configure encryption to work with Azure, do the following:
-1. Edit the /etc/dracut.conf and add the following line:
+1. Edit the /etc/dracut.conf, and add the following line:
     ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
@@ -1014,7 +1014,7 @@ To configure encryption during the distribution installation, do the following:
 
 To configure encryption to work with Azure, do the following:
 
-1. Edit the /etc/dracut.conf and add the following line:
+1. Edit the /etc/dracut.conf, and add the following line:
 
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
 
