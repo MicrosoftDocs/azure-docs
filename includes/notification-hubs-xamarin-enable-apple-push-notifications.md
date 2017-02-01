@@ -31,7 +31,7 @@ Create a new Explicit App ID for your application with Apple and also configure 
    * **Push Notifications**: Check the **Push Notifications** option in the **App Services** section, .
      
      ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
-3. On the Confirm your App ID screen, review the setting and after you have verified them click **Submit**
+3. On the Confirm your App ID screen, review the setting and after you have verified them click **Register**.
 4. Once you have submitted the new App ID, you will see the **Registration complete** screen. Click **Done**.
 5. In the Developer Center, under App IDs, locate the app ID that you just created, and click on its row. Clicking on the app ID row will display the app details. Click the **Edit** button at the bottom.
 6. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
@@ -69,7 +69,7 @@ Create a new Explicit App ID for your application with Apple and also configure 
    > 
 10. In Keychain Access, right-click the new push certificate that you just created in the **Certificates** category. Click **Export**, name the file, select the **.p12** format, and then click **Save**.
     
-    Remember the file name and location of the exported .p12 push certificate. It will be used to enable authentication with APNS by uploading it on the Azure Classic Portal.
+    Remember the file name and location of the exported .p12 push certificate. It will be used to enable authentication with APNS by uploading it on the Azure Classic Portal. If the **.p12** format option is not available, you may need to restart Keychain Access.
 
 #### Create a provisioning profile for the app
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
@@ -82,6 +82,7 @@ Create a new Explicit App ID for your application with Apple and also configure 
 4. In the **Select certificates** screen, select your development certificate used for code signing, and click **Continue**. This is a signing certificate, not the push certificate you just created.
    
        ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
+       
 5. Next, select the **Devices** to use for testing, and click **Continue**
    
        ![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
