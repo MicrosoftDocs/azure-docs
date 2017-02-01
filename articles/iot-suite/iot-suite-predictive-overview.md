@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2017
+ms.date: 02/01/2017
 ms.author: dobett
 
 ---
 # Predictive maintenance preconfigured solution overview
 
-The *predictive maintenance* [preconfigured solution][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT Suite][lnk_iot_suite] preconfigured solutions. This solution integrates real-time device telemetry collection with a predictive model created using the R statistical computing language.
+The *predictive maintenance* [preconfigured solution][lnk_preconfigured_solutions] is one of the [Microsoft Azure IoT Suite][lnk_iot_suite] preconfigured solutions. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk-machine-learning].
 
 With Azure IoT Suite, an enterprise can quickly and easily connect to and monitor assets, and analyze data in real time. The predictive maintenance preconfigured solution takes that data and uses rich dashboards and visualizations to provide you with new intelligence that can drive efficiencies and enhance revenue streams.
 
@@ -44,7 +44,7 @@ To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities cus
 
 ## How the predictive maintenance solution is built
 
-Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
+The solution leverages an existing Azure Machine Learning model available as a template to show these capabilities working from device telemetry collected through IoT Suite services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
 
 The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams that provide an accurate result from the trained model.
 
@@ -70,21 +70,10 @@ To complete this tutorial, you need an active Azure subscription.
 1. Click the tile for your solution with **Provisioning** status.
 1. Notice the **Provisioning states** as Azure services are deployed in your Azure subscription.
 1. Once provisioning completes, the status changes to **Ready**.
-1. Click the tile to see the details of your solution in the right-hand pane.
+1. Click the tile to see the details of your solution in the right-hand pane. From this tile you can launch the solution dashboard.
 
 > [!NOTE]
 > If you encounter issues deploying the preconfigured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
-
-The following screenshot shows the solution panel when the provisioning is complete:
-
-![Provisioning complete][img-provisioning-complete]
-
-From this panel, you can:
-
-- Launch the solution dashboard.
-- Download a remote login file that enables you to connect to the R Server in your solution.
-- View more information about R Server.
-
 
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
@@ -103,7 +92,9 @@ In the Azure portal, navigate to the resource group with the solution name you c
 
 ![][img-resource-group]
 
-When you provision the preconfigured solution with an R server, you are shown links to the server during the provisioning process. You can also connect to the R server from your solution's [azureiotsuite.com][lnk-azureiotsuite] page when it's in the **Ready** state.
+When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the tile on the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
+
+![][img-machine-learning]
 
 In the solution portal, you can see that the sample is provisioned with four simulated devices to represent two aircraft with two engines per aircraft, each with four sensors. When you first navigate to the solution portal, the simulation is stopped.
 
@@ -138,7 +129,7 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [img-simulation-stopped]: media/iot-suite-predictive-overview/simulation-stopped.png
 [img-simulation-running]: media/iot-suite-predictive-overview/simulation-running.png
 [img-simulation-warning]: media/iot-suite-predictive-overview/simulation-warning.png
-[img-provisioning-complete]: media/iot-suite-predictive-overview/provisioned.png
+[img-machine-learning]: media/iot-suite-predictive-overview/machine-learning.png
 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
@@ -155,3 +146,4 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
+[lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
