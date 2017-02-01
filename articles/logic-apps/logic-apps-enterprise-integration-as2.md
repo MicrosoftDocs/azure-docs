@@ -1,5 +1,5 @@
 ---
-title: Create an AS2 agreement in Azure Logic Apps | Microsoft Docs
+title: Create an AS2 agreement in Azure logic apps | Microsoft Docs
 description: Create an AS2 agreement for the Enterprise Integration Pack | Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -18,7 +18,7 @@ ms.author: mandia
 
 ---
 # Enterprise integration with AS2
-To use the enterprise features in Logic apps, you must first create agreements.
+To use the enterprise features in logic apps, you must first create agreements.
 
 ## Prerequisites
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) must be defined in your Azure subscription.  
