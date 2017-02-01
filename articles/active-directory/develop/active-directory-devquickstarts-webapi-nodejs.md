@@ -32,8 +32,8 @@ The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Sa
 
 > [!NOTE]
 > This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.  If you haven't already, you should start with the [How to integrate with Azure Active Directory document](active-directory-how-to-integrate.md) to learn about the basics of Azure Active Directory.
-> 
-> 
+>
+>
 
 We've released all of the source code for this running example in GitHub under an MIT license, so feel free to clone (or even better, fork!) and provide feedback and pull requests.
 
@@ -69,14 +69,14 @@ To successfully use this sample, you must have a working installation of Node.js
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
 ## 4. Install MongoDB on to your platform
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistent across server instances.
 
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
 > This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
-> 
-> 
+>
+>
 
 ## 5. Install the Restify modules in to your Web API
 We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
@@ -162,8 +162,8 @@ Next, we will add the OAuth strategy, using passport-azuread, a suite of strateg
 
 > [!NOTE]
 > Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained wide-spread use. For protecting endpoints, that has turned out to be Bearer Tokens. Bearer tokens are the most widely issued type of token in OAuth2, and many implementations assume that bearer tokens are the only type of token issued.
-> 
-> 
+>
+>
 
 From the command-line, change directories to the azuread directory
 
@@ -525,7 +525,7 @@ function listTasks(req, res, next) {
         }
 
         if (!data.length) {
-            log.warn(err, "There is no tasks in the database. Did you initalize the database as stated in the README?");
+            log.warn(err, "There is no tasks in the database. Did you initialize the database as stated in the README?");
         }
 
         if (!owner) {
@@ -644,7 +644,7 @@ server.use(restify.bodyParser({
 /*
 /* Each of these handlers are protected by our OIDCBearerStrategy by invoking 'oidc-bearer'
 /* in the pasport.authenticate() method. We set 'session: false' as REST is stateless and
-/* we don't need to maintain session state. You can experiement removing API protection
+/* we don't need to maintain session state. You can experiment removing API protection
 /* by removing the passport.authenticate() method like so:
 /*
 /* server.get('/tasks', listTasks);
@@ -697,7 +697,7 @@ The easiest way to do this is by using curl in a command line. Before we do that
 
 This installs the JSON tool globally. Now that we’ve accomplished that – let’s play with the server:
 
-First, make sure that your monogoDB isntance is running..
+First, make sure that your monogoDB instance is running..
 
 `$sudo mongod`
 
@@ -770,8 +770,8 @@ server.use(passport.session()); // Provides session support
 
 > [!TIP]
 > When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
-> 
-> 
+>
+>
 
 Next, let’s use the Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I’ll explain it shortly. Put this after what you pated above:
 
@@ -826,8 +826,8 @@ Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, et
 
 > [!IMPORTANT]
 > The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
-> 
-> 
+>
+>
 
 ### 2. Finally, protect some endpoints
 You protect endpoints by specifying the `passport.authenticate()` call with the protocol you wish to use.
@@ -871,7 +871,7 @@ next();
 ```
 
 ## 19. Run your server application again and ensure it rejects you
-Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We will do this before runnning any of our client SDKs against this endpoint. The headers returned should be enough to tell us we are down the right path.
+Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We will do this before running any of our client SDKs against this endpoint. The headers returned should be enough to tell us we are down the right path.
 
 First, make sure that your monogoDB instance is running:
 
@@ -910,4 +910,3 @@ Simply clone down to your developer machine and configure as stated in the Walkt
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

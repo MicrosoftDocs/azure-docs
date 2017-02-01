@@ -39,7 +39,7 @@ With Azure AD Join, you get the following:
 
 * **Self-provisioning of corporate-owned devices**: With Windows 10, users can configure a brand new, shrink-wrapped device in the out-of-box experience, without IT involvement.
 * **Support for modern form factors**: Azure AD Join works on devices that don’t have the traditional domain join capabilities.  
-* **Support for existing organizational accounts**: Users no longer need to create and maintain a a personal Microsoft account to get the best experience on company-issued devices, as they did with Windows 8. They can use their existing work accounts in Azure AD instead. For many organizations, this basically means that users can set up and sign in to Windows with the same credentials that they use to access Office 365.
+* **Support for existing organizational accounts**: Users no longer need to create and maintain a personal Microsoft account to get the best experience on company-issued devices, as they did with Windows 8. They can use their existing work accounts in Azure AD instead. For many organizations, this basically means that users can set up and sign in to Windows with the same credentials that they use to access Office 365.
 * **Automatic mobile device management  enrollment**: Devices can be automatically enrolled in mobile device management when connected to Azure AD. This process works with Microsoft Intune and partner mobile device management solutions. When device management is done with Intune, IT administrators can monitor/manage Azure AD-joined devices alongside domain-joined devices in the SCCM management console.
 * **Single sign-on to company resources**: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through [Azure AD Connect](active-directory-azureadjoin-deployment-aadjoindirect.md). Corporate-owned devices that are joined to Azure AD also enjoy SSO to on-premises resources when the device is on a corporate network, and from anywhere when these resources are exposed via the [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/Dn768219.aspx).
 * **OS State Roaming**: Accessibility settings, websites, Wi-Fi passwords, and other settings are synchronized across corporate-owned devices without requiring a personal Microsoft account.
@@ -60,4 +60,3 @@ With Azure AD Join, you get the following:
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
-

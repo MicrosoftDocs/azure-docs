@@ -46,7 +46,7 @@ Windows 10 offers two ways for work-owned devices to access work resources:
 
 * Azure AD Join
 * Domain join
-  
+
   Both can be valid options depending on an organization's needs and requirements. In some cases, organizations might benefit from enabling both methods of deployment.
 
 ## When to use Azure Active Directory Join
@@ -91,7 +91,7 @@ For the last 15 years, many organizations have used domain join to connect work 
 For more information about Azure AD Join, see [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
 ## Enable joining of personally-owned devices for work or school
-To support BYOD in the enterprise, Windows 10 gives the user the ability to add a work or school account to their computer, tablet, or phone. After the user adds a work or school account, the device is registered with Azure AD and optionally enrolled in the mobile device management system that the organization has configured. The directory will show these devices as ‘Registered’ vs. ‘Azure AD joined’. IT administraors can apply different policies based on this information, providing a lighter touch on  personally-owned devices than on work-owned devices if desired.
+To support BYOD in the enterprise, Windows 10 gives the user the ability to add a work or school account to their computer, tablet, or phone. After the user adds a work or school account, the device is registered with Azure AD and optionally enrolled in the mobile device management system that the organization has configured. The directory will show these devices as ‘Registered’ vs. ‘Azure AD joined’. IT administrators can apply different policies based on this information, providing a lighter touch on  personally-owned devices than on work-owned devices if desired.
 
 Users can add a work or school account to their personal device very conveniently. They can do this when accessing a work application for the first time, or they can do it manually via the Settings menu. This account will provide SSO to organizational resources.
 
@@ -165,4 +165,3 @@ Users who are upgrading from Windows 8.1 domain-joined devices, and who had thei
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
-

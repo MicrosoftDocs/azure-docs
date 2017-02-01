@@ -66,7 +66,7 @@ If your environment does not match these assumptions, the following happens:
 * If you have more than one active account or more than one mailbox, the sync engine picks one and ignore the other.
 * A linked mailbox with no other active account is not exported to Azure AD. The user account is not represented as a member in any group. A linked mailbox in DirSync would always be represented as a normal mailbox. This change is intentionally a different behavior to better support multi-forest scenarios.
 
-More details can be found in [understanding the default configuation](active-directory-aadconnectsync-understanding-default-configuration.md).
+More details can be found in [understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
 
 ### Multiple forests, multiple sync servers to one Azure AD tenant
 ![Multi Forest Multi Sync Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)

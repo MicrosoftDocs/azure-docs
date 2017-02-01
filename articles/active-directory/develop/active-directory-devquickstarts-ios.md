@@ -36,9 +36,9 @@ To build the complete working application, you’ll need to:
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 > [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
-> 
-> 
+> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation.
+>
+>
 
 ## 1. Determine what your Redirect URI will be for iOS
 In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
@@ -50,7 +50,7 @@ The iOS format for a Redirect URI is:
 ```
 
 * **aap-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
-* **bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
+* **bundle-id** - This is the Bundle Identifier found under "identity" in your project settings in XCode.
 
 An example for this QuickStart code would be: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -214,7 +214,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 * When your app requests a token by calling `getToken(...)`, ADAL will attempt to return a token without asking the user for credentials.  If ADAL determines that the user needs to sign in to get a token, it will display a login dialog, collect the user's credentials, and return a token upon successful authentication.  If ADAL is unable to return a token for any reason, it will throw an `AdalException`.
-* Notice that the `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect information your app may need.  In the QuickStart, `tokenCacheStoreItem` is used to determine if authenitcation has already occurred.
+* Notice that the `AuthenticationResult` object contains a `tokenCacheStoreItem` object that can be used to collect information your app may need.  In the QuickStart, `tokenCacheStoreItem` is used to determine if authentication has already occurred.
 
 ## 5: Build and Run the application
 Congratulations! You now have a working iOS application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your QuickStart app, and sign in with one of those users.  Search for other users based on their UPN.  Close the app, and re-run it.  Notice how the user's session remains intact.
@@ -230,4 +230,3 @@ You can now move on to additional scenarios.  You may want to try:
 * Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

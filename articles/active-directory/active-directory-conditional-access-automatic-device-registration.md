@@ -21,8 +21,8 @@ As an IT Administrator, you can choose to automatically and silently register yo
 
 > [!NOTE]
 >  For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
-> 
-> 
+>
+>
 
 Automatic Device Registration with Azure Active Directory is available for Windows 7 and Windows 8.1 machines that have been joined to an Active Directory domain. These are typically corporate owned machines that have been provided to information workers.
 
@@ -36,7 +36,7 @@ To begin registering your domain joined Windows devices with Azure AD, follow th
 5. Select **Send Claims Using a Custom Rule** from the **Claim rule** template drop down box. Select **Next**.
 6. Type *Auth Method Claim Rule* in the **Claim rule name:** text box.
 7. Type the following claim rule in the **Claim rule:** text box:
-   
+
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
 8. Click **OK** twice to complete the dialog box.
@@ -83,7 +83,7 @@ Configure Automatic Device Registration for your Windows 7 and Windows 8.1 domai
 ## Additional Notes
 Device registration with Azure AD provides the broadest set of device capabilities. With Azure AD Device Registration, you can register both personal (BYOD) mobile devices and company owned, domain joined devices. The devices can be used with both hosted services such as Office365 and services managed on-premises with AD FS.
 
-Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service.If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS.
+Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service. If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS.
 
 You can learn more about deploying device registration with AD FS [here](https://technet.microsoft.com/library/dn486831.aspx).
 
@@ -92,4 +92,3 @@ You can learn more about deploying device registration with AD FS [here](https:/
 * [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Automatic device registration with Azure Active Directory for Windows 10 domain-joined devices](active-directory-azureadjoin-devices-group-policy.md)
-
