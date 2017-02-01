@@ -19,6 +19,11 @@ ms.author: jotaub
 
 # Get started receiving messages with the EventProcessorHost in .NET Standard
 
+> **Note**
+> 
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver).
+>
+
 ## What will be accomplished
 
 This tutorial shows how to create the existing solution **SampleEphReceiver** (inside this folder). You can run the solution as-is, replacing the `EhConnectionString`, `EhEntityPath`, and `StorageAccount` strings with your Event Hub and storage account values, or follow this tutorial to create your own.

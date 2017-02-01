@@ -58,27 +58,139 @@ To send messages to an Event Hub, we will write a C# console application using V
 
 1. Add the following `using` statement to the top of the Program.cs file.
 
-    [!code-csharp[main](../../azure-event-hubs-dotnet/samples/SampleSender/Program.cs#L9-L9 "Add using")]
+    ```cs
+    using Microsoft.Azure.EventHubs;
+    ```
 
 2. Add constants to the `Program` class for the Event Hubs connection string and entity path (individual Event Hub name). Replace the placeholders in brackets with the proper values that were obtained when creating the Event Hub.
 
-    [!code-csharp[main](../../azure-event-hubs-dotnet/samples/SampleSender/Program.cs#L13-L15 "Add constants")]
+    ```cs
+    private static EventHubClient eventHubClient;
+    private const string EhConnectionString = "{Event Hubs connection string}";
+    private const string EhEntityPath = "{Event Hub path/name}";
+    ```
 
 3. Add a new method named `MainAsync` to the `Program` class like the following:
 
-    [!code-csharp[main](../../azure-event-hubs-dotnet/samples/SampleSender/Program.cs#L22-L40 "Add MainAsync")]
+    ```cs
+    private static async Task MainAsync(string[] args)
+    {
+        // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
+        // Typically the connection string should have the Entity Path in it, but for the sake of this simple scenario
+        // we are using the connection string from the namespace.
+        var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+        {
+            EntityPath = EhEntityPath
+        };
+
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+
+        await SendMessagesToEventHub(100);
+
+        await eventHubClient.CloseAsync();
+
+        Console.WriteLine("Press any key to exit.");
+        Console.ReadLine();
+    }
+    ```
     
 4. Add a new method named `SendMessagesToEventHub` to the `Program` class like the following:
 
-    [!code-csharp[main](../../azure-event-hubs-dotnet/samples/SampleSender/Program.cs#L42-L62 "Add SendMessagesToEventHub")]
+    ```cs
+    // Creates an Event Hub client and sends 100 messages to the event hub.
+    private static async Task SendMessagesToEventHub(int numMessagesToSend)
+    {
+        for (var i = 0; i < numMessagesToSend; i++)
+        {
+            try
+            {
+                var message = $"Message {i}";
+                Console.WriteLine($"Sending message: {message}");
+                await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
+            }
+
+            await Task.Delay(10);
+        }
+
+        Console.WriteLine($"{numMessagesToSend} messages sent.");
+    }
+    ```
 
 5. Add the following code to the `Main` method in the `Program` class.
 
-    [!code-csharp[main](../../azure-event-hubs-dotnet/samples/SampleSender/Program.cs#L19-L19 "Add call to MainAsync")]
+    ```cs
+    MainAsync(args).GetAwaiter().GetResult();
+    ```
 
     Here is what your Program.cs should look like.
 
-    [!code-csharp[main](../../azure-event-hubs-dotnet/samples/SampleSender/Program.cs#L4-L64 "Whole program")]
+    ```cs
+    namespace SampleSender
+    {
+        using System;
+        using System.Text;
+        using System.Threading.Tasks;
+        using Microsoft.Azure.EventHubs;
+    
+        public class Program
+        {
+            private static EventHubClient eventHubClient;
+            private const string EhConnectionString = "{Event Hubs connection string}";
+            private const string EhEntityPath = "{Event Hub path/name}";
+    
+            public static void Main(string[] args)
+            {
+                MainAsync(args).GetAwaiter().GetResult();
+            }
+    
+            private static async Task MainAsync(string[] args)
+            {
+                // Creates an EventHubsConnectionStringBuilder object from a the connection string, and sets the EntityPath.
+                // Typically the connection string should have the Entity Path in it, but for the sake of this simple scenario
+                // we are using the connection string from the namespace.
+                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+                {
+                    EntityPath = EhEntityPath
+                };
+    
+                eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+    
+                await SendMessagesToEventHub(100);
+    
+                await eventHubClient.CloseAsync();
+    
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadLine();
+            }
+    
+            // Creates an Event Hub client and sends 100 messages to the event hub.
+            private static async Task SendMessagesToEventHub(int numMessagesToSend)
+            {
+                for (var i = 0; i < numMessagesToSend; i++)
+                {
+                    try
+                    {
+                        var message = $"Message {i}";
+                        Console.WriteLine($"Sending message: {message}");
+                        await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+                    }
+                    catch (Exception exception)
+                    {
+                        Console.WriteLine($"{DateTime.Now} > Exception: {exception.Message}");
+                    }
+    
+                    await Task.Delay(10);
+                }
+    
+                Console.WriteLine($"{numMessagesToSend} messages sent.");
+            }
+        }
+    }
+    ```
   
 6. Run the program, and ensure that there are no errors thrown.
   
