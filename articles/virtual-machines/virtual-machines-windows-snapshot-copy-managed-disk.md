@@ -73,19 +73,17 @@ $snapshotName = 'ContosoMD_datadisk1_snapshot1'
 
  ```powershell
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
-
 ```
 3. Create the snapshot configurations. 
 
  ```powershell
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreationDataCreateOption Copy -Location $location 
-  
 ```
 4. Take the snapshot.
 
  ```powershell
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
- ```
+```
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `-AccountType Premium_LRS` with the New-AzureRmSnapshot command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks are more expensive than Standard. So be sure you really need Premium before using that parameter.
 
 
