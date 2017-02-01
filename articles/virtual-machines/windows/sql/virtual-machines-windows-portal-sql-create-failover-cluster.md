@@ -184,6 +184,12 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    - In **Select Features**, click **Failover Clustering**. Include all required features and the management tools. Click **Add Features**.
    - Click **Next** and then click **Finish** to install the features. 
 
+   To install the Failover Clustering feature with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
+
+   ```PowerShell
+   $nodes = ("<node1>","<node2>")
+   icm $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
+   ```
 
    The next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct). 
 
@@ -195,14 +201,25 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    - Click **Next**. 
    - On **Select Servers or a Cluster** type the name of both virtual machines.
 
+   To validate the cluster with PowerShell, ron the following script from an administrator PowerShell session on one of the virtual machines.
+
+   ```PowerShell
+   Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   ```
+
 1. [Create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+
+   To create the WSFC, you need: 
+   - The names of the virtual machines that will be the cluster nodes. 
+   - A name for the WSFC. Use a valid 
+   - An IP address for the WSFC. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes. 
 
    To create the WSFC in the UI, see [the create cluster step of the Always On Availability Group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
 
-   Alternatively, the following PowerShell creates a WSFC. 
+   Alternatively, the following PowerShell creates a WSFC: 
 
    ```PowerShell
-   New-Cluster -Name <clustername> -Node $nodes –StaticAddress <192.254.0.1> -NoStorage
+   New-Cluster -Name manualWSFC -Node $nodes –StaticAddress <n.n.n.n> -NoStorage
    ```
    
    For details, refer to [Create a cluster].
@@ -212,7 +229,13 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    
 1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
-   Create the cloud witness in the same resource group as the Azure virtual machines. 
+   Create the cloud witness in the same resource group as the Azure virtual machines.
+
+   Create a blob container. 
+
+   Save the access keys and the container URL.
+
+   Configure the WSFC cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
    
 1. [Clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
    
@@ -226,6 +249,8 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    Enable-ClusterS2D
    ```
 
+   In **Failover Cluster Manager**, you can now see the storage pool.
+
 1. [Create a volume](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV. 
@@ -233,6 +258,14 @@ The next step is to configure the WSFC with S2D. In this step you will validate 
    ```PowerShell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
+
+   After this command completes, an 800 GB volume is mounted as a cluster resource. The volume is at `C:\ClusterStorage\Volume1\`.
+
+   The following diagram shows a cluster shared volume with S2D:
+
+   ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
+
+   In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. 
 
 ## Create SQL Server FCI
 
@@ -246,9 +279,15 @@ After you have configured the WSFC and all cluster components including storage,
 
 1. In the **SQL Server Installation Center**, click **Installation**.
 
-1. Click **New SQL Server Failover Cluster Installation**. Follow the instructions in the wizard to install the SQL Server FCI. 
+1. Click **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI. 
 
-1. After you create the SQL Server FCI on the first node, connect to the second node with RDP.
+   Note that the FCI data directories need to be on clustered storage. With S2D, it's not a shared disk, but a mount point to a volume on each server. S2D synchronizes the volume between both nodes. The volume is presented to the cluster as a cluster shared volume. Use the CSV mount point for the data directories. 
+
+   ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
+
+1. After you complete the wizard, Setup will install a SQL Server FCI on the first node. 
+
+1. After Setup successfully installs the FCI on the first node, connect to the second node with RDP.
 
 1. Open the **SQL Server Installation Center**. Click **Installation**.
 
