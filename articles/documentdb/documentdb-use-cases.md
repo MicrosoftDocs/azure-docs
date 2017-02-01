@@ -4,7 +4,7 @@ description: Learn about the top five use cases for DocumentDB: user generated c
 services: documentdb
 author: h0n
 manager: jhubbard
-editor: monicar
+editor: ''
 documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
@@ -17,6 +17,7 @@ ms.date: 01/12/2017
 ms.author: hawong
 
 ---
+
 # Common DocumentDB use cases
 This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
 
