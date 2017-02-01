@@ -182,7 +182,7 @@ After the virtual machines are created and configured, you can configure the WSF
 
 ## Step 2: Configure WSFC with S2D
 
-The next step is to configure the WSFC with S2D. In this step, you will do the following sub-steps:
+The next step is to configure the WSFC with S2D. In this step, you will do the following substeps:
 
 1. Add Windows Failover Clustering feature.
 1. Validate the cluster. 
@@ -218,8 +218,8 @@ This guide refers to instructions under [validate cluster](http://technet.micros
    - In **Server Manager**, click **Tools**, then click **Failover Cluster Manager**. 
    - In **Failover Cluster Manager**, click **Action**, then click **Validate Configuration...**.
    - Click **Next**. 
-   - On **Select Servers or a Cluster** type the name of both virtual machines.
-   - On **Testing options** choose **Run only tests I select**. Click **Next**.
+   - On **Select Servers or a Cluster**, type the name of both virtual machines.
+   - On **Testing options**, choose **Run only tests I select**. Click **Next**.
    - On **Test selection**, include all tests except **Storage**. See the following picture:
 
    ![Validate Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
@@ -268,9 +268,7 @@ This guide refers to [create the WSFC](http://technet.microsoft.com/windows-serv
 
 ### Add storage
 
-This guide refers to [clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
-   
-The disks for S2D need to be empty and without partitions or other data. To verify that the disks are clean, Follow the instructions in the preceding link.
+The disks for S2D need to be empty and without partitions or other data. To clean disks follow [the steps in this guide](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
    
 1. [Enable Store Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
@@ -298,7 +296,7 @@ The disks for S2D need to be empty and without partitions or other data. To veri
 
 ## Test the WSFC
 
-In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to to the WSFC with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI. 
+In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the WSFC with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI. 
 
 ## Step 3: Create SQL Server FCI
 
@@ -331,7 +329,7 @@ After you have configured the WSFC and all cluster components including storage,
 
 ## Step 4: Create Azure load balancer
 
-On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution the load balancer holds the IP address for the SQL Server FCI. 
+On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI. 
 
 [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
