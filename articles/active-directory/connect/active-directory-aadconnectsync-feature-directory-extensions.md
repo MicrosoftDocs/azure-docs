@@ -23,7 +23,7 @@ Directory extensions allows you to extend the schema in Azure AD with your own a
 At present no Office 365 workload consumes these attributes.
 
 You configure which additional attributes you want to synchronize in the custom settings path in the installation wizard.
-![Schema Extension Wizard](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)
+![Schema Extension Wizard](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
 The installation shows the following attributes, which are valid candidates:
 
 * User and Group object types
