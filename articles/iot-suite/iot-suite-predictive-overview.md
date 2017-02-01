@@ -44,9 +44,9 @@ To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities cus
 
 ## How the predictive maintenance solution is built
 
-The solution leverages an existing Azure Machine Learning model available as a template to show these capabilities working from device telemetry collected through IoT Suite services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
+The solution uses an existing Azure Machine Learning model available as a template to show these capabilities working from device telemetry collected through IoT Suite services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
 
-The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams that provide an accurate result from the trained model.
+The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams. This data is sufficient to provide an accurate result from the trained model.
 
 *\[1\] A. Saxena and K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -70,7 +70,7 @@ To complete this tutorial, you need an active Azure subscription.
 1. Click the tile for your solution with **Provisioning** status.
 1. Notice the **Provisioning states** as Azure services are deployed in your Azure subscription.
 1. Once provisioning completes, the status changes to **Ready**.
-1. Click the tile to see the details of your solution in the right-hand pane. From this tile you can launch the solution dashboard.
+1. Click the tile to see the details of your solution in the right-hand pane. From this pane, you can launch the solution dashboard and access the Machine Learning workspace.
 
 > [!NOTE]
 > If you encounter issues deploying the preconfigured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
