@@ -46,13 +46,8 @@ The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web 
 
 The numbers below are an approximation.
 
-<<<<<<< HEAD
-* CPU consumption: ~1-5% increase
-* Memory consumption: Up to 10 % of the total system memory
-=======
-* CPU consumption: ~1% increase
-* Memory consumption: Up to 10% of the total system memory
->>>>>>> 92403d6a15a8fa7eb86f21ecbaf054396de740d7
+    * CPU consumption: ~1-5% increase
+    * Memory consumption: Up to 10 % of the total system memory
 
 > [!NOTE]
 > If the health agent loses connectivity to the Connect Health service, it stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
