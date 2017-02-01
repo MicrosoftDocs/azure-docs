@@ -27,21 +27,56 @@ In this article, learn how create your own custom business intelligence tools by
 
 ## Prerequisites
 * Microsoft Azure Account
-* An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage.  
 * Work or school account for Power BI
+* Sample JSON [datafile](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/SampleSensorData.json) stored in our GitHub [repository](https://github.com/Azure/azure-stream-analytics).
+
+## Create an Event Hub input
+Before a job can be created some pre-work must be completed. An Azure Event Hub needs to be made. This is a quick and easy process to complete. Simply follow the instructions below:
+
+Open the [Azure portal](https://portal.azure.com) and create a new Event Hub by clicking the **+ New** button on the top left of the portal.
+
+![new service button](./media/stream-analytics-power-bi-dashboard/new-button.png)
+
+Type 'Event Hub' and press enter. Then select **Event Hubs** and click **Create**.
+
+You'll be presented with a screen to create your namespace. This is a container of Event Hubs and other objects. Provide a few items and then you are able to create the namespace.
+
+* **Name** - provide a name for your namespace. In this demo I am using "devicetemperaturesNS"
+* **Resource Group** - I created a new resource group named "devicetemperaturesRG"
+* **Location** - pick a location and remember it as you'll want everything to be in the same region for performance
+
+You can leave pricing tier and subscription as default (unless you have a need to change them due to your specific environment).
+
+![create namespace](./media/stream-analytics-power-bi-dashboard/create-namespace.png)
+
+So next select **Create** and let Azure build the resource. When it is complete go into your new namespace object and create an Event Hub.
+
+![create Event Hub](./media/stream-analytics-power-bi-dashboard/new-eventhub.png)
+
+Once your window appears simply provide a name for your Event Hub and select **Create**. I have used "devicetemperaturesEH" in my example.
+
+![new event hub name](./media/stream-analytics-power-bi-dashboard/eventhub-name.png)
+
+Once you have selected **Create** the Event Hub will be created. Add a shared access policy by selecting **Shared access policies** and then **Add** and giving the policy a name and selecting the claim.
+
+![shared access policy](./media/stream-analytics-power-bi-dashboard/shared-access-policy.png)
 
 ## Create Azure Stream Analytics job
-From [Azure Classic Portal](https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
+Now it is time to create the job itself.
 
-Specifiy the following values, then click **Create Stream Analytics job**:
+From [Azure portal](https://portal.azure.com), click the **+ New** button on the top left of the portal and type 'Stream Analytics' and then select **Create**.
+
+This will bring you to a wizard to create your new job.
+
+Specifiy the following values, then select **Create**:
 
 * **Job Name** - Enter a job name. For example, **DeviceTemperatures**.
-* **Region** - Select the region where you want the job located. Consider placing the job and the event hub in the same region to ensure optimal performance and avoid incurring data transfer costs between regions.
-* **Storage Account** - Choose the Storage Account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage Account or create a new one.
+* **Resource Group** - Choose the Resource Group that you previously created.
+* **Location** - Select the region where you want the job located. Consider placing the job and the Event Hub in the same region to ensure optimal performance and avoid incurring data transfer costs between regions.
 
-Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
+![create job](./media/stream-analytics-power-bi-dashboard/create-job.png)
 
-![graphic1][graphic1]
+Once the job is created the job dashboard will appear.
 
 > [!TIP]
 > The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
@@ -49,55 +84,59 @@ Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 > 
 
 ## Specify job input
-For this tutorial, we are assuming you are using Event Hub as an input with JSON serialization and UTF-8 encoding.
+To add an input simply select the inputs box in the middle of your job dashboard.
 
-* Click the job name.
-* Click **Inputs** from the top of the page, and then click **Add Input**. The dialog that opens will walk you through a number of steps to set up your input.
-* Select **Data Stream**, and then click the right button.
-* Select **Event Hub**, and then click the right button.
-* Type or select the following values on the third page:
-  * **Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
-  * **Event Hub** - If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
-* If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **Service Bus Namespace**, **Event Hub Name**, **Event Hub Policy Name**, **Event Hub Policy Key**, and **Event Hub Partition Count**.
+![add input](./media/stream-analytics-power-bi-dashboard/create-inputs.png)
+
+Then select **Add** and create your input.
+
+* **Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
+* **Source Type** - Select **Data Stream**
+* **Source** -  Select **Event Hub**
+
+For the purposes of this demo the defaults are acceptable for all additional fields present.
+
+![add job](./media/stream-analytics-power-bi-dashboard/create-input-fields.png)
 
 > [!NOTE]
 > This sample uses the default number of partitions, which is 16.
 > 
 > 
 
-* **Event Hub Name** - Select the name of the Azure Event Hub you have.
-* **Event Hub Policy Name** - Select the Event Hub policy for the Event Hub you are using. Ensure that this policy has manage permissions.
-* **Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your Event Hub. Note that each consumer group of an Event Hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
-* Click the right button.
-* Specify the following values:
-  * **Event Serializer Format** - JSON
-  * **Encoding** - UTF8
-* Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
+Now select **Create** at the bottom. The input will be created.
+
 
 ## Add Power BI output
-1. Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
-   
-   ![graphic2][graphic2]  
-2. Select **Power BI** and then click the right button.
-3. You will see a screen like the following:
-   
-   ![graphic3][graphic3]  
-4. In this step, supply a work or school account for the Stream Analytics job output. If you already have Power BI account, select **Authorize Now**. If not, choose **Sign up now**. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
-   
-   ![graphic11][graphic11]  
-5. Next you will see a screen like the following:
-   
-   ![graphic4][graphic4]  
+Now that an input exists for the job, an output to Power BI can be defined. Select the box in the middle of the job dashboard **Outputs**.
 
-Provide values as below:
+![add output](./media/stream-analytics-power-bi-dashboard/create-outputs.png)
 
-* **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
+Then click the familiar **+ Add** button and create your output.
+
+Provide the **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
+
+Then click the **Authorize** button.
+
+![add authorization](./media/stream-analytics-power-bi-dashboard/pbi-authorize.png)
+
+This will prompt a window to provide your Azure credentials (work or school account) and it will provide your Azure job access to your Power BI area.
+
+![authorize fields](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+
+The authoization window will disappear when satisfied and the New output area will have fields for the Dataset Name and Table Name.
+
+![pbi workspace](./media/stream-analytics-power-bi-dashboard/pbi-workspace.png)
+
+Define them as follows:
+* **Group Workspace** – Select a workspace in your Power BI tenant under which the dataset will be created.
 * **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
 * **Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
-* **Workspace** – Select a workspace in your Power BI tenant under which the dataset will be created.
 
-> [!NOTE]
-> You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+Click **Create** and now you output configuraiton is complete.
+
+> [!WARNING]
+> Please be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten!
+> Also, you should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 > 
 > 
 
@@ -108,16 +147,12 @@ The dataset is created with the following settings set;
 
 For more information on Power BI datasets see the [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) reference.
 
-* Click **OK**, **Test Connection** and now you output configuraiton is complete.
-
-> [!WARNING]
-> Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
-> 
-> 
 
 ## Write query
 Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
 
+
+```
     SELECT
         MAX(hmdt) AS hmdt,
         MAX(temp) AS temp,
@@ -126,16 +161,31 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
     INTO
         OutPBI
     FROM
-        Input TIMESTAMP BY time
+        devicetemperatureinputs TIMESTAMP BY time
     GROUP BY
         TUMBLINGWINDOW(ss,1),
         dspl
 
+```
 
+Add your JSON sample [data file](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/SampleSensorData.json) to your job as test data. The easiest way to do this is to click the link and then click "Raw". This renders the raw JSON file you can then "select all" and copy/paste into an empty JSON file.
 
-Start your job. Validate that your event hub is receiving events and your query generates the expected results. If your query outputs 0 rows, Power BI dataset and tables will not be automatically created.
+To add the JSON to your input click the Input in the query pane of the portal and click the ... after your input.
+
+![add test data](./media/stream-analytics-power-bi-dashboard/add-testdata.png)
+
+Then select "Upload sample data". A field will appear on the right to select a file for upload.
+
+![add test data file](./media/stream-analytics-power-bi-dashboard/pick-json-samples.png)
+
+And then simply select **OK**.
+
+This will load the file into the input and you can then click **Test** to run the query. 
+
+![test results](./media/stream-analytics-power-bi-dashboard/test-results.png)
 
 ## Create the dashboard in Power BI
+
 Go to [Powerbi.com](https://powerbi.com) and login with your work or school account. If the Stream Analytics job query outputs results, you will see your dataset is already created:
 
 ![graphic5][graphic5]
