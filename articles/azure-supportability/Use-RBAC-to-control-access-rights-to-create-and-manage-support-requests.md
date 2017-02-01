@@ -10,7 +10,7 @@ ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 
 ---
 
-# Learn ways to use Azure Role-Based Access Control (RBAC) to control access rights to create and manage support requests.
+# Azure Role-Based Access Control (RBAC) to control access rights to create and manage support requests
 
 [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) enables fine-grained access management for Azure.
 Support request creation in the Azure portal, [portal.azure.com](https://portal.azure.com), uses Azure’s RBAC model to define who can create and manage support requests.
@@ -21,13 +21,13 @@ However, when you try to create a support request against the virtual machine re
 
 ![Subscription error](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/subscription-error.png)
 
-In case of support request management, you need write permission or a role that has the Support action Microsoft.Support/* at the Subscription scope to be able to create and manage support requests.
+In support request management, you need write permission or a role that has the Support action Microsoft.Support/* at the Subscription scope to be able to create and manage support requests.
 
 The following article explains how you can use Azure’s custom Role-Based Access Control (RBAC) to create and manage support requests in the Azure portal.
 
 ## Getting Started
 
-Using the same example as above, you would be able to create a support request for your resource if you were assigned a custom RBAC role on the subscription by the subscription owner.
+Using the example above, you would be able to create a support request for your resource if you were assigned a custom RBAC role on the subscription by the subscription owner.
 [Custom RBAC roles](https://azure.microsoft.com/documentation/articles/role-based-access-control-custom-roles/) can be created using Azure PowerShell, Azure Command-Line Interface (CLI), and the REST API.
 
 The actions property of a custom role specifies the Azure operations to which the role grants access.
@@ -57,7 +57,7 @@ Follow the steps outlined in [this video](https://www.youtube.com/watch?v=-PaBaD
 
 ## Create and manage support requests in the Azure portal
 
-Let’s take an example – you are the owner of Subscription "Visual Studio MSDN Subscription".
+Let’s take an example – you are the owner of Subscription "Visual Studio MSDN Subscription."
 Joe is your peer who is a resource owner to some of the resource groups in this subscription and has read permission to the subscription.
 You wish to give access to your peer, Joe, the ability to create and manage support tickets for the resources under this subscription.
 
@@ -93,8 +93,8 @@ You wish to give access to your peer, Joe, the ability to create and manage supp
 ## Remove support request access in the Azure portal
 
 Just as it is possible to grant access to a user to create and manage support requests, it's possible to remove access for the user as well.
-To remove a user's ability to create and manage support requests, go to the Subscription, click "Settings" and click the user (in this case, Joe).
-Right click the role name, "Support Request Contributor" and click "Remove"
+To remove the ability to create and manage support requests, go to the Subscription, click "Settings" and click the user (in this case, Joe).
+Right-click the role name, "Support Request Contributor" and click "Remove"
 
     ![Remove support request access](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/remove-support-request-access.png)
 
