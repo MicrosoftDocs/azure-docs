@@ -21,7 +21,7 @@ ms.author: brandwe
 > [!WARNING]
 > We have published an updated Android code sample that can be found [here](https://github.com/Azure-Samples/active-directory-b2c-android-native-nodejs-webapi).  This sample is using a 3rd party library that has been tested for compatibility in basic scenarios with the Azure AD B2C.  This library utilizes embedded web-views rather than the system browser.  Google [has announced](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) that on April 20, 2017 they will no longer support Google Account sign in with embedded web-views at which point those wishing to support Google accounts will need to update libraries.  
 
->Microsoft does not provide fixes for 3rd party libraries and has not done a review of these libraries. Issues and feature requests should be directed to the library's open-source project. Please see [this document](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) for more information.
+>Microsoft does not provide fixes for 3rd party libraries and has not done a review of these libraries. Issues and feature requests should be directed to the library's open-source project. Please see [this article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) for more information.
 >
 >
 
