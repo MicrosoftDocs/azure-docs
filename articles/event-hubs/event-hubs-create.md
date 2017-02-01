@@ -61,6 +61,5 @@ To learn more about Event Hubs, visit these links:
 
 * [Event Hubs overview](event-hubs-overview.md)
 * [Event Hubs API overview](event-hubs-api-overview.md)
-* [Event Hubs code samples](event-hubs-samples.md)
 
 [Azure portal]: https://portal.azure.com/

@@ -170,7 +170,6 @@ To learn more about Event Hubs scenarios, visit these links:
 
 * [What is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
-* [Event Hubs samples](event-hubs-samples.md)
 
 The .NET API references are here:
 

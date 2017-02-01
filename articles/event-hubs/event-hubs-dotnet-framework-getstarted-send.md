@@ -90,19 +90,10 @@ In this section, you'll write a Windows console app that sends events to your Ev
     ```
 
 ## Next steps
-Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
-
-<<<<<<< Updated upstream
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
-* [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
-=======
 Now that you've built a working application that creates an Event Hub and sends data, you can move on to the following scenarios:
 
-* [Overview of Event Hubs samples on MSDN](event-hubs-samples.md)
 * [Event Processor Host namespace](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
->>>>>>> Stashed changes
-* [Event Hubs overview][Event Hubs overview]
+* [Event Hubs overview](Event Hubs overview)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
