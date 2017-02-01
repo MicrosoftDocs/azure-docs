@@ -33,7 +33,7 @@ Before you get started, make sure that you have [set up your development environ
 ## Video walkthrough
 The following video walks through the steps in this tutorial:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 

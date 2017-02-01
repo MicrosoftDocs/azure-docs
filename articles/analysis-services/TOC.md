@@ -11,7 +11,7 @@
 ##[Integrate On-premises data gateway](analysis-services-gateway.md)
 
 # Reference
-##[PowerShell](/powershell/resourcemanager)
+##[PowerShell](analysis-services-powershell.md)
 ##[REST](/rest/api/analysisservices)
 
 # Resources
