@@ -5,7 +5,7 @@ description: Answers to frequently asked questions about the backup service, bac
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: ''
 keywords: backup and disaster recovery; backup service
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 
 ---
 # Azure Backup service- FAQ
@@ -86,7 +86,6 @@ The following types are supported:
 * Compressed + Sparse
 * Hard Links: Not supported, skipped
 * Reparse Point: Not supported, skipped
-* Encrypted + Compressed: Not supported, skipped
 * Encrypted + Sparse: Not supported, skipped
 * Compressed Stream: Not supported, skipped
 * Sparse Stream: Not supported, skipped
