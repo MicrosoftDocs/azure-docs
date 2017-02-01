@@ -21,20 +21,20 @@ ms.author: sethm;babanisa
 
 # Event Hubs Dedicated overview
 
-*Event Hubs Dedicated* capacity offers single-tenant deployments for customers with the most demanding requirements. At full scale, Azure Event Hubs can ingress over two million events per second or up to 2 GB per second of telemetry with fully durable storage and sub-second latency. This also enables integrated solutions by processing real-time and batch on the same system. With Event Hubs Archive included in the offering, you can reduce the complexity of your solution by having a single stream support both real-time and batch based pipelines.
+*Event Hubs Dedicated* capacity offers single-tenant deployments for customers with the most demanding requirements. At full scale, Azure Event Hubs can ingress over 2 million events per second or up to 2 GB per second of telemetry with fully durable storage and sub-second latency. This also enables integrated solutions by processing real-time and batch on the same system. With Event Hubs Archive included in the offering, you can reduce the complexity of your solution by having a single stream support both real-time and batch-based pipelines.
 
 The following table compares the available service tiers of Event Hubs. The Event Hubs Dedicated offering is a fixed monthly price, compared to usage pricing for most features of Standard and Basic. The Dedicated tier offers the features of the Standard plan, but with enterprise scale capacity for customers with demanding workloads.
 
 | Feature | Basic | Standard | Dedicated |
 | --- |:---:|:---:|:---:|
 | Ingress events | Pay per million events | Pay per million events | Included |
-| Throughput unit (1 MB/s ingress, 2MB/s egress) | Pay per hour | Pay per hour | Included |
-| Message Size | 256KB | 256KB | 1MB |
+| Throughput unit (1 MB/sec ingress, 2 MB/sec egress) | Pay per hour | Pay per hour | Included |
+| Message Size | 256 KB | 256 KB | 1 MB |
 | Publisher policies | N/A | Yes | Yes |	 
 | Consumer groups | 1 - default | 20 | 20 |
 | Message replay | Yes | Yes | Yes |
 | Maximum throughput units | 20 | 20 (flexible to 100)	| 1 CU≈200 |
-| Brokered connections | 100 included | 1,000 included | 100K included |
+| Brokered connections | 100 included | 1,000 included | 100 K included |
 | Additional Brokered connections | N/A | Yes | Yes |
 | Message Retention | 1 day included | 1 day included | Up to 7 days included |
 | Archive (Preview) | N/A	| Pay per hour | Included |
@@ -49,7 +49,7 @@ The following benefits are available when using Event Hubs Dedicated:
 * Guaranteed capacity to meet your burst needs.
 * Scalable between 1 and 8 capacity units (CU) – providing up to 2 million ingress events per second.
   * CUs manage the scale for Event Hubs Dedicated, where each CU can provide approximately the equivalent of 200 Throughput Units (TU).
-* Zero maintenance: we manage load balancing, OS updates, security patches and partitioning.
+* Zero maintenance: we manage load balancing, OS updates, security patches, and partitioning.
 * Fixed monthly pricing.
 
 Event Hubs Dedicated also removes some of the throughput limitations of the Standard offering. Throughput units (TU) in Basic and Standard tiers entitle you to 1000 events per second or 1 MBps of ingress per TU and double that amount of egress. The Dedicated scale offering has no restrictions on ingress and egress event counts. These limits are governed only by the processing capacity of the purchased Event Hubs.
