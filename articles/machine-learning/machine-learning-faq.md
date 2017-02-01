@@ -40,18 +40,18 @@ The Machine Learning API service enables you to deploy predictive models, like t
 
 For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
-**Where are my classic web services listed? Where are my Azure Resource Manager-based web services listed?**
+**Where are my Classic web services listed? Where are my New (Azure Resource Manager-based) web services listed?**
 
-Web services created using the classic deployment model and web services created using the Azure Resource Manager deployment model are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal.
+Web services created using the Classic deployment model and web services created using the New Azure Resource Manager deployment model are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal.
 
 Classic web services are also listed in [Machine Learning Studio](http://studio.azureml.net) on the **Web services** tab.
 
 ## Azure Machine Learning questions
 **What are Azure Machine Learning web services?**
 
-Machine Learning web services provide an interface between an application and a Machine Learning workflow scoring model. An external application can use Azure Machine Learning to communicate with a Machine Learning workflow scoring model in real time. A call to Machine Learning returns prediction results to an external application. To make a call to Machine Learning, you pass an API key that was created when you deployed the web service. Machine Learning is based on REST, a popular architecture choice for web programming projects.
+Machine Learning web services provide an interface between an application and a Machine Learning workflow scoring model. An external application can use Azure Machine Learning to communicate with a Machine Learning workflow scoring model in real time. A call to a Machine Learning web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
-Azure Machine Learning has two types of services:
+Azure Machine Learning has two types of web services:
 
 * Request-Response Service (RRS): A low latency, highly scalable service that provides an interface to the stateless models created and deployed by using Machine Learning Studio.
 * Batch Execution Service (BES): An asynchronous service that scores a batch for data records.
@@ -223,7 +223,7 @@ For more information, see [Retrain Machine Learning models programmatically](mac
 
 **How do I monitor my web service deployed in production?**
 
-After you deploy a predictive model, you can monitor it from the Azure classic portal (classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see  [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
+After you deploy a predictive model, you can monitor it from the Azure classic portal (Classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](machine-learning-manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
@@ -312,13 +312,13 @@ Azure Machine Learning also has a community forum on MSDN where you can ask ques
 
 Azure Machine Learning has two components: Machine Learning Studio and Machine Learning web services.
 
-While you are evaluating Machine Learning Studio, you can use the Free billing tier. The Free tier also lets you deploy a classic web service that has limited capacity.
+While you are evaluating Machine Learning Studio, you can use the Free billing tier. The Free tier also lets you deploy a Classic web service that has limited capacity.
 
 If you decide that Azure Machine Learning meets your needs, you can sign up for the Standard tier. To sign up, you must have a Microsoft Azure subscription.
 
-In the Standard tier, you are billed monthly for each workspace that you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a classic web service, transactions and compute hours are billed on the Pay As You Go basis.
+In the Standard tier, you are billed monthly for each workspace that you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic web service, transactions and compute hours are billed on the Pay As You Go basis.
 
-Resource Manager-based web services introduce billing plans that allow for more predictability in costs. Tiered pricing offers discounted rates to customers who need a large amount of capacity.
+New (Resource Manager-based) web services introduce billing plans that allow for more predictability in costs. Tiered pricing offers discounted rates to customers who need a large amount of capacity.
 
 When you create a plan, you commit to a fixed cost that comes with an included quantity of API compute hours and API transactions. If you need more included quantities, you can add instances to your plan. If you need a lot more included quantities, you can choose a higher tier plan that provides considerably more included quantities and a better discounted rate.
 
@@ -355,23 +355,23 @@ Production API call times can vary significantly, generally ranging from hundred
 
 A Studio compute hour is the billing unit for the aggregate time that your experiments use compute resources in studio.
 
-**In Resource Manager-based web services, what is the dev/test tier meant for?**
+**In New (Azure Resource Manager-based) web services, what is the Dev/Test tier meant for?**
 
-Resource Manager-based web services provide multiple tiers that you can use to provision your billing plan. The dev/test tier provides limited included quantities that allow you to test your experiment as new web service without incurring costs. You have the opportunity to see how it works.
+Resource Manager-based web services provide multiple tiers that you can use to provision your billing plan. The Dev/Test pricing tier provides limited, included quantities that allow you to test your experiment as a web service without incurring costs. You have the opportunity to see how it works.
 
 **Are there separate storage charges?**
 
 The Machine Learning Free tier does not require or allow separate storage. The Machine Learning Standard tier requires users to have an Azure storage account. Azure Storage is [billed separately](https://azure.microsoft.com/pricing/details/storage/).
 
-**How does Machine Learning support high-availability work?**
+**How does Machine Learning support high availability?**
 
-Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/).
+Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
 
 **What specific kind of compute resources will my production API calls be run on?**
 
 The Machine Learning service is a multitenant service. Actual compute resources that are used on the back end vary and are optimized for performance and predictability.
 
-### Management of Resource Manager-based web services
+### Management of New (Resource Manager-based) web services
 **What happens if I delete my plan?**
 
 The plan is removed from your subscription, and you are billed for prorated usage.
@@ -385,7 +385,7 @@ A plan instance is a unit of included quantities that you can add to your billin
 
 **How many plan instances can I add?**
 
-You can have one instance of the dev/test tier in a subscription.
+You can have one instance of the Dev/Test pricing tier in a subscription.
 
 For Standard S1, Standard S2, and Standard S3 tiers, you can add as many as necessary.
 
@@ -407,7 +407,7 @@ Quantities are included on a prorated basis and may take 24 hours to be effectiv
 
 The instance is removed from your subscription, and you are billed for prorated usage.
 
-### Sign up for Resource Manager-based web services plans
+### Sign up for New (Resource Manager-based) web services plans
 **How do I sign up for a plan?**
 
 You have two ways to create billing plans.
@@ -439,11 +439,11 @@ You can view the usage on all your plans on the Plans page in the Azure Machine 
 
 In the **Transactions** and **Compute** columns of the table, you can see the included quantities of the plan and the percentage used.
 
-**What happens when I use up the include quantities in the dev/test tier?**
+**What happens when I use up the include quantities in the Dev/Test pricing tier?**
 
-Services that have a dev/test tier assigned to them are stopped until the next period or until you move them to a paid tier.
+Services that have a Dev/Test pricing tier assigned to them are stopped until the next period or until you move them to a paid tier.
 
-**For classic web services and overages of Resource Manager-based web services, how are prices calculated for Request Response (RRS) and Batch (BES) workloads?**
+**For Classic web services and overages of New (Resource Manager-based) web services, how are prices calculated for Request Response (RRS) and Batch (BES) workloads?**
 
 For an RRS workload, you are charged for every API transaction call that you make and for the compute time that's associated with those requests. Your RRS production API transaction costs are calculated as the total number of API calls that you make multiplied by the price per 1,000 transactions (prorated by individual transaction). Your RRS API production API compute hour costs are calculated as the amount of time required for each API call to run, multiplied by the total number of API transactions, multiplied by the price per production API compute hour.
 
@@ -453,10 +453,10 @@ For a BES workload, you are charged in the same manner. However, the API transac
 
 For example, assume Standard S1 overage, and you submit 100 jobs per day that each consist of 500 rows that take 0.72 seconds each. Your monthly overage costs would be (100 jobs per day = 3,100 jobs/mo * $0.50/1K API transactions) $1.55 in production API transaction costs and (500 rows * 0.72 sec * 3,100 Jobs * $2/hr) $620 in production API compute hours, for a total of $621.55.
 
-### Azure Machine Learning classic web services
+### Azure Machine Learning Classic web services
 **Is Pay As You Go still available?**
 
-Yes, classic web services are still available in Azure Machine Learning.  
+Yes, Classic web services are still available in Azure Machine Learning.  
 
 ### Azure Machine Learning Free and Standard tier
 **What is included in the Azure Machine Learning Free tier?**
@@ -467,14 +467,14 @@ The Azure Machine Learning Free tier is intended to provide an in-depth introduc
 
 The Azure Machine Learning Standard tier is a paid production version of Azure Machine Learning Studio. The Azure Machine Learning Studio monthly fee is billed on a per workspace per month basis and prorated for partial months. Azure Machine Learning Studio experiment hours are billed per compute hour for active experimentation. Billing is prorated for partial hours.  
 
-The Azure Machine Learning API service is billed depending on whether it's a classic web service or a Resource Manager-based web service.
+The Azure Machine Learning API service is billed depending on whether it's a Classic web service or a New (Resource Manager-based) web service.
 
 The following charges are aggregated per workspace for your subscription.
 
 * Machine Learning Workspace Subscription: The Machine Learning workspace subscription is a monthly fee that provides access to a Machine Learning Studio workspace. The subscription is required to run experiments in the studio and to utilize the production APIs.
 * Studio Experiment hours: This meter aggregates all compute charges that are accrued by running experiments in Machine Learning Studio and running production API calls in the staging environment.
 * Access data by connecting to an on-premises server that runs SQL Server in your models for your training and scoring.
-* For classic web services:
+* For Classic web services:
   * Production API Compute Hours: This meter includes compute charges that are accrued by web services running in production.
   * Production API Transactions (in 1000s): This meter includes charges that are accrued per call to your production web service.
 
