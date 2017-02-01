@@ -1,6 +1,6 @@
 ---
 title: Resiliency for recovery from loss of an Azure region technical guidance | Microsoft Docs
-description: Article on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery
+description: Understand and design resilient, highly available, fault tolerant applications, and plan for disaster recovery
 services: ''
 documentationcenter: na
 author: adamglick
@@ -30,8 +30,8 @@ Determining the number of spare role instances to deploy in advance for disaster
 
 > [!NOTE]
 > The subscription quota is not a capacity guarantee. The quota is simply a credit limit. To guarantee capacity, the required number of roles must be defined in the service model, and the roles must be deployed.
-> 
-> 
+>
+>
 
 ### Load Balancing
 To load balance traffic across regions requires a traffic management solution. Azure provides [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). You can also take advantage of third-party services that provide similar traffic management capabilities.
@@ -101,8 +101,8 @@ When attempting to run your cloud service in multiple Azure regions, you must co
 
 > [!NOTE]
 > In some cases, these steps can help to mitigate a service-specific outage rather than an entire datacenter event. From the application perspective, a service-specific outage might be just as limiting and would require temporarily migrating the service to an alternate Azure region.
-> 
-> 
+>
+>
 
 ### Service Bus
 Azure Service Bus uses a unique namespace that does not span Azure regions. So the first requirement is to setup the necessary service bus namespaces in the alternate region. However, there are also considerations for the durability of the queued messages. There are several strategies for replicating messages across Azure regions. For the details on these replication strategies and other disaster recovery strategies, see [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md). For other availability considerations, see [Service Bus (Availability)](resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
@@ -181,4 +181,3 @@ Configuration files provide the quickest way to set up a virtual network in an a
 
 ## Next steps
 This article is part of a series focused on [Azure resiliency technical guidance](resiliency-technical-guidance.md). The next article in this series focuses on [recovery from an on-premises datacenter to Azure](resiliency-technical-guidance-recovery-on-premises-azure.md).
-
