@@ -36,7 +36,7 @@ To create a custom role for support request management, the role must have the a
 Here’s an example of a custom role you can use to create and manage support requests.
 We’ve named this role “Support Request Contributor” and that’s how we refer to the custom role in this article.
 
-```
+``` Json
 {
     "Name":  "Support Request Contributor",
     "Id":  "1f2aad59-39b0-41da-b052-2fb070bd7942",
@@ -97,7 +97,7 @@ To remove the ability to create and manage support requests, go to the Subscript
 Right-click the role name, "Support Request Contributor" and click "Remove"
 
     ![Remove support request access](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/remove-support-request-access.png)
-    
+
 When Joe logs in to the portal and tries to create a support request, he encounters the following error
 
     ![Subscription error-2](./media/Use-RBAC-to-control-access-rights-to-create-and-manage-support-requests/subscription-error-2.png)
