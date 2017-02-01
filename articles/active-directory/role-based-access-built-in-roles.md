@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 01/31/2017
 ms.author: kgremban
 
 ---
@@ -138,7 +138,7 @@ Can manage all backup management actions, except creating Recovery Services vaul
 | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Create and manage extended info related to vault | 
 | Microsoft.RecoveryServices/Vaults/read | Read recovery services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Manage discovery operation for fetching newly created containers |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Create and manage registered identitities |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Create and manage registered identities |
 | Microsoft.RecoveryServices/Vaults/usages/* | Create and manage usage of Recovery Services vault |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
@@ -146,7 +146,7 @@ Can manage all backup management actions, except creating Recovery Services vaul
 | Microsoft.Support/* |Create and manage support tickets |
 
 ### Backup Operator
-Can manage all bacakup management actions except creating vaults, removing backup and giving access to others
+Can manage all backup management actions except creating vaults, removing backup and giving access to others
 
 | **Actions** | |
 | --- | --- |
@@ -154,11 +154,11 @@ Can manage all bacakup management actions except creating vaults, removing backu
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Read results of operation on backup management |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Read operation results on protection containers |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Perform on-demand backup operation on a backed up item |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Read result of operation perfromed on backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Read result of operation performed on backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Read status of operation performed on backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Read backed up items |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Read recovry point of a backed up item |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Perform a restore operation using a recovery point of a backed up utem |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Read recovery point of a backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Perform a restore operation using a recovery point of a backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Read containers holding backup item |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Create and manage backup jobs |
@@ -174,7 +174,7 @@ Can manage all bacakup management actions except creating vaults, removing backu
 | Microsoft.RecoveryServices/Vaults/extendedInformation/write | Write extended info related to vault | 
 | Microsoft.RecoveryServices/Vaults/read | Read recovery services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Manage discovery operation for fetching newly created containers |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Read results of operation performed on Registered  items of the vault |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Read results of operation performed on Registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Write registered items to vault |
 | Microsoft.RecoveryServices/Vaults/usages/read | Read usage of the Recovery Services vault |
@@ -190,7 +190,7 @@ Can monitor backup management in Recovery Services vault
 | --- | --- |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Read results of operation on backup management |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Read operation results on protection containers |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Read result of operation perfromed on backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Read result of operation performed on backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Read status of operation performed on backed up item |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Read backed up items |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Read containers holding backup item |
@@ -206,7 +206,7 @@ Can monitor backup management in Recovery Services vault
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Read extended info related to vault |
 | Microsoft.RecoveryServices/Vaults/read  | Read recovery services vaults |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Read result of discovery operation for fetching newly created containers |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Read results of operation performed on Registered  items of the vault |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Read results of operation performed on Registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
 
