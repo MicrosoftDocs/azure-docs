@@ -148,11 +148,11 @@ In this section we will write a C app to send events to your Event Hub. We will 
 
 
 ## Next steps
-Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
+You can learn more about Event Hubs by visiting the following links:
 
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
-* The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
-* [Event Hubs overview][Event Hubs overview]
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

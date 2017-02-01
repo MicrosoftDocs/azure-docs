@@ -212,3 +212,10 @@ In this tutorial, we will write a .NET Core console application to receive messa
 4. Run the program, and ensure that there are no errors.
   
 Congratulations! You have now received messages from an Event Hub.
+
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)

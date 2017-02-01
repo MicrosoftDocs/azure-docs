@@ -148,7 +148,7 @@ For detailed pricing information, see [Event Hubs Pricing](https://azure.microso
 * Get started with an [Event Hubs tutorial][Event Hubs tutorial]
 * A complete [sample application that uses Event Hubs]
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
-* [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

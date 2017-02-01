@@ -142,12 +142,11 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 [Azure portal]: https://portal.azure.com
 
 ## Next steps
-Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
+Now that you've built a working application that creates an Event Hub and sends and receives data, you can learn more by visiting the following links:
 
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
 * [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
 * [Event Hubs overview][Event Hubs overview]
+* [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

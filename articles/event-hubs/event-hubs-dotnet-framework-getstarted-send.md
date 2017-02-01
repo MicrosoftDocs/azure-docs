@@ -92,7 +92,8 @@ In this section, you'll write a Windows console app that sends events to your Ev
 ## Next steps
 Now that you've built a working application that creates an Event Hub and sends data, you can move on to the following scenarios:
 
-* [Event Processor Host namespace](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Receive events using the Event Processor Host](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+* [Event Processor Host reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Event Hubs overview](Event Hubs overview)
 
 <!-- Images. -->

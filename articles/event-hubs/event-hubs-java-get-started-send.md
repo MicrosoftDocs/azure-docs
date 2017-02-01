@@ -91,3 +91,11 @@ Then, create a singular event by turning a string into its UTF-8 byte encoding. 
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
+
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Receive events using the EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
