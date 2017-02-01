@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute FAQ
+title: Azure ExpressRoute FAQ | Microsoft Docs
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
