@@ -126,7 +126,7 @@ The services that currently do not enable moving a resource are:
 * Application Insights
 * BizTalk Services
 * Express Route
-* DevTest Labs - Moves to new resource group in same subscription are enabled, but cross subscription moves are not enabled.
+* DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
