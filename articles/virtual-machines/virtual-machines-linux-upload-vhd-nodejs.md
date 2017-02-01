@@ -1,5 +1,5 @@
 ---
-title: Create and upload a custom Linux image | Microsoft Docs
+title: Upload a custom Linux image with Azure CLI 1.0 | Microsoft Docs
 description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model and the Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: ''
