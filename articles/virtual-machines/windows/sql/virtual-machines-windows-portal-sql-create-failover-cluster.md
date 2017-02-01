@@ -61,8 +61,8 @@ You should have an operational understanding of the following technologies:
 
 Also, you should have a general understanding of the following technologies:
 
-- S2D hyper-converged solutions. See [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
-- Azure Resource groups. See [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md).
+- [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)
 
 ### What to have
 
@@ -134,9 +134,9 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    >[!IMPORTANT]
    >After you create the virtual machine, remove the SQL Server instance. You will use the pre-installed media to create the SQL Server FCI after you configure the WSFC and S2D. 
 
-   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. \
-   
-1. After azure creates your virtual machines, connect to each virtual machine with RDP. 
+   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server.
+
+1. After Azure creates your virtual machines, connect to each virtual machine with RDP. 
 
    When you first connect to a virtual machine with RDP, the computer asks if you want to allow this PC to be discoverable on the network. Click **Yes**. 
 
@@ -182,7 +182,14 @@ After the virtual machines are created and configured, you can configure the WSF
 
 ## Step 2: Configure WSFC with S2D
 
-The next step is to configure the WSFC with S2D. In this step, validate and configure the cluster, then add storage. 
+The next step is to configure the WSFC with S2D. In this step, you will do the following sub-steps:
+
+1. Add Windows Failover Clustering feature.
+1. Validate the cluster. 
+1. Create the WSFC.
+1. Add storage. 
+
+### Add Windows Failover Clustering feature
 
 1. To begin, connect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
 
@@ -203,13 +210,23 @@ The next step is to configure the WSFC with S2D. In this step, validate and conf
 
    The next steps follow the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct). 
 
-1. [Validate cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+### Validate the cluster
+
+This guide refers to instructions under [validate cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
    To validate the cluster with the UI, do the following steps from one of the virtual machines. 
    - In **Server Manager**, click **Tools**, then click **Failover Cluster Manager**. 
    - In **Failover Cluster Manager**, click **Action**, then click **Validate Configuration...**.
    - Click **Next**. 
    - On **Select Servers or a Cluster** type the name of both virtual machines.
+   - On **Testing options** choose **Run only tests I select**. Click **Next**.
+   - On **Test selection**, include all tests except **Storage**. See the following picture:
+
+   ![Validate Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
+   
+   - Click **Next**.
+   - On **Confirmation**, click **Next**. 
+   The **Validate a Configuration Wizard** runs the validation tests. 
 
    To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
@@ -217,7 +234,9 @@ The next step is to configure the WSFC with S2D. In this step, validate and conf
    Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
-1. [Create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+### Create the WSFC
+
+This guide refers to [create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
    To create the WSFC, you need: 
    - The names of the virtual machines that become the cluster nodes. 
@@ -246,10 +265,12 @@ The next step is to configure the WSFC with S2D. In this step, validate and conf
    Save the access keys and the container URL.
 
    Configure the WSFC cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+
+### Add storage
+
+This guide refers to [clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
    
-1. [Clean disks](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
-   
-   The disks for S2D need to be empty and without partitions or other data. To verify that the disks are clean, Follow the instructions in the preceding link.
+The disks for S2D need to be empty and without partitions or other data. To verify that the disks are clean, Follow the instructions in the preceding link.
    
 1. [Enable Store Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
@@ -275,7 +296,9 @@ The next step is to configure the WSFC with S2D. In this step, validate and conf
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-   In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. 
+## Test the WSFC
+
+In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to to the WSFC with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI. 
 
 ## Step 3: Create SQL Server FCI
 
@@ -313,8 +336,6 @@ On Azure virtual machines, clusters use a load balancer to hold an IP address th
 [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
 ### Create the load balancer in the Azure portal
-
-
 
 To create the load balancer:
 
@@ -358,7 +379,7 @@ To create the load balancer:
 
    Your Azure portal should look like the following picture:
 
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-loadbalancerbackend.png)
+   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
 
 1. Click **Select** on the **Choose virtual machines** blade.
 
