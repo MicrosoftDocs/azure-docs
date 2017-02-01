@@ -113,9 +113,9 @@ SQL Database Threat Detection provides an additional layer of security on top of
 ## Compliance
 In addition to the above features and functionality that can help your application meet various security compliance requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
+
 ## Next steps
 
 - For an overview of all of the SQL Database security feaures, see [SQL security overview](sql-database-security-overview.md).
 - For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
 - For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
-
