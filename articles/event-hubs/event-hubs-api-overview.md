@@ -21,9 +21,9 @@ ms.author: jotaub
 
 ## Runtime APIs
 
-The following is a listing of all currently available Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](##-Management-APIs) dedicated to management operations. The core focus of these libraries is to send and receive messages from an Event Hub.
+The following is a listing of all currently available Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an Event Hub.
 
-See [additional information](###-Additional-information) for more details on the current status of each runtime library.
+See [additional information](#additional-information) for more details on the current status of each runtime library.
 
 | Language/Platform | Client package | EventProcessorHost package | Repository |
 | --- | --- | --- | --- |
@@ -36,12 +36,11 @@ See [additional information](###-Additional-information) for more details on the
 ### Additional information
 
 #### .NET
-
-// Something about .NET standard vs .NET Framework here
+The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions.](https://docs.microsoft.com/en-us/dotnet/articles/standard/frameworks#framework-versions)
 
 #### Node
 
-// Something about this project being in preview and not currently supported
+The Node.js library is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
 
 ## Management APIs
 
