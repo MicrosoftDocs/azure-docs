@@ -82,7 +82,7 @@ For the tutorial, you need to create an Azure Batch account with a pool of VMs. 
 1. **Create a custom activity** to use a Data Factory pipeline. The custom activity in this sample contains the data transformation/processing logic.
    1. In Visual Studio, create a .NET Class Library project, add the code to process input data, and compile the project.    
    2. Zip all the binary files and the PDB (optional) file in the output folder.    
-   3. Upload the zip file to Azure blob storage. Detailed steps are in the Create the custom activity section.
+   3. Upload the zip file to Azure blob storage in a **general-purpose** Azure Storage Account (not cool/hot blob storage). Detailed steps are in the Create the custom activity section. 
 2. **Create an Azure data factory that uses the custom activity**:
    1. Create an Azure data factory.
    2. Create linked services.
@@ -363,10 +363,10 @@ The method returns a dictionary that can be used to chain custom activities toge
 12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the <project folder>\bin\Debug folder. You may want to include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure. All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
     ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
-13. Upload **MyDotNetActivity.zip** as a blob to the blob container: **customactivitycontainer** in the Azure blob storage that the **AzureStorageLinkedService** linked service in the **ADFTutorialDataFactory** uses.  Create the blob container **customactivitycontainer** if it does not already exist.
+14. Upload MyDotNetActivity.zip as a blob to the blob container: customactivitycontainer in a **general-purpose** Azure blob storage (not hold/cool Blob storage) that is referred by AzureStorageLinkedService.  Create the blob container **customactivitycontainer** if it does not already exist.
 
 > [!NOTE]
-> If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
+> If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the  general-purpose Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
 >
 >
 
@@ -446,7 +446,7 @@ This section provides more details and notes about the code in the **Execute** m
 	```
 
 ## Create the data factory using Azure portal
-In the **Create the custom activity** section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
+In the **Create the custom activity** section, you created a custom activity and uploaded the zip file with binaries and the PDB file to a container in a general-purpose Azure blob storage. In this section, you create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
 
 The input dataset for the custom activity represents the blobs (files) in the input folder (adftutorial\inputfolder) in blob storage. The output dataset for the activity represents the output blobs in the output folder (adftutorial\outputfolder) in blob storage.
 
@@ -720,14 +720,19 @@ The following diagram illustrates the relationship between Azure Data Factory an
 ## Debug the pipeline
 Debugging consists of a few basic techniques:
 
-1. If you see the following error message, confirm that the name of the class in the CS file matches the name you specified for the **EntryPoint** property in the pipeline JSON. In the above walkthrough, name of the class is: MyDotNetActivity, and the EntryPoint in the JSON is: MyDotNetActivityNS.**MyDotNetActivity**.
+1. If you see the following error, you may be using a Hot/Cool blob storage instead of using a general-purpose Azure blob storage. You must upload the zip file to a **general-purpose Azure Storage Account**. 
+ 
+	```
+	Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
+	``` 
+2. If you see the following error message, confirm that the name of the class in the CS file matches the name you specified for the **EntryPoint** property in the pipeline JSON. In the above walkthrough, name of the class is: MyDotNetActivity, and the EntryPoint in the JSON is: MyDotNetActivityNS.**MyDotNetActivity**.
 
 	```
 	MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
 	```
 
    If the names do match, confirm that all the binaries are in the **root folder** of the zip file. That is, when you open the zip file, you should see all the files in the root folder, not in any sub folders.   
-2. If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders.
+3. If the input slice is not set to **Ready**, confirm that the input folder structure is correct and **file.txt** exists in the input folders.
 3. In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that helps you troubleshoot issues. The logged messages show up in the user log files (one or more files named: user-0.log, user-1.log, user-2.log, etc.).
 
    In the **OutputDataset** blade, click the slice to see the **DATA SLICE** blade for that slice. You see **activity runs** for that slice. You should see one activity run for the slice. If you click Run in the command bar, you can start another activity run for the same slice.
@@ -739,7 +744,7 @@ Debugging consists of a few basic techniques:
    You should also check **system-0.log** for any system error messages and exceptions.
 4. Include the **PDB** file in the zip file so that the error details have information such as **call stack** when an error occurs.
 5. All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
-6. Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the Azure blob storage that contains the zip file) are set to correct values.
+6. Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the **general-purpose**Azure blob storage that contains the zip file) are set to correct values.
 7. If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**.
 8. If you see the following error, you are using the Azure Storage package of version > 4.3.0. Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. See [Appdomain isolation](#appdomain-isolation) section for a work around if you must use the later version of Azure Storage assembly. 
 
