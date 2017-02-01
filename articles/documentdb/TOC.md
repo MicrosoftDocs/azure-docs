@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
@@ -29,12 +30,14 @@
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)
 ### [Model your data](documentdb-modeling-data.md)
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
+### [Regional failovers](documentdb-regional-failovers.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
@@ -54,6 +57,9 @@
 ### [Track changes with Change feed](documentdb-change-feed.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
+### Best practices
+#### [Multi-master setup](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## Use DocumentDB Support for MongoDB
 ### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
@@ -78,15 +84,16 @@
 
 ## Integrate
 ### [Deploy a website with Azure App Service](documentdb-create-documentdb-website.md)
-### [Application logging with Logic Apps](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Application logging with Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Bind to Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analyze data with Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrate with Azure Search](documentdb-search-indexer.md)
+### [Integrate with Azure Search](../search/search-howto-index-documentdb.md)
 ### [Move data with Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analyze real-time data with Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Get notifications with Logic Apps](documentdb-change-notification.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
+### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
 
 # Reference

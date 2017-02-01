@@ -94,11 +94,4 @@ Learn how to use ExpressRoute to set up a fast, private connection to Microsoft 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download ExpressRoute Documentation
-        </div>
-    </a>
-</div>
+

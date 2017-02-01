@@ -73,6 +73,11 @@ Only a database user with the **CONTROL** permission on the database (such as th
 
 For more information on these stored procedures, see [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) and [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> For a tutorial that demonstrates the use of database-level firewalls, see [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md).
+>
+
+
 ## Next steps
 For how to articles on creating server-level firewall rules using other methods, see: 
 

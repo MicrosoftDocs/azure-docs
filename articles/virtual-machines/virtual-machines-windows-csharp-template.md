@@ -326,5 +326,5 @@ Because you are charged for resources used in Azure, it is always a good practic
     ![Browse audit logs in Azure portal](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## Next Steps
-* If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
+* If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

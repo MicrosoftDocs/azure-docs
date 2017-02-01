@@ -1,6 +1,6 @@
 ---
-title: Azure Content Delivery Network Rules Engine Features | Microsoft Docs
-description: This topic describes Rules engine match conditions and features
+title: Azure CDN rules engine features | Microsoft Docs
+description: Reference documentation for Azure CDN rules engine match conditions and features.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 
 ---
 
-# Features for Azure Content Delivery Network  (CDN) Rules Engine
+# Azure CDN rules engine features
 This topic lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The third part of a rule is the feature. A feature defines the type of action that will be applied to the type of request identified by a set of match conditions.
@@ -204,9 +204,11 @@ Disabled|Causes edge servers to cache assets according to the cache policy defin
 **Default Behavior:**
 
 - **HTTP Large:** Disabled
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###Cache Control Header Treatment
 **Purpose:** Controls the generation of Cache-Control headers by the edge server when External Max-Age Feature is active.
 
@@ -967,7 +969,32 @@ Option|Description
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
  This feature allows our edge servers to rewrite the URL without performing a traditional redirect. This means that the requester will receive the same response code as if the rewritten URL had been requested.
 
-**Sample Scenario**
+**Sample Scenario 1**
+
+In this example, we will demonstrate how to redirect an edge CNAME URL that resolves to this base CDN URL:
+http://marketing.azureedge.net/brochures/
+
+Qualifying requests will be redirected to this base edge CNAME URL:
+http://MyOrigin.azureedge.net/resources/
+
+This URL redirection may be achieved through the following configuration:
+![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**Sample Scenario 2**
+
+In this example, we will demonstrate how to redirect an edge CNAME URL from UPPERCASE to lowercase using regular expressions.
+
+This URL redirection may be achieved through the following configuration:
+![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**Key points:**
+
+- The URL Rewrite feature defines the request URLs that will be rewritten. As a result, additional match conditions are not required. Although the match condition was defined as "Always," only requests that point to the "brochures" folder on the "marketing" customer origin will be rewritten.
+
+- The URL segments that were captured from the request are appended to the new URL via "$1."
+
+
 
 ###Compatibility
 

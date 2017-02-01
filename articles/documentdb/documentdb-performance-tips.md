@@ -1,5 +1,5 @@
 ---
-title: DocumentDB performance tips | Microsoft Docs
+title: Performance tips - Azure DocumentDB NoSQL | Microsoft Docs
 description: Learn client configuration options to improve Azure DocumentDB database performance
 keywords: how to improve database performance
 services: documentdb
@@ -34,6 +34,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    2. Direct Mode
 
       Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
+<a id="use-tcp"></a>
 2. **Connection policy: Use the TCP protocol**
 
     When leveraging Direct Mode, there are two protocol options available:

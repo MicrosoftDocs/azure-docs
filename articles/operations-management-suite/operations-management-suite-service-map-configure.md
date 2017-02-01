@@ -72,7 +72,7 @@ The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It i
 
 
 ## Configuration
-In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the Service Map solution and then installed as root or Admin on each managed server.  Once the Service Map agent is installed on a server reporting to OMS, Service Map dependency maps will appear within 10 minutes.
 
 
 ### Migrating from BlueStripe FactFinder
@@ -114,7 +114,7 @@ Use the following steps to install the Dependency Agent on each Linux computer:
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
 ### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy, which is installed automatically with the agent.  You can uninstall both with the following single command:
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the Connector, which is installed automatically with the agent.  You can uninstall both with the following single command:
 
 	rpm -e dependency-agent dependency-agent-connector
 

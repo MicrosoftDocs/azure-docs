@@ -1,5 +1,5 @@
 ---
-title: 'HBase tutorial: Get started with Linux-based HBase clusters in Hadoop | Microsoft Docs'
+title: Get started with HBase on Azure HDInsight | Microsoft Docs
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight
@@ -14,12 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/23/2016
+ms.date: 01/19/2017
 ms.author: jgao
 
 ---
-# HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# HBase tutorial: Get started using Apache HBase in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
@@ -204,7 +203,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     You must base64 encode the values specified in the -d switch.  In the exmaple:

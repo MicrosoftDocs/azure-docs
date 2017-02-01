@@ -1,6 +1,6 @@
 ---
-title: Common DocumentDB use cases | Microsoft Docs
-description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
+title: Common use cases & NoSQL scenarios for Azure DocumentDB | Microsoft Docs
+description: Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).
 services: documentdb
 author: h0n
 manager: jhubbard
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/12/2017
 ms.author: hawong
 
 ---
@@ -72,7 +72,7 @@ DocumentDB is used by games like [The Walking Dead: No Man's Land](https://azure
 * Social features including in-game chat messages, player guild memberships, challenges completed, high-score leaderboards, and social graphs are easier to implement with a flexible schema.
 * DocumentDB as a managed platform-as-a-service (PaaS) required minimal setup and management work to allow for rapid iteration, and reduce time to market.
 
-![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentdb-gaming.png)
+![Azure DocumentDB gaming reference architecture](./media/documentdb-use-cases/documentdb-gaming-architecture.png)
 
 ## Web and mobile applications
 DocumentDB is commonly used within web and mobile applications, and is particularly well suited for modeling social interactions, integrating with third-party services, and for building rich personalized experiences. 
@@ -96,6 +96,8 @@ To get started with DocumentDB, you can create an [account](https://azure.micros
 
 Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
 
+* [Sulekha.com](https://customers.microsoft.com/en-US/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha uses Azure DocumentDB to connect customers and businesses across India  .
+* [NewOrbit](https://customers.microsoft.com/en-US/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit takes flight with Azure DocumentDB.
 * [Affinio](https://customers.microsoft.com/en-US/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio switches from AWS to Azure DocumentDB to harness social data at scale.
 * [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land game soars to #1 supported by Azure DocumentDB.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure DocumentDB.

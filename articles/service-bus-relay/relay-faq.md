@@ -1,5 +1,5 @@
 ---
-title: Relay FAQ | Microsoft Docs
+title: Azure Relay frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Relay.
 services: service-bus-relay
 documentationcenter: na
@@ -95,6 +95,9 @@ Shared Access Signatures are an authentication mechanism based on SHA – 256 se
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+
+### Is it possible to whitelist Relay endpoints?
+Yes. The Relay client makes connections to the Relay service using fully qualified domain names. This enables customers to add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
 
 ## Next steps
 * [Create a namespace](relay-create-namespace-portal.md)

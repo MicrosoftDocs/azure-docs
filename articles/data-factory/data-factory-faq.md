@@ -161,7 +161,7 @@ Daily slices start at **6 AM** instead of the default midnight.
 ### How can I rerun a slice?
 You can rerun a slice in one of the following ways:
 
-* Use Monitor and Manage App to rerun an activity window or slice. See [Rerun selected activity windows](data-factory-monitor-manage-app.md#performing-batch-actions) for instructions.   
+* Use Monitor and Manage App to rerun an activity window or slice. See [Rerun selected activity windows](data-factory-monitor-manage-app.md#perform-batch-actions) for instructions.   
 * Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the Azure portal.
 * Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
 

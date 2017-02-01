@@ -4,7 +4,7 @@ description: Management solutions extend the functionality of Operations Managem
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: bwren
 
 ---
@@ -258,7 +258,8 @@ You can get the details and samples of resources that are common to management s
 Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
 
 ## Next steps
+* [Add saved searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md) to your management solution.
+* [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.
+* [Add Automation runbooks and other resources](operations-management-suite-solutions-resources-automation.md) to your management solution.
 * Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
-* View the details for [adding views to a management solution](operations-management-suite-solutions-resources-views.md).
-* View the details for [adding Automation resources to a management solution](operations-management-suite-solutions-resources-automation.md).

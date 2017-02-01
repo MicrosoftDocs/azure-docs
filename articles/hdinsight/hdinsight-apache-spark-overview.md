@@ -1,5 +1,5 @@
 ---
-title: An overview of Apache Spark in HDInsight | Microsoft Docs
+title: An overview of Apache Spark on Azure HDInsight | Microsoft Docs
 description: An introduction to Apache Spark in HDInsight and scenarios in which to use Spark on HDInsight in your applications.
 services: hdinsight
 documentationcenter: ''
@@ -18,17 +18,18 @@ ms.date: 01/03/2017
 ms.author: nitinme
 
 ---
-# Overview: Apache Spark on HDInsight Linux
+# Overview: Apache Spark on HDInsight
+
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations. Spark is also compatible with Azure Blob storage (WASB) so your existing data stored in Azure can easily be processed via Spark.
 
 When you create a Spark cluster in HDInsight, you create Azure compute resources with Spark installed and configured. It only takes about ten minutes to create a Spark cluster in HDInsight. The data to be processed is stored in Azure Blob storage. See [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
 ![Apache Spark on Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
 
-**Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: create a Spark cluster on HDInsight Linux and run sample applications using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
+**Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: create a Spark cluster on HDInsight and run sample applications using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+> For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 > 
 > 
 
