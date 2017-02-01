@@ -7,7 +7,10 @@ author: rgardler
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
+
+
 keywords: Docker, Containers, Micro-services, Mesos, Azure, dcos, swarm, kubernetes, azure container service, acs
+
 
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
@@ -20,11 +23,15 @@ ms.author: rogardle
 
 ---
 # Deploy an Azure Container Service cluster
+
+
+
 Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. By using Azure Container Service, you can deploy DC/OS, Kubernetes, and Docker Swarm clusters with Azure Resource Manager templates or the Azure portal. You deploy these clusters by using Azure Virtual Machine Scale Sets, and the clusters take advantage of Azure networking and storage offerings. To access Azure Container Service, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 > [!NOTE]
 > Kubernetes support in Azure Container Service is currently in preview.
->
+
+
 
 This document walks you through deploying an Azure Container Service cluster by using the [Azure portal](#create-a-service-by-using-the-azure-portal), the [Azure command-line interface (CLI)](#create-a-service-by-using-the-azure-cli), and the [Azure PowerShell module](#create-a-service-by-using-powershell).
 
@@ -51,9 +58,10 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 5. Select an Orchestration type. The options are:
 
-    * **DC/OS**: Deploys a DC/OS cluster.
-    * **Swarm**: Deploys a Docker Swarm cluster.
-    * **Kubernetes**: Deploys a Kubernetes cluster.
+  * **DC/OS**: Deploys a DC/OS cluster.
+  * **Swarm**: Deploys a Docker Swarm cluster.
+  * **Kubernetes**: Deploys a Kubernetes cluster
+
 
 6. Click **OK** when you're ready to proceed.
 
@@ -87,6 +95,13 @@ This document walks you through deploying an Azure Container Service cluster by 
     ![Create deployment 8](media/acs-portal8.png)  <br />
 
 When the deployment has completed, the Azure Container Service cluster is ready for use.
+
+## Kubernetes specific entires required in the portal
+
+If 'Kubernetes' is selected as the orchestrator then you will be prompted to enter the Service Prinicipal client id and client secret.
+To learn how to create a service principal, go to this [link](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md)
+
+![Create deployment 8](media/acs-portal10.png)  <br />
 
 ## Create a service by using the Azure CLI
 To create an instance of Azure Container Service by using the command line, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). You also need to have [installed](../xplat-cli-install.md) and [configured](../xplat-cli-connect.md) the Azure CLI.
