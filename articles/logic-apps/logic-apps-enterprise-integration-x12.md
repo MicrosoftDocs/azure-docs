@@ -3,7 +3,7 @@ title: Create an X12 agreement in Azure logic apps | Microsoft Docs
 description: Learn to create an X12 agreement for the Enterprise Integration Pack| Azure logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: PadmaChilakapati
+author: padmavc
 manager: anneta
 editor: cgronlun
 
@@ -18,17 +18,13 @@ ms.author: padmavc
 
 ---
 # Enterprise integration with X12
-> [!NOTE]
-> This page covers the X12 features of Logic Apps. For information on EDIFACT click [here](../logic-apps/logic-apps-enterprise-integration-edifact.md).
-> 
-> 
 
 ## Prereqs
-Before you can exchange X12 messages, you need to create an X12 agreement and store it in your integration account. The following steps will walk you through the process of creating an X12 agreement.
+Before you can exchange X12 messages, you need to create an X12 agreement and store it in your integration account. The following steps walk you through the process of creating an X12 agreement.
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
 * At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) configured with EDI X12 qualifier under business identities.   
-* Required [Schema](../logic-apps-enterprise-integration-schemas.md) to be uploaded to [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Required [Schema](../logic-apps/logic-appslogic-apps-enterprise-integration-schemas.md) to be uploaded to [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 
 ## Create an X12 agreement
 After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
@@ -64,7 +60,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 ## Receive Settings
 
 1. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-2. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations and Internal Settings. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages  
+2. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations, and Internal Settings. Configure these properties based on your agreement with the partner you are exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages  
 
 ### Identifiers
 
@@ -85,7 +81,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 | --- | --- |
 | TA1 expected |Returns a technical acknowledgment to the interchange sender |
 | FA expected |Returns a functional acknowledgment to the interchange sender. Then select whether you want the 997 or 999 acknowledgments, based on the schema version |
-| Include AK2/IK2 Loop |Enables generation of AK2 loops in functional acknowledgments for accepted transaction sets. This is enabled only if you selected the FA expected checkbox. |
+| Include AK2/IK2 Loop |Enables generation of AK2 loops in functional acknowledgments for accepted transaction sets |
 
 
 ### Schemas
@@ -101,7 +97,7 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 | Schema |Select the schema file you want to us. Schemas are added to your integration account |
 
 > [!NOTE]
-> Configure required [Schema](../logic-apps-enterprise-integration-schemas.md) that is uploaded in [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+> Configure required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) that is uploaded in [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 > 
 > 
 
@@ -111,7 +107,7 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 
 | Property | Description |
 | --- | --- |
-| ISA11 Usage |Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^). |
+| ISA11 Usage |Use this field to specify the separator in a transaction set:</br></br>Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline.</br></br>Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^). |
 
 ### Control Numbers
 
@@ -119,9 +115,9 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 
 | Property | Description |
 | --- | --- |
-| Disallow Interchange Control Number duplicates |Check this option to block duplicate interchanges. If selected, checks that the interchange control number (ISA13) for the received interchange does not match the interchange control number. If a match is detected, the receive pipeline does not process the interchange.<br/>If you opted to disallow duplicate interchange control numbers, then you can specify the number of days at which the check is performed by giving the appropriate value for Check for duplicate ISA13 every x days. |
-| Disallow Group control number duplicates |Check this option to block interchanges with duplicate group control numbers. |
-| Disallow Transaction set control number duplicates |Check this option to block interchanges with duplicate transaction set control numbers. |
+| Disallow Interchange Control Number duplicates |Blocks duplicate interchanges. Checks that the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline does not process the interchange. You can specify the number of days at which the check is performed by giving the appropriate value for *Check for duplicate ISA13 every x days* |
+| Disallow Group control number duplicates |Blocks interchanges with duplicate group control numbers |
+| Disallow Transaction set control number duplicates |Blocks interchanges with duplicate transaction set control numbers |
 
 ### Validations
 
@@ -145,7 +141,7 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
 | Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspends only those transaction where the validation fail |
 | Split Interchange as transaction sets - suspend interchange on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. Suspends entire interchange if one or more transaction sets in the interchange fail validation | 
-| Preserve Interchange - suspend transaction sets on error | Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends only those transaction sets that fail validation, while continuing to process all other transaction sets |
+| Preserve Interchange - suspend transaction sets on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends only those transaction sets that fail validation, while continuing to process all other transaction sets |
 | Preserve Interchange - suspend interchange on error |Leaves the interchange intact, creates an XML document for the entire batched interchange.  Suspends entire interchange if one or more transaction sets in the interchange fail validation |
 
 After you have set the receive settings properties, select the **OK** button  
@@ -198,7 +194,7 @@ Here is a view of these controls. Make the selections based on how you want to h
 | SCHEMA |Select the schema to use. Schemas are located in your integration account. If you select schema first, it automatically configures version and transaction type  |
 
 > [!NOTE]
-> Configure required [Schema](../logic-apps-enterprise-integration-schemas.md) that is uploaded in [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+> Configure required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) that is uploaded in [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 > 
 > 
 
@@ -210,7 +206,7 @@ Here is a view of these controls. Make the selections based on how you want to h
 | --- | --- |
 | ISA11 Usage |Use this field to specify the separator in a transaction |
 | Standard Identifier |Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline |
-| Repetition Separator |Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^) |
+| Repetition Separator |Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^) |
 
 ### Control Numbers
 
@@ -218,21 +214,21 @@ Here is a view of these controls. Make the selections based on how you want to h
 
 | Property | Description |
 | --- | --- |
-| Control Version Number (ISA12) | Select the version of the X12 standard |
-| Usage Indicator (ISA15) | Select the context of an interchange is information, production data, or test data |
-| Schema | Generates the GS and ST segments for an X12-encoded interchange that it sends to the Send Pipeline |
-| GS1 | Optional, select a value for the functional code from the drop-down list |
-| GS2 | Optional, application sender |
-| GS3 | Optional, application receiver |
-| GS4 | Optional, select CCYYMMDD or YYMMDD |
-| GS5 | Optional, select HHMM, HHMMSS, or HHMMSSdd |
-| GS7 | Optional, select a value for the responsible agency from the drop-down list |
-| GS8 | Optional, version of the document |
-| Interchange Control Number (ISA13) | Required, enter a range of values for the interchange control number. Enter a numeric value with a minimum of 1 and a maximum of 999999999 |
-| Group Control Number (GS06) | Required, enter a range of numbers for the group control number. Enter a numeric value with a minimum of 1 and a maximum of 999999999 |
-| Transaction Set Control Number (ST02) | Required, enter a range of numbers for the Transaction Set Control number. Enter a range of numeric values with a minimum of 1 and a maximum of 999999999 |
-| Prefix | Optional, designated for the range of transaction set control numbers used in acknowledgment. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
-| Suffix | Optional, designated for the range of transaction set control numbers used in an acknowledgment. Enter a numeric value for the middle two fields and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
+| Control Version Number (ISA12) |Select the version of the X12 standard |
+| Usage Indicator (ISA15) |Select the context of an interchange is information, production data, or test data |
+| Schema |Generates the GS and ST segments for an X12-encoded interchange that it sends to the Send Pipeline |
+| GS1 |Optional, select a value for the functional code from the drop-down list |
+| GS2 |Optional, application sender |
+| GS3 |Optional, application receiver |
+| GS4 |Optional, select CCYYMMDD or YYMMDD |
+| GS5 |Optional, select HHMM, HHMMSS, or HHMMSSdd |
+| GS7 |Optional, select a value for the responsible agency from the drop-down list |
+| GS8 |Optional, version of the document |
+| Interchange Control Number (ISA13) |Required, enter a range of values for the interchange control number. Enter a numeric value with a minimum of 1 and a maximum of 999999999 |
+| Group Control Number (GS06) |Required, enter a range of numbers for the group control number. Enter a numeric value with a minimum of 1 and a maximum of 999999999 |
+| Transaction Set Control Number (ST02) |Required, enter a range of numbers for the Transaction Set Control number. Enter a range of numeric values with a minimum of 1 and a maximum of 999999999 |
+| Prefix |Optional, designated for the range of transaction set control numbers used in acknowledgment. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
+| Suffix |Optional, designated for the range of transaction set control numbers used in an acknowledgment. Enter a numeric value for the middle two fields and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
 
 ### Character Sets and Separators
 
@@ -243,13 +239,13 @@ Other than the character set, you can enter a different set of delimiters to be 
 
 | Property | Description |
 | --- | --- |
-| Character Set to be used | Select the X12 character set to validate the properties.  The options are Basic, Extended, and UTF8 |
-| Schema | Select a schema from the drop-down list. For the selected schema, select the separators set to be used |
-| Input Type | Select an input type from the drop-down |
-| Component element separator | Enter a single character to separate composite data elements |
-| Data Element Separator | Enter a single character to separate simple data elements within composite data elements |
-| Replacement Character | Enter a replacement character. When generating the outbound X12 message, all instances of separator characters in the payload data are replaced with the specified character |
-| Segment Terminator | Enter a single character to indicate the end of an EDI segment |
+| Character Set to be used |Select the X12 character set to validate the properties.  The options are Basic, Extended, and UTF8 |
+| Schema |Select a schema from the drop-down list. For the selected schema, select the separators set to be used |
+| Input Type |Select an input type from the drop-down |
+| Component element separator |Enter a single character to separate composite data elements |
+| Data Element Separator |Enter a single character to separate simple data elements within composite data elements |
+| Replacement Character |Enter a replacement character. When generating the outbound X12 message, all instances of separator characters in the payload data are replaced with the specified character |
+| Segment Terminator |Enter a single character to indicate the end of an EDI segment |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
 ### Validation
@@ -258,9 +254,9 @@ Other than the character set, you can enter a different set of delimiters to be 
 
 | Property | Description |
 | --- | --- |
-| Message Type | Select the message type from the list |
-| EDI Validation | Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
-| Extended Validation | Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
+| Message Type |Select the message type from the list |
+| EDI Validation |Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction set data elements, validating data types, length restrictions, and empty data elements and trailing separators |
+| Extended Validation |Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa. |
 | Allow leading/ trailing zeroes |Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed. |
 | Trailing separator |Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select Not Allowed if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select Optional to accept interchanges with or without trailing delimiters and separators.</br></br>Select Mandatory if the received interchange must contain trailing delimiters and separators. |
 
