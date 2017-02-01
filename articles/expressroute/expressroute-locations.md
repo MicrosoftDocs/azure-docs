@@ -1,10 +1,10 @@
 ---
-title: ExpressRoute locations | Microsoft Docs
-description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
+title: 'Connectivity providers and locations: Azure ExpressRoute | Microsoft Docs'
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by connectivity provider.
 services: expressroute
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
