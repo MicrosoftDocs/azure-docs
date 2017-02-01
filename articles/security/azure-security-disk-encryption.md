@@ -1015,8 +1015,9 @@ To configure encryption during the distribution installation, do the following:
 To configure encryption to work with Azure, do the following:
 
 1. Edit the /etc/dracut.conf, and add the following line:
-
+    ```
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
+    ```
 
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
 ```
