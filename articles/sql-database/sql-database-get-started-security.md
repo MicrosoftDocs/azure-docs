@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-control-access-sql-authentication-get-started.md
+redirect_url: /azure/sql-database/sql-database-control-access-sql-authentication-get-started
 --- 
