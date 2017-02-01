@@ -173,7 +173,7 @@ In the root directory of your project, open/create `pom.xml` and locate the `// 
 ## 3. Create the Java web application files (WEB-INF)
 Here, we'll configure the Java web app to use the OpenID Connect authentication protocol.  The ADAL4J library will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
-1. To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml. The file should look like the following:
+1. To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml. The file should look like the following:  
 
     ```xml
     
@@ -228,12 +228,13 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
 
 
  - YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
- - YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.
+ - YOUR_CLIENT_SECRET is the **Application Secret** you created in the portal.
  - YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
     Leave the rest of the configuration parameters as-is.
 
-    >[!NOTE]
+
+    > [!NOTE]
     > As you can see from the XML file we are writing a JSP/Servlet webapp called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the secure URL. You'll see in the rest of the same we write that we'll use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.
 
 2. Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:  
