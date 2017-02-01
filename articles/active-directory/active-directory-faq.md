@@ -46,7 +46,7 @@ Additionally, Azure AD paid services (e.g.: Azure AD basic, Premium, EMS, etc.) 
 - - -
 **Q: Is there a report that shows when my Azure AD user licenses will expire?**
 
-**A:** No.  Currently there is no report for this.
+**A:** No.  This is not currenlty available.
 
 - - -
 ## Getting started with Hybrid Azure AD
