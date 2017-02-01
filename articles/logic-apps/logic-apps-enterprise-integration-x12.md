@@ -139,7 +139,7 @@ Choose a schema for each transaction type (ST1) and Sender Application (GS2). Th
 | --- | --- |
 | Convert implied decimal format Nn to base 10 numeric value |Converts an EDI number that is specified with the format Nn into a base-10 numeric value |
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
-| Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspends only those transaction where the validation fail |
+| Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspends only those transaction where the validation fails |
 | Split Interchange as transaction sets - suspend interchange on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. Suspends entire interchange if one or more transaction sets in the interchange fail validation | 
 | Preserve Interchange - suspend transaction sets on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends only those transaction sets that fail validation, while continuing to process all other transaction sets |
 | Preserve Interchange - suspend interchange on error |Leaves the interchange intact, creates an XML document for the entire batched interchange.  Suspends entire interchange if one or more transaction sets in the interchange fail validation |
@@ -205,7 +205,7 @@ Here is a view of these controls. Make the selections based on how you want to h
 | Property | Description |
 | --- | --- |
 | ISA11 Usage |Use this field to specify the separator in a transaction |
-| Standard Identifier |Select the Standard identifier to use the decimal notation of “.” instead of the decimal notation of the incoming document in the EDI receive pipeline |
+| Standard Identifier |Select the Standard identifier to use the decimal notation of “.” |
 | Repetition Separator |Select Repetition separator to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example (^) is usually used as repetition separator. For HIPAA schemas, you can only use (^) |
 
 ### Control Numbers
@@ -215,7 +215,7 @@ Here is a view of these controls. Make the selections based on how you want to h
 | Property | Description |
 | --- | --- |
 | Control Version Number (ISA12) |Select the version of the X12 standard |
-| Usage Indicator (ISA15) |Select the context of an interchange is information, production data, or test data |
+| Usage Indicator (ISA15) |Select the context of an interchange.  The values are information, production data, or test data |
 | Schema |Generates the GS and ST segments for an X12-encoded interchange that it sends to the Send Pipeline |
 | GS1 |Optional, select a value for the functional code from the drop-down list |
 | GS2 |Optional, application sender |
