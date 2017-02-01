@@ -21,7 +21,7 @@ ms.author: dastrock
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) makes it simple and straightforward for you to add sign-in, sign-out, and secure OAuth API calls to your single-page apps.  It enables your app to authenticate users with their Windows Server Active Directory accounts and consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
+Azure Active Directory (Azure AD) makes it simple and straightforward for you to add sign-in, sign-out, and secure OAuth API calls to your single-page apps.  It enables your app to authenticate users with their Windows Server Active Directory accounts and consume any web API that Azure AD helps protect, such as the Office 365 APIs or the Azure API.
 
 For JavaScript applications running in a browser, Azure AD provides the Active Directory Authentication Library (ADAL), or adal.js. The sole purpose of adal.js is to make it easy for your app to get access tokens. To demonstrate just how easy it is, here we'll build an AngularJS To Do List application that:
 
@@ -110,42 +110,43 @@ Adal.js integrates with AngularJS route and HTTP providers, so you can help secu
     ...
     ```
 
-You now have a secure single page application with the ability to sign users in and issue bearer token protected requests to its backend API.  When a user clicks the `TodoList` link, adal.js will automatically redirect to Azure AD for sign in if necessary.  In addition, adal.js will automatically attach an access_token to any ajax requests that are sent to the application's backend.  The above is the bare minimum necessary to build a SPA with adal.js - but there are a number of other features that are useful in SPAs:
+You now have a secure single-page application with the ability to sign users in and issue bearer-token-protected requests to its back-end API.  When a user clicks the **TodoList** link, adal.js will automatically redirect to Azure AD for sign-in if necessary. In addition, adal.js will automatically attach an access_token to any Ajax requests that are sent to the application's back end.  The preceding steps are the bare minimum necessary to build a single-page application by using adal.js. But there are a number of other features that are useful in single-page applications:
 
-* To explicitly issue sign in and sign out requests you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
+* To explicitly issue sign-in and sign-out requests, you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
 
-```js
-...
-$scope.login = function () {
-    adalService.login();
-};
-$scope.logout = function () {
-    adalService.logOut();
-};
-...
-```
-* You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Views/UserData.html`:
+    ```js
+    ...
+    $scope.login = function () {
+        adalService.login();
+    };
+    $scope.logout = function () {
+        adalService.logOut();
+    };
+    ...
+    ```
+* You might want to present user information in the app's UI. The ADAL service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Views/UserData.html`:
 
-```js
-<p>{{userInfo.userName}}</p>
-<p>aud:{{userInfo.profile.aud}}</p>
-<p>iss:{{userInfo.profile.iss}}</p>
-...
-```
+    ```js
+    <p>{{userInfo.userName}}</p>
+    <p>aud:{{userInfo.profile.aud}}</p>
+    <p>iss:{{userInfo.profile.iss}}</p>
+    ...
+    ```
 
-* There are also many scenarios in which you will want to know if the user is signed in or not.  You can also use the `userInfo` object to gather this information.  For instance, in `index.html` you can show either the "Login" or "Logout" button based on authentication status:
+* There are many scenarios in which you'll want to know if the user is signed in or not. You can also use the `userInfo` object to gather this information.  For instance, in `index.html`, you can show either the "Login" or "Logout" button based on authentication status:
 
-```js
-<li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
-<li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
-```
+    ```js
+    <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
+    <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
+    ```
 
-Congratulations! Your Azure AD-integrated single-page app is now complete.  It can authenticate users, securely call its backend using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your To Do List SPA, and sign in with one of those users.  Add tasks to the users to do list, sign out, and sign back in.
+## Next steps
+Congratulations! Your Azure AD-integrated single-page app is now complete. It can authenticate users, securely call its back end by using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users. Run your To Do List single-page application, and sign in with one of those users. Add tasks to the user's to do list, sign out, and sign back in.
 
-Adal.js makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.
+Adal.js makes it easy to incorporate common identity features into your application. It takes care of all the dirty work for you: cache management, OAuth protocol support, presenting the user with a sign-in UI, refreshing expired tokens, and more.
 
-For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).  You can now move on to additional scenarios.  You may want to try:
+For reference, the completed sample (without your configuration values) is available in [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip). You can now move on to additional scenarios. You may want to try:
 
-[Call a CORS Web API from a SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
+[Call a CORS web API from a single-page app](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
