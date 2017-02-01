@@ -58,10 +58,9 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 5. Select an Orchestration type. The options are:
 
-
-    * **DC/OS**: Deploys a DC/OS cluster.
-    * **Swarm**: Deploys a Docker Swarm cluster.
-    * **Kubernetes**: Deploys a Kubernetes cluster
+  * **DC/OS**: Deploys a DC/OS cluster.
+  * **Swarm**: Deploys a Docker Swarm cluster.
+  * **Kubernetes**: Deploys a Kubernetes cluster
 
 
 6. Click **OK** when you're ready to proceed.
