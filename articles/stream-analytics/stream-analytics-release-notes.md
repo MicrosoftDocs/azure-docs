@@ -13,11 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 02/01/2017
 ms.author: jeffstok
 
 ---
 # Stream Analytics release notes
+## Notes for 02/01/2017 release of Stream Analytics
+This release contains the following update.
+
+| Title | Description |
+| --- | --- |
+| Introducing JavaScript User-Defined Functions (UDF) |[Java User-Defined Functions](stream-analytics-javascript-user-defined-functions.md) are now available for additional flexibility in creating queries. |
+| Introducing tools for Visual Studio and Stream Analytics |[Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md) are now available for debugging and greater utility. |
+| Introducing Diagnostic Logging |[Diagnostic logging](stream-analytics-job-diagnostic-logs.md) is now available for additional troubleshooting options. |
+| Introducing GeoSpatial Functions |[GeoSpatial Functions](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) are now generally available. |
+
 ## Notes for 04/15/2016 release of Stream Analytics
 This release contains the following update.
 

@@ -21,16 +21,16 @@ ms.author: saudas
 ---
 # Using the Azure CLI 2.0 preview to create an Azure Container Service cluster
 
-To create an Azure Container Service cluster, you need:
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
-* the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
-* to be logged in to your Azure account (see below)
+To create an Azure Container Service cluster, you must:
+* have an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
+* have installed the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
+* be logged in to your Azure account (see below)
 
 ## Log in to your account
 ```azurecli
 az login 
 ```
-You will need to go to this [link](https://login.microsoftonline.com/common/oauth2/deviceauth) to authenticate with the device code provided in the CLI.
+Go to this [link](https://login.microsoftonline.com/common/oauth2/deviceauth) to authenticate with the device code provided in the CLI.
 
 ![type command](media/container-service-create-acs-cluster-cli/login.png)
 
@@ -59,8 +59,8 @@ az acs -h
 ```azurecli
 az acs create -h
 ```
-The name of the container service, the resource group created in the previous step and a unique DNS name are mandatory. 
-Other inputs are set to default values(please see the following screen with the help snapshot below)unless overwritten using their respective switches.
+The name of the container service, the resource group created in the previous step, and a unique DNS name are mandatory. 
+Other inputs are set to default values (see the screenshot below) unless overwritten using their respective switches.
 ![Image ACS create help](media/container-service-create-acs-cluster-cli/acs-command-usage-help.png)
 
 *Quick ACS create using defaults. If you do not have a SSH key use the second command. This second create command with the --generate-ssh-keys switch will create one for you*

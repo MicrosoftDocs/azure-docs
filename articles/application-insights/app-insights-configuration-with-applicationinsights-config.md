@@ -1,6 +1,6 @@
 ---
-title: Configuring Application Insights SDK with ApplicationInsights.config or .xml | Microsoft Docs
-description: Enable or disable data collection modules, and add performance counters and other parameters
+title: ApplicationInsights.config reference - Azure | Microsoft Docs
+description: Enable or disable data collection modules, and add performance counters and other parameters.
 services: application-insights
 documentationcenter: ''
 author: OlegAnaniev-MSFT
