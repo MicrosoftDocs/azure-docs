@@ -17,7 +17,7 @@ ms.date: 01/24/2017
 ms.author: raynew
 
 ---
-# Azure Site Recovery support matrix for replicating to customer-owned secondary site
+# Azure Site Recovery support matrix for replicating to a customer-owned secondary site
 
 > [!div class="op_single_selector"]
 > * [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
@@ -29,8 +29,8 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
-**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the help guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide. Not available in the Azure portal | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud<br/><br/> Standard Hyper-V Replication only, SAN not supported
-**Classic portal** | Maintenance mode only. New vaults can't be created. | Not supported | Maintenance mode only.
+**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the help guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide. Not available in the Azure portal. | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br/><br/> Standard Hyper-V Replication only. SAN not supported.
+**Classic portal** | Maintenance mode only. New vaults can't be created. | Not supported | Maintenance mode only
 **PowerShell** | Not supported | Not supported | Supported
 
 ## Support for datacenter management servers
@@ -58,7 +58,7 @@ The following table summarizes operating system support in various deployment sc
 
 **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 or 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 >[!Note]
 >Storage support for Linux versions
@@ -104,7 +104,7 @@ SMB 3.0 | N/A | Yes
 SAN (ISCSI) | Yes | Yes
 Multi-path (MPIO) | Yes | Yes
 
-### Guest/ Physical server storage configuration
+### Guest or physical server storage configuration
 
 **Configuration** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -136,7 +136,7 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
 **Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19 ([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
-**Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | N/A (available from portal) | N/A
+**Mobility service** | Coordinates replication between on-premises VMware servers or physical servers and the secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | N/A (available from portal) | N/A
 
 
 ## Next steps
