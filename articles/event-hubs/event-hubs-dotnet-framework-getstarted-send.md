@@ -94,7 +94,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 
 * [Receive events using the Event Processor Host](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Event Processor Host reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
-* [Event Hubs overview](Event Hubs overview)
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
