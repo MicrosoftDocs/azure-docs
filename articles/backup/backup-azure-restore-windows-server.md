@@ -125,14 +125,15 @@ If your entire server is lost, you can still recover data from Azure Backup to a
 
 The terminology used in these steps includes:
 
-    * *Source machine* – The original machine from which the backup was taken and which is currently unavailable.
-    * *Target machine* – The machine to which the data is being recovered.
-    * *Sample vault* – The Backup vault to which the *Source machine* and *Target machine* are registered. <br/>
+    -*Source machine* – The original machine from which the backup was taken and which is currently unavailable.
+    -*Target machine* – The machine to which the data is being recovered.
+    -*Sample vault* – The Backup vault to which the *Source machine* and *Target machine* are registered. <br/>
 
-    > [!NOTE]
-    > Backups taken from a machine cannot be restored on a machine which is running an earlier version of the operating system. For example, if backups are taken from a Windows 7 machine, it can be restored on a Windows 8 or above machine. However, the vice-versa does not hold true.
-    >
-    >
+
+> [!NOTE]
+> Backups taken from a machine cannot be restored on a machine which is running an earlier version of the operating system. For example, if backups are taken from a Windows 7 machine, it can be restored on a Windows 8 or above machine. However, the vice-versa does not hold true.
+>
+>
 
 1. Open the **Microsoft Azure Backup** snap in on the *Target machine*.
 2. Ensure that the *Target machine* and the *Source machine* are registered to the same backup vault.
