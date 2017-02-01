@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 01/31/2017
 ms.author: jroth
 
 ---
@@ -52,7 +52,7 @@ In this scenario, you can connect using the VM **Name** (also shown as **Compute
 ### Connect to SQL Server over the Internet
 If you want to connect to your SQL Server database engine from the Internet, you must create a virtual machine endpoint for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
-To connect over the internet, you must use the VM's DNS name and the VM endpoint port number (configured later in this article). To find the DNS Name, navigate to the Azure Portal, and select **Virtual machines (classic)**. Then select your virtual machine. The **DNS name** is shown in the **Overview** section.
+To connect over the internet, you must use the VM's DNS name and the VM endpoint port number (configured later in this article). To find the DNS Name, navigate to the Azure portal, and select **Virtual machines (classic)**. Then select your virtual machine. The **DNS name** is shown in the **Overview** section.
 
 For example, consider a classic virtual machine named **mysqlvm** with a DNS Name of **mysqlvm7777.cloudapp.net** and a VM endpoint of **57500**. Assuming properly configured connectivity, the following connection string could be used to access the virtual machine from anywhere on the internet:
 
