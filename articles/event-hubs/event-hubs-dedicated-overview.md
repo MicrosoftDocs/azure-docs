@@ -55,9 +55,9 @@ Event Hubs Dedicated also removes some of the throughput limitations of the Stan
 
 This service is targeted at the largest telemetry users and is available to customers with an enterprise agreement.
 
-## How to Onboard
+## How to onboard
 
-The Dedicated Event Hubs platform is offered to the public through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units and is billed at $31 per hour. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+The Event Hubs Dedicated platform is offered to the public through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units and is billed at $31 per hour. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
 ## Next Steps
 
