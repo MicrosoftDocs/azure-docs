@@ -1,4 +1,4 @@
-In the Azure portal, you can view the connection status for a classic VNet gateway by navigating to the connection. There are multiple ways to do this. The following steps show one way to navigate to your connection and verify.
+In the Azure portal, you can view the connection status for a classic VNet VPN Gateway by navigating to the connection. The following steps show one way to navigate to your connection and verify.
 
 1. In the [Azure portal](http://portal.azure.com), click **All resources** and navigate to your classic virtual network.
 2. On the virtual network blade, click **Overview** to access the **VPN connections** section of the blade.

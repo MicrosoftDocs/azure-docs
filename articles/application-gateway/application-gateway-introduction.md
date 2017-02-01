@@ -64,7 +64,7 @@ There are currently two skus for Application Gateway: **WAF** and **Standard**.
 
 You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-The following table shows an average performance throughput for each application gateway instance:
+The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
 
 | Back-end page response | Small | Medium | Large |
 | --- | --- | --- | --- |

@@ -33,41 +33,72 @@ B2B communication involves message exchanges between two running business proces
 
 ## Adding Logic Apps B2B solution to OMS portal
 
-1. Select **More Services** in portal, search **log analytics** and select **log analytics**
+1. Select **More Services** in portal, search **log analytics** and select **log analytics**   
 ![Search log analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)  
 
-2. Select your **Log Analytics**
+2. Select your **Log Analytics**  
 ![Select log analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Select **OMS Portal**, opens OMS portal home page
+3. Select **OMS Portal**, opens OMS portal home page   
 ![Browse OMS portal](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
 4. Select **Solutions Gallery**    
 ![Select Solutions Gallery](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
-5. Select **Logic Apps B2B**
+5. Select **Logic Apps B2B**     
 ![Select Logic Apps B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
 
-6. Click **Add** to add **Logic Apps B2B Messages** to home page
+6. Click **Add** to add **Logic Apps B2B Messages** to home page  
 ![Select Add](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-7. Browse home page to view **Logic Apps B2B Messages**
+7. Browse home page to view **Logic Apps B2B Messages**   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 ## Tracking data in OMS portal
 
-1. Post message process; the home page updates with message count
+1.Post message process; the home page updates with message count   
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-2. Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.
+2.Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.
 ![Select Logic Apps B2B Messages](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. Selecting AS2 or X12 messages by status takes you to the message list
+
+
+3.Selecting AS2 or X12 messages by status takes you to the message list   
 ![Select AS2 message status](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-    ![Select X12 message status](media/logic-apps-track-b2b-messages-omsportal/x12messagelist.png)
+| Property | Description |
+| --- | --- |
+| Sender | The guest partner configured in the receive settings or the host partner configured in the send settings for an AS2 agreement |
+| Receiver | The host partner configured in the receive settings or the guest partner configured in the send settings for an AS2 agreement |
+| Logic App | Logic App where the AS2 actions configured |
+| Status | AS2 message status. Success = Received or sent a good AS2 message, no MDN configured; Success = Received or sent a good AS2 message, MDN configured and received or sent MDN; Failed = Received a bad AS2 message, no MDN configured; Pending = Received or sent a good AS2 message, MDN; configured and expecting a functional ack; |
+| Ack | MDN message status |
+| Direction | AS2 message direction |
+| Correlation ID | Id to correlate all the triggers and actions within a Logic App |
+| Message ID |  AS2 message ID, from the headers of the AS2 message |
+| Timestamp | Time at which AS2 action process the message |
+|  |  |
 
-4. Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
+
+![Select X12 message status](media/logic-apps-track-b2b-messages-omsportal/x12messagelist.png)
+
+| Property | Description |
+| --- | --- |
+| Sender | The guest partner configured in the receive settings or the host partner configured in the send settings for an AS2 agreement |
+| Receiver | The host partner configured in the receive settings or the guest partner configured in the send settings for an AS2 agreement |
+| Logic App | Logic App where the AS2 actions configured |
+| Status | X12 message status. Success = Received or sent a good X12 message, no functional ack configured; Success = Received or sent a good X12 message, functional ack configured and received or sent a functional ack; Failed = Received or sent a bad X12 message; Pending: Received or sent a good X12 message, functional ack configured and expecting a functional ack |
+| Ack | Functional Ack (997) status.  Accepted = Received or sent a positive functional ack; Rejected = Received or sent a negative functional ack; Pending = Expecting a functional ack but didn't receive it; Pending = Generated a functional ack but couldn't send it to partner |
+| Direction | X12 message direction |
+| Correlation ID | Id to correlate all the triggers and actions within a Logic App |
+| Msg Type |  EDI X12 message type |
+| ICN | Interchange Control Number of the X12 message |
+| TSCN | Transactional Set Control Number of the X12 message |
+| Timestamp | Time at which X12 action process the message |
+| | |
+
+4.Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
 ![Select message status](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## Queries in OMS portal
@@ -89,7 +120,7 @@ On the search page, you can create a query, and then when you search, you can fi
 
 ### How to use a saved query
 
-1. In the log search, select **favorites** to view saved queries.  Selecting one of the gives query results
+* In the log search, select **favorites** to view saved queries.  Selecting one of the gives query results
 ![Select home page](media/logic-apps-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 

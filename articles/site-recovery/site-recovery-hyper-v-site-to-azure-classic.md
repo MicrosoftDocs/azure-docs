@@ -1,5 +1,5 @@
 ---
-title: Replicate between on-premises Hyper-V virtual machines and Azure (without VMM) with Site Recovery | Microsoft Docs
+title: Replicate Hyper-V VMs to Azure in the classic portal | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines to Azure with Azure Site Recovery when machines aren't managed in VMM clouds.
 services: site-recovery
 documentationcenter: ''
@@ -221,12 +221,12 @@ Add virtual machines to a protection group to enable protection for them.
        * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
        * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
        * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.
-       
+
      * **Azure network**: Specify the network to which the virtual machine should fail over. If the virtual machine has multiple network adapters all adapters should connected to the same Azure network.
      * **Subnet** For each network adapter on the virtual machine, select the subnet in the Azure network to which the machine should connect after failover.
      * **Target IP address**: If the network adapter of source virtual machine is configured to use static a IP address then you can specify the IP address for the target virtual machine to ensure that the machine has the same IP address after failover.  If you don't specify an IP address then any available address will be assigned at the time of failover. If you specify an address that's in use then failover will fail.
 
-     > [!NOTE] 
+     > [!NOTE]
      > [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
      >
 
