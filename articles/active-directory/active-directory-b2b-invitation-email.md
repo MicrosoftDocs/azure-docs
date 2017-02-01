@@ -22,7 +22,7 @@ ms.author: sasubram
 
 # The elements of the B2B collaboration invitation email
 
-Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. The primary goal for this is to increase trust in the recipient and add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to  accept the invitation. This is a key component to reducing sharing friction. And of course, we also want the email to look great!
+Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. The primary goal for this is to increase trust in the recipient and add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to accept the invitation. This is a key component to reducing sharing friction. And of course, we also want the email to look great!
 
 ## Explaining the email
 Let's look at a few elements of the email so you know how best to make use of these capabilities.
@@ -46,9 +46,9 @@ The call to action consists of two parts: explaining why the recipient has recei
 - The "why" section can be addressed using the following pattern:
   You've been invited to access applications in the &lt;tenantname&gt; organization
 
-- And the "what you're being asked to do" section is indicated by the presence of the **Get Started** button. When the recipient has been added without the need for invitations, this button wouldn't show up.
+- And the "what you're being asked to do" section is indicated by the presence of the **Get Started** button. When the recipient has been added without the need for invitations, this button doesn't show up.
 
-### Inviter�s information
+### Inviter's information
 The inviter's display name will be included in the email. And in addition, if you've set up a profile picture for your Azure AD account, the inviting email will include that picture as well. Both of these are intended to increase your recipient's confidence in the email.
 If the inviter hasn't yet set up their profile picture, Azure AD creates an icon with the inviter's initials in place of the picture as shown:
 
