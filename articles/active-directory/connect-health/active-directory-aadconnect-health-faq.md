@@ -1,12 +1,11 @@
 ---
-title: Azure AD Connect Health FAQ
+title: Azure Active Directory Connect Health FAQ - Azure | Microsoft Docs
 description: This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
 services: active-directory
 documentationcenter: ''
 author: billmath
 manager: samueld
 editor: curtand
-
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
 ms.workload: identity
@@ -14,6 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
+=======
+ms.date: 01/17/2017
 ms.author: vakarand
 
 ---
@@ -41,12 +42,17 @@ Note that the features provided by the service may differ based on the Role and 
 ## Installation Questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sycn) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sync) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
 
 The numbers below are an approximation.
 
+<<<<<<< HEAD
 * CPU consumption: ~1-5% increase
 * Memory consumption: Up to 10 % of the total system memory
+=======
+* CPU consumption: ~1% increase
+* Memory consumption: Up to 10% of the total system memory
+>>>>>>> 92403d6a15a8fa7eb86f21ecbaf054396de740d7
 
 > [!NOTE]
 > If the health agent loses connectivity to the Connect Health service, it stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
@@ -110,6 +116,23 @@ No, auditing does not need to be enabled on the Web Application Proxy (WAP) Serv
 **Q: How do Azure AD Connect Health Alerts get resolved?**
 
 Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time-based. In other words, if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
+
+
+## Migration Questions
+
+This section only applies to customers, who were notified about an upcoming migration of their Azure AD Connect Health service data.
+
+**Q: Will I have to re-register my agents or reconfigure my notification settings, after the migration happens?**
+
+No, agent registration information and notification settings will be moved as part of the migration.
+
+**Q: How long after the migration, will I start seeing data in the portal?**
+
+Data will start appearing in the portal, within one hour after the migration.
+
+**Q: What happens to my existent active alerts?**
+
+Any applicable alerts will be reactivated, within one hour after the migration.
 
 
 ## Related links

@@ -1,5 +1,5 @@
 ---
-title: Prepare Debian Linux VHD | Microsoft Docs
+title: Prepare an Debian Linux VHD in Azure | Microsoft Docs
 description: Learn how to create Debian 7 & 8 VHD files for deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
