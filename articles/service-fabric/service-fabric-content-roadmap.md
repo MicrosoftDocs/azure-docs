@@ -73,7 +73,7 @@ You can build Service Fabric applications on MacOS X to run on Linux clusters. T
 [Create your first app (Java)](service-fabric-create-your-first-linux-application-with-java.md)
 
 ## Core concepts
-[Service Fabric terminology](service-fabric-technical-overview.md), [Appliacation model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
+[Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
 <table><tr><th>Core concepts</th><th>Design time</th><th>Run time</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
