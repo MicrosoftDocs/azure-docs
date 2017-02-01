@@ -46,7 +46,7 @@ There are some important steps to perform before moving a resource. By verifying
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  If the tenant IDs for the source and destination subscriptions are not the same, you can attempt to change the directory for the subscription. However, this option is only available to Service Administrators who are signed in with a Microsoft account (not an organizational account). To attempt changing the directory, log in to the [classic portal](https://manage.windowsazure.com/), and select **Settings**, and select the subscription. If the **Edit Directory** icon is available, select it to changed the associated Active Directory. 
+  If the tenant IDs for the source and destination subscriptions are not the same, you can attempt to change the directory for the subscription. However, this option is only available to Service Administrators who are signed in with a Microsoft account (not an organizational account). To attempt changing the directory, log in to the [classic portal](https://manage.windowsazure.com/), and select **Settings**, and select the subscription. If the **Edit Directory** icon is available, select it to change the associated Active Directory. 
 
   ![edit directory](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -126,7 +126,7 @@ The services that currently do not enable moving a resource are:
 * Application Insights
 * BizTalk Services
 * Express Route
-* DevTest Lab - Moves to new resource group in same subscription are enabled, but cross subscription moves are not enabled.
+* DevTest Labs - Moves to new resource group in same subscription are enabled, but cross subscription moves are not enabled.
 * Dynamics LCS
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
