@@ -141,7 +141,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
    - Click **Next**, and then click **Remove**.
 
-1. Open the firewall ports.
+1. <a name="ports"></a>Open the firewall ports.
    
    On each virtual machine, open the following ports on the Windows Firewall. 
 
@@ -150,7 +150,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    | Purpose | TCP Port | Notes
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. 
-   | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer health probe and the cluster to use this port.  
+   | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
 1. Add storage to the virtual machine. [Add storage](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -296,30 +296,99 @@ After you have configured the WSFC and all cluster components including storage,
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-## Configure Azure load balancer
+## Create Azure load balancer
 
-The Azure load balancer holds the IP address for the SQL Server FCI. 
+On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution the load balancer holds the IP address for the SQL Server FCI. 
 
 [Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
-   This load balancer must:
-   
-   - Be in the same network and subnet as the cluster nodes.
-   - Have a static IP address for the SQL Server Virtual IP.
-   - Have the same IP address as the SQL Server FCI.
-   - Include a backend pool consisting of the virtual machines.
-   - Use the TCP port probe specific to the IP address.
-   - Configure load balancer with direct server return (floating IP).
+### Create the load balancer in the Azure portal
 
-   >[!NOTE]
-   >On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time.
 
-   The following picture shows the Azure portal blade to create a load balancer.
+
+To create the load balancer:
+
+1. In the Azure portal, go to the Resource Group with the virtual machines.
+
+1. Click **+ Add**. Search the Marketplace for **Load Balancer**. Click **Load Balancer**.
+
+1. Click **Create**. 
+
+1. Configure the load balancer with:
+
+   - **Name**: A name that identifies the load balancer. 
+   - **Type**: The load balancer can be either public or private. A private load balancer can be accessed from within the same VNET. Most Azure applications can use a private load balancer. If your application needs access to SQL Server directly over the Internet, use a public load balancer. 
+   - **Virtual Network**: The same network as the virtual machines. 
+   - **Subnet**: The same subnet as the virtual machines. 
+   - **Private IP address**: The same IP address that you assigned to the SQL Server FCI cluster network resource.
+   - **subscription**: Your Azure subscription.
+   - **Resource Group**: Use the same resource group as your virtual machines. 
+   - **Location**: Use the same Azure location as your virtual machines. 
+   See the following picture:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
-   
+  
+### Configure the load balancer backend pool 
 
-The load balancer for an FCI requires a floating IP address with direct server return.  
+1. Return to the Azure Resource Group with the virtual machines and locate the new load balancer. You may have to refresh the view on the Resource Group. Click on the load balancer. 
+
+1. On the load balancer blade, click **Backend pools**. 
+
+1. Click **+ Add** to add a backend pool.
+
+1. Type a name for the backend pool.
+
+1. Click **Add a virtual machine**.
+
+1. On the **Choose virtual machines** blade, click **Choose an availability set**.
+
+1. Choose the availability set that you placed the SQL Server virtual machines in. 
+
+1. On the **Choose virtual machines** blade, click **Choose the virtual machines**. 
+
+   Your Azure portal should look like the following picture.
+
+   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/3loadbalancerbackend.png)
+
+1. Click **Select** on the choose virtual machines blade.
+
+1. Click **OK** twice. 
+
+### Configure a load balancer health probe
+
+1. On the load balancer blade, click **Health probes**. 
+
+1. Click **+ Add**. 
+
+1. On the **Add health probe** blade, <a name="probe"></a>Set the health probe parameters:
+
+   - **Name**: A name for the health probe.
+   - **Protocol**: TCP
+   - **Port**: Set to an available TCP port. This port requires an open firewall port. Use the [same port](#ports) you set for the health probe at the firewall. 
+   - **Interval**: 5 Seconds
+   - **Unhealthy threshold**: 2 consecutive failures
+
+1. Click OK.
+
+### Set load balancing rules
+
+1. On the load balancer blade, click **Load balancing rules**. 
+
+1. Click **+ Add**.
+
+1. Set the load balancing rules parameters:
+
+   - **Name**: A name for the load balancing rules.
+   - **Frontend IP address**: Use the IP address for the SQL Server FCI cluster network resource. 
+   - **Port**: Set for the SQL Server FCI TCP port. The default instance port is 1433. 
+   - **Backend port**: This value uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
+   - **Backend pool**: Use the backend pool name that you configured earlier. 
+   - **Health probe**: Use the health probe that you configured earlier.
+   - **Session persistence**: None.
+   - **Idle timeout (minutes):**: 4.
+   - **Floating IP (direct server return)**: Enabled
+
+1. Click **OK**. 
 
 ## Configure cluster probe
 
@@ -327,7 +396,7 @@ Set the cluster probe port parameter in PowerShell.
 
 To set the cluster probe port parameter, update variables in the following script from your environment. 
 
-   ```PowerShell
+  ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "IP Address Resource Name" # the IP Address resource name
    $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
