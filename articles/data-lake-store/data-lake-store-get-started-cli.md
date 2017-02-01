@@ -31,9 +31,9 @@ ms.author: nitinme
 >
 
 > [!NOTE]
-> For uploading and downloading large amount of data (large files, a large number of files, or both), we recommend that you use the Python SDK, the .NET SDK, or Azure PowerShell. These options have better performance as they use multiple threads to parallelize the data movement.
+> For uploading and downloading large amount of data (large files, a large number of files, or both), we recommend that you use the [Python SDK](data-lake-store-get-started-python.md), the [.NET SDK](data-lake-store-get-started-net-sdk.md), or [Azure PowerShell](data-lake-store-get-started-powershell.md). These options have better performance as they use multiple threads to parallelize the data movement.
 > 
-> 
+>  
 
 Learn how to use Azure command line interface to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
