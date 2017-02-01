@@ -18,24 +18,12 @@ ms.author: cwatson
 
 ---
 # Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
-Take a snapshot of a Managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. You can also create custom VM images from the snapshot of a generalized custom VM image. 
-
-A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. 
+Take a snapshot of a Managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. 
 
 For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
 ## Before you begin
 If you use PowerShell, make sure that you have Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs) or a later version installed.
-
-## Deallocate the VM
-You must deallocate the VM so that the VHD is available to be copied. 
-
-* **Portal**: Click **Virtual machines** > the name of the VM that you want to copy > **Stop**
-* **Powershell**: `Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM` 
-    
-    Replace "myResourceGroup" with the resource group that the VM is in and "myVM" with the name of the VM with the Managed Disk that you want to copy. 
-
-In the Azure portal, the **Status** for the VM changes from **Stopped** to **Stopped (deallocated)**.
 
 ## Copy the VHD with a snapshot
 Use either the Azure portal or PowerShell to take a snapshot of the Managed Disk.
