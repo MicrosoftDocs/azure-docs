@@ -51,6 +51,7 @@ To enable your app to authenticate users, you'll first need to register a new ap
 6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
 
 Once in the portal for your app create a **Key** for your application from the **Settings** page and copy it down.  You will need it shortly.
+
 ## 2. Set up your app to use ADAL4J library and prerequisities using Maven
 
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.  
@@ -58,190 +59,182 @@ Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol. 
 In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencies for Maven` and replace with the following:
 
 
-    ```Java
-    
-    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>adal4jsample</artifactId>
-    <packaging>war</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>adal4jsample</name>
-    <url>http://maven.apache.org</url>
-    <properties>
-        <spring.version>3.0.5.RELEASE</spring.version>
-    </properties>
-    
-    <dependencies>
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>adal4j</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>oauth2-oidc-sdk</artifactId>
-            <version>4.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20090211</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-        <!-- Spring 3 dependencies -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-    </dependencies>
-    
-    <build>
-        <finalName>sample-for-adal4j</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <warName>${project.artifactId}</warName>
-                    <source>${project.basedir}\src</source>
-                    <target>${maven.compiler.target}</target>
-                    <encoding>utf-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>sources</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    
-    </project>
-    
-    ```
+```Java
+        
+        <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>adal4jsample</artifactId>
+        <packaging>war</packaging>
+        <version>0.0.1-SNAPSHOT</version>
+        <name>adal4jsample</name>
+        <url>http://maven.apache.org</url>
+        <properties>
+            <spring.version>3.0.5.RELEASE</spring.version>
+        </properties>
+        
+        <dependencies>
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>adal4j</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>oauth2-oidc-sdk</artifactId>
+                <version>4.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>20090211</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.5</version>
+            </dependency>
+            <!-- Spring 3 dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+        </dependencies>
+        
+        <build>
+            <finalName>sample-for-adal4j</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.4</version>
+                    <configuration>
+                        <warName>${project.artifactId}</warName>
+                        <source>${project.basedir}\src</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>utf-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>install</id>
+                            <phase>install</phase>
+                            <goals>
+                                <goal>sources</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+        
+        </project>
+        
+```
+
 ## 3. Create the Java web application files (WEB-INF)
 Here, we'll configure the Java web app to use the OpenID Connect authentication protocol.  The ADAL4J library will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
-To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml.
+1. To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml. The file should look like the following:
 
-The file should look like the following:
-
-    ```xml
-    <?xml version="1.0"?>
-    <web-app id="WebApp_ID" version="2.4"
-    xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
-    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <display-name>Archetype Created Web Application</display-name>
-    <context-param>
-        <param-name>authority</param-name>
-        <param-value>https://login.windows.net/</param-value>
-    </context-param>
-    <context-param>
-        <param-name>tenant</param-name>
-        <param-value>YOUR_TENANT_NAME</param-value>
-    </context-param>
-    
-    <filter>
-        <filter-name>BasicFilter</filter-name>
-        <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
-        <init-param>
-            <param-name>client_id</param-name>
-            <param-value>YOUR_CLIENT_ID</param-value>
-        </init-param>
-        <init-param>
-            <param-name>secret_key</param-name>
-            <param-value>YOUR_CLIENT_SECRET</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>BasicFilter</filter-name>
-        <url-pattern>/secure/*</url-pattern>
-    </filter-mapping>
-    
-    <servlet>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-    
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
-    </context-param>
-    
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    </web-app>
-    
+        ```xml
+        <?xml version="1.0"?>
+        <web-app id="WebApp_ID" version="2.4"  
+        xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+            <display-name>Archetype Created Web Application</display-name>
+            <context-param>
+                <param-name>authority</param-name>
+                <param-value>https://login.windows.net/</param-value>
+            </context-param>
+            <context-param>
+                <param-name>tenant</param-name>
+                <param-value>YOUR_TENANT_NAME</param-value>
+            </context-param>
+        <filter>
+            <filter-name>BasicFilter</filter-name>
+            <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
+            <init-param>
+                <param-name>client_id</param-name>
+                <param-value>YOUR_CLIENT_ID</param-value>
+            </init-param>
+            <init-param>
+                <param-name>secret_key</param-name>
+                <param-value>YOUR_CLIENT_SECRET</param-value>
+            </init-param>
+        </filter>
+        <filter-mapping>
+            <filter-name>BasicFilter</filter-name>
+            <url-pattern>/secure/*</url-pattern>
+        </filter-mapping>
+        <servlet>
+            <servlet-name>mvc-dispatcher</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>mvc-dispatcher</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+        <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+        </context-param>
+        <listener>
+            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        </listener>
+        </web-app>
     ```
 
-
-- YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.  
-- YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.  
-- YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com  
+ - YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.  
+ - YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.  
+ - YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com  
 
     Leave the rest of the configuration parameters as-is.
 
- > [!NOTE]  
- > As you can see from the XML file we are writing a JSP/Servlet webapp called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the /secure URL. You'll see in the rest of the same we write that we'll use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.  
+    > [!NOTE]  
+    > As you can see from the XML file we are writing a JSP/Servlet webapp called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the /secure URL. You'll see in the rest of the same we write that we'll use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.  
 
-- Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:  
+2. Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:  
 
         ```xml
         <beans xmlns="http://www.springframework.org/schema/beans"
@@ -275,7 +268,7 @@ If you remember, we told Java in our xml configuration files that we have a `/` 
 
 Let's make those now.
 
-- To begin, create the `index.jsp` file located under `\webapp\`, and copy/paste the following:  
+1. To begin, create the `index.jsp` file located under `\webapp\`, and copy/paste the following:  
 
         ```jsp
         <html>
@@ -290,7 +283,7 @@ Let's make those now.
 
     This simply redirects to a secure page that is protected by our filter.
 
-- Next, in the same directory lets create an `error.jsp` file to catch any errors that might happen:  
+2. Next, in the same directory lets create an `error.jsp` file to catch any errors that might happen:  
 
         ```jsp
         <html>
@@ -306,8 +299,8 @@ Let's make those now.
         </html>
         ```
 
-- Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`. 
-- Inside this directory, let's then create an `aad.jsp` file and copy/paste the following:
+3. Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`. 
+Inside this directory, let's then create an `aad.jsp` file and copy/paste the following:
 
         ```jsp
         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -343,8 +336,8 @@ Let's make those now.
 ## 5. Create some Java helper files (for BasicFilter MVC)
 Our goal is to create some Java files that will:
 
-1. Allow for sign-in and sign-out of the user
-2. Get some data about the user.
+- Allow for sign-in and sign-out of the user
+- Get some data about the user.
 
 > [!NOTE]
 > In order to get data about the user, we need to use the Graph API from Azure Active Directory. The Graph API is a secure webservice that you can use to grab data about your organization, including individual users. This is better than pre-filling sensitive data in tokens as it ensures the user asking for the data is authorized and anyone that may happen to grab the token (from a jailbroken phone or web browser cache on a desktop) won't get a bunch of important details about the user or the organization.
@@ -857,7 +850,6 @@ As indicated above, we will be using the Graph API to get data about the logged 
             // The roles holds a list of role entity this user belongs to. 
             private ArrayList<Group> roles;
         
-        
             /**
              * The constructor for the User class. Initializes the dynamic lists and managerDisplayname variables.
              */
@@ -1319,7 +1311,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
     - `containsAuthenticationData()` which will tell us if the token has data or not
     - `isAuthenticationSuccessful()` which will tell us if the authentication was successful for the user.
 
-2. Cut/paste the code below:
+2. Cut/paste the code below:  
 
         ```Java
         package com.microsoft.aad.adal4jsample;
@@ -1367,31 +1359,27 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
         }
         ```
 
-3 . Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:
+3. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:  
 
         ```Java
         package com.microsoft.aad.adal4jsample;
-        
         public final class AuthParameterNames {
-        
             private AuthParameterNames() {
-            }
-        
-            public static String ERROR = "error";
-            public static String ERROR_DESCRIPTION = "error_description";
-            public static String ERROR_URI = "error_uri";
-            public static String ID_TOKEN = "id_token";
-            public static String CODE = "code";
+        }
+        public static String ERROR = "error";
+        public static String ERROR_DESCRIPTION = "error_description";
+        public static String ERROR_URI = "error_uri";
+        public static String ID_TOKEN = "id_token";
+        public static String CODE = "code";
         }
         ```
 
-4. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.
+4. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.  
 
     Cut/paste the following:
 
         ```Java
         package com.microsoft.aad.adal4jsample;
-        
         import java.net.HttpURLConnection;
         import java.net.URL;
         
@@ -1709,7 +1697,7 @@ We are finally ready to create the BasicFilter file to handle our requests from 
         }
         ```
 
-    This servlet exposes all of the methods that `ADAL4J` will expect from our application to run. This includes:
+2. This servlet exposes all of the methods that `ADAL4J` will expect from our application to run. This includes:
 
     - `getAccessTokenFromClientCredentials()` - gets access token from our secret
     - `getAccessTokenFromRefreshToken()` - gets access token from a refresh token
