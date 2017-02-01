@@ -57,34 +57,56 @@ data.Properties.Add("Type", "Informational");
 await eventHubClient.SendAsync(data);
 ```
 
-### Create consumer
+### Receive events
+The recommended way to receive events from Event Hubs is using the [**EventProcessorHost**](##Event-Processor-Host-APIs), which provides functionality to automatically keep track of offset, and partition information. However, there are certain situations in which you may want to use the flexibility of the core Event Hubs library to receive events.
+
+#### Create a receiver
+Receivers are tied to specific partitions, so in order to receive all events in an Event Hub, you will need to create multiple instances. Generally speaking, it is a good practice to get the partition information programatically, rather than hard-coding the partition ids. In order to do so, you can use the [**GetRuntimeInformationAsync**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) method.
+
 ```csharp
-// Create the Event Hubs client
-var eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get the default consumer group
-var defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
-
-// All messages
-var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);
-
-// From one day ago
-var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index, startingDateTimeUtc:DateTime.Now.AddDays(-1));
-
-// From specific offset, -1 means oldest
-var consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index,startingOffset:-1); 
+// Create a list to keep track of the receivers
+var receivers = new List<PartitionReceiver>();
+// Use the eventHubClient created above to get the runtime information
+var runTimeInformation = await eventHubClient.GetRuntimeInformationAsync();
+// Loop over the resulting partition ids
+foreach (var partitionId in runTimeInformation.PartitionIds)
+{
+    // Create the receiver
+    var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
+    // Add the receiver to the list
+    receivers.Add(receiver);
+}
 ```
 
-### Consume message
+Since events are never removed from an Event Hub (and only expire), you will need to specify the proper starting point. The following example shows possible combinations.
+
 ```csharp
-var message = await consumer.ReceiveAsync();
+// partitionId is assumed to come from GetRuntimeInformationAsync()
 
-// Provide a serializer
-var info = message.GetBody<Type>(Serializer)
+// Using the constant 'PartitionReceiver.EndOfStream' will only receive all messages from this point forward.
+var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
 
-// Get a byte[]
-var info = message.GetBytes(); 
-msg = UnicodeEncoding.UTF8.GetString(info);
+// All messages available
+var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, "-1");
+
+// From one day ago
+var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, DateTime.Now.AddDays(-1));
+```
+
+#### Consume an event
+```csharp
+// Receive a maximum of 100 messages in this call to ReceiveAsync
+var ehEvents = await receiver.ReceiveAsync(100);
+// Since ReceiveAsync can return more than a single event you will need a loop to process
+foreach (var ehEvent in ehEvents)
+{
+    // Decode the byte array segment
+    var message = UnicodeEncoding.UTF8.GetString(ehEvent.Body.Array);
+    // Load the custom property that we set in the send example
+    var customType = ehEvent.Properties["Type"];
+    // Implement processing logic here
+}		
 ```
 
 ## Event Processor Host APIs
@@ -92,57 +114,59 @@ These APIs provide resiliency to worker processes that may become unavailable, b
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
-// Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
-var eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
-var blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
+// Read these connection strings from a secure location
+var ehConnectionString = "{Event Hubs connection string}";
+var ehEntityPath = "{Event Hub path/name}";
+var storageConnectionString = "{Storage connection string}";
+var storageContainerName = "{Storage account container name}";
 
-var eventHubDescription = new EventHubDescription(EventHubName);
-var host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
-await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
+var eventProcessorHost = new EventProcessorHost(
+    ehEntityPath,
+    PartitionReceiver.DefaultConsumerGroupName,
+    ehConnectionString,
+    storageConnectionString,
+    storageContainerName);
 
-// To close
-await host.UnregisterEventProcessorAsync();
+// Start/register an EventProcessorHost
+await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+
+// Disposes of the Event Processor Host
+await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-The [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface is defined as follows:
+The following is a sample implementation of the [IEventProcessor](dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
 {
-    IDictionary<string, string> map;
-    PartitionContext partitionContext;
-
-    public SimpleEventProcessor()
+    public Task CloseAsync(PartitionContext context, CloseReason reason)
     {
-        this.map = new Dictionary<string, string>();
+        Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
+        return Task.CompletedTask;
     }
 
     public Task OpenAsync(PartitionContext context)
     {
-        this.partitionContext = context;
-
-        return Task.FromResult<object>(null);
+        Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
+        return Task.CompletedTask;
     }
 
-    public async Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+    public Task ProcessErrorAsync(PartitionContext context, Exception error)
     {
-        foreach (EventData message in messages)
-        {
-            // Process messages here
-        }
-
-        // Checkpoint when appropriate
-        await context.CheckpointAsync();
-
+        Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
+        return Task.CompletedTask;
     }
 
-    public async Task CloseAsync(PartitionContext context, CloseReason reason)
+    public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
     {
-        if (reason == CloseReason.Shutdown)
+        foreach (var eventData in messages)
         {
-            await context.CheckpointAsync();
+            var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+            Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
         }
+
+        return context.CheckpointAsync();
     }
 }
 ```
@@ -151,8 +175,8 @@ public class SimpleEventProcessor : IEventProcessor
 To learn more about Event Hubs scenarios, visit these links:
 
 * [What is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)
-* [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Event Hubs samples](event-hubs-samples.md)
+* [Available Event Hubs apis](event-hubs-api-overview.md)
 
 The .NET API references are here:
 
