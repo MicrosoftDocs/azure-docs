@@ -37,7 +37,6 @@ In January 2017, Microsoft released a Preview update to the MARS agent. Along wi
 
 Instant Restore is available for use in Recovery Services vaults in the Azure portal and Backup vaults in the classic portal. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Use Instant Restore to recover data to the same machine
 
