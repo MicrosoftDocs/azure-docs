@@ -111,13 +111,12 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    - On the same network as your domain controller.
    - On a subnet with sufficient IP address space for both virtual machines, and all FCIs that you may eventually use on this cluster. 
    - In the Azure availability set.   
-  
+
       >[!IMPORTANT]
       >You cannot set or change availability set after a virtual machine has been created.
 
    Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
    
-
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key. 
    
    Choose the right image according to how you want to pay for the SQL Server license: 
@@ -131,13 +130,12 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    
       - **{BYOL} SQL Server 2016 Enterprise on Windows Server Datacenter 2016**
       - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016** 
-
    
    >[!IMPORTANT]
    >After you create the virtual machine, remove the SQL Server instance. You will use the pre-installed media to create the SQL Server FCI after you configure the WSFC and S2D. 
 
-   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. 
-
+   Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server. \
+   
 1. After azure creates your virtual machines, connect to each virtual machine with RDP. 
 
    When you first connect to a virtual machine with RDP, the computer asks if you want to allow this PC to be discoverable on the network. Click **Yes**. 
