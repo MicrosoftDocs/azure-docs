@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
+ms.date: 02/01/2017
 ms.author: johnkem; magoedte
 
 ---
@@ -27,7 +27,7 @@ Here are some of the things you can do with Diagnostic Logs:
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
 The storage account or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
