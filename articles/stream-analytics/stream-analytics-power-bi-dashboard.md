@@ -32,6 +32,7 @@ In this article, learn how create your own custom business intelligence tools by
 
 ## Add Power BI output
 Now that an input exists for the job, an output to Power BI can be defined. Select the box in the middle of the job dashboard **Outputs**. Then click the familiar **+ Add** button and create your output.
+
 ![add output](./media/stream-analytics-power-bi-dashboard/create-pbi-output.png)
 
 Provide the **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = "StreamAnalyticsRealTimeFraudPBI".
