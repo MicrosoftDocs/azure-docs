@@ -453,7 +453,10 @@ Test failover of the FCI to validate cluster functionality. Do the following ste
 
 ### Test connectivity
 
-To test connectivity, log in to another virtual machine in the same virtual network. Open SQL Server management studio and connect to the SQL Server FCI name. 
+To test connectivity, log in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name. 
+
+>[!NOTE]
+>If necessary, you can [download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
 DTC is not supported on FCIs because the RPC port is not supported by the load balancer.
