@@ -1,11 +1,11 @@
 ---
-title: What are App Passwords in Azure MFA? | Microsoft Docs
+title: How to use App Passwords in Azure MFA? | Microsoft Docs
 description: This page will help users understand what app passwords are and what they are used for with regard to Azure MFA.
 services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: pblachar
+editor: yossib
 
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -20,24 +20,21 @@ ms.author: kgremban
 # What are App Passwords in Azure Multi-Factor Authentication?
 Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
 
+Once you have an app password, you use this in place of your original password with these non-browser apps. This is because when you register for two-step verification, you're telling Microsoft not to let anyone sign in with your password if they can't also perform the second verification. The Apple native email client on your phone won't be able to sign in as you because it can't ask for two-step verification. The solution for this is to create a more secure app password that you don't use day-to-day, but only for those apps that can't support two-step verification. Use the app password so that apps can bypass multi-factor authentication and continue to work.
+
 > [!NOTE]
-> Modern Authentication for the Office 2013 Clients
->
-> Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
->
+> Office 2013 clients (including Outlook) support new authentication Protocols and can be used with two-step verification.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+
 
 ## How to use app passwords
 The following are some things to remember on how to use app passwords.
 
-* The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password, is harder for an attacker to guess and is more secure.
+* You don't create your own app passwords. Instead, they are automatically generated. Since you only have to enter the app password once per app, it's safer to use a more complex, automatically generated password rather than making one that you can remember.
 * Currently there is a limit of 40 passwords per user. If you attempt to create one after you have reached the limit, you will be prompted to delete one of your existing app passwords in order to create a new one.
-* It is recommended that app passwords be created per device and not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop.
-* You are given an app password the first time you sign-in.  If you need additional ones, you can create them.
+* You should use one app password per device, not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop. Then, create a second app password to use for all your apps on your desktop. 
+* You are given one app password the first time you register for two-step verification.  If you need additional ones, you can create them.
 
-![Setup](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
-Once you have an app password, you use this in place of your original password with these non-browser apps.  So for instance, if you are using multi-factor authentication and the Apple native email client on your phone.  Use the app password so that it can bypass multi-factor authentication and continue to work.
 
 ## Creating and deleting app passwords
 During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication.  Choose the one that most applies to you.
