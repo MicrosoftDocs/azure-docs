@@ -1,5 +1,5 @@
 ---
-title: Create a virtual machine for a web application| Microsoft Docs
+title: Create a Windows virtual machine for a web application| Microsoft Docs
 description: Creating a VM for a web project using Visual Studio and Windows.
 services: virtual-machines-windows
 documentationcenter: ''

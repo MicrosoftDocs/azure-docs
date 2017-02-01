@@ -231,11 +231,4 @@ Learn how to use Service Bus to connect across on-premises and cloud environment
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Service Bus Documentation
-        </div>
-    </a>
-</div>
+

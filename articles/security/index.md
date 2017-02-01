@@ -101,11 +101,4 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Security Documentation
-        </div>
-    </a>
-</div>
+

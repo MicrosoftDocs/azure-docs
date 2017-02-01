@@ -104,7 +104,6 @@ Learn how to use Data Factory, a cloud data integration service, to compose data
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory Developer Reference</a></p>
                    </div>
                 </div>
             </div>
@@ -124,13 +123,3 @@ Learn how to use Data Factory, a cloud data integration service, to compose data
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Factory Documentation
-        </div>
-    </a>
-</div>

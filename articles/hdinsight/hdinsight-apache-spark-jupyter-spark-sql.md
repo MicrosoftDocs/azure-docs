@@ -1,5 +1,5 @@
 ---
-title: Create a Spark cluster in HDInsight Linux and use Spark SQL from Jupyter for interactive analysis | Microsoft Docs
+title: Get started with Apache Spark cluster in Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to quickly create an Apache Spark cluster in HDInsight and then use Spark SQL from Jupyter notebooks to run interactive queries.
 services: hdinsight
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/18/2017
 ms.author: nitinme
 
 ---
-# Get started: Create Apache Spark cluster on HDInsight Linux and run interactive queries using Spark SQL
+# Get started: Create Apache Spark cluster in Azure HDInsight and run interactive queries using Spark SQL
+
 Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
    ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
@@ -27,7 +28,8 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 
 ## Prerequisites
 * **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
-* **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows systems, see [Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+* **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 > [!NOTE]
 > This article uses an Azure Resource Manager template to create a Spark cluster that uses [Azure Storage Blobs as the cluster storage](hdinsight-hadoop-use-blob-storage.md). You can also create a Spark cluster that uses [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as an additional storage, in addition to Azure Storage Blobs as the default storage. For instructions, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -75,7 +77,7 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
 1. Open the [Azure portal](https://portal.azure.com/).
 2. From the left menu, click **Resoruce groups**.
-3. Click the resource group you created in the last section. You can use the serach function if there are too many resource groups. You can see two resources in the group, the HDInsight cluster, and the default storage account.
+3. Click the resource group you created in the last section. You can use the search function if there are too many resource groups. You can see two resources in the group, the HDInsight cluster, and the default storage account.
 4. Click the cluster to open it.
  
 2. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
@@ -94,7 +96,7 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
    A new notebook is created and opened with the name Untitled(Untitled.pynb). 
 
-4. Click the notebook name at the top, and enter a friendly name.
+4. Click the notebook name at the top, and enter a friendly name if you want.
 
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 5. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to execute the code. The code imports the types required for this scenario:

@@ -1,5 +1,5 @@
 ---
-title: Custom scripts on Linux VMs | Microsoft Docs
+title: Run custom scripts on Linux VMs in Azure | Microsoft Docs
 description: Automate Linux VM configuration tasks by using the Custom Script Extension
 services: virtual-machines-linux
 documentationcenter: ''

@@ -170,8 +170,8 @@ Placing several VMs behind a load balancer is a building block for creating mult
 <!-- Links -->
 [availability set]: ../virtual-machines/virtual-machines-windows-manage-availability.md
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
-[azure-automation]: https://azure.microsoft.com/en-us/documentation/services/automation/
-[azure-cli]: ../virtual-machines-command-line-tools.md
+[azure-automation]: https://azure.microsoft.com/documentation/services/automation/
+[azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-automation]: ../automation/automation-intro.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
