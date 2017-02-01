@@ -9,11 +9,11 @@ manager: jhubbard
 tags: azure-resource-manager
 
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 09/21/2016
 ms.author: jroth
 

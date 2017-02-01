@@ -8,11 +8,11 @@ manager: jhubbard
 editor: monicar
 
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
-ms.service: virtual-machines
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 12/28/2016
 ms.author: mikeray
 
