@@ -53,7 +53,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 | Send Settings |These properties apply to all messages sent by an agreement |  
 
 > [!NOTE]
-> Agreement resolves by matching the sender qualifier and identifier, and the receiver qualifier and identifier defined in the partner and incoming message.  If there are changes to these values at partner, edit the agreement as well.
+> Resoultuion of X12 agreement depens on matching the sender qualifier and identifier, and the receiver qualifier and identifier defined in the partner and incoming message.  If there are changes to these values at partner, edit the agreement as well.
 > 
 > 
 
@@ -152,15 +152,8 @@ Your agreement is ready to handle incoming messages that conform to the schema y
 
 1. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
 
-2. The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and  Validation. 
+2. The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Character Sets and Separators and Validation.  Configure these properties based on your agreement with the partner you are exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle outgoing messages.
 
-Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-
-![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
-
-![](./media/logic-apps-enterprise-integration-x12/x12-6.png)  
-
-1. Select the **OK** button to save your settings.  
 
 ### Identifiers
 
