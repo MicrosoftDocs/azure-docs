@@ -40,7 +40,7 @@ The on-premises data gateway enables you to manage data, and securely access res
 
 ## Add the SAP connector
 
-The SAP connector has Actions; it does not have any Triggers. As a result, use another trigger at the start of your workflow. 
+The SAP connector has Actions. It does not have any Triggers. As a result, use another trigger at the start of your workflow. 
 
 1. Add the Request/Response trigger, and then select **New step**.
 2. Select **Add an action**, and then select the SAP connector by typing `SAP` in the search field:    
@@ -56,14 +56,12 @@ The SAP connector has Actions; it does not have any Triggers. As a result, use a
 
 4. Enter a name for your SAP connection.
 
-5. The different SAP options are now avialable. Use the file picker to find your IDOC category. Or manually type in the path, and select the HTTP response in the **body** field:     
+5. The different SAP options are now available. Use the file picker to find your IDOC category. Or manually type in the path, and select the HTTP response in the **body** field:     
  ![SAP ACTION](media/logic-apps-using-sap-connector/picture3.png)
 
 6. Create an HTTP Response by adding a new action. The response message should be from the SAP output.
 
-7. Save your logic app. Test it by sending an IDOC through the HTTP trigger URL.
-
-8. Once the IDOC is sent, wait for the response from the logic app:   
+7. Save your logic app. Test it by sending an IDOC through the HTTP trigger URL. Once the IDOC is sent, wait for the response from the logic app:   
 
   > [!TIP]
   > Check out how to [monitor your Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md).
