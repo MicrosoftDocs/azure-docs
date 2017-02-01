@@ -119,7 +119,7 @@ From the installation location, you can use the command-line to start and stop t
 
 ### Command-line Syntax
 
-    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/enableratelimiting] [/disableratelimiting] [/noui] [/noexplorer] [/?]
+    DocumentDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
 To view the list of options, type `DocumentDB.Emulator.exe /?` at the command prompt.
 
