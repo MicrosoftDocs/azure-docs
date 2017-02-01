@@ -286,7 +286,7 @@ When it has completed, you are notified of the result.
 ![show move result](./media/resource-group-move-resources/show-result.png)
 
 ## Use PowerShell
-To move existing resources to another resource group or subscription, use the **Move-AzureRmResource** command.
+To move existing resources to another resource group or subscription, use the `Move-AzureRmResource` command.
 
 The first example shows how to move one resource to a new resource group.
 
@@ -303,7 +303,7 @@ $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
-To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
+To move to a new subscription, include a value for the `DestinationSubscriptionId` parameter.
 
 You are asked to confirm that you want to move the specified resources.
 
@@ -318,13 +318,13 @@ Are you sure you want to move these resources to the resource group
 ```
 
 ## Use Azure CLI 2.0 (Preview)
-To move existing resources to another resource group or subscription, use the **az resource move** command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
+To move existing resources to another resource group or subscription, use the `az resource move` command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
 ```azurecli
 az resource show -g sourceGroup -n storagedemo --resource-type "Microsoft.Storage/storageAccounts" --query id
 ```
 
-The following example shows how to move a storage account to a new resource group. In the **-ids** parameter, provide a space-separated list of the resource IDs to move.
+The following example shows how to move a storage account to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo"
@@ -333,7 +333,7 @@ az resource move --destination-group newgroup --ids "/subscriptions/{guid}/resou
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
 
 ## Use Azure CLI 1.0
-To move existing resources to another resource group or subscription, use the **azure resource move** command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
+To move existing resources to another resource group or subscription, use the `azure resource move` command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
 ```azurecli
 azure resource list -g sourceGroup --json
@@ -358,7 +358,7 @@ Which returns the following format:
 ]
 ```
 
-The following example shows how to move a storage account to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource IDs to move.
+The following example shows how to move a storage account to a new resource group. In the `-i` parameter, provide a comma-separated list of the resource IDs to move.
 
 ```azurecli
 azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
