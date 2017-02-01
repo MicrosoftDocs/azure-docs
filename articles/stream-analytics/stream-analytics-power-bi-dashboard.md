@@ -68,7 +68,7 @@ From [Azure portal](https://portal.azure.com), click the **+ New** button on the
 
 This will bring you to a wizard to create your new job.
 
-Specifiy the following values, then select **Create**:
+Specify the following values, then select **Create**:
 
 * **Job Name** - Enter a job name. For example, **DeviceTemperatures**.
 * **Resource Group** - Choose the Resource Group that you previously created.
@@ -123,7 +123,7 @@ This will prompt a window to provide your Azure credentials (work or school acco
 
 ![authorize fields](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
 
-The authoization window will disappear when satisfied and the New output area will have fields for the Dataset Name and Table Name.
+The authorization window will disappear when satisfied and the New output area will have fields for the Dataset Name and Table Name.
 
 ![pbi workspace](./media/stream-analytics-power-bi-dashboard/pbi-workspace.png)
 
@@ -132,7 +132,7 @@ Define them as follows:
 * **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
 * **Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
 
-Click **Create** and now you output configuraiton is complete.
+Click **Create** and now you output configuration is complete.
 
 > [!WARNING]
 > Please be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten!
@@ -194,7 +194,7 @@ For creating the dashboard, go to the Dashboards option and create a new Dashboa
 
 ![graphic6][graphic6]
 
-In this example we'll lable it "Demo Dashboard".
+In this example we'll label it "Demo Dashboard".
 
 Now click on the dataset created by your Stream Analytics job (pbidemo in our current example). You will be taken to a page to create a chart on top of this dataset. The following is but one example of the reports you can create:
 
@@ -206,7 +206,7 @@ With this, you will automatically get a chart as below:
 
 ![graphic8][graphic8]
 
-In the value section, click on the drop down for temp and choose **average** for the temperature and on the chart, click on **visualization** and choose **line chart**:
+In the value section, click on the drop-down for temp and choose **average** for the temperature and on the chart, click on **visualization** and choose **line chart**:
 
 ![graphic9][graphic9]
 
