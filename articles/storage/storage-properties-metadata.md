@@ -28,6 +28,10 @@ Retrieving property and metadata values for a storage resource is a two-step pro
 
 > [!IMPORTANT]
 > Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributes** methods.
+
+> The names and values of properties and metadata have to be ASCII characters. You will receive a `400 Bad Request` if one or more names or values do not conform to that rule. Therefore it is recommended to encode those using, e.g. url encoding or base64.
+
+> Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributes** methods.
 >
 >
 
