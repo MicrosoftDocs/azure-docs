@@ -48,11 +48,11 @@ The following benefits are available when using Event Hubs Dedicated:
 * Repeatable performance every time.
 * Guaranteed capacity to meet your burst needs.
 * Scalable between 1 and 8 capacity units (CU) – providing up to 2 million ingress events per second.
-  * CUs manage the scale for Event Hubs Dedicated, where each CU can provide approximately the equivalent of 200 Throughput Units (TU).
+  * CUs manage the scale for Event Hubs Dedicated, where each CU can provide approximately the equivalent of 200 throughput units (TU).
 * Zero maintenance: we manage load balancing, OS updates, security patches, and partitioning.
 * Fixed monthly pricing.
 
-Event Hubs Dedicated also removes some of the throughput limitations of the Standard offering. Throughput units (TU) in Basic and Standard tiers entitle you to 1000 events per second or 1 MBps of ingress per TU and double that amount of egress. The Dedicated scale offering has no restrictions on ingress and egress event counts. These limits are governed only by the processing capacity of the purchased Event Hubs.
+Event Hubs Dedicated also removes some of the throughput limitations of the Standard offering. Throughput units in Basic and Standard tiers entitle you to 1000 events per second or 1 MBps of ingress per TU and double that amount of egress. The Dedicated scale offering has no restrictions on ingress and egress event counts. These limits are governed only by the processing capacity of the purchased Event Hubs.
 
 This service is targeted at the largest telemetry users and is available to customers with an enterprise agreement.
 
