@@ -20,7 +20,7 @@ ms.author: brandwe
 # NodeJS web app sign-in and sign-out with Azure AD
 Here we'll use Passport to:
 
-* Sign the user into the app using Azure Active Directory (Azure AD).
+* Sign the user into the app with Azure Active Directory (Azure AD).
 * Display information about the user.
 * Sign the user out of the app.
 
@@ -42,20 +42,20 @@ The completed application is provided at the end of this tutorial as well.
 ## 1. Register an app
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the top bar, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
+2. In the navigation menu at the top of the page, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 
 3. Select **More Services** in the navigation menu on the left side of the screen, and then choose **Azure Active Directory**.
 
 4. Select **App registrations**, and then select **Add**.
 
 5. Follow the prompts to create a new **Web Application** and/or **WebAPI**.
-  * The **name** of the application describes your application to end-users.
+  * The **name** of the application describes your application to users.
 
   * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
 
-  * The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`
+  * The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
-6. Once you complete the registration, Azure AD assigns your app a unique Application ID.  You'll need this value in the following sections, so copy it from the application page.
+6. Once you register, Azure AD assigns your app a unique Application ID.  You'll need this value in the following sections, so copy it from the application page.
 
 ## 2. Add prerequisites to your directory
 From the command line, change directories to your root folder if you're not already there, and then run the following commands:
@@ -69,7 +69,7 @@ From the command line, change directories to your root folder if you're not alre
 * `npm install assert-plus`
 * `npm install passport`
 
-In addition, you'll need our `passport-azure-ad` as well:
+In addition, you'll need `passport-azure-ad` as well:
 * `npm install passport-azure-ad`
 
 This installs the libraries that passport-azure-ad depend on.
@@ -79,13 +79,13 @@ Here, we configure Express to use the OpenID Connect authentication protocol.  P
 
 1. To begin, open the `config.js` file in the root of the project, and then enter your app's configuration values in the `exports.creds` section.
 
-  * The `clientID:` is the **Application Id** that's assigned to your app in the registration portal.
+  * The `clientID` is the **Application Id** that's assigned to your app in the registration portal.
 
   * The `returnURL` is the **Redirect Uri** that you entered in the portal.
 
   * The `clientSecret` is the secret that you generated in the portal.
 
-2. Next, open the `app.js` file in the root of the project. Then add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`.
+2. Next, open the `app.js` file in the root of the project. Then add the following call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`.
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -228,7 +228,7 @@ app.get('/auth/openid',
 // GET /auth/openid/return
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request. If authentication fails, the user is redirected back to the
-//   sign-in page.  Otherwise, the primary route function is called,
+//   sign-in page. Otherwise, the primary route function is called,
 //   which, in this example, redirects the user to the home page.
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
@@ -239,8 +239,8 @@ app.get('/auth/openid/return',
 
 // POST /auth/openid/return
 //   Use passport.authenticate() as route middleware to authenticate the
-//   request. If authentication fails, the useris redirected back to the
-//   sign-in page. Otherwise, the primary route function is be called,
+//   request. If authentication fails, the user is redirected back to the
+//   sign-in page. Otherwise, the primary route function is called,
 //   which, in this example, redirects the user to the home page.
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
@@ -257,7 +257,7 @@ Your app is now properly configured to communicate with the endpoint by using th
 
 ```JavaScript
 
-//Routes (Section 4)
+//Routes (section 4)
 
 app.get('/', function(req, res){
   res.render('index', { user: req.user });
@@ -283,7 +283,7 @@ app.get('/logout', function(req, res){
 
 * Let's review these in detail:
 
-  * The `/` route redirects to the index.ejs view, passing the user in the request (if it exists).
+  * The `/`route redirects to the index.ejs view, passing the user in the request (if it exists).
   * The `/account` route will first ***ensure we are authenticated*** (we implement that below), and then passes the user in the request so that we can get additional information about the user.
   * The `/login` route calls our azuread-openidconnect authenticator from `passport-azuread`, and if that doesn't succeed, it redirects the user back to /login.
   * The `/logout` route simply calls the logout.ejs (and route), which clears cookies and then returns the user back to index.ejs.
@@ -295,7 +295,7 @@ app.get('/logout', function(req, res){
 
 //   Use this route middleware on any resource that needs to be protected.  If
 //   the request is authenticated (typically via a persistent sign-in session),
-//   the request proceeds.  Otherwise, the user is redirected to the
+//   the request proceeds. Otherwise, the user is redirected to the
 //   sign-in page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
