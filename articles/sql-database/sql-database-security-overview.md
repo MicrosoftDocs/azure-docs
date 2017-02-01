@@ -68,9 +68,7 @@ SQL Database secures your data by providing auditing and threat detection capabi
 ### Auditing
 SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
 
-### Auditing & Threat Detection 
-SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
- 
+### Threat detection
 Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile and detect anomalous database activities. You will be alerted about suspicious activities, potential vulnerabilities, SQL injection attacks and anomalous database access patterns. You can respond to alerts by following the provided informative and actionable instructions. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
  
 ### Data Masking 
@@ -83,4 +81,5 @@ In addition to the above features and functionality that can help your applicati
 
 - For a discussion of the use of data protection features in SQL Database, see [Data protection and security](sql-database-protect-data.md).
 - For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
+- For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
 - For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).

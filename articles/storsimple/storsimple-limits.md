@@ -4,7 +4,7 @@ description: Describes system limits and recommended sizes for StorSimple 8000 s
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2016
+ms.date: 01/30/2017
 ms.author: alkohli
 
 ---
