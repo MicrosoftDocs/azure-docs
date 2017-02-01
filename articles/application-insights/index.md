@@ -148,11 +148,4 @@ Learn how to use Application Insights, an extensible application performance man
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Application Insights Documentation
-        </div>
-    </a>
-</div>
+

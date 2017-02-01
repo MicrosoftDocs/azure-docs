@@ -72,6 +72,7 @@ You can alter these defaults by editing the code snippet:
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : The time, in milliseconds, to expire the session due to user’s inactivity. Default: 30 minutes.
 * `sessionExpirationMs` : The maximum session length, in milliseconds. If the user remains active after this time, another session is counted. Default: 24 hours.

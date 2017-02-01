@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure Container Service cluster | Microsoft Docs
+title: Deploy a Docker container cluster in Azure | Microsoft Docs
 description: Deploy an Azure Container Service cluster by using the Azure portal, the Azure CLI, or PowerShell.
 services: container-service
 documentationcenter: ''
@@ -12,7 +12,7 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure, dcos, swarm, kuberne
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016

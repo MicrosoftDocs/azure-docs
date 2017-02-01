@@ -1,5 +1,5 @@
 ---
-title: Move data from Teradata | Microsoft Docs
+title: Move data from Teradata using Azure Data Factory | Microsoft Docs
 description: Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: jingwang
 
 ---

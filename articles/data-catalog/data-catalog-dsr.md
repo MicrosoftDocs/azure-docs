@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 
 ---
@@ -416,7 +416,7 @@ If you need support for additional sources, submit a feature request using the [
 ## Data source reference specification
 > [!NOTE]
 > "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
-> 
+>
 > <table>
 > <tr>
 > <td><b>Source Type</b></td>
@@ -1285,5 +1285,4 @@ If you need support for additional sources, submit a feature request using the [
 > </td>
 > </tr>
 > </table>
-> 
-
+>

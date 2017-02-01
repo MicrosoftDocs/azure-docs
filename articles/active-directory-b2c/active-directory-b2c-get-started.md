@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 
 ---
@@ -61,6 +61,14 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
    
    > [!NOTE]
    > You can manage users and groups, self-service password reset configuration, and company branding features of your tenant on the [Azure classic portal](https://manage.windowsazure.com/).
+   > 
+   > 
+
+## Step 4: Link your Azure AD B2C tenant to your Azure subscription
+If you are planning to use your B2C tenant for production apps, you will need to link your Azure AD B2C tenant to your Azure subscription to pay for usage charges. Read [this article](active-directory-b2c-how-to-enable-billing.md) to learn how to do this.
+
+   > [!IMPORTANT]
+   > If you don't link your Azure AD B2C tenant to your Azure subscription, you will see a warning message ("No Subscription linked to this B2C tenant or the Subscription needs your attention.") on the B2C features blade on the Azure portal. It is important that you take this step before you ship your apps into production.
    > 
    > 
 

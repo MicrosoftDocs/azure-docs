@@ -1,5 +1,5 @@
 ---
-title: Run a sample application to receive cloud-to-device messages | Microsoft Docs
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 4: Cloud-to-device | Microsoft Docs'
 description: A sample application runs on Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Pi from your IoT hub to blink the LED.
 services: iot-hub
 documentationcenter: ''

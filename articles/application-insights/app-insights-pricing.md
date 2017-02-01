@@ -65,7 +65,7 @@ Data volume is measured as the size of the uncompressed JSON data package receiv
 
 * The precise node counting behavior depends on which Application Insights SDK your application is using. 
   * In SDK versions 2.2 and onwards, both the Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) or [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will report each application host as a node, for example the computer name for physical server and VM hosts or the instance name in the case of cloud services.  The only exception is applications only using [.NET Core](https://dotnet.github.io/) and the Application Insights Core SDK, in which case only one node will be reported for all hosts because the host name is not available. 
-  * For earlier versions of the SDK, the [Web SDK}(https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will behave just as the newer SDK versions, however the [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) will report only one node regardless of the number of actual application hosts. 
+  * For earlier versions of the SDK, the [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) will behave just as the newer SDK versions, however the [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) will report only one node regardless of the number of actual application hosts. 
   * Note that if your application is using the SDK to set roleInstance to a custom value, by default that same value will be used to determine the count of nodes. 
   * If you are using a new SDK version with an app that is run from client machines or mobile devices, it is possible that the count of nodes might return a number which is very large (from the large number of client machines or mobile devices). 
 
@@ -97,13 +97,8 @@ There are three ways in which the volume you send data is limited:
 
 * **Daily cap.** By default this is set at 500 GB/day. When your app hits the cap, we send an email and discard data until the end of the day. To change it, use the Data Volume Management blade.
 * **[Sampling](app-insights-sampling.md).** This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* **Throttling** limits the data rate per minute. For the Basic pricing plan, the limit is 200 data points/second averaged over 5 minutes and for Enterprise it is 16 k/s averaged over 1 minute. 
+* **Throttling** limits the data rate to 16 k events per second, averaged over 1 minute. 
 
-For throttling, three buckets are counted separately:
-
-* [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) and [captured logs](app-insights-asp-net-trace-logs.md)
-* [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), limited to 50 points/s.
-* All other telemetry (page views, sessions, requests, dependencies, metrics, custom events, web test results).
 
 *What happens if my app exceeds the throttling rate?*
 

@@ -1,5 +1,5 @@
 ﻿---
-title: Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 4: Receive messages | Microsoft Docs'
 description: A sample application runs on Edison and monitors incoming messages from your IoT hub. A new gulp task sends messages to Edison from your IoT hub to blink the LED.
 services: iot-hub
 documentationcenter: ''

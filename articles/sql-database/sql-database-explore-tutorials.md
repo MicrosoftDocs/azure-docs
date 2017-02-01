@@ -22,26 +22,13 @@ ms.author: carlrab
 # Explore Azure SQL Database tutorials
 The links below take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
-## Using SQL Server Management Studio
-In the following tutorials, you will learn about using SQL Server Management Studio to administer and query Azure SQL Database.
-
-> [!IMPORTANT]
-> It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
->
-
-| Tutorial | Description |
-| --- | --- | 
-| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |In this tutorial, you learn how to connect to Azure SQL Database using a SQL server-level principal login. |
-| [Connect to Azure SQL Database as a user](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |In this tutorial, you will learn how to connect to an Azure SQL database using a database-level user account. |
-|  | |
-
 ## Create servers, databases and server-level firewall rules
 In the following tutorials, you create servers, databases and server-level firewall rules - and learn to connect and query servers and databases.
 
 | Tutorial | Description |
 | --- | --- | 
-| [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) | In this tutorial, you use the Azure portal and SQL Server Management Studio to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
-| [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell](sql-database-get-started-powershell.md) | In this tutorial, you use PowerShell to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) | In this tutorial, you use the Azure portal and SQL Server Management Studio to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Tutorial: Provision and access an Azure SQL database using PowerShell](sql-database-get-started-powershell.md) | In this tutorial, you use PowerShell to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
 | [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
@@ -137,17 +124,15 @@ In the following tutorials, you will learn about [SQL Database Development](sql-
 In the following tutorials, you will learn about [creating and managing logins and users](sql-database-manage-logins.md).
 
 | Tutorial | Description |
-| --- | --- | 
+| --- | --- | --- |
+| [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using SQL Server authentication, and adding them to roles as well as granting them permissions |
+| [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md) | In this tutorial, you learn about creating logins and users using Azure Active Directory authentication |
 | [Create an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md) |In this tutorial, you learn how to configure a SQL Database server-level firewall using the Azure portal. |
 | [Create a database-level firewall rule using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules) |In this tutorial, you will learn how to create a database-level firewall rule using Transact-SQL. |
 | [Manage server-level firewall rules using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using Transact-SQL. |
 | [Manage server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-by-using-powershell) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using PowerShell. |
 | [Manage server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-rest-api) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using the RESET API. |
-| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |In this tutorial, you learn how to connect to Azure SQL Database using a server-level principal login. |
-| [Granting database access to a login](sql-database-manage-logins.md) |In this tutorial, you learn how to grant database access to a server-level login. |
-| [Create new database user using SSMS](sql-database-get-started-security.md#create-new-database-user-using-ssms) |In this tutorial, you learn how to create a new database user in an existing database using SSMS. |
-| [Grant new database user db_owner permissions](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) |In this tutorial, you learn how to grant an existing database user db_owner permissions. |
-| [Connect to Azure SQL Database as a user](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |In this tutorial, you learn how to connect to an Azure SQL database using a database-level user account. |
+| [Granting database access to a login](sql-database-manage-logins.md#granting-database-access-to-a-login() |In this tutorial, you learn how to grant database access to a server-level login. |
 |  | |
 
 ## Secure and protect data

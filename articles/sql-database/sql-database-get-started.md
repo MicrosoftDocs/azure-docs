@@ -19,9 +19,9 @@ ms.date: 11/23/2016
 ms.author: carlrab
 
 ---
-# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules using the Azure portal and SQL Server Management Studio
+# Tutorial: Provision and access an Azure SQL database using the Azure portal and SQL Server Management Studio
 
-In this getting-started tutorial, you learn how to use the Azure portal to:
+In this tutorial, you learn how to use the Azure portal to:
 
 * Create a new Azure resource group
 * Create an Azure SQL logical server
@@ -105,7 +105,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![server location](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-get-started-security.md).
+    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. Click **Create**.
@@ -185,7 +185,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![query master database system objects](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > To explore SQL security, see [Get Started with SQL security](sql-database-get-started-security.md)
+    > To explore SQL security, see [Get Started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## Create new database in the Azure portal using Adventure Works LT sample
@@ -293,7 +293,9 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 ## Next steps
 Now that you've completed this tutorial, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-get-started-security.md).
+- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+- For a getting started with Azure Active Directory authentication tutorial, see [AAD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
+* If you want to query the sample database in the Azure portal, see [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).

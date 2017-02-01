@@ -1,6 +1,20 @@
 ---
 layout: LandingPage
 description: Learn how to use Virtual Machine Scale Sets to create auto-scaling Windows or Linux VMs for big compute, big data, and containerized solutions.
+
+title: Azure Virtual Machines Scale Sets Documentation, Tutorials and API Reference | Microsoft Docs
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Virtual Machine Scale Sets Documentation
 
@@ -95,11 +109,4 @@ Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identi
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Virtual Machine Scale Sets Documentation
-        </div>
-    </a>
-</div>
+
