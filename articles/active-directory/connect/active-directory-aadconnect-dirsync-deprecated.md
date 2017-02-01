@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/01/2017
 ms.author: billmath
 
 ---
+
 # Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)
 Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.
 
@@ -46,8 +47,8 @@ If you use Azure AD Sync an in-place upgrade is recommended. If you want to, it 
 If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then please see this Channel 9 video:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
-> 
-> 
+>
+>
 
 ## FAQ
 **Q: I have received an email notification from the Azure Team and/or a message from the Office 365 message center, but I am using Connect.**  
@@ -64,4 +65,3 @@ The Azure AD Connector for FIM/MIM has **not** been announced as deprecated. It 
 
 ## Additional Resources
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
