@@ -17,7 +17,7 @@ ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
-# NodeJS web app sign-in and sign-out with Azure AD
+# Node.js web app sign-in and sign-out with Azure AD
 Here we'll use Passport to:
 
 * Sign the user into the app with Azure Active Directory (Azure AD).
@@ -55,7 +55,7 @@ The completed application is provided at the end of this tutorial as well.
 
   * The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
-6. Once you register, Azure AD assigns your app a unique Application ID.  You'll need this value in the following sections, so copy it from the application page.
+6. After you register, Azure AD assigns your app a unique Application ID.  You'll need this value in the following sections, so copy it from the application page.
 
 ## 2. Add prerequisites to your directory
 From the command line, change directories to your root folder if you're not already there, and then run the following commands:
@@ -72,12 +72,12 @@ From the command line, change directories to your root folder if you're not alre
 In addition, you'll need `passport-azure-ad` as well:
 * `npm install passport-azure-ad`
 
-This installs the libraries that passport-azure-ad depend on.
+This installs the libraries that `passport-azure-ad` depends on.
 
 ## 3. Set up your app to use the passport-node-js strategy
 Here, we configure Express to use the OpenID Connect authentication protocol.  Passport is used to do various things, including issue sign-in and sign-out requests, manage the user's session, and get information about the user.
 
-1. To begin, open the `config.js` file in the root of the project, and then enter your app's configuration values in the `exports.creds` section.
+1. To begin, open the `config.js` file at the root of the project, and then enter your app's configuration values in the `exports.creds` section.
 
   * The `clientID` is the **Application Id** that's assigned to your app in the registration portal.
 
@@ -137,21 +137,21 @@ passport.use(new OIDCStrategy({
   }
 ));
 ```
-Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see that we pass it a function that has a token and a done as the parameters. The strategy comes back to us once it does all its work. Then we want to store the user and stash the token so we won’t need to ask for it again.
+Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see that we pass it a function that has a token and a done as the parameters. The strategy comes back to us after it does all its work. Then we want to store the user and stash the token so we won’t need to ask for it again.
 
 > [!IMPORTANT]
 > The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We don't recommend that you let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this wasn’t a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Since this is a test server, we simply add them to the in-memory database.
 >
 >
 
-* Next, let's add the methods that enables us to keep track of the signed-in users as required by Passport. These methods include serializing and deserializing the user's information:
+* Next, let's add the methods that enable us to keep track of the signed-in users as required by Passport. These methods include serializing and deserializing the user's information:
 
 ```JavaScript
 
 // Passport session setup. (Section 2)
 
 //   To support persistent sign-in sessions, Passport needs to be able to
-//   serialize users into the session and deserialize them out of the session.  Typically,
+//   serialize users into the session and deserialize them out of the session. Typically,
 //   this is done simply by storing the user ID when serializing  and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
@@ -293,7 +293,7 @@ app.get('/logout', function(req, res){
 
 // Simple route middleware to ensure user is authenticated. (section 4)
 
-//   Use this route middleware on any resource that needs to be protected.  If
+//   Use this route middleware on any resource that needs to be protected. If
 //   the request is authenticated (typically via a persistent sign-in session),
 //   the request proceeds. Otherwise, the user is redirected to the
 //   sign-in page.
