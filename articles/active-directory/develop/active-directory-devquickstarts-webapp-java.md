@@ -20,9 +20,9 @@ ms.author: brandwe
 # Java web app sign-in and sign-out with Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (AD) makes it simple for you to outsource web-app identity management.  You can sign users in and out of Java web apps by using the Microsoft implementation of the community-driven Azure Active Directory Authentication Library for Java (ADAL4J).
+By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (AD) makes it simple for you to outsource web-app identity management. You can sign users in and out of Java web apps by using the Microsoft implementation of the community-driven Azure Active Directory Authentication Library for Java (ADAL4J).
 
-This article show how to use ADAL4J to:
+This article shows how to use ADAL4J to:
 
 * Sign users in to web apps by using Azure AD as the identity provider.
 * Display some user information.
@@ -168,7 +168,7 @@ In the root directory of your project, open/create `pom.xml`, locate `// TODO: p
 
 
 ## 3. Create the Java web application files (WEB-INF)
-Here, we'll configure the Java web app to use the OpenID Connect authentication protocol.  The ADAL4J library will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+Here, we'll configure the Java web app to use the OpenID Connect authentication protocol. The ADAL4J library will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 * To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml.
 
@@ -1738,7 +1738,7 @@ You should now have a `adal4jsample.war` file in your `/targets` directory. You 
 >
 
 ## Next Steps
-Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.
+Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users.
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), or you can clone it from GitHub:
 
