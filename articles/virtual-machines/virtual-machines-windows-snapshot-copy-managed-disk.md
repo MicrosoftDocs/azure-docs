@@ -63,11 +63,11 @@ $location = 'southeastasia'
 $dataDiskName = 'ContosoMD_datadisk1' 
 $snapshotName = 'ContosoMD_datadisk1_snapshot1'  
 ```
-Replace the parameter values:
--  "myResourceGroup" with the VM's resource group.
--  "southeastasia" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
--  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
--  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
+  Replace the parameter values:
+  -  "myResourceGroup" with the VM's resource group.
+  -  "southeastasia" with the geographic location where you want your Managed Snapshot stored. <!---How do you look these up? -->
+  -  "ContosoMD_datadisk1" with the name of the VHD disk that you want to copy.
+  -  "ContosoMD_datadisk1_snapshot1" with the name you want to use for the new snapshot.
 
 2. Get the VHD disk to be copied.
 
