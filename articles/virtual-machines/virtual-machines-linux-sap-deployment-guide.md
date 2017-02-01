@@ -316,18 +316,18 @@ To download and execute the required tools and scripts, you must be connected to
 ### Microsoft Azure subscription
 You need an Azure account, that you can sign in to.
 
-### Topology consideration and networking
+### Topology and networking
 You need to define the topology and architecture of the SAP deployment in Azure:
 
 * Azure Storage account(s) to be used
-* Virtual Network to deploy the SAP system to
-* Resource group to deploy the SAP system to
-* Azure region to deploy the SAP system to
+* Virtual network where you want to deploy the SAP system
+* Resource group to which you want to deploy the SAP system
+* Azure region where you want to deploy the SAP system
 * SAP configuration (two-tier or three-tier)
 * VM size(s) and number of additional virtual hard disks (VHDs) to be mounted to the VM(s)
 * SAP Correction and Transport System (CTS) configuration
 
-Create and configure Azure storage accounts or Azure virtual networks before you begin the SAP software deployment process. For information about how to create and configure Azure storage accounts and virtual networks, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
+Create and configure Azure storage accounts or Azure virtual networks before you begin the SAP software deployment process. For information about how to create and configure these resources, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide].
 
 ### SAP sizing
 Have the following information, for SAP sizing:
@@ -372,45 +372,10 @@ These articles cover SAP deployments in Azure:
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Deployment scenarios of VMs for SAP in Azure
-In this section, you can learn the different ways to deploy SAP software in Azure, and the steps to take for each deployment type.
-
-### Deploying VMs for SAP
-You have multiple options for deploying VMs and associated disks in Azure. It's important to understand the differences between deployment options because how you prepare your VMs for deployment might differ depending on the type of deployment. In this article, we cover the following scenarios:
-
-#### Deploy a VM from the Azure Marketplace
-You can use an image provided by Microsoft or a third party in the Azure Marketplace to deploy your VM. After you deploy your VM in Azure, follow the same guidelines and tools to install the SAP software on your VM as you would in an on-premises environment. To install SAP software on an Azure VM, both SAP and Microsoft recommend that you upload and store the SAP installation media on Azure VHDs, or that you create an Azure VM that works as a file server that has all the required SAP installation media.
-
-[comment]: <> (MSSedusch TODO why do we need to recommend a file management, for example, File Server or VHD? Is that so different from on-premises?)
-
-For more information, see [Scenario 1: Deploying a VM from the Azure Marketplace for SAP][deployment-guide-3.2].
-
-#### <a name="3688666f-281f-425b-a312-a77e7db2dfab"></a>Deploy a VM by using a custom image
-Because different operating systems and database management system (DBMS) versions have different patch requirements, the images you find in the Azure Marketplace might not meet your needs. You might instead want to create a VM by using your own OS/DBMS VM image, which you can deploy several times afterward.
-You use different steps to create a private Linux image than to create a private Windows image.
-
-- - -
-> ![Windows][Logo_Windows] Windows
->
-> To prepare a Windows image that can be used to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) to do this.
->
-> ![Linux][Logo_Linux] Linux
->
-> To prepare a Linux image that you can use to deploy multiple virtual machines, some Linux settings must be abstracted or generalized on the on-premises VM. You can use `waagent -deprovision`  to do this. For more information, see [Capture a Linux virtual machine running on Azure][virtual-machines-linux-capture-image.md] and the [Azure Linux agent user guide][virtual-machines-linux-agent-user-guide-command-line-options].
->
->
-
-- - -
-You can set up your database content either by using SAP Software Provisioning Manager to install a new SAP system, which restores a database backup from a VHD that is attached to the virtual machine, or by directly restoring a database backup from Azure storage if your DBMS supports it. For more in formation, see [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]. If you have already installed an SAP system in your on-premises VM (especially for two-tier systems), you can adapt the SAP system settings after the deployment of the Azure VM by using the System Rename procedure supported by SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise, you can install the SAP software after you deploy the Azure VM.
-
-For more information, see [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3].
-
-#### Moving an on-premises VM to Azure with a non-generalized disk
-In this scenario, you plan to move a specific SAP system from on-premises environment to Azure. You can do this by uploading the VHD that has the OS, the SAP binaries, and eventually the DBMS binaries, plus the VHDs with the data and log files of the DBMS to Azure. Unlike the scenario described in [Deploying a VM with a custom image][deployment-guide-3.1.2], in this scenario, you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. You do not need to generalize the operating system. This scenario applies most often for cross-premises scenarios, where part of the SAP landscape runs on-premises and part runs on Azure.
-
-For more information, see [Scenario 3: Moving an on-premises VM by using a non-generalized Azure VHD with SAP][deployment-guide-3.4].
+You have multiple options for deploying VMs and associated disks in Azure. It's important to understand the differences between deployment options because you might take different steps to prepare your VMs for deployment depending on the type of deployment.
 
 ### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Scenario 1: Deploying a VM from the Azure Marketplace for SAP
-You can deploy a VM instance from the Azure Marketplace, which offers some standard OS images of Windows Server and different Linux distributions. You also can deploy an image that includes DBMS SKUs, for example, SQL Server. For more information about using images with DBMS SKUs, see [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
+You can deploy a VM instance from the Azure Marketplace, which offers some standard OS images of Windows Server and different Linux distributions. Alternatively, you can deploy an image that includes DBMS SKUs, for example, SQL Server. For more information about using images with DBMS SKUs, see [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
 
 The SAP-specific sequence of steps to deploy a VM from the Azure Marketplace looks like this:
 
@@ -443,7 +408,7 @@ The wizard guides you through setting the required parameters to create the virt
 
 4. **Summary**: On the summary page, verify the information you've entered, and then select **OK**.
 
-Your virtual machine will be deployed in the resource group you selected.
+Your virtual machine is deployed in the resource group you selected.
 
 #### Create a virtual machine by using a template
 You can create a deployment by using one of the SAP templates published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github], or, you can manually create a virtual machine by using the [Azure portal][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] or [Azure CLI][virtual-machines-linux-tutorial].
@@ -465,9 +430,9 @@ When you open a template, enter the following parameters in the Azure portal:
     * The list does not show all supported operating systems. For example, the list does not have Windows Server 2008 R2, although it is supported by SAP. For a list of all supported operating systems, see SAP Note [1928533].
   * **Sap System Size**: The size of the SAP system.
     * The number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
-  * **System Availability**: (three-tier template only) System availability.
-    * Select **HA** for a configuration that is suitable for a high-availability installation. Two database servers and two servers for the ASCS will be created.
-  * **Storage Type**: (two-tier template only) The type of storage to use.
+  * **System Availability** (three-tier template only): System availability.
+    * Select **HA** for a configuration that is suitable for a high-availability installation. Two database servers and two servers for ABAP SAP Central Services (ASCS) are created.
+  * **Storage Type** (two-tier template only): The type of storage to use.
     * For larger systems, we highly recommend using Premium Storage. For more information about storage types, see these resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
@@ -476,17 +441,17 @@ When you open a template, enter the following parameters in the Azure portal:
   * **Admin Username** and **Admin Password**: A username and password.
     * A new user is created to sign in to the machine.
   * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
-  * **Subnet Id**: The ID of the subnet to which the virtual machines should connect. Select the subnet of your virtual private network (VPN) or Azure ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this: /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+  * **Subnet Id**: The ID of the subnet to which the virtual machines should connect. Select the subnet of your virtual private network (VPN) or Azure ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this: /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<virtual network name>/subnets/<subnet name>
 
-3. Terms and Conditions  
-    Review and accept the legal terms.
+3. Terms and conditions  
+    Review the legal terms, and then accept them.
 
 To confirm your selections and parameters, select **Purchase**.
 
 The Azure VM Agent is deployed by default when you use an image from the Azure Marketplace.
 
 #### Configure proxy settings
-Depending on your on-premises network configuration, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet and won't be able to download the required extensions or collect monitoring data. For more information, see [Configure proxy][deployment-guide-configure-proxy].
+Depending on your on-premises network configuration, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet and won't be able to download the required extensions or collect monitoring data. For more information, see [Configure the proxy][deployment-guide-configure-proxy].
 
 #### Join domain (Windows only)
 If your Azure deployment is connected to an on-premises Active Directory or DNS instance via Azure Site-to-Site or ExpressRoute (also called *cross-premises*, in the [Planning and Implementation Guide][planning-guide]), it is expected that the VM is joining an on-premises domain. For more information about considerations for this step, see [Join VM into on-premises domain (Windows only)][deployment-guide-4.3].
@@ -502,7 +467,33 @@ Determine whether monitoring is working, as described in [Checks and troubleshoo
 #### Post-deployment steps
 After you create the VM and the VM is deployed, you need to install the required software components in the VM. Because of this deployment/software installation sequence, this type of VM deployment requires either that the software to be installed is already available, either in Azure, on another VM, or as a disk that can be attached. Alternatively, you need to consider a cross-premises scenario, in which connectivity to the on-premises assets (installation shares) is given.
 
+You can use an image provided by Microsoft or a third party in the Azure Marketplace to deploy your VM. After you deploy your VM in Azure, follow the same guidelines and tools to install the SAP software on your VM as you would in an on-premises environment. To install SAP software on an Azure VM, both SAP and Microsoft recommend that you upload and store the SAP installation media on Azure VHDs, or that you create an Azure VM that works as a file server that has all the required SAP installation media.
+
+[comment]: <> (MSSedusch TODO why do we need to recommend a file management, for example, File Server or VHD? Is that so different from on-premises?)
+
+For more information, see [Scenario 1: Deploying a VM from the Azure Marketplace for SAP][deployment-guide-3.2].
+
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scenario 2: Deploying a VM with a custom image for SAP
+Because different operating systems and database management system (DBMS) versions have different patch requirements, the images you find in the Azure Marketplace might not meet your needs. You might instead want to create a VM by using your own OS/DBMS VM image, which you can deploy several times afterward.
+You use different steps to create a private Linux image than to create a private Windows image.
+
+- - -
+> ![Windows][Logo_Windows] Windows
+>
+> To prepare a Windows image that can be used to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) to do this.
+>
+> ![Linux][Logo_Linux] Linux
+>
+> To prepare a Linux image that you can use to deploy multiple virtual machines, some Linux settings must be abstracted or generalized on the on-premises VM. You can use `waagent -deprovision`  to do this. For more information, see [Capture a Linux virtual machine running on Azure][virtual-machines-linux-capture-image.md] and the [Azure Linux agent user guide][virtual-machines-linux-agent-user-guide-command-line-options].
+>
+>
+
+- - -
+You can set up your database content either by using SAP Software Provisioning Manager to install a new SAP system, which restores a database backup from a VHD that is attached to the virtual machine, or by directly restoring a database backup from Azure storage if your DBMS supports it. For more in formation, see [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]. If you have already installed an SAP system in your on-premises VM (especially for two-tier systems), you can adapt the SAP system settings after the deployment of the Azure VM by using the System Rename procedure supported by SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise, you can install the SAP software after you deploy the Azure VM.
+
+For more information, see [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3].
+
+. . . .
 You can prepare and create a custom image, and then use it to create multiple new VMs. This is described in the [Planning and Implementation Guide][planning-guide].
 
 The flowchart of steps to take looks like this:
@@ -512,7 +503,7 @@ The flowchart of steps to take looks like this:
 Per the flowchart, do the following steps:
 
 #### Create the virtual machine
-To create a deployment by using a private OS image from the Azure portal, use one of the SAP templates listed below. These templates are published in the [azure-quickstart-templates github repository][azure-quickstart-templates-github].
+To create a deployment by using a private OS image from the Azure portal, use one of the SAP templates listed below. These templates are published in the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github].
 You also can create a virtual machine manually by using [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
 * [Two-tier configuration (only one virtual machine) template (sap-2-tier-user-image)][sap-templates-2-tier-user-image]
@@ -532,45 +523,54 @@ When you open a template, enter the following parameters in the Azure portal:
   * **Sap System Size**: The size of the SAP system.
     * The number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
   * **System Availability** (three-tier template only): System availability
-    * Select **HA** for a configuration that is suitable for a high-availability installation. Two database servers and two servers for the ASCS are created.
-  * **Storage Type**: (two-tier template only) Type of storage that should be used
+    * Select **HA** for a configuration that is suitable for a high-availability installation. Two database servers and two servers for ASCS are created.
+  * **Storage Type**: (two-tier template only) The type of storage to use.
     * For larger systems, we highly recommend using Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
       * [Premium Storage: High-performance storage for Azure virtual machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
-  * **User Image Vhd Uri**: The URI of the private OS image VHD, for example, https://`<accountname`>.blob.core.windows.net/vhds/userimage.vhd.
+  * **User Image Vhd Uri**: The URI of the private OS image VHD, for example, https://<accountname>.blob.core.windows.net/vhds/userimage.vhd.
   * **User Image Storage Account**: The name of the storage account where the private OS image is stored, for example, <accountname> in https://<accountname>.blob.core.windows.net/vhds/userimage.vhd.
   * **Admin Username** and **Admin Password**: The username and password.
-    * A new user is created that can be used to log on to the machine.
+    * A new user is created that you can use to sign in to the machine.
   * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like
-  /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
+  /subscriptions/<subscription id>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
-1. Terms and Conditions  
-    Review the legal terms and accept them.
+3. Terms and conditions  
+    Review the legal terms, and then accept them.
 
-After you enter all parameters, select **Purchase**.
+To confirm your selections and parameters, select **Purchase**.
 
-#### Install VM Agent (Linux only)
-The Linux Agent must already be installed in the user image if you want to use the templates above. Otherwise the deployment will fail. Download and install the VM Agent in the user image as described in chapter [Download, Install and Enable Azure VM Agent][deployment-guide-4.4] of this document.
-If you don’t use the templates above, you can also install the VM Agent afterwards.
+#### Install the VM Agent (Linux only)
+To use the templates described in the preceding section, the Linux Agent must already be installed in the user image. Otherwise, the deployment will fail. Download and install the VM Agent in the user image as described in [Download, Install and Enable Azure VM Agent][deployment-guide-4.4]. If you don’t use the templates, you can also install the VM Agent afterwards.
 
 #### Join domain (Windows only)
-In the case that the deployment in Azure is connected to the on-premises AD/DNS via Azure Site-to-Site or Express Route (also referenced as Cross-Premises in the [Planning and Implementation Guide][planning-guide]), it is expected that the VM is joining an on-premises domain. Considerations of this step are described in chapter [Join VM into On-Premises Domain (Windows only)][deployment-guide-4.3] of this document.
+In the case that the deployment in Azure is connected to the on-premises AD/DNS via Azure Site-to-Site or Express Route (also referenced as Cross-Premises in the [Planning and Implementation Guide][planning-guide]), it is expected that the VM is joining an on-premises domain. Considerations of this step are described in [Join VM into On-Premises Domain (Windows only)][deployment-guide-4.3].
 
 #### Configure proxy settings
 Depending on your on-premises network configuration, it might be required to configure the proxy on your virtual machine if it is connected to your on-premises network via VPN or Express Route. Otherwise the virtual machine might not be able to access the internet and therefore cannot download the required extensions or collect monitoring data. For more information, see [Configure proxy][deployment-guide-configure-proxy].
 
-#### Configure Monitoring
+#### Configure monitoring
 To be sure your environment supports SAP, set up the Azure Monitoring Extension for SAP as described in [Configure Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5].
-Check the prerequisites for SAP Monitoring for required minimum versions of SAP Kernel and SAP Host Agent in the resources listed in chapter [SAP Resources][deployment-guide-2.2] of this document.
+Check the prerequisites for SAP Monitoring for required minimum versions of SAP Kernel and SAP Host Agent in the resources listed in [SAP Resources][deployment-guide-2.2].
 
 #### Monitoring check
-Check if the monitoring is working as described in chapter [Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure][deployment-guide-troubleshooting-chapter].
+Check if the monitoring is working as described in [Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure][deployment-guide-troubleshooting-chapter].
 
-### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Moving a VM from on-premises by using a non-generalized Azure VHD with SAP
+
+
+
+### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Moving an on-premises VM by using a non-generalized Azure VHD with SAP
 If you plan to move your SAP system in its current form and shape (same hostname and SAP SID) from on-premises to Azure, the VHD is directly used as the OS disk and not referenced as an image during deployment. In this case the VM Agent will not be automatically installed during the deployment. As the VM Agent and the Azure Enhanced Monitoring Extension for SAP is a prerequisite for SAP support, you need to download, install and enable both components manually after creation of the virtual machine.
+
+### Moving an on-premises VM to Azure with a non-generalized disk
+In this scenario, you plan to move a specific SAP system from on-premises environment to Azure. You can do this by uploading the VHD that has the OS, the SAP binaries, and eventually the DBMS binaries, plus the VHDs with the data and log files of the DBMS to Azure. Unlike the scenario described in [Deploying a VM with a custom image][deployment-guide-3.1.2], in this scenario, you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. You do not need to generalize the operating system. This scenario applies most often for cross-premises scenarios, where part of the SAP landscape runs on-premises and part runs on Azure.
+
+For more information, see [Scenario 3: Moving an on-premises VM by using a non-generalized Azure VHD with SAP][deployment-guide-3.4].
+
+
 
 For more information about the Azure VM Agent, see:
 
@@ -595,58 +595,58 @@ The workflow of the different steps looks like this:
 Assuming that the disk is already uploaded and defined in Azure (see [Planning and Implementation Guide][planning-guide]), follow these steps:
 
 #### Create a virtual machine
-To create a deployment by using a private OS disk through the Azure portal, use the SAP template published on the [azure-quickstart-templates github repository][azure-quickstart-templates-github]. You also can create a virtual machine manually by using the [PowerShell][virtual-machines-windows-create-vm-specialized].
+To create a deployment by using a private OS disk through the Azure portal, use the SAP template published on the [azure-quickstart-templates GitHub repository][azure-quickstart-templates-github]. You also can create a virtual machine manually by using the [PowerShell][virtual-machines-windows-create-vm-specialized].
 
 * [Two-tier configuration (only one virtual machine) template (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
   * Use this template to create a two-tier system by using only one virtual machine.
 
-After you opened one of the templates above, the Azure portal navigates to a screen on which you can enter the parameters for the template. Enter the following information:
+When you open a template, enter the following parameters in the Azure portal:
 
 1. Basics
-  * **Subscription**: The subscription you want to deploy the template to
+  * **Subscription**: The subscription you want to deploy the template to.
   * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
-  * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
+  * **Location**: The location you want to deploy the template to. If you selected an existing resource group, the location of the resource group is used.
 2. Settings
-  * **Sap System Id**: SAP System ID
-  * **Os Type**: Operating system type you want to deploy, Windows or Linux
-  * **Sap System Size**: the size of the SAP system
-    * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
-  * **Storage Type**: (two-tier template only) Type of storage that should be used
-    * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read
+  * **Sap System Id**: The SAP System ID.
+  * **Os Type**: The operating system type you want to deploy (Windows or Linux).
+  * **Sap System Size**: The size of the SAP system.
+    * The number of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
+  * **Storage Type** (two-tier template only): The type of storage to use.
+    * For larger systems, we highly recommend using Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machine DBMS deployment for SAP on Linux][dbms-guide]
-      * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
+      * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
-  * **Os Disk Vhd Uri**: URI of the private OS disk, for example, https://`<accountname`>.blob.core.windows.net/vhds/osdisk.vhd
-  * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like
-  /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+  * **Os Disk Vhd Uri**: The URI of the private OS disk, for example, https://<accountname>.blob.core.windows.net/vhds/osdisk.vhd.
+  * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
+  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
+  /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<virtual network name>/subnets/<subnet name>
 
-3. Terms and Conditions  
-    Review the legal terms and accept them.
+3. Terms and conditions  
+    Review the legal terms, and then accept them.
 
-After you entered all parameters, confirm the screen by clicking Purchase.
+To confirm your selections and parameters, select **Purchase**.
 
-#### Install VM Agent
-The VM Agent has to be installed in the OS disk if you want to use the templates above. Otherwise the deployment will fail. Download and install the VM Agent in the VM as described in chapter [Download, Install and Enable Azure VM Agent][deployment-guide-4.4] of this document.
+#### Install the VM Agent
+To use the templates described in the preceding section, the VM Agent has to be installed on the OS disk, or the deployment will fail. Download and install the VM Agent in the VM, described in [Download, Install and Enable Azure VM Agent][deployment-guide-4.4].
 
-If you don’t use the templates above, you can also install the VM Agent afterwards.
+If you don’t use the templates described in the preceding section, you can also install the VM Agent afterwards.
 
-#### Join Domain (Windows only)
-In the case that the deployment in Azure is connected to the on-premises AD/DNS via Azure Site-to-Site or Express Route (also referenced as Cross-Premises in the [Planning and Implementation Guide][planning-guide]), it is expected that the VM is joining an on-premises domain. Considerations of this step are described in chapter [Join VM into on-premises Domain (Windows only)][deployment-guide-4.3] of this document.
+#### Join domain (Windows only)
+In the case that the deployment in Azure is connected to the on-premises AD/DNS via Azure Site-to-Site or Express Route (also referenced as Cross-Premises in the [Planning and Implementation Guide][planning-guide]), it is expected that the VM is joining an on-premises domain. Considerations of this step are described in [Join VM into on-premises Domain (Windows only)][deployment-guide-4.3].
 
 #### Configure proxy settings
-Depending on your on-premises network configuration, it might be required to configure the proxy on your virtual machine if it is connected to your on-premises network via VPN or Express Route. Otherwise the virtual machine might not be able to access the internet and therefore cannot download the required extensions or collect monitoring data. For more information, see [Configure Proxy][deployment-guide-configure-proxy].
+Depending on your on-premises network configuration, it might be required to configure the proxy on your virtual machine if it is connected to your on-premises network via VPN or Express Route. Otherwise the virtual machine might not be able to access the internet and therefore cannot download the required extensions or collect monitoring data. For more information, see [Configure proxy][deployment-guide-configure-proxy].
 
-#### Configure Monitoring
-To be sure your environment supports SAP, set up the Azure Enhanced Monitoring Extension for SAP as described in chapter [Configure Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5] of this document.
+#### Configure monitoring
+To be sure your environment supports SAP, set up the Azure Enhanced Monitoring Extension for SAP as described in [Configure Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5].
 
-Check the prerequisites for SAP Monitoring for required minimum versions of SAP kernel and SAP Host Agent in the resources listed in chapter [SAP Resources][deployment-guide-2.2] of this document.
+Check the prerequisites for SAP Monitoring for required minimum versions of SAP kernel and SAP Host Agent in the resources listed in [SAP Resources][deployment-guide-2.2].
 
 #### Monitoring check
-Check if the monitoring is working as described in chapter [Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure][deployment-guide-troubleshooting-chapter].
+Check if the monitoring is working as described in [Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure][deployment-guide-troubleshooting-chapter].
 
-### Scenario 4: Update the monitoring configuration for SAP
+## Update the monitoring configuration for SAP
 If any of the following occurs, update the SAP monitoring configuration:
 
 * The joint Microsoft/SAP team extends the monitoring capabilities and requests more or fewer counters.
@@ -655,12 +655,10 @@ If any of the following occurs, update the SAP monitoring configuration:
 * You change the size of your Azure VM, for example, from size A5 to any other VM size.
 * You add new network interfaces to your Azure VM.
 
-To update the monitoring configuration, do the following steps:
-
-1.  Update the monitoring infrastructure by following the steps in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. A rerun of the script described in this chapter will detect that a monitoring configuration is deployed and will perform the necessary changes to the monitoring configuration.
+To update the monitoring configuration, update the monitoring infrastructure by following the steps in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. To detect that a monitoring configuration is deployed and to perform the necessary changes to the monitoring configuration, rerun the script described in this section.
 
 ## Detailed single-deployment steps
-### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploying Azure PowerShell cmdlets
+### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
 1.  Go to <https://azure.microsoft.com/downloads/>.
 2.  Under **Command-line tools**, under **PowerShell**, select **Windows install**.
 3.  In the Microsoft Download Manager dialog box, for the downloaded file (for example, WindowsAzurePowershellGet.3f.3f.3fnew.exe), select **Run**.
@@ -690,7 +688,7 @@ If the Azure cmdlet version installed on your computer is the current version, t
 ![Installation screen for Azure PowerShell cmdlets indicating that most recent release of Azure PS cmdlets are installed][deployment-guide-figure-700]
 <a name="figure-7"></a>
 
-### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploying Azure CLI
+### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploy Azure CLI
 1.  Go to <https://azure.microsoft.com/downloads/>.
 2.  Under **Command-line tools**, under **Azure command-line interface**, select the **Install** link for your operating system.
 3.  In the Microsoft Download Manager dialog box, for the downloaded file (for example, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), select **Run**.
@@ -731,7 +729,7 @@ If you deploy a VM from the Azure Marketplace, this step is not required. Images
   b.  Open a Windows Explorer window on the VM and choose the target directory for the MSI file of the VM Agent.
   c.  Drag and drop the Azure VM Agent Installer MSI file from your local laptop/server into the target directory of the VM Agent in the VM.
   d.  Double-click on the MSI file in the VM.
-3.  For VMs joined to on-premises domains, make sure that eventual Internet proxy settings apply for the Windows Local System account (S-1-5-18) in the VM as well as described in [Configure proxy][deployment-guide-configure-proxy]. The VM Agent will run in this context and needs to be able to connect to Azure.
+3.  For VMs joined to on-premises domains, make sure that eventual Internet proxy settings apply for the Windows Local System account (S-1-5-18) in the VM as well as described in [Configure proxy][deployment-guide-configure-proxy]. The VM Agent runs in this context and needs to be able to connect to Azure.
 
 The update of the Azure VM Agent requires no user intervention. VM Agent auto updates itself and does not require a VM reboot.
 
@@ -753,7 +751,7 @@ To update the Azure Linux Agent if it is already installed, do the steps describ
 
 For more information about the Azure VM Agent, see [About the virtual machine agent and extensions](virtual-machines-windows-classic-agents-and-extensions.md).
 
-### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configure proxy
+### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configure the proxy
 You take different steps to configuring the proxy in Windows and Linux.
 
 #### Windows
@@ -774,34 +772,37 @@ Configure the correct proxy in the configuration file of the Microsoft Azure Gue
 Set the following parameters:
 
 1.  The HTTP proxy host. For example, set to **proxy.corp.local**.
-```
-HttpProxy.Host=<proxy host>
 
-```
+  ```
+  HttpProxy.Host=<proxy host>
+
+  ```
+
 2.  The HTTP proxy port. For example, set to **80**.
-```
-HttpProxy.Port=<port of the proxy host>
 
-```
+  ```
+  HttpProxy.Port=<port of the proxy host>
 
-Then, restart the agent:
+  ```
 
-```
-sudo service waagent restart
-```
+3.  Restart the agent.
+
+  ```
+  sudo service waagent restart
+  ```
 
 The proxy settings in /etc/waagent.conf also apply for the required VM extensions. If you want to use the Azure repositories, make sure that the traffic to these repositories is not going through the on-premises intranet. If you created User Defined Routes to enable Forced Tunneling, make sure to add a route that routes traffic to the repositories directly to the Internet and not through your site-to-site connection.
 
 * **SLES**
-  You also need to add routes for the IP addresses listed in /etc/regionserverclnt.cfg. An example is shown in the screenshot below.
+  You also need to add routes for the IP addresses listed in /etc/regionserverclnt.cfg. For an example, see the following image.
 * **RHEL**
   You also need to add routes for the IP addresses of the hosts listed in /etc/yum.repos.d/rhui-load-balancers. The following figure shows an example:
 
 ![Forced tunneling][deployment-guide-figure-50]
 
-For more information about User Defined Routes, see [User Defined Routes and IP Forwarding][virtual-networks-udr-overview].
+For more information about User Defined Routes, see [User defined routes and IP forwarding][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configure Azure Enhanced Monitoring Extension for SAP
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configure the Azure Enhanced Monitoring Extension for SAP
 When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Enhanced Monitoring Extension for SAP, which is available in the Azure Extension Repository in the global Azure data centers. For more information, see [Planning and implementation guide][planning-guide-9.1].
 
 You can use PowerShell or Azure CLI to install and configure the Azure Enhanced Monitoring Extension for SAP. To install the extension on a Windows or Linux VM by using a Windows machine, see [Azure PowerShell][deployment-guide-4.5.1]. To install the extension on a Linux VM by using a Linux desktop, see [Azure CLI][deployment-guide-4.5.2].
@@ -826,7 +827,7 @@ For more information about `Set-AzureRmVMAEMExtension`, see [this MSDN article][
 
 ![Successful execution of SAP-specific Azure cmdlet Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
 
-`Set-AzureRmVMAEMExtension` does all the steps necessary to configure host monitoring for SAP.
+The `Set-AzureRmVMAEMExtension` configuration step does all the steps necessary to configure host monitoring for SAP.
 
 The script output includes the following:
 
@@ -883,11 +884,11 @@ This check makes sure that all the metrics that will be shown inside your SAP ap
 To execute the readiness check, sign in to the Azure Virtual Machine (an admin account is not necessary), and then do these steps:
 
 1.  In a Command Prompt window, change the directory to the installation folder of the Azure Enhanced Monitoring Extension for SAP:
-  C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\`<version`>\drop
+  C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\<version>\\drop
 
-The *version* in the path to the monitoring extension might vary. If you see folders for multiple versions of the monitoring extension in the installation folder, check the configuration of the AzureEnhancedMonitoring Windows service, and then switch to the folder indicated as *Path to executable*.
+  The *version* in the path to the monitoring extension might vary. If you see folders for multiple versions of the monitoring extension in the installation folder, check the configuration of the AzureEnhancedMonitoring Windows service, and then switch to the folder indicated as *Path to executable*.
 
-![Properties of service running the Azure Enhanced Monitoring Extension for SAP][deployment-guide-figure-1000]
+  ![Properties of service running the Azure Enhanced Monitoring Extension for SAP][deployment-guide-figure-1000]
 
 2.  In a Command Prompt window, run **azperflib.exe** without any parameters.
 
@@ -921,60 +922,60 @@ If the **Health check** value is not **OK**, follow the instructions in [Health 
 To execute the readiness check, connect to the Azure Virtual Machine by using SSH, and then do these steps:
 
 1.  Check the output of the Azure Enhanced Monitoring Extension
-  * more /var/lib/AzureEnhancedMonitor/PerfCounters
+  a.  Run `more /var/lib/AzureEnhancedMonitor/PerfCounters`
     Should give you a list of performance counters. The file should not be empty.
-  * cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error
-    Should return one line where the error is none, for example, 3;config;Error;;0;0;**none**;0;1456416792;tst-servercs;
-  * more /var/lib/AzureEnhancedMonitor/LatestErrorRecord
+  b.  Run `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+    Should return one line where the error is **none**, for example, **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
+  c.  Run `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
     Should be empty or should not exist.
 2.  If the first check was not successful, perform these additional tests:
-  * Make sure that the waagent is installed and started
-    * sudo ls -al /var/lib/waagent/
+  a.  Make sure that the waagent is installed and started
+    i.  Run `sudo ls -al /var/lib/waagent/`
       * Should list the content of the waagent directory
-    * ps -ax | grep waagent
+    ii. Run `ps -ax | grep waagent`
       * Should show one entry similar to `python /usr/sbin/waagent -daemon`
-  * Make sure that the Linux Diagnostic extension is installed and started
-    * sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'
+  b.    Make sure that the Linux Diagnostic Extension is installed and running
+    i.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'`
       * Should list the content of the Linux Diagnostic Extension directory
-    * ps -ax | grep diagnostic
+    ii. Run `ps -ax | grep diagnostic`
       * Should show one entry similar to `python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
-  * Make sure that the Azure Enhanced Monitoring Extension is installed and started
-    * sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'
+  c.  Make sure that the Azure Enhanced Monitoring Extension is installed and running
+    i.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'`
       * Should list the content of the Azure Enhanced Monitoring Extension directory
-    * ps -ax | grep AzureEnhanced
-      * should show one entry similar to 'python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon'
-* Install the SAP Host Agent as described in SAP Note [1031096] and check the output of saposcol
-  * Execute /usr/sap/hostctrl/exe/saposcol -d
-  * Execute dump ccm
-  * Check whether the metric **Virtualization_Configuration\Enhanced Monitoring Access** is **true**
-* If you already have a SAP NetWeaver ABAP application server installed, open transaction ST06 and check if the enhanced monitoring is enabled.
+    ii. Run `ps -ax | grep AzureEnhanced`
+      * should show one entry similar to `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+3. Install the SAP Host Agent as described in SAP Note [1031096], and check the output of `saposcol`
+  a.  Run `/usr/sap/hostctrl/exe/saposcol -d`
+  b.  Run `dump ccm`
+  c.  Check whether the metric **Virtualization_Configuration\Enhanced Monitoring Access** is **true**
+4.  If you already have a SAP NetWeaver ABAP application server installed, open transaction ST06 and check if the enhanced monitoring is enabled.
 
 If any of the preceding checks fail, for detailed information about how to redeploy the extension, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health check for Azure Monitoring Infrastructure Configuration
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health check for the Azure monitoring infrastructure configuration
 If some of the monitoring data is not delivered correctly as indicated by the test described in the preceding section [Readiness Check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1], execute the Test-AzureRmVMAEMExtension cmdlet to test if the current configuration of the Azure monitoring infrastructure and the monitoring extension for SAP is correct.
 
 To test the monitoring configuration, do the following steps:
 
 1.  Make sure that you have installed the latest version of the Microsoft Azure PowerShell cmdlet as described in the section [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-2.  Run the following PowerShell cmdlet. For a list of available environments, run commandlet Get-AzureRmEnvironment. If you want to use public Azure, your environment is AzureCloud. For Azure in China, select AzureChinaCloud.
+2.  Run the following PowerShell cmdlet. For a list of available environments, run commandlet Get-AzureRmEnvironment. To use public Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
 
-```powershell
-$env = Get-AzureRmEnvironment -Name <name of the environment>
-Login-AzureRmAccount -Environment $env
-Set-AzureRmContext -SubscriptionName <subscription name>
-Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
-```
+  ```powershell
+  $env = Get-AzureRmEnvironment -Name <name of the environment>
+  Login-AzureRmAccount -Environment $env
+  Set-AzureRmContext -SubscriptionName <subscription name>
+  Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+  ```
 
 3.  Enter your account data and identify the Azure Virtual Machine.
 
-![Input screen of SAP specific Azure cmdlet Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
+  ![Input screen of SAP specific Azure cmdlet Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
 
 4. The script tests the configuration of the virtual machine you choose.
 
-![Output of successful test of Azure Monitoring Infrastructure for SAP][deployment-guide-figure-1300]
+  ![Output of successful test of Azure Monitoring Infrastructure for SAP][deployment-guide-figure-1300]
 
-Make sure every health check is marked **OK**. If some checks are not marked **OK**, run the update cmdlet as described in [Configure Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Wait 15 minutes and then again perform the checks described in [Readiness Check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1] and [Health check for Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. If the checks still indicate a problem with some or all counters, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
+Make sure every health check is marked **OK**. If some checks are not marked **OK**, run the update cmdlet as described in [Configure Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Wait 15 minutes and then again perform the checks described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1] and [Health check for Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. If the checks still indicate a problem with some or all counters, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
 
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Troubleshooting the Azure monitoring infrastructure for SAP
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
@@ -1020,7 +1021,7 @@ The collection of the performance metrics on Azure is done by a deamon. If the d
 
 ##### The installation directory of the Azure Enhanced Monitoring extension is empty
 ###### Issue
-The directory /var/lib/waagent/ does not have a subdirectory for the Azure Enhanced Monitoring extension.
+The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure Enhanced Monitoring extension.
 
 ###### Solution
 The extension is not installed. Determine whether it is a proxy issue (as described earlier). You might need to restart the machine and/or rerun the `Set-AzureRmVMAEMExtension` configuration script.
