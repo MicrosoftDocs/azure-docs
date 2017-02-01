@@ -80,13 +80,21 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
 1. [Create an Azure availability set](../../virtual-machines-windows-create-availability-set.md).
 
-   The availability set is a group of virtual machines that are deployed across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers. 
+   The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers. 
 
-   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the resource group, use the following settings:
-   
-   - Under **Create availability set**, **Resource group**, choose **Create New**.
-   - Set a name for the resource group.
-   - For **Location** choose the same Azure location for your virtual machines. 
+   If you have not created the resource group for your virtual machines, do it when you create an Azure availability set. If you're using the Azure portal to create the availability set, do the following:
+
+   - In the Azure portal, click **+** to open the Azure Marketplace. Search for **Availability set**.
+   - Click **Availability set**.
+   - Click **Create**.
+   - On the **Create availability set** blade, set the following:
+      - **Name**: A name for the availability set. 
+      - **Subscription**: Your Azure subscription.
+      - **Resource group**: If you want to use an existing group, click **Use existing** and select the group from the drop-down list. Otherwise choose **Create New** and type a name for the group.
+      - **Location**: Set the location where you plan to create your virtual machines. 
+      - **Fault domains**: Use the default (3).
+      - **Update domains**: Use the default (5).
+   - Click **Create** to create the availability set. 
 
 1. Create the virtual machines in the availability set.
 
@@ -347,7 +355,7 @@ To create the load balancer:
 
    Your Azure portal should look like the following picture.
 
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/3loadbalancerbackend.png)
+   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-loadbalancerbackend.png)
 
 1. Click **Select** on the **Choose virtual machines** blade.
 
