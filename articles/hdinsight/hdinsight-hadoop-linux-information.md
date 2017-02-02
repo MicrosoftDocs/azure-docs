@@ -37,36 +37,36 @@ Many of the steps in this document use the following utilities, which may need t
 
 Unless [domain-joined](hdinsight-domain-joined-introduction.md), HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
 
-Domain-joined HDInsight provides support for multiple users and more granular permission and role settings. For more information, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
+Domain-joined HDInsight supports multiple users and more granular permission and role settings. For more information, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 
 ## Domain names
 
 The fully qualified domain name (FQDN) to use when connecting to the cluster from the internet is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, you can visit the **Hosts** page on the Ambari Web UI, or use the following to return a list of hosts from the Ambari REST API:
+Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, see the **Hosts** page on the Ambari Web UI. You can also use the following to return a list of hosts from the Ambari REST API:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This will return a JSON document that contains a list of the hosts in the cluster, then jq pulls out the `host_name` element value for each host in the cluster.
+Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This returns a JSON document that contains a list of the hosts in the cluster, then jq pulls out the `host_name` element value for each host in the cluster.
 
 If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following.
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-This returns a JSON document describing the service, and then jq pulls out only the `host_name` value for the hosts.
+This request returns a JSON document describing the service, and then jq pulls out only the `host_name` value for the hosts.
 
 ## Remote access to services
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-    Authenticate by using the cluster administrator user and password, and then log in to Ambari. This also uses the cluster administrator user and password.
+    Authenticate by using the cluster administrator user and password, and then log in to Ambari. You must authenticate using the cluster administrator user and password.
 
     Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
     > [!IMPORTANT]
-    > While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.
+    > While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you may receive "server not found" errors when trying to access some features over the Internet.
     >
-    > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md)
+    > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -110,13 +110,13 @@ HDInsight uses either Azure Blob storage or Azure Data Lake Store as the default
 >
 > For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
-When using either Azure Storage or Data Lake Store, you normally don't have to do anything special from HDInsight in order to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Blob storage or Data Lake Store:
+When using either Azure Storage or Data Lake Store, you normally don't have to do anything special from HDInsight to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Blob storage or Data Lake Store:
 
     hdfs dfs -ls /example/data
 
 ### URI and scheme
 
-Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster) you must always use the scheme as part of the URI.
+Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
 When using __Blob storage__, the scheme can be one of the following:
 
@@ -124,7 +124,7 @@ When using __Blob storage__, the scheme can be one of the following:
 
 * `wasbs:///`: Access default storage using encrypted communication.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have added an additional storage account to the cluster or when accessing data stored in a publicly accessible storage account.
+* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
 When using __Data Lake Store__, the scheme can be one of the following:
 
@@ -139,12 +139,12 @@ When using __Data Lake Store__, the scheme can be one of the following:
 
 ### What storage is the cluster using
 
-You can use Ambari to retrieve the default storage confgiuration for the cluster. Use the following command to retrieve HDFS configuration information using curl, and filter it using [jq](https://stedolan.github.io/jq/):
+You can use Ambari to retrieve the default storage configuration for the cluster. Use the following command to retrieve HDFS configuration information using curl, and filter it using [jq](https://stedolan.github.io/jq/):
 
 ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> This returns the first configuration applied to the server (`service_config_version=1`,) which will contain this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
+> This returns the first configuration applied to the server (`service_config_version=1`), which contains this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
 
 This returns a value similar to the following:
 
@@ -178,7 +178,7 @@ If using __Azure Storage__, see the following links for ways that you can access
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
-* A variety of SDKs:
+* Various SDKs:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
     * [Node.js](https://github.com/Azure/azure-sdk-for-node)
@@ -201,14 +201,12 @@ If using __Azure Data Lake Store__, see the following links for ways that you ca
 
 ## <a name="scaling"></a>Scaling your cluster
 
-The cluster scaling feature allows you to change the number of data nodes used by a cluster that is running in Azure HDInsight without having to delete and re-create the cluster.
-
-You can perform scaling operations while other jobs or processes are running on a cluster.
+The cluster scaling feature allows you to change the number of data nodes used by a cluster without having to delete and re-create the cluster. You can perform scaling operations while other jobs or processes are running on a cluster.
 
 The different cluster types are affected by scaling as follows:
 
 * **Hadoop**: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. This can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
-* **HBase**: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers,use the following steps:
+* **HBase**: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers, use the following steps:
 
     1. Connect to the HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
 
@@ -229,7 +227,7 @@ The different cluster types are affected by scaling as follows:
 
             storm rebalance TOPOLOGYNAME
 
-        You can also specify parameters to override the parallelism hints originally provided by the topology. For example, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` will reconfigure the topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
+        You can also specify parameters to override the parallelism hints originally provided by the topology. For example, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` reconfigures the topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
 
     * **Storm UI**: Use the following steps to rebalance a topology using the Storm UI.
 
@@ -248,7 +246,7 @@ HDInsight is a managed service, which means that nodes in a cluster may be destr
 * A service or web site such as Spark or Hue.
 * A component that requires configuration changes on multiple nodes in the cluster. For example, a required environment variable, creating of a logging directory, or creation of a configuration file.
 
-Script Actions are Bash scripts that are ran during cluster provisioning, and can be used to install and configure additional components on the cluster. Example scripts are provided for installing the following components:
+Script Actions are Bash scripts that run during cluster provisioning, and can be used to install and configure additional components on the cluster. Example scripts are provided for installing the following components:
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -258,7 +256,7 @@ For information on developing your own Script Actions, see [Script Action develo
 
 ### Jar files
 
-Some Hadoop technologies are provided in self-contained jar files that are contain functions used as part of a MapReduce job, or from inside Pig or Hive. While these can be installed using Script Actions, they often don't require any setup and can just be uploaded to the cluster after provisioning and used directly. If you want to make sure the component survives reimaging of the cluster, you can store the jar file in the default storage for your cluster (WASB or ADL).
+Some Hadoop technologies are provided in self-contained jar files that contain functions used as part of a MapReduce job, or from inside Pig or Hive. While these can be installed using Script Actions, they often don't require any setup and can be uploaded to the cluster after provisioning and used directly. If you want to make sure the component survives reimaging of the cluster, you can store the jar file in the default storage for your cluster (WASB or ADL).
 
 For example, if you want to use the latest version of [DataFu](http://datafu.incubator.apache.org/), you can download a jar containing the project and upload it to the HDInsight cluster. Then follow the DataFu documentation on how to use it from Pig or Hive.
 
@@ -267,12 +265,12 @@ For example, if you want to use the latest version of [DataFu](http://datafu.inc
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
-> This will return the path of any matching jar files.
+> This returns the path of any matching jar files.
 
 If the cluster already provides a version of a component as a standalone jar file, but you want to use a different version, you can upload a new version of the component to the cluster and try using it in your jobs.
 
 > [!WARNING]
-> Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
+> Components provided with the HDInsight cluster are fully supported and Microsoft Support helps to isolate and resolve issues related to these components.
 >
 > Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
