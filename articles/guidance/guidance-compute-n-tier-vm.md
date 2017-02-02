@@ -197,7 +197,7 @@ To achieve high availability for this reference architecture, deploy to multiple
 [azure-administration]: ../automation/automation-intro.md
 [azure-audit-logs]: ../azure-resource-manager/resource-group-audit.md
 [azure-availability-sets]: ../virtual-machines/virtual-machines-windows-manage-availability.md#configure-each-application-tier-into-separate-availability-sets
-[azure-cli]: ../virtual-machines-command-line-tools.md
+[azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault.md
 [azure-load-balancer]: ../load-balancer/load-balancer-overview.md
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
@@ -226,7 +226,7 @@ To achieve high availability for this reference architecture, deploy to multiple
 [sql-alwayson-ilb]: https://blogs.msdn.microsoft.com/igorpag/2016/01/25/configure-an-ilb-listener-for-sql-server-alwayson-availability-groups-in-azure-arm/
 [sql-alwayson-listeners]: https://msdn.microsoft.com/en-us/library/hh213417.aspx
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/en-us/library/hh213417.aspx#ConnectToSecondary
-[sql-keyvault]: ../virtual-machines/virtual-machines-windows-ps-sql-keyvault.md
+[sql-keyvault]: ../virtual-machines/windows/sql/virtual-machines-windows-ps-sql-keyvault.md
 [vm-planned-maintenance]: ../virtual-machines/virtual-machines-windows-planned-maintenance.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vnet faq]: ../virtual-network/virtual-networks-faq.md

@@ -1,5 +1,5 @@
 ---
-title: Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using the portal | Microsoft Docs
+title: Create Azure HDInsight (Hadoop) using a web browser | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
 services: hdinsight
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: nitinme
 
 ---
 # Create Linux-based clusters in HDInsight using the Azure portal
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 The Azure portal is a web-based management tool for services and resources hosted in the Microsoft Azure cloud. In this article you will learn how to create Linux-based HDInsight clusters using the portal.
 
@@ -66,8 +66,8 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
    
     For more information on using SSH with HDInsight, see one of the following articles:
    
-   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Use SSH with Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
 8. On the **Data Source** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage.  
@@ -180,7 +180,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 ## Customize clusters
 * See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
-* See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+* See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## Delete the cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

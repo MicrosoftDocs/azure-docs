@@ -1,8 +1,8 @@
 ---
 title: Diagnostics and error recovery for Azure Import/Export jobs | Microsoft Docs
 description: Learn how to enable verbose logging for the Microsoft Azure Import/Export service jobs
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
-ms.author: renash
+ms.author: muralikk
 
 ---
 

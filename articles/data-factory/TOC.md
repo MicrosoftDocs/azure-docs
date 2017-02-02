@@ -25,7 +25,7 @@
 
 # How To
 ## Move Data
-### [Data Factory Copy Wizard](data-factory-copy-wizard.md)
+### [Data Factory Copy Wizard](data-factory-azure-copy-wizard.md)
 #### [Load 1 TB in 15 minutes](data-factory-load-sql-data-warehouse.md)
 ### [Copy Activity](data-factory-data-movement-activities.md)
 #### [Performance & Tuning Guide](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure Data Factory Developer Reference](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Resources

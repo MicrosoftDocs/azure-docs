@@ -1,6 +1,6 @@
 ---
-title: Run Spark jobs on data stored in Azure Data Lake Store | Microsoft Docs
-description: Run Spark jobs on data stored in Azure Data Lake Store
+title: Use Apache Spark to analyze data in Azure Data Lake Store | Microsoft Docs
+description: Run Spark jobs to analyze data stored in Azure Data Lake Store
 services: hdinsight
 documentationcenter: ''
 author: nitinme

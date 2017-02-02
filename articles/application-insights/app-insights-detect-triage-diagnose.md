@@ -1,5 +1,5 @@
 ---
-title: Detect, Triage, Diagnose
+title: Detect and diagnose web app issues - Azure Application Insights | Microsoft Docs
 description: Analyse crashes and detect  and diagnose performance issues in your applications
 author: alancameronwills
 services: application-insights
@@ -66,7 +66,7 @@ On the overview page in Application Insights, there's a chart that shows a varie
 
 Browser page load time is derived from telemetry sent directly from web pages. Server response time, server request count and failed request count are all measured in the web server and sent to Application Insights from there.
 
-Marcela is slightly concerned with at the server response graph, which shows the average time between when the server receives an HTTP request from a user's browser, and when it returns the response. It isn't unusual to see a variation in this chart, as load on the system varies. But in this case, there seems to be a correlation between small rises in the count of requests, and big rises in the response time. That could indicate that the system is operating just at its limits. 
+Marcela is slightly concerned with at the server response graph, which shows the average time between when the server receives an HTTP request from a user's browser, and when it returns the response. It isn't unusual to see a variation in this chart, as load on the system varies. But in this case, there seems to be a correlation between small rises in the count of requests, and big rises in the response time. That could indicate that the system is operating just at its limits.
 
 She opens the Servers charts:
 
@@ -88,7 +88,7 @@ Next day, an alert email does arrive from Application Insights. But when she ope
 
 Failed requests are where users have seen an error - typically following an exception thrown in the code. Maybe they see a message saying "Sorry we couldn't update your details right now" or, at absolute embarrassing worst, a stack dump on the user's screen, courtesy of the web server.
 
-This alert is a surprise, because the last time she looked at it, the failed request count was encouragingly low. A small number of failures is to be expected in a busy server. 
+This alert is a surprise, because the last time she looked at it, the failed request count was encouragingly low. A small number of failures is to be expected in a busy server.
 
 It was also a bit of a surprise for her because she didn't have to configure this alert. In fact, Smart Detection comes automatically with Application Insights. It automatically adjusts to your app's usual failure pattern, and "gets used to" failures on a particular page, or under high load, or linked to other metrics. It raises the alarm only if there's a rise above what it comes to expect.
 
@@ -98,17 +98,17 @@ This is a very useful email. It doesn't just raise an alarm; it does a lot of th
 
 It shows how many customers are affected, and which web pages or operations. Marcela can decide whether she needs to get the whole team working on this as a fire drill, or whether it can be ignored until next week.
 
-The email also shows that a particular exception occurred, and - even more interesting - that the failure is associated with failed calls to a particular database. This explains why the fault suddenly appeared even though Marcela's team has not deployed any updates recently. 
+The email also shows that a particular exception occurred, and - even more interesting - that the failure is associated with failed calls to a particular database. This explains why the fault suddenly appeared even though Marcela's team has not deployed any updates recently.
 
 She pings the leader of the database team. Yes, they released a hot fix in the past half hour; and Oops, maybe there might have been a minor schema change....
 
-So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks on the link to open Application Insights. It opens straight onto a failed request, and she can see the 
-failed database call in the associated list of dependency calls. 
+So the problem is on the way to being fixed, even before investigating logs, and within 15 minutes of it arising. However, Marcela clicks on the link to open Application Insights. It opens straight onto a failed request, and she can see the
+failed database call in the associated list of dependency calls.
 
 ![failed request](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## Detecting exceptions
-With a little bit of setup, [exceptions](app-insights-asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) into the code:  
+With a little bit of setup, [exceptions](app-insights-asp-net-exceptions.md) are reported to Application Insights automatically. They can also be captured explicitly by inserting calls to [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) into the code:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -226,7 +226,3 @@ You can get started in several ways, depending on the characteristics of your ap
 * Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) or [Azure](app-insights-azure.md).
 * [Web pages](app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](app-insights-monitor-web-app-availability.md) to test your app from the public internet.
-
-
-
-

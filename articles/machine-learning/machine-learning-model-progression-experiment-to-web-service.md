@@ -1,5 +1,5 @@
 ---
-title: How a Machine Learning model progresses from an experiment to an operationalized Web service | Microsoft Docs
+title: How an Azure Machine Learning model becomes a web service | Microsoft Docs
 description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 01/05/2017
 ms.author: garye
 
 ---
