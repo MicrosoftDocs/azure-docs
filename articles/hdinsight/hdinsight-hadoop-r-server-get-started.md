@@ -105,7 +105,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
       > [!IMPORTANT]
       > Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be in the same region.
 
-   2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process see [Creating HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+   2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process see [Creating HDInsight cluster with Data Lake Store using Azure portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
       Use the **Select** button to save the data source configuration.
 
@@ -136,9 +136,9 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    ​
 
-9. After reviewing your selections, it is now time to create the cluster. To do so select **Pin to Startboard** and then **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal.
+9. After reviewing your selections, it is now time to create the cluster. To do so select **Pin to Startboard** and then **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure portal.
 
-   You will note that there is also a link for **Automation options**. Clicking on this link will display scripts that can be used to automate the creation of a cluster with the selected configuration. These scripts are also available from the Azure Portal entry for your cluster once it has been created.
+   You will note that there is also a link for **Automation options**. Clicking on this link will display scripts that can be used to automate the creation of a cluster with the selected configuration. These scripts are also available from the Azure portal entry for your cluster once it has been created.
 
    | While creating                           | Creation complete                        |
    | ---------------------------------------- | ---------------------------------------- |
@@ -157,7 +157,7 @@ If you’ve chosen to include RStudio Server community edition in your installat
 
     https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
 
-2. Or by opening the entry for your cluster in the Azure Portal, selecting the R Server Dashboards quick link and then selecting the R Studio Dashboard:
+2. Or by opening the entry for your cluster in the Azure portal, selecting the R Server Dashboards quick link and then selecting the R Studio Dashboard:
 
      ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard.png)
 
@@ -556,7 +556,7 @@ remoteLogin(
 )
 ```
 
-## How to scale Microsoft R Server Operationalization compute nodes on HDinsight worker nodes?
+## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes?
  
  
 1.	Decommission the worker node(s)
@@ -589,7 +589,7 @@ Once all decommissioned worker nodes have been configured to run compute node, c
  
 * SSH into the Edge node
 * Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`
-* Look for the "Uris" section, and add worker node's IP and port details.
+* Look for the "URIs" section, and add worker node's IP and port details.
 
 ![decommission worker nodes cmdline](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
