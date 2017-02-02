@@ -32,13 +32,14 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 If you’re building a web application that just needs to support sign-in for users in Azure AD, you can simply follow the instructions below. If your application needs credentials or permissions to access to a web API, or needs to allow users from other Azure AD tenants to access it, see [Updating an Application](#updating-an-application) section to continue configuring your application.
 
 ### To register a new application in the Azure classic portal
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. Click on the Active Directory icon on the left menu, and then click on the desired directory.
-3. On the top menu, click **Applications**. If no apps have been added to your directory, this page will only show the Add an App link. Click on the link, or alternatively you can click on the **Add** button on the command bar.
-4. On the What do you want to do page, click on the link to **Add an application my organization is developing**.
-5. On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.  You can choose from either a [web application/client](active-directory-dev-glossary.md#client-application) / [web resource/API](active-directory-dev-glossary.md#resource-server) application (may also function as both), or a [native client](active-directory-dev-glossary.md#native-client) application. Once finished, click the arrow icon on the bottom-right corner of the page.
-6. On the App properties page, provide the Sign-on URL and App ID URI if you’re registering a web application or just the Redirect URI for a native client application, then click the checkbox in the bottom-right hand corner of the page.
-7. Your application has been added, and you will be taken to the Quick Start page for your application. Depending on whether your application is a web or native application, you will see different options on how to add additional capabilities to your application. Once your application has been added, you can begin updating your application to enable users to sign in, access web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
+3. In the left-hand navigation pane, choose **More Services**, click **App Registrations**, and click **Add**.
+4. Follow the prompts and create a new application. If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md).
+  * For Web Applications, provide the **Sign-On URL**, which is the base URL of your app, where users can sign in e.g `http://localhost:12345`.
+<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
+  * For Native Applications, provide a **Redirect URI**, which Azure AD uses to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
+5. Once you've completed registration, Azure AD assigns your application a unique client identifier, the Application ID. Your application has been added, and you will be taken to the Quick Start page for your application. Depending on whether your application is a web or native application, you will see different options on how to add additional capabilities to your application. Once your application has been added, you can begin updating your application to enable users to sign in, access web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).
 
 > [!NOTE]
 > By default, the newly created application registration is configured to allow users from your directory to sign in to your application.
@@ -62,7 +63,7 @@ For more detailed information about the consent framework, see [OAuth 2.0 in Azu
 #### Example of the consent experience
 The following steps will show you how the consent experience works for both the application developer and user.
 
-1. On your web client application’s configuration page in the Azure classic portal, set the permissions your application requires by using the drop-down menus in the Permissions to other applications control.
+1. On your web client application’s configuration page in the Azure portal, set the permissions your application requires by using the menus in the Required Permissions section.
    
     ![Permissions to other applications](./media/active-directory-integrating-applications/permissions.png)
 2. Consider that your application’s permissions have been updated, the application is running, and a user is about to use it for the first time. If the application has not already acquired an access or refresh token, the application needs to go to Azure AD’s authorization endpoint to obtain an authorization code that can be used to acquire a new access and refresh token.
