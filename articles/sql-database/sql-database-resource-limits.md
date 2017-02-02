@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/11/2017
-ms.author: carlrab; janeng
+ms.author: janeng
 
 ---
 # Azure SQL Database resource limits

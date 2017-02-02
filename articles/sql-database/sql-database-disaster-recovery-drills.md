@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
-ms.author: sstein; sashan
+ms.author: s sashan
 
 ---
 # Performing Disaster Recovery Drill
