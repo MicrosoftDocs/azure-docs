@@ -34,7 +34,7 @@ Prerequisites
 
 - Python 2.7.x
 - An Azure subscription
-- An [Event Hub](event-hubs-create-event-hub.md)
+- An active [Event Hubs namespace and Event Hub.](event-hubs-create.md)
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
