@@ -15,13 +15,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 02/02/2017
 ms.author: wesmc
 
 ---
 # Testing Azure Functions
 ## Overview
-In this tutorial, we will walk through different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Node.js Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
+This topic demonstrates the various ways to test functions, which includes the following general approaches:
+
++ HTTP-based tools, such as cURL, Postman, and even a web browser for web-based triggers. 
++ Storage explorer to test Azure Storage-based triggers.
++ Test tab in the Functions portal.
++ Timer-triggered function.
++ Testing application or framework.  
+
+All of the testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You will create this function in the first section.
 
 ## Create a function for testing
 For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
