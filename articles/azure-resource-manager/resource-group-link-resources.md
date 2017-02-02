@@ -1,5 +1,5 @@
 ---
-title: Linking resources in Azure Resource Manager | Microsoft Docs
+title: Link related resources in Azure solutions | Microsoft Docs
 description: Create a link between related resources in different resource groups in Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 08/01/2016
 ms.author: tomfitz
 
 ---
-# Linking resources in Azure Resource Manager
+# Link related resources from different resource groups
 During deployment, you can mark a resource as dependent on another resource, but that lifecycle ends at deployment. After deployment, there is no identified relationship between dependent resources. Resource Manager provides a feature called resource linking to establish persistent relationships between resources.
 
 With resource linking, you can document relationships that span resource groups. For example, it is common to have a database with its own lifecycle reside in one resource group, and an app with a different lifecycle reside in a different resource group. The app connects to the database so you want to mark a link between the app and the database. 

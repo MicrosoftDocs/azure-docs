@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure billing and cost management | Microsoft Docs
+title: Azure billing and cost management guidance | Microsoft Docs
 description: Learn about best practices and first things to do to optimize your bill
 services: ''
 documentationcenter: ''

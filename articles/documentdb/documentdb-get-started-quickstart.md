@@ -1,20 +1,4 @@
-title: 'NoSQL tutorial: DocumentDB .NET SDK | Microsoft Docs'
-description: A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, c# console application
-services: documentdb
-documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: monicar
-
-ms.assetid: 4c084dab-52a4-4b84-9952-6d36a3bbb731
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 01/05/2016
-ms.author: mimig
+---
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 

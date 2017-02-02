@@ -1,5 +1,5 @@
 ---
-title: Azure VM agent and extensions | Microsoft Docs
+title: Window VM agent and extensions in Azure | Microsoft Docs
 description: Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

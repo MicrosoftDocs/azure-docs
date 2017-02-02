@@ -20,7 +20,7 @@ ms.author: sstein
 
 ---
 
-# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules using PowerShell
+# Tutorial: Provision and access an Azure SQL database using PowerShell
 
 In this getting-started tutorial, you learn how to use PowerShell to:
 
@@ -564,7 +564,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## Next steps
 Now that you've completed this first getting started tutorial and created a database with some sample data, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-* If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-control-access-sql-authentication-get-started.md).
+- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+- For a getting started with Azure Active Directory authentication tutorial, see [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
+* If you want to query the sample database in the Azure portal, see [Public preview: Interactive query experience for SQL databases](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
 * If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).

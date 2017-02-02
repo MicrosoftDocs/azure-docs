@@ -1,5 +1,5 @@
 ---
-title: Install Jupyter notebook on your computer and connect it to an HDInsight Spark cluster | Microsoft Docs
+title: Install Jupyter notebook locally and connect to an Azure Spark cluster | Microsoft Docs
 description: Learn about how to install Jupyter notebook locally on your computer and connect it to an Apache Spark cluster on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -18,7 +18,8 @@ ms.date: 01/17/2017
 ms.author: nitinme
 
 ---
-# Install Jupyter notebook on your computer and connect to Apache Spark cluster on HDInsight Linux
+# Install Jupyter notebook on your computer and connect to Apache Spark cluster on HDInsight
+
 In this article you will learn how to install Jupyter notebook, with the custom PySpark (for Python) and Spark (for Scala) kernels with Spark magic, and connect the notebook to an HDInsight cluster. There can be a number of reasons to install Jupyter on your local computer, and there can be some challenges as well. For a list of reasons and challenges, see the section [Why should I install Jupyter on my computer](#why-should-i-install-jupyter-on-my-computer) at the end of this article.
 
 There are three key steps involved in installing Jupyter and the Spark magic on your computer.
@@ -33,7 +34,7 @@ For more information about the custom kernels and the Spark magic available for 
 The prerequisites listed here are not for installing Jupyter. These are for connecting the Jupyter notebook to an HDInsight cluster once the notebook is installed.
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Install Jupyter notebook on your computer
 You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Ananconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you actually install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running a command. This section provides the instructions that you must follow.

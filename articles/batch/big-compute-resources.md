@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: danlep
 
 ---
