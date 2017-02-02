@@ -94,12 +94,15 @@ If you are not sure how you use multi-factor authentication, then you can always
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. At the top, select profile.
 3. Select **Additional Security Verification**.
+
    ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 
 4. Select **app passwords**.
+
    ![Select app passwords - screenshot](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Next to the app password you want to delete, click **Delete**.
+
    ![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
 6. Confirm that you want to delete that password by clicking **yes**.
