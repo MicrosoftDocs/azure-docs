@@ -20,7 +20,7 @@ ms.author: nitinme
 ---
 # Jupyter notebooks kernels with Apache Spark clusters in HDInsight 
 
-HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook for testing your Spark applications. A kernel is a program that runs and interprets your code.The two kernels are:
+HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook for testing your Spark applications. A kernel is a program that runs and interprets your code. The two kernels are:
 
 - **PySpark** (for applications written in Python)
 - **Spark** (for applications written in Scala)
@@ -112,7 +112,7 @@ The statement above does the following:
 * Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
 
 ## Considerations while using the new kernels
-Whichever kernel you use (PySpark or Spark), leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the the cluster resources will continue to be in use. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook.     
+Whichever kernel you use (PySpark or Spark), leaving the notebooks running will consume your cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the cluster resources will continue to be in use. A good practice with the PySpark and Spark kernels would be to use the **Close and Halt** option from the notebook's **File** menu. This kills the context and then exits the notebook.     
 
 ## Show me some examples
 When you open a Jupyter notebook, you will see two folders available at the root level.
