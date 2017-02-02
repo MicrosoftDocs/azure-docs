@@ -14,15 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 02/02/2016
 ms.author: kgremban
 
 ---
 # The sign in experience with Azure Multi-Factor Authentication
 > [!NOTE]
-> The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
->
->
+> The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## What will your sign in experience be?
 Depending on how you sign in and use multi-factor authentication, your experience will differ.  In this section we will provide information on what to expect when you sign in.  Choose the one that best describes what you are doing:
@@ -31,7 +29,7 @@ Depending on how you sign in and use multi-factor authentication, your experienc
 |:--- |:--- |
 | [Signing in with mobile or office phone](#signing-in-with-mobile-or-office-phone) |This is what you can expect from signing in using your mobile or office phone. |
 | [Signing in with the Microsoft Authenticator app using notification](#signing-in-with-the-microsoft-authenticator-app-using-notification) |This is what you can expect using the Microsoft Authenticator app with notifications. |
-| [Signing in with the Microsoft Authenticator app using verification code](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |This is what you can expect using the Microsoft Authenticator thapp with a verification code. |
+| [Signing in with the Microsoft Authenticator app using verification code](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |This is what you can expect using the Microsoft Authenticator app with a verification code. |
 | [Signing in with an alternate method](#signing-in-with-an-alternate-method) |This will show you what to expect if you want to use an alternate method. |
 
 ## Signing in with mobile or office phone
@@ -85,3 +83,11 @@ The following section will show you how to sign in with an alternate method when
 ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 * Choose an alternate method and sign in.
+
+## Next steps
+
+- If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+
+- Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
+
+- Find out how to [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) so that you can use notifications to sign in, instead of texts and phone calls. 
