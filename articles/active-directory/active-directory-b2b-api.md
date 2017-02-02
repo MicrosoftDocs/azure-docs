@@ -25,6 +25,7 @@ We've had many customers tell us that they want to customize the invitation proc
 
 ## Capabilities of the invitation API
 The API offers the following capabilities:
+
 1. Invite an external user with *any* email address.
 
     ```"invitedUserDisplayName": "Sam"
@@ -72,7 +73,7 @@ It is now possible to use PowerShell to add and invite external users to an orga
     ```New-AzureADMSInvitation```
 
 with the following options
-```    -InvitedUserDisplayName
+    ```-InvitedUserDisplayName
     -InvitedUserEmailAddress
     -SendInvitationMessage
     -InvitedUserMessageInfo```
