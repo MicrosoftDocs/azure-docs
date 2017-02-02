@@ -17,7 +17,7 @@ ms.date: 01/07/2017
 ms.author: brandwe
 
 ---
-# Integrate Azure AD into an Android App
+# Integrate Azure AD into an Android app
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
