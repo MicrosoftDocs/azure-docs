@@ -8,8 +8,6 @@ ms.locale: en-US
 
 
 # Office and SharePoint Add-in license XML schema structure
-The add-in license schema defines the string that specifies validity and usage properties in add-in licenses.
- 
 
 The add-in license schema defines the structure that specifies usage properties in add-in licenses. If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).
  
@@ -84,14 +82,18 @@ Required. Contains attributes that represent various properties of the add-in li
 |sd| Required text. UTC time-date stamp that represents one of the following: The initial purchase of the license. The latest manual license recovery time, if the purchaser has performed such a recovery using their Microsoft account.|
 |te|Required text. UTC time-date stamp that represents the date the current add-in license token expires.|
 |test|Optional Boolean value. Represents whether the add-in license is a test license.|
-|ss|Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.This attribute accepts integers from 0 through 4. Valid values include:|**Integer**|**Description**|
+|ss|Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.This attribute accepts integers from 0 through 4. Valid values are listed in the following table.|
+
+#### ss attribute values
+
+|**Integer**|**Description**|
 |:-----|:-----|
 |0|NotApplicableThe add-in license is not for a subscription add-in.|
 |1|ActiveThe add-in license subscription is currently paid for.Recommended user experience: Full add-in experience.|
 |2|FailedPaymentThe automatic monthly billing for the add-in license subscription has failed.There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.Recommended user experience: Present UI in your add-in alerting the user of the problem with billing, so that they can resolve it.|
 |3|CanceledThe add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. Recommended user experience: Present the user with information that their subscription has been cancelled. Provide information about your add-in, along with a hyperlink to your app's Office Store listing page, so they are encouraged to renew their subscription. |
 |4|DelayedCancelThe add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.Recommended user experience: Full add-in experience. Additionally, you may want to present contextual UI to ask the user for feedback on why they are canceling their subscription, or to enourage them to re-subscribe.|
-|
+
  **d**
  
 
