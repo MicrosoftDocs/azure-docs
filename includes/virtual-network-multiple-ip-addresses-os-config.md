@@ -131,7 +131,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 
 	```bash
 	/etc/init.d/network restart
-	Ipconfig
+	ifconfig
 	```
 
 	You should see the IP address you added, *eth0:0*, in the list returned.
