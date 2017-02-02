@@ -112,7 +112,7 @@ Adal.js integrates with AngularJS route and HTTP providers, so you can help secu
 
 You now have a secure single-page app that can sign users in and issue bearer-token-protected requests to its back-end API.  When a user clicks the **TodoList** link, adal.js will automatically redirect to Azure AD for sign-in if necessary. In addition, adal.js will automatically attach an access token to any Ajax requests that are sent to the app's back end.  
 
-The preceding steps are the bare minimum necessary to build a single-page app by using adal.js. But there are a number of other features that are useful in single-page app:
+The preceding steps are the bare minimum necessary to build a single-page app by using adal.js. But a few other features are useful in single-page app:
 
 * To explicitly issue sign-in and sign-out requests, you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
 
