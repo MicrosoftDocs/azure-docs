@@ -1,6 +1,6 @@
 ---
 title: Azure AD Java Getting Started | Microsoft Docs
-description: How to build a Java web app that signs users in with a work or school account.
+description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
 author: xerners
@@ -30,7 +30,7 @@ This article shows how to use ADAL4J to:
 
 ## Before you get started
 
-* Download the [app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) or download the [completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
+* Download the [app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip), or download the [completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
 * You also need an Azure AD tenant in which to register the app. If you don't already have an Azure AD tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 When you are ready, perform the procedures in the next four sections.
@@ -50,7 +50,7 @@ To set up the app to authenticate users, first register it in your tenant by doi
 
 When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You will need the key shortly.
 
-## Step 2: Set up your app to use the ADAL4J library and prerequisites by using Maven
+## Step 2: Set up the app to use the ADAL4J library and prerequisites by using Maven
 In this step, you configure ADAL4J to use the OpenID Connect authentication protocol. You use ADAL4J to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
 
 In the root directory of your project, open/create `pom.xml`, locate `// TODO: provide dependencies for Maven`, and replace it with the following:
@@ -167,581 +167,581 @@ In the root directory of your project, open/create `pom.xml`, locate `// TODO: p
 ```
 
 
-## 3. Create the Java web application files (WEB-INF)
-Here, we'll configure the Java web app to use the OpenID Connect authentication protocol. The ADAL4J library will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## Step 3: Create the Java web app files (WEB-INF)
+In this step, you configure the Java web app to use the OpenID Connect authentication protocol. Use the ADAL4J library to issue sign-in and sign-out requests, manage the user's session, get information about the user, and so forth.
 
-* To begin, open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml.
+1. Open the `web.xml` file located under `\webapp\WEB-INF\`, and enter your app's configuration values in the xml.
 
-The file should look like the following:
+ The file should look like the following:
 
-```xml
-<?xml version="1.0"?>
-<web-app id="WebApp_ID" version="2.4"
-    xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
-    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <display-name>Archetype Created Web Application</display-name>
-    <context-param>
-        <param-name>authority</param-name>
-        <param-value>https://login.windows.net/</param-value>
-    </context-param>
-    <context-param>
-        <param-name>tenant</param-name>
-        <param-value>YOUR_TENANT_NAME</param-value>
-    </context-param>
+    ```xml
 
-    <filter>
-        <filter-name>BasicFilter</filter-name>
-        <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
-        <init-param>
-            <param-name>client_id</param-name>
-            <param-value>YOUR_CLIENT_ID</param-value>
-        </init-param>
-        <init-param>
-            <param-name>secret_key</param-name>
-            <param-value>YOUR_CLIENT_SECRET</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>BasicFilter</filter-name>
-        <url-pattern>/secure/*</url-pattern>
-    </filter-mapping>
+    <?xml version="1.0"?>
+    <web-app id="WebApp_ID" version="2.4"
+        xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+        <display-name>Archetype Created Web Application</display-name>
+        <context-param>
+            <param-name>authority</param-name>
+            <param-value>https://login.windows.net/</param-value>
+        </context-param>
+        <context-param>
+            <param-name>tenant</param-name>
+            <param-value>YOUR_TENANT_NAME</param-value>
+        </context-param>
 
-    <servlet>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
+        <filter>
+            <filter-name>BasicFilter</filter-name>
+            <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
+            <init-param>
+                <param-name>client_id</param-name>
+                <param-value>YOUR_CLIENT_ID</param-value>
+            </init-param>
+            <init-param>
+                <param-name>secret_key</param-name>
+                <param-value>YOUR_CLIENT_SECRET</param-value>
+            </init-param>
+        </filter>
+        <filter-mapping>
+            <filter-name>BasicFilter</filter-name>
+            <url-pattern>/secure/*</url-pattern>
+        </filter-mapping>
 
-    <servlet-mapping>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+        <servlet>
+            <servlet-name>mvc-dispatcher</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
-    </context-param>
+        <servlet-mapping>
+            <servlet-name>mvc-dispatcher</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
 
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-</web-app>
+        <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+        </context-param>
 
-```
+        <listener>
+            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        </listener>
+    </web-app>
+    ```
 
+ * YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
+ * YOUR_CLIENT_SECRET is the **Application Secret** that you created in the portal.
+ * YOUR_TENANT_NAME is the **tenant name** of your app (for example, contoso.onmicrosoft.com).
 
-    -    YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
-    -    YOUR_CLIENT_SECRET is the **Application Secret**  you created in the portal.
-    -    YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
+ Leave the rest of the configuration parameters alone.
 
-Leave the rest of the configuration parameters alone.
+ > [!NOTE]
+ > As you can see in the XML file, we are writing a JSP/Servlet web app called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the /secure URL. You'll see in the rest of the same we write that we use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.
 
-> [!NOTE]
-> As you can see from the XML file we are writing a JSP/Servlet webapp called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the /secure URL. You'll see in the rest of the same we write that we'll use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.
->
->
+2. Create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:
 
-* Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:
+    ```xml
 
-```xml
-<beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans     
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.springframework.org/schema/beans     
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="com.microsoft.aad.adal4jsample" />
+        <context:component-scan base-package="com.microsoft.aad.adal4jsample" />
 
-    <bean
+        <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/</value>
-        </property>
-        <property name="suffix">
+            <property name="prefix">
+                <value>/</value>
+            </property>
+            <property name="suffix">
             <value>.jsp</value>
-        </property>
-    </bean>
+            </property>
+        </bean>
 
-</beans>
-```
+    </beans>
+    ```
 
-This will tell the webapp to use Spring and where to find our .jsp file which we will write below.
+This code tells the web app to use Spring, and it indicates where to find the .jsp file, which we write in the next section.
 
-## 4. Create the Java JSP View files (for BasicFilter MVC)
-We are only half fished with our setup of our webapp in WEB-INF. Next we will need to create the actual Java Server Pages files that our webapp will execute which we hinted at in our configuration.
+## Step 4. Create the Java JSP View files (for BasicFilter MVC)
+We are only half finished with setting up our web app in WEB-INF. Next, we create the Java Server Pages files that the web app will execute, which we hinted at in our configuration.
 
-If you remember, we told Java in our xml configuration files that we have a `/` resource that should load .jsp files, and a `/secure` resource which should pass through a filter we called `BasicFilter`.
+Earlier, we told Java in our xml configuration files that we have a `/` resource that loads .jsp files, and we have a `/secure` resource that passes through a filter we called `BasicFilter`.
 
 Let's make those now.
 
-* To begin, create the `index.jsp` file located under `\webapp\`, and cut/paste the following:
+1. Create the `index.jsp` file located under `\webapp\`, and then paste the following:
 
-```jsp
-<html>
-<body>
-    <h2>Hello World!</h2>
-    <ul>
-    <li><a href="secure/aad">Secure Page</a></li>
-    </ul>
-</body>
-</html>
+    ```jsp
+    <html>
+    <body>
+        <h2>Hello World!</h2>
+        <ul>
+        <li><a href="secure/aad">Secure Page</a></li>
+        </ul>
+    </body>
+    </html>
 
-```
+    ```
 
-This simply redirects to a secure page that is protected by our filter.
+    This code simply redirects to a secure page that is protected by our filter.
 
-* Next, in the same directory lets create an `error.jsp` file to catch any errors that might happen:
+2. In the same directory, create an error.jsp file to catch any errors that might happen:
 
-```jsp
-<html>
-<body>
-    <h2>ERROR PAGE!</h2>
-    <p>
-        Exception -
-        <%=request.getAttribute("error")%></p>
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
-    </ul>
-</body>
-</html>
-```
+    ```jsp
+    <html>
+    <body>
+        <h2>ERROR PAGE!</h2>
+        <p>
+            Exception -
+            <%=request.getAttribute("error")%></p>
+        <ul>
+            <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
+        </ul>
+    </body>
+    </html>
+    ```
 
-* Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`.
-* Inside this directory, let's then create an `aad.jsp` file and cut/paste the following:
+3. To make that secure webpage, create a folder under `\webapp` called `\secure` so that the directory is now `\webapp\secure`.
+4. In the `\webapp\secure` directory, create an `aad.jsp` file, and then paste the following code:
 
-```jsp
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AAD Secure Page</title>
-</head>
-<body>
+    ```jsp
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AAD Secure Page</title>
+    </head>
+    <body>
 
-    <h1>Directory - Users List</h1>
-    <p>${users}</p>
+        <h1>Directory - Users List</h1>
+        <p>${users}</p>
 
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get
-                new Access Token via Client Credentials</a></li>
-    </ul>
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get
-                new Access Token via Refresh Token</a></li>
-    </ul>
-    <ul>
-        <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
-    </ul>
-</body>
-</html>
-```
+        <ul>
+            <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get
+                    new Access Token via Client Credentials</a></li>
+        </ul>
+        <ul>
+            <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get
+                    new Access Token via Refresh Token</a></li>
+        </ul>
+        <ul>
+            <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
+        </ul>
+    </body>
+    </html>
+    ```
 
-You see that this page will redirect to specific requests which our BasicFilter servlet will read and then execute on using the `ADAJ4J` library. Rather simple, huh?
+This page redirects to specific requests, which the BasicFilter servlet reads and then executes on by using the `ADAJ4J` library.
 
-Of course, we need now need to set up our Java files so that the servlet can do its work.
+Of course, we now need to set up the Java files so that the servlet can do its work.
 
-## 5. Create some Java helper files (for BasicFilter MVC)
-Our goal is to create some Java files that will:
+## Step 5. Create some Java helper files (for BasicFilter MVC)
+Our goal in this step is to create some Java files that will:
 
-1. Allow for sign-in and sign-out of the user
-2. Get some data about the user.
+* Allow for sign-in and sign-out of the user.
+* Get some data about the user.
 
 > [!NOTE]
-> In order to get data about the user, we need to use the Graph API from Azure Active Directory. The Graph API is a secure webservice that you can use to grab data about your organization, including individual users. This is better than pre-filling sensitive data in tokens as it ensures the user asking for the data is authorized and anyone that may happen to grab the token (from a jailbroken phone or web browser cache on a desktop) won't get a bunch of important details about the user or the organization.
+> To get data about the user, use the Graph API from Azure Active Directory. The Graph API is a secure webservice that you can use to grab data about your organization, including individual users. This approach is better than pre-filling sensitive data in tokens, because it ensures that:
+> * The users who ask for the data are authorized.
+> * Anyone who might happen to grab the token (from a jailbroken phone or web browser cache on a desktop, for example) cannot obtain important details about the user or the organization.
 >
 >
 
-Let's write some Java files to do this work for us:
+To write some Java files to do this work:
 
-1. create a folder in your root directory called 'adal4jsample` to store all of our java files.
+1. Create a folder in your root directory called 'adal4jsample` to store all of the Java files.
 
-We will be using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this (e.g. `/com/microsoft/aad/adal4jsample`). You are free to do this, but it is not necessary.
+    In this example, we are using the namespace `com.microsoft.aad.adal4jsample` in our java files. Most IDEs create a nested folder structure for this purpose (for example, `/com/microsoft/aad/adal4jsample`). You can do this also, but it is not necessary.
 
-2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can cut/paste this from below:
+2. Inside this folder, create a file called `JSONHelper.java`, which you'll use to help parse the JSON data from our tokens. To create the file, paste the following code:
 
-```Java
+    ```Java
 
-package com.microsoft.aad.adal4jsample;
+    package com.microsoft.aad.adal4jsample;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.List;
+    import java.lang.reflect.Field;
+    import java.util.Arrays;
+    import java.util.Enumeration;
+    import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.text.WordUtils;
-import org.apache.log4j.Logger;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-/**
- * This class provides the methods to parse JSON Data from a JSON Formatted
- * String.
- *
- * @author Azure Active Directory Contributor
- *
- */
-public class JSONHelper {
-
-    private static Logger logger = Logger.getLogger(JSONHelper.class);
-
-    JSONHelper() {
-        // PropertyConfigurator.configure("log4j.properties");
-    }
+    import org.apache.commons.lang3.text.WordUtils;
+    import org.apache.log4j.Logger;
+    import org.json.JSONArray;
+    import org.json.JSONException;
+    import org.json.JSONObject;
 
     /**
-     * This method parses an JSON Array out of a collection of JSON Objects
-     * within a string.
+     * This class provides the methods to parse JSON Data from a JSON Formatted
+     * String.
      *
-     * @param jSonData
-     *            The JSON String that holds the collection.
-     * @return An JSON Array that would contains all the collection object.
-     * @throws Exception
-     */
-    public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) throws Exception {
-        JSONArray jsonArray = new JSONArray();
-        jsonArray = jsonObject.optJSONObject("responseMsg").optJSONArray("value");
-        return jsonArray;
-    }
-
-    /**
-     * This method parses an JSON Object out of a collection of JSON Objects
-     * within a string
+     * @author Azure Active Directory Contributor
      *
-     * @param jsonObject
-     * @return An JSON Object that would contains the DirectoryObject.
-     * @throws Exception
      */
-    public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) throws Exception {
-        JSONObject jObj = new JSONObject();
-        jObj = jsonObject.optJSONObject("responseMsg");
-        return jObj;
-    }
+    public class JSONHelper {
 
-    /**
-     * This method parses the skip token from a json formatted string.
-     *
-     * @param jsonData
-     *            The JSON Formatted String.
-     * @return The skipToken.
-     * @throws Exception
-     */
-    public static String fetchNextSkiptoken(JSONObject jsonObject) throws Exception {
-        String skipToken = "";
-        // Parse the skip token out of the string.
-        skipToken = jsonObject.optJSONObject("responseMsg").optString("odata.nextLink");
+        private static Logger logger = Logger.getLogger(JSONHelper.class);
 
-        if (!skipToken.equalsIgnoreCase("")) {
-            // Remove the unnecessary prefix from the skip token.
-            int index = skipToken.indexOf("$skiptoken=") + (new String("$skiptoken=")).length();
-            skipToken = skipToken.substring(index);
+        JSONHelper() {
+            // PropertyConfigurator.configure("log4j.properties");
         }
-        return skipToken;
-    }
 
-    /**
-     * @param jsonObject
-     * @return
-     * @throws Exception
-     */
-    public static String fetchDeltaLink(JSONObject jsonObject) throws Exception {
-        String deltaLink = "";
-        // Parse the skip token out of the string.
-        deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.deltaLink");
-        if (deltaLink == null || deltaLink.length() == 0) {
-            deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.nextLink");
-            logger.info("deltaLink empty, nextLink ->" + deltaLink);
-
+        /**
+         * This method parses an JSON Array out of a collection of JSON Objects
+         * within a string.
+         *
+         * @param jSonData
+         *            The JSON String that holds the collection.
+         * @return An JSON Array that would contains all the collection object.
+         * @throws Exception
+         */
+        public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) throws Exception {
+            JSONArray jsonArray = new JSONArray();
+            jsonArray = jsonObject.optJSONObject("responseMsg").optJSONArray("value");
+            return jsonArray;
         }
-        if (!deltaLink.equalsIgnoreCase("")) {
-            // Remove the unnecessary prefix from the skip token.
-            int index = deltaLink.indexOf("deltaLink=") + (new String("deltaLink=")).length();
-            deltaLink = deltaLink.substring(index);
-        }
-        return deltaLink;
-    }
 
-    /**
-     * This method would create a string consisting of a JSON document with all
-     * the necessary elements set from the HttpServletRequest request.
-     *
-     * @param request
-     *            The HttpServletRequest
-     * @return the string containing the JSON document.
-     * @throws Exception
-     *             If there is any error processing the request.
-     */
-    public static String createJSONString(HttpServletRequest request, String controller) throws Exception {
-        JSONObject obj = new JSONObject();
-        try {
-            Field[] allFields = Class.forName(
-                    "com.microsoft.windowsazure.activedirectory.sdk.graph.models." + controller).getDeclaredFields();
-            String[] allFieldStr = new String[allFields.length];
-            for (int i = 0; i < allFields.length; i++) {
-                allFieldStr[i] = allFields[i].getName();
+        /**
+         * This method parses an JSON Object out of a collection of JSON Objects
+         * within a string
+         *
+         * @param jsonObject
+         * @return An JSON Object that would contains the DirectoryObject.
+         * @throws Exception
+         */
+        public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) throws Exception {
+            JSONObject jObj = new JSONObject();
+            jObj = jsonObject.optJSONObject("responseMsg");
+            return jObj;
+        }
+
+        /**
+         * This method parses the skip token from a json formatted string.
+         *
+         * @param jsonData
+         *            The JSON Formatted String.
+         * @return The skipToken.
+         * @throws Exception
+         */
+        public static String fetchNextSkiptoken(JSONObject jsonObject) throws Exception {
+            String skipToken = "";
+            // Parse the skip token out of the string.
+            skipToken = jsonObject.optJSONObject("responseMsg").optString("odata.nextLink");
+
+            if (!skipToken.equalsIgnoreCase("")) {
+                // Remove the unnecessary prefix from the skip token.
+                int index = skipToken.indexOf("$skiptoken=") + (new String("$skiptoken=")).length();
+                skipToken = skipToken.substring(index);
             }
-            List<String> allFieldStringList = Arrays.asList(allFieldStr);
-            Enumeration<String> fields = request.getParameterNames();
+            return skipToken;
+        }
 
-            while (fields.hasMoreElements()) {
+        /**
+         * @param jsonObject
+         * @return
+         * @throws Exception
+         */
+        public static String fetchDeltaLink(JSONObject jsonObject) throws Exception {
+            String deltaLink = "";
+            // Parse the skip token out of the string.
+            deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.deltaLink");
+            if (deltaLink == null || deltaLink.length() == 0) {
+                deltaLink = jsonObject.optJSONObject("responseMsg").optString("aad.nextLink");
+                logger.info("deltaLink empty, nextLink ->" + deltaLink);
 
-                String fieldName = fields.nextElement();
-                String param = request.getParameter(fieldName);
-                if (allFieldStringList.contains(fieldName)) {
-                    if (param == null || param.length() == 0) {
-                        if (!fieldName.equalsIgnoreCase("password")) {
-                            obj.put(fieldName, JSONObject.NULL);
-                        }
-                    } else {
-                        if (fieldName.equalsIgnoreCase("password")) {
-                            obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
+            }
+            if (!deltaLink.equalsIgnoreCase("")) {
+                // Remove the unnecessary prefix from the skip token.
+                int index = deltaLink.indexOf("deltaLink=") + (new String("deltaLink=")).length();
+                deltaLink = deltaLink.substring(index);
+            }
+            return deltaLink;
+        }
+
+        /**
+         * This method would create a string consisting of a JSON document with all
+         * the necessary elements set from the HttpServletRequest request.
+         *
+         * @param request
+         *            The HttpServletRequest
+         * @return the string containing the JSON document.
+         * @throws Exception
+         *             If there is any error processing the request.
+         */
+        public static String createJSONString(HttpServletRequest request, String controller) throws Exception {
+            JSONObject obj = new JSONObject();
+            try {
+                Field[] allFields = Class.forName(
+                        "com.microsoft.windowsazure.activedirectory.sdk.graph.models." + controller).getDeclaredFields();
+                String[] allFieldStr = new String[allFields.length];
+                for (int i = 0; i < allFields.length; i++) {
+                    allFieldStr[i] = allFields[i].getName();
+                }
+                List<String> allFieldStringList = Arrays.asList(allFieldStr);
+                Enumeration<String> fields = request.getParameterNames();
+
+                while (fields.hasMoreElements()) {
+
+                    String fieldName = fields.nextElement();
+                    String param = request.getParameter(fieldName);
+                    if (allFieldStringList.contains(fieldName)) {
+                        if (param == null || param.length() == 0) {
+                            if (!fieldName.equalsIgnoreCase("password")) {
+                                obj.put(fieldName, JSONObject.NULL);
+                            }
                         } else {
-                            obj.put(fieldName, param);
+                            if (fieldName.equalsIgnoreCase("password")) {
+                                obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
+                            } else {
+                                obj.put(fieldName, param);
 
+                            }
                         }
                     }
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return obj.toString();
-    }
-
-    /**
-     *
-     * @param key
-     * @param value
-     * @return string format of this JSON obje
-     * @throws Exception
-     */
-    public static String createJSONString(String key, String value) throws Exception {
-
-        JSONObject obj = new JSONObject();
-        try {
-            obj.put(key, value);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return obj.toString();
         }
 
-        return obj.toString();
-    }
+        /**
+         *
+         * @param key
+         * @param value
+         * @return string format of this JSON obje
+         * @throws Exception
+         */
+        public static String createJSONString(String key, String value) throws Exception {
 
-    /**
-     * This is a generic method that copies the simple attribute values from an
-     * argument jsonObject to an argument generic object.
-     *
-     * @param jsonObject
-     *            The jsonObject from where the attributes are to be copied.
-     * @param destObject
-     *            The object where the attributes should be copied into.
-     * @throws Exception
-     *             Throws a Exception when the operation are unsuccessful.
-     */
-    public static <T> void convertJSONObjectToDirectoryObject(JSONObject jsonObject, T destObject) throws Exception {
+            JSONObject obj = new JSONObject();
+            try {
+                obj.put(key, value);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        // Get the list of all the field names.
-        Field[] fieldList = destObject.getClass().getDeclaredFields();
+            return obj.toString();
+        }
 
-        // For all the declared field.
-        for (int i = 0; i < fieldList.length; i++) {
-            // If the field is of type String, that is
-            // if it is a simple attribute.
-            if (fieldList[i].getType().equals(String.class)) {
-                // Invoke the corresponding set method of the destObject using
-                // the argument taken from the jsonObject.
-                destObject
-                        .getClass()
-                        .getMethod(String.format("set%s", WordUtils.capitalize(fieldList[i].getName())),
-                                new Class[] { String.class })
-                        .invoke(destObject, new Object[] { jsonObject.optString(fieldList[i].getName()) });
+        /**
+         * This is a generic method that copies the simple attribute values from an
+         * argument jsonObject to an argument generic object.
+         *
+         * @param jsonObject
+         *            The jsonObject from where the attributes are to be copied.
+         * @param destObject
+         *            The object where the attributes should be copied into.
+         * @throws Exception
+         *             Throws a Exception when the operation are unsuccessful.
+         */
+        public static <T> void convertJSONObjectToDirectoryObject(JSONObject jsonObject, T destObject) throws Exception {
+
+            // Get the list of all the field names.
+            Field[] fieldList = destObject.getClass().getDeclaredFields();
+
+            // For all the declared field.
+            for (int i = 0; i < fieldList.length; i++) {
+                // If the field is of type String, that is
+                // if it is a simple attribute.
+                if (fieldList[i].getType().equals(String.class)) {
+                    // Invoke the corresponding set method of the destObject using
+                    // the argument taken from the jsonObject.
+                    destObject
+                            .getClass()
+                            .getMethod(String.format("set%s", WordUtils.capitalize(fieldList[i].getName())),
+                                    new Class[] { String.class })
+                            .invoke(destObject, new Object[] { jsonObject.optString(fieldList[i].getName()) });
+                }
             }
         }
+
+        public static JSONArray joinJSONArrays(JSONArray a, JSONArray b) {
+            JSONArray comb = new JSONArray();
+            for (int i = 0; i < a.length(); i++) {
+                comb.put(a.optJSONObject(i));
+            }
+            for (int i = 0; i < b.length(); i++) {
+                comb.put(b.optJSONObject(i));
+            }
+            return comb;
+        }
+
     }
 
-    public static JSONArray joinJSONArrays(JSONArray a, JSONArray b) {
-        JSONArray comb = new JSONArray();
-        for (int i = 0; i < a.length(); i++) {
-            comb.put(a.optJSONObject(i));
-        }
-        for (int i = 0; i < b.length(); i++) {
-            comb.put(b.optJSONObject(i));
-        }
-        return comb;
-    }
+    ```
 
-}
+3. Create a file called `HttpClientHelper.java`, which you will use to help parse from HTTP data from our AAD endpoint. To creat the file, paste the following code:
 
-```
+    ```Java
 
-3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can cut/paste this from below:
+    package com.microsoft.aad.adal4jsample;
 
-```Java
+    import java.io.BufferedReader;
+    import java.io.ByteArrayOutputStream;
+    import java.io.IOException;
+    import java.io.InputStream;
+    import java.io.InputStreamReader;
+    import java.io.OutputStreamWriter;
+    import java.net.HttpURLConnection;
 
-package com.microsoft.aad.adal4jsample;
-
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-/**
- * This is Helper class for all RestClient class.
- *
- * @author Azure Active Directory Contributor
- *
- */
-public class HttpClientHelper {
-
-    public HttpClientHelper() {
-        super();
-    }
-
-    public static String getResponseStringFromConn(HttpURLConnection conn, boolean isSuccess) throws IOException {
-
-        BufferedReader reader = null;
-        if (isSuccess) {
-            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        } else {
-            reader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        String line = "";
-        while ((line = reader.readLine()) != null) {
-            stringBuffer.append(line);
-        }
-
-        return stringBuffer.toString();
-    }
-
-    public static String getResponseStringFromConn(HttpURLConnection conn, String payLoad) throws IOException {
-
-        // Send the http message payload to the server.
-        if (payLoad != null) {
-            conn.setDoOutput(true);
-            OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
-            osw.write(payLoad);
-            osw.flush();
-            osw.close();
-        }
-
-        // Get the message response from the server.
-        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String line = "";
-        StringBuffer stringBuffer = new StringBuffer();
-        while ((line = br.readLine()) != null) {
-            stringBuffer.append(line);
-        }
-
-        br.close();
-
-        return stringBuffer.toString();
-    }
-
-    public static byte[] getByteaArrayFromConn(HttpURLConnection conn, boolean isSuccess) throws IOException {
-
-        InputStream is = conn.getInputStream();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        byte[] buff = new byte[1024];
-        int bytesRead = 0;
-
-        while ((bytesRead = is.read(buff, 0, buff.length)) != -1) {
-            baos.write(buff, 0, bytesRead);
-        }
-
-        byte[] bytes = baos.toByteArray();
-        baos.close();
-        return bytes;
-    }
+    import org.json.JSONException;
+    import org.json.JSONObject;
 
     /**
-     * for bad response, whose responseCode is not 200 level
+     * This is Helper class for all RestClient class.
      *
-     * @param responseCode
-     * @param errorCode
-     * @param errorMsg
-     * @return
-     * @throws JSONException
-     */
-    public static JSONObject processResponse(int responseCode, String errorCode, String errorMsg) throws JSONException {
-        JSONObject response = new JSONObject();
-        response.put("responseCode", responseCode);
-        response.put("errorCode", errorCode);
-        response.put("errorMsg", errorMsg);
-
-        return response;
-    }
-
-    /**
-     * for bad response, whose responseCode is not 200 level
+     * @author Azure Active Directory Contributor
      *
-     * @param responseCode
-     * @param errorCode
-     * @param errorMsg
-     * @return
-     * @throws JSONException
      */
-    public static JSONObject processGoodRespStr(int responseCode, String goodRespStr) throws JSONException {
-        JSONObject response = new JSONObject();
-        response.put("responseCode", responseCode);
-        if (goodRespStr.equalsIgnoreCase("")) {
-            response.put("responseMsg", "");
-        } else {
-            response.put("responseMsg", new JSONObject(goodRespStr));
+    public class HttpClientHelper {
+
+        public HttpClientHelper() {
+            super();
         }
 
-        return response;
-    }
+        public static String getResponseStringFromConn(HttpURLConnection conn, boolean isSuccess) throws IOException {
 
-    /**
-     * for good response
-     *
-     * @param responseCode
-     * @param responseMsg
-     * @return
-     * @throws JSONException
-     */
-    public static JSONObject processBadRespStr(int responseCode, String responseMsg) throws JSONException {
+            BufferedReader reader = null;
+            if (isSuccess) {
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            } else {
+                reader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
 
-        JSONObject response = new JSONObject();
-        response.put("responseCode", responseCode);
-        if (responseMsg.equalsIgnoreCase("")) { // good response is empty string
-            response.put("responseMsg", "");
-        } else { // bad response is json string
-            JSONObject errorObject = new JSONObject(responseMsg).optJSONObject("odata.error");
+            return stringBuffer.toString();
+        }
 
-            String errorCode = errorObject.optString("code");
-            String errorMsg = errorObject.optJSONObject("message").optString("value");
+        public static String getResponseStringFromConn(HttpURLConnection conn, String payLoad) throws IOException {
+
+            // Send the http message payload to the server.
+            if (payLoad != null) {
+                conn.setDoOutput(true);
+                OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
+                osw.write(payLoad);
+                osw.flush();
+                osw.close();
+            }
+
+            // Get the message response from the server.
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line = "";
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((line = br.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+
+            br.close();
+
+            return stringBuffer.toString();
+        }
+
+        public static byte[] getByteaArrayFromConn(HttpURLConnection conn, boolean isSuccess) throws IOException {
+
+            InputStream is = conn.getInputStream();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buff = new byte[1024];
+            int bytesRead = 0;
+
+            while ((bytesRead = is.read(buff, 0, buff.length)) != -1) {
+                baos.write(buff, 0, bytesRead);
+            }
+
+            byte[] bytes = baos.toByteArray();
+            baos.close();
+            return bytes;
+        }
+
+        /**
+         * for bad response, whose responseCode is not 200 level
+         *
+         * @param responseCode
+         * @param errorCode
+         * @param errorMsg
+         * @return
+         * @throws JSONException
+         */
+        public static JSONObject processResponse(int responseCode, String errorCode, String errorMsg) throws JSONException {
+            JSONObject response = new JSONObject();
             response.put("responseCode", responseCode);
             response.put("errorCode", errorCode);
             response.put("errorMsg", errorMsg);
+
+            return response;
         }
 
-        return response;
+        /**
+         * for bad response, whose responseCode is not 200 level
+         *
+         * @param responseCode
+         * @param errorCode
+         * @param errorMsg
+         * @return
+         * @throws JSONException
+         */
+        public static JSONObject processGoodRespStr(int responseCode, String goodRespStr) throws JSONException {
+            JSONObject response = new JSONObject();
+            response.put("responseCode", responseCode);
+            if (goodRespStr.equalsIgnoreCase("")) {
+                response.put("responseMsg", "");
+            } else {
+                response.put("responseMsg", new JSONObject(goodRespStr));
+            }
+
+            return response;
+        }
+
+        /**
+         * for good response
+         *
+         * @param responseCode
+         * @param responseMsg
+         * @return
+         * @throws JSONException
+         */
+        public static JSONObject processBadRespStr(int responseCode, String responseMsg) throws JSONException {
+
+            JSONObject response = new JSONObject();
+            response.put("responseCode", responseCode);
+            if (responseMsg.equalsIgnoreCase("")) { // good response is empty string
+                response.put("responseMsg", "");
+            } else { // bad response is json string
+                JSONObject errorObject = new JSONObject(responseMsg).optJSONObject("odata.error");
+
+                String errorCode = errorObject.optString("code");
+                String errorMsg = errorObject.optJSONObject("message").optString("value");
+                response.put("responseCode", responseCode);
+                response.put("errorCode", errorCode);
+                response.put("errorMsg", errorMsg);
+            }
+
+            return response;
+        }
+
     }
 
-}
+    ```
 
-```
-
-## 6. Create the Java Graph API Model files (for BasicFilter MVC)
-As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
+## Step 6: Create the Java Graph API Model files (for BasicFilter MVC)
+As indicated previously, you'll use the Graph API to get data about the signed-in user. To make this process easy, create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
 1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
 
@@ -1319,9 +1319,9 @@ public class User extends DirectoryObject{
 ## 7. Create the Authentication Model/Controller files (for BasicFilter)
 Yes, Java is rather verbose, but we're almost done. Next to last, before we write the BasicFilter servlet to handle our requests, let's write some more helper files that the `ADAL4J` library needs.
 
-1. Create a file called `AuthHelper.java` which will give us methods that we'll use to determine the state of the logged in use. These include:
+1. Create a file called `AuthHelper.java` which will give us methods that we'll use to determine the state of the signed-in use. These include:
 
-* `isAuthenticated()` method which returns if the user is logged in or not
+* `isAuthenticated()` method which returns whether the user is signed in or not
 * `containsAuthenticationData()` which will tell us if the token has data or not
 * `isAuthenticationSuccessful()` which will tell us if the authentication was successful for the user.
 
@@ -1715,7 +1715,7 @@ public class BasicFilter implements Filter {
 }
 ```
 
-This servlet exposes all of the methods that `ADAL4J` will expect from our application to run. This includes:
+This servlet exposes all of the methods that `ADAL4J` will expect from our app to run. This includes:
 
 * `getAccessTokenFromClientCredentials()` - gets access token from our secret
 * `getAccessTokenFromRefreshToken()` - gets access token from a refresh token
@@ -1738,7 +1738,7 @@ You should now have a `adal4jsample.war` file in your `/targets` directory. You 
 >
 
 ## Next Steps
-Congratulations! You now have a working Java application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users.
+Congratulations! You now have a working Java app that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users.
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), or you can clone it from GitHub:
 
