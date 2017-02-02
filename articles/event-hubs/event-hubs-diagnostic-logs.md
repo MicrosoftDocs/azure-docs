@@ -72,24 +72,24 @@ durationInSeconds | Duration of failure
 message | Error message
 category | ArchiveLogs
 
-#### Exacmple Archive log
+#### Example Archive log
 
-'''json
-        {
-			 "TaskName": "EventHubArchiveUserError",
-			 "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
-			 "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
-			 "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-			 "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
-			 "partitionId": "1",
-			 "archiveStep": "ArchiveFlushWriter",
-			 "startTime": "9/22/2016 5:11:21 AM",
-			 "failures": 3,
-			 "durationInSeconds": 360,
-			 "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException\[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase\`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b\__3e(RESTCommand\`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse\[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c\__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
-			 "category": "ArchiveLogs"
-		}
-'''
+```json
+{
+	 "TaskName": "EventHubArchiveUserError",
+	 "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
+	 "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
+	 "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+	 "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
+	 "partitionId": "1",
+	 "archiveStep": "ArchiveFlushWriter",
+	 "startTime": "9/22/2016 5:11:21 AM",
+	 "failures": 3,
+	 "durationInSeconds": 360,
+	 "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
+	 "category": "ArchiveLogs"
+}
+```
 
 ### Operation logs schema
 Name | Description
@@ -106,20 +106,20 @@ category | |OperationalLogs
 
 #### Example Operation log
 
-'''json
+```json
 Example: 
-		{
-			 "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
-			 "EventName": "Create EventHub",
-			 "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
-			 "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
-			 "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-			 "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
-			 "Status": "Succeeded",
-			 "Caller": "ServiceBus Client",
-			 "category": "OperationalLogs"
-		}
-'''
+{
+	 "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+	 "EventName": "Create EventHub",
+	 "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
+	 "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+	 "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+	 "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+	 "Status": "Succeeded",
+	 "Caller": "ServiceBus Client",
+	 "category": "OperationalLogs"
+}
+```
 
 ## Next steps
 * [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
