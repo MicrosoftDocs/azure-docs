@@ -6,9 +6,7 @@ ms.locale: en-US
 ---
 
 
-# How licenses work for Office and SharePoint Add-ins
-Find out how add-in licenses work and the best way to implement licensing checks in your add-ins.
- 
+# How licenses work for Office and SharePoint Add-ins 
 
 The licensing framework for Office and SharePoint Add-ins gives you a way to include code in your add-ins to verify and enforce their legal use. You can restrict access to your add-ins to only those users who have a valid license, or specify which features are available, how the add-in behaves, or other logic, based on the properties of that license. To write effective license checks, it is important to understand the types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
  
@@ -35,13 +33,13 @@ The add-in license categories used by the Office Store are based on how or wheth
 
 - Task pane and content add-ins can be Free, Paid, or Subscription priced, and are offered on a Per-User basis only.
     
-     **Important**  To help you maximize reach and adoption, task pane and content add-ins allow anonymous access. Users don't have to sign in to Office with their Microsoft account to activate Office Add-ins. By default, if your task pane or content add-in does not implement licensing checks, it will present the same UI and functionality to anonymous users as it does to licensed users.See  [Add-in license tokens and anonymous access for Office Add-ins](license-your-office-and-sharepoint-add-ins.md#bk_anonymous) in [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md) for more information.
+     > **Important:**  To help you maximize reach and adoption, task pane and content add-ins allow anonymous access. Users don't have to sign in to Office with their Microsoft account to activate Office Add-ins. By default, if your task pane or content add-in does not implement licensing checks, it will present the same UI and functionality to anonymous users as it does to licensed users.See  [Add-in license tokens and anonymous access for Office Add-ins](license-your-office-and-sharepoint-add-ins.md#bk_anonymous) in [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md) for more information.
 - Outlook add-ins can be Free, Paid, or Subscription priced, and offered on a Per-User or Site basis. Outlook add-ins bought on a Per-User basis apply only to the person who bought them. Only administrators can buy add-ins on a site license basis and make them available to all users in their organization. 
     
  
 - SharePoint Add-ins can be Free, Paid, or Subscription priced, and offered on a Per-User or Site basis.
     
-     **Note**  SharePoint 2013 does not support subscription licensing.
+     >**Note:**  SharePoint 2013 does not support subscription licensing.
 SharePoint 2013 maps the license categories used by the Office Store to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by the Office Store.
  
 
@@ -100,7 +98,7 @@ The following figure shows the add-in license acquisition process for content an
  
 ![App purchase process from Office Store](images/SP15_app_licensePurchase.png)
  
- **Acquiring an add-in license from an add-in catalog**
+ ### Acquiring an add-in license from an add-in catalog
  
 
  
@@ -112,7 +110,7 @@ The following figure shows the add-in license acquisition process for Office Add
  
 ![Office app purchase process from corporate catalog](images/O15_app_license_PurchaseCorpCatalog.png)
  
- **Acquiring an add-in license for an Outlook add-in**
+ ### Acquiring an add-in license for an Outlook add-in
  
 
  
@@ -124,7 +122,7 @@ The following figure shows the add-in license acquisition process for Outlook ad
  
 ![Mail app purchase from the Office Store](images/O15_mapp_license_Purchase.png)
  
- **Acquiring an add-in license for a SharePoint Add-in**
+ ### Acquiring an add-in license for a SharePoint Add-in
  
 
  
@@ -252,7 +250,7 @@ Apply the following best practices when you create and enforce add-in licenses a
 -  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md)
     
  
--  **VerificationSvc**
+-  [VerificationSvc](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
     
  
 
