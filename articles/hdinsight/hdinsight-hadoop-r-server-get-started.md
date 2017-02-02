@@ -100,7 +100,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
       If a new storage account option was selected a prompt to select **Location** will be given to select which region to create the storage account.  
    
-   ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)  
+         ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)  
    
       > [!IMPORTANT]
       > Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be in the same region.
