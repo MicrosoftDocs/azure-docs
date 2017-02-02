@@ -47,7 +47,7 @@ The following information will describe the experience of using the Microsoft Au
 1. Sign in to an application or service such as Office 365 using your user name and password.
 2. Microsoft sends a notification to the Microsoft Authenticator app on your device.
 
-![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
+  ![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Open the notification on your phone and select the **Verify** key. If your company requires a PIN, enter it here.
 4. You should now be signed in.
@@ -59,7 +59,7 @@ If you use the Microsoft Authenticator app to get verification codes, then when 
 1. Sign in to an application or service such as Office 365 using your user name and password.
 2. Microsoft will prompt you for a verification code.
 
-![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
+  ![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
 4. You should now be signed in.
@@ -70,14 +70,14 @@ Sometimes you don't have the phone or device that you set up as your preferred v
 1. Sign in to an application or service such as Office 365 using your user name and password.
 2. Select **Use a different verification option**. You will see different verification options based on on how many you have setup.
 
-![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
+  ![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 3. Choose an alternate method and sign in.
 
 ## Next steps
 
-- If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-- Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
+Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
 
-- Find out how to [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) so that you can use notifications to sign in, instead of texts and phone calls. 
+Find out how to [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) so that you can use notifications to sign in, instead of texts and phone calls. 
