@@ -99,7 +99,7 @@ The following modules are limited to datasets less than 10 GB:
 * Cross-validation, Tune Model Hyperparameters, Ordinal Regression, and One-vs-All Multiclass, when the number of iterations is very large
 
 #### <a id="UploadLimit"></a>What are the limits for data upload?
-For datasets that are larger than a couple GBs, upload data to Azure Storage or Azure SQL Database, or use HDInsight rather than directly uploading from a local file.
+For datasets that are larger than a couple GBs, upload data to Azure Storage or Azure SQL Database, or use Azure HDInsight rather than directly uploading from a local file.
 
 **Can I read data from Amazon S3?**
 
@@ -135,7 +135,7 @@ You can execute up to four modules in parallel in an experiment.
 
 Click the output of a module to visualize the data and get statistics.
 
-**When previewing results or data in a browser, the number of rows and columns is limited, why?**
+**When previewing results or data in a browser, the number of rows and columns is limited. Why?**
 
 Because large amounts of data might be sent to a browser, data size is limited to prevent slowing down Machine Learning Studio. To visualize all the data/results, it's better to download the data and use Excel or another tool.
 
@@ -146,7 +146,7 @@ Machine Learning Studio provides state-of-the-art algorithms, such as Scalable B
 
 **Do you automatically suggest the right Machine Learning algorithm to use for my data?**
 
-No, but, Machine Learning Studio has various ways to compare the results of each algorithm to determine the right one for your problem.
+No, but Machine Learning Studio has various ways to compare the results of each algorithm to determine the right one for your problem.
 
 **Do you have any guidelines on picking one algorithm over another for the provided algorithms?**
 
@@ -416,7 +416,7 @@ When you first deploy a Resource Manager-based web service, you can choose an ex
 
 Plans that you create in this manner are in your default region, and your web service will be deployed to that region.
 
-If you want to deploy services to regions other than your default region, you may want to define your billing plans before you deploy your service,
+If you want to deploy services to regions other than your default region, you may want to define your billing plans before you deploy your service.
 
 In that case, you can sign in to the Azure Machine Learning Web Services portal, and go to the Plans page. From there, you can add plans, delete plans, and modify existing plans.
 
