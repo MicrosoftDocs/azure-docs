@@ -57,7 +57,7 @@ After you connect, you should be able to [run other CLI commands](service-fabric
 
 <a id="connectsecurecluster"></a>
 
-## Connect to a secure cluster using PowerShell
+## Connect to a cluster using PowerShell
 Before you perform operations on a cluster through PowerShell, first establish a connection to the cluster. The cluster connection is used for all subsequent commands in the given PowerShell session.
 
 ### Connect to an unsecure cluster
@@ -103,7 +103,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## Connect to a secure cluster using the FabricClient APIs
+## Connect to a cluster using the FabricClient APIs
 The Service Fabric SDK provides the [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) class for cluster management. 
 
 ### Connect to an unsecure cluster
