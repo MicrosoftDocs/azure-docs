@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: juliako
 
 ---
@@ -32,6 +32,10 @@ Video files. Currently, the following formats are supported: MP4, MOV, and WMV.
 
 ## Task configuration
 Task configuration (preset). When creating a task with **Azure Media OCR**, you must specify a configuration preset using JSON  or XML. 
+
+>[!NOTE]
+>The OCR engine only takes an image region with minimum 40 pixels to maximum 32000 pixels as a valid input in both height/width.
+>
 
 ### Attribute descriptions
 | Attribute name | Description |
