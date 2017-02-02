@@ -20,7 +20,7 @@ ms.author: sasubram
 
 ---
 
-# How do information workers add B2B collaboration users?
+# How do information workers add B2B collaboration users to Azure Active Directory?
 
 Information workers can use the [Application Access Panel](http://myapps.microsoft.com) to add B2B collaboration users to groups and applications that they are administer.
 
@@ -44,6 +44,10 @@ This is the scenario in which this is most useful:
 2. The admin in the host organization sets up policies that allow Sam to identify and add other users from the partner organization (Litware).
 4. Now Sam can add other users from Litware to the WoodGrove directory, groups or applications without needing invitations to be redeemed. If Sam has the appropriate enumeration privileges in Litware, this happens automatically.
 
+
+## Related articles
+
+Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
