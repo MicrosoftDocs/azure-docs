@@ -45,9 +45,9 @@ For details about S2D, see [Windows Server 2016 Datacenter edition Storage Space
 
 S2D supports two types of architectures - converged and hyper-converged. The architecture in this document is hyper-converged. A hyper-converged infrastructure places the storage on the same servers that host the clustered application. In this architecture, the storage is on each SQL Server FCI node.
 
-## Example Azure template
+### Example Azure template
 
-You can create the entire solution in Azure from a template. An example of a template is available for free in the GitHub [Azure Quickstart Templates](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad). This example is not designed or tested for any specific workload. You can evaluate the template, and modify it for your purposes. 
+You can create the entire solution in Azure from a template. An example of a template is available in the GitHub [Azure Quickstart Templates](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad). This example is not designed or tested for any specific workload. You can run the template to create a SQL Server FCI with S2D storage connected to your domain. You can evaluate the template, and modify it for your purposes. 
 
 ## Before you begin
 
@@ -162,7 +162,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. 
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. [Add storage](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../../../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
    Both virtual machines need at least two data disks.
 
