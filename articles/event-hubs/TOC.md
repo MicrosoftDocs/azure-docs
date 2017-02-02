@@ -13,6 +13,7 @@
 
 # How to
 ## Run the samples
+### [Event Hubs samples overview](event-hubs-samples.md)
 ### [Notify users of data received from sensors](event-hubs-sensors-notify-users.md)
 ### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
 ### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
