@@ -1,6 +1,6 @@
 ---
-title: Create an Event Hub | Microsoft Docs
-description: Create an Event Hubs namespace and an Event Hub using the Azure portal
+title: Create an Azure Event Hub | Microsoft Docs
+description: Create an Azure Event Hubs namespace and an Event Hub using the Azure portal
 services: event-hubs
 documentationcenter: na
 author: jtaubensee

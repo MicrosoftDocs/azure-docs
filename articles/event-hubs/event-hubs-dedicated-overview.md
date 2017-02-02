@@ -64,5 +64,5 @@ Contact your Microsoft sales representative or Microsoft Support to get addition
 
 For detailed information about pricing, visit the following links:
 
-- [Event Hubs Dedicated pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
+- [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
 - The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs. 

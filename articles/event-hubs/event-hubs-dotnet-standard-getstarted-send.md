@@ -19,10 +19,8 @@ ms.author: jotaub
 
 # Get started sending messages to Event Hubs in .NET Standard
 
-> **Note**
-> 
+> [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleSender).
->
 
 ## What will be accomplished
 
@@ -46,7 +44,7 @@ To send messages to an Event Hub, we will write a C# console application using V
 
 ### Create a console application
 
-1. Launch Visual Studio and create a new .NET Core console application.
+* Launch Visual Studio and create a new .NET Core console application.
 
 ### Add the Event Hubs NuGet package
 
