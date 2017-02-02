@@ -7,8 +7,6 @@ ms.locale: en-US
 
 
 # Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store
-Make your Office Add-ins, SharePoint Add-ins, or Office 365 web apps available to users in the Office Store.
- 
 
 The Office Store provides a convenient location for you to upload new solutions that are aimed both at consumers and businesses. To include your app or add-in in the Office Store, you submit it to the Microsoft  [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You will need to create an individual or company account and, if applicable, add payout information. For details, see:
  
@@ -18,11 +16,7 @@ The Office Store provides a convenient location for you to upload new solutions 
     
  
 -  [Use the Seller Dashboard to submit your app or add-in to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md).
-    
- 
 
-
- 
 
 
 ## App or add-in approval process
@@ -30,30 +24,15 @@ The Office Store provides a convenient location for you to upload new solutions 
 
 After your account is approved, you can submit your apps or add-ins to the Seller Dashboard. You can make changes at any point before you submit for approval, but during the approval process, you won't be able to make any changes. 
  
-
- 
 In order for your app or add-in to be approved:
- 
-
- 
 
 - It must be free of viruses. If you need virus detection software, see the  [Microsoft Safety &amp; Security Center](http://go.microsoft.com/fwlink/?LinkId=248711).
-    
- 
 - It must not contain inadmissible or offensive material.
-    
- 
 - It must be stable and functional.
-    
- 
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
-    
- 
 - If you want a tailored experience for users in regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
-    
- 
 
- **Note**  For more information, see  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md).
+ >**Note:**  For more information, see  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md).
  
 
 When the validation process is complete, you will receive a message to let you know that either your app or add-in is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
