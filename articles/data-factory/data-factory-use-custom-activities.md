@@ -56,7 +56,7 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
 
 1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
-	1. On the home page for Azure Batch account, you see an **URL** in the following format: **https://myaccount.westus.batch.azure.com**. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: **https://westus.batch.azure.com**.
+	1. On the home page for Azure Batch account, you see a **URL** in the following format: **https://myaccount.westus.batch.azure.com**. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: **https://westus.batch.azure.com**.
 	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
 	3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
 2. Create an **Azure Batch pool**.
@@ -383,7 +383,7 @@ You have created a custom activity and uploaded the zip file with binaries to a 
 
 The input dataset for the custom activity represents blobs (files) in the customactivityinput folder of adftutorial container in the blob storage. The output dataset for the activity represents output blobs in the customactivityoutput folder of adftutorial container in the blob storage.
 
-Create **file.txt** file with the following content and upload it to  **customactivityinput** folder of the **adftutorial** container. Create the adftutorial container if it does not exist already. 
+Create **file.txt** file with the following content and upload it to **customactivityinput** folder of the **adftutorial** container. Create the adftutorial container if it does not exist already. 
 
 ```
 test custom activity Microsoft test custom activity Microsoft
