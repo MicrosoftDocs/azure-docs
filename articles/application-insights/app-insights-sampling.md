@@ -100,6 +100,14 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     The value assigned when the app has just started. Don't reduce this while you're debugging. 
+    
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    A semi-colon delimited list of types that you do not want to be sampled. Possible types are "Dependency", "Event", "Exception", "PageView", "Request", "Trace". The types specified in the tag will not be sampled; however, the types that are not specified will be sampled. **Available since version 2.2.0**
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    A semi-colon delimited list of types that you want to be sampled. Possible types are "Dependency", "Event", "Exception", "PageView", "Request", "Trace". The types specified in the tag will be sampled; however, the types that are not specified will not be sampled. **Available since version 2.2.0**
 
 ### Alternative: configure adaptive sampling in code
 Instead of adjusting sampling in the .config file, you can use code. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
