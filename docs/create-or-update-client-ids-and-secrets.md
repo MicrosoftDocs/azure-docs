@@ -24,7 +24,7 @@ To update expiring client secrets in SharePoint Add-ins:
     
  
 
- **Important**  Microsoft Office Developer Tools for Visual Studio supports setting a secondary client secret that you can use to update your expiring client secret.
+ > **Important:**  Microsoft Office Developer Tools for Visual Studio supports setting a secondary client secret that you can use to update your expiring client secret.
  
 
 
@@ -52,7 +52,7 @@ For example, your add-in could be a trip calendar add-in that opens as an  **IFR
 
  
 
- **Note**  For more information about OAuth, client ID and client secrets, see  [Authorization and authentication of SharePoint Add-ins](http://msdn.microsoft.com/library/authorization-and-authentication-of-sharepoint-add-ins%28Office.15%29.aspx),  [Context Token OAuth flow for SharePoint Add-ins](http://msdn.microsoft.com/library/context-token-oauth-flow-for-sharepoint-add-ins%28Office.15%29.aspx), and  [Register SharePoint Add-ins 2013](http://msdn.microsoft.com/library/register-sharepoint-add-ins-2013%28Office.15%29.aspx).
+> **Note:**  For more information about OAuth, client ID and client secrets, see  [Authorization and authentication of SharePoint Add-ins](http://msdn.microsoft.com/library/authorization-and-authentication-of-sharepoint-add-ins%28Office.15%29.aspx),  [Context Token OAuth flow for SharePoint Add-ins](http://msdn.microsoft.com/library/context-token-oauth-flow-for-sharepoint-add-ins%28Office.15%29.aspx), and  [Register SharePoint Add-ins 2013](http://msdn.microsoft.com/library/register-sharepoint-add-ins-2013%28Office.15%29.aspx).
  
 
 
@@ -64,7 +64,7 @@ You can associate only one client ID with your add-in, but you can associate mul
 
  
 
- **Important**   To submit a SharePoint Add-in that uses OAuth, and distribute it to China, you must use a separate client ID and client secret for China. You also must: Add a separate add-in package specifically for China. Block access for all countries except China. Create a separate add-in listing for China. For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md). For more information about distributing add-ins for China, see  [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md). 
+ > **Important:**   To submit a SharePoint Add-in that uses OAuth, and distribute it to China, you must use a separate client ID and client secret for China. You also must: Add a separate add-in package specifically for China. Block access for all countries except China. Create a separate add-in listing for China. For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md). For more information about distributing add-ins for China, see  [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md). 
  
 
 Inbound data to your add-in will be signed using only one signing client secret. In the Seller Dashboard, this is the client secret with a green check mark next to it. If you delete the signing client secret that your add-in uses, the next valid client secret will be used instead.
@@ -89,22 +89,22 @@ If your add-in is a service and it will need OAuth client IDs and client secrets
 2. On the  **Client ids** tab, choose **Add a new oauth client id**.
     
  
-3. On the  **Provide details** page, provide the following information.
-    
+3. On the  **Provide details** page, provide the following information.   
 
-|**Item**|**Information to provide**|
-|:-----|:-----|
-|Friendly client ID Name|Choose a name to help you recognize which add-in will use this client ID; for example, "calendar app".|
-|App domain|Provide the domain on which your add-in will run. For example:  `app.contoso.com`This must be a valid domain name that you own; it must not include  `http://` or `https://`; and it must not be an international domain name (IDN).|
-|App redirect URL|Provide the redirect URL to send users to after they agree to your add-in's access requirements in the consent dialog box. This URL must start with  `https://`.|
-|Client secret valid for|Choose how long your client secret will be valid. The recommended time period is one year, because this might be easier to track within your business processes than longer periods. However, there is no security impact to choosing a longer period of time. When the client secret is expiring, you will need to update your add-in.|
-|Client ID and secret availability|Choose  **This Client ID will be used for an add-in that is available worldwide**, or  **This Client ID will be used for an add-in that is available in China only**.|
+    |**Item**|**Information to provide**|
+    |:-----|:-----|
+    |Friendly client ID Name|Choose a name to help you recognize which add-in will use this client ID; for example, "calendar app".|
+    |App domain|Provide the domain on which your add-in will run. For example:  `app.contoso.com`This must be a valid domain name that you own; it must not include  `http://` or `https://`; and it must not be an international domain name (IDN).|
+    |App redirect URL|Provide the redirect URL to send users to after they agree to your add-in's access requirements in the consent dialog box. This URL must start with  `https://`.|
+    |Client secret valid for|Choose how long your client secret will be valid. The recommended time period is one year, because this might be easier to track within your business processes than longer periods. However, there is no security impact to choosing a longer period of time. When the client secret is expiring, you will need to update your add-in.|
+    |Client ID and secret availability|Choose  **This Client ID will be used for an add-in that is available worldwide**, or  **This Client ID will be used for an add-in that is available in China only**.|
+
 4. Choose  **Generate client ID**.
     
  
 5. On the  **obtain client secret** page, copy your client ID and client secret to a secure location so that you can refer to it later.
     
-     **Important**   The client secret is associated with your client ID, but it will not be shown in the Seller Dashboard again. You should also record the start and end dates, so that you will be aware of the client secret period of validity and its expiration date. If your client secret is close to expiring, you will need to generate a new client secret and update your add-in. For more information, see [Update the client secret associated with your client ID](#bk_update) in this topic.
+     >**Important:**   The client secret is associated with your client ID, but it will not be shown in the Seller Dashboard again. You should also record the start and end dates, so that you will be aware of the client secret period of validity and its expiration date. If your client secret is close to expiring, you will need to generate a new client secret and update your add-in. For more information, see [Update the client secret associated with your client ID](#bk_update) in this topic.
 6. Choose  **DONE**.
     
  
@@ -120,7 +120,7 @@ After you create your client ID and client secret, you can add them to the code 
 
  
 
- **Note**  You can add the client ID and client secret to your code at any point in your add-in development process: during development, before testing, or before adding your add-in to the Seller Dashboard. However, to fully test your add-in, we recommend that you add them before you test. You can use the same client ID and secret throughout your add-in development process.If you are unsure where to place the client ID and client secret in your code, refer to the documentation provided for the add-in type you are developing.
+ >**Note:**  You can add the client ID and client secret to your code at any point in your add-in development process: during development, before testing, or before adding your add-in to the Seller Dashboard. However, to fully test your add-in, we recommend that you add them before you test. You can use the same client ID and secret throughout your add-in development process.If you are unsure where to place the client ID and client secret in your code, refer to the documentation provided for the add-in type you are developing.
  
 
 
@@ -129,7 +129,7 @@ After you create your client ID and client secret, you can add them to the code 
 
 1. When you're adding or editing your add-in, on the  **Overview** page, select the **My add-in is a service and requires server to server authorization** check box.
     
-     **Important**   If you are submitting a SharePoint Add-in that uses OAuth, and you want to distribute it to China, you must use a separate client ID and client secret for China:
+     >**Important:**   If you are submitting a SharePoint Add-in that uses OAuth, and you want to distribute it to China, you must use a separate client ID and client secret for China:
 2. Select the friendly name of the OAuth client ID that you want your add-in to use. 
     
     For more information, see  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md).
@@ -148,14 +148,14 @@ Update your client secret in the following situations:
     
     We recommend that you add a new client secret in the Seller Dashboard while your current client secret is still valid. Update your add-in with the new client secret, and then delete the client secret that is close to expiring from the Seller Dashboard.
     
-     **Note**  To update expiring client secrets in SharePoint Add-ins, follow these steps. Note that Microsoft Office Developer Tools for Visual Studio supports setting a secondary client secret that you can use to update your expiring client secret.
+     >**Note:**  To update expiring client secrets in SharePoint Add-ins, follow these steps. Note that Microsoft Office Developer Tools for Visual Studio supports setting a secondary client secret that you can use to update your expiring client secret.
 -  **The security of your client secret is compromised**
     
     To respond to a security compromise quickly, you can delete the compromised client secret from the Seller Dashboard first, add a new client secret, and then update your add-in with the new client secret.
     
  
 
- **Important**  After the compromised client secret is deleted and before the new client secret is added, your add-in might temporarily be unavailable. This might be acceptable depending on the severity of the business impact of a lost or stolen client secret.
+ >**Important:**  After the compromised client secret is deleted and before the new client secret is added, your add-in might temporarily be unavailable. This might be acceptable depending on the severity of the business impact of a lost or stolen client secret.
  
 
 
@@ -176,13 +176,13 @@ Update your client secret in the following situations:
  
 5. Copy your client secret to a secure location so that you can refer to it later.
     
-     **Important**   The client secret is associated with your client ID, but it will not be shown in the Seller Dashboard again. Record the start and end dates so that you will be aware of the client secret period of validity and its expiration date.
+     >**Important:**   The client secret is associated with your client ID, but it will not be shown in the Seller Dashboard again. Record the start and end dates so that you will be aware of the client secret period of validity and its expiration date.
 6. Choose  **DONE**.
     
  
 7. If you didn't copy your client secret to a secure location, choose  **Cancel** in the **Have you copied your client secret?** dialog box. Otherwise, choose **YES**.
     
-     **Note**  The new client secret will be active within 15 minutes.
+     >**Note:**  The new client secret will be active within 15 minutes.
 
 ### To delete a client secret
 
@@ -195,7 +195,7 @@ Update your client secret in the following situations:
  
 3. On your client ID summary page, under  **Client secrets**, choose the  **X** next to the client secret you want to delete.
     
-     **Important**   Deleting a client secret can prevent your add-in from accessing the data it needs, unless you created additional secrets that are valid and that are associated with your add-in, and you configured it to use these additional client secrets. If you have only one client secret associated with the client ID, you might want to generate an additional client secret before you delete it.
+     >**Important:**   Deleting a client secret can prevent your add-in from accessing the data it needs, unless you created additional secrets that are valid and that are associated with your add-in, and you configured it to use these additional client secrets. If you have only one client secret associated with the client ID, you might want to generate an additional client secret before you delete it.
 4. In the  **Are you sure you want to delete this client secret?** dialog box, choose **NO**, if you are not ready to delete this client secret. If you are ready to delete the client secret, choose  **YES**.
     
  
@@ -215,7 +215,7 @@ You might want to delete a client ID in certain situations, for example:
     
  
 
- **Caution**  Deleting a client ID that is associated with your add-in deletes all associated client secrets and prevents it from accessing the data it needs. Any customer using your add-in will experience downtime after you delete a client ID that is associated with it.
+>**Caution:**  Deleting a client ID that is associated with your add-in deletes all associated client secrets and prevents it from accessing the data it needs. Any customer using your add-in will experience downtime after you delete a client ID that is associated with it.
  
 
 
@@ -230,8 +230,8 @@ You might want to delete a client ID in certain situations, for example:
  
 3. On your client ID summary page, under  **OAUTH CLIENT ID**, choose  **DELETE**.
     
-     **Caution**  Deleting a client ID that is associated with your add-in deletes all associated client secrets and prevents it from accessing the data it needs. Any customer using your add-in will experience downtime after you delete a client ID that is associated with it.
-4. If you are not ready to delete this client ID, in the  **Are you sure you want to delete <your client ID's name>?** dialog box, choose **NO**. If you are ready to delete this client ID, choose  **YES**.
+     >**Caution:**  Deleting a client ID that is associated with your add-in deletes all associated client secrets and prevents it from accessing the data it needs. Any customer using your add-in will experience downtime after you delete a client ID that is associated with it.
+4. If you are not ready to delete this client ID, in the  **Are you sure you want to delete {your client ID's name}?** dialog box, choose **NO**. If you are ready to delete this client ID, choose  **YES**.
     
  
 
@@ -245,7 +245,7 @@ You might want to delete a client ID in certain situations, for example:
  
 2. Delete the client ID from your code.
     
-     **Note**  Customers using your add-in will experience downtime after you delete a client ID that is associated with your add-in.
+     >**Note:**  Customers using your add-in will experience downtime after you delete a client ID that is associated with your add-in.
 3. Delete the client ID from the Seller Dashboard, as described in the previous procedure.
     
  
@@ -254,7 +254,7 @@ You might want to delete a client ID in certain situations, for example:
  
 5.  [Submit your updated add-in for approval](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md) in the Seller Dashboard.
     
-     **Caution**  Customers using your add-in will experience downtime during the update to your code and the Seller Dashboard approval process.
+     >**Note:**  Customers using your add-in will experience downtime during the update to your code and the Seller Dashboard approval process.
 
 ## Additional resources
 <a name="bk_addresources"> </a>
