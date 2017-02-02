@@ -81,7 +81,7 @@ You deploy Docker-formatted containers through Marathon by using a JSON file tha
 }
 ```
 
-In order to deploy a Docker-formatted container, store the JSON file in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file (`marathon.json` in this example).
+To deploy a Docker-formatted container, store the JSON file in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file (`marathon.json` in this example).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
@@ -99,7 +99,7 @@ Now, if you query Marathon for applications, this new application appears in the
 curl localhost/marathon/v2/apps
 ```
 
-You can verify that Nginx is running by opening making an HTTP request to the fully qualified domain name of the agent pool, at `http://<containerServiceName>agents.<region>.cloudapp.azure.com`.
+You can verify that Nginx is running by making an HTTP request to the fully qualified domain name of the agent pool, at `http://<containerServiceName>agents.<region>.cloudapp.azure.com`.
 
 ## Scale your containers
 You can use the Marathon API to scale out or scale in application deployments. In the previous example, you deployed one instance of an application. Let's scale this out to three instances of an application. To do so, create a JSON file by using the following JSON text, and store it in an accessible location.
@@ -128,7 +128,7 @@ curl localhost/marathon/v2/apps
 ## Equivalent PowerShell commands
 You can perform these same actions by using PowerShell commands on a Windows system.
 
-To gather information about the DC/OS cluster, such as agent names and agent status, run the following command.
+To gather information about the DC/OS cluster, such as agent names and agent status, run the following command:
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
@@ -155,7 +155,7 @@ You deploy Docker-formatted containers through Marathon by using a JSON file tha
 }
 ```
 
-In order to deploy a Docker-formatted container, store the JSON file in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file (`marathon.json` in this example).
+To deploy a Docker-formatted container, store the JSON file in an accessible location. Next, to deploy the container, run the following command. Specify the name of the JSON file (`marathon.json` in this example).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -167,7 +167,7 @@ You can also use the Marathon API to scale out or scale in application deploymen
 { "instances": 3 }
 ```
 
-Run the following command to scale out the application.
+Run the following command to scale out the application:
 
 > [!NOTE]
 > The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
