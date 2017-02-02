@@ -19,8 +19,7 @@ ms.author: spelluru
 ---
 # Use custom activities in an Azure Data Factory pipeline
 
-Activities in Data Factory: 
-> [!div class="op_single_selector"]
+> [!div class="op_single_selector" title="Activities in Data Factory"]
 > * [Hive](data-factory-hive-activity.md) 
 > * [Pig](data-factory-pig-activity.md)
 > * [MapReduce](data-factory-map-reduce.md)
@@ -29,19 +28,18 @@ Activities in Data Factory:
 > * [Stored Procedure](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [.NET custom](data-factory-use-custom-activities.md)
->
 
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
-* [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-* [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform/process data using computes such as Azure HDInsight, Azure Batch, and Azure Machine Learning. 
+- [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported source and sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning. 
 
 To move data to/from a data store that Data Factory does not support, create a **custom activity** with your own data movement logic and use the activity in a pipeline. Similarly, to transform/process data in a way that isn't supported by Data Factory, create a custom activity with your own data transformation logic and use the activity in a pipeline. 
 
 You can configure a custom activity to run on an **Azure Batch** pool of virtual machines or an **Azure HDInsight** cluster. When using Azure Batch, you can use only an existing Azure Batch pool. Whereas, when using HDInsight, you can use an existing HDInsight cluster or a cluster that is automatically created for you on-demand at runtime.  
 
-The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses an **Azure Batch** linked service. To use an Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (your own HDInsight cluster) or **HDInsightOnDemand** (Data Factory creates an HDInsight cluster on-demand). Then, configure custom activity to use the HDInsight linked service. See [Use Azure HDInsight linked services](#use-azure-hdinsight-linked-services) section for details on using Azure HDInsight to run the custom activity.
+The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses an **Azure Batch** linked service. To use an Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (your own HDInsight cluster) or **HDInsightOnDemand** (Data Factory creates an HDInsight cluster on-demand). Then, configure custom activity to use the HDInsight linked service. See [Use Azure HDInsight linked services](#use-hdinsight-compute-service) section for details on using Azure HDInsight to run the custom activity.
 
 > [!NOTE]
 > It is not possible to use a Data Management Gateway from a custom activity to access on-premises data sources. Currently, [Data Management Gateway](data-factory-data-management-gateway.md) supports only the copy activity and stored procedure activity in Data Factory.   
@@ -52,11 +50,15 @@ The following walkthrough provides step-by-step instructions for creating a cust
 * Download and install [Azure .NET SDK][azure-developer-center]
 
 ### Azure Batch prerequisites
-In the walkthrough, you run your custom .NET activities using Azure Batch as a compute resource. See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service. See [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
+In the walkthrough, you run your custom .NET activities using Azure Batch as a compute resource. **Azure Batch** is a platform service for running large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch schedules compute-intensive work to run on a managed **collection of virtual machines**, and can automatically scale compute resources to meet the needs of your jobs. See [Azure Batch basics][batch-technical-overview] article for a detailed overview of the Azure Batch service.
 
 For the tutorial, create an Azure Batch account with a pool of VMs. Here are the steps:
 
-1. Create an **Azure Batch account** using the [Azure portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
+1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
+2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
+	1. On the home page for Azure Batch account, you see an **URL** in the following format: **https://myaccount.westus.batch.azure.com**. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: **https://westus.batch.azure.com**.
+	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
+	3. To use an existing pool, click **Pools** on the menu, and note down the **ID** of the pool. If you don't have an existing pool, move to the next step.     
 2. Create an **Azure Batch pool**.
 
    1. In the [Azure portal](https://portal.azure.com), click **Browse** in the left menu, and click **Batch Accounts**.
@@ -69,10 +71,15 @@ For the tutorial, create an Azure Batch account with a pool of VMs. Here are the
       4. Enter **2** as value for the **Target Dedicated** setting.
       5. Enter **2** as value for the **Max tasks per node** setting.
    5. Click **OK** to create the pool.
+   6. Note down the **ID** of the pool. 
+
+
 
 ### High-level steps
-1. Create a custom activity to use in a Data Factory pipeline. The custom activity in this sample contains a simple data transformation/processing logic.
-2. Create an Azure data factory that uses the custom activity.
+Here are the two high-level steps you perform as part of this walkthrough: 
+
+1. Create a custom activity that contains simple data transformation/processing logic.
+2. Create an Azure data factory with a pipeline that uses the custom activity.
 
 ## Create a custom activity
 To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) and its signature is:
@@ -358,10 +365,14 @@ The method returns a dictionary that can be used to chain custom activities toge
     > Set 4.5.2 version of .NET Framework as the target framework for your project: right-click the project, and click **Properties** to set the target framework. Data Factory does not support custom activities compiled against .NET Framework versions later than 4.5.2.
 
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending on the type of build.
-12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the <project folder>\bin\Debug folder. Include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure. All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
+12. Create a zip file **MyDotNetActivity.zip** that contains all the binaries in the <project folder>\bin\Debug folder. Include the **MyDotNetActivity.pdb** file so that you get additional details such as line number in the source code that caused the issue if there was a failure. 
+
+	> [!IMPORTANT]
+	> All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
     ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
-14. Upload MyDotNetActivity.zip as a blob to the blob container: customactivitycontainer in a **general-purpose** Azure blob storage (not hold/cool Blob storage) that is referred by AzureStorageLinkedService.  Create the blob container **customactivitycontainer** if it does not already exist.
+14. Create a blob container named **customactivitycontainer** if it does not already exist.
+15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hold/cool Blob storage) that is referred by AzureStorageLinkedService.  
 
 > [!NOTE]
 > If you add this .NET activity project to a solution in Visual Studio that contains a Data Factory project, and add a reference to .NET activity project from the Data Factory application project, you do not need to perform the last two steps of manually creating the zip file and uploading it to the general-purpose Azure blob storage. When you publish Data Factory entities using Visual Studio, these steps are automatically done by the publishing process. See [Build your first pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) and [Copy data from Azure Blob to Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) articles to learn about creating and publishing Data Factory entities using Visual Studio.  
@@ -370,9 +381,9 @@ The method returns a dictionary that can be used to chain custom activities toge
 ## Create a data factory 
 You have created a custom activity and uploaded the zip file with binaries to a blob container in a **general-purpose** Azure Storage Account. In this section, you create an Azure data factory with a pipeline that uses the custom activity.
 
-The input dataset for the custom activity represents the blobs (files) in the input folder (adftutorial\inputfolder) in blob storage. The output dataset for the activity represents the output blobs in the output folder (adftutorial\outputfolder) in blob storage.
+The input dataset for the custom activity represents blobs (files) in the customactivityinput folder of adftutorial container in the blob storage. The output dataset for the activity represents output blobs in the customactivityoutput folder of adftutorial container in the blob storage.
 
-Create **file.txt** file with the following content and upload it to **adftutorial\inputfolder** (adftutorial - name of the Azure blob container, inputfolder - name of the folder in that container.)
+Create **file.txt** file with the following content and upload it to  **customactivityinput** folder of the **adftutorial** container. Create the adftutorial container if it does not exist already. 
 
 ```
 test custom activity Microsoft test custom activity Microsoft
@@ -380,10 +391,10 @@ test custom activity Microsoft test custom activity Microsoft
 
 The input folder corresponds to a slice in Azure Data Factory even if the folder has two or more files. When each slice is processed by the pipeline, the custom activity iterates through all the blobs in the input folder for that slice.
 
-You see one output file with in the adftutorial\output folder with one or more lines (same as number of blobs in the input folder):
+You see one output file with in the adftutorial\customactivityoutput folder with one or more lines (same as number of blobs in the input folder):
 
 ```
-2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
 ```
 
 
@@ -481,7 +492,7 @@ In this step, you create datasets to represent input and output data.
 	}
 	```
 
-   You create a pipeline later in this walkthrough with start time: 2015-11-16T00:00:00Z and end time: 2015-11-16T05:00:00Z. It is scheduled to produce data hourly, so there are give input/output slices (between **00**:00:00 -> **05**:00:00).
+   You create a pipeline later in this walkthrough with start time: 2016-11-16T00:00:00Z and end time: 2016-11-16T05:00:00Z. It is scheduled to produce data hourly, so there are give input/output slices (between **00**:00:00 -> **05**:00:00).
 
    The **frequency** and **interval** for the input dataset is set to **Hour** and **1**, which means that the input slice is available hourly. In this sample, it is the same file (file.txt) in the intputfolder.
 
@@ -526,13 +537,13 @@ In this step, you create datasets to represent input and output data.
 
    | Slice | Start time | Output file |
    |:--- |:--- |:--- |
-   | 1 |2015-11-16T00:00:00 |2015-11-16-00.txt |
-   | 2 |2015-11-16T01:00:00 |2015-11-16-01.txt |
-   | 3 |2015-11-16T02:00:00 |2015-11-16-02.txt |
-   | 4 |2015-11-16T03:00:00 |2015-11-16-03.txt |
-   | 5 |2015-11-16T04:00:00 |2015-11-16-04.txt |
+   | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
+   | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
+   | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
+   | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Remember that all the files in an input folder are part of a slice with the start times mentioned above. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the inputfolder, there are three lines in the output file for each hourly slice: 2015-11-16-00.txt, 2015-11-16:01:00:00.txt, etc.
+    Remember that all the files in an input folder are part of a slice with the start times mentioned above. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of search term (“Microsoft”). If there are three files in the inputfolder, there are three lines in the output file for each hourly slice: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, etc.
 3. To deploy the **OutputDataset**, click **Deploy** on the command bar.
 
 ### Create and run a pipeline that uses the custom activity
@@ -577,8 +588,8 @@ In this step, you create datasets to represent input and output data.
 	        }
 	      }
 	    ],
-	    "start": "2015-11-16T00:00:00Z",
-	    "end": "2015-11-16T05:00:00Z",
+	    "start": "2016-11-16T00:00:00Z",
+	    "end": "2016-11-16T05:00:00Z",
 	    "isPaused": false
 	  }
 	}
@@ -614,7 +625,7 @@ In this step, you create datasets to represent input and output data.
 5. If you open the output file, you should see the output similar to the following output:
 
 	```
-    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
 	```
 6. Use the [Azure portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
 
@@ -623,11 +634,11 @@ In this step, you create datasets to represent input and output data.
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
 
 ### Data Factory and Batch integration
-The Data Factory service creates a job in Azure Batch with the name: **adf-poolname: job-xxx**.
+The Data Factory service creates a job in Azure Batch with the name: **adf-poolname: job-xxx**. Click **Jobs** from the left menu. 
 
 ![Azure Data Factory - Batch jobs](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-A task is created for each activity run of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. If there are multiple compute nodes in the Batch pool, two or more slices can run in parallel. If the maximum tasks per compute node is set to > 1, you can also have more than one slice running on the same compute.
+A task is created for each activity run of a slice. If there are five slices ready to be processed, five tasks are created in this job. If there are multiple compute nodes in the Batch pool, two or more slices can run in parallel. If the maximum tasks per compute node is set to > 1, you can also have more than one slice running on the same compute.
 
 ![Azure Data Factory - Batch job tasks](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
@@ -838,8 +849,8 @@ In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
         }
       }
     ],
-    "start": "2015-11-16T00:00:00Z",
-    "end": "2015-11-16T05:00:00Z",
+    "start": "2016-11-16T00:00:00Z",
+    "end": "2016-11-16T05:00:00Z",
     "isPaused": false
   }
 }
@@ -853,8 +864,6 @@ In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 
-## See Also
-[Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../batch/batch-account-create-portal.md
