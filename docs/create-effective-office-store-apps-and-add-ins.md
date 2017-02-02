@@ -7,7 +7,6 @@ ms.locale: en-US
 
 
 # Create effective Office Store apps and add-ins
-Create an effective Office Store listing, including your title, description, and logo. Design an effective user experience for ad-supported apps and add-ins.
  
 
 The information and images you submit to the Seller Dashboard with your app or add-in becomes the Office Store listing for it. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit — including your title, description, logos, and screenshots — clearly communicates the benefits and functionality that your solution provides.
@@ -227,7 +226,7 @@ The formatting requirements for this image differ depending on the add-in type. 
  
 
 
-|****|**Outlook add-ins**|**Task pane and content add-ins**|
+||**Outlook add-ins**|**Task pane and content add-ins**|
 |:-----|:-----|:-----|
 |Accepted formats|.bmp, .gif, .exif, .jpg, .png, and .tiff|.bmp, .gif, .exif, .jpg, .png, and .tiff|
 |Source location|The image specified must be secured with HTTPS.|The image specified does not have to be secured with HTTPS.|
