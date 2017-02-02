@@ -79,7 +79,13 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
 ## Configure your NPS extension
 
-Use these steps to configure your RADIUS clients and users. Be aware that the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
+This section includes design considerations and suggestions for successful NPS extension deployments. 
+
+### Configurations limitations
+
+- The NPS extension is meant to work with your existing deployment, and is not for new deployments. For this reason, the NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud.
+
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension cannot be configured to use a different identifier like alternate login ID or custom AD field other than UPN.  
 
 ### Control RADIUS clients that require MFA
 
@@ -97,7 +103,7 @@ The purpose of this setting is to determine what to do when a user is not enroll
 
 You can choose to create this key and set it to FALSE during user onboarding. Since setting the key permits users that aren't enrolled for MFA to sign in without being challenged, you should remove this key before going to production.
 
-## Frequently asked questions
+## Troubleshooting
 
 ### How do I verify that the client cert is installed as expected?
 
