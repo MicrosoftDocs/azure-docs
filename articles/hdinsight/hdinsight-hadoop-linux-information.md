@@ -148,11 +148,11 @@ You can use Ambari to retrieve the default storage configuration for the cluster
 
 This returns a value similar to the following:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net`: If using an Azure Storage account.
+* `wasbs://<container-name>@<account-name>.blob.core.windows.net` if using an Azure Storage account.
 
     The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
 
-* `adl://home`: If using Azure Data Lake Store. To get the Data Lake Store name, use the following REST call:
+* `adl://home` if using Azure Data Lake Store. To get the Data Lake Store name, use the following REST call:
 
     ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
