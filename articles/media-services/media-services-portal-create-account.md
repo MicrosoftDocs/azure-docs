@@ -56,7 +56,7 @@ The steps in this section show how to create an AMS account.
    
     ![Media Services Create](./media/media-services-create-account/media-services-new3.png)
    
-   1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
+   1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.
    2. In Subscription, select among the different Azure subscriptions that you have access to.
    3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../azure-resource-manager/resource-group-overview.md#resource-groups).
    4. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
