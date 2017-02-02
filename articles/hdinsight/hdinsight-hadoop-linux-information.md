@@ -108,7 +108,7 @@ HDInsight uses either Azure Blob storage or Azure Data Lake Store as the default
 > [!IMPORTANT]
 > Blob storage can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte.
 >
-> For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+> For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 When using either Azure Storage or Data Lake Store, you normally don't have to do anything special from HDInsight to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Blob storage or Data Lake Store:
 
