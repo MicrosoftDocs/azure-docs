@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -30,8 +30,8 @@ For more information, see the Security Center [pricing page](https://azure.micro
 
 > [!NOTE]
 > Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage are not included in the price of the service and are charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/blobs/). Storage charges apply even during the trial.
-> 
-> 
+>
+>
 
 ## Try Standard free for 90 days
 A 90 day free trial is available for the Standard tier. To get the free trial of the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard – Free Trial**.

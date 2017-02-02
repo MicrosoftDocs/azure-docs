@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -22,8 +22,8 @@ Azure Security Center may recommend that you add a next generation firewall (NGF
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Add a Next Generation Firewall**.

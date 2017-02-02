@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -24,8 +24,8 @@ Disk Encryption leverages the industry standard [BitLocker](https://technet.micr
 
 > [!NOTE]
 > Azure Disk Encryption is supported on the following Windows server operating systems - Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. Disk encryption is supported on the following Linux server operating systems - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES).
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Apply disk encryption**.

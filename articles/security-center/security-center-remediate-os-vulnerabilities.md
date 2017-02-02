@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
@@ -22,19 +22,19 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**.
    ![Remediate OS vulnerabilities][1]
-   
+
     The **Remediate OS vulnerabilities** blade opens and lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
-   
+
    * **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
    * **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
    * **STATE** -- The current state of the vulnerability:
-     
+
      * Open: The vulnerability has not been addressed yet
      * In Progress: The vulnerability is currently being applied, no action is required by you
      * Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
