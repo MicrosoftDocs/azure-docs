@@ -559,7 +559,7 @@ remoteLogin(
 ## How to scale Microsoft R Server Operationalization compute nodes on HDInsight worker nodes?
  
  
-1.	Decommission the worker node(s)
+### Decommission the worker node(s)
 Microsoft R Server is currently not managed through Yarn. If the worker nodes are not decommissioned, Yarn resource manager will not work as expected because it will not be aware of the resources being taken up by the server. In order to avoid that, we recommend decommissioning the worker nodes where you want to scale the compute nodes to.
  
 Steps to decommissioning worker nodes:
@@ -576,7 +576,7 @@ Steps to decommissioning worker nodes:
 * Select "Actions" > "Selected Hosts" > "Hosts" > "Restart All Components
  
  
-2.	Configure Compute nodes on each decommissioned worker node(s)
+###	Configure Compute nodes on each decommissioned worker node(s)
  
 * SSH into each decommissioned worker node
 * Run admin utility using `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`
@@ -584,7 +584,7 @@ Steps to decommissioning worker nodes:
 * Enter "c" to select option "C. Compute node". This will configure compute node on the worker node.
 * Exit the Admin Utility
  
-3.	Add compute nodes details on Web Node
+### Add compute nodes details on Web Node
 Once all decommissioned worker nodes have been configured to run compute node, come back on the Edge node and add decommissioned worker nodes' IP addresses in the Microsoft R Server web node's configuration:
  
 * SSH into the Edge node
