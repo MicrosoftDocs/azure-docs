@@ -32,7 +32,7 @@
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Connect security products](oms-security-connect-products.md)
 ## Create solutions
-### [Create solutions](operations-management-suite-solutions-creating.md)
+### [Management solutions](operations-management-suite-solutions-creating.md)
 ### [Automation resources](operations-management-suite-solutions-resources-automation.md)
 ### [Log searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [Views](operations-management-suite-solutions-resources-views.md)
