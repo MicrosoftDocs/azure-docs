@@ -1,6 +1,6 @@
 ---
-title: CDN Caching Policy in Media Services Extension
-description: This topic gives an overview of a CDN caching policy in Media Services Extension.
+title: Manage Azure CDN caching policy in Azure Media Services | Microsoft Docs
+description: Learn how to manage Azure CDN caching policy in Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -17,7 +17,7 @@ ms.date: 09/19/2016
 ms.author: juliako
 
 ---
-# CDN Caching Policy in Media Services Extension
+# Manage Azure CDN caching policy in Azure Media Services
 Azure Media Services provides HTTP based Adaptive Streaming and progressive download. HTTP based streaming is highly scalable with benefits of caching in proxy and CDN layers as well as client side caching. Streaming endpoints provides general streaming capabilities and also configuration for HTTP cache headers. Streaming endpoints sets HTTP Cache-Control: max-age and Expires headers. You can get more information for HTTP cache headers from [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## Default Caching headers

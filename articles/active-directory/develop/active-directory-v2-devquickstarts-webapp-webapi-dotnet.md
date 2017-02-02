@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 .NET Web App | Microsoft Docs
+title: Use Azure AD v2.0 to secure a .NET MVC web app that calls a web API | Microsoft Docs
 description: How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in.
 services: active-directory
 documentationcenter: .net

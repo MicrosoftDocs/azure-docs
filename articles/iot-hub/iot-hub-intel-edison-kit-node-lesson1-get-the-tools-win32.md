@@ -1,5 +1,5 @@
 ---
-title: Get the tools for your Azure IoT Starter Kit (Windows 7 or later) | Microsoft Docs
+title: 'Connect Intel Edison (Node) to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Edison on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''

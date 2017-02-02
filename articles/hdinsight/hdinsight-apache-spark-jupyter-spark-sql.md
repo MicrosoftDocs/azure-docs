@@ -1,5 +1,5 @@
 ---
-title: Create a Spark cluster in Azure HDInsight and use Spark SQL from Jupyter for interactive analysis | Microsoft Docs
+title: Get started with Apache Spark cluster in Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to quickly create an Apache Spark cluster in HDInsight and then use Spark SQL from Jupyter notebooks to run interactive queries.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2017
+ms.date: 02/01/2017
 ms.author: nitinme
 
 ---
@@ -67,16 +67,16 @@ In this section, you use Jupyter notebook to run Spark SQL queries against the S
 * **PySpark** (for applications written in Python)
 * **Spark** (for applications written in Scala)
 
-In this article, you will use the PySpark kernel. In the article [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) you can read in detail about the benefits of using the PySpark kernel. However, couple of key benefits of using the PySpark kernel are:
+In this article, you use the PySpark kernel. For more information about the two kernels, see [Use Jupyter notebooks kernels with Apache Spark clusters in HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Some of the key benefits of using the PySpark kernel are:
 
-* You do not need to set the contexts for Spark and Hive. These are automatically set for you.
-* You can use cell magics, such as `%%sql`, to directly run your SQL or Hive queries, without any preceding code snippets.
+* The contexts for Spark and Hive are set automatically.
+* Use cell magics, such as `%%sql`, to directly run SQL or Hive queries, without any preceding code snippets.
 * The output for the SQL or Hive queries is automatically visualized.
 
 ### Create Jupyter notebook with PySpark kernel
 
 1. Open the [Azure portal](https://portal.azure.com/).
-2. From the left menu, click **Resoruce groups**.
+2. From the left menu, click **Resource groups**.
 3. Click the resource group you created in the last section. You can use the search function if there are too many resource groups. You can see two resources in the group, the HDInsight cluster, and the default storage account.
 4. Click the cluster to open it.
  
@@ -164,7 +164,7 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)

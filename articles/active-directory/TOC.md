@@ -105,8 +105,6 @@
 #### [Register devices](active-directory-conditional-access-device-registration-overview.md)
 #### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 #### [Manage Authenticator app](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
@@ -124,6 +122,10 @@
 #### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 #### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
+#### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Troubleshooting
+##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
@@ -240,12 +242,12 @@
 ## Secure your identities
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
-#### [Sign-in experience](active-directory-identityprotection-flows.md)
-#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
-#### [Risk event types](active-directory-identityprotection-risk-events-types.md)
-#### [Simulate risk events](active-directory-identityprotection-playbook.md)
+#### [Risk events](active-directory-identity-protection-risk-events.md)
 #### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Sign-in experience](active-directory-identityprotection-flows.md)
+#### [Simulate risk events](active-directory-identityprotection-playbook.md)
+#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

@@ -1,5 +1,5 @@
 ---
-title: Switch your Azure subscription to another offer | Microsoft Docs
+title: Change Azure subscription offer | Microsoft Docs
 description: Learn about how to change your Azure subscription and switch to a different offer using the subscription management portal
 services: ''
 documentationcenter: ''

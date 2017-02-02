@@ -1,6 +1,6 @@
 ---
-title: Known issues of Apache Spark in HDInsight | Microsoft Docs
-description: Known issues of Apache Spark in HDInsight.
+title: Known issues for Apache Spark cluster in Azure HDInsight | Microsoft Docs
+description: Known issues of Apache Spark clusters in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: mumian
