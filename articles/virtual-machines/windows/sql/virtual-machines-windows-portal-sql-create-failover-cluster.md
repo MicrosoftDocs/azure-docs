@@ -234,7 +234,7 @@ The **Validate a Configuration Wizard** runs the validation tests.
 To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
    ```PowerShell
-   Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
 After you validate the cluster, create the WSFC.
@@ -243,25 +243,17 @@ After you validate the cluster, create the WSFC.
 
 This guide refers to [create the WSFC](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
-   To create the WSFC, you need: 
-   - The names of the virtual machines that become the cluster nodes. 
-   - A name for the WSFC. Use a valid 
-   - An IP address for the WSFC. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes. 
+To create the WSFC, you need: 
+- The names of the virtual machines that become the cluster nodes. 
+- A name for the WSFC. Use a valid 
+- An IP address for the WSFC. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes. 
 
-   To create the WSFC in the UI, see [the create cluster step of the Always On Availability Group tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md#CreateCluster).
+The following PowerShell creates a WSFC. Update the script with the names of the nodes (the virtual machine names) and an IP address from the Azure VNET: 
 
-   Alternatively, the following PowerShell creates a WSFC: 
+```PowerShell
+New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
+```   
 
-   ```PowerShell
-   New-Cluster -Name manualWSFC -Node $nodes –StaticAddress <n.n.n.n> -NoStorage
-   ```
-   
-   For details, refer to [Create a cluster].
-
-   >[!TIP]
-   >Use a link-local address for the cluster static address. For example, <192.254.0.1>. This address cannot be used anywhere else within the subnet. 
-   
-   
 ### Create a cloud witness
 
 [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
