@@ -261,8 +261,8 @@ The route [condition][lnk-query-expressions] uses the same IoT Hub query languag
         }
 
 Message system properties are prefixed with the `'$'` symbol.
-User properties are always accessed with their name. If a user property name happens to coincide with a system property (e.g. `$to`), the user property will be retrieved with the `$to` expression.
-You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names will always retrieve the corresponding system property.
+User properties are always accessed with their name. If a user property name happens to coincide with a system property (such as `$to`), the user property will be retrieved with the `$to` expression.
+You can always access the system property using brackets `{}`: for instance, you can use the expression `{$to}` to access the system property `to`. Bracketed property names always retrieve the corresponding system property.
 
 Remember that property names are case insensitive.
 
