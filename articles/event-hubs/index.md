@@ -82,7 +82,6 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
 </ul>
 
 ---
-
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
@@ -90,9 +89,11 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                        <h3>.NET</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">Microsoft.Azure.EventHubs</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs.processor">Microsoft.Azure.EventHubs.Processor</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.servicebus.eventprocessorhost">Microsoft.Azure.ServiceBus.EventProcessorHost</a></p>
                    </div>
                 </div>
             </div>
@@ -103,13 +104,25 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/eventhub">REST API Reference</a></p>
+                        <h3>Java</h3>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="/rest/api/eventhub">REST</a></h3>
+                        <p><a href="event-hubs-messaging-exceptions">Exceptions</a></p>
+                        <p><a href="event-hubs-quotas">Quotas</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
