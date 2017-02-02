@@ -1,4 +1,38 @@
+---
+title: Receive events from Azure Event Hubs using Java | Microsoft Docs
+description: Get started receiving from Event Hubs using Java
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
+ms.service: event-hubs
+ms.workload: core
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/30/2017
+ms.author: jotaub;sethm
+
+---
+# Receive events from Azure Event Hubs using Java
+
+## Introduction
+Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
+
+For more information, see the [Event Hubs overview][Event Hubs overview].
+
+This tutorial shows how to receive events into an Event Hub using a console application written in Java.
+
+In order to complete this tutorial, you will need the following:
+
+* A Java development environment. For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
+* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+
 ## Receive messages with EventProcessorHost in Java
+
 EventProcessorHost is a Java class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using EventProcessorHost you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use EventProcessorHost for a single receiver.
 
 ### Create a storage account
@@ -7,11 +41,12 @@ In order to use EventProcessorHost, you must have an [Azure Storage account][Azu
 1. Log on to the [Azure classic portal][Azure classic portal], and click **NEW** at the bottom of the screen.
 2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
    
-    ![][11]
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+
 3. Click the newly created storage account, and then click **Manage Access Keys**:
    
-    ![][12]
-   
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+
     Copy the primary access key to use later in this tutorial.
 
 ### Create a Java project using the EventProcessor Host
@@ -184,8 +219,8 @@ For different types of build environments, you can explicitly obtain the latest 
 > 
 
 <!-- Links -->
-[Event Hubs overview]: ../articles/event-hubs/event-hubs-overview.md
-[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[Event Hubs overview]: event-hubs-overview.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
 [Azure classic portal]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
@@ -193,3 +228,12 @@ For different types of build environments, you can explicitly obtain the latest 
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
+
+<!-- Links -->
+[Event Hubs overview]: event-hubs-overview.md
