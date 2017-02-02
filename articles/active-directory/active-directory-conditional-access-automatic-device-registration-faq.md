@@ -53,15 +53,15 @@ For more details, see the [Get-MsolDevice](https://docs.microsoft.com/en-us/powe
 **Q: Why is a device I have deleted in the Azure portal or using Windows PowerShell still listed as registered?**
 
 **A:** This is by design. The device will not have access to resources in the cloud. 
-If you want to re-register the device, a manual action needs to be taken on the device. 
+If you want to remove the device and register again, a manual action must be to be taken on the device. 
 
 For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:
 
 1.	Open the command prompt as an administrator.
 
-2.	Type **dsregcmd.exe /leave**.
+2.	Type **dsregcmd.exe /debug /leave**
 
-3.	Type **dsregcmd.exe**.
+3.	**Sign Out and Sign In to trigger the scheduled task that registers the device again.** 
 
 For other Windows platforms that are on-premises AD domain-joined:
 
