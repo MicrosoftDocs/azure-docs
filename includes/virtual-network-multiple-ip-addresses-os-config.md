@@ -111,7 +111,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 6. Edit the *ifcfg-eth0:0* file with the following command:
 
 	```bash
-	vi ifcfg-eth1
+	vi ifcfg-eth0:0
 	```
 
 7. Change the device to the appropriate name in the file; *eth0:0* in this case, with the following command:
