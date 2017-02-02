@@ -100,7 +100,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
       If a new storage account option was selected a prompt to select **Location** will be given to select which region to create the storage account.  
    
-   ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
+   ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)  
    
       > [!IMPORTANT]
       > Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be in the same region.
@@ -568,7 +568,7 @@ Steps to decommissioning worker nodes:
 * Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.  
    
    ![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
-   
+
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
