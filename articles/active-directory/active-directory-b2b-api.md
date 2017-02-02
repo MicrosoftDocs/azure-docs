@@ -68,15 +68,15 @@ For more details, refer to: https://graph.microsoft.io/en-us/docs/authorization/
 
 
 ## PowerShell
-It is now possible to use PowerShell to add and invite external users to an organization easily. Just create a new invitation using the cmdlt
+It is now possible to use PowerShell to add and invite external users to an organization easily. Just create a new invitation using the cmdlet
 
-    ```New-AzureADMSInvitation```
+```New-AzureADMSInvitation```
 
 with the following options
-    ```-InvitedUserDisplayName
-    -InvitedUserEmailAddress
-    -SendInvitationMessage
-    -InvitedUserMessageInfo```
+```-InvitedUserDisplayName
+-InvitedUserEmailAddress
+-SendInvitationMessage
+-InvitedUserMessageInfo```
 
 whose descriptions follow the invitation API reference in [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
 
