@@ -457,7 +457,7 @@ To test connectivity, log in to another virtual machine in the same virtual netw
 >If necessary, you can [download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
-DTC is not supported on FCIs because the RPC port is not supported by the load balancer.
+On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) is not supported on FCIs because the RPC port is not supported by the load balancer.
 
 ## See Also
 
