@@ -7,14 +7,12 @@ ms.locale: en-US
 
 
 # Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app
-Decide which Office Store pricing option is right for you and how you want to monetize your Office and SharePoint Add-ins or Office 365 web app.
- 
 
 The Office Store provides a variety of pricing options. You don't have to set your pricing model until you submit your app or add-in, and you don't have to specify anything in your app or add-in to support the pricing option you choose. However, it's a good idea to decide on your pricing model during your design and development process. The pricing model you choose might influence the features and behavior you include. Also, certain monetizing strategies, such as using the licensing framework, or offering ads or additional purchases, require you to implement custom code.
  
 
 
- **Note**  SharePoint Add-ins that use the subscription model are only available for SharePoint Online users, and will not be shown to SharePoint on-premises users.
+ >**Note:**  SharePoint Add-ins that use the subscription model are only available for SharePoint Online users, and will not be shown to SharePoint on-premises users.
  
 
 
@@ -31,7 +29,7 @@ When you submit an app or add-in to the Office Store via the Seller Dashboard, o
 |Free|The user can download and use at no charge. You can still monetize via advertising or by offering features or content for purchase.|
 |One-time payment|The user can download for a one-time charge.|
 |Subscription|The user can download and use for a recurring monthly fee. Subscription apps or add-ins are offered on a monthly automatic renewal basis only. Users have to manually cancel their subscriptions|
-For details about requirements for advertising and offering features or content for purchase within your add-in or add-in, see sections 2 and 3 of the  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md).
+For details about requirements for advertising and offering features or content for purchase within your add-in or add-in, see sections 2 and 3 of the  [Validation policies](validation-policies.md).
  
 
  
