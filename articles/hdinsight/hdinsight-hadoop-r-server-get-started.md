@@ -565,8 +565,10 @@ Microsoft R Server is currently not managed through Yarn. If the worker nodes ar
 Steps to decommissioning worker nodes:
  
 * Login to HDI cluster's Ambari console and click on "hosts" tab
-* Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.
-![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)
+* Select worker nodes (to be decommissioned), Click on "Actions" > "Selected Hosts" > "Hosts" > click on "Turn ON Maintenance Mode". For example, in below screenshot, we have selected wn3 and wn4 to decommission.  
+   
+   ![decommission worker nodes](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
+   
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "NodeManagers" > click on "Decommission"
 * Select "Actions" > "Selected Hosts" > "DataNodes" > click on "Stop"
