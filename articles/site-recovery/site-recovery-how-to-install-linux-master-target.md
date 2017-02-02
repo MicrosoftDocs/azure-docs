@@ -367,13 +367,13 @@ and append the line
 > 
 
 
-1\. Execute below command to install Master Target. Choose agent role as
+1. Execute below command to install Master Target. Choose agent role as
 "Master Target".
 ```
 # ./install
 ```
 
-2. Choose all defaults
+2. Choose default location for installation
 	
 	![](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 	
