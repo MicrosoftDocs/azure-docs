@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
-=======
 ms.date: 01/17/2017
 ms.author: vakarand
 
