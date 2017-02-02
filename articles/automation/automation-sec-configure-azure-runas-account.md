@@ -143,7 +143,14 @@ The following steps describe how to delete and recreate your Azure Run As or Cla
 4. While the account is being deleted, you can track the progress under **Notifications** from the menu.  Once the deletion is complete, you can re-create it from the On the **Run As Accounts** properties blade and selecting the create option **Azure Run As Account**.<br><br> ![Recreate the Automation Run As account](media/automation-sec-configure-azure-runas-account/automation-account-create-runas.png)<br> 
 
 ### Misconfiguration
-If any of the configuration items necessary for the Run As or Clasic Run As account to function properly are deleted or were not created properly during initial setup, when you are in the **Run As Accounts** properties blade, a status of **Incomplete** will be presented.<br><br> ![Incomplete Run As configuration status message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>When you select the Run As account, the following warning will be presented in the properties pane of the account:<br><br> ![Incomplete Run As configuration warning message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).  
+If any of the configuration items necessary for the Run As or Clasic Run As account to function properly are deleted or were not created properly during initial setup, such as:
+
+* Certificate asset 
+* Connection asset 
+* Run As account has been removed from the contributor role
+* Service principal or application in Azure AD
+
+a status of **Incomplete** will be presented when you are in the **Run As Accounts** properties blade.<br><br> ![Incomplete Run As configuration status message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>When you select the Run As account, the following warning will be presented in the properties pane of the account:<br><br> ![Incomplete Run As configuration warning message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
 If your Run As account is misconfigured, you can quickly resolve this by deleting and re-creating the Run As account.   
 
 ## Update an Automation Account using PowerShell
