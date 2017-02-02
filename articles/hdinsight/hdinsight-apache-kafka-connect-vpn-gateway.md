@@ -51,22 +51,36 @@ To use VPN to connect to HDInsight, you must instead create the virtual network 
 
     * [TBD]
 
-* __Kafka cluster IP addresses__: The IP address used by nodes in the Kafka cluster are not pre-determined; you must retrieve a list of the IP addresses.
+## Domain name resolution
 
-## Examples (script & template)
+One of the limitations of Azure Virtual Networks is that the automatic domain name resolution provided by the virtual network only works for Azure resources. When connecting to the network using the VPN gateway, your client can only use IP addresses to connect to the HDInsight cluster.
 
-You can find PowerShell, Azure CLI 2.0 (preview), and Azure template examples that create an Azure Virtual Network, VPN gateway, and Kafka on HDInsight cluster at [TBD].
+While it is possible to create an Azure Virtual Machine to act as a custom DNS server for the virtual network, this is beyond the scope of this document. If you are familiar with configuring a DNS server, see [Manage DNS servers used by a virtual network](../virtual-network/virtual-networks-manage-dns-in-vnet.md) for more information on how to add the DNS server to your virtual network configuration.
 
-## Using the Azure portal
+> [!NOTE]
+> HDInsight automatically uses the DNS server information from the virtual network configuration. There are no HDInsight specific steps to use a custom DNS server.
 
+The information in this document is based on using only IP addresses to access HDInsight over the VPN gateway.
 
-### Create a virtual network and gateway
+## Create the virtual network and VPN gateway
 
 Follow the steps in the [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) document to create a new Azure Virtual Network and VPN gateway.
 
 ## Create the Kafka cluster
 
-Once the Virtual Network has been created, use the following steps to install Kafka in the virtual network:
+## Configure Kafka
+
+By default, Kafka on HDInsight will return the domain name of the brokers to clients. Since the client cannot resolve domain names for the virtual network, use the following steps to configure Kafka to return IP addresses instead.
+
+1. You need to append the kafka-env template in the Ambari Web UI with the following value. It essentially tells Kafka to use the ip address to register with Zookeeper. One has to switch to using advertised.listeners instead of advertised.host.name.
+One can push data into Kafka brokers over vnet peering by using ip addresses
+One can also push data into local brokers from the headnode using both ip-address and host name after making this change.
+IP_ADDRESS=$(hostname -i)
+echo advertised.listeners=$IP_ADDRESS
+sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+
+Changing the value of *listeners* from PLAINTEXT://localhost:9092 to PLAINTEXT://0.0.0.0:9092 in Kafka Broker is OPTIONAL. It just tells Kafka to bind on all network interfaces.
 
 ## Additional information
 
