@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/20/2017
+ms.date: 02/02/2017
 ms.author: jeffstok
 
 ---
@@ -54,14 +54,14 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    * **Cluster Type**: R Server
    * **Version**: select the version of R Server to install on the cluster. Select the newest version for the latest capabilities. Other versions are available if needed for compatibility. Release notes for each of the available versions are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
-   * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node.  If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed, then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
-     Leave the other options at the default values, then use the **Select** button to save the cluster type.
+   * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node.  If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
+     Leave the other options at the default values and use the **Select** button to save the cluster type.
 
      ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
 
    ​
 
-5. Select **Credentials**, then enter a **Cluster Login Username** and **Cluster Login Password**.
+5. Select **Credentials** and enter a **Cluster Login Username** and **Cluster Login Password**.
 
     Enter an **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect a **SSH username** of “remoteuser”.  If you use a different username, you will have to perform an additional step after the cluster is created.
 
@@ -91,25 +91,24 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 6. Select **Data Source** to select a data source to be the primary location of the HDFS file system used by the cluster. Select either a new or existing Azure Storage account or an existing Data Lake Storage account.
 
-   1. If you select an Azure Storage account, then select an existing storage account by selecting **Select storage account** and then selecting the account, or create a new account using the **Create New** link in the **Select storage account** section.
+   1. If you select an Azure Storage account you may select an existing storage account by selecting **Select storage account** and then selecting the account. Or create a new account using the **Create New** link in the **Select storage account** section.
 
       > [!NOTE]
-      > If you select **New**, you must enter a name for the new storage account. A green check will appear if the name is accepted.
+      > If you select **New** you must enter a name for the new storage account. A green check will appear if the name is accepted.
 
       The **Default Container** will default to the name of the cluster. Leave this as the value.
 
-      If a new storage account option was selected, then select **Location** to select the region to create the storage account in.
-
+      If a new storage account option was selected a prompt to select **Location** will be given to select which region to create the storage account.  
+   
+   ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
+   
       > [!IMPORTANT]
       > Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be in the same region.
 
-   2. If you select use of an existing Data Lake
-      Store, then select the ADLS storage account to use and add the cluster ADD
-      identity to your cluster to allow access to the store.  For more information on this process see [Creating HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
+   2. If you select use of an existing Data Lake Store then select the ADLS storage account to use and add the cluster ADD identity to your cluster to allow access to the store. For more information on this process see [Creating HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
       Use the **Select** button to save the data source configuration.
 
-       ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
 
 7. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
 
@@ -152,13 +151,13 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Connect to RStudio Server
 
-If you’ve chosen to include RStudio Server community edition in your installation, then you can access the RStudio login via two different methods.
+If you’ve chosen to include RStudio Server community edition in your installation then you can access the RStudio login via two different methods.
 
 1. Either by going to the following URL (where **CLUSTERNAME** is the name of the cluster your created): 
 
     https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
 
-2. Or by opening the entry for your cluster in the Azure Portal, selecting the R Server Dashboards quick link, and then selecting the R Studio Dashboard:
+2. Or by opening the entry for your cluster in the Azure Portal, selecting the R Server Dashboards quick link and then selecting the R Studio Dashboard:
 
      ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard.png)
 
@@ -171,7 +170,7 @@ Connect to R Server edge node of the HDInsight cluster using SSH:
     ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 > [!NOTE]
-> You can also find the `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster, then **All Settings**, **Apps**, and **RServer**. This will display the SSH Endpoint information for the edge node.
+> You can also find the `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` address in the Azure portal by selecting your cluster then **All Settings**, **Apps**, and **RServer**. This will display the SSH Endpoint information for the edge node.
 >
 > ![Image of the SSH Endpoint for the edge node](./media/hdinsight-getting-started-with-r/sshendpoint.png)
 >
@@ -475,7 +474,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 
      > [!NOTE]
      > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, e.g.  `useCRAN bitops, stringr, arules`.  
-     > 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these, then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
+     > 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
      >    For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
      >
      >
