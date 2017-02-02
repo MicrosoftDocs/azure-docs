@@ -21,33 +21,41 @@ ms.author: cynthn
 
 # Migrate to managed disks in Azure
 
-Azure Managed Disks remove the need to mange Storage Accounts for Azure VMs. You have to only specify the storage type, either ([Premium](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) or Standard, and size of disk you need. Azure will create and manage the disk for you. Migrate your existing Azure VMs to Managed Disks to get away from day-to-day management of Storage accounts for your VMs.
+Azure managed disks removes the need of managing [Storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) for Azure VMs. You only have specify the type ([Premium](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) or [Standard](xxx.md) and size of disk you need, and Azure will create and manage the disk for you. Moreover, migrate your existing Azure VMs to Managed Disks to benefit from  better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
 
-If you are currently using the Standard storage option for your VM disks, you can migrate to Premium Managed Disks to take advantage of speed and performance of these Disks. [Premium Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) are Solid State Drive (SSD) based storage which delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads.
+If you are currently using Standard storage option for your Disks, migrate to Premium Managed Disks to take advantage of speed and performance of these Disks. [Premium Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) are stored on Solid State Drives (SSD) which deliver high-performance, low-latency disk support for virtual machines running I/O-intensive workloads.
 
 You can migrate to Managed Disks in following scenarios:
 
-- VMs on Premium storage account based disks to Premium Managed Disks
+-   Migrate existing Azure VMs on Premium Unmanaged Disks to Premium Managed Disks
 
-- VMs on Standard storage acocunt based disks to Standard Managed Disks
+-   Migrate existing Azure VMs on Standard Unmanaged Disks to Standard Managed Disks
 
-- VMs on Standard storage account based disks to Premium Managed Disks
+-   Migrate existing Azure VMs on Standard Unmanaged Disks to Premium Managed Disks
 
-- VMs created in the classic deployment model to Premium or Standard Managed Disks in the Resource Manager model
+-   Migrate existing Azure classic VMs to Premium/Standard Managed Disks 
 
+
+This guide covers steps for all the above scenarios. Follow the steps specified in the relevant section depending on your scenario.
 
 ## Plan for the migration to Managed Disks
 
-Make sure you are ready to follow the migration steps and to make the best decisions on VM and Disk types.
+This section helps you to make the best decision on VM and disk types.
 
-An Azure VM supports attaching several Managed disks so that your applications can have up to 64 TB of storage per VM. For example, with Premium Managed Disks, your applications can achieve 80,000 IOPS (input/output operations per second) per VM and 2000 MB per second disk throughput per VM with extremely low latencies for read operations. You have options in a variety of VMs and Disks. This section is to help you to find an option that best suits your workload.
+**Prerequisites**
 
-### VM sizes
+-   You will need the Microsoft Azure PowerShell module. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs) for installation instructions.
 
-The Azure VM size specifications are listed in [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Review the performance characteristics of virtual machines that work with Premium and Standard Storage to choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
+## Location
 
+Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services byRegion](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
 
-### Disk Sizes
+## VM sizes
+
+If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](virtual-machines-windows-sizes.md).
+Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
+
+## Disk sizes
 
 **Premium Managed Disks**
 
@@ -69,89 +77,129 @@ There are five types of Standard Managed disks that can be used with your VM. Ea
 | IOPS per disk       | 500              | 500              | 500              | 500              | 500              |
 | Throughput per disk | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |
 
-Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance#disk-striping).) If you stripe Premium Managed data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for details.
-
-###Disk caching policy
+## Disk caching policy 
 
 **Premium Managed Disks**
 
-By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated using [Azure Portal](https://portal.azure.com/) or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
+By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance.
 
-**Standard Managed Disks**
+## Pricing**
 
-[TBD](xxx.md)
-
-### Location
-
-Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services by Region](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
+Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/storage/disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
 
 
-### Optimization
+## Migrate existing Azure VMs to Managed Disks of the same storage type
 
-[Azure Premium Storage: Design for High Performance](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) provides guidelines for building high-performance applications using Azure Premium Storage. You can follow the guidelines combined with performance best practices applicable to technologies used by your application.
+This section covers how to migrate your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SDD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. The process converts both the OS disk and any attached data disks from using a unmanaged disks in a storage account to using managed disks. requires a restart of the VM, so you can schedule the migration of your VMs during a pre-existing maintenance window.
 
+Test the migration process by migrating a test virtual machine before performing the migration in production as the migration process is not reversible.
 
-
-
-<span id="prepare-and-copy-virtual-hard-disks-VHDs" class="anchor"><span id="_Toc471211691" class="anchor"></span></span>Migrate existing Azure VMs on Premium Non-Managed Disks to Premium Managed Disks
-=========================================================================================================================================================================================================
-
-This section will help you to migrate your existing Azure VMs on Premium Non-Managed Disks to Premium Managed Disks.
-
-You have to take following steps for this migration:
-
-Plan for the migration 
------------------------
-
-Please go through the section **“**Plan for the migration to Managed Disks” and ensure that you have completed all the pre-requisites and evaluated all the consideration mentioned in the section.
-
-Perform the migration 
-----------------------
-
-**TBD (Feature in-progress)**
-
-<span id="create-azure-virtual-machine-using-premi" class="anchor"><span id="_Toc471211694" class="anchor"></span></span>Migrate existing Azure VMs on Standard Non-Managed Disks to Standard Managed Disks
-===========================================================================================================================================================================================================
-
-This section will help you to migrate your existing Azure VMs on Standard Non-Managed Disks to Standard Managed Disks.
-
-You have to take following steps for this migration:
-
-Plan for the migration 
------------------------
-
-Please go through the section **“**Plan for the migration to Managed Disks” and ensure that you have completed all the pre-requisites and evaluated all the consideration mentioned in the section.
-
-Perform the migration 
-----------------------
-
-**TBD (Feature in-progress)**
+- Convert a VM from unmanaged disks to managed disks (virtual-machines-windows-convert-unmanaged-to-managed-disks.md )
 
 
 
+## Migrate existing Azure VMs using Standard Unmanaged Disks to Premium Managed Disks
+==================================================================================
+
+This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. 
+
+This process will require the VM to restart few times. You can schedule the migration of your VMs during a pre-existing maintenance window.
+
+**Note:** Test the migration process by migrating a test virtual machine before performing the migration in production as the migration process is not reversible.
+
+
+1.  Stop the VM
+
+2.  Update the size of the VM to a Premium Storage capable size
+
+3.  Convert Unmanaged Disks to Managed Disks
+
+4.  Upgrade the Storage of the disks to Premium
+
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform.
+
+**Note:**
+
+Update the VM size to make sure it matches your capacity and performance requirements.
+
+Follow the step by step PowerShell cmdlets below to create the new VM.
+
+1.  First, set the common parameters:
+
+>   \$resourceGroupName = 'YourResourceGroupName'
+
+>   \$vmName = 'YourVMName'
+
+>   \# Premium storage capable size available in the region where VM is located
+
+>   e.g. Standard\_DS2\_v2
+
+>   \$size = 'Standard\_DS2\_v2'
+
+1.  Get the VM with Unmanaged disks
+
+>   \$vm = Get-AzureRmVM -Name \$vmName -ResourceGroupName \$resourceGroupName
+
+1.  Stop (Deallocate) the VM
+
+>   Stop-AzureRmVM -ResourceGroupName \$resourceGroupName -VMName \$vmName -Force
+
+1.  Update the size of the VM to Premium Storage capable VM size available in the region where VM is located
+
+>   \$vm.HardwareProfile.VmSize = \$size
+
+>   Update-AzureRmVM -VM \$vm -ResourceGroupName \$resourceGroupName
+
+1.  Convert virtual machine with Unmanaged disks to Managed Disks
+
+    Note: If you get internal server error while executing preceding command,
+    please retry the command 2-3 times before reaching out to our support team.
+
+    Note: This feature is available through SDKs only, it will be available soon
+    in Azure portal
+
+>   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName \$resourceGroupName
+>   -VMName
+
+1.  Stop (Deallocate) the VM
+
+    Stop-AzureRmVM -ResourceGroupName \$resourceGroupName -VMName \$vmName
+    -Force
+
+2.  Upgrade all the disks to Premium Storage
+
+>   \$vmDisks = Get-AzureRmDisk -ResourceGroupName \$resourceGroupName
+
+>   foreach (\$disk in \$vmDisks) {
+
+>   if(\$disk.OwnerId -eq \$vm.Id){
+
+>   \$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType StandardLRS
+
+>   Update-AzureRmDisk -DiskUpdate \$diskUpdateConfig -ResourceGroupName
+>   \$resourceGroupName -DiskName \$disk.Name
+
+>   }
+
+>   }
 
 
 
+## Migrate existing Azure Classic VMs to Managed Disks
 
 
+This section will help you to migrate your existing Azure Classic VMs to Managed Disks. New VMs will be created in the migration process using the VHD files of the existing VMs. Also, VHD files of the existing Classic VMs are not copied to a different storage account in the process due to which entire migration process will be completed in minutes. The amount of downtime will be the time to create new VMs with Managed Disks, which generally takes minutes. Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. 
 
 
-Migrate existing Azure Classic VMs to Managed Disks
-===================================================
+**Note:** Test the migration process by migrating a test virtual machine before
+performing the migration in production as the migration process is not
+reversible.
 
-This section will help you to migrate your existing Azure Classic VMs to Managed Disks.
+**Prepare virtual hard disks (VHDs) for the migration** 
 
-You have to take following steps for this migration:
 
-Plan for the migration 
------------------------
-
-Please go through the section **“**Plan for the migration to Managed Disks” and ensure that you have completed all the pre-requisites and evaluated all the consideration mentioned in the section.
-
-Prepare virtual hard disks (VHDs) for the migration
----------------------------------------------------
-
-If you are migrating existing Azure Classic VMs to Managed Disks, your VHD may be:
+If you are migrating existing Azure Classic VMs to Managed Disks, your VHD may
+be:
 
 -   A generalized operating system image
 
@@ -165,7 +213,7 @@ Below we walk through these 3 scenarios for preparing your VHD.
 
 If you are uploading a VHD that will be used to create multiple generic Azure VM instances, you must first generalize VHD using a sysprep utility. Sysprep removes any machine-specific information from the VHD.
 
-\[!IMPORTANT\] Take a snapshot or backup your VM before generalizing it. Running sysprep will stop and deallocate the VM instance. Follow steps below to sysprep a Windows OS VHD. Note that running the Sysprep command will require you to shut down the virtual machine. For more information about Sysprep, see [Sysprep Overview](http://technet.microsoft.com/library/hh825209.aspx) or [Sysprep Technical Reference](http://technet.microsoft.com/library/cc766049.aspx).
+[!IMPORTANT] Take a snapshot or backup your VM before generalizing it. Running sysprep will stop and deallocate the VM instance. Follow steps below to sysprep a Windows OS VHD. Note that running the Sysprep command will require you to shut down the virtual machine. For more information about Sysprep, see [Sysprep Overview](http://technet.microsoft.com/library/hh825209.aspx) or [Sysprep Technical Reference](http://technet.microsoft.com/library/cc766049.aspx).
 
 1.  Open a Command Prompt window as an administrator.
 
@@ -175,7 +223,9 @@ If you are uploading a VHD that will be used to create multiple generic Azure VM
 
 3.  In the System Preparation Tool, select Enter System Out-of-Box Experience (OOBE), select the Generalize check box, select **Shutdown**, and then click **OK**, as shown in the image below. Sysprep will generalize the operating system and shut down the system.
 
-> <img src="./media/image1.png" width="436" height="237" />
+>   [./media/image1.png](./media/image1.png)
+
+>   https://github.com/Microsoft/azure-docs/raw/master/articles/storage/media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 
 For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](http://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.
 
@@ -185,204 +235,294 @@ If you have an application running on the VM which requires the machine specific
 
 **Data disk VHD**
 
-If you have data disks in Azure to be migrated, you must make sure the VMs that use these data disks are shut down.
+If you have data disks in Azure to be migrated, you must make sure the VMs that
+use these data disks are shut down.
 
 Create a new Azure VM using Managed Disks
 -----------------------------------------
 
-After you have prepared VHD files for migration, follow the instructions in this section to create a VM Image or OS Disk using the OS VHD file depending on your scenario and then create a VM instance from it. You can also create data Disks from data VHDs and attach to new VMs.
+After you have prepared VHD files for migration, follow the instructions in this
+section to create a VM Image or OS Disk using the OS VHD file depending on your
+scenario and then create a VM instance from it. You can also create data Disks
+from data VHDs and attach to new VMs.
 
 ### Checklist
 
-1.  If you are migrating to Premium Managed Disks, make sure it is available in the region you are migrating to.
+1.  If you are migrating to Premium Managed Disks, make sure it is available in
+    the region you are migrating to.
 
-2.  Decide the new VM series you will be using. It should be a Premium Storage capable if you are migrating to Premium Managed Disks.
+2.  Decide the new VM series you will be using. It should be a Premium Storage
+    capable if you are migrating to Premium Managed Disks.
 
-3.  Decide the exact VM size you will use which are available in the region you are migrating to. VM size needs to be large enough to support the number of data disks you have. E.g. if you have 4 data disks, the VM must have 2 or more cores. Also, consider processing power, memory and network bandwidth needs.
+3.  Decide the exact VM size you will use which are available in the region you
+    are migrating to. VM size needs to be large enough to support the number of
+    data disks you have. E.g. if you have 4 data disks, the VM must have 2 or
+    more cores. Also, consider processing power, memory and network bandwidth
+    needs.
 
-4.  Have the current VM details handy, including the list of disks and corresponding VHD blobs.
-
-Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
+4.  Have the current VM details handy, including the list of disks and
+    corresponding VHD blobs.
 
 ### Generalized (sysprepped) OS VHD and data VHDs to create multiple Azure VM instances
 
-Create a VM Image using your generalized OS VHD and data Disks using data VHDs so that you can create one or more VM instances from the Image and data Disks.
+Create a VM Image using your generalized OS VHD and data Disks using data VHDs
+so that you can create one or more VM instances from the Image and data Disks.
 
 **Note:**
 
-Update the VM size to make sure it matches your capacity and performance requirements.
+Update the VM size to make sure it matches your capacity and performance
+requirements.
 
 Follow the step by step PowerShell cmdlets below to create the new VM.
 
 1.  First, set the common parameters:
 
-> $resourceGroupName = 'yourResourceGroupName'
->
-> $location = 'locationName' \#(e.g., southeastasia)
->
-> $virtualNetworkName = 'yourExistingVirtualNetworkName'
->
-> $virtualMachineName = 'yourVMName'
->
-> $virtualMachineSize = 'Standard\_DS3'
->
-> $adminUserName = "youradmin"
->
-> $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
->
-> $imageName = 'yourImageName'
->
-> $osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
->
-> $dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
->
-> $dataDiskName = 'yourDataDiskName'
+>   \$resourceGroupName = 'yourResourceGroupName'
 
-1.  Create a VM Image using your generalized OS VHD
+>   \$location = 'locationName' \#(e.g., southeastasia)
 
-    Ensure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter.
+>   \$virtualNetworkName = 'yourExistingVirtualNetworkName'
 
-> $imageConfig = New-AzureRmImageConfig -Location $location
->
-> $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
->
-> $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGroupName -Image $imageConfig
+>   \$virtualMachineName = 'yourVMName'
+
+>   \$virtualMachineSize = 'Standard\_DS3'
+
+>   \$adminUserName = "youradmin"
+
+>   \$adminPassword = "yourpassword" \| ConvertTo-SecureString -AsPlainText
+>   -Force
+
+>   \$imageName = 'yourImageName'
+
+>   \$osVhdUri =
+>   'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+
+>   \$dataVhdUri =
+>   'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
+
+>   \$dataDiskName = 'yourDataDiskName'
+
+1.  Create a VM Image using your generalized OS VHD.
+
+>   **Note**: Managed Disks support creating a managed custom Image, a top-level
+>   ARM resource. You can choose to create an image from your custom VHD or from
+>   your VMs. You can use the custom image to create multiple virtual machines
+>   in the same region.
+
+Ensure that you have provided the complete URI of the OS VHD to the \$osVhdUri
+parameter.
+
+>   \$imageConfig = New-AzureRmImageConfig -Location \$location
+
+>   \$imageConfig = Set-AzureRmImageOsDisk -Image \$imageConfig -OsType Windows
+>   -OsState Generalized -BlobUri \$osVhdUri
+
+>   \$image = New-AzureRmImage -ImageName \$imageName -ResourceGroupName
+>   \$resourceGroupName -Image \$imageConfig
 
 1.  Set the created VM Image as source Image for the new machine
 
-    $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+    \$VirtualMachine = New-AzureRmVMConfig -VMName \$virtualMachineName -VMSize
+    \$virtualMachineSize
 
-    $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -Id $image.Id
+    \$VirtualMachine = Set-AzureRmVMSourceImage -VM \$VirtualMachine -Id
+    \$image.Id
 
-2.  Set the OS disk configuration. Enter the storage type (Premium or Standard), size of the OS disk
+2.  Set the OS disk configuration. Enter the storage type (Premium or Standard),
+    size of the OS disk
 
-    $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
+    \$VirtualMachine = Set-AzureRmVMOSDisk -VM \$VirtualMachine 
+    -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption
+    FromImage -Caching ReadWrite
 
 3.  Create a data Disk from the data VHD file and add it to the new VM
 
     **Note**:
 
-    Please enter the Disk Size as per the storage capacity and performance you require for your application. Also, enter AccountType as PremiumLRS or StandardLRS based on type of disks (Premium or Standard) you are migrating to.
+    Please enter the Disk Size as per the storage capacity and performance you
+    require for your application. Also, enter AccountType as PremiumLRS or
+    StandardLRS based on type of disks (Premium or Standard) you are migrating
+    to.
 
-> $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreationDataCreateOption Empty -DiskSizeGB 128) -ResourceGroupName $resourceGroupName
->
-> $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+>   \$dataDisk1 = New-AzureRmDisk -DiskName \$dataDiskName -Disk
+>   (New-AzureRmDiskConfig -AccountType PremiumLRS -Location \$location
+>   -CreationDataCreateOption Empty -DiskSizeGB 128) -ResourceGroupName
+>   \$resourceGroupName
+
+>   \$VirtualMachine = Add-AzureRmVMDataDisk -VM \$VirtualMachine -Name
+>   \$dataDiskName -CreateOption Attach -ManagedDiskId \$dataDisk1.Id -Lun 1
 
 1.  Create the new VM by setting public IP, Virtual Network, NIC
 
-    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'\_ip') -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+    \$publicIp = New-AzureRmPublicIpAddress -Name
+    (\$VirtualMachineName.ToLower()+'\_ip') -ResourceGroupName
+    \$resourceGroupName -Location \$location -AllocationMethod Dynamic
 
-    $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+    \$vnet = Get-AzureRmVirtualNetwork -Name \$virtualNetworkName
+    -ResourceGroupName \$resourceGroupName
 
-    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'\_nic') -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets\[0\].Id -PublicIpAddressId $publicIp.Id
+    \$nic = New-AzureRmNetworkInterface -Name
+    (\$VirtualMachineName.ToLower()+'\_nic') -ResourceGroupName
+    \$resourceGroupName -Location \$location -SubnetId \$vnet.Subnets[0].Id
+    -PublicIpAddressId \$publicIp.Id
 
-    $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+    \$VirtualMachine = Add-AzureRmVMNetworkInterface -VM \$VirtualMachine -Id
+    \$nic.Id
 
-    $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $virtualMachineName -Credential (New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminUserName, $adminPassword ) -EnableAutoUpdate
+    \$VirtualMachine = Set-AzureRmVMOperatingSystem -VM \$VirtualMachine
+    -Windows -ComputerName \$virtualMachineName -Credential (New-Object
+    -TypeName System.Management.Automation.PSCredential -ArgumentList
+    \$adminUserName, \$adminPassword ) -EnableAutoUpdate
 
-    New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+    New-AzureRmVM -VM \$VirtualMachine -ResourceGroupName \$resourceGroupName
+    -Location \$location
 
 ### Specialized (non-sysprepped) OS VHD and data VHD to create a single Azure VM instance
 
-Create an OS disk using your specialized OS VHD and data Disks using data VHDs so that you can create a new VM instance from the OS and data Disks.
+Create an OS disk using your specialized OS VHD and data Disks using data VHDs
+so that you can create a new VM instance from the OS and data Disks.
 
 **Note:**
 
-Update the VM size to make sure it matches your capacity and performance requirements.
+Update the VM size to make sure it matches your capacity and performance
+requirements.
 
 Follow the step by step PowerShell cmdlets below to create the new VM.
 
 1.  First, set the common parameters:
 
-> $resourceGroupName = 'yourResourceGroupName'
->
-> $location = 'locationName' \#(e.g., southeastasia)
->
-> $virtualNetworkName = 'yourExistingVirtualNetworkName'
->
-> $virtualMachineName = 'yourVMName'
->
-> $virtualMachineSize = 'Standard\_DS3'
->
-> $adminUserName = "youradmin"
->
-> $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
->
-> $imageName = 'yourImageName'
->
-> $osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
->
-> $dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
->
-> $dataDiskName = 'dataDisk1'
+>   \$resourceGroupName = 'yourResourceGroupName'
+
+>   \$location = 'locationName' \#(e.g., southeastasia)
+
+>   \$virtualNetworkName = 'yourExistingVirtualNetworkName'
+
+>   \$virtualMachineName = 'yourVMName'
+
+>   \$virtualMachineSize = 'Standard\_DS3'
+
+>   \$adminUserName = "youradmin"
+
+>   \$adminPassword = "yourpassword" \| ConvertTo-SecureString -AsPlainText
+>   -Force
+
+>   \$imageName = 'yourImageName'
+
+>   \$osVhdUri =
+>   'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+
+>   \$dataVhdUri =
+>   'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
+
+>   \$dataDiskName = 'dataDisk1'
 
 1.  Create an OS disk using your specialized (non-sysprepped) OS VHD
 
-    Ensure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter AccountType as PremiumLRS or StandardLRS based on type of disks (Premium or Standard) you are migrating to.
+    Ensure that you have provided the complete URI of the OS VHD to the
+    \$osVhdUri parameter. Also, enter AccountType as PremiumLRS or StandardLRS
+    based on type of disks (Premium or Standard) you are migrating to.
 
-> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import -SourceUri $osVhdUri) -ResourceGroupName $resourceGroupName
+>   \$osDisk = New-AzureRmDisk -DiskName \$osDiskName -Disk
+>   (New-AzureRmDiskConfig -AccountType PremiumLRS -Location \$location
+>   -CreationDataCreateOption Import -SourceUri \$osVhdUri) -ResourceGroupName
+>   \$resourceGroupName
 
 1.  Attach the created OS disk to the new VM
 
     Note:
 
-    Please enter the Disk Size as per the storage capacity and performance you require for your application. Also, enter AccountType as PremiumLRS or StandardLRS based on type of disks (Premium or Standard) you are migrating to.
+    Please enter the Disk Size as per the storage capacity and performance you
+    require for your application. Also, enter AccountType as PremiumLRS or
+    StandardLRS based on type of disks (Premium or Standard) you are migrating
+    to.
 
-> $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
->
-> $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+>   \$VirtualMachine = New-AzureRmVMConfig -VMName \$virtualMachineName -VMSize
+>   \$virtualMachineSize
+
+>   \$VirtualMachine = Set-AzureRmVMOSDisk -VM \$VirtualMachine -ManagedDiskId
+>   \$osDisk.Id -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128
+>   -CreateOption Attach -Windows
 
 1.  Create a data disk from the data VHD file and add it to the new VM
 
     **Note**:
 
-    Please enter the Disk Size as per the storage capacity and performance you require for your application. Also, enter AccountType as PremiumLRS or StandardLRS based on type of disks (Premium or Standard) you are migrating to.
+    Please enter the Disk Size as per the storage capacity and performance you
+    require for your application. Also, enter AccountType as PremiumLRS or
+    StandardLRS based on type of disks (Premium or Standard) you are migrating
+    to.
 
-> $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
->
-> $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+>   \$dataDisk1 = New-AzureRmDisk -DiskName \$dataDiskName -Disk
+>   (New-AzureRmDiskConfig -AccountType PremiumLRS -Location \$location
+>   -CreationDataCreateOption Import -SourceUri \$dataVhdUri )
+>   -ResourceGroupName \$resourceGroupName
+
+>   \$VirtualMachine = Add-AzureRmVMDataDisk -VM \$VirtualMachine -Name
+>   \$dataDiskName -CreateOption Attach -ManagedDiskId \$dataDisk1.Id -Lun 1
 
 1.  Create the new VM by setting public IP, Virtual Network, NIC
 
-    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'\_ip') -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+    \$publicIp = New-AzureRmPublicIpAddress -Name
+    (\$VirtualMachineName.ToLower()+'\_ip') -ResourceGroupName
+    \$resourceGroupName -Location \$location -AllocationMethod Dynamic
 
-    $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+    \$vnet = Get-AzureRmVirtualNetwork -Name \$virtualNetworkName
+    -ResourceGroupName \$resourceGroupName
 
-    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'\_nic') -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets\[0\].Id -PublicIpAddressId $publicIp.Id
+    \$nic = New-AzureRmNetworkInterface -Name
+    (\$VirtualMachineName.ToLower()+'\_nic') -ResourceGroupName
+    \$resourceGroupName -Location \$location -SubnetId \$vnet.Subnets[0].Id
+    -PublicIpAddressId \$publicIp.Id
 
-    $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+    \$VirtualMachine = Add-AzureRmVMNetworkInterface -VM \$VirtualMachine -Id
+    \$nic.Id
 
-    New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+    New-AzureRmVM -VM \$VirtualMachine -ResourceGroupName \$resourceGroupName
+    -Location \$location
 
 **Note:**
 
-There may be additional steps necessary to support your application that is not be covered by this guide.
+There may be additional steps necessary to support your application that is not
+be covered by this guide.
 
 Checking and plan backup
 ========================
 
-Once the new VM is up and running, access it using the same login id and password is as the original VM, and verify that everything is working as expected. All the settings, including the striped volumes, would be present in the new VM.
+Once the new VM is up and running, access it using the same login id and
+password is as the original VM, and verify that everything is working as
+expected. All the settings, including the striped volumes, would be present in
+the new VM.
 
-The last step is to plan backup and maintenance schedule for the new VM based on the application's needs.
+The last step is to plan backup and maintenance schedule for the new VM based on
+the application's needs.
 
-<span id="a-sample-migration-script" class="anchor"><span id="optimization" class="anchor"><span id="_Toc471211708" class="anchor"></span></span></span>Application migrations
-==============================================================================================================================================================================
+Application migrations
+======================
 
-Databases and other complex applications may require special steps as defined by the application provider for the migration. Please refer to respective application documentation. E.g. typically databases can be migrated through backup and restore.
+Databases and other complex applications may require special steps as defined by
+the application provider for the migration. Please refer to respective
+application documentation. E.g. typically databases can be migrated through
+backup and restore.
 
-Next steps
-==========
+## Next steps
+
 
 Learn more about Azure VM Disks and Azure Virtual Machines:
 
--   [Managed Disks Overview](https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Managed%20Disks/GA/Managed%20DIsks%20Overview%20Page)
+-   [Managed Disks
+    Overview](https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Managed%20Disks/GA/Managed%20DIsks%20Overview%20Page)
 
--   [Premium Storage](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance)
+-   [Premium
+    Storage](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance)
 
--   [Standard Storage](https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Managed%20Disks/GA/TBD)
+-   [Standard
+    Storage](https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Managed%20Disks/GA/TBD)
 
--   [Disks Pricing](https://azure.microsoft.com/en-us/pricing/details/storage/disks/)
+-   [Disks
+    Pricing](https://azure.microsoft.com/en-us/pricing/details/storage/disks/)
 
--   [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+-   [Azure Virtual
+    Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
--   [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
+-   [Premium Storage: High-Performance Storage for Azure Virtual Machine
+    Workloads](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)
