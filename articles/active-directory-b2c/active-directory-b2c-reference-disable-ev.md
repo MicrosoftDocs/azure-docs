@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: Disable Email Verification During User Sign-up | Microsoft Docs'
-description: A topic demonstrating how to disable email verification during user sign-up in Azure Active Directory B2C
+title: 'Azure Active Directory B2C: Disable Email Verification During Consumer Sign-up | Microsoft Docs'
+description: A topic demonstrating how to disable email verification during consumer sign-up in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
 author: parakhj
@@ -17,10 +17,10 @@ ms.date: 1/26/2017
 ms.author: parakhj
 
 ---
-# Azure Active Directory B2C: Disable email verification during user sign-up
-Azure Active Directory (Azure AD) B2C gives your users the ability to sign up for your application by providing their email address and creating a local account. When you enable this feature, Azure AD B2C forces your users to verify their email address during the sign-up process. This feature ensures that the new users are entering a valid email address. It also prevents a malicious automated process from generating fake accounts for your application.
+# Azure Active Directory B2C: Disable email verification during consumer sign-up
+Azure Active Directory (Azure AD) B2C gives consumers the ability to sign up for your application by providing their email address and creating a local account. When you enable this feature, Azure AD B2C forces consumers to verify their email address during the sign-up process. This feature ensures that the new consumers are entering a valid email address. It also prevents a malicious automated process from generating fake accounts for your application.
 
-We have received feedback that some application developers would prefer skipping the email verification during the sign-up process, and choose to have their users verify the email address later. Disabling email verification creates a more frictionless sign-up process and helps developers differentiate between the users that have verified their email address from those users that have not. To support this, we have added an option that disables email verification and gives you more control over the sign-up process.
+We have received feedback that some application developers would prefer skipping the email verification during the sign-up process, and choose to have consumers verify the email address later. Disabling email verification creates a more frictionless sign-up process and helps developers differentiate between the consumers that have verified their email address from those consumers that have not. To support this, we have added an option that disables email verification and gives you more control over the sign-up process.
 
 By default, your sign-up policy has email verification turned on. Use the following steps to turn it off:
 
