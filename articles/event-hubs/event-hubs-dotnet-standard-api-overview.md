@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/02/2017
 ms.author: jotaub
 ---
 
@@ -22,7 +22,7 @@ This article summarizes some of the key Event Hubs .NET Standard client APIs. Th
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
   *  This library provides all basic runtime operations.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * This library adds additional functionality that allows for 
+  * This library adds additional functionality that allows for keeping track of processed events, and is the easiest way to read from an Event Hub.
 
 ## Event Hub client
 [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) is the primary object you use to send events, create receivers, and to get runtime information. This client is linked to a particular Event Hub, and creates a new connection to the Event Hubs endpoint.
