@@ -19,7 +19,7 @@ ms.author: spelluru
 ---
 # Use custom activities in an Azure Data Factory pipeline
 
-> [!div class="op_single_selector" title="Activities in Data Factory"]
+> [!div class="op_single_selector" title1="Activities in Data Factory"]
 > * [Hive](data-factory-hive-activity.md) 
 > * [Pig](data-factory-pig-activity.md)
 > * [MapReduce](data-factory-map-reduce.md)
