@@ -1,31 +1,52 @@
+---
+title: Receive events from Azure Event Hubs using the .NET Framework | Microsoft Docs
+description: Follow this tutorial to receive events from Azure Event Hubs using the .NET Framework.
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/30/2017
+ms.author: jotaub
+
+---
+# Get started with Event Hubs using the .NET Framework
+
 ## Receive messages with EventProcessorHost
-[EventProcessorHost][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][EventProcessorHost], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][EventProcessorHost] for a single receiver. The [Scaled out event processing][Scaled out event processing] sample shows how to use [EventProcessorHost][EventProcessorHost] with multiple receivers.
+[EventProcessorHost][EventProcessorHost] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][EventProcessorHost], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][EventProcessorHost] for a single receiver. The [Scale out event processing][Scale out Event Processing with Event Hubs] sample shows how to use [EventProcessorHost][EventProcessorHost] with multiple receivers.
 
 To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage account][Azure Storage account]:
 
 1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
-2. Click **Data + Storage**, then click **Storage account**.
+2. Click **Storage**, then click **Storage account**.
    
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
 3. In the **Create storage account** blade, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
    
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. In the list of storage accounts, click the newly-created storage account.
 5. In the storage account blade, click **Access keys**. Copy the value of **key1** to use later in this tutorial.
    
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 6. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
    
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
 7. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
 8. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use.
    
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
 9. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **Add** to create the class.
    
-    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
+    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 10. Add the following statements at the top of the SimpleEventProcessor.cs file:
     
      ```csharp
@@ -114,9 +135,26 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 > 
 
 <!-- Links -->
-[Event Hubs Overview]: ../articles/event-hubs/event-hubs-overview.md
-[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com
+
+## Next steps
+Now that you've built a working application that creates an Event Hub and sends and receives data, you can learn more by visiting the following links:
+
+* [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Event Hubs overview][Event Hubs overview]
+* [Event Hubs FAQ](event-hubs-faq.md)
+
+<!-- Images. -->
+[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
+[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
+[21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
+[22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+
+<!-- Links -->
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Event Hubs overview]: event-hubs-overview.md
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
