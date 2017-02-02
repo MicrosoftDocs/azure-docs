@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using the classic deployment model and PowerShell| Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 

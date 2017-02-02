@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)

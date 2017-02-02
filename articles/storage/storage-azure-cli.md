@@ -23,7 +23,7 @@ ms.author: marsma
 
 The open-source, cross-platform Azure CLI 2.0 (Preview) provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
 
-In this guide, we show you how to use the [Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
+In this guide, we show you how to use the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
 
 The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
 
@@ -361,6 +361,6 @@ az storage file copy start \
 ## Next steps
 Here are some additional resources for learning more about working with the Azure CLI 2.0 (Preview).
 
-* [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2)
+* [Get started with Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI 2.0 (Preview) command reference](/cli/azure)
 * [Azure CLI 2.0 (Preview) on GitHub](https://github.com/Azure/azure-cli)
