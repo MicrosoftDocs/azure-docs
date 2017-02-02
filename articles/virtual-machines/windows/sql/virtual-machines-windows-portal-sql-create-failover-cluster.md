@@ -469,7 +469,3 @@ On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) i
 
 [SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
 
-
-## Next Steps
-
-- Add an instance to an existing failover cluster on Azure virtual machines
