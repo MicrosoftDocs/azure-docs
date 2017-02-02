@@ -46,15 +46,7 @@ Common errors include:
 
 ### Invitee’s Admin has disallowed EmailVerified Users from being created in their tenant:
 
-When inviting users whose organization is utilizing Azure Active
-Directory where the specific user’s account does not exist (User does
-not exist in AAD contoso.com). The administrator of contoso.com may have
-a policy in place preventing users from being created. The External User
-must check with their admin to determine if external users are allowed,
-the external user’s admin may need to allow Email Verified users in
-their domain (see this
-[article](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters)
-on allowing EmailVerified Users)
+When inviting users whose organization is utilizing Azure Active Directory where the specific user’s account does not exist (User does not exist in AAD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The External User must check with their admin to determine if external users are allowed, the external user’s admin may need to allow Email Verified users in their domain (see this [article](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msolcompanysettings#parameters) on allowing EmailVerified Users).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 

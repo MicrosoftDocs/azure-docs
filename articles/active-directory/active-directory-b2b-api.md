@@ -21,36 +21,38 @@ ms.author: sasubram
 
 # Azure Active Directory B2B collaboration API and customization
 
-https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation
-
-We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With this API, you can do just that. [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
+We've had many customers tell us that they want to customize the invitation process in a way that works best for their organizations. With our API, you can do just that. [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
 
 ## Capabilities of the invitation API
 The API offers the following capabilities:
 1. Invite an external user with *any* email address.
 
-    "invitedUserDisplayName": "Sam"
-    "invitedUserEmailAddress": "gsamoogle@gmail.com"
+    ```"invitedUserDisplayName": "Sam"
+    "invitedUserEmailAddress": "gsamoogle@gmail.com"```
 
 2. Customize where you want your users to land after they accept their invitation.
-    "inviteRedirectUrl": "https://myapps.microsoft.com/""
+
+    ```"inviteRedirectUrl": "https://myapps.microsoft.com/"```
 
 3. Choose to send the standard invitation mail through us
 
-    "sendInvitationMessage": true
+    ```"sendInvitationMessage": true```
 
   with a message to the recipient that you can customize
 
-    "customizedMessageBody": "Hello Sam, let's collaborate!""
+    ```"customizedMessageBody": "Hello Sam, let's collaborate!"```
 
 4. And choose to cc: people you want to keep in the loop about your inviting this collaborator.
-2. Or completely customize your invitation and onboarding workflow by choosing not to send notifications through Azure AD.
-    "sendInvitationMessage": false
+
+5. Or completely customize your invitation and onboarding workflow by choosing not to send notifications through Azure AD.
+
+    ```"sendInvitationMessage": false```
 
   In this case, you'll get back a redemption URL from the API that you can embed in an email template, IM, or other distribution method of your choice.
 
 6. Finally, if you are an admin, you can choose to invite the user as member.
-    "invitedUserType": "Member"
+
+    ```"invitedUserType": "Member"```
 
 
 ## Authorization Model
@@ -66,13 +68,14 @@ For more details, refer to: https://graph.microsoft.io/en-us/docs/authorization/
 
 ## PowerShell
 It is now possible to use PowerShell to add and invite external users to an organization easily. Just create a new invitation using the cmdlt
-    New-AzureADMSInvitation
+
+    ```New-AzureADMSInvitation```
 
 with the following options
-    -InvitedUserDisplayName
+```    -InvitedUserDisplayName
     -InvitedUserEmailAddress
     -SendInvitationMessage
-    -InvitedUserMessageInfo
+    -InvitedUserMessageInfo```
 
 whose descriptions follow the invitation API reference in [https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation](https://graph.microsoft.io/en-us/docs/api-reference/beta/resources/invitation)
 
