@@ -234,7 +234,7 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
 
 2. Next, create the `mvc-dispatcher-servlet.xml` file located under `\webapp\WEB-INF\`, and enter the following:  
 
-```xml
+    ```xml
 
         <beans xmlns="http://www.springframework.org/schema/beans"
             xmlns:context="http://www.springframework.org/schema/context"
@@ -255,7 +255,7 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
                 </property>
             </bean>
         </beans>
-```
+    ```
 
 This will tell the webapp to use Spring and where to find our .jsp file which we will write below.
 
@@ -269,7 +269,7 @@ Let's make those now.
 
 1. To begin, create the `index.jsp` file located under `\webapp\`, and copy/paste the following:  
 
-```jsp
+    ```jsp
 
         <html>
         <body>
@@ -285,7 +285,7 @@ Let's make those now.
 
 2. Next, in the same directory lets create an `error.jsp` file to catch any errors that might happen:  
 
-```jsp
+    ```jsp
 
         <html>
         <body>
@@ -303,7 +303,7 @@ Let's make those now.
 3. Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`. 
 Inside this directory, let's then create an `aad.jsp` file and copy/paste the following:
 
-```jsp
+    ```jsp
 
         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
         <html>
@@ -354,7 +354,7 @@ Let's write some Java files to do this work for us:
 
 2. Inside this folder, create a file called `JSONHelper.java` which we will use to help us parse from JSON data from our tokens. You can copy/paste this from below:
 
-```Java
+    ```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -576,7 +576,7 @@ Let's write some Java files to do this work for us:
 
 3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can copy/paste this from below:
 
-```Java
+    ```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -735,7 +735,7 @@ As indicated above, we will be using the Graph API to get data about the logged 
 
 1. Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
 
-```Java
+    ```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -789,7 +789,7 @@ As indicated above, we will be using the Graph API to get data about the logged 
 ```
 2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
 
-```Java
+    ```Java
         
         package com.microsoft.aad.adal4jsample;
         
@@ -1315,7 +1315,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
 
 2. Cut/paste the code below:  
 
-```Java
+    ```Java
 
         package com.microsoft.aad.adal4jsample;
         
@@ -1364,7 +1364,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
 
 3. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:  
 
-```Java
+    ```Java
 
         package com.microsoft.aad.adal4jsample;
         public final class AuthParameterNames {
@@ -1382,7 +1382,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
 
     Cut/paste the following:
 
-```Java
+    ```Java
 
         package com.microsoft.aad.adal4jsample;
         import java.net.HttpURLConnection;
@@ -1462,7 +1462,7 @@ We are finally ready to create the BasicFilter file to handle our requests from 
 
 1. Create a file called `BasicFilter.java` which contains the following:
 
-```Java
+    ```Java
         
         package com.microsoft.aad.adal4jsample;
         
