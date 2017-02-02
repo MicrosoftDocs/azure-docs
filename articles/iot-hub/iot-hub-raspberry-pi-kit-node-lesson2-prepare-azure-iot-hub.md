@@ -1,4 +1,6 @@
 ---
+featureFlags: 
+- usabilla
 title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 2: Register device | Microsoft Docs'
 description: Create a resource group, create an Azure IoT hub, and register Pi in the IoT Hub identity registry by using Azure CLI.
 services: iot-hub
