@@ -20,18 +20,18 @@ ms.author: cynthn
 ---
 # Create a VM from a generalized managed VM image
 
-You can create multiple VMs from a VM image in Azure. A VM image contains the information necessary to create a VM, including the OS and data disks. The VHDs that make up the image are stored as managed disks. 
+You can create multiple VMs from a managed VM image in Azure. A managed VM image contains the information necessary to create a VM, including the OS and data disks. The VHDs that make up the image, including both the OS disks and any data disks, are stored as managed disks. 
 
-A generalized VM has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VM by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [capturing an image of the VM](virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+A generalized VM has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VM by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM, and then [capturing an image of the VM](virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 ## Prerequisites
 
-You need to have already [created a managed VM image](virtual-machines-windows-capture-image-resource.md) to use for the new VM. 
+You need to have already [created a managed VM image](virtual-machines-windows-capture-image-resource.md) to use for creating the new VM. 
 
 
-## Get some information about the image
+## Collect information about the image
 
 First we need to gather basic information about the image and create a variable for the image. This example uses a managed VM image named **myImage** that is in the **myResourceGroup** resource group in the **West Central US** location. 
 
@@ -45,13 +45,13 @@ $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ## Create a virtual network
 Create the vNet and subnet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
-1. Create the subnet. The following sample creates a subnet named **mySubnet** in the resource group **myResourceGroup** with the address prefix of **10.0.0.0/24**.  
+1. Create the subnet. This example creates a subnet named **mySubnet** with the address prefix of **10.0.0.0/24**.  
    
     ```powershell
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **West US** location with the address prefix of **10.0.0.0/16**.  
+2. Create the virtual network. This example creates a virtual network named **myVnet** with the address prefix of **10.0.0.0/16**.  
    
     ```powershell
     $vnetName = "myVnet"
@@ -60,6 +60,7 @@ Create the vNet and subnet of the [virtual network](../virtual-network/virtual-n
     ```    
 
 ## Create a public IP address and network interface
+
 To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
 
 1. Create a public IP address. This example creates a public IP address named **myPip**. 
@@ -78,14 +79,15 @@ To enable communication with the virtual machine in the virtual network, you nee
     ```
 
 ## Create the network security group and an RDP rule
-To be able to log in to your VM using RDP, you need to have a security rule that allows RDP access on port 3389. 
+
+To be able to log in to your VM using RDP, you need to have a network security rule (NSG) that allows RDP access on port 3389. 
 
 This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
-
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$ruleName = "myRdpRule"
+$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
@@ -106,7 +108,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## Get the credentials for the VM
 
-Enter a new user name and password to use as the local administrator account for remotely accessing the VM.
+The following cmdlet will open a window where you will enter a new user name and password to use as the local administrator account for remotely accessing the VM. 
 
 ```powershell
 $cred = Get-Credential
@@ -114,50 +116,49 @@ $cred = Get-Credential
 
 ## Set variables for the VM name, computer name and the size of the VM
 
-1. Set the name of the virtual machine. This example sets the VM name as **myVM**.
+1. Create variables for the VM name and computer name. This example sets the VM name as **myVM** and the computer name as **myComputer**.
 
     ```powershell
     $vmName = "myVM"
+	$computerName = "myComputer"
     ```
 2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) documentation for more information.
 
     ```powershell
     $vmSize = "Standard_DS1_v2"
 	```
-3. Set the computer name for the VM. This examples sets the computer name as **myComputer**.
 
-    ```powershell
-    $computerName = "myComputer"
-	```
-4. Add the VM name and size to the VM configuration.
+3. Add the VM name and size to the VM configuration.
 
 ```powershell
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 ```
 
 ## Set the VM image as source image for the new VM
 
-```powershell
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+Set the source image using the ID of the managed VM image.
 
+```powershell
 $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 ```
 
 ## Set the OS configuration and add the NIC.
 
-Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk.
+Enter the storage type (PremiumLRS or StandardLRS) and the size of the OS disk. This example sets the account type to **PremiumLRS**, the disk size to **128 GB** and disk caching to **ReadWrite**.
 
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
-$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
 ## Create the VM
+
+Create the new Vm using the configuration that we have built and stored in the **$vm** variable.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
