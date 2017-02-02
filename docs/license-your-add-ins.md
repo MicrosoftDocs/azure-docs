@@ -7,8 +7,6 @@ ms.locale: en-US
 
 
 # License your Office and SharePoint Add-ins
-Use the add-in license framework for Office and SharePoint Add-ins to verify and enforce legal use of your add-ins that are downloaded from the Office Store.
- 
 
 The licensing framework for Office and SharePoint Add-ins gives you a way to include code in your add-ins to verify and enforce their legal use. You can restrict access to your add-ins to only those users who have a valid license, or specify which features are available, how the add-in behaves, or other logic, based on the properties of that license. If you plan to sell your add-in, you should build in logic that uses the licensing framework to determine whether a user has a valid license for the add-in, and give access to its features based on the license's properties.
  
@@ -104,11 +102,7 @@ To help maximize the reach and adoption of your add-ins, as of Office 2013, Serv
 
  
 If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. Therefore, you must include code in your add-in that determines whether the license token is present on each HTTP request for the app's home page. If it is not, your add-in can treat the request as coming from an anonymous user, and present the UI and functionality you decide is appropriate. Use the add-in licensing framework to customize what your add-in presents to users who are not signed into their Microsoft accounts. For example, your add-in could present UI that provides more information about your add-in, a link to your add-in's Office Store listing, a reduced set of functionality, or other relevant material. 
- 
 
- 
-
-|||
 |:-----|:-----|
 |Add-in license type|Recommended UX when the user is anonymous (license token is not present)|
 |Free|No change in behavior, add-in can function the same. However, if you rely on the license token to determine user identity of your free add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft Account to get the full benefits of your add-in.|
@@ -209,21 +203,7 @@ The following figure shows the add-in license query and validation process for S
     
  
 6. The add-in can then take action, based on the validity of the license and its properties.
-    
- 
 
-## In this section
-<a name="bk_devs"> </a>
-
-
--  [How licenses work for Office and SharePoint Add-ins](how-licenses-work-for-office-and-sharepoint-add-ins.md)
-    
- 
--  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
-    
- 
--  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md)
-    
  
 
 ## Additional resources
