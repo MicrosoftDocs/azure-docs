@@ -34,7 +34,7 @@
 ## [Quotas and limits](event-hubs-quotas.md)
 ## [Messaging exceptions](event-hubs-messaging-exceptions.md)
 ## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)

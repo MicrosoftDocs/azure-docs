@@ -1,15 +1,36 @@
-## Receive messages with Apache Storm
+---
+title: Receive events from Azure Event Hubs using Apache Storm | Microsoft Docs
+description: Get started receiving from Event Hubs using Apache Storm
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: 
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: java
+ms.devlang: multiple
+ms.topic: article
+ms.date: 01/30/2017
+ms.author: jotaub;sethm
+---
+
+## Receive events from Azure Event Hubs using Apache Storm
 [Apache Storm](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
 
 For more information about Event Hubs receive patterns, see the [Event Hubs overview][Event Hubs overview].
 
 This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with the Event Hubs spout already available.
 
-1. Follow the [HDInsight Storm - Get Started](../articles/hdinsight/hdinsight-storm-overview.md) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.
+1. Follow the [HDInsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.
 2. Copy the `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` file to your local development environment. This contains the events-storm-spout.
 3. Use the following command to install the package into the local Maven store. This enables you to add it as a reference in the Storm project in a later step.
-   
+
+```shell
         mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+```
 4. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
    
     ![][12]
@@ -17,7 +38,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 6. Select the **maven-archetype-quickstart** archetype, then click **Next**
 7. Insert a **GroupId** and **ArtifactId**, then click **Finish**
 8. In **pom.xml**, add the following dependencies in the `<dependency>` node.
-   
+```xml  
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-core</artifactId>
@@ -45,25 +66,22 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
             </exclusions>
             <scope>provided</scope>
         </dependency>
+```
 9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the following values:
-   
-        eventhubspout.username = ReceiveRule
-   
-        eventhubspout.password = {receive rule key}
-   
-        eventhubspout.namespace = ioteventhub-ns
-   
-        eventhubspout.entitypath = {event hub name}
-   
-        eventhubspout.partitions.count = 16
-   
-        # if not provided, will use storm's zookeeper settings
-        # zookeeper.connectionstring=localhost:2181
-   
-        eventhubspout.checkpoint.interval = 10
-   
-        eventhub.receiver.credits = 10
-   
+
+	```java
+	eventhubspout.username = ReceiveRule
+	eventhubspout.password = {receive rule key}
+	eventhubspout.namespace = ioteventhub-ns
+	eventhubspout.entitypath = {event hub name}
+	eventhubspout.partitions.count = 16
+	   
+	# if not provided, will use storm's zookeeper settings
+	# zookeeper.connectionstring=localhost:2181
+	   
+	eventhubspout.checkpoint.interval = 10
+	eventhub.receiver.credits = 10
+	```
     The value for **eventhub.receiver.credits** determines how many events are batched before releasing them to the Storm pipeline. For the sake of simplicity, this example sets this value to 10. In production, it should usually be set to higher values; for example, 1024.
 10. Create a new class called **LoggerBolt** with the following code:
     
@@ -211,11 +229,18 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 
     This class creates a new Event Hubs spout, using the properties in the configuration file to instantiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the Event Hub, in order to use the maximum parallelism allowed by that Event Hub.
 
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
+
 <!-- Links -->
-[Event Hubs overview]: ../articles/event-hubs/event-hubs-overview.md
-[HDInsight Storm]: ../articles/hdinsight/hdinsight-storm-overview.md
-[HDInsight sensor analysis tutorial]: ../articles/hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Event Hubs overview]: event-hubs-overview.md
+[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[HDInsight sensor analysis tutorial]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
-[12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
+[12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
