@@ -372,9 +372,12 @@ and append the line
 ```
 # ./install
 ```
+	
 	![](./media/site-recovery-how-to-install-linux-master-target/image17.png)
+	
 
 2. Choose the Global settings to configure
+
 	![](./media/site-recovery-how-to-install-linux-master-target/image18.png)
 	
 3. Specify th CS Server IP addresses
