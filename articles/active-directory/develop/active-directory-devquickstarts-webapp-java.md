@@ -279,7 +279,7 @@ Let's make those now.
             </ul>
         </body>
         </html>
-```
+    ```
 
     This simply redirects to a secure page that is protected by our filter.
 
@@ -298,7 +298,7 @@ Let's make those now.
             </ul>
         </body>
         </html>
-```
+    ```
 
 3. Finally, let's make that secure webpage we want by creating a folder under `\webapp` called `\secure` so that the directory us now `\webapp\secure`. 
 Inside this directory, let's then create an `aad.jsp` file and copy/paste the following:
@@ -329,7 +329,7 @@ Inside this directory, let's then create an `aad.jsp` file and copy/paste the fo
         </ul>
         </body>
         </html>
-```
+    ```
 
 You see that this page will redirect to specific requests which our BasicFilter servlet will read and then execute on using the `ADAJ4J` library. Rather simple, huh?
 
@@ -572,7 +572,7 @@ Let's write some Java files to do this work for us:
         
         }
         
-```
+    ```
 
 3. Next, create a file called `HttpClientHelper.java` which we will use to help us parse from HTTP data from our AAD endpoint. You can copy/paste this from below:
 
@@ -728,7 +728,7 @@ Let's write some Java files to do this work for us:
         
         }
         
-```
+    ```
 
 ## 6. Create the Java Graph API Model files (for BasicFilter MVC)
 As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
@@ -786,7 +786,7 @@ As indicated above, we will be using the Graph API to get data about the logged 
         
         }
         
-```
+    ```
 2. Create a file called `User.java` which we will use to store basic data about any User from the directory. Again, this is pretty basic getters/setters for directory data so you can cut/paste this from below:
 
     ```Java
@@ -1302,7 +1302,7 @@ As indicated above, we will be using the Graph API to get data about the logged 
         //
         //}
         
-```
+    ```
 
 ## 7. Create the Authentication Model/Controller files (for BasicFilter)
 Yes, Java is rather verbose, but we're almost done. Next to last, before we write the BasicFilter servlet to handle our requests, let's write some more helper files that the `ADAL4J` library needs. 
@@ -1360,7 +1360,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
                 return authResponse instanceof AuthenticationSuccessResponse;
             }
         }
-```
+    ```
 
 3. Create a file called `AuthParameterNames.java` which will give us some immutable variables `ADAL4J` will require. Cut/pate the following:  
 
@@ -1376,7 +1376,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
         public static String ID_TOKEN = "id_token";
         public static String CODE = "code";
         }
-```
+    ```
 
 4. Finally, create a file called `AadController.java` which is the Controller of our MVC pattern which will give us our JSP controller and expose the `secure/aad` URL endpoint for our app. In addition, we put the graph query in this file as well.  
 
@@ -1455,7 +1455,7 @@ Yes, Java is rather verbose, but we're almost done. Next to last, before we writ
         
         }
         
-```
+    ```
 
 ## 8. Create the BasicFilter file (for BasicFilter MVC)
 We are finally ready to create the BasicFilter file to handle our requests from our View (JSP files).
@@ -1700,7 +1700,7 @@ We are finally ready to create the BasicFilter file to handle our requests from 
             }
         
         }
-```
+    ```
 
 2. This servlet exposes all of the methods that `ADAL4J` will expect from our application to run. This includes:
 
