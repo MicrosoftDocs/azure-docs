@@ -51,7 +51,6 @@ Storage Service Encryption can be enabled at a storage account level. It support
 SSE has the following limitations:
 
 * Encryption of classic storage accounts is not supported.
-* Encryption of classic storage accounts migrated to Resource Manager storage accounts is not supported.
 * Existing Data - SSE only encrypts newly created data after the encryption is enabled. If for example you create a new Resource Manager storage account but don’t turn on encryption, and then you upload blobs or archived VHDs to that storage account and then turn on SSE, those blobs will not be encrypted unless they are rewritten or copied.
 * Marketplace Support - Enable encryption of VMs created from the Marketplace using the [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI. The VHD base image will remain unencrypted; however, any writes done after the VM has spun up will be encrypted.
 * Table, Queues, and Files data will not be encrypted.
