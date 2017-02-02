@@ -3,7 +3,7 @@ title: Configure Geo-Replication for Azure SQL Database with Transact-SQL | Micr
 description: Configure Geo-Replication for Azure SQL Database using Transact-SQL
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2017
-ms.author: carlrab
+ms.date: 10/13/2016
+ms.author: sashan
 
 ---
 # Configure active geo-replication for Azure SQL Database with Transact-SQL

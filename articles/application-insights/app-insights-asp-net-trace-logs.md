@@ -20,9 +20,9 @@ ms.author: awills
 If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Azure Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
 
 > [!NOTE]
-> Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) directly.
-> 
-> 
+> Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) directly.
+>
+>
 
 ## Install logging on your app
 Install your chosen logging framework in your project. This should result in an entry in app.config or web.config.
@@ -35,8 +35,8 @@ If you're using System.Diagnostics.Trace, you need to add an entry to web.config
      <system.diagnostics>
        <trace autoflush="false" indentsize="4">
          <listeners>
-           <add name="myListener" 
-             type="System.Diagnostics.TextWriterTraceListener" 
+           <add name="myListener"
+             type="System.Diagnostics.TextWriterTraceListener"
              initializeData="TextWriterOutput.log" />
            <remove name="Default" />
          </listeners>
@@ -53,15 +53,15 @@ Or **Configure Application Insights** by right-clicking your project in Solution
 *No Application Insights menu or log collector option?* Try [Troubleshooting](#troubleshooting).
 
 ## Manual installation
-Use this method if your project type isn't supported by the Application Insights installer (for example a Windows desktop project). 
+Use this method if your project type isn't supported by the Application Insights installer (for example a Windows desktop project).
 
-1. If you plan to use log4Net or NLog, install it in your project. 
+1. If you plan to use log4Net or NLog, install it in your project.
 2. In Solution Explorer, right-click your project and choose **Manage NuGet Packages**.
 3. Search for "Application Insights"
-   
+
     ![Get the prerelease version of the appropriate adapter](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 4. Select the appropriate package - one of:
-   
+
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
@@ -79,14 +79,14 @@ If you prefer log4net or NLog:
 
 
 ## Using the Trace API directly
-You can call the Application Insights trace API directly. The logging adapters use this API. 
+You can call the Application Insights trace API directly. The logging adapters use this API.
 
 For example:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there. 
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.
 
 In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
 
@@ -110,13 +110,13 @@ You can, for example:
 
 * Filter on log traces, or on items with specific properties
 * Inspect a specific item in detail.
-* Find other telemetry relating to the same user request (that is, with the same OperationId) 
+* Find other telemetry relating to the same user request (that is, with the same OperationId)
 * Save the configuration of this page as a Favorite
 
 > [!NOTE]
 > **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
-> 
-> 
+>
+>
 
 ## Next steps
 [Diagnose failures and exceptions in ASP.NET][exceptions]
@@ -162,5 +162,3 @@ If your application sends a lot of data and you are using the Application Insigh
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
