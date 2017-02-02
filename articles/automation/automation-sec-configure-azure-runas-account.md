@@ -150,7 +150,7 @@ If any of the configuration items necessary for the Run As or Clasic Run As acco
 * Run As account has been removed from the contributor role
 * Service principal or application in Azure AD
 
-a status of **Incomplete** will be presented when you are in the **Run As Accounts** properties blade.<br><br> ![Incomplete Run As configuration status message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>When you select the Run As account, the following warning will be presented in the properties pane of the account:<br><br> ![Incomplete Run As configuration warning message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
+Automation will detect these changes and notify you with a status of **Incomplete** in the **Run As Accounts** properties blade for the account.<br><br> ![Incomplete Run As configuration status message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config.png)<br><br>When you select the Run As account, the following warning will be presented in the properties pane of the account:<br><br> ![Incomplete Run As configuration warning message](media/automation-sec-configure-azure-runas-account/automation-account-runas-incomplete-config-msg.png).<br>  
 If your Run As account is misconfigured, you can quickly resolve this by deleting and re-creating the Run As account.   
 
 ## Update an Automation Account using PowerShell
