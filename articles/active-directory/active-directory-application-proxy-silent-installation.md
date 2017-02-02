@@ -20,11 +20,12 @@ ms.author: kgremban
 # How to silently install the Azure AD Application Proxy Connector
 You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic explains how to create a Windows PowerShell script that enables unattended installation to install and register your Azure AD Application Proxy Connector.
 
-Use the command line to install the connector without using the UI when you want to: 
-* Install the connector on machines with no UI layer or when you cannot RDP to the machine. 
-* Install and register many connectors at once. 
-* Integrate the connector installation and registration as part of another procedure. 
-* Create a standard server image that contains the connector bits but is not registered. 
+This capability is useful when you want to:
+
+* Install the connector on machines with no UI layer or when you cannot RDP to the machine.
+* Install and register many connectors at once.
+* Integrate the connector installation and registration as part of another procedure.
+* Create a standard server image that contains the connector bits but is not registered.
 
 ## Enabling Access
 Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this is entered during Connector installation in a pop up dialog box. Alternatively, you can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.
@@ -111,12 +112,9 @@ This can be accomplished using either of the following methods:
         }
 
 
-
-
-
-1. Once you have the token create a SecureString using the token: <br>
+2. Once you have the token create a SecureString using the token: <br>
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-2. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
+3. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 ## See also

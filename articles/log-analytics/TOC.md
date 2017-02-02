@@ -8,6 +8,7 @@
 ## [Proxy and firewall](log-analytics-proxy-firewall.md)
 ## [Usage data](log-analytics-usage.md)
 ## [Log Analytics FAQ](log-analytics-faq.md)
+## [Service providers](log-analytics-service-providers.md)
 
 # How To
 ## Collect data
