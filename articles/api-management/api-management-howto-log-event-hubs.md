@@ -115,7 +115,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 ## Next steps
 * Learn more about Azure Event Hubs
   * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-messages-with-eventprocessorhost)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
