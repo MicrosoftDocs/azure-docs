@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use the Azure Batch client library for Python | Microsoft Docs
+title: Tutorial - Use the Azure Batch SDK for Python | Microsoft Docs
 description: Learn the basic concepts of Azure Batch and how to develop the Batch service with a simple scenario
 services: batch
 documentationcenter: python
@@ -13,7 +13,7 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: tamram
 
 ---
