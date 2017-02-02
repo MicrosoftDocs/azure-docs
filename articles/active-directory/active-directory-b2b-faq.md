@@ -21,7 +21,7 @@ ms.author: sasubram
 
 # Azure Active Directory B2B collaboration frequently-asked questions (FAQ)
 
-Frequently-asked questions is periodically updated to reflect any new interests.
+Frequently-asked questions is periodically updated to reflect any new issues.
 
 ### Is this functionality available in the Azure classic portal?
 The new capabilities in this Azure AD B2B collaboration public preview refresh are available only through [the Azure portal](https://portal.azure.com) and the new Access Panel. Try it!
@@ -91,7 +91,7 @@ CRM will provide support to Azure AD B2B collaboration after it is generally ava
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are the accounts that are not federated with another identity provider such as Microsoft Account, Facebook, ADFS, or even another cloud tenant (in the case of B2B collaboration). For federated accounts, the password policy depends on the policy in the on-premises tenancy and the user's Microsoft account settings.
 
-## Next steps
+### Next steps
 
 Browse our other articles on Azure AD B2B collaboration:
 

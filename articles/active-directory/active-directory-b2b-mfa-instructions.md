@@ -1,5 +1,5 @@
 ---
-title: Multi-factor authentication for B2B collaboration users | Microsoft Docs
+title: Multi-factor authentication for Azure Active Directory B2B collaboration users | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports multi-factor authentication (MF) for selective access to your corporate applications
 services: active-directory
 documentationcenter: ''

@@ -40,7 +40,6 @@ If you receive an error message indicating that you do not have permissions to i
 If you have recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
 ## The user that I invited is receiving an error during redemption
-----------------------------------------------------------------
 
 Common errors include:
 
@@ -61,7 +60,6 @@ To resolve this issue, the external user’s admin must synchronize the user’s
 “\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users (that is, &lt;user@contoso.com&gt; invited, becomes &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;) so \# in UPNs coming from on-premises are not allowed to sign in to the Azure portal.
 
 ## I receive an error when adding external users to a synchronized group
----------------------------------------------------------------------
 
 External users can be added only to “assigned” or “Security” groups and not to groups that are mastered on-premises.
 
@@ -71,8 +69,7 @@ The invitee should check with their ISP or spam filter to ensure that the follow
 
 ## My recipient received multiple emails from me
 
-In some cases, where the invitation recipient has multiple aliases for their account, they might receive two invitations. In these cases, the first link redeemed is the account that gets created, and the second redemption
-link is then not valid.
+In some cases, where the invitation recipient has multiple aliases for their account, they might receive two invitations. In these cases, the first link redeemed is the account that gets created, and the second redemption link is then not valid.
 
 ## Next steps
 
