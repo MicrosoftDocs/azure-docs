@@ -1,5 +1,5 @@
 ---
-title: The elements of the Azure Active Diretory B2B collaboration invitation email | Microsoft Docs
+title: The elements of the Azure Active Directory B2B collaboration invitation email | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 
 ---
@@ -55,10 +55,9 @@ If the inviter hasn't yet set up their profile picture, Azure AD creates an icon
   ![displaying the inviter's initials](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
 ### Body
-This will contain the message that the inviter typed in the UX or passed through the invitation API. This is just a simple text box, which will not process html tags for security reasons.
+This will contain the message that the inviter composes or is passed through the invitation API. This is just a text area, which will not process HTML tags for security reasons.
 
 ### Footer section
-
 The footer contains the Microsoft company brand and will let the recipient know if the email was sent from an unmonitored alias. Special cases:
 
 - The inviter doesn't have an email address in the inviting tenancy
@@ -75,6 +74,13 @@ The footer contains the Microsoft company brand and will let the recipient know 
 
 Browse our other articles on Azure AD B2B collaboration:
 
-* [What is Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [What is Azure AD B2B collaboration(active-directory-b2b-what-is-azure-ad-b2b.md)
+* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-how-it-works.md)
+* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
+* [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
+* [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
+* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
