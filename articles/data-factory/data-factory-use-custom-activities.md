@@ -13,12 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 02/01/2017
 ms.author: spelluru
 
 ---
 # Use custom activities in an Azure Data Factory pipeline
 
+Activities in Data Factory: 
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md) 
 > * [Pig](data-factory-pig-activity.md)
@@ -634,7 +635,7 @@ The following diagram illustrates the relationship between Azure Data Factory an
 
 ![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
-## Troubleshoot custom activity issues
+## Troubleshoot failures
 Troubleshooting consists of a few basic techniques:
 
 1. If you see the following error, you may be using a Hot/Cool blob storage instead of using a general-purpose Azure blob storage. Upload the zip file to a **general-purpose Azure Storage Account**. 
@@ -680,7 +681,7 @@ Troubleshooting consists of a few basic techniques:
 
    There is an easier workaround (but not a best practice): you can create an **Azure SQL linked service** with connection string settings, create a dataset that uses the linked service, and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code and it should work fine at runtime.  
 
-## Update the custom activity
+## Update custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
 
 ## Appdomain isolation
@@ -721,7 +722,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 }
 ```
 
-## Auto-scaling feature of Azure Batch
+## Auto-scaling of Azure Batch
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks:
 
 One VM per pending task at a time (for example: five pending tasks -> five VMs):
@@ -742,7 +743,7 @@ See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-au
 
 If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
-## Use Azure HDInsight linked services
+## Use HDInsight compute service
 In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own HDInsight cluster or have Data Factory create an on-demand HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high-level steps for using an HDInsight cluster.  
 
 1. Create an Azure HDInsight linked service.   
