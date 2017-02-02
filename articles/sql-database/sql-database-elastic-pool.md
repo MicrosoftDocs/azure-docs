@@ -4,7 +4,7 @@ description: Manage hundreds or thousands of databases using a pool. One price f
 keywords: elastic pool,sql databases
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: ''
 
@@ -12,15 +12,15 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/11/2017
-ms.author: CarlRabeler
+ms.date: 02/01/2017
+ms.author: ddove
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
-# What is an Azure elastic pool?
-SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
+# What is an Azure SQL elastic pool?
+A SQL elastic pool is given a set number of eDTUs, for a set price, on an Azure logical server that are shared amongst a pool of databases on that server. SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
 > [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
