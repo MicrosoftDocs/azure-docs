@@ -231,8 +231,6 @@ Here, we'll configure the Java web app to use the OpenID Connect authentication 
  - YOUR_CLIENT_SECRET is the **Application Secret** you created in the portal.
  - YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
-    Leave the rest of the configuration parameters as-is.
-
 
     > [!NOTE]
     > As you can see from the XML file we are writing a JSP/Servlet webapp called `mvc-dispatcher` that will use the `BasicFilter` whenever we visit the secure URL. You'll see in the rest of the same we write that we'll use /secure as a place where our protected content lives and will force authentication to Azure Active Directory.
