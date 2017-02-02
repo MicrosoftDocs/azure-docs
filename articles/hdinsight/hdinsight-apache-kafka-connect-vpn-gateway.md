@@ -18,6 +18,8 @@ ms.author: larryfr
 
 ---
 
+# blah blah blah
+
 Learn how to connect directly to Kafka on HDInsight by using an Azure Virtual Network configured for point-to-site communication. Point-to-site configuration provides a VPN gateway that clients can use to connect to the virtual network and communicate directly with the HDInsight cluster.
 
 ## Why use VPN
@@ -49,20 +51,29 @@ To use VPN to connect to HDInsight, you must instead create the virtual network 
 
     * [TBD]
 
-* __Kafka cluster IP addresses__: The IP address used by nodes in the Kafka cluster are not pre-determined; you must retrieve a list of the IP addresses 
+* __Kafka cluster IP addresses__: The IP address used by nodes in the Kafka cluster are not pre-determined; you must retrieve a list of the IP addresses.
 
-## Create the Virtual Network
+## Examples (script & template)
 
-Use one of the following to create the Azure Virtual Network and VPN gateway:
+You can find PowerShell, Azure CLI 2.0 (preview), and Azure template examples that create an Azure Virtual Network, VPN gateway, and Kafka on HDInsight cluster at [TBD].
 
-* __Web browser__: [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+## Using the Azure portal
 
-* __Powershell__: [Configure a Point-to-Site connection using Azure PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+
+### Create a virtual network and gateway
+
+Follow the steps in the [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) document to create a new Azure Virtual Network and VPN gateway.
 
 ## Create the Kafka cluster
 
 Once the Virtual Network has been created, use the following steps to install Kafka in the virtual network:
 
-1. 
+## Additional information
 
+For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 
+* [Configure a Point-to-Site connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+
+* [Configure a Point-to-Site connection using Azure PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+
+For more information on 
