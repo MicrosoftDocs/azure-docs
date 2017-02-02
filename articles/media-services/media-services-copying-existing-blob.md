@@ -53,15 +53,15 @@ In this section you will create and set up a C# Console Application project.
 4. Add other references that are required for this project: System.Configuration.
 6. Add the appSettings section to the .config file and update the values based on your Media Services accounts, the destination storage account and the source asset ID. 
    
-       <appSettings>
+	<appSettings>
           <add key="MediaServicesSourceAccountName" value="name"/>
           <add key="MediaServicesSourceAccountKey" value="key"/>
           <add key="MediaServicesDestAccountName" value="name"/>
           <add key="MediaServicesDestAccountKey" value="key"/>
           <add key="DestStorageAccountName" value="name"/>
           <add key="DestStorageAccountKey" value="key"/>
-          <add key="SourceAssetID" value="nb:cid:UUID:..."/>       
-      </appSettings>
+          <add key="SourceAssetID" value="nb:cid:UUID:assetID"/>       
+	</appSettings>
 
 ## Copy Blobs from a Storage Account into a Media Services Asset
 
