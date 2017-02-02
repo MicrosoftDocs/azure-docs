@@ -312,6 +312,8 @@ To apply custom configuration changes, follow the below mentioned steps:
 	tar -zxvf <File name>
 	```
 
+	![](./media/site-recovery-how-to-install-linux-master-target/image16.png)
+	
 3. Execute below command to give permission.
 	```
 	# chmod 755 ./ApplyCustomChanges.sh
@@ -365,23 +367,25 @@ and append the line
 > 
 
 
-1\. Copy the "latest" RHEL6-64 Unified Agent binary (You can copy it from ASR\_INSTALL\_DIR\\home\\svsystems\\pushinstallsvc\\repository)
-
-to the newly created OS.
-
-2\. Run the below command to untar the binary.
-```
-tar -zxvf <File name>
-```
-3\. Execute below command to install Master Target. Choose agent role as
+1\. Execute below command to install Master Target. Choose agent role as
 "Master Target".
 ```
 # ./install
 ```
-![](./media/site-recovery-how-to-install-linux-master-target/media/image25.PNG)
+	![](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
-![](./media/site-recovery-how-to-install-linux-master-target/media/image26.PNG)
+2. Choose the Global settings to configure
+	![](./media/site-recovery-how-to-install-linux-master-target/image18.png)
+	
+3. Specify th CS Server IP addresses
 
+4. Specify the CX Server Port - Usually 9443.
+	
+	![](./media/site-recovery-how-to-install-linux-master-target/image19.png)
+	
+5. Copy the CS passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server.
+
+6. Let the installation and registration complete.
 ### Install VMware tools on the master target server
 
 VMware tools need to be installed on the MT so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores.
