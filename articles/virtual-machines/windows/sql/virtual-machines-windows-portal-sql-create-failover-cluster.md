@@ -184,10 +184,11 @@ After the virtual machines are created and configured, you can configure the WSF
 
 The next step is to configure the WSFC with S2D. In this step, you will do the following substeps:
 
-1. Add Windows Failover Clustering feature.
-1. Validate the cluster. 
-1. Create the WSFC.
-1. Add storage. 
+1. Add Windows Failover Clustering feature
+1. Validate the cluster
+1. Create the WSFC
+1. Create the cloud witness
+1. Add storage
 
 ### Add Windows Failover Clustering feature
 
@@ -214,25 +215,29 @@ The next step is to configure the WSFC with S2D. In this step, you will do the f
 
 This guide refers to instructions under [validate cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
-   To validate the cluster with the UI, do the following steps from one of the virtual machines. 
-   - In **Server Manager**, click **Tools**, then click **Failover Cluster Manager**. 
-   - In **Failover Cluster Manager**, click **Action**, then click **Validate Configuration...**.
-   - Click **Next**. 
-   - On **Select Servers or a Cluster**, type the name of both virtual machines.
-   - On **Testing options**, choose **Run only tests I select**. Click **Next**.
-   - On **Test selection**, include all tests except **Storage**. See the following picture:
+To validate the cluster with the UI, do the following steps from one of the virtual machines. 
+
+1. In **Server Manager**, click **Tools**, then click **Failover Cluster Manager**. 
+1. In **Failover Cluster Manager**, click **Action**, then click **Validate Configuration...**.
+1. Click **Next**. 
+1. On **Select Servers or a Cluster**, type the name of both virtual machines.
+1. On **Testing options**, choose **Run only tests I select**. Click **Next**.
+1. On **Test selection**, include all tests except **Storage**. See the following picture:
 
    ![Validate Tests](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
    
-   - Click **Next**.
-   - On **Confirmation**, click **Next**. 
-   The **Validate a Configuration Wizard** runs the validation tests. 
+1. Click **Next**.
+1. On **Confirmation**, click **Next**. 
 
-   To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
+The **Validate a Configuration Wizard** runs the validation tests. 
+
+To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
    ```PowerShell
    Test-Cluster –Node $nodes –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
+
+After you validate the cluster, create the WSFC.
 
 ### Create the WSFC
 
@@ -256,15 +261,16 @@ This guide refers to [create the WSFC](http://technet.microsoft.com/windows-serv
    >[!TIP]
    >Use a link-local address for the cluster static address. For example, <192.254.0.1>. This address cannot be used anywhere else within the subnet. 
    
-1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+   
+### Create a cloud witness
 
-   Create the cloud witness in the same resource group as the Azure virtual machines.
+[Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
-   Create a blob container. 
+Create a blob container. 
 
-   Save the access keys and the container URL.
+Save the access keys and the container URL.
 
-   Configure the WSFC cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+Configure the WSFC cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
 ### Add storage
 
@@ -294,11 +300,11 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## Test the WSFC
+## Step 3: Test WSFC failover
 
 In Failover Cluster Manager, verify that you can move the storage resource to the other cluster node. If you can connect to the WSFC with **Failover Cluster Manager** and move the storage from one node to the other, you are ready to configure the FCI. 
 
-## Step 3: Create SQL Server FCI
+## Step 4: Create SQL Server FCI
 
 After you have configured the WSFC and all cluster components including storage, you can create the SQL Server FCI. 
 
@@ -327,7 +333,7 @@ After you have configured the WSFC and all cluster components including storage,
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-## Step 4: Create Azure load balancer
+## Step 5: Create Azure load balancer
 
 On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI. 
 
@@ -419,7 +425,7 @@ To create the load balancer:
 
 1. Click **OK**. 
 
-## Step 5: Configure cluster for probe
+## Step 6: Configure cluster for probe
 
 Set the cluster probe port parameter in PowerShell.
 
@@ -437,7 +443,7 @@ To set the cluster probe port parameter, update variables in the following scrip
    ```
 
 
-## Step 6: Test failover
+## Step 7: Test FCI failover
 
 Test failover of the FCI to validate cluster functionality. Do the following steps:
 
