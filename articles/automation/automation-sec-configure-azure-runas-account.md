@@ -122,7 +122,7 @@ Next we will perform a small test to confirm you are able to successfully authen
 10. Close the **Job Summary** and the corresponding **AzureClassicAutomationTutorialScript** runbook blade.
 
 ## Managing an Automation account
-During the lifetime of your Automation account, you will need to renew the certificate before it expires or if you believe the account has been compromised, you can delete the Run As account (specifically the service principal and certificate) and recreate it.  This section will provide steps on how to perform these operations.  
+During the lifetime of your Automation account, you will need to renew the certificate before it expires or if you believe the account has been compromised, you can delete the Run As account and recreate it.  This section will provide steps on how to perform these operations.  
 
 If any of the configuration items necessary for the Run As account to function properly are deleted or were not created properly during initial setup, you will notice 
 
