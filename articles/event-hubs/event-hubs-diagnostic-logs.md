@@ -75,7 +75,7 @@ category | ArchiveLogs
 #### Exacmple Archive log
 
 '''json
-{
+        {
 			 "TaskName": "EventHubArchiveUserError",
 			 "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
 			 "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
@@ -122,8 +122,6 @@ Example:
 '''
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Event Hubs API Overview](event-hubs-api-overview.md)
+* [Get Started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
