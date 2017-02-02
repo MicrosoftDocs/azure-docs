@@ -372,23 +372,25 @@ and append the line
 ```
 # ./install
 ```
+
+2. Choose all defaults
 	
 	![](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 	
 
-2. Choose the Global settings to configure
+3. Choose the Global settings to configure
 
 	![](./media/site-recovery-how-to-install-linux-master-target/image18.png)
 	
-3. Specify th CS Server IP addresses
+4. Specify th CS Server IP addresses
 
-4. Specify the CX Server Port - Usually 9443.
+5. Specify the CX Server Port - Usually 9443.
 	
 	![](./media/site-recovery-how-to-install-linux-master-target/image19.png)
 	
-5. Copy the CS passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server.
+6. Copy the CS passphrase from C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase on the configuration server.
 
-6. Let the installation and registration complete.
+7. Let the installation and registration complete.
 ### Install VMware tools on the master target server
 
 VMware tools need to be installed on the MT so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores.
