@@ -20,8 +20,10 @@ ms.author: cynthn
 ---
 # Convert a VM from unmanaged disks to managed disks
 
+If you have existing Azure VMs that use unmanaged disks in storage accounts and you want those VMs to be able to take advantage of managed disks, you can convert the VMs. The VMs are first shit down and deallocated, then you use Powershell to convert the VM to use managed disks (both the OS disks and data disks are converted during this proces) then you restart the VM and they will now be using managed disks.
 
-Warning: During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
+> [!IMPORTANT] 
+> During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
 ## Log in to Azure PowerShell
 1. Open Azure PowerShell and sign in to your Azure account.
@@ -58,6 +60,8 @@ Create variables and deallocate the VM. This example sets the resource group nam
 	
 ## Convert the disks
 
+This step will convert all of the disks associated with the VM including the OS disk and any data disks.
+
 ```powershell
 ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
 ```
@@ -71,4 +75,5 @@ Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
 
 ## Next steps
 
+You can take a read-only copy of a VM using [snapshots](xxx.md).
 
