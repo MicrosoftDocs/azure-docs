@@ -1,5 +1,5 @@
 ---
-title: Tips for using Hadoop on Linux-based HDInsight | Microsoft Docs
+title: Tips for using Hadoop on Linux-based HDInsight - Azure | Microsoft Docs
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
 services: hdinsight
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/02/2017
 ms.author: larryfr
 
 ---
@@ -94,63 +94,87 @@ Hadoop-related files can be found on the cluster nodes at `/usr/hdp`. This direc
 * **2.2.4.9-1**: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.
 * **current**: This directory contains links to directories under the **2.2.4.9-1** directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.
 
-Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasbs:///example'.
+Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at `/example` and `/HdiSamples`
 
-## HDFS, Azure Blob storage, and storage best practices
+## HDFS, Blob storage, and Data Lake Store
 
 In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly or by minute for compute resources.
 
-HDInsight uses Azure Blob storage as the default store, which provides the following benefits:
+HDInsight uses either Azure Blob storage or Azure Data Lake Store as the default store. These provide the following benefits:
 
 * Cheap long-term storage
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers
 
-Since it is the default store for HDInsight, you normally don't have to do anything to use it. For example, the following command will list files in the **/example/data** folder, which is stored on Azure Blob storage:
+> [!IMPORTANT]
+> Blob storage can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. Azure Data Lake Store can grow dynamically to hold trillions of files, with individual files greater than a petabyte.
+>
+> For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+
+When using either Azure Storage or Data Lake Store, you normally don't have to do anything special from HDInsight in order to access the data. For example, the following command will list files in the `/example/data` folder regardless of whether it is stored on Azure Blob storage or Data Lake Store:
 
     hdfs dfs -ls /example/data
 
-Some commands may require you to specify that you are using Blob storage. For these, you can prefix the command with **wasb://**, or **wasbs://**.
+### URI and scheme
 
-HDInsight also allows you to associate multiple Blob storage accounts with a cluster. To access data on a non-default Blob storage account, you can use the format **wasbs://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. For example, the following will list the contents of the **/example/data** directory for the specified container and Blob storage account:
+Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster) you must always use the scheme as part of the URI.
 
-    hdfs dfs -ls wasbs://mycontainer@mystorage.blob.core.windows.net/example/data
+When using __Blob storage__, the scheme can be one of the following:
 
-### What Blob storage is the cluster using?
+* `wasb:///`: Access default storage using unencrypted communication.
 
-During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one. Then, you probably forgot about it. You can find the default storage account and container by using the Ambari REST API.
+* `wasbs:///`: Access default storage using encrypted communication.
 
-1. Use the following command to retrieve HDFS configuration information using curl, and filter it using [jq](https://stedolan.github.io/jq/):
+* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have added an additional storage account to the cluster or when accessing data stored in a publicly accessible storage account.
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+When using __Data Lake Store__, the scheme can be one of the following:
 
-    > [!NOTE]
-    > This will return the first configuration applied to the server (`service_config_version=1`,) which will contain this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
+* `adl:///`: Access the default Data Lake Store for the cluster.
 
-    This will return a value similar to the following, where **CONTAINER** is the default container and **ACCOUNTNAME** is the Azure Storage Account name:
+* `adl://<storage-name>.azuredatalakestore.net/`: Used when communicating with a non-default Data Lake Store or accessing data outside the root directory of your HDInsight cluster.
 
-        wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
+> [!IMPORTANT]
+> When using Data Lake Store as the default store for HDInsight, you must specify a path within the store to use as the root of HDInsight storage. The default path is `/clusters/<cluster-name>/`.
+>
+> When using `/` or `adl:///` to access data, you can only access data stored in the root (for example, `/clusters/<cluster-name>/`) of the cluster. To access data anywhere in the store, use the `adl://<storage-name>.azuredatalakestore.net/` format.
 
-2. Use the following command to get the unique ID for the Storage Account. In the following command, replace **ACCOUNTNAME** with the Storage Account name retrieved from Ambari:
+### What storage is the cluster using
 
-        az storage account list --query "[?name=='ACCOUNTNAME'].id --out list
+You can use Ambari to retrieve the default storage confgiuration for the cluster. Use the following command to retrieve HDFS configuration information using curl, and filter it using [jq](https://stedolan.github.io/jq/):
 
-3. Use the following to get a key for the storage account. Replace **STORAGEID** with the storage account ID:
+```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
-        az storage account keys list --ids STORAGEID --out list
+> [!NOTE]
+> This returns the first configuration applied to the server (`service_config_version=1`,) which will contain this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
 
-    This will return the primary key for the account.
+This returns a value similar to the following:
 
-You can also find the storage information using the Azure Portal:
+* `wasbs://<container-name>@<account-name>.blob.core.windows.net`: If using an Azure Storage account.
+
+    The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
+
+* `adl://home`: If using Azure Data Lake Store. To get the Data Lake Store name, use the following REST call:
+
+    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
+
+    This returns the following host name: `<data-lake-store-account-name>.azuredatalakestore.net`.
+
+    To get the directory within the store that is the root for HDInsight, use the following REST call:
+
+    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
+
+    This returns a path similar to the following: `/clusters/<hdinsight-cluster-name>/`.
+
+You can also find the storage information using the Azure Portal by using the following steps:
 
 1. In the [Azure Portal](https://portal.azure.com/), select your HDInsight cluster.
-2. From the **Essentials** section, select **All settings**.
-3. From **Settings**, select **Azure Storage Keys**.
-4. From **Azure Storage Keys**, select one of the storage accounts listed. This will display information about the storage account.
-5. Select the key icon. This will display keys for this storage account.
 
-### How do I access Blob storage?
+2. From the **Properties** section, select **Storage Accounts**. The storage information for the cluster is displayed.
 
-Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
+### How do I access files from outside HDInsight
+
+There are a variety of ways to access data from outside the HDInsight cluster. The following are a few links to utilities and SDKs that can be used to work with your data:
+
+If using __Azure Storage__, see the following links for ways that you can access your data:
 
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
@@ -163,6 +187,17 @@ Other than through the Hadoop command from the cluster, there are a variety of w
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+
+If using __Azure Data Lake Store__, see the following links for ways that you can access your data:
+
+* [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
+* [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
+* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli.md)
+* [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
+* [Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
+* [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
+* [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
+* [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
 ## <a name="scaling"></a>Scaling your cluster
 
@@ -223,7 +258,7 @@ For information on developing your own Script Actions, see [Script Action develo
 
 ### Jar files
 
-Some Hadoop technologies are provided in self-contained jar files that are contain functions used as part of a MapReduce job, or from inside Pig or Hive. While these can be installed using Script Actions, they often don't require any setup and can just be uploaded to the cluster after provisioning and used directly. If you want to makle sure the component survives reimaging of the cluster, you can store the jar file in WASB.
+Some Hadoop technologies are provided in self-contained jar files that are contain functions used as part of a MapReduce job, or from inside Pig or Hive. While these can be installed using Script Actions, they often don't require any setup and can just be uploaded to the cluster after provisioning and used directly. If you want to make sure the component survives reimaging of the cluster, you can store the jar file in the default storage for your cluster (WASB or ADL).
 
 For example, if you want to use the latest version of [DataFu](http://datafu.incubator.apache.org/), you can download a jar containing the project and upload it to the HDInsight cluster. Then follow the DataFu documentation on how to use it from Pig or Hive.
 
