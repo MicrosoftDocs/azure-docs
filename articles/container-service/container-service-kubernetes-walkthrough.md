@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Container Service cluster with Kubernetes | Microsoft Docs
-description: Deploy an Azure Container Service cluster with Kubernetes
+title: Kubernetes cluster quickstart in Azure | Microsoft Docs
+description: Deploy and get started with a Kubernetes cluster in Azure Container Service
 services: container-service
 documentationcenter: ''
 author: anhowe
@@ -12,7 +12,7 @@ keywords: ''
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2016
@@ -23,7 +23,7 @@ ms.author: anhowe
 # Microsoft Azure Container Service Engine - Kubernetes Walkthrough
 
 ## Prerequisites
-This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed.
+This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed and have created [SSH public key](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) at `~/.ssh/id_rsa.pub`.
 
 ## Overview
 
@@ -56,6 +56,10 @@ DNS_PREFIX=some-unique-value
 SERVICE_NAME=any-acs-service-name
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$SERVICE_NAME --dns-prefix=$DNS_PREFIX
 ```
+
+> [!NOTE]
+> azure-cli will upload `~/.ssh/id_rsa.pub` to the Linux VMs.
+>
 
 Once that command is complete, you should have a working Kubernetes cluster.
 

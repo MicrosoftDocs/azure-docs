@@ -13,16 +13,19 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/28/2016
+ms.date: 01/11/2017
 ms.author: brjohnst
 ---
 
 # API versions in Azure Search
-Azure Search rolls out feature updates on a regular basis. Sometimes, but not always, these updates require us to publish a new version of our API in order to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
+Azure Search rolls out feature updates regularly. Sometimes, but not always, these updates require us to publish a new version of our API to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
 
 As a rule, we try to publish new versions only when necessary, since it can involve some effort to upgrade your code to use a new API version. We will only publish a new version if we need to change some aspect of the API in a way that breaks backward compatibility. This can happen because of fixes to existing features, or because of new features that change existing API surface area.
 
 We follow the same rule for SDK updates. The Azure Search SDK follows the [semantic versioning](http://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). We will release a new major version of the SDK only in case of changes that break backward compatibility. For non-breaking feature updates, we will increment the minor version, and for bug fixes we will only increase the build version.
+
+> [!NOTE]
+> Your Azure Search service instance supports several REST API versions, including the latest one. You can continue to use a version when it is no longer the latest one, but we recommend that you migrate your code to use the newest version. When using the REST API, you must specify the API version in every request via the api-version parameter. When using the .NET SDK, the version of the SDK you’re using determines the corresponding version of the REST API. If you are using an older SDK, you can continue to run that code with no changes even if the service is upgraded to support a newer API version.
 
 ## Snapshot of current versions
 Below is a snapshot of the current versions of all programming interfaces to Azure Search.

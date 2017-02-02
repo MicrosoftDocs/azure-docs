@@ -33,7 +33,7 @@ In this tutorial, you will use bcp to:
 * Import the table from a flat file to SQL Data Warehouse.
 * Create statistics on the loaded data.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 

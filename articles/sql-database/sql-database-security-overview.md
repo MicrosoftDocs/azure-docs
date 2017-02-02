@@ -70,7 +70,10 @@ SQL Database Auditing tracks database activities and helps you to maintain regul
 
 ### Threat detection
 Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile and detect anomalous database activities. You will be alerted about suspicious activities, potential vulnerabilities, SQL injection attacks and anomalous database access patterns. You can respond to alerts by following the provided informative and actionable instructions. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
-
+ 
+### Data Masking 
+SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic Data Masking automatically discovers potentially sensitive data in Azure SQL Database and provides actionable recommendations to mask these fields, with minimal impact on the application layer. It works by obfuscating the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. For more information, see Get started with [SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
+ 
 ## Compliance
 In addition to the above features and functionality that can help your application meet various security compliance requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
 
@@ -78,4 +81,5 @@ In addition to the above features and functionality that can help your applicati
 
 - For a discussion of the use of data protection features in SQL Database, see [Data protection and security](sql-database-protect-data.md).
 - For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
+- For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
 - For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).

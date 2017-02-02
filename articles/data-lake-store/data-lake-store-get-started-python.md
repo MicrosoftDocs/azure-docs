@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Data Lake Store using Python | Microsoft Docs
+title: Use the Python SDK to get started with Azure Data Lake Store | Microsoft Docs
 description: Learn how to use Python SDK to work with Data Lake Store accounts and the file system.
 services: data-lake-store
 documentationcenter: ''
@@ -75,8 +75,8 @@ pip install azure-datalake-store
 	from msrestazure.azure_active_directory import AADTokenCredentials
 
 	## Required for Azure Data Lake Store account management
-	from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-	from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+	from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+	from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
 	## Required for Azure Data Lake Store filesystem management
 	from azure.datalake.store import core, lib, multithread

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database FAQ
+title: Azure SQL Database FAQ | Microsoft Docs
 description: Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud.
 services: sql-database
 documentationcenter: ''
@@ -19,6 +19,9 @@ ms.author: sashan;carlrab
 
 ---
 # SQL Database FAQ
+## What is the SLA for SQL Database?
+We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
+
 ## How does the usage of SQL Database show up on my bill?
 SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
 

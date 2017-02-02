@@ -63,11 +63,4 @@ Learn how to use Data Catalog to help your organization and team discover, under
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Data Catalog Documentation
-        </div>
-    </a>
-</div>
+

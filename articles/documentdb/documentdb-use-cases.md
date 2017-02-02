@@ -1,10 +1,10 @@
 ---
-title: Common DocumentDB use cases | Microsoft Docs
-description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
+title: Common use cases & NoSQL scenarios for Azure DocumentDB | Microsoft Docs
+description: 'Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
 services: documentdb
 author: h0n
 manager: jhubbard
-editor: monicar
+editor: ''
 documentationcenter: ''
 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
@@ -13,10 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/31/2017
 ms.author: hawong
 
 ---
+
 # Common DocumentDB use cases
 This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
 
@@ -60,7 +61,6 @@ Consider an example of a product catalog for an automotive parts supplier. Every
  In addition, data stored in DocumentDB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](documentdb-run-hadoop-with-hdinsight.md).
 
  ![Azure DocumentDB retail orders reference architecture](./media/documentdb-use-cases/documentdb-retail-orders.png)
-
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
 
@@ -96,6 +96,8 @@ To get started with DocumentDB, you can create an [account](https://azure.micros
 
 Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
 
+* [Sulekha.com](https://customers.microsoft.com/en-US/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha uses Azure DocumentDB to connect customers and businesses across India  .
+* [NewOrbit](https://customers.microsoft.com/en-US/story/neworbit-takes-flight-with-azure-documentdb). NewOrbit takes flight with Azure DocumentDB.
 * [Affinio](https://customers.microsoft.com/en-US/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio switches from AWS to Azure DocumentDB to harness social data at scale.
 * [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land game soars to #1 supported by Azure DocumentDB.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). How Halo 5 implemented social gameplay using Azure DocumentDB.

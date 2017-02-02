@@ -1,5 +1,5 @@
 ---
-title: 'HBase tutorial: Get started with HBase in Hadoop | Microsoft Docs'
+title: 'HBase tutorial: Get started with Windows-based HBase clusters in Hadoop | Microsoft Docs'
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight
@@ -19,16 +19,13 @@ ms.author: jgao
 
 ---
 # HBase tutorial: Get started using Apache HBase with Windows-based Hadoop in HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 Learn how to create HBase clusters in HDInsight, create HBase tables, and query the tables by using Apache Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
-The information in this document is specific to Windows-based HDInsight clusters. For information on Windows-based clusters, use the tab selector on the top of the page to switch.
+The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [HBase tutorial: Get started using Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
-> [!NOTE]
-> HBase (version 0.98.0) on Windows-based HDInsight is only available for use with HDInsight 3.1 clusters (based on Apache Hadoop and YARN 2.4.0). For version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions]
-> 
-> 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Before you begin
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

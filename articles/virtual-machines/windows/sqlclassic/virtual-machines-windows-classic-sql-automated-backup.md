@@ -9,12 +9,12 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.workload: iaas-sql-server
+ms.date: 01/18/2017
 ms.author: jroth
 
 ---
@@ -69,7 +69,8 @@ The following table describes the options that can be configured for Automated B
 | **Retention Period** |1-30 days (30 days) |The number of days to retain a backup. |
 | **Storage Account** |Azure storage account (the storage account created for the specified VM) |An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files. The backup file naming convention includes the date, time, and machine name. |
 | **Encryption** |Enable/Disable (Disabled) |Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account in the same automaticbackup container using the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
-| **Password** |Password text (None) |A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
+| **Password** |Password text (None) |A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. | **Backup system databases** | Enable/Disable (Disabled) | Take full backups of Master, Model, and MSDB |
+| **Configure backup schedule** | Manual/Automated (Automated) | Select **Automated** to automatically take full and log backups based on log growth. Select **Manual** to specify the schedule for full and log backups. |
 
 ## Configuration with PowerShell
 In the following PowerShell example, Automated Backup is configured for an existing SQL Server 2014 VM. The **New-AzureVMSqlServerAutoBackupConfig** command configures the Automated Backup settings to store backups in the Azure storage account specified by the $storageaccount variable. These backups will be retained for 10 days. The **Set-AzureVMSqlServerExtension** command updates the specified Azure VM with these settings.
