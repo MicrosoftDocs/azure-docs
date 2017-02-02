@@ -66,7 +66,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
+/                    <div class="cardImageOuter">
                         <div class="cardImage">
                             <img src="media/index/tutorial.svg" alt="" />
                         </div>
@@ -118,8 +118,8 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
                 <div class="card">
                     <div class="cardText">
                         <h3><a href="/rest/api/eventhub">REST</a></h3>
-                        <p><a href="event-hubs-messaging-exceptions">Exceptions</a></p>
-                        <p><a href="event-hubs-quotas">Quotas</a></p>
+                        <p><a href="/azure/event-hubs/event-hubs-messaging-exceptions">Exceptions</a></p>
+                        <p><a href="/azure/event-hubs/event-hubs-quotas">Quotas</a></p>
                     </div>
                 </div>
             </div>
