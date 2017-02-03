@@ -93,18 +93,18 @@ If you have protected your virtual machines as classic resources (that is, the V
 1. In **Vault** > **Settings** > **Site Recovery Infrastructure** (under **Manage**) > **Configuration Servers** (under **For VMware and Physical Machines**), select the configuration server.
 2. Click **Process Server**.
 
-  ![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
+  ![Process Server button](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
 3. Choose to deploy the Process Server as **Deploy a failback Process Server in Azure**.
 4. Select the subscription that you have recovered the VMs to.
 5. Select the Azure network that you have recovered the VMs to. The Process Server needs to be in the same network so that the recovered VMs and the Process Server can communicate.
 6. If you selected a *classic deployment model* network, create a VM via the Azure Marketplace, and then install the Process Server in it.
 
- ![](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
+ ![The "Add Process Server" window](./media/site-recovery-failback-azure-to-vmware-classic/add-classic.png)
 
  As you're creating the Process Server, pay attention to the following:
  * The name of the image is *Microsoft Azure Site Recovery Process Server V2*. Select **Classic** as the deployment model.
 
-       ![](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
+       ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
  * Install the Process Server according to the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 7. If you select the *Resource Manager* Azure network, deploy the Process Server by providing the following information:
 
@@ -114,9 +114,9 @@ If you have protected your virtual machines as classic resources (that is, the V
   * The storage account that you want to deploy the server to
   * The subnet and the network interface that you want to connect to it
    >[!NOTE]
-   >You need to create your own [network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while you are deploying.
+   >You must create your own [network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while you are deploying the Process Server.
 
-    ![](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
+    ![Enter information in the "Add Process Server" dialog box](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
 8. Click **OK**. This action triggers a job that creates a Resource Manager deployment type virtual machine during the Process Server setup. To register the server to the configuration server, run the setup inside the VM by following the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). A job to deploy the Process Server is also triggered.
 
