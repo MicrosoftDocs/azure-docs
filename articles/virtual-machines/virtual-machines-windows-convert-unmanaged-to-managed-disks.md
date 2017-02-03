@@ -25,6 +25,18 @@ If you have existing Azure VMs that use unmanaged disks in storage accounts and 
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
+## Convert an unmanaged availability set to a managed availability set
+
+If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
+
+```powershell
+$avsetName = "myAVSet"
+$rgName = "myResourceGroup"
+$location = "West US"
+Update-AzureRmAvailabilitySet -Location $location -Name $avsetName -ResourceGroupName $rgName -Managed
+```
+
+
 
 ## Convert existing Azure VMs to managed disks of the same storage type
 
