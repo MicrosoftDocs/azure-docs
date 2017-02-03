@@ -42,13 +42,13 @@ To set up the app to authenticate users, first register it in your tenant by doi
 2. On the top bar, click your account name and, under the **Directory** list, select the Active Directory tenant where you want to register the app.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
-5. Follow the prompts to create a new **Web Application and/or WebAPI**.
-  * The **Name** describes the app to end-users.
+5. Follow the prompts to create a **Web Application and/or WebAPI**.
+  * The **Name** describes the app to users.
   * The **Sign-On URL** is the base URL of the app. The skeleton's default URL is `http://localhost:8080/adal4jsample/`.
   * The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`)
 6. After you've completed the registration, Azure AD assigns the app a unique Application ID. Copy the value from the app page to use in the next sections.
 
-When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You will need the key shortly.
+When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You need the key shortly.
 
 ## Step 2: Set up the app to use the ADAL4J and prerequisites by using Maven
 In this step, you configure the ADAL4J to use the OpenID Connect authentication protocol. You use the ADAL4J to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
@@ -168,7 +168,7 @@ In the root directory of your project, open/create `pom.xml`, locate `// TODO: p
 ## Step 3: Create the Java web app files (WEB-INF)
 In this step, you configure the Java web app to use the OpenID Connect authentication protocol. Use the ADAL4J to issue sign-in and sign-out requests, manage the user's session, get information about the user, and so forth.
 
-1. Open the web.xml file located under \webapp\WEB-INF\, and enter the app configuration values in the XML. The XML file should look like the following:
+1. Open the web.xml file located under \webapp\WEB-INF\, and enter the app configuration values in the XML. The XML file should contain the following code:
 
     ```xml
 
@@ -227,9 +227,9 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
 
  As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, we use /secure as a place for our protected content and to force authentication to Azure Active Directory.
 
-2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following:
+2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following code:
 
-```xml
+    ```xml
 
     <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:context="http://www.springframework.org/schema/context"
@@ -250,18 +250,18 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
             </property>
         </bean>
     </beans>
-```
+    ```
 
-This code tells the web app to use Spring, and it indicates where to find the JSP file, which we write in the next section.
+ This code tells the web app to use Spring, and it indicates where to find the JSP file, which we write in the next section.
 
 ## Step 4: Create the JSP View files (for BasicFilter MVC)
-We are half-way through setting up our web app in WEB-INF. Next, we create the JSP files that the web app will execute, an action that we hinted at in the configuration.
+We are half-way through setting up our web app in WEB-INF. Next, we create the JSP files that the web app executes, an action that we hinted at in the configuration.
 
-Earlier, we told Java in our XML configuration files that we have a `/` resource that loads .jsp files, and we have a `/secure` resource that passes through a filter that we called BasicFilter.
+Earlier, we told Java in our XML configuration files that we have a `/` resource that loads JSP files, and we have a `/secure` resource that passes through a filter that we called BasicFilter.
 
-To make the JSP files, do the following:
+To create the JSP files, do the following:
 
-1. Create the index.jsp file (located under \webapp\), and then paste the following:
+1. Create the index.jsp file (located under \webapp\), and then paste the following code:
 
     ```jsp
     <html>
@@ -278,7 +278,7 @@ To make the JSP files, do the following:
 
 2. In the same directory, create an error.jsp file to catch any errors that might happen:
 
-```jsp
+    ```jsp
 
     <html>
     <body>
@@ -291,12 +291,11 @@ To make the JSP files, do the following:
         </ul>
     </body>
     </html>
-```
-
+    ```
 3. To make that secure webpage, create a folder under \webapp called \secure so that the directory is now \webapp\secure.
 4. In the \webapp\secure directory, create an aad.jsp file, and then paste the following code:
 
-```jsp
+    ```jsp
 
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html>
@@ -321,7 +320,7 @@ To make the JSP files, do the following:
     </html>
     ```
 
-This page redirects to specific requests, which the BasicFilter servlet reads and then executes on by using the `ADAJ4J` library.
+    This page redirects to specific requests, which the BasicFilter servlet reads and then executes on by using the `ADAJ4J` library.
 
 Of course, we now need to set up the Java files so that the servlet can do its work.
 
@@ -331,14 +330,14 @@ Our goal in this step is to create Java files that will:
 * Allow for sign-in and sign-out of the user.
 * Get some data about the user.
 
-> [!NOTE]
-> To get data about the user, use the Graph API from Azure Active Directory. The Graph API is a secure webservice that you can use to grab data about your organization, including individual users. This approach is better than pre-filling sensitive data in tokens, because it ensures that:
-> * The users who ask for the data are authorized.
-> * Anyone who might happen to grab the token (from a jailbroken phone or web-browser cache on a desktop, for example) cannot obtain important details about the user or the organization.
+    > [!NOTE]
+    > To get data about the user, use the Graph API from Azure Active Directory. The Graph API is a secure webservice that you can use to grab data about your organization, including individual users. This approach is better than pre-filling sensitive data in tokens, because it ensures that:
+    > * The users who ask for the data are authorized.
+    > * Anyone who might happen to grab the token (from a jailbroken phone or web-browser cache on a desktop, for example) cannot obtain important details about the user or the organization.
 
 To write some Java files for this work:
 
-1. Create a folder in your root directory called adal4jsample to store all of the Java files.
+1. Create a folder in your root directory called adal4jsample to store all the Java files.
 
     In this example, we are using the namespace com.microsoft.aad.adal4jsample in our Java files. Most IDEs create a nested folder structure for this purpose (for example, /com/microsoft/aad/adal4jsample). You can do this also, but it is not necessary.
 
@@ -843,7 +842,6 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         // The roles holds a list of role entities this user belongs to.
         private ArrayList<Group> roles;
 
-
         /**
          * The constructor for the **User** class. Initializes the dynamic lists and managerDisplayname variables.
          */
@@ -1278,7 +1276,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     //    }
     //
     //    /**
-    //     * @return The diaplayName of this direct report entry.
+    //     * @return The displayName of this direct report entry.
     //     */
     //    public String getDisplayName() {
     //        return displayName;
@@ -1293,7 +1291,6 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     //    }
     //
     //}
-
     ```
 
 ## Step 7: Create the authentication model and controller files (for BasicFilter)
@@ -1301,11 +1298,11 @@ We acknowledge that Java can be verbose, but we're almost done. Before you write
 
 1. Create a file called AuthHelper.java, which will give you methods to use to determine the state of the signed-in user. The methods include:
 
-* **isAuthenticated()**: Returns whether the user is signed in
-* **containsAuthenticationData()**: Returns whether the token has data
-* **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user
+ * **isAuthenticated()**: Returns whether the user is signed in
+ * **containsAuthenticationData()**: Returns whether the token has data
+ * **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user
 
-To create the AuthHelper.java file, paste the following code:
+ To create the AuthHelper.java file, paste the following code:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1691,7 +1688,7 @@ You can now create the BasicFilter.java file, which handles the requests from th
     }
     ```
 
-This servlet exposes all of the methods that the ADAL4J will expect from our app to run. The methods include:
+This servlet exposes all the methods that the ADAL4J will expect from our app to run. The methods include:
 
 * **getAccessTokenFromClientCredentials()**: Gets access token from our secret
 * **getAccessTokenFromRefreshToken()**: Gets access token from a refresh token
@@ -1705,6 +1702,7 @@ This servlet exposes all of the methods that the ADAL4J will expect from our app
 2. To build the sample you just put together by using `maven`, run the following command:
 
  `$ mvn package`
+
  This command uses the pom.xml file that you wrote for dependencies.
 
 You should now have a adal4jsample.war file in your /targets directory. You can deploy the file in your Tomcat container and visit the http://localhost:8080/adal4jsample/ URL.
