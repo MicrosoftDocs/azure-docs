@@ -54,7 +54,7 @@ If you provision 1,000 RU/sec, this amounts to 3.6m RU/hour and will cost $0.08 
 |50 KB|$1.111|$5.556|
 |100 KB|$2.222|$11.111|
 
-Most of the basic blob or object stores like AWS S3 or Azure Blob Storage services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, DocumentDB can be up to 98% cheaper than these other solutions (for 1KB transactions).
+Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, DocumentDB can be up to 98% cheaper than these other solutions (for 1KB transactions).
 
 ## Next steps
 
