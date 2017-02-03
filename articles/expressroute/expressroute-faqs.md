@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 
 ---
@@ -213,7 +213,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
-1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) page to make sure you meet the requirements.
+1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
