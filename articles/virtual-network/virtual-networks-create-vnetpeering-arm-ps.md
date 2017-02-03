@@ -171,7 +171,7 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 	New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
 	```
 
-> [!IMPORTANT]
+	> [!IMPORTANT]
 	> If the peering you're creating is between two VNets created through the Azure Resource Manager deployment model, continue with the remaining steps in this section. If the two VNets were created through different deployment models, skip the remaining steps of this section and complete the steps in the [Peering virtual networks created through different deployment models](#x-model) section of this article.
 
 3. In User-A’s login session, run the following command:
@@ -221,15 +221,16 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
-To create a VNet peering between a classic virtual network and an Azure Resource Manager virtual network in PowerShell, complete the following steps:
-
-1. Read the virtual network object for **VNET1**, the Azure Resource Manager virtual network, by entering the following command:
+1. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 2. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:
+	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`.
+	- Complete steps 1-2 in the [Peering across subscriptions](#x-sub) section of this article.
+2. Read the virtual network object for **VNET1**, the Azure Resource Manager virtual network, by entering the following command:
 
 	```powershell
 	$vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
 	```
 
-2. To establish VNet peering in this scenario, only one link is needed, specifically a link from **VNET1** to **VNET2**. This step requires knowing your classic VNet's resource ID. The resource group ID format looks like the following example:
+3. To establish VNet peering in this scenario, only one link is needed, specifically a link from **VNET1** to **VNET2**. This step requires knowing your classic VNet's resource ID. The resource group ID format looks like the following example:
 
         /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
@@ -241,7 +242,7 @@ To create a VNet peering between a classic virtual network and an Azure Resource
 	Add-AzureRmVirtualNetworkPeering -Name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
 	```
 
-3. Once the VNet peering link is created, you can see the link state, as shown in the following output:
+4. Once the VNet peering link is created, you can see the link state, as shown in the following output:
    
         Name                             : LinkToVNet2
         Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2

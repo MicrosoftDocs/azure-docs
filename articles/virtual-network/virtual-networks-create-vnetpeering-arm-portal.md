@@ -116,19 +116,22 @@ Each link in a VNet peering has the previous set of properties. From the portal,
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. To establish VNET peering in this scenario, you need to create only one link, from the virtual network in Azure resource manager to the one in classic. That is, from **VNET1** to **VNET2**. On the portal, Click **Browse** > choose **Virtual Networks**
-3. In the Virtual networks blade, choose **VNET1**. Click **Peerings**, then click **Add**.
-4. In the Add Peering blade, name your link. Here it is called **LinkToVNet2**. Under Peer details, select **Classic**.
-5. Then choose the subscription and the peer Virtual Network **VNET2**. Then click OK.
+2. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 3. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:
+	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`. This step cannot be completed in the portal.
+	- Complete steps 1-6 in the [Peering across subscriptions](#x-sub) section of this article.
+3. To establish VNET peering in this scenario, you need to create only one link, from the virtual network in Azure resource manager to the one in classic. That is, from **VNET1** to **VNET2**. On the portal, Click **Browse** > choose **Virtual Networks**
+4. In the Virtual networks blade, choose **VNET1**. Click **Peerings**, then click **Add**.
+5. In the **Add Peering** blade, name your link. Here it is called **LinkToVNet2**. Under Peer details, select **Classic**.
+6. Choose the subscription and the peer Virtual Network **VNET2**. Then click OK.
 
 	![Linking Vnet1 to Vnet 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
-6. Once this VNet peering link is created, the two virtual networks are peered and you will be able to see the following:
+7. Once this VNet peering link is created, the two virtual networks are peered and you will be able to see the following:
 
 	![Checking peering connection](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
 ## Remove VNet Peering
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Go to virtual network blade, click Peerings, click the Link you want to remove, click button Delete.
+2. Go to virtual network blade, click Peerings, click the Link you want to remove, then click **Delete**.
 
 	![Delete1](./media/virtual-networks-create-vnetpeering-arm-portal/figure15.png)
 3. Once you remove one link in VNET peering, the  peer link state will go to disconnected.

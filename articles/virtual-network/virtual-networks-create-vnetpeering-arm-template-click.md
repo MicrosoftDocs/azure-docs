@@ -332,7 +332,10 @@ To create a VNet peering across subscriptions, complete the following steps:
 
 To create a peering between virtual networks from different deployment models, complete the following steps:
 
-1. The text below shows the definition of a VNet peering link for VNET1 to VNET2 in this scenario. Only one link is required to peer a classic virtual network to a Azure resource manager virtual network.
+1. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 2. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:
+	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`.
+	- Complete steps 1-2 in the [Peering across subscriptions](#x-sub) section of this article.
+2. The text below shows the definition of a VNet peering link for VNET1 to VNET2 in this scenario. Only one link is required to peer a classic virtual network to a Azure resource manager virtual network.
 
 	Be sure to put in your subscription ID for where the classic virtual network or VNET2 is located and change MyResouceGroup to the appropriate resource group name.
 
@@ -365,7 +368,7 @@ To create a peering between virtual networks from different deployment models, c
 	    ]
 	    }
 	```
-2. To deploy the template file, run the following cmdlet to create or update the deployment:
+3. To deploy the template file, run the following cmdlet to create or update the deployment:
 
 	```powershell
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -382,7 +385,7 @@ To create a peering between virtual networks from different deployment models, c
         Parameters              :
         Outputs                 :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
-3. After the deployment succeeds, you can run the following cmdlet to view the peering state:
+4. After the deployment succeeds, you can run the following cmdlet to view the peering state:
 
 	```powershell
 	Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNET1 -ResourceGroupName MyResourceGroup -Name LinkToVNET2
