@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 
 ---
@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Weekdone with Azu
 Integrating Weekdone with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Weekdone
-* You can enable your users to automatically get signed-on to Weekdone (Single Sign-On) with their Azure AD accounts
+* You can enable your users to automatically get signed-on to Weekdone (Single Sign-on) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
@@ -32,7 +32,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Weekdone, you need the following items:
 
 * An Azure AD subscription
-* A Weekdone single-sign on enabled subscription
+* A Weekdone single sign-on (SSO) enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -107,28 +107,28 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
    
     ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_04.png) 
 
-    a. In the **Reply URL** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure"**.
+   1. In the **Reply URL** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure"**.
 
-    b. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
+   2. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
 
-    c. Click **Next**.
+   3. Click **Next**.
 
 1. If you want to configure the application in **SP initiated mode**, on the **Configure App Settings** dialog page, select **“Show advanced settings (optional)”**, and then enter the **Sign On URL** and **Identifier**, then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
    
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Weekdone application using the following pattern: **“https://weekdone.com/a/azure”**.
+   1. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Weekdone application using the following pattern: **“https://weekdone.com/a/azure”**.
    
-    b. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
+   2. In the **Identifier** textbox, type the URL in the following pattern: **"https://weekdone.com/a/azure/metadata"**.
    
-    c. Click **Next**.
+   3. Click **Next**.
 2. On the **Configure single sign-on at Weekdone** page, perform the following steps and click **Next**:
    
     ![Configure Single Sign-On](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png) 
    
-    a. Click **Download certificate**, and then save the certificate file on your computer.
-   
-    b. Click **Next**.
+   1. Click **Download certificate**, and then save the certificate file on your computer.
+   2. Click **Next**.
+    
 3. To get SSO configured for your application, contact your Weekdone support team via hello@weekdone.com. Attach the downloaded certificate file to your mail and share the metadata urls (ISSUER URL, SAML SSO URL and SINGLE SIGN-OUT SERVICE URL) with Weekdone team to set up SSO on their side.
 4. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
@@ -146,42 +146,45 @@ The objective of this section is to create a test user in the Azure classic port
 
 1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
+   ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
+    
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 3. To display the list of users, in the menu on the top, click **Users**.
-   
+4.    
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_03.png) 
+    
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png) 
+    
 5. On the **Tell us about this user** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 
    
-    a. As Type Of User, select New user in your organization.
-   
-    b. In the User Name **textbox**, type **BrittaSimon**.
-   
-    c. Click **Next**.
+    1. As Type Of User, select New user in your organization.
+    2. In the User Name **textbox**, type **BrittaSimon**.
+    3. Click **Next**.
+    
 6. On the **User Profile** dialog page, perform the following steps:
+
    ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
-   
-   b. In the **Last Name** textbox, type, **Simon**.
-   
-   c. In the **Display Name** textbox, type **Britta Simon**.
-   
-   d. In the **Role** list, select **User**.
-   
-   e. Click **Next**.
+   1. In the **First Name** textbox, type **Britta**.  
+   2. In the **Last Name** textbox, type, **Simon**.
+   3. In the **Display Name** textbox, type **Britta Simon**.
+   4. In the **Role** list, select **User**.
+   5. Click **Next**.
+  
 7. On the **Get temporary password** dialog page, click **create**.
+
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_07.png) 
+    
 8. On the **Get temporary password** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 
    
-    a. Write down the value of the **New Password**.
-   
-    b. Click **Complete**.   
+   1. Write down the value of the **New Password**. 
+   2. Click **Complete**.   
 
 ### Creating a Weekdone test user
 The objective of this section is to create a user called Britta Simon in Weekdone. Weekdone supports just-in-time provisioning, which is by default enabled.
