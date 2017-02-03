@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 01/12/2017
 ms.author: zakramer
-
+5
 ---
 # Managing and connecting to your subscription in Azure Government
 Azure Government has unique URLs and endpoints for managing your environment. It is important to use the right connections to manage your environment through the portal or PowerShell. Once you are connected to the Azure Government environment, the normal operations for managing a service works if the component has been deployed.
@@ -35,7 +35,7 @@ Whether you are using Azure PowerShell to manage a large subscription through sc
 > If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
-
+1
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter.  The parameter ensures that PowerShell is connecting to the correct endpoints.  The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
 
 | Connection type | Command |
@@ -45,10 +45,11 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | [Azure Active Directory](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 | [Azure Active Directory command v2](https://msdn.microsoft.com/library/azure/mt757189.aspx) |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
 | [Azure CLI Command Line](../xplat-cli-install.md) |`azure login –environment "AzureUSGovernment"` |
-
+0
 You may also use the Environment switch when connecting to a storage account using New-AzureStorageContext and specify AzureUSGovernment.
 
 ### Determining region
+
 Once you are connected, there is one additional difference – The regions used to target a service.  Every Azure cloud has different regions.  You can see them listed on the service availability page.  You normally use the region in the Location parameter for a command.
 
 There is one catch.  The Azure Government regions need to be formatted differently than their common names:
@@ -71,10 +72,10 @@ If you are curious about the available environments across Azure, you can run:
 
     Get-AzureEnvironment
 
-## Connecting via Visual Studio
+## Connecting via Visual Studio 2015
 Visual Studio is used by developers to easily manage their Azure subscriptions while building solutions.  Visual Studio does not currently allow you to configure a connection to Azure Government in the user interface.  
 
-### Updating Visual Studio for Azure Government
+### Updating Visual Studio 2015 for Azure Government
 To enable Visual Studio to connect to Azure Government, you need to update the registry.
 
 1. Close Visual Studio
@@ -88,8 +89,15 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
         "adaluri"="https://management.core.usgovcloudapi.net"
         "AzureRMEndpoint"="https://management.usgovcloudapi.net"
         "AzureRMAudienceEndpoint"="https://management.core.usgovcloudapi.net"
-        "EnableAzureRMIdentity"="true"
+        "EnableAzureRMIdentity"="false"
         "GraphUrl"="graph.windows.net"
+        "AadApplicationTenant"="<your-tenant-id>"
+        
+        [HKEY_CURRENT_USER\SOFTWARE\Microsoft\VisualStudio\14.0\MicrosoftAzureServices]
+        "Resource Management Audience Endpoint"="https://management.core.usgovcloudapi.net/"
+        "Service Management Endpoint"="https://management.core.usgovcloudapi.net"
+
+
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
 5. Launch Visual Studio and begin using [Cloud Explorer](../vs-azure-tools-resources-managing-with-cloud-explorer.md)
 
@@ -98,7 +106,7 @@ To enable Visual Studio to connect to Azure Government, you need to update the r
 > 
 > 
 
-### Reverting Visual Studio Connection to Azure Government
+### Reverting Visual Studio 2015 Connection to Azure Government
 To enable Visual Studio to connect to Azure Public, you need to remove the registry settings that enable connection to Azure Government.
 
 1. Close Visual Studio
@@ -114,6 +122,13 @@ To enable Visual Studio to connect to Azure Public, you need to remove the regis
         "AzureRMAudienceEndpoint"=-
         "EnableAzureRMIdentity"=-
         "GraphUrl"=-
+        "AadApplicationTenant"=-
+        
+        [HKEY_CURRENT_USER\SOFTWARE\Microsoft\VisualStudio\14.0\MicrosoftAzureServices]
+        "Resource Management Audience Endpoint"=-
+        "Service Management Endpoint"=-
+        
+        
 4. Save and then run the file by double-clicking it.  You are prompted to merge the file into your registry.
 5. Launch Visual Studio
 
