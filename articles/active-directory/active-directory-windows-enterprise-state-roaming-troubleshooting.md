@@ -142,10 +142,10 @@ Connect the device to a corporate network so that sync can resume.
 ---
 
 ### Event ID 6065: 80070533 This user can’t sign in because this account is currently disabled	
-In Event Viewer under the SettingSync/Debug logs, this error can be seen when the tenant did not automatically have AzureRMS provisioned. 
+In Event Viewer under the SettingSync/Debug logs, this error can be seen when the user's credentials have expired. In addition it can occur when the tenant did not automatically have AzureRMS provisioned. 
 
 **Recommended action**  
-Proceed with the steps listed in [KB3193791](https://support.microsoft.com/kb/3193791). 
+In the first case, have the user update their credentials. Login to the device with the new credentials. To solve the AzureRMS issue, proceed with the steps listed [KB3193791](https://support.microsoft.com/kb/3193791). 
 
 ---
 
