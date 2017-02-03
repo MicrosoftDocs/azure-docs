@@ -26,7 +26,7 @@ ms.author: cakarst;barbkess
 
 This document gives you all steps you will need to load your own data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
 While you will be able to run adhoc queries over the data stored in ADLS using the External Tables, as a best practice we suggests importing the data into the SQL Data Warehouse.
-
+,
 Time Estimate: 10 minutes assuming you have the prerequisites need to complete.
 
 In this tutorial you will learn how to:
@@ -76,7 +76,7 @@ CREATE MASTER KEY;
 
 CREATE DATABASE SCOPED CREDENTIAL ADL_User
 WITH
-    IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>'
+    IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
@@ -96,7 +96,7 @@ You can find the ADL URI in the azure portal and www.portal.azure.com.
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net'
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
     CREDENTIAL = AzureStorageCredential
 );
 ```
