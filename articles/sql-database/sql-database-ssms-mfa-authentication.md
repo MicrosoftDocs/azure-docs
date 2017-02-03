@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
-ms.author: rick.byham@microsoft.com
+ms.author: rickbyh
 
 ---
 # SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse

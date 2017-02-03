@@ -94,7 +94,7 @@ IoT Hub also enables you to manage consumer groups on the built-in device-to-clo
 
 By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this fallback route, messages that do not explicitly match any message routing rules are dropped.
 
-You can modify all these properties, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
+You can modify the retention time, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
 
 ### Anti-spoofing properties
 To avoid device spoofing in device-to-cloud messages, IoT Hub stamps all messages with the following properties:

@@ -1,5 +1,5 @@
 ---
-title: Link a virtual network to an ExpressRoute circuit by using the classic deployment model and PowerShell | Microsoft Docs
+title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: classic: Azure | Microsoft Docs'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
 documentationcenter: na
