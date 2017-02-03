@@ -75,8 +75,7 @@ Giving people access to the workspace is controlled in two places:
 * In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. These permissions are also used for PowerShell and REST API access.
 * In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
-To see data in the Backup and Site Recovery solution tiles it is necessary to have permission to the Azure subscription that the workspace is linked to.
-To allow all users to see the data in these solutions, ensure they are administrators or co-administrators on the subscription.   
+To see data in the Backup and Site Recovery solution tiles, it is necessary to have administrator or co-administrator permission to the Azure subscription that the workspace is linked to.   
 
 ### Managing access to Log Analytics using the Azure portal
 If you give people access to the Log Analytics workspace using Azure permissions, in the Azure portal for example, then the same users can access the Log Analytics portal. If users are in the Azure portal, they can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
