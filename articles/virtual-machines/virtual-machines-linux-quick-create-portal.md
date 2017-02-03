@@ -29,7 +29,7 @@ The requirements are:
 ## Sign in
 Sign into the Azure portal with your Azure account identity. Click **+ New** in the upper left corner:
 
-![Create new Azure resource](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
+![Create Azure resource](./media/virtual-machines-linux-quick-create-portal/create_new_resource.png)
 
 ## Choose VM
 Click **Compute** in the **Marketplace** then select **Ubuntu Server 16.04 LTS** from the **Featured Apps** images list.  Verify at the bottom that the deployment model is `Resource Manager` and then click **Create**.
@@ -51,12 +51,12 @@ and click **OK** to continue. The blade should look something like the following
 ![Enter the basic Azure VM options](./media/virtual-machines-linux-quick-create-portal/enter_basic_vm_details.png)
 
 ## Choose VM size
-Choose a VM size. The following examples chooses **DS1_V2 Standard** which installs Ubuntu on a Premium SSD. The **S** in the VM size notates SSD support. Click **Select** to configure settings.
+Choose a VM size. The following examples choose **DS1_V2 Standard**, which installs Ubuntu on a Premium SSD. The **S** in the VM size notates SSD support. Click **Select** to configure settings.
 
 ![Choose an Azure VM size](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
 
 ## Storage and network
-In the **Settings** blade, you can elect to use Azure Managed Disks for your VM. The current default setting is to use unmanaged disks. Azured Managed Disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). For unmanaged disks, you need to create or select a storage for your virtual hard disks:
+In the **Settings** blade, you can elect to use Azure Managed Disks for your VM. The current default setting is to use unmanaged disks. Azure Managed Disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). For unmanaged disks, you need to create or select a storage account for your virtual hard disks:
 
 ![Select storage account for non-managed disks](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
 
@@ -76,7 +76,7 @@ Open the Portal home page, and select **Resource groups** from the menu in the u
 
 ![Open list of resource groups](./media/virtual-machines-linux-quick-create-portal/select_resource_group.png)
 
-Select your resource group, then click on your new VM:
+Select your resource group, then click your new VM:
 
 ![Locate Azure VM NIC settings](./media/virtual-machines-linux-quick-create-portal/select_vm_resource.png)
 
