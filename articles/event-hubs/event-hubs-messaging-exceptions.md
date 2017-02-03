@@ -1,5 +1,5 @@
 ---
-title: Event Hubs messaging exceptions | Microsoft Docs
+title: Azure Event Hubs messaging exceptions | Microsoft Docs
 description: List of Azure Event Hubs messaging exceptions and suggested actions.
 services: event-hubs
 documentationcenter: na
@@ -66,7 +66,6 @@ Event Hubs has a limit of 20 consumer groups per Event Hub. When you attempt to 
 ## TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
 
-### Event Hubs
 For Event Hubs, the timeout is specified either as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
 ### Common causes
@@ -76,6 +75,27 @@ There are two common causes for this error: incorrect configuration, or a transi
     The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see if your code has the value set to something too small. Note that the condition of the network and CPU usage can affect the time it takes for a particular operation to complete, so the operation timeout should not be set to a very small value.
 2. **Transient service error**
     Sometimes the Event Hubs service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
+
+## ServerBusyException
+
+A [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) indicates that a server is overloaded. There are two relevant error codes for this exception.
+
+### Error code 50002
+
+This error can occur for one of two reasons:
+
+1. If the load is not evenly distributed across all partitions on the Event Hub, and one partition hits the local throughput unit limitation.
+	
+	Resolution: There might not be a quick resolution for this – revising the partition distribution strategy or resorting to using EventHubClient.Send(eventDataWithOutPartitionKey) can help.
+
+2. The Event Hubs namespace does not have sufficient throughput units (you can check the **Metrics** blade on Event Hubs namespace blade in the [Azure Portal](https://portal.azure.com) to confirm). Note that the portal shows aggregated (1 minute) information, but we measure the throughtput in real-time – so it is only an estimate.
+
+	Resolution: Increasing the throughput units on the namespace can help. You can do this on the portal, in the **Scale** blade of the Event Hubs namespace blade.
+
+### Error code 50001
+
+This error should rarely occur. It happens when the container running code for your namespace is low on CPU – not more than a few seconds before the Event Hubs load balancer begins.
+
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
