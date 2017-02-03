@@ -14,6 +14,7 @@
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
+### [Connect to an internal virtual network](api-management-using-with-internal-vnet.md)
 ### [Mutual Certificate authentication](api-management-howto-mutual-certificates.md)
 ## Configure Policies
 ### [Custom caching](api-management-sample-cache-by-key.md)

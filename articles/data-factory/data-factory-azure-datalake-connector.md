@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 01/25/2017
 ms.author: jingwang
 
 ---
@@ -65,7 +65,7 @@ The sample copies time-series data from an Azure Blob Storage to Azure Data Lake
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
-            "dataLakeStoreUri": "adl://[accountname].azuredatalakestore.net/",
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
@@ -234,7 +234,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
-            "dataLakeStoreUri": "adl://[accountname].azuredatalakestore.net/",
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
@@ -411,16 +411,20 @@ The following table provides description for JSON elements specific to Azure Dat
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
-| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
+| dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: **https://[AccountName].azuredatalakestore.net/webhdfs/v1** | Yes |
 
 ### Using service principal authentication (recommended)
 To use service principal authentication, firstly you need register an application entity in Azure Active Directory (AAD) and grant it access in Data Lake Store. Afterwards, you can specify below properties in Azure Data Factory with corresponding application ID, application key and tenant information to copy data from/to Data Lake Store. Refer to [Service-to-service authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) on how to set it up and retrieve the required info.
+
+>[!NOTE]
+>If you newly create a service principal from AAD, it may take few minutes to actually take effect. If you see error from copy wizard or copy run details saying "The credentials provided are invalid", please wait a while and try again.
+>
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. | Yes |
-| tenant | Specify the tenant information (domain name) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. | No (If not specified, tenant of the data factory is used) |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. | Yes |
 
 **Example: using service principal authentication**
 ```json
@@ -429,7 +433,7 @@ To use service principal authentication, firstly you need register an applicatio
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
-            "dataLakeStoreUri": "adl://[accountname].azuredatalakestore.net/",
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"

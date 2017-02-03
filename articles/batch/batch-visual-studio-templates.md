@@ -1,5 +1,5 @@
 ---
-title: Visual Studio templates for Azure Batch | Microsoft Docs
+title: Use Visual Studio templates to jump-start your Batch project - Azure | Microsoft Docs
 description: Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch
 services: batch
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 
 ---

@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)
@@ -56,7 +58,7 @@
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
 ### Best practices
-#### [Multi-region writers](documentdb-multi-region-writers.md)
+#### [Multi-master setup](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
 
 ## Use DocumentDB Support for MongoDB
@@ -91,6 +93,7 @@
 ### [Get notifications with Logic Apps](documentdb-change-notification.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
+### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
 
 # Reference

@@ -1,5 +1,5 @@
 ---
-title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery in the Azure portal | Microsoft Docs
+title: Replicate VMware VMs and physical servers to Azure | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
@@ -627,10 +627,10 @@ When you enable replication, by default all disks on a machine are replicated. Y
 We recommend that you verify the properties of the source machine. Remember that the Azure VM name should conform with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Click **Settings** > **Replicated items** >, and select the machine. The **Essentials** blade shows information about machines settings and status.
-2. In **Properties**, you can view replication and failover information for the VM.
+1. In **Properties**, you can view replication and failover information for the VM.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover2.png)
-3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
+1. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with Azure requirements if you need to.
    You can also view and add information about the target network, subnet, and IP address that will be assigned to the Azure VM. Note the following:
 
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover won't work. The same target IP address can be used for test failover if the address is available in the test failover network.
@@ -643,7 +643,43 @@ We recommend that you verify the properties of the source machine. Remember that
    * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
      ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
-4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
+1. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
+
+### Prepare to connect to Azure VMs after failover
+If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
+
+**On the on-premises machine before failover**:
+
+* For access over the internet enable RDP, ensure that TCP and UDP rules are added for the **Public**, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for all profiles.
+* For access over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain** and **Private** networks.
+* Install the [Azure VM agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) on the on-premises machine.
+* Ensure that the operating system's SAN policy is set to OnlineAll. [Learn more](https://support.microsoft.com/kb/3031135)
+* Turn off the IPSec service, before you run the failover.
+
+**On the Azure VM after failover**:
+
+* Add a public endpoint for the RDP protocol (port 3389) and specify credentials for login.
+* Ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
+* Try to connect. If you can't connect, check that the VM is running. For more troubleshooting tips read this [article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+
+If you want to access an Azure VM running Linux after failover using a Secure Shell client (ssh), do the following:
+
+**On the on-premises machine before failover**:
+
+* Ensure that the Secure Shell service on the Azure VM is set to start automatically on system boot.
+* Check that firewall rules allow an SSH connection to it.
+
+**On the Azure VM after failover**:
+
+* The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the SSH port.
+* A public endpoint should be created, to allow incoming connections on the SSH port (TCP port 22 by default).
+* If the VM is accessed over a VPN connection (Express Route or site to site VPN), then the client can be used to directly connect to the VM over SSH.
+
+**On the Azure Windows/Linux VM after failover**:
+
+If you have a network security group associated with the VM or VM subnet, make sure that the group has an outbound rule to allow HTTP/HTTPS. Also, make sure that the DNS of the network to which VM fails over is correctly configured. Otherwise, the failover might time out with error -'PreFailoverWorkflow task WaitForScriptExecutionTask timed out'. [Learn more](site-recovery-monitoring-and-troubleshooting.md#recovery).
+
+
 
 ## Step 7 : Run a test failover
 To test the deployment you can run a test failover for a single virtual machine or a recovery plan that contains one or more virtual machines.
@@ -651,12 +687,12 @@ To test the deployment you can run a test failover for a single virtual machine 
 1. To fail over a single machine, in **Settings** > **Replicated Items**, click the VM > **+Test Failover** icon.
 
     ![Test failover](./media/site-recovery-vmware-to-azure/test-failover1.png)
-2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
-3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
-4. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
-5. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
-6. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
-7. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+1. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).
+1. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
+1. Click **OK** to begin the failover. You can track progress by clicking on the VM to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+1. After the failover completes, you should also be able to see the replica Azure machine appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+1. If you [prepared for connections after failover](#prepare-to-connect-to-azure-vms-after-failover), you should be able to connect to the Azure VM.
+1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines that were created during test failover. 
 
 For more details, refer to [Test failover to Azure](site-recovery-test-failover-to-azure.md) document.
 
@@ -693,39 +729,6 @@ This procedure describes how to run an 'unplanned failover' for a recovery plan.
 3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
 
 
-### Prepare to connect to Azure VMs after failover
-If you want to connect to Azure VMs using RDP after failover, make sure you do the following:
-
-**On the on-premises machine before failover**:
-
-* For access over the internet enable RDP, ensure that TCP and UDP rules are added for the **Public**, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for all profiles.
-* For access over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain** and **Private** networks.
-* Install the [Azure VM agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) on the on-premises machine.
-* Ensure that the operating system's SAN policy is set to OnlineAll. [Learn more](https://support.microsoft.com/kb/3031135)
-* Turn off the IPSec service, before you run the failover.
-
-**On the Azure VM after failover**:
-
-* Add a public endpoint for the RDP protocol (port 3389) and specify credentials for login.
-* Ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
-* Try to connect. If you can't connect, check that the VM is running. For more troubleshooting tips read this [article](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
-
-If you want to access an Azure VM running Linux after failover using a Secure Shell client (ssh), do the following:
-
-**On the on-premises machine before failover**:
-
-* Ensure that the Secure Shell service on the Azure VM is set to start automatically on system boot.
-* Check that firewall rules allow an SSH connection to it.
-
-**On the Azure VM after failover**:
-
-* The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the SSH port.
-* A public endpoint should be created, to allow incoming connections on the SSH port (TCP port 22 by default).
-* If the VM is accessed over a VPN connection (Express Route or site to site VPN), then the client can be used to directly connect to the VM over SSH.
-
-**On the Azure Windows/Linux VM after failover**:
-
-If you have a network security group associated with the VM or VM subnet, make sure that the group has an outbound rule to allow HTTP/HTTPS. Also, make sure that the DNS of the network to which VM fails over is correctly configured. Otherwise, the failover might time out with error -'PreFailoverWorkflow task WaitForScriptExecutionTask timed out'. [Learn more](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
 ## Monitor your deployment
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:

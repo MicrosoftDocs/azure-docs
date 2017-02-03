@@ -34,8 +34,7 @@ For common error codes, see [SQL error codes for SQL Database client application
 Values for pools can be found in [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ## Prerequisites
-* Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Elastic pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+* Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Move a database into an elastic pool
 You can move a database into or out of a pool with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
@@ -248,11 +247,6 @@ This example retrieves the consumption metrics for a given elastic pool and all 
 ## Latency of elastic pool operations
 * Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
 * Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
-
-## Migrate from V11 to V12 servers
-PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
-
-* [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
 
 For reference documentation about these PowerShell cmdlets, see:
 
