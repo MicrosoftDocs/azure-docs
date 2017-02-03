@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # How to attach a data disk to a Linux VM in the Azure portal
-This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can choose to use either Azure Managed Disks or non-managed (native) disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Non-managed disks require a storage account and have some [quotas and limits that apply](../azure-subscription-service-limits.md#storage-limits). For more information about Azure Managed Disks, see [insert link to overview doc]().
+This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can choose to use either Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks require a storage account and have some [quotas and limits that apply](../azure-subscription-service-limits.md#storage-limits). For more information about Azure Managed Disks, see [insert link to overview doc]().
 
 Before you attach disks to your VM, review these tips:
 
@@ -36,7 +36,7 @@ Before you attach disks to your VM, review these tips:
    
     ![Open disk settings](./media/virtual-machines-linux-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a [managed disk](#use-azure-managed-disks) or [non-managed (native) disk](#use-non-managed-native-disks).
+Continue by following instructions for attaching either a [managed disk](#use-azure-managed-disks) or [unmanaged disk](#use-unmanaged-disks).
 
 ## Use Azure Managed Disks
 
@@ -71,7 +71,7 @@ Continue by following instructions for attaching either a [managed disk](#use-az
 
 4. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
 
-## Use non-managed (native) disks
+## Use unmanaged disks
 
 ### Attach a new disk
 
