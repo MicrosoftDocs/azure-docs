@@ -21,7 +21,7 @@ ms.author: sasubram
 
 # Azure Active Directory B2B collaboration frequently-asked questions (FAQ)
 
-Frequently-asked questions is periodically updated to reflect any new issues.
+Frequently-asked questions is periodically updated to reflect any new interests.
 
 ### Is this functionality available in the Azure classic portal?
 The new capabilities in this Azure AD B2B collaboration public preview refresh are available only through [the Azure portal](https://portal.azure.com) and the new Access Panel. Try it!
@@ -72,6 +72,8 @@ You can block access to the [Azure portal](https://portal.azure.com) by guest us
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
+
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
 
 ### What is the timeline by which Azure AD B2B collaboration will start support for MFA and consumer email accounts?
 Both MFA and consumer email accounts are supported now in this public preview refresh.
