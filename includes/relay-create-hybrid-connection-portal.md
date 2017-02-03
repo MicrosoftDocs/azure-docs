@@ -12,6 +12,5 @@ Please ensure that you have already created a Relay namespace, as shown [here][n
    
     ![Select New](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
 6. At the bottom of the blade, click **Create**.
-7. 
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
