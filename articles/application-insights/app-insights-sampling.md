@@ -103,11 +103,11 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    A semi-colon delimited list of types that you do not want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are always be transmitted; the types that are not specified are sampled.
+    A semi-colon delimited list of types that you do not want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    A semi-colon delimited list of types that you want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. The types specified are sampled; all instances of the other types will always be transmitted.
+    A semi-colon delimited list of types that you want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. The specified types are sampled; all instances of the other types will always be transmitted.
 
 
 **To switch off** adaptive sampling, remove the AdaptiveSamplingTelemetryProcessor node from applicationinsights-config.
