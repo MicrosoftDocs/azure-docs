@@ -28,7 +28,7 @@ ms.author: spelluru
 >
 >
 
-In this article, you use Data Factory REST API to create your first Azure data factory.
+In this article, you use Data Factory REST API to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
