@@ -40,24 +40,24 @@ Azure Security Center analyzes daily your virtual machine (VM) operating system 
      * Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
    * **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 
-Select a VM. A blade for that VM opens and displays the rules that have failed.
+2. Select a VM. A blade for that VM opens and displays the rules that have failed.
    ![Configuration rules that have failed][2]
 
-Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
+3. Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
   ![Description for the failed rule][3]
 
   Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers for configuration rules. The following information is provided on this blade:
 
-* NAME -- Name of rule
-* SEVERITY -- CCE severity value of critical, important, or warning
-* CCIED -- CCE unique identifier for the rule
-* DESCRIPTION -- Description of rule
-* VULNERABILITY -- Explanation of vulnerability or risk if rule is not applied
-* IMPACT -- Business impact when rule is applied
-* EXPECTED VALUE -- Value expected when Security Center analyzes your VM OS configuration against the rule
-* RULE OPERATION -- Rule operation used by Security Center during analysis of your VM OS configuration against the rule
-* ACTUAL VALUE -- Value returned after analysis of your VM OS configuration against the rule
-* EVALUATION RESULT –- Result of analysis: Pass, Fail
+  - NAME -- Name of rule
+  - SEVERITY -- CCE severity value of critical, important, or warning
+  - CCIED -- CCE unique identifier for the rule
+  - DESCRIPTION -- Description of rule
+  - VULNERABILITY -- Explanation of vulnerability or risk if rule is not applied
+  - IMPACT -- Business impact when rule is applied
+  - EXPECTED VALUE -- Value expected when Security Center analyzes your VM OS configuration against the rule
+  - RULE OPERATION -- Rule operation used by Security Center during analysis of your VM OS configuration against the rule
+  - ACTUAL VALUE -- Value returned after analysis of your VM OS configuration against the rule
+  - EVALUATION RESULT –- Result of analysis: Pass, Fail
 
 ## See also
 This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](http://cce.mitre.org) site for more information.
