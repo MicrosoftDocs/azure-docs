@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Store static files for your web app using Azure Storage | Microsoft Docs
-description: Azure CLI Script Sample - Store static files for your web app using Azure Storage
+title: Azure CLI Script Sample - Scale a web app worldwide with a high-availabilty architecture | Microsoft Docs
+description: Azure CLI Script Sample - Scale a web app worldwide with a high-availabilty architecture
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,9 +18,9 @@ ms.date: 02/01/2017
 ms.author: cfowler
 ---
 
-# Store static files for your web app using Azure Storage
+# Scale a web app worldwide with a high-availabilty architecture using Azure CLI 2.0
 
-In this scenario
+In this scenario you will create a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete you will have a high-available architecture which allows provides global availability of your web app based on the lowest network latency.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
@@ -68,18 +68,18 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, traffic manager profile, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) | Creates an App Service Plan. This is like a Server Farm for your App Service Web Apps. |
 | [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) | Creates a Web App within the App Service Plan. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/en-us/cli/azure/network/traffic-manager/profile#create) | |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/traffic-manager/endpoint#create) | |
+| [az network traffic-manager profile create](https://docs.microsoft.com/en-us/cli/azure/network/traffic-manager/profile#create) | Creates a Traffic Manager profile. |
+| [az network traffic-manager endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/traffic-manager/endpoint#create) | Adds a endpoint to a Traffic Manager Profile. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation]().
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](https://docs.microsoft.com/en-us/cli/azure/appservice).

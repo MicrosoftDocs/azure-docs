@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - 
-description: Azure CLI Script Sample - 
+title: Azure CLI Script Sample - Deploy an ASP.NET Core App in a Docker Container using Azure CLI 2.0 | Microsoft Docs
+description: Azure CLI Script Sample - Deploy an ASP.NET Core App in a Docker Container using Azure CLI 2.0
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,9 +18,9 @@ ms.date: 02/01/2017
 ms.author: cfowler
 ---
 
-# 
+# Deploy an ASP.NET Core App in a Docker Container using Azure CLI 2.0
 
-In this scenario
+In this scenario you will learn how to create a resource group, linux app service plan, web app and deploy an ASP.NET Core application using a docker container.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
@@ -61,7 +61,7 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -74,4 +74,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation]().
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](https://docs.microsoft.com/en-us/cli/azure/appservice).

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Store static files for your web app using Azure Storage | Microsoft Docs
-description: Azure CLI Script Sample - Store static files for your web app using Azure Storage
+title: Azure CLI Script Sample - Monitor a web app using Web Server Logs using Azure CLI 2.0 | Microsoft Docs
+description: Azure CLI Script Sample - Monitor a web app using Web Server Logs using Azure CLI 2.0
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,9 +18,9 @@ ms.date: 02/01/2017
 ms.author: cfowler
 ---
 
-# Store static files for your web app using Azure Storage
+# Monitor a web app using Web Server Logs using Azure CLI 2.0
 
-In this scenario
+In this scenario you will create a resource group, app service plan, web app and configure the web app to enable web server logs. You will then download the log files for review.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
@@ -66,18 +66,18 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/en-us/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) | Creates an App Service Plan. This is like a Server Farm for your App Service Web Apps. |
 | [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) | Creates a Web App within the App Service Plan. |
-| [az appservice web log config]() | |
-| [az appservice web log download]() | |
+| [az appservice web log config](https://docs.microsoft.com/en-us/cli/azure/appservice/web/log#config) | Configures which Logs your Web App will persist. |
+| [az appservice web log download](https://docs.microsoft.com/en-us/cli/azure/appservice/web/log#download) | Downloads the logs of the Web App to your local machine. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation]().
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](https://docs.microsoft.com/en-us/cli/azure/appservice).

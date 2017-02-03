@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Store static files for your web app using Azure Storage | Microsoft Docs
-description: Azure CLI Script Sample - Store static files for your web app using Azure Storage
+title: Azure CLI Script Sample - Connect a storage account to a web app | Microsoft Docs
+description: Azure CLI Script Sample - Connect a storage account to a web app
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -18,9 +18,9 @@ ms.date: 02/01/2017
 ms.author: cfowler
 ---
 
-# Store static files for your web app using Azure Storage
+# Connect a storage account to a web app using Azure CLI 2.0
 
-In this scenario
+In this scenario you will learn how to create an azure storage account and a web app then you will link the storage account to the web app using app settings.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command.
 
@@ -67,7 +67,7 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, virtual machine, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, storage account and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -82,4 +82,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentaiton](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation]().
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](https://docs.microsoft.com/en-us/cli/azure/appservice).
