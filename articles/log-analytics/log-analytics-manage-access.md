@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 
 ---
@@ -229,15 +229,20 @@ If you have an Azure monetary commit on the enterprise enrollment to which your 
 
 If you need to change the Azure subscription that the workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
-### Change a workspace to a paid data plan
+### Change a workspace to a paid pricing tier
 1. Sign into the [Azure portal](http://portal.azure.com).
 2. Browse for **Log Analytics** and then select it.
 3. You see your list of existing workspaces. Select a workspace.  
-4. In the workspace blade under **General**, click **Pricing tier**.  
-5. Under **Pricing tier**, click select a data plan and then click **Select**.  
+4. In the workspace blade, under **General**, click **Pricing tier**.  
+5. Under **Pricing tier**, click select a pricing tier and then click **Select**.  
     ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. When you refresh your view in the Azure portal, you see **Pricing tier** updated for the plan you selected.  
+6. When you refresh your view in the Azure portal, you see **Pricing tier** updated for the tier you selected.  
     ![updated plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and then unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click on the name of the Automation account on the **Pricing tier** blade.
+>
+>
 
 ## Change how long Log Analytics stores data
 
