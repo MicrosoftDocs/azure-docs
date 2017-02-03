@@ -4,11 +4,13 @@
 ## [Data security](security-center-data-security.md)
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)
+### [Use recommendations to enhance security](security-center-using-recommendations.md)
 
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
+## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
