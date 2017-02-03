@@ -1,19 +1,22 @@
-<properties
-	 pageTitle="Enable HTTPS on an Azure CDN Custom Domain | Microsoft Azure"
-	 description="Learn how to enable HTTPS on your Azure CDN endpoint with a custom domain."
-	 services="cdn"
-	 documentationCenter=""
-	 authors="camsoper"
-	 manager="erikre"
-	 editor=""/>
-<tags
-	 ms.service="cdn"
-	 ms.workload="media"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="02/02/2017"
-	 ms.author="casoper"/>
+---
+title: Enable HTTPS on an Azure CDN Custom Domain | Microsoft Docs
+description: Learn how to enable HTTPS on your Azure CDN endpoint with a custom domain 
+services: cdn
+documentationcenter: ''
+authors=camsoper
+manager=erikre
+editor: ''
+
+ms.assetid: 10337468-7015-4598-9586-0b66591d939b
+ms.service: cdn
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: article
+ms.date: 02/03/2017
+ms.author: casoper
+
+---
 
 # Enable HTTPS on an Azure CDN custom domain
 
