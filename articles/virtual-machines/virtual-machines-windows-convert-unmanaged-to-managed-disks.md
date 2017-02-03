@@ -25,28 +25,15 @@ If you have existing Azure VMs that use unmanaged disks in storage accounts and 
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
-## Log in to Azure PowerShell
-1. Open Azure PowerShell and sign in to your Azure account.
-   
-    ```powershell
-    Login-AzureRmAccount
-    ```
-   
-    A pop-up window opens for you to enter your Azure account credentials.
-2. Get the subscription IDs for your available subscriptions.
-   
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Set the correct subscription using the subscription ID.
-   
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-    ```
 
-## Deallocate the VM 
+## Convert existing Azure VMs to managed disks of the same storage type
 
-Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
+This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SDD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. The process converts both the OS disk and any attached data disks from using a unmanaged disks in a storage account to using managed disks. requires a restart of the VM, so you can schedule the migration of your VMs during a pre-existing maintenance window.
+
+Test the migration process by migrating a test virtual machine before performing the migration in production as the migration process is not reversible.
+
+
+1. Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
 
   
     ```powershell
@@ -58,19 +45,91 @@ Create variables and deallocate the VM. This example sets the resource group nam
     The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 	
 	
-## Convert the disks
+2. Convert all of the disks associated with the VM including the OS disk and any data disks.
 
-This step will convert all of the disks associated with the VM including the OS disk and any data disks.
+    ```powershell
+    ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+    ```
 
-```powershell
-ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-```
+3. Start the VM 
 
-## Start the VM 
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
+    ```
 
-```powershell
-Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
-```
+
+
+
+## Migrate existing Azure VMs using Standard Unmanaged Disks to Premium Managed Disks
+
+This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. 
+
+This process will require the VM to restart few times. You can schedule the migration of your VMs during a pre-existing maintenance window.
+
+**Note:** Test the migration process by migrating a test virtual machine before performing the migration in production as the migration process is not reversible.
+
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform.
+
+
+1.  First, set the common parameters. Make sure the [VM size](virtual-machines-windows-sizes.md) you select supports Premium storage.
+
+    ```powershell
+    $resourceGroupName = 'YourResourceGroupName'
+	$vmName = 'YourVMName'
+	$size = 'Standard_DS2_v2'
+	```
+1.  Get the VM with Unmanaged disks
+
+    ```powershell
+    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+    ```
+	
+1.  Stop (Deallocate) the VM.
+
+    ```powershell
+	Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+	```
+
+1.  Update the size of the VM to Premium Storage capable size available in the region where VM is located.
+
+    ```powershell
+	$vm.HardwareProfile.VmSize = $size
+	Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
+	```
+
+1.  Convert virtual machine with Unmanaged disks to Managed Disks.
+
+    Note: If you get internal server error while executing preceding command,
+    please retry the command 2-3 times before reaching out to our support team.
+
+    ```powershell
+	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName
+	```
+
+1.  Stop (Deallocate) the VM.
+
+    ```powershell
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+	```
+
+2.  Upgrade all the disks to Premium Storage
+
+    ```powershell
+	$vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
+	foreach ($disk in $vmDisks) 
+	    {
+	    if($disk.OwnerId -eq $vm.Id)
+		    {
+		     $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType StandardLRS
+			 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName -DiskName $disk.Name
+			}
+		}
+    ```
+
+3. Start the VM 
+
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
 
 
 ## Next steps
