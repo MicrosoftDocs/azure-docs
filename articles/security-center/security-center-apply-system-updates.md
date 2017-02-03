@@ -42,8 +42,10 @@ Azure Security Center monitors daily Windows and  Linux virtual machines (VMs) f
 
 ## Reboot after system updates
 1. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.
+
    ![Reboot after system updates][5]
 2. Select **Reboot after system updates**. This opens **A restart is pending to complete system updates** blade displaying a list of VMs that you need to restart to complete the apply system updates process.
+
    ![Restart pending][6]
 
 Restart the VM from Azure to complete the process.
