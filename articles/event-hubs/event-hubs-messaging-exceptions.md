@@ -88,7 +88,7 @@ This error can occur for one of two reasons:
 	
 	Resolution: There might not be a quick resolution for this – revising the partition distribution strategy or resorting to using EventHubClient.Send(eventDataWithOutPartitionKey) can help.
 
-2. The Event Hubs namespace does not have sufficient throughput units (you can check the **Metrics** blade on Event Hubs namespace blade in the [Azure Portal](https://portal.azure.com) to confirm). Note that the portal shows aggregated (1 minute) information, but we measure the throughtput in real-time – so it is only an estimate.
+2. The Event Hubs namespace does not have sufficient throughput units (you can check the **Metrics** blade on Event Hubs namespace blade in the [Azure portal](https://portal.azure.com) to confirm). Note that the portal shows aggregated (1 minute) information, but we measure the throughtput in real time – so it is only an estimate.
 
 	Resolution: Increasing the throughput units on the namespace can help. You can do this on the portal, in the **Scale** blade of the Event Hubs namespace blade.
 
