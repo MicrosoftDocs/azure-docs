@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 
 ---
@@ -117,11 +117,9 @@ This can be accomplished using either of the following methods:
 3. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
-## See also
-* [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
+## Next steps 
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 * [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
