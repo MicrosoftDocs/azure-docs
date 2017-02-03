@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 
 ---
@@ -34,15 +34,14 @@ In this tutorial, you create and monitor an instance of Azure Data Factory by us
 
 The Copy Activity feature performs the data movement in Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) for details about Copy Activity.   
 
-> [!IMPORTANT]
-> Before performing this tutorial, go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), and complete the prerequisite steps.
+> [!NOTE]
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) for comprehensive documentation on these cmdlets.
 >
-> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on these cmdlets.
->
->
+> The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
-Apart from prerequisites listed in the Tutorial Overview topic, you need to install Azure PowerShell. Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+- Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
+- Install Azure PowerShell. Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## In this tutorial
 The following table lists the steps you perform as part of the tutorial.
@@ -457,11 +456,10 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 ## See also
 | Topic | Description |
 |:--- |:--- |
-| [Data Movement Activities](data-factory-data-movement-activities.md) |This article provides detailed information about the Copy Activity feature you used in the tutorial. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of the Azure Data Factory application model. |
+| [Data Factory Cmdlet Reference](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | This section provides information about all the Data Factory cmdlets |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory. |
 | [datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Monitor and manage pipelines by using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines by using the Monitoring & Management App. |
+| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of the Azure Data Factory application model. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
