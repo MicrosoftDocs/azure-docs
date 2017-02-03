@@ -48,7 +48,9 @@ Here you will create a shard map manager along with several shards, followed by 
 
     ![Azure portal and pricing tier][3]
 
-    Note: you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+    > [!NOTE]
+    > you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+    >
 
 ## Create database objects
 ### Database-scoped master key and credentials
