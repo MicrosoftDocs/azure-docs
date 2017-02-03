@@ -8,7 +8,6 @@ Once the deployment of the Process Server virtual machine is completed, we need 
   * Data Transfer port to be configured for this Process Server. Leave the default value as is unless you have changed it to a different port number in your environment.
 
     ![Register Process Server](./media/site-recovery-vmware-register-process-server/register-ps.png)
-
 3. Click on the save button to save the configuration.
 4. Once the registration is completed, the Process Server will start showing up under your Configuration server and now can be used for failback.
 

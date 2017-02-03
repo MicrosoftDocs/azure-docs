@@ -29,7 +29,7 @@ This article describes how to set up & configure a Process Server in Azure for f
 
 ## Prerequisites
 
-[!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+[!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 ## Deploy Process Server on Azure
 1. In the Vault > **Site Recovery Infrastructure** (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines" heading) select the configuration server.
@@ -62,4 +62,4 @@ This article describes how to set up & configure a Process Server in Azure for f
 
 ## Registering the Process Server
 
-[!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-register-process-server.md)]
+[!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
