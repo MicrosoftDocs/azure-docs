@@ -41,8 +41,6 @@ If you have already created a Relay namespace, jump to the [Create a Hybrid Conn
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.  
-
 ## 2. Create a Hybrid Connection using the Azure portal
 If you have already created a Hybrid Connection, jump to the [Create a server application](#3-create-a-server-application-listener) section.
 
