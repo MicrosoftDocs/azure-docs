@@ -1,6 +1,6 @@
 ---
-title: Copy a Linux VM using the Azure CLI 2.0 (Preview) | Microsoft Docs
-description: Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model with the Azure CLI 2.0 (Preview)
+title: Create a copy of your Azure Linux VM | Microsoft Docs
+description: Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 07/28/2016
 ms.author: cynthn
 
 ---
-# Create a copy of a Linux virtual machine with the Azure CLI 2.0 (Preview)
+# Create a copy of a Linux virtual machine running on Azure
 This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
 
 You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -25,8 +25,8 @@ You can also [upload and create a VM from custom disk image](virtual-machines-li
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
-- Azure CLI 2.0 (Preview) - our next generation CLI for the resource management deployment model (this article)
+- Azure CLI 1.0 – our CLI for the classic and resource management deployment models (this article)
+- [Azure CLI 2.0 (Preview)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Before you begin
 Ensure that you meet the following prerequisites before you start the steps:
