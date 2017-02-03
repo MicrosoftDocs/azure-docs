@@ -71,7 +71,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
    
         # sudo chkconfig network on
 
-8. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the /etc/yum.repos.d/CentOS-Base.repo file with the following repositories.  This will also add the **[openlogic]** repository that includes additional packages such as the Azure Linux agent:
+8. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes additional packages such as the Azure Linux agent:
 
         [openlogic]
         name=CentOS-$releasever - openlogic packages for $basearch
@@ -121,7 +121,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 
-	[!Note]
+	>[!Note]
 	The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
 
@@ -129,7 +129,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     
         http_caching=packages
 
-10. Run the following command to clear the current yum metadata:
+10. Run the following command to clear the current yum metadata and update the system with the latest packages:
     
         # yum clean all
 
@@ -137,12 +137,12 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 		# sudo yum -y update
 
-	A reboot maybe required after running this command.
+	A reboot may be required after running this command.
 
 11. (Optional) Install the drivers for the Linux Integration Services (LIS).
    
-    [!IMPORTANT]
-    The step is **required** for CentOS 6.3 and earlier, and optional for later releases.
+	>[!IMPORTANT]
+	The step is **required** for CentOS 6.3 and earlier, and optional for later releases.
 
 		# sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
 		# sudo yum install microsoft-hyper-v
@@ -156,7 +156,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     The WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 3.
 
 
-13. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
+13. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
     
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     
@@ -168,14 +168,14 @@ This article assumes that you have already installed a CentOS (or similar deriva
     
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.  The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-    [!Important]
-    CentOS 6.5 and earlier must also set the kernel parameter `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+	>[!Important]
+	CentOS 6.5 and earlier must also set the kernel parameter `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 14. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
 15. Do not create swap space on the OS disk.
     
-    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
     
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -228,7 +228,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
-6. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the /etc/yum.repos.d/CentOS-Base.repo file with the following repositories.  This will also add the **[openlogic]** repository that includes packages for the Azure Linux agent:
+6. If you would like to use the OpenLogic mirrors that are hosted within the Azure datacenters, then replace the `/etc/yum.repos.d/CentOS-Base.repo` file with the following repositories.  This will also add the **[openlogic]** repository that includes packages for the Azure Linux agent:
    
         [openlogic]
         name=CentOS-$releasever - openlogic packages for $basearch
@@ -268,7 +268,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
-	[!Note]
+	>[!Note]
 	The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
 7. Run the following command to clear the current yum metadata and install any updates:
@@ -281,7 +281,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 	A reboot maybe required after running this command.
 
-8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/etc/default/grub" in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
+8. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open `/etc/default/grub` in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -291,7 +291,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
    
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-9. Once you are done editing "/etc/default/grub" per above, run the following command to rebuild the grub configuration:
+9. Once you are done editing `/etc/default/grub` per above, run the following command to rebuild the grub configuration:
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -312,7 +312,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 12. Do not create swap space on the OS disk.
    
-   The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+   The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
    
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
