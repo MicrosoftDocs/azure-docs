@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
 # Implementing failover streaming scenario
+
 This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for On-Demand streaming. This scenario is useful to customers that want to set up their CDN to failover between two datacenters in the case of an outage in one of our data centers.
 This walkthrough uses Microsoft Azure Media Services SDK, Microsoft Azure Media Services REST API, and Azure Storage SDK to demonstrate the following tasks.
 
@@ -33,7 +34,7 @@ Then, to handle the failover:
 1. Set up a Media Services account in ”Data Center B”.
 2. Create a target empty asset in the target Media Services account.
 3. Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account that is associated with the target asset.
-4. Use Azure Storage SDK to copy blobs (asset files) between the source storage account in ”Data Center A” and target storage account in ”Data Center B” (these storage accounts are associated with the assets of interest.)
+4. Use Azure Storage SDK to copy blobs (asset files) between the source storage account in "Data Center A" and target storage account in "Data Center B" (these storage accounts are associated with the assets of interest.)
 5. Associate blobs (asset files) that were copied to the target blob container with the target asset. 
 6. Create an origin locator for the asset in ”Data Center B” and specify the locator Id that was generated for the asset in ”Data Center A”. 
 7. This gives you the streaming URLs where the relative paths of the URLs are the same (only the base URLs are different). 
@@ -42,10 +43,9 @@ Then, to handle any outages, you can create a CDN on top of these origin locator
 
 The following considerations apply:
 
-* The current version of Media Services SDK does not support creating a locator with a specified locator id. To achieve this task, we will use Media Services REST API.
 * The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. To achieve this task, we will use the CreateFileInfos Media Services REST API. 
 * Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (since the encryption key will be different in both Media Services accounts). 
-* If you want to take advantage of dynamic packaging, you must first get at least one On-demand Streaming reserved units. For more information, see [Dynamically Packaging Assets](media-services-dynamic-packaging-overview.md).
+* If you want to take advantage of dynamic packaging, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 
 > [!NOTE]
 > Consider using the Media Services [Replicator Tool](http://replicator.codeplex.com/) as an alternative to implementing a failover streaming scenario manually. This tool allows you to replicate assets across two Media Services accounts.
@@ -97,131 +97,118 @@ In this section you will create and set up a C# Console Application project.
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## Add code that handles redundancy for On-Demand streaming.
+## Add code that handles redundancy for On-Demand streaming
 1. Add the following class-level fields to the Program class.
-   
-        // Read values from the App.config file.
-        private static readonly string MediaServicesAccountNameSource = ConfigurationManager.AppSettings["MediaServicesAccountNameSource"];
-        private static readonly string MediaServicesAccountKeySource = ConfigurationManager.AppSettings["MediaServicesAccountKeySource"];
-        private static readonly string StorageNameSource = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameSource"];
-        private static readonly string StorageKeySource = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeySource"];
-   
-        private static readonly string MediaServicesAccountNameTarget = ConfigurationManager.AppSettings["MediaServicesAccountNameTarget"];
-        private static readonly string MediaServicesAccountKeyTarget = ConfigurationManager.AppSettings["MediaServicesAccountKeyTarget"];
-        private static readonly string StorageNameTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameTarget"];
-        private static readonly string StorageKeyTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeyTarget"];
-   
-        // Base support files path.  Update this field to point to the base path  
-        // for the local support files folder that you create. 
-        private static readonly string SupportFiles = Path.GetFullPath(@"../..\SupportFiles");
-   
-        // Paths to support files (within the above base path). 
-        private static readonly string SingleInputMp4Path = Path.GetFullPath(SupportFiles + @"\MP4Files\BigBuckBunny.mp4");
-        private static readonly string OutputFilesFolder = Path.GetFullPath(SupportFiles + @"\OutputFiles");
-   
-        // Class-level field used to keep a reference to the service context.
-        static private CloudMediaContext _contextSource = null;
-        static private CloudMediaContext _contextTarget = null;
-        static private MediaServicesCredentials _cachedCredentialsSource = null;
-        static private MediaServicesCredentials _cachedCredentialsTarget = null;
-2. Replace the default Main method definition with the following one:
-   
-        static void Main(string[] args)
-        {
-            _cachedCredentialsSource = new MediaServicesCredentials(
-                            MediaServicesAccountNameSource,
-                            MediaServicesAccountKeySource);
-   
-            _cachedCredentialsTarget = new MediaServicesCredentials(
-                            MediaServicesAccountNameTarget,
-                            MediaServicesAccountKeyTarget);
-   
-            // Get server context.    
-            _contextSource = new CloudMediaContext(_cachedCredentialsSource);
-            _contextTarget = new CloudMediaContext(_cachedCredentialsTarget);
+	   
+		// Read values from the App.config file.
+		private static readonly string MediaServicesAccountNameSource = ConfigurationManager.AppSettings["MediaServicesAccountNameSource"];
+		private static readonly string MediaServicesAccountKeySource = ConfigurationManager.AppSettings["MediaServicesAccountKeySource"];
+		private static readonly string StorageNameSource = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameSource"];
+		private static readonly string StorageKeySource = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeySource"];
+		
+		private static readonly string MediaServicesAccountNameTarget = ConfigurationManager.AppSettings["MediaServicesAccountNameTarget"];
+		private static readonly string MediaServicesAccountKeyTarget = ConfigurationManager.AppSettings["MediaServicesAccountKeyTarget"];
+		private static readonly string StorageNameTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameTarget"];
+		private static readonly string StorageKeyTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeyTarget"];
+		
+		// Base support files path.  Update this field to point to the base path  
+		// for the local support files folder that you create. 
+		private static readonly string SupportFiles = Path.GetFullPath(@"../..\SupportFiles");
+		
+		// Paths to support files (within the above base path). 
+		private static readonly string SingleInputMp4Path = Path.GetFullPath(SupportFiles + @"\MP4Files\BigBuckBunny.mp4");
+		private static readonly string OutputFilesFolder = Path.GetFullPath(SupportFiles + @"\OutputFiles");
+		
+		// Class-level field used to keep a reference to the service context.
+		static private CloudMediaContext _contextSource = null;
+		static private CloudMediaContext _contextTarget = null;
+		static private MediaServicesCredentials _cachedCredentialsSource = null;
+		static private MediaServicesCredentials _cachedCredentialsTarget = null;
 
-            IAsset assetSingleFile = CreateAssetAndUploadSingleFile(_contextSource,
-                                        AssetCreationOptions.None,
-                                        SingleInputMp4Path);
+2. Replace the default Main method definition with the following one. Method definitions that are called from Main are defined below.
+		
+		static void Main(string[] args)
+		{
+		    _cachedCredentialsSource = new MediaServicesCredentials(
+		                    MediaServicesAccountNameSource,
+		                    MediaServicesAccountKeySource);
+		
+		    _cachedCredentialsTarget = new MediaServicesCredentials(
+		                    MediaServicesAccountNameTarget,
+		                    MediaServicesAccountKeyTarget);
+		
+		    // Get server context.    
+		    _contextSource = new CloudMediaContext(_cachedCredentialsSource);
+		    _contextTarget = new CloudMediaContext(_cachedCredentialsTarget);
+		
+		    IAsset assetSingleFile = CreateAssetAndUploadSingleFile(_contextSource,
+		                                AssetCreationOptions.None,
+		                                SingleInputMp4Path);
+		
+		    IJob job = CreateEncodingJob(_contextSource, assetSingleFile);
+		
+		    if (job.State != JobState.Error)
+		    {
+		        IAsset sourceOutputAsset = job.OutputMediaAssets[0];
+		        // Get the locator for Smooth Streaming
+		        var sourceOriginLocator = GetStreamingOriginLocator(_contextSource, sourceOutputAsset);
+		
+		        Console.WriteLine("Locator Id: {0}", sourceOriginLocator.Id);
+				
+		        // 1.Create a read-only SAS locator for the source asset to have read access to the container in the source Storage account (associated with the source Media Services account)
+		        var readSasLocator = GetSasReadLocator(_contextSource, sourceOutputAsset);
+		
+		        // 2.Get the container name of the source asset from the read-only SAS locator created in the previous step
+		        string containerName = (new Uri(readSasLocator.Path)).Segments[1];
+		
+		        // 3.Create a target empty asset in the target Media Services account
+		        var targetAsset = CreateTargetEmptyAsset(_contextTarget, containerName);
+		
+		        // 4.Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account (associated with the target Media Services account)
+		        ILocator writeSasLocator = CreateSasWriteLocator(_contextTarget, targetAsset);
+		
+		        // Get asset container name.
+		        string targetContainerName = (new Uri(writeSasLocator.Path)).Segments[1];
+		
+		        // 5.Copy the blobs in the source container (source asset) to the target container (target empty asset)
+		        CopyBlobsFromDifferentStorage(containerName, targetContainerName, StorageNameSource, StorageKeySource, StorageNameTarget, StorageKeyTarget);
+		
+		        // 6.Use the CreateFileInfos Media Services REST API to automatically generate all the IAssetFile’s for the target asset. 
+		        //      This API call is not supported in the current Media Services SDK for .NET. 
+		        CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
+		
+		        // Check if the AssetFiles are now  associated with the asset.
+		        Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+		        foreach (var af in targetAsset.AssetFiles)
+		        {
+		            Console.WriteLine(af.Name);
+		        }
+		
+		        // 7.Copy the Origin locator of the source asset to the target asset by using the same Id
+		        var replicatedLocatorPath = CreateOriginLocatorWithRest(_contextTarget,
+		                    MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget,
+		                    sourceOriginLocator.Id, targetAsset.Id);
+		
+		        // Create a full URL to the manifest file. Use this for playback
+		        // in streaming media clients. 
+		        string originalUrlForClientStreaming = sourceOriginLocator.Path + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
+		
+		        Console.WriteLine("Original Locator Path: {0}\n", originalUrlForClientStreaming);
+		
+		        string replicatedUrlForClientStreaming = replicatedLocatorPath + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
+		
+		        Console.WriteLine("Replicated Locator Path: {0}", replicatedUrlForClientStreaming);
+		
+		        readSasLocator.Delete();
+		        writeSasLocator.Delete();
+		}
 
-            IJob job = CreateEncodingJob(_contextSource, assetSingleFile);
-
-            if (job.State != JobState.Error)
-            {
-                IAsset sourceOutputAsset = job.OutputMediaAssets[0];
-                // Get the locator for Smooth Streaming
-                var sourceOriginLocator = GetStreamingOriginLocator(_contextSource, sourceOutputAsset);
-
-                Console.WriteLine("Locator Id: {0}", sourceOriginLocator.Id);
-
-
-                // 1.Create a read-only SAS locator for the source asset to have read access to the container in the source Storage account (associated with the source Media Services account)
-                var readSasLocator = GetSasReadLocator(_contextSource, sourceOutputAsset);
-
-
-                // 2.Get the container name of the source asset from the read-only SAS locator created in the previous step
-                string containerName = (new Uri(readSasLocator.Path)).Segments[1];
-
-
-                // 3.Create a target empty asset in the target Media Services account
-                var targetAsset = CreateTargetEmptyAsset(_contextTarget, containerName);
-
-                // 4.Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account (associated with the target Media Services account)
-                ILocator writeSasLocator = CreateSasWriteLocator(_contextTarget, targetAsset);
-
-                // Get asset container name.
-                string targetContainerName = (new Uri(writeSasLocator.Path)).Segments[1];
-
-
-                // 5.Copy the blobs in the source container (source asset) to the target container (target empty asset)
-                CopyBlobsFromDifferentStorage(containerName, targetContainerName, StorageNameSource, StorageKeySource, StorageNameTarget, StorageKeyTarget);
-
-
-                // 6.Use the CreateFileInfos Media Services REST API to automatically generate all the IAssetFile’s for the target asset. 
-                //      This API call is not supported in the current Media Services SDK for .NET. 
-                CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
-
-                // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
-                foreach (var af in targetAsset.AssetFiles)
-                {
-                    Console.WriteLine(af.Name);
-                }
-
-                // 7.Copy the Origin locator of the source asset to the target asset by using the same Id
-                var replicatedLocatorPath = CreateOriginLocatorWithRest(_contextTarget,
-                            MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget,
-                            sourceOriginLocator.Id, targetAsset.Id);
-
-                // Create a full URL to the manifest file. Use this for playback
-                // in streaming media clients. 
-                string originalUrlForClientStreaming = sourceOriginLocator.Path + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
-
-                Console.WriteLine("Original Locator Path: {0}\n", originalUrlForClientStreaming);
-
-                string replicatedUrlForClientStreaming = replicatedLocatorPath + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
-
-                Console.WriteLine("Replicated Locator Path: {0}", replicatedUrlForClientStreaming);
-
-                readSasLocator.Delete();
-                writeSasLocator.Delete();
-        }
-
-1. Method definitions that are called from Main are defined below.
+3. Method definitions that are called from Main.
    
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
                                                         string singleFilePath)
         {
-            // For the AssetCreationOptions you can specify 
-            // encryption options.
-            //      None:  no encryption. By default, storage encryption is used. If you want to 
-            //        create an unencrypted asset, you must set this option.
-            //      StorageEncrypted:  storage encryption. Encrypts a clear input file 
-            //        before it is uploaded to Azure storage. This is the default if not specified
-            //      CommonEncryptionProtected:  for Common Encryption Protected (CENC) files. An 
-            //        example is a set of files that are already PlayReady encrypted. 
-   
             var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
    
             var asset = context.Assets.Create(assetName, assetCreationOptions);
@@ -296,8 +283,6 @@ In this section you will create and set up a C# Console Application project.
             return job;
         }
    
-        // Create a locator URL to a streaming media asset 
-        // on an origin server.
         public static ILocator GetStreamingOriginLocator(CloudMediaContext context, IAsset assetToStream)
         {
             // Get a reference to the streaming manifest file from the  
@@ -417,7 +402,6 @@ In this section you will create and set up a C# Console Application project.
             return locatorNewPath;
         }
 
-
         public static void SetPrimaryFile(IAsset asset)
         {
 
@@ -451,7 +435,6 @@ In this section you will create and set up a C# Console Application project.
             return asset;
         }
 
-
         public static void CopyBlobsFromDifferentStorage(string sourceContainerName, string targetContainerName,
                                             string srcAccountName, string srcAccountKey,
                                             string destAccountName, string destAccountKey)
@@ -484,6 +467,8 @@ In this section you will create and set up a C# Console Application project.
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
+					// In AMS, the files are stored as block blobs. 
+					// Page blobs are not supported by AMS.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 
@@ -507,6 +492,7 @@ In this section you will create and set up a C# Console Application project.
 
             Console.WriteLine("Done copying.");
         }
+
         private static IMediaProcessor GetLatestMediaProcessorByName(CloudMediaContext context, string mediaProcessorName)
         {
 
@@ -902,7 +888,6 @@ In this section you will create and set up a C# Console Application project.
                 Console.WriteLine(ex.Message);
             }
         }
-
 
         private static HttpWebRequest GenerateRequest(string verb,
                                                         string mediaServicesApiServerUri,

@@ -180,11 +180,4 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Redis Cache Documentation
-        </div>
-    </a>
-</div>
+

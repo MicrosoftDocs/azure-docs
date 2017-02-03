@@ -233,10 +233,10 @@ cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
+When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK
 
 ```
-./tools/build.sh --skip-unittests
+./tools/build.sh
 ```
 
 ### Configure and run the BLE sample on your Raspberry Pi 3
@@ -426,8 +426,8 @@ You may need to press the small button on the SensorTag device to make it discov
 When you run the sample, you can use the [device explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
 ## Send cloud-to-device messages
-The BLE module also supports sending instructions from Azure IoT Hub to the device. You can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to send JSON messages that the BLE gateway module passes on to the BLE device.
-If you are using the Texas Instruments SensorTag device then you can turn on the red LED, green LED, or buzzer by sending commands from IoT Hub. To do this, first send the following two JSON messages in order.
+The BLE module also supports sending instructions from Azure IoT Hub to the device. You can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to send JSON messages that the BLE gateway module passes on to the BLE device.
+If you are using the Texas Instruments SensorTag device then you can turn on the red LED, green LED, or buzzer by sending commands from IoT Hub. To do this, first send the following two JSON messages in order. Then you can send any of the commands to turn on the lights or buzzer.
 
 1. Reset all LEDs and the buzzer (turn them off):
 

@@ -105,8 +105,6 @@
 #### [Register devices](active-directory-conditional-access-device-registration-overview.md)
 #### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 #### [Manage Authenticator app](active-directory-conditional-access-azure-authenticator-app.md)
 #### [Understand device policies](active-directory-conditional-access-device-policies.md)
 #### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
@@ -124,6 +122,10 @@
 #### [Enable Windows Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 #### [Understand Windows 10 integration](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Use Windows 10 devices](active-directory-azureadjoin-windows10-devices.md)
+#### [FAQs](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Troubleshooting
+##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ### Certificate-based Authentication
 #### [Android](active-directory-certificate-based-authentication-android.md)
@@ -139,12 +141,15 @@
 
 ### [Give remote access to your apps](active-directory-application-proxy-get-started.md)
 #### [Enable App Proxy](active-directory-application-proxy-enable.md)
-#### [Publish apps](active-directory-application-proxy-publish.md)
+#### Publish apps
+##### [Azure portal](application-proxy-publish-azure-portal.md)
+##### [Classic portal](active-directory-application-proxy-publish.md)
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure portal](application-proxy-sso-azure-portal.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
 #### [Conditional access](active-directory-application-proxy-conditional-access.md)
@@ -212,7 +217,7 @@
 #### [CSV file format](active-directory-b2b-references-csv-file-format.md)
 #### [User objects](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [User tokens](active-directory-b2b-references-external-user-token-format.md)
-### [Integrate on-premises identities using Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
 ## Delegate access to resources
@@ -237,12 +242,12 @@
 ## Secure your identities
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
-#### [Sign-in experience](active-directory-identityprotection-flows.md)
-#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
-#### [Risk event types](active-directory-identityprotection-risk-events-types.md)
-#### [Simulate risk events](active-directory-identityprotection-playbook.md)
+#### [Risk events](active-directory-identity-protection-risk-events.md)
 #### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Sign-in experience](active-directory-identityprotection-flows.md)
+#### [Simulate risk events](active-directory-identityprotection-playbook.md)
+#### [Unblock users](active-directory-identityprotection-unblock-howto.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -284,7 +289,8 @@
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 

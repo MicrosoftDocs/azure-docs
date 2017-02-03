@@ -125,7 +125,7 @@ Map the data by adding a list mapping for each tenant.
     -SqlDatabaseName '<shard_database_name>' 
 
 ### Option 2: map the data for a range mapping
-Add the range mappings for all the tenant id range – database associations:
+Add the range mappings for all the tenant id range - database associations:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 

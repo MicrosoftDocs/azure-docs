@@ -1,6 +1,6 @@
 ---
-title: Create or move an Azure SQL database into an elastic pool using T-SQL | Microsoft Docs
-description: Use T-SQL to create an Azure SQL database in an elastic pool. Or use T-SQL to move the datbase in and out of pools.
+title: 'T-SQL: Manage an Azure SQL Database elastic pool | Microsoft Docs'
+description: Use T-SQL to manage an Azure SQL Database elastic pool. 
 services: sql-database
 documentationcenter: ''
 author: srinia

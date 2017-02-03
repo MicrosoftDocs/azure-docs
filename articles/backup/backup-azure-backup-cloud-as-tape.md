@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2016
+ms.date: 1/10/2017
 ms.author: jimpark;trinadhk;markgal
 
 ---
@@ -61,8 +61,8 @@ The total number of recovery points is 56.
 
 > [!NOTE]
 > Azure backup doesn't have a restriction on number of recovery points.
-> 
-> 
+>
+>
 
 ## Advanced configuration
 By clicking **Modify** in the preceding screen, customers have further flexibility in specifying retention schedules.
@@ -74,4 +74,3 @@ For more information about Azure Backup, see:
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
 * [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
-

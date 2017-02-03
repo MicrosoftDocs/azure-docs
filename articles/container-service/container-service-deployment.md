@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure Container Service cluster | Microsoft Docs
+title: Deploy a Docker container cluster in Azure | Microsoft Docs
 description: Deploy an Azure Container Service cluster by using the Azure portal, the Azure CLI, or PowerShell.
 services: container-service
 documentationcenter: ''
@@ -7,26 +7,33 @@ author: rgardler
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
+
+
 keywords: Docker, Containers, Micro-services, Mesos, Azure, dcos, swarm, kubernetes, azure container service, acs
+
 
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 
 ---
 # Deploy an Azure Container Service cluster
+
+
+
 Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. By using Azure Container Service, you can deploy DC/OS, Kubernetes, and Docker Swarm clusters with Azure Resource Manager templates or the Azure portal. You deploy these clusters by using Azure Virtual Machine Scale Sets, and the clusters take advantage of Azure networking and storage offerings. To access Azure Container Service, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 > [!NOTE]
 > Kubernetes support in Azure Container Service is currently in preview.
->
 
-This document walks you through deploying an Azure Container Service cluster by using the [Azure portal](#creating-a-service-using-the-azure-portal), the [Azure command-line interface (CLI)](#creating-a-service-using-the-azure-cli), and the [Azure PowerShell module](#creating-a-service-using-powershell).  
+
+
+This document walks you through deploying an Azure Container Service cluster by using the [Azure portal](#create-a-service-by-using-the-azure-portal), the [Azure command-line interface (CLI)](#create-a-service-by-using-the-azure-cli), and the [Azure PowerShell module](#create-a-service-by-using-powershell).
 
 ## Create a service by using the Azure portal
 1. Sign in to the Azure portal, select **New**, and search the Azure Marketplace for **Azure Container Service**.
@@ -51,9 +58,10 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 5. Select an Orchestration type. The options are:
 
-    * **DC/OS**: Deploys a DC/OS cluster.
-    * **Swarm**: Deploys a Docker Swarm cluster.
-    * **Kubernetes**: Deploys a Kubernetes cluster.
+  * **DC/OS**: Deploys a DC/OS cluster.
+  * **Swarm**: Deploys a Docker Swarm cluster.
+  * **Kubernetes**: Deploys a Kubernetes cluster
+
 
 6. Click **OK** when you're ready to proceed.
 
@@ -88,10 +96,17 @@ This document walks you through deploying an Azure Container Service cluster by 
 
 When the deployment has completed, the Azure Container Service cluster is ready for use.
 
+## Kubernetes specific entires required in the portal
+
+If 'Kubernetes' is selected as the orchestrator then you will be prompted to enter the Service Prinicipal client id and client secret.
+To learn how to create a service principal, go to this [link](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md)
+
+![Create deployment 8](media/acs-portal10.png)  <br />
+
 ## Create a service by using the Azure CLI
 To create an instance of Azure Container Service by using the command line, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). You also need to have [installed](../xplat-cli-install.md) and [configured](../xplat-cli-connect.md) the Azure CLI.
 
-1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the following templates from GitHub. 
+1. To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the following templates from GitHub.
 
     * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
     * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
@@ -122,7 +137,7 @@ To create an instance of Azure Container Service by using the command line, you 
 
     > [!NOTE]
     > When you run this command, the shell will prompt you for deployment parameter values.
-    > 
+    >
 
     ```bash
     azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
@@ -192,4 +207,3 @@ Now that you have a functioning cluster, see these documents for connection and 
 * [Work with Azure Container Service and DC/OS](container-service-mesos-marathon-rest.md)
 * [Work with Azure Container Service and Docker Swarm](container-service-docker-swarm.md)
 * [Work with Azure Container Service and Kubernetes](container-service-kubernetes-walkthrough.md)
-

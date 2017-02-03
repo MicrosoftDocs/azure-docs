@@ -153,13 +153,3 @@ Learn how to use Active Directory Domain Services to join Azure virtual machines
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Active Directory Domain Services Documentation
-        </div>
-    </a>
-</div>

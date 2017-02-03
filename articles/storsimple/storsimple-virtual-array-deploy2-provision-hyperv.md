@@ -1,5 +1,5 @@
 ---
-title: Deploy Microsoft Azure StorSimple Virtual Array - Provision in Hyper-V| Microsoft Docs
+title: Provision StorSimple Virtual Array in Hyper-V | Microsoft Docs
 description: This second tutorial in StorSimple Virtual Array deployment involves provisioning a virtual array in Hyper-V.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 01/12/2017
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
@@ -191,7 +191,7 @@ Perform the following steps to start your virtual array and connect to it.
 
     1. To enable the FIPS mode, run the following cmdlet:
 
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
 
        > [!NOTE]

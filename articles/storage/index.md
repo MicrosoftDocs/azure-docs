@@ -126,9 +126,10 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
-                        <p><a href="/rest/api/storagerp">REST: Resource provider</a></p>
-                        <p><a href="/rest/api/storageimportexport">REST: Import/export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
+                        <p><a href="/rest/api/storagerp">Resource provider</a></p>
+                        <p><a href="/rest/api/storageimportexport">Import/export</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Storage Data REST API</a></p>
                    </div>
                 </div>
             </div>
@@ -136,11 +137,4 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Storage Documentation
-        </div>
-    </a>
-</div>
+

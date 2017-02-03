@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/12/2017
 ms.author: jingwang;kevin;barbkess
 
 ---
@@ -38,7 +38,7 @@ You can use Azure Data Factory to load data into Azure SQL Data Warehouse from a
 ## Configure a data factory
 1. Log in to the [Azure portal][].
 2. Locate your data warehouse and click to open it.
-3. In the **Properties** blade, click **Load Data > Azure Data Factory**.
+3. In the main blade, click **Load Data** > **Azure Data Factory**.
 
     ![Launch Load Data wizard](media/sql-data-warehouse-load-with-data-factory/launch-load-data-wizard.png)
 
@@ -51,69 +51,61 @@ You can use Azure Data Factory to load data into Azure SQL Data Warehouse from a
 ## Configure the data factory properties
 Now that you have created a data factory, the next step is to configure the data loading schedule.
 
-1. Select **Properties** and fill in the requested information.
-2. For **Task name**, enter **DWLoadData-fromSQLServer**.
-3. Click **Next**.
+1. For **Task name**, enter **DWLoadData-fromSQLServer**.
+2. Use the default **Run once now** option, click **Next**.
 
 	![Configure load schedule](media/sql-data-warehouse-load-with-data-factory/configure-load-schedule.png)
 
-## Configure the data factory source and gateway
+## Configure the source data store and gateway
 Now you tell Data Factory about the on-premises SQL Server database from which you want to load data.
 
-1. Click **Source**.
-2. Choose **SQL Server** from the supported source data store catalog, and click **Next**.
+1. Choose **SQL Server** from the supported source data store catalog, and click **Next**.
 
 	![Choose SQL Server source](media/sql-data-warehouse-load-with-data-factory/choose-sql-server-source.png)
 
-3. A **Specify the on-premises SQL Server database** dialog appears. Fill in the required fields as follows:
-
-	- **Connection name**: Specify a new name for your connection.
-	- **Server name**: Name of the on-premises SQL Server.
-	- **Database name**: SQL Server database.
-	- **Credential encryption**: None.
-	- **Authentication type**: Choose the type of authentication you are using.
-	- **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
-
-4. The last field asks for the name of the gateway. If the source data store is on-premises or in an Azure IaaS virtual machine, the gateway is required. If you are using an existing data factory that already has a gateway, you can reuse the gateway by selecting it from the drop-down list. Click the **Create Gateway** link to create a Data Management Gateway.  
+2. A **Specify the on-premises SQL Server database** dialog appears. The first  **Connection name** field is auto filled in. The second field asks for the name of the **Gateway**. If the source data store is on-premises or in an Azure IaaS virtual machine, the gateway is required. If you are using an existing data factory that already has a gateway, you can reuse the gateway by selecting it from the drop-down list. Click the **Create Gateway** link to create a Data Management Gateway.  
 
 	> [!NOTE]
 	> A gateway has a 1-1 relationship with a data factory. It cannot be used from another data factory, but it can be used by multiple data loading tasks with in the same data factory. A gateway can be used to connect to multiple data stores when running data loading tasks.
 	>
 	> For detailed information about the gateway, see [Data Management Gateway](../data-factory/data-factory-data-management-gateway.md) article.
 
-5. A **Create Gateway** dialog box appears. For Name, enter **GatewayForDWLoading**, and click **Create**.
+3. A **Create Gateway** dialog box appears. For Name, enter **GatewayForDWLoading**, and click **Create**.
 
-6. A **Configure Gateway** dialog box appears.  
-	![Launch Express setup](media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
-
-7. Click **Launch express setup on this computer** to download, install, and register Data Management Gateway on your current machine (the machine you are using to access the portal). If the machine cannot connect to the data store, you can manually [download and install the gateway](https://www.microsoft.com/download/details.aspx?id=39717) on a machine that can connect to the data store, and then use the key to register. The progress is shown in a pop-up window.
-
+4. A **Configure Gateway** dialog box appears. Click **Launch express setup on this computer** to automatically download, install, and register Data Management Gateway on your current machine. The progress is shown in a pop-up window. If the machine cannot connect to the data store, you can manually [download and install the gateway](https://www.microsoft.com/download/details.aspx?id=39717) on a machine that can connect to the data store, and then use the key to register.
 	> [!NOTE]
 	> The express setup works natively with Microsoft Edge and Internet Explorer. If you are using Google Chrome, first install the ClickOnce extension from Chrome web store.
 
-8. Wait for the gateway setup to complete. Once the gateway is successfully registered and is online, the pop-up window closes and the new gateway appears in the gateway field. Click **Next**.
+    ![Launch Express setup](media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
 
-9. The next step is to choose the tables from which to copy the data. You can filter the tables by using keywords. And you can preview the data and table schema in the bottom panel. After you finish your selection, click **Next**.
+5. Wait for the gateway setup to complete. Once the gateway is successfully registered and is online, the pop-up window closes and the new gateway appears in the gateway field. Then fill in the rest required fields as follows, then click **Next**.
+    - **Server name**: Name of the on-premises SQL Server.
+    - **Database name**: SQL Server database.
+    - **Credential encryption**: None.
+    - **Authentication type**: Choose the type of authentication you are using.
+    - **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
+
+6. The next step is to choose the tables from which to copy the data. You can filter the tables by using keywords. And you can preview the data and table schema in the bottom panel. After you finish your selection, click **Next**.
 
 	![Select tables](media/sql-data-warehouse-load-with-data-factory/select-tables.png)
 
 ## Configure the destination, your SQL Data Warehouse
 
-1. Click **Destination**. Your SQL Data Warehouse connection information is filled in automatically.
-2. Enter the password for the user name. and click **Next**.
+Now you tell Data Factory about the destination information.
+
+1. Your SQL Data Warehouse connection information is filled in automatically. Enter the password for the user name. and click **Next**.
 
 	![Configure destination](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
 
-3. An intelligent table mapping appears that maps source to destination tables based on table names. Adjust the mapping for any table, and the rest is automatically mapped by learning from the example.
-4. Review and click **Next**.
+2. An intelligent table mapping appears that maps source to destination tables based on table names. Adjust the mapping for any table, and the rest is automatically mapped by learning from the example. Review and click **Next**.
 
 	![Map tables](media/sql-data-warehouse-load-with-data-factory/table-mapping.png)
 
-5. Review the schema mapping and look for error messages. Intelligent mapping is based on column name. If there is an unsupported data type conversion between the source and destination column, you see an error message alongside the corresponding table.
+3. Review the schema mapping and look for error messages. Intelligent mapping is based on column name. If there is an unsupported data type conversion between the source and destination column, you see an error message alongside the corresponding table.
 
 	![Map schema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-6. Click **Next**.
+4. Click **Next**.
 
 ## Configure the performance settings
 In the Performance configurations, you configure an Azure storage account used for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.

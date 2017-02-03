@@ -38,7 +38,7 @@ The following examples use the Azure CLI 2.0 (Preview). Read each article for mo
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
-
+    
   * This example uses [az vm create](/cli/azure/vm#create) to create a VM named `myVM` using the latest Debian image with Azure Managed Disks and a public key named `id_rsa.pub`:
 
     ```azurecli
@@ -71,7 +71,7 @@ The following examples use the Azure CLI 2.0 (Preview). Read each article for mo
 * [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 5Gb unmanaged disk named `myDataDisk.vhd` to an existing VM named `myVM`:
-    
+  
     ```azurecli
     az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
       --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
