@@ -19,8 +19,8 @@ ms.author: anoopkv
 
 # How to setup & configure a Failback Process Server (Resource Manager)
 > [!div class="op_single_selector"]
-> * [Azure Classic ](./site-recovery-setup-azure-ps-classic.md)
-> * [Resource Manager](./site-recovery-setup-azure-ps-arm.md)
+> * [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
+> * [Resource Manager](./site-recovery-vmware-setup-azure-ps-arm.md)
 
 This article describes how to setup & configure a Process Server in Azure for failing back virtual machines from Azure to on-premises.
 
@@ -32,6 +32,6 @@ This article describes how to setup & configure a Process Server in Azure for fa
 
 ## Deploy Process Server on Azure
  <To do Anoop KV>
- 
+
 ## Registering the Process Server
   [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-register-process-server.md)]
