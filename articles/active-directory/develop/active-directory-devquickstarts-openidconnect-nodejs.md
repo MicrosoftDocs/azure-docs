@@ -58,19 +58,19 @@ The completed application is provided at the end of this tutorial as well.
 6. After you register, Azure AD assigns your app a unique Application ID. You need this value in the following sections, so copy it from the application page.
 
 ## 2. Add prerequisites to your directory
-From the command line, change directories to your root folder if you're not already there, and then run the following commands:
+1. From the command line, change directories to your root folder if you're not already there, and then run the following commands:
 
-* `npm install express`
-* `npm install ejs`
-* `npm install ejs-locals`
-* `npm install restify`
-* `npm install mongoose`
-* `npm install bunyan`
-* `npm install assert-plus`
-* `npm install passport`
+    * `npm install express`
+    * `npm install ejs`
+    * `npm install ejs-locals`
+    * `npm install restify`
+    * `npm install mongoose`
+    * `npm install bunyan`
+    * `npm install assert-plus`
+    * `npm install passport`
 
-In addition, you also need `passport-azure-ad` as well:
-* `npm install passport-azure-ad`
+2. In addition, you also need `passport-azure-ad` as well:
+    * `npm install passport-azure-ad`
 
 This installs the libraries that `passport-azure-ad` depends on.
 
@@ -186,8 +186,6 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
         // configure Express (section 2)
 
             var app = express();
-
-
             app.configure(function() {
           app.set('views', __dirname + '/views');
           app.set('view engine', 'ejs');
@@ -250,6 +248,7 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
               });
           ```
 
+
 ## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
 Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in, sign out, and gathering additional information about the signed-in users.
 
@@ -308,7 +307,7 @@ Your app is now properly configured to communicate with the endpoint by using th
 
 ```JavaScript
 
-    app.listen(3000);
+        app.listen(3000);
 
 ```
 
@@ -318,7 +317,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
 
 1. Create the `/routes/index.js` route under the root directory.
 
-        ```JavaScript
+    ```JavaScript
                 /*
                  * GET home page.
                  */
@@ -401,11 +400,9 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     </html>
     ```
 
-6. Finally, build and run your app!
+6. Finally, build and run your app! Run `node app.js`, and then go to `http://localhost:3000`.
 
-Run `node app.js`, and then go to `http://localhost:3000`.
-
-Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.
+7. Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip file here](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatively, you can clone it from GitHub:
 
