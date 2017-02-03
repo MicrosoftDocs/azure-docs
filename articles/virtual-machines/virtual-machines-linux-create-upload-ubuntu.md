@@ -51,7 +51,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 3. Replace the current repositories in the image to use Ubuntu's Azure repos. The steps vary slightly depending on the Ubuntu version.
    
-	Before editing /etc/apt/sources.list, it is recommended to make a backup:
+	Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
    
 		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -98,16 +98,16 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
         # sudo reboot
 
-	See also:
+	**See also:**
 	- [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 	- [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
-5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
+5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
-    Save and close this file, and then run "`sudo update-grub`". This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
+    Save and close this file, and then run `sudo update-grub`. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
 
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
@@ -121,9 +121,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
-   # sudo waagent -force -deprovision
-   # export HISTSIZE=0
-   # logout
+		# sudo waagent -force -deprovision
+		# export HISTSIZE=0
+		# logout
 
 9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
