@@ -55,7 +55,7 @@ Continue by following instructions for attaching either a [managed disk](#use-az
 
    ![Save new Azure Managed Disk](./media/virtual-machines-linux-attach-disk-portal/confirm-create-new-md.png)
 
-5. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**. As managed disks are a top-level resource, the disk will also show at the root of the resource group:
+5. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**. As managed disks are a top-level resource, the disk appears at the root of the resource group:
 
    ![Azure Managed Disk in resource group](./media/virtual-machines-linux-attach-disk-portal/view-md-resource-group.png)
 
