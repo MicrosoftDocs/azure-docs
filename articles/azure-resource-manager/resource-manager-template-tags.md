@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 ---
 # Tag resources in Azure Resource Manager templates
-In an Azure Resource Manager template, you can apply tags to your Azure resources to logically organize them by categories. Each tag consists of a key and a value. For example, you can apply the key "Environment" and the value "Production" to all the resources in production. Without this tag, you may have difficulty after deployment identifying whether a resource is intended for development, test,or production. However, "Environment" and "Production" are just examples. You define the keys and values that make the most sense for organizing your subscription.
+In an Azure Resource Manager template, you can apply tags to your Azure resources to logically organize them by categories. Each tag consists of a key and a value. For example, you can apply the key "Environment" and the value "Production" to all the resources in production. Without this tag, you may have difficulty after deployment identifying whether a resource is intended for development, test, or production. However, "Environment" and "Production" are just examples. You define the keys and values that make the most sense for organizing your subscription.
 
 The following limitations apply to tags:
 
