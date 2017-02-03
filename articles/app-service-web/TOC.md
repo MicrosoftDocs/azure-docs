@@ -18,7 +18,7 @@
 ## App Service for developers 
 ## App Service everywhere	
 
-# [Concepts](../concepts/TOC.md)
+# [Concepts](./concepts/TOC.md)
 
 # Tutorials 		 	
 ## ASP.NET app with Visual Studio
@@ -53,7 +53,7 @@
 #### Use app settings
 #### Use connection strings
 			
-## [Deploy to Azure](../deploy/TOC.md)
+## [Deploy to Azure](./deploy/TOC.md)
 			
 ## Connect to DB/resources		
 ### Connect to cloud DB
