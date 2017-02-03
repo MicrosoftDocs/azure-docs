@@ -18,19 +18,19 @@ ms.author: tomfitz
 
 ---
 # Set resource location in Azure Resource Manager templates
-When deploying a resource, you must provide a location for the resource. Each resource provider supports a set of locations; however, your subscription may not have access to all those locations. This topic shows how to determine the locations that are available to your subscription.
+When deploying a template, you must provide a location for each resource. This topic shows how to determine the locations that are available to your subscription for each resource type.
 
 ## Determine supported locations
 
-For a complete list of supported locations for each resource type, see [Products available by region](https://azure.microsoft.com/regions/services/). Keep in mind this list might show locations that are not available to your subscription.
+For a complete list of supported locations for each resource type, see [Products available by region](https://azure.microsoft.com/regions/services/). However, your subscription might not have access to all the locations in that list. To see a customized list of locations that are available to your subscription, use Azure PowerShell or Azure CLI. 
 
-To see a customized list of locations that is available to your subscription, use Azure PowerShell or Azure CLI. The following example shows how to use PowerShell to get the locations for a particular resource type (in this case `Microsoft.Web\sites`):
+The following example uses PowerShell to get the locations for the `Microsoft.Web\sites` resource type:
 
 ```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-The following example uses Azure CLI 2.0 (Preview) to get the locations for a particular resource type (in this case `Microsoft.Web\sites`):
+The following example uses Azure CLI 2.0 (Preview) to get the locations for the `Microsoft.Web\sites` resource type:
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -38,7 +38,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## Set location in template
 
-After determining the supported locations for your resources, you need to set that location in your template. The easiest way to set this value is by creating a resource group in a location that supports the resource types, and then setting each location to `[resourceGroup().location]`. If you deploy the template to a resource group in a different location, you do not need to change any values in the template or in the parameters. 
+After determining the supported locations for your resources, you need to set that location in your template. The easiest way to set this value is to create a resource group in a location that supports the resource types, and set each location to `[resourceGroup().location]`. You can redeploy the template to resource groups in different locations without changing any values in the template or parameters. 
 
 The following example shows a storage account that is deployed to the same location as the resource group:
 
