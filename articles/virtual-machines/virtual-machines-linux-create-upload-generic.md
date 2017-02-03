@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/02/2017
 ms.author: szark
 
 ---
@@ -140,6 +140,7 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%
 * In some cases the Azure Linux Agent may not be compatible with NetworkManager. Many of the RPM/Deb packages provided by distributions configure NetworkManager as a conflict to the waagent package, and thus will uninstall NetworkManager when you install the Linux agent package.
 
 ## General Linux System Requirements
+
 * Modify the kernel boot line in GRUB or GRUB2 to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
@@ -150,13 +151,14 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%
   
         rhgb quiet crashkernel=auto
   
-    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.
-  
-    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
+    Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port. The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
+
 * Installing the Azure Linux Agent
   
     The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').  The agent can also be installed manually by following the steps in the [Linux Agent Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 * Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
+
 * Do not create swap space on the OS disk
   
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
@@ -166,6 +168,7 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 * As a final step, run the following commands to deprovision the virtual machine:
   
         # sudo waagent -force -deprovision
@@ -176,5 +179,6 @@ The [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%
   > On Virtualbox you may see the following error after running 'waagent -force -deprovision': `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
   > 
   > 
+
 * You will then need to shut down the virtual machine and upload the VHD to Azure.
 
