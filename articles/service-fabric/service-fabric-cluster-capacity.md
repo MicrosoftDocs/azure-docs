@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/03/2017
 ms.author: chackdan
 
 ---
@@ -103,7 +103,8 @@ For production workloads
 
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
-- Partial core VMs are not supported for production workloads
+- Partial core VM SKUs like Standard A0 are not supported for production workloads.
+- Standard A1 SKU is specifically not supported for production workloads for performance reasons.
 
 
 ## Non-Primary node type - Capacity Guidance for stateful workloads
@@ -120,7 +121,8 @@ For production workloads
 
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
-- Partial core VMs are not supported for production workloads
+- Partial core VM SKUs like Standard A0 are not supported for production workloads.
+- Standard A1 SKU is specifically not supported for production workloads for performance reasons.
 
 
 ## Non-Primary node type - Capacity Guidance for stateless workloads
@@ -131,6 +133,11 @@ Read the following for stateless Workloads
 
 - The minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
+> [!NOTE]
+> If your cluster is running on a service fabric version less than 5.6, due to a defect in the runtime (which is planned to be fixed in 5.6), scaling down a non-primary node type to less than 5, will result in cluster health turning unhealthy, till you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) with the appropriate node name. Read [perform Service Fabric cluster in or out](service-fabric-cluster-scale-up-down.md) for more details
+> 
+>
+
 2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
@@ -138,9 +145,11 @@ For production workloads
 
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent. 
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent. 
-- Partial core VMs are not supported for production workloads.
+- Partial core VM SKUs like Standard A0 are not supported for production workloads.
+- Standard A1 SKU is specifically not supported for production workloads for performance reasons.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## Next steps
 Once you finish your capacity planning and set up a cluster, please read the following:
 
