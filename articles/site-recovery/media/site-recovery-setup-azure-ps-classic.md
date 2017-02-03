@@ -1,0 +1,28 @@
+---
+title: 'How to setup a failback Process Server (Classic) In Azure | Microsoft Docs'
+description: This article describes how to set up a failback Process Server(Classic) In Azure.
+services: site-recovery
+documentationcenter: ''
+author: AnoopVasudavan
+manager: gauravd
+editor: ''
+
+ms.assetid:
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 2/2/2017
+ms.author: anoopkv
+---
+
+# How to setup & configure a Failback Process Server (Resource Manager)
+> [!div class="op_single_selector"]
+> * [Azure Classic ](./site-recovery-setup-azure-ps-classic.md)
+> * [Resource Manager](./site-recovery-setup-azure-ps-arm.md)
+
+This article describes how to setup & configure a Process Server in Azure for failing back virtual machines from Azure to on-premises.
+
+> [!NOTE]
+> This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model please follow the steps in [How to setup & configure a Failback Process Server (Resource Manager)](./site-recovery-setup-azure-ps-arm.md)
