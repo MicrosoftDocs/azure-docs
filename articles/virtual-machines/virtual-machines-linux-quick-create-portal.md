@@ -56,7 +56,7 @@ Choose a VM size. The following examples chooses **DS1_V2 Standard** which insta
 ![Choose an Azure VM size](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
 
 ## Storage and network
-In the **Settings** blade, you can elect to use Azure Managed Disks for your VM. The current default setting is to use non-managed (native) disks. Azured Managed Disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). For non-managed disks, you need to create or select a storage for your virtual hard disks:
+In the **Settings** blade, you can elect to use Azure Managed Disks for your VM. The current default setting is to use unmanaged disks. Azured Managed Disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). For unmanaged disks, you need to create or select a storage for your virtual hard disks:
 
 ![Select storage account for non-managed disks](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
 
