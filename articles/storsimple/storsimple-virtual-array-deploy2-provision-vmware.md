@@ -4,7 +4,7 @@ description: This second tutorial in StorSimple Virtual Array deployment series 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
@@ -40,7 +40,7 @@ Before you deploy a virtual device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million plan files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 
