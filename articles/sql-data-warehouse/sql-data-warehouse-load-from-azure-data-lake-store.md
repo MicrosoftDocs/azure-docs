@@ -39,9 +39,9 @@ To run this tutorial, you need:
 
 * SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect please see [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms.md)
 
-* An Azure SQL Data Warehouse, to create one please follow: https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* An Azure SQL Data Warehouse, to create one please follow: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* An Azure Data Lake Store that does not have encryption enabled. To create one please follow: https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal
+* An Azure Data Lake Store that does not have encryption enabled. To create one please follow: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -205,7 +205,7 @@ The following example is a good starting point for creating statistics. It creat
 You have successfully loaded  data into Azure SQL Data Warehouse. Great job!
 
 ##Next Steps
-Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
+Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) and [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 
 <!--Image references-->
