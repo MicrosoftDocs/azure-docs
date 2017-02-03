@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/01/2017
-ms.author: thmullan;jackr;carlrab
+ms.author: thmullan;jackr
 
 ---
 # Securing your SQL Database
