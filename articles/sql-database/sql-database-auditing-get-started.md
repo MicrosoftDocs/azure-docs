@@ -41,7 +41,8 @@ There are two **Auditing methods**:
 * **Blob auditing** - logs are written to Azure Blob Storage. This is a newer auditing method, which provides **higher performance**, supports **higher granularity object-level auditing**, and is **more cost effective**.
 * **Table auditing** - logs are written to Azure Table Storage.
 
-> **Important** - the introduction of the new Blob Auditing brings a major change to the way Server auditing policy is being inherited by the database. See [Blob/Table differences in Server auditing policy inheritance](#subheading-8) section for additional details.
+> [!IMPORTANT]
+> The introduction of the new Blob Auditing brings a major change to the way Server auditing policy is being inherited by the database. See [Blob/Table differences in Server auditing policy inheritance](#subheading-8) section for additional details.
 
 You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
 
