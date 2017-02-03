@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
-description: Learn how to use App Service Web Apps to build and host PHP websites and web applications. Tutorials, videos, API references, and more.
+description: Learn how to use App Service Web Apps to build and host ASP.NET websites and web applications. Tutorials, videos, API references, and more.
 ---
-# Build and deploy PHP sites using Azure Web Apps
+# Azure Web Apps Documentation
 
-Learn how to use App Service Web Apps to build and host ASP.NET websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully manage compute platform.
+Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully manage compute platform.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-web/app-service-web-overview?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
+        <a href="/azure/app-service-web/app-service-web-overview?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,44 +61,25 @@ Learn how to use App Service Web Apps to build and host ASP.NET websites and web
         </div>
         </a>
     </li>
-       
-     <li>
-        <a href="/azure/app-service-web/app-service-web-get-started-php?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get Started with Web Apps using PHP</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-php-web-site-gallery?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../media/index/tutorial.svg" alt="" />
+                            <img src="../media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with WordPress in Azure App Service</h3>
+                        <h3>Get Started with Web Apps using ASP.NET and Visual Studio</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-   
+    </li> 
+        
 </ul>
 
 ---
