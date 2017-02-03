@@ -15,7 +15,7 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_1"> </a>
 
 
-|:-----|:-----|
+
 |1.1|Your app or add-in must offer unique value or utility within the app or add-in experience that extends Office or SharePoint functionality for Office Store customers.|
 |1.2|Your app or add-in must work according to your description, and must not be in an unfinished state.|
 |1.3|Your app or add-in's trial functionality must reasonably resemble its paid version.|
