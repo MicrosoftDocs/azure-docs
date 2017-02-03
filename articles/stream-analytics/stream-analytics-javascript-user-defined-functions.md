@@ -18,14 +18,14 @@ ms.author: jeffstok
 ---
 
 # Azure Stream Analytics JavaScript User-Defined Functions
-Azure Stream Analytics supports User-Defined Functions (UDFs) written in JavaScript. With the rich set of String, RegExp, Math, Array, and Date methods that JavaScript provided, complex data transformations with Stream Analytics jobs becomes easier to create.
+Azure Stream Analytics supports User-Defined Functions (UDFs) written in JavaScript. With the rich set of String, RegExp, Math, Array, and Date methods that JavaScript provides, complex data transformations with Stream Analytics jobs become easier to create.
 
 ## Overview
 JavaScript UDFs support stateless, compute-only scalar functions which do not require external connectivity. The return value of a function can only be a scalar (single) value. Once added to a job the function can be used at any place in the query like a built-in scalar function.
 
 Here are some example scenarios where you will find JavaScript UDFs useful:
 * Parsing and manipulating string with regular expression functions, for example, Regexp_Replace() and Regexp_Extract()
-* Decoding an encoding data, for example, binary to hex conversion
+* Decoding and encoding data, for example, binary to hex conversion
 * Mathematic computations with JavaScript Math functions
 * Array operations like sorting, joining, find, and fill
 
@@ -58,7 +58,7 @@ To create a simple JavaScript User-Defined Function under an existing Stream Ana
 
 6.	Click the **Save** button, your function will appear on the function list. 
 
-7.	Click on the new function **hex2Int** and you can check the function definition. Note that all functions will be added a prefix “UDF” in front of the function alias. You will need to call the function **with the prefix** in your Stream Analytics query, in this case **UDF.hex2Int**.
+7.	Click on the new function **hex2Int** and you can check the function definition. Note that all functions will have added a prefix “UDF” in front of the function alias. You will need to call the function **with the prefix** in your Stream Analytics query, in this case **UDF.hex2Int**.
  
 ## Calling JavaScript UDF in a query
 
@@ -76,13 +76,13 @@ To create a simple JavaScript User-Defined Function under an existing Stream Ana
         InputStream
     ```
 
-3.	Right click on the job input to upload sample data file 
+3.	Right click on the job input to upload sample data file.
  
 4.	Click on **Test** to test your query.
 
 
 ## Supported JavaScript Objects
-Azure Stream Analytics JavaScript UDF supports standard build-in objects of JavaScript language. For the list of objects, please refer to the document on [Global Objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+Azure Stream Analytics JavaScript UDF supports standard built-in objects of JavaScript language. For the list of objects, please refer to the document on [Global Objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
 ### Stream Analytics and JavaScript Type Conversion
 

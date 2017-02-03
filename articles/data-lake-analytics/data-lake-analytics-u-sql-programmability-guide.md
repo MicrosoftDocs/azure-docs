@@ -286,7 +286,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### Using Code Behind
 To use the same functionality in Code Behind section of U-SQL program, we define C# function ToDateTime.
 
-Here is the section of base U-SQL script above that needs to be changed:
+Here is the section of base U-SQL script, in which we have made necessary changes:
 
 ```sql
      @rs1 =
@@ -419,7 +419,7 @@ The registration dialog box (see Step 2 in Figure 5) gives you the option on whe
 
 We make use of both of these options in the examples below. The [recent blog post on image processing](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) is another example showing the use of a predefined assembly that can use these options for registration.
 
-Now you can refer to the registered assemblies from any U-SQL script that has permissions to the registered assemblies’ database (see the code in the U-SQL script in Figure 4). You have to add a reference for every separately registered assembly. The additional resource files will automatically be deployed. That script should not have a code-behind file for the code in referenced assemblies anymore, but can still provide other code.
+Now you can refer to the registered assemblies from any U-SQL script that has permissions to the registered assemblies’ database (see the code in the U-SQL script in Figure 4). You have to add a reference for every separately registered assembly. The additional resource files will automatically be deployed. That script should not have a code-behind file for the code in referenced assemblies anymore, but the code-behind file can still provide other code.
 
 ### Registering assemblies via ADL Tools in Visual Studio and in U-SQL scripts
 While the ADL Tools in Visual Studio make it easy to register an assembly, you can also do it with a script (in the same way that the tools do it for you) if you are for example developing on a different platform, have already compiled assemblies that you want to upload and register. You basically follow the following steps:
@@ -446,7 +446,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-And if you want to use the XML functionality, you add a system assembly reference and an assembly to the registered assembly:
+And if you want to use the XML functionality, you add a system assembly reference and a reference to the registered assembly:
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -930,9 +930,9 @@ The constructor of the class
 `IColumnWriter` writer / `IColumnReader` reader – the underlying column stream.  
 `ISerializationContext` context – enum that defines a set of flags that specifies the source or destination context for the stream during serialization. 
  
-    * *Intermediate* - specifies that the source or destination context is not a persisted store
+   * *Intermediate* - specifies that the source or destination context is not a persisted store
 
-    * *Persistence* - specifies that the source or destination context is a persisted store
+   * *Persistence* - specifies that the source or destination context is a persisted store
 
 As a regular C# type, U-SQL UDT definition may include overrides for operators such as +/==/!=, etc. Can include static methods and so on. For example, if we are going to use this UDT as a parameter to U-SQL MIN aggregate function, we have to define < operator override.
 

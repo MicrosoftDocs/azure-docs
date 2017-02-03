@@ -1,10 +1,10 @@
 ---
-title: Prerequisites for ExpressRoute adoption | Microsoft Docs
+title: Prerequisites for Azure ExpressRoute adoption | Microsoft Docs
 description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit.
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
