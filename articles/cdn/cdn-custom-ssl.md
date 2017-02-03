@@ -39,7 +39,7 @@ Some of the key attributes of HTTPS feature are:
 
 ## Step 1: Enabling the feature 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your CDN profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your Verizon standard or premium CDN profile.
 
 2. In the list of endpoints, click the endpoint containing your custom domain.
 
@@ -59,7 +59,7 @@ Some of the key attributes of HTTPS feature are:
 
 After enabling HTTPS on your custom domain, our HTTPS certificate provider DigiCert will validate ownership of your domain by contacting the registrant for your domain, based on WHOIS registrant information, via email (by default) or phone. If WHOIS registrant information is private, DigiCert will send the verification email to **admin@*<your-domain-name.com>***.
 
-Upon receiving the email, you have three verification options:
+Upon receiving the email, you have two verification options:
 
 1. You can approve all future orders placed through the same account for the same root domain, e.g. consoto.com. This is a recommended approach if you are planning to add additional custom domains in the future for the same root domain.
  
