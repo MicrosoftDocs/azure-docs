@@ -18,17 +18,11 @@ ms.author: cakarst;barbkess
 
 ---
 # Load data from Azure Data Lake Store into SQL Data Warehouse
-> [!div class="op_single_selector"]
->
-> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
->
->
-
 This document gives you all steps you will need to load your own data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
 While you will be able to run adhoc queries over the data stored in ADLS using the External Tables, as a best practice we suggests importing the data into the SQL Data Warehouse.
 ,
 Time Estimate: 10 minutes assuming you have the prerequisites need to complete.
-
+>
 In this tutorial you will learn how to:
 
 1. Create External Database objects to load from Azure Data Lake Store.
@@ -40,7 +34,8 @@ To run this tutorial, you need:
 
 * Azure Active Directory Application to use for Service-to-Service authentication. To create please follow [Active directory authentication](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
-  **NOTE:** You will need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
+>[!NOTE] 
+> You will need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
 
 * SQL Server Management Studio or SQL Server Data Tools, to download SSMS and connect please see [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms.md)
 
