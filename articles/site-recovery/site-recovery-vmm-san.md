@@ -59,7 +59,7 @@ Note that:
 
 **Prerequisites** | **Details**
 --- | ---
-**Azure** |You need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. Create an Azure Site Recovery vault to configuration and manage replication and failover.
+**Azure** |You need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. Create an Azure Site Recovery vault to configure and manage replication and failover.
 **VMM** | You can use a single VMM server and replicate between different clouds, but we recommend one VMM in the primary site and one in the secondary site. A VMM can be deployed as a physical or virtual standalone server, or as a cluster. <br/><br/>The VMM server should be running System Center 2012 R2 or later with the latest cumulative updates.<br/><br/> You need at least one cloud configured on the primary VMM server you want to protect and one cloud configured on the secondary VMM server you want to use for failover.<br/><br/> The source cloud must contain one or more VMM host groups.<br/><br/> All VMM clouds must have the Hyper-V Capacity profile set.<br/><br/> For more about setting up VMM clouds, see [Deploy a private VM cloud](https://technet.microsoft.com/en-us/system-center-docs/vmm/scenario/cloud-overview).
 **Hyper-V** | You need one or more Hyper-V clusters in primary and secondary VMM clouds.<br/><br/> The source Hyper-V cluster must contain one or more VMs.<br/><br/> The VMM host groups in the primary and secondary sites must contain at least one of the Hyper-V clusters.<br/><br/>The host and target Hyper-V servers must be running Windows Server 2012 or later with the Hyper-V role and the latest updates installed.<br/><br/> If you're running Hyper-V in a cluster and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure it manually. For more information, see [Preparing host clusters for Hyper-V replica](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
 **SAN storage** | You can replicate guest-clustered virtual machines with iSCSI or channel storage, or by using shared virtual hard disks (vhdx).<br/><br/> You need two SAN arrays: one in the primary site, and one in the secondary site.<br/><br/> A network infrastructure should be set up between the arrays. Peering and replication should be configured. Replication licenses should be set up in accordance with the storage array requirements.<br/><br/>Set up networking between the Hyper-V host servers and the storage array so that hosts can communicate with storage LUNs by using iSCSI or Fiber Channel.<br/><br/> Check [supported storage arrays](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> SMI-S providers from storage array manufacturers should be installed, and the SAN arrays should be managed by the provider. Set up the Provider according to manufacturer instructions.<br/><br/>Make sure that the array's SMI-S provider is on a server that the VMM server can access over the network with an IP address or FQDN.<br/><br/> Each SAN array should have one or more available storage pools.<br/><br/> The primary VMM server should manage the primary array, and the secondary VMM server should manage the secondary array.
@@ -83,8 +83,8 @@ Make sure your VMM clouds are set up properly before you begin Site Recovery dep
 1. In the VMM console, go to **Fabric** > **Storage** > **Add Resources** > **Storage Devices**.
 2. In the **Add Storage Devices** wizard, choose **Select a storage provider type** and select **SAN and NAS devices discovered and managed by an SMI-S provider**.
 
-
     ![Provider type](./media/site-recovery-vmm-san/provider-type.png)
+
 3. On the **Specify Protocol and Address of the Storage SMI-S Provider** page, select **SMI-S CIMXML** and specify the settings for connecting to the provider.
 4. In **Provider IP address or FQDN** and **TCP/IP port**, specify the settings for connecting to the provider. You can use an SSL connection for SMI-S CIMXML only.
 
@@ -189,7 +189,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
    * If you want to use a custom proxy, set it up before you install the Provider. When you configure custom proxy settings, a test runs to check the proxy connection.
    * If you do use a custom proxy, or if your default proxy requires authentication, you should enter the proxy details, including the address and port.
    * These [URLs](site-recovery-best-practices.md#url-access) should be accessible from the VMM server.
-   * If you use a custom proxy, a VMM RunAs account (DRAProxyAccount) is created automatically by using the specified proxy credentials. Configure the proxy server so that this account can authenticate. You can modify the RunAs account settings in the VMM console (**Settings** > **Security** > **Run As Accounts** > **DRAProxyAccount**). You must restart the VMM service for the change to take effect.
+   * If you use a custom proxy, a VMM Run As account (DRAProxyAccount) is created automatically by using the specified proxy credentials. Configure the proxy server so that this account can authenticate. You can modify the Run As account settings in the VMM console (**Settings** > **Security** > **Run As Accounts** > **DRAProxyAccount**). You must restart the VMM service for the change to take effect.
 10. In **Registration Key**, select the key that you downloaded from the portal and copied to the VMM server.
 11. In **Vault name**, verify the name of the vault in which the server will be registered.
 
@@ -200,8 +200,8 @@ Check the status bar to confirm that the vault was successfully created. The vau
 13. In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration, specify the VMM cluster role name.
 14. In **Initial cloud metadata sync**, select whether you want to synchronize metadata for all clouds on the VMM server. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
 
-
     ![Server registration](./media/site-recovery-vmm-san/friendly-name.png)
+
 15. Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed in **Servers** > **VMM Servers** in the vault.
 
 ### Command-line installation
@@ -271,8 +271,8 @@ After you save the settings, a job is created that can be monitored on the **Job
     ![SAN architecture](./media/site-recovery-vmm-san/network-map1.png)
 4. Select one of the VM networks from the target VMM server.
 
-
     ![SAN architecture](./media/site-recovery-vmm-san/network-map2.png)
+
 5. When you select a target network, the protected clouds that use the source network are displayed. Available target networks are also displayed. We recommend that you select a target network that is available to all the clouds you're using for replication.
 6. Click the check mark to complete the mapping process. A job starts that tracks progress. You can view it on the **Jobs** tab.
 
@@ -325,12 +325,10 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 
-
 1. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
 6. The test VM is created on the same host as the host on which the replica VM exists. It isn’t added to the cloud in which the replica VM is located.
 2. After replication, the replica VM will have an IP address that isn’t the same as the IP address of the primary virtual machine. If you're issuing addresses from DHCP, then it will be updated automatically. If you're not using DHCP and you want the same addresses, you need to run a couple of scripts.
 3. Run this script to retrieve the IP address.
-
 
        $vm = Get-SCVirtualMachine -Name <VM_NAME>
        $na = $vm[0].VirtualNetworkAdapters>
