@@ -146,38 +146,38 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
 
 4. Next, let's add the methods that enable us to track the signed-in users as required by Passport. These methods include serializing and deserializing the user's information:
 
-```JavaScript
+    ```JavaScript
 
-        // Passport session setup. (Section 2)
+            // Passport session setup. (Section 2)
 
-        //   To support persistent sign-in sessions, Passport needs to be able to
-        //   serialize users into the session and deserialize them out of the session. Typically,
-        //   this is done simply by storing the user ID when serializing and finding
-        //   the user by ID when deserializing.
-        passport.serializeUser(function(user, done) {
-        done(null, user.email);
-        });
+            //   To support persistent sign-in sessions, Passport needs to be able to
+            //   serialize users into the session and deserialize them out of the session. Typically,
+            //   this is done simply by storing the user ID when serializing and finding
+            //   the user by ID when deserializing.
+            passport.serializeUser(function(user, done) {
+            done(null, user.email);
+            });
 
-        passport.deserializeUser(function(id, done) {
-        findByEmail(id, function (err, user) {
-            done(err, user);
-        });
-        });
+            passport.deserializeUser(function(id, done) {
+            findByEmail(id, function (err, user) {
+                done(err, user);
+            });
+            });
 
-        // array to hold signed-in users
-        var users = [];
+            // array to hold signed-in users
+            var users = [];
 
-        var findByEmail = function(email, fn) {
-        for (var i = 0, len = users.length; i < len; i++) {
-            var user = users[i];
-        log.info('we are using user: ', user);
-            if (user.email === email) {
-            return fn(null, user);
+            var findByEmail = function(email, fn) {
+            for (var i = 0, len = users.length; i < len; i++) {
+                var user = users[i];
+            log.info('we are using user: ', user);
+                if (user.email === email) {
+                return fn(null, user);
+                }
             }
-        }
-        return fn(null, null);
-        };
-        ```
+            return fn(null, null);
+            };
+            ```
 
 5.  Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
 
@@ -318,31 +318,31 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
 
 1. Create the `/routes/index.js` route under the root directory.
 
-```JavaScript
-        /*
-         * GET home page.
-         */
+        ```JavaScript
+                /*
+                 * GET home page.
+                 */
 
-        exports.index = function(req, res){
-          res.render('index', { title: 'Express' });
-        };
+                exports.index = function(req, res){
+                  res.render('index', { title: 'Express' });
+                };
+                ```
+
+                2. Create the `/routes/user.js` route under the root directory.
+
+                ```JavaScript
+                /*
+                 * GET users listing.
+                 */
+
+                exports.list = function(req, res){
+                  res.send("respond with a resource");
+                };
         ```
 
-        2. Create the `/routes/user.js` route under the root directory.
+2. These pass along the request to our views, including the user if present.
 
-        ```JavaScript
-        /*
-         * GET users listing.
-         */
-
-        exports.list = function(req, res){
-          res.send("respond with a resource");
-        };
-```
-
-3. These pass along the request to our views, including the user if present.
-
-4. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user is being passed through in the request is evidence we have a signed-in user.
+3. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user is being passed through in the request is evidence we have a signed-in user.
 
     ```JavaScript
     <% if (!user) { %>
@@ -355,53 +355,53 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     <% } %>
     ```
 
-5. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
+4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
 
-```Javascript
-<% if (!user) { %>
-    <h2>Welcome! Please log in.</h2>
-    <a href="/login">Log In</a>
-<% } else { %>
-<p>displayName: <%= user.displayName %></p>
-<p>givenName: <%= user.name.givenName %></p>
-<p>familyName: <%= user.name.familyName %></p>
-<p>UPN: <%= user._json.upn %></p>
-<p>Profile ID: <%= user.id %></p>
-<p>Full Claimes</p>
-<%- JSON.stringify(user) %>
-<p></p>
-<a href="/logout">Log Out</a>
-<% } %>
-```
+    ```Javascript
+    <% if (!user) { %>
+        <h2>Welcome! Please log in.</h2>
+        <a href="/login">Log In</a>
+    <% } else { %>
+    <p>displayName: <%= user.displayName %></p>
+    <p>givenName: <%= user.name.givenName %></p>
+    <p>familyName: <%= user.name.familyName %></p>
+    <p>UPN: <%= user._json.upn %></p>
+    <p>Profile ID: <%= user.id %></p>
+    <p>Full Claimes</p>
+    <%- JSON.stringify(user) %>
+    <p></p>
+    <a href="/logout">Log Out</a>
+    <% } %>
+    ```
 
-6. Let's make this look good by adding a layout. Create the '/views/layout.ejs' view under the root directory.
+5. Let's make this look good by adding a layout. Create the '/views/layout.ejs' view under the root directory.
 
-```HTML
+    ```HTML
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Passport-OpenID Example</title>
-    </head>
-    <body>
-        <% if (!user) { %>
-            <p>
-            <a href="/">Home</a> |
-            <a href="/login">Log In</a>
-            </p>
-        <% } else { %>
-            <p>
-            <a href="/">Home</a> |
-            <a href="/account">Account</a> |
-            <a href="/logout">Log Out</a>
-            </p>
-        <% } %>
-        <%- body %>
-    </body>
-</html>
-```
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Passport-OpenID Example</title>
+        </head>
+        <body>
+            <% if (!user) { %>
+                <p>
+                <a href="/">Home</a> |
+                <a href="/login">Log In</a>
+                </p>
+            <% } else { %>
+                <p>
+                <a href="/">Home</a> |
+                <a href="/account">Account</a> |
+                <a href="/logout">Log Out</a>
+                </p>
+            <% } %>
+            <%- body %>
+        </body>
+    </html>
+    ```
 
-7. Finally, build and run your app!
+6. Finally, build and run your app!
 
 Run `node app.js`, and then go to `http://localhost:3000`.
 
