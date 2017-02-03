@@ -50,7 +50,7 @@ First, create the resource group with [az group create](/cli/azure/group#create)
 az group create --name myResourceGroup --location westeurope
 ```
 
-This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. For more information about Azure Managed Disks, see [insert link to overview doc](). If you instead wish to use non-managed (native) disks, you need to create a storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
+This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. For more information about Azure Managed Disks, see [insert link to overview doc](). If you instead wish to use unmanaged disks, you need to create a storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -164,7 +164,7 @@ az vm availability-set create --resource-group myResourceGroup --location westeu
   --name myAvailabilitySet
 ```
 
-Create the first Linux VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use non-managed (native) disks, see the additional note below.
+Create the first Linux VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
@@ -181,7 +181,7 @@ az vm create \
     --admin-username ops
 ```
 
-If you use Azure Managed Disks, skip this step. If you wish to use non-managed (native) disks and you created a storage account in the previous steps, you need to add some additional paramters to the proceeding command. Add the following additional parameters to the proceeding command to create the non-managed (native) disks in the storage account named `mystorageaccount`: 
+If you use Azure Managed Disks, skip this step. If you wish to use unmanaged disks and you created a storage account in the previous steps, you need to add some additional paramters to the proceeding command. Add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`: 
 
 ```azurecli
   --use-native-disk \
@@ -205,7 +205,7 @@ az vm create \
     --admin-username ops
 ```
 
-Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the non-managed (native) disks in the storage account named `mystorageaccount`:
+Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`:
 
 ```azurecli
   --use-native-disk \
@@ -256,7 +256,7 @@ By default, the output is in JSON (JavaScript Object Notation). To output as a l
 ## Create a storage account
 This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). Skip to [Create a virtual network and subnet](#create-a-virtual-network-and-subnet) if you wish to use Azure Managed Disks. 
 
-If you wish to use non-managed (native) disks, you need to create a storage account for your VM disks and for any additional data disks that you want to add.
+If you wish to use unmanaged disks, you need to create a storage account for your VM disks and for any additional data disks that you want to add.
 
 Here we use [az storage account create](/cli/azure/storage/account#create), and pass the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
 
@@ -1009,7 +1009,7 @@ You've created the network resources to support Internet-accessible VMs. Now let
 
 We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 
-We create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use non-managed (native) disks, see the additional note below.
+We create the VM by bringing all our resources and information together with the [az vm create](/cli/azure/vm#create) command. The following example creates a VM named `myVM1` using Azure Managed Disks. If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
@@ -1026,7 +1026,7 @@ az vm create \
     --admin-username ops
 ```
 
-If you use Azure Managed Disks, skip this step. If you wish to use non-managed (native) disks and you created a storage account in the previous steps, you need to add some additional paramters to the proceeding command. Add the following additional parameters to the proceeding command to create the non-managed (native) disks in the storage account named `mystorageaccount`: 
+If you use Azure Managed Disks, skip this step. If you wish to use unmanaged disks and you created a storage account in the previous steps, you need to add some additional paramters to the proceeding command. Add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`: 
 
 ```azurecli
   --use-native-disk \
@@ -1091,7 +1091,7 @@ az vm create \
     --admin-username ops
 ```
 
-Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the non-managed (native) disks in the storage account named `mystorageaccount`:
+Again, if you do not use the default Azure Managed Disks, add the following additional parameters to the proceeding command to create the unmanaged disks in the storage account named `mystorageaccount`:
 
 ```azurecli
   --use-native-disk \
