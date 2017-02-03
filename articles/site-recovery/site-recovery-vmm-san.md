@@ -297,14 +297,14 @@ When a storage group is replicating, enable protection for VMs in the VMM consol
 
     ![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
 
-After VMs are enabled for replication, they appear in the Site Recovery console. You can view VM properties, track status, and failover replication groups that contain multiple VMs. In SAN replication, all VMs associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated VMs together.
+After VMs are enabled for replication, they appear in the Site Recovery console. You can view VM properties, track status, and track failover replication groups that contain multiple VMs. In SAN replication, all VMs associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated VMs together.
 
 > [!NOTE]
-> After you've enabled replication for a VM, you shouldn't add VHDs for it to LUNs unless they are located in a Site Recovery replication group. If you do, they won't be detected by Site Recovery.
+> After you've enabled replication for a VM, don't add its VHDs to LUNs unless they are located in a Site Recovery replication group. VHDs will only be detected by Site Recovery if they are located in a Site Recovery replication group.
 >
 >
 
-You can track progress, including the initial replication, in the **Jobs** tab. After the Finalize Protection job runs, the virtual machine is ready for failover.
+You can track progress, including the initial replication, on the **Jobs** tab. After the Finalize Protection job runs, the virtual machine is ready for failover.
 
 ![Virtual machine protection job](./media/site-recovery-vmm-san/job-props.png)
 
@@ -317,18 +317,17 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Create recovery plan](./media/site-recovery-vmm-san/r-plan.png)
 
-3. In **Select Virtual Machines**, select replication groups. All VMs associated with the group are added to the recovery plan. These VMs are added to the recovery plan default group (Group 1). You can add more groups if necessary. After replication, VMs start in accordance with the order of the recovery plan groups.
+3. In **Select Virtual Machines**, select replication groups. All VMs associated with the group are added to the recovery plan. These VMs are added to the recovery plan default group (Group 1). You can add more groups if necessary. After replication, VMs are numbered according to the order of the recovery plan groups.
 
     ![Select virtual machines](./media/site-recovery-vmm-san/r-plan-vm.png)
-4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan, and click **Test Failover**.
-5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but doesn't test the network environment. [Read more](site-recovery-failover.md#run-a-test-failover) about other networking options.
+4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan and choose **Test Failover**.
+5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](site-recovery-failover.md#run-a-test-failover).
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 
-1. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
 6. The test VM is created on the same host as the host on which the replica VM exists. It isn’t added to the cloud in which the replica VM is located.
-2. After replication, the replica VM will have an IP address that isn’t the same as the IP address of the primary virtual machine. If you're issuing addresses from DHCP, then it will be updated automatically. If you're not using DHCP and you want the same addresses, you need to run a couple of scripts.
-3. Run this script to retrieve the IP address.
+2. After replication, the replica VM will have a different IP address than the primary virtual machine. If you're issuing addresses from DHCP, it will be updated automatically. If you're not using DHCP and you want the same addresses, you need to run a couple of scripts.
+3. Run this script to retrieve the IP address:
 
        $vm = Get-SCVirtualMachine -Name <VM_NAME>
        $na = $vm[0].VirtualNetworkAdapters>
@@ -349,4 +348,4 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
 ## Next steps
 
-After you've run a test failover to check that your environment is working as expected, [learn about](site-recovery-failover.md) different types of failovers.
+After you've run a test failover to check that your environment is working as expected, see [Site Recovery failover](site-recovery-failover.md) to learn about different types of failovers.
