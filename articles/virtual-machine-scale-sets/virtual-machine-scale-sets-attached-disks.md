@@ -21,8 +21,8 @@ ms.author: guybo
 # Azure VM scale sets and attached data disks
 Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with attached data disks. Data disks can be defined in the storage profile for scale sets created with Azure Managed Disks. Previously the only directly attached storage options available with VMs in scale sets were the OS drive and temp drives.
 
->[!NOTE]
-When you create a scale set with attached data disks defined, you still need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to do this is to use a custom script extension which calls a standard script to partition and format all the data disks on a VM.
+> [!NOTE]
+>  When you create a scale set with attached data disks defined, you still need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to do this is to use a custom script extension which calls a standard script to partition and format all the data disks on a VM.
 
 ## Create a scale set with attached data disks
 A simple way to create a scale set with attached disks is to use the [Azure CLI](https://github.com/Azure/azure-cli) _vmss create_ command. The following example creates an Azure resource group, and a VM scale set of 10 Ubuntu VMs, each with 2 attached data disks, of 50 GB and 100 GB respectively.
@@ -58,8 +58,8 @@ You can add a data disk to a VM scale set using Azure CLI _az vmss disk attach_ 
 '''bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 20 --lun 3
 '''
->[!NOTE]
-Different VM sizes have different limits on the numbers of attached drives they support. Check the [virtual machine size characteristics](../virtual-machines/virtual-machines-windows-sizes.md) before adding a new disk.
+> [!NOTE]
+> Different VM sizes have different limits on the numbers of attached drives they support. Check the [virtual machine size characteristics](../virtual-machines/virtual-machines-windows-sizes.md) before adding a new disk.
 
 You can also add a disk by adding a new entry to the _dataDisks_ property in the _storageProfile_ of a scale set definition and applying the change. To test this, find an existing scale set definition in the [Azure Resource Explorer](https://resources.azure.com/). Select _Edit_ and add a new disk to the list of data disks. E.g. using the example above:
 ```json
@@ -86,8 +86,8 @@ You can also add a disk by adding a new entry to the _dataDisks_ property in the
 ```
 Then select _PUT_ to apply the changes to your scale set. This example would work as long as you are using a VM size which supports more than two attached data disks.
 
->[!NOTE]
-When you make a change to a scale set definition such as adding or removing a data disk, it applies to all newly created VMs, but only applies to existing VMs if the _upgradePolicy_ property is set to "Automatic". If it is set to "Manual", you need to manually apply the new model to existing VMs. You can do this in the portal, using the _Update-AzureRmVmssInstance_ PowerShell command, or using the _az vmss update-instances_ CLI command.
+> [!NOTE]
+> When you make a change to a scale set definition such as adding or removing a data disk, it applies to all newly created VMs, but only applies to existing VMs if the _upgradePolicy_ property is set to "Automatic". If it is set to "Manual", you need to manually apply the new model to existing VMs. You can do this in the portal, using the _Update-AzureRmVmssInstance_ PowerShell command, or using the _az vmss update-instances_ CLI command.
 
 ## Removing a data disk from a scale set
 You can remove a data disk from a VM scale set using Azure CLI _az vmss disk detach_ command. For example the following command removes the disk defined at lun 2:
