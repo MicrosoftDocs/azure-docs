@@ -105,13 +105,13 @@ The same rule can be used for the metric reported by using the [measurement para
 | `clientPerformance.total.value` |Browser page load time |Time from user request until DOM, stylesheets, scripts and images are loaded. |
 | `performanceCounter.available_bytes.value` |Available memory |Physical memory immediately available for a process or for system use. |
 | `performanceCounter.io_data_bytes_per_sec.value` |Process IO Rate |Total bytes per second read and written to files, network and devices. |
-| `performanceCounter.number_of_exceps_thrown_per_sec` |exception rate |Exceptions thrown per second. |
+| `performanceCounter.number_of_exceps_thrown_per_sec.value` |exception rate |Exceptions thrown per second. |
 | `performanceCounter.percentage_processor_time.value` |Process CPU |The percentage of elapsed time of all process threads used by the processor to execution instructions for the applications process. |
 | `performanceCounter.percentage_processor_total.value` |Processor time |The percentage of time that the processor spends in non-Idle threads. |
 | `performanceCounter.process_private_bytes.value` |Process private bytes |Memory exclusively assigned to the monitored application's processes. |
 | `performanceCounter.request_execution_time.value` |ASP.NET request execution time |Execution time of the most recent request. |
 | `performanceCounter.requests_in_application_queue.value` |ASP.NET requests in execution queue |Length of the application request queue. |
-| `performanceCounter.requests_per_sec` |ASP.NET request rate |Rate of all requests to the application per second from ASP.NET. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET request rate |Rate of all requests to the application per second from ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Dependency failures |Count of failed calls made by the server application to external resources. |
 | `request.duration` |Server response time |Time between receiving an HTTP request and finishing sending the response. |
 | `request.rate` |Request rate |Rate of all requests to the application per second. |
