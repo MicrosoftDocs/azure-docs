@@ -155,8 +155,6 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    
    On each virtual machine, open the following ports on the Windows Firewall. 
 
-   On each virtual machine, open the following ports:
-
    | Purpose | TCP Port | Notes
    | ------ | ------ | ------
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. 
@@ -248,7 +246,7 @@ To create the WSFC, you need:
 - A name for the WSFC. Use a valid 
 - An IP address for the WSFC. You can use an IP address that is not used on the same Azure virtual network and subnet as the cluster nodes. 
 
-The following PowerShell creates a WSFC. Update the script with the names of the nodes (the virtual machine names) and an IP address from the Azure VNET: 
+The following PowerShell creates a WSFC. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET: 
 
 ```PowerShell
 New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
