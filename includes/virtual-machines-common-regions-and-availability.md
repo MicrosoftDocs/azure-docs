@@ -67,7 +67,7 @@ You can read more about [Azure Managed Disks and Azure Storage replication optio
 Prices vary depending on the storage type and availability that you select.
 
 **Azure Managed Disks**
-* Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are are charged based on the provisioned capacity for the disk.
+* Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are charged based on the provisioned capacity for the disk.
 
 **Unmanaged disks**
 * Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
