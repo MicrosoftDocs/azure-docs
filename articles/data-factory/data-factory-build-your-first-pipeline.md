@@ -18,7 +18,7 @@ ms.date: 02/02/2017
 ms.author: spelluru
 
 ---
-# Tutorial: Build your first pipeline to process data using Hadoop cluster
+# Tutorial: Build your first pipeline to transform data using Hadoop cluster
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
 > * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -92,4 +92,15 @@ After you complete the prerequisites, select one of the following tools/SDKs to 
 - [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.  
+Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.
+
+> [!NOTE]
+> The data pipeline in this tutorial transforms data but does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
+
+
+
+
+
+  
