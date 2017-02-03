@@ -33,7 +33,7 @@ This article shows how to use the ADAL4J to:
 * Download the [app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip), or download the [completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
 * You also need an Azure AD tenant in which to register the app. If you don't already have an Azure AD tenant, [learn how to get one](active-directory-howto-tenant.md).
 
-When you are ready, perform the procedures in the next four sections.
+When you are ready, perform the procedures in the next eight sections.
 
 ## Step 1: Register the new app with Azure AD
 To set up the app to authenticate users, first register it in your tenant by doing the following:
@@ -236,7 +236,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
  Leave the rest of the configuration parameters alone.
 
  > [!NOTE]
- > As you can see in the XML file, you are writing a JSP/Servlet web app called mvc-dispatcher that uses the `BasicFilter` whenever you visit the /secure URL. In the same code, we use /secure as a place for our protected content and to force authentication to Azure Active Directory.
+ > As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, we use /secure as a place for our protected content and to force authentication to Azure Active Directory.
 
 2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following:
 
@@ -266,12 +266,12 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
     </beans>
     ```
 
-This code tells the web app to use Spring, and it indicates where to find the .jsp file, which we write in the next section.
+This code tells the web app to use Spring, and it indicates where to find the JSP file, which we write in the next section.
 
-## Step 4: Create the Java JSP View files (for BasicFilter MVC)
-We are half-way through setting up our web app in WEB-INF. Next, we create the Java Server Pages (JSP) files that the web app will execute, an action that we hinted at in the configuration.
+## Step 4: Create the JSP View files (for BasicFilter MVC)
+We are half-way through setting up our web app in WEB-INF. Next, we create the JSP files that the web app will execute, an action that we hinted at in the configuration.
 
-Earlier, we told Java in our XML configuration files that we have a `/` resource that loads .jsp files, and we have a `/secure` resource that passes through a filter that we called `BasicFilter`.
+Earlier, we told Java in our XML configuration files that we have a `/` resource that loads .jsp files, and we have a `/secure` resource that passes through a filter that we called BasicFilter.
 
 To make the JSP files, do the following:
 
@@ -1468,7 +1468,7 @@ To create the AuthHelper.java file, paste the following code:
     ```
 
 ## Step 8: Create the BasicFilter file (for BasicFilter MVC)
-You can now create the BasicFilter.java file, which handles the requests from the View (JSP files). To create the file, paste the following code:
+You can now create the BasicFilter.java file, which handles the requests from the JSP View files. To create the file, paste the following code:
 
     ```Java
 
