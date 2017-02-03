@@ -50,7 +50,7 @@ After you’ve failed over to Azure, you fail back to your on-premises site in t
 After you fail over a VMware VM, you can fail back to the same source VM if it still exists on-premises. In this scenario, only the deltas are failed back.
 
 If you failed over physical servers, failback is always to a new VMware VM. Before failing back a physical machine, note that:
-* A protected physical machine will come back as a virtual machine when it is failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 physical machine, if it is protected and failed over to Azure, cannot be failed back. A Windows Server 2008 R2 SP1 that started as a virtual machine on-premises will be able to failback.
+* A protected physical machine will come back as a virtual machine when it is failed over back from Azure to VMware. A Windows Server 2008 R2 SP1 physical machine, if it is protected and failed over to Azure, cannot be failed back. A Windows Server 2008 R2 SP1 machine that started as a virtual machine on-premises will be able to fail back.
 * Ensure that you discover at least one master target server along with the necessary ESX/ESXi hosts that you need to fail back to.
 
 If you fail back to the original VM, the following are required:
@@ -90,7 +90,7 @@ Install a Process Server in Azure so that the Azure VMs can send the data back t
 
 If you have protected your virtual machines as classic resources (that is, the VM recovered in Azure is a VM that was created by using the classic deployment model), you need a Process Server in Azure. If you have recovered the VMs with Azure Resource Manager as the deployment type, the Process Server must have Resource Manager as the deployment type. The deployment type is selected by the Azure virtual network that you deploy the Process Server to.
 
-1. In the **Vault** > **Settings** > **Site Recovery Infrastructure** (under **Manage**) > **Configuration Servers** (under **For VMware and Physical Machines**), select the configuration server.
+1. In **Vault** > **Settings** > **Site Recovery Infrastructure** (under **Manage**) > **Configuration Servers** (under **For VMware and Physical Machines**), select the configuration server.
 2. Click **Process Server**.
 
   ![](./media/site-recovery-failback-azure-to-vmware-classic/add-processserver.png)
@@ -108,13 +108,13 @@ If you have protected your virtual machines as classic resources (that is, the V
  * Install the Process Server according to the instructions in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 7. If you select the *Resource Manager* Azure network, deploy the Process Server by providing the following information:
 
-  * The name of the Resource Group that you want to deploy the server to
+  * The name of the resource group that you want to deploy the server to
   * The name of the server
   * A username and password for signing in to the server
   * The storage account that you want to deploy the server to
   * The subnet and the network interface that you want to connect to it
    >[!NOTE]
-   >You need to create your own [Network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while you are deploying.
+   >You need to create your own [network interface](../virtual-network/virtual-networks-multiple-nics.md) (NIC) and select it while you are deploying.
 
     ![](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
@@ -182,7 +182,7 @@ After you’ve completed the post-installation steps and installed the packages,
 
 ## Run the failback
 ### Reprotect the Azure VMs
-1. In the Vault, in **replicated items**, right-click the VM that has been failed over, and then select **Re-Protect**.
+1. In **Vault**, in **Replicated items**, right-click the VM that has been failed over, and then select **Re-Protect**.
 2. On the blade, you can see that the direction of protection **Azure to On-premises** is already selected.
 3. In **Master Target Server** and **Process Server**, select the on-premises master target server and the Azure VM Process Server.
 4. Select the datastore that you want to recover the disks on-premises to. Use this option when the on-premises VM is deleted and you need to create new disks. Ignore the option if the disks already exist, but you still need to specify a value.
@@ -220,7 +220,7 @@ After failback has been completed, commit the virtual machine to ensure that the
 
 After the commit is completed, your data should be back on the on-premises site, but it won’t be protected. To start replicating to Azure again, do the following:
 
-1. In the Vault, in **Setting** > **Replicated items**, select the VMs that have failed back, and then click **Re-Protect**.
+1. In **Vault**, in **Setting** > **Replicated items**, select the VMs that have failed back, and then click **Re-Protect**.
 2. Give the value of the Process Server that needs to be used to send data back to Azure.
 3. Click **OK**.
 
