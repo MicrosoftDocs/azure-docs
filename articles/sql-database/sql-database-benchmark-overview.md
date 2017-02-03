@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
-ms.author: carlrab; janeng
+ms.author: janeng
 
 ---
 # Azure SQL Database benchmark overview
