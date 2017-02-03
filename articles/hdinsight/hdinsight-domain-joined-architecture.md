@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/02/2017
+ms.date: 02/03/2017
 ms.author: saurinsh
 
 ---
@@ -35,6 +35,10 @@ To achieve this setup, there are multiple architectures that you can follow. You
 This is the simplest architecture for integrating HDInsight with Active Directory. The Active Directory domain controller runs on one (or multiple) virtual machines (VM) in Azure. Usually these VMs are within a virtual network. You setup another virtual network for HDInsight cluster. For HDInsight to have a line of sight to the Active Directory, you need to peer these virtual networks using [VNet to VNet peering](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md).
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
+
+> [!NOTE]
+> In this architecture, you can not use Azure Data Lake Store with HDInsight cluster.
+ 
 
 Prerequisites for the Active Directory:
 
@@ -75,6 +79,9 @@ Prerequisites for the Active Directory:
 This architecture is similar the architecture #1. The only difference is that the Active Directory is on-premises and the line of sight for HDInsight to Active Directory is via a [VPN connection from Azure to on-premises network](../expressroute/expressroute-introduction.md).
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_3.png)
+
+> [!NOTE]
+> In this architecture, you can not use Azure Data Lake Store with HDInsight cluster.
 
 Prerequisites for the Active Directory:
 
