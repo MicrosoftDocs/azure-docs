@@ -13,21 +13,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/03/2017
 ms.author: tomfitz
 
 ---
 # Use tags to organize your Azure resources
-You can apply tags to your Azure resources and resource groups to logically organize them by categories. Each tag consists of a key and a value. For example, you can apply the key "Environment" and the value "Production" to all the resources in production. Without this tag, you may have difficulty identifying whether a resource is intended for development, test, or production. However, "Environment" and "Production" are just examples. You define the keys and values that make the most sense for organizing your subscription.
-
-The following limitations apply to tags:
-
-* Each resource or resource group can have a maximum of 15 tags. 
-* The tag name is limited to 512 characters.
-* The tag value is limited to 256 characters. 
-* Tags applied to the resource group are not inherited by the resources in that resource group. 
-
-After applying tags, you can retrieve all the resources in your subscription with that tag key and value. Tags enable you to retrieve related resources that reside in different resource groups. This approach is helpful when you need to organize resources for billing or management.
+[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
 > You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. To support tagging, redeploy these resources through Resource Manager. All other resources support tagging.
@@ -35,69 +26,8 @@ After applying tags, you can retrieve all the resources in your subscription wit
 > 
 
 ## Templates
-To tag a resource during deployment, add the **tags** element to the resource you are deploying, and provide the tag name and value. The following example shows a storage account with a tag.
 
-```json
-{
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-  },
-	"resources": [
-    {
-      "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "Dept": "Finance",
-        "Environment": "Production"
-      },
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": { }
-    }
-	]
-}
-```
-
-Or, you can pass an object with tag keys and values, as shown in the following example:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "tagvalues": {
-      "type": "object",
-      "defaultValue": {
-        "Dept": "Finance",
-        "Environment": "Production"
-      }
-    }
-  },
-  "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": "[parameters('tagvalues')]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    }
-  ]
-}
-```
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
 ## Portal
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
