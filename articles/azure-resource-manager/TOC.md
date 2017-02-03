@@ -43,9 +43,14 @@
 ### [Create service principal with Azure CLI](resource-group-authenticate-service-principal-cli.md)
 ### [Create service principal with portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
-### [Set management policies](resource-manager-policy.md)
 ### [Lock resources](resource-group-lock-resources.md)
 ### [Security considerations](best-practices-resource-manager-security.md)
+## Set resource policies
+### [What are resource policies?](resource-manager-policy.md)
+### [Common policies for all resource types](resource-manager-policy-common.md)
+### [Storage policies](resource-manager-policy-storage.md)
+### [Linux VM policies](../virtual-machines/virtual-machines-linux-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM policies](../virtual-machines/virtual-machines-windows-policy?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Audit and Troubleshoot
 ### [Troubleshoot common deployment errors](resource-manager-common-deployment-errors.md)
 ### [View activity logs](resource-group-audit.md)
