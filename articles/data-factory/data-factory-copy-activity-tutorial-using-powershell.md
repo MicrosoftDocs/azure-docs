@@ -34,7 +34,7 @@ In this tutorial, you create and monitor an instance of Azure Data Factory by us
 
 The Copy Activity feature performs the data movement in Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) for details about Copy Activity.   
 
-> [!IMPORTANT]
+> [!NOTE]
 > This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) for comprehensive documentation on these cmdlets.
 >
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. It does not transform input data to produce output data. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).

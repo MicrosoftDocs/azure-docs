@@ -78,7 +78,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 
 1. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
 2. **Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, note down the **account name** and **access key**. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionalweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This is the query that transforms input data to produce output data. 
+3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This is the query that transforms input data to produce output data. 
 4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage. 
 6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
@@ -95,7 +95,7 @@ After you complete the prerequisites, select one of the following tools/SDKs to 
 Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.
 
 > [!NOTE]
-> The data pipeline in this tutorial transforms data but does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> The data pipeline in this tutorial transforms input data to produce output data. It does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
 
