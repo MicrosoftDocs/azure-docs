@@ -53,7 +53,7 @@ Two libraries are required for the NPS extension. They're installed during the s
 
 ### Azure Active Directory
 
-Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be enabled for MFA. 
+Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be enabled for MFA.
 
 When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box and save.
 
@@ -63,7 +63,7 @@ When you install the extension, you need the directory ID and admin credentials 
 
 To install the NPS Extension for Azure MFA:
 
-1.	Download it from the Microsoft Download Center
+1.	[Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center
 2.	Copy the binary to the Network Policy Server you want to configure
 3.	Run *setup.exe* and follow the installation instructions
 
@@ -79,7 +79,7 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
 ## Configure your NPS extension
 
-This section includes design considerations and suggestions for successful NPS extension deployments. 
+This section includes design considerations and suggestions for successful NPS extension deployments.
 
 ### Configurations limitations
 
