@@ -271,11 +271,10 @@ Azure API Management service provides an ideal place to capture the HTTP traffic
 
 ## Next steps
 * Learn more about Azure Event Hubs
-  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
   * [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-
