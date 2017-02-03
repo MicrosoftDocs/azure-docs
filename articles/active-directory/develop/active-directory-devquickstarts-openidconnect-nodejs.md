@@ -144,7 +144,7 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
 >
 >
 
-4. Next, let's add the methods that enable us to track the signed-in users as required by Passport. These methods include serializing and deserializing the user's information:
+4. Next, let's add the methods that enable us to track the signed-in users as required by Passport. These methods include serializing and deserializing the user's information.
 
     ```JavaScript
 
@@ -181,30 +181,30 @@ Passport uses a similar pattern for all its strategies (Twitter, Facebook, and s
 
 5.  Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
 
-```JavaScript
+    ```JavaScript
 
-    // configure Express (section 2)
+        // configure Express (section 2)
 
-        var app = express();
+            var app = express();
 
 
-        app.configure(function() {
-      app.set('views', __dirname + '/views');
-      app.set('view engine', 'ejs');
-      app.use(express.logger());
-      app.use(express.methodOverride());
-      app.use(cookieParser());
-      app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
-      app.use(bodyParser.urlencoded({ extended : true }));
-      // Initialize Passport!  Also use passport.session() middleware, to support
-      // persistent login sessions (recommended).
-      app.use(passport.initialize());
-      app.use(passport.session());
-      app.use(app.router);
-      app.use(express.static(__dirname + '/../../public'));
-    });
+            app.configure(function() {
+          app.set('views', __dirname + '/views');
+          app.set('view engine', 'ejs');
+          app.use(express.logger());
+          app.use(express.methodOverride());
+          app.use(cookieParser());
+          app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
+          app.use(bodyParser.urlencoded({ extended : true }));
+          // Initialize Passport!  Also use passport.session() middleware, to support
+          // persistent login sessions (recommended).
+          app.use(passport.initialize());
+          app.use(passport.session());
+          app.use(app.router);
+          app.use(express.static(__dirname + '/../../public'));
+        });
 
-    ```
+        ```
 
 6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
 
@@ -290,19 +290,19 @@ Your app is now properly configured to communicate with the endpoint by using th
 
 3. For the last part of `app.js`, let's add the **EnsureAuthenticated** method that is used in `/account`, as shown earlier.
 
-```JavaScript
+    ```JavaScript
 
-    // Simple route middleware to ensure user is authenticated. (section 4)
+        // Simple route middleware to ensure user is authenticated. (section 4)
 
-    //   Use this route middleware on any resource that needs to be protected. If
-    //   the request is authenticated (typically via a persistent sign-in session),
-    //   the request proceeds. Otherwise, the user is redirected to the
-    //   sign-in page.
-    function ensureAuthenticated(req, res, next) {
-      if (req.isAuthenticated()) { return next(); }
-      res.redirect('/login')
-    }
-```
+        //   Use this route middleware on any resource that needs to be protected. If
+        //   the request is authenticated (typically via a persistent sign-in session),
+        //   the request proceeds. Otherwise, the user is redirected to the
+        //   sign-in page.
+        function ensureAuthenticated(req, res, next) {
+          if (req.isAuthenticated()) { return next(); }
+          res.redirect('/login')
+        }
+    ```
 
 4. Finally, let's actually create the server itself in `app.js`:
 
