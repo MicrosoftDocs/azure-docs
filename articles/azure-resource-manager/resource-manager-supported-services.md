@@ -108,7 +108,7 @@ Cloud Services (classic) can be used with other classic resources. However, clas
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
 | --- | --- | --- | --- | --- |
 | CDN |Yes |[CDN REST](/rest/api/cdn) |[CDN Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2016-04-02/Microsoft.Cdn.json) |[Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
-| Media Service |Yes |[Media Services REST](/rest/api/media) |[Media Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) | |
+| Media Service |Yes |[Media Services REST](/rest/api/media) |[Media Schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-10-01/Microsoft.Media.json) |[Microsoft.Media](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Media%22&type=Code)  |
 
 ## Hybrid Integration
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |
