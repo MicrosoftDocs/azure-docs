@@ -7,8 +7,6 @@ ms.locale: en-US
 
 
 # Update, unpublish, and view app and add-in metrics in the Seller Dashboard
-Update your Office and SharePoint Add-ins and Office 365 web apps, unpublish (remove) them from Office Store listings and the Seller Dashboard, and view metrics in the Seller Dashboard.
- 
 
 After you submit your apps or add-ins to the Seller Dashboard, you might want to update them or remove (unpublish) them from Office Store listings. You can also delete your apps or add-ins from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your apps and add-ins are performing.
  
@@ -34,7 +32,7 @@ To update your app or add-in:
  
 3. On the summary page, if you want to edit a draft item, choose  **EDIT DRAFT**. If you're editing an approved app or add-in, choose  **EDIT LISTING**.
     
-     **Note**  If you edit an approved app or add-in and submit it, it will go through the approval process again. 
+     >**Note:**  If you edit an approved app or add-in and submit it, it will go through the approval process again. 
 4. In the  **EDIT APP** wizard, make the changes that you want.
     
  
@@ -112,7 +110,7 @@ For SharePoint Add-ins installed on SharePoint 2013, the metrics page also shows
 
  
 
- **Note**  If the SharePoint Add-in is installed on-premises, the app or add-in usage information is not available.
+ >**Note:**  If the SharePoint Add-in is installed on-premises, the app or add-in usage information is not available.
  
 
 
@@ -166,7 +164,7 @@ To view the sales that your apps and add-ins generated on a per country (or regi
     
  
 
- **Important**  This report displays only the total transaction revenue. It does not take into account taxes withheld, bank charges, currency conversion charges, or the share of the revenue from your add-in that is paid to Microsoft.
+ >**Important:**  This report displays only the total transaction revenue. It does not take into account taxes withheld, bank charges, currency conversion charges, or the share of the revenue from your add-in that is paid to Microsoft.
  
 
 
