@@ -69,7 +69,7 @@ Prices vary depending on the storage type and availability that you select.
 **Azure Managed Disks**
 * Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are are charged based on the provisioned capacity for the disk.
 
-**Storage account-based disks**
+**Unmanaged disks**
 * Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
 * Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
   * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
