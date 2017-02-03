@@ -1707,7 +1707,7 @@ Alias `floor`.
 
 The nearest multiple of *roundTo* below *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Examples**
 
@@ -1792,14 +1792,14 @@ The square root function.
 
 ### toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
 ### tolong
-    tolong(20.7) == 21 // conversion from double
+    tolong(20.7) == 20 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic

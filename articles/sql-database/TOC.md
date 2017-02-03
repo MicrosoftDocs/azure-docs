@@ -6,12 +6,6 @@
 ### [Resource limits](sql-database-resource-limits.md)
 ### [Features](sql-database-features.md)
 ### [SQL Database FAQ](sql-database-faq.md)
-## Benefits
-### [Learns and adapts](sql-database-learn-and-adapt.md)
-### [Scales on the fly](sql-database-scale-on-the-fly.md)
-### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
-### [Secures and protects](sql-database-helps-secures-and-protects.md)
-### [Works in your environment](sql-database-works-in-your-environment.md)
 ## Comparisons
 ### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL differences](sql-database-transact-sql-information.md)
@@ -20,6 +14,7 @@
 ## [SQL Database tutorials](sql-database-explore-tutorials.md)
 ## [Solution quick-starts](sql-database-solution-quick-starts.md)
 ## Security
+### [Security overview](sql-database-security-overview.md)
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
 # Get Started
@@ -69,12 +64,12 @@
 #### [Copy a SQL database](sql-database-copy.md)
 ## Firewall rules, authentication, and authorization
 ### Learn
-#### [Overview](sql-database-security.md)
-#### [Security guidelines](sql-database-security-guidelines.md)
+#### [Access control](sql-database-control-access.md)
 #### [Firewall](sql-database-firewall-configure.md)
 #### [Manage logins](sql-database-manage-logins.md)
 ### Do
-#### [SQL authentication and authorization](sql-database-get-started-security.md)
+#### [SQL authentication and authorization](sql-database-control-access-sql-authentication-get-started.md)
+#### [Azure AD authentication and authorization](sql-database-control-access-aad-authentication-get-started.md)
 ## Secure and protect data
 ### Learn
 #### Auditing
@@ -106,7 +101,8 @@
 #### [Perform disaster recovery drills](sql-database-disaster-recovery-drills.md)
 #### [Active Geo-Replication overview](sql-database-geo-replication-overview.md)
 ### Do
-#### [Get started with SQL Database backup and restore](sql-database-get-started-backup-recovery.md)
+#### [Azure portal: Backup and restore](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: Backup and restore](sql-database-get-started-backup-recovery-powershell.md)
 ## App development
 ### Learn
 #### [Database application development overview](sql-database-develop-overview.md)
@@ -150,7 +146,7 @@
 #### [Single databases](sql-database-single-database-monitor.md)
 #### [SQL Database Advisor overview](sql-database-advisor.md)
 #### [Single database guidance](sql-database-performance-guidance.md)
-#### [Workload insights in the Azure portal](sql-database-performance.md)
+#### [Performance insights: Azure portal](sql-database-performance.md)
 #### [Use batching](sql-database-use-batching-to-improve-performance.md)
 #### [Extended events](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Database V11
@@ -253,15 +249,14 @@
 #### [Configure long-term backup retention](sql-database-configure-long-term-retention.md)
 #### [View backups in a Recovery Services vault](sql-database-view-backups-in-vault.md)
 #### [Restore from long-term backup retention](sql-database-restore-from-long-term-retention.md)
+#### [Delete from long-term backup retention](sql-database-long-term-retention-delete.md)
 ### Restore deleted database
 #### [Restore deleted using the Azure portal](sql-database-restore-deleted-database-portal.md)
 #### [Restore deleted using PowerShell](sql-database-restore-deleted-database-powershell.md)
 ### Point in time restore
 #### [Restore to a point in time](sql-database-point-in-time-restore.md)
 #### [View oldest restore point](sql-database-view-oldest-restore-point.md)
-### Geo-restore
-#### [Geo-restore using the Azure portal](sql-database-geo-restore-portal.md)
-#### [Geo-restore using PowerShell](sql-database-geo-restore-powershell.md)
+### [Restore from geo-redundant backup](sql-database-geo-restore.md)
 ## Active Geo-Replication
 ### [Configure using the Azure portal](sql-database-geo-replication-portal.md)
 ### [Configure using PowerShell](sql-database-geo-replication-powershell.md)
