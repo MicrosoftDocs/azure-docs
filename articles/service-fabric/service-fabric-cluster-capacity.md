@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
+ms.date: 02/02/2017
 ms.author: chackdan
 
 ---
@@ -40,9 +40,9 @@ Establish the number of node types your cluster needs to start out with.  Each n
 ## The properties of each node type
 The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set (VMSS). VM Scale Sets are an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VM Scale Sets, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
 
-Read [this document](service-fabric-cluster-nodetypes.md) more details on relationship of Nodetypes to VMSS, how to RDP into one of the instances, open new ports etc.
+Read [this document](service-fabric-cluster-nodetypes.md) for more details on the relationship of Nodetypes to VMSS, how to RDP into one of the instances, open new ports etc.
 
-Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using an Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
+Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using a Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
 
 ### Primary node type
 For a cluster with multiple node types, you will need to choose one of them to be primary. Here are the characteristics of a primary node type:
@@ -89,10 +89,12 @@ The reliability tier can take the following values.
  You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
 
 
-#### Primary node type - Capacity Guidance
+## Primary node type - Capacity Guidance
 
-1. **Number of VM instances:** To run any production workload in Azure, you must specify a reliablity tier of Silver or higher, which then translates to a minimum Primary Node type size of 5.
-2. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if you starve the brain of oxygen, your body suffers. 
+Here is the guidance for planning the primary node type capacity
+
+1. **Number of VM instances:** To run any production workload in Azure, you must specify a reliability tier of Silver or higher, which then translates to a minimum Primary Node type size of 5.
+2. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
 The capacity needs of a cluster, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
@@ -104,15 +106,15 @@ For production workloads
 - Partial core VMs are not supported for production workloads
 
 
-#### Non-Primary node type - Capacity Guidance for stateful workloads
+## Non-Primary node type - Capacity Guidance for stateful workloads
 
-Workloads using Service fabric reliable collections or reliable Actors. Read more here [programming models here.](service-fabric-choose-framework.md)
+Read the following for Workloads using Service fabric reliable collections or reliable Actors. Read more here [programming models here.](service-fabric-choose-framework.md)
 
-1. **Number of VM instances:** For production workloads that are stateful, it is recommended that your you run them with a minimum and target replica count of 5. This will mean that in steady state you will end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for system services is actually just a way to specify this setting for system services.
+1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This will mean that in steady state you will end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for system services is actually just a way to specify this setting for system services.
 
 so for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
 
-2. **VM SKU:** This is the node type is where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
 
@@ -121,13 +123,15 @@ For production workloads
 - Partial core VMs are not supported for production workloads
 
 
-#### Non-Primary node type - Capacity Guidance for stateless workloads
+## Non-Primary node type - Capacity Guidance for stateless workloads
+
+Read the following for stateless Workloads
 
 1. **Number of VM instances:** For production workloads that are stateless,
 
 - The minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
-2. **VM SKU:** This is the node type is where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
 

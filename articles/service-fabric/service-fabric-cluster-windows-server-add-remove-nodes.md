@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
-ms.author: ryanwi;chackdan
+ms.date: 2/02/2017
+ms.author: chackdan
 
 ---
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
@@ -36,7 +36,7 @@ You can check if the new node is added by running the cmdlet [Get-ServiceFabricN
 
 
 ## Remove nodes from your cluster
-Depending on the Reliablity level chosen for the cluster, you cannot remove the first n (3/5/7/9) nodes of the primary node type. Also note that running RemoveNode command on a dev cluster is not supported.
+Depending on the Reliability level chosen for the cluster, you cannot remove the first n (3/5/7/9) nodes of the primary node type. Also note that running RemoveNode command on a dev cluster is not supported.
 
 1. Remote desktop (RDP) into the VM/machine that you want to remove from the cluster.
 2. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package to this VM/machine.

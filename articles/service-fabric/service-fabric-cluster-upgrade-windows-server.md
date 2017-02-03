@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 
 ---
@@ -36,7 +36,7 @@ You do this by setting the "fabricClusterAutoupgradeEnabled" cluster configurati
 > 
 > 
 
-You can upgrade your cluster to the new version only if you are using a  production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where there are more than one service fabric nodes on a single physical or virtual machine, you must tear down your cluster and recreate it with the new version.
+You can upgrade your cluster to the new version only if you are using a production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where there are more than one service fabric nodes on a single physical or virtual machine, you must tear down your cluster and recreate it with the new version.
 
 There are two distinct workflows for upgrading your cluster to the latest or a supported service fabric version. One for clusters that have connectivity to download the latest version automatically and the second one for clusters that are no connectivity to download the latest Service Fabric version.
 

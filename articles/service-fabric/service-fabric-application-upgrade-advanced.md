@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: subramar
+ms.date: 02/02/2017
+ms.author: subramar;chackdan
 
 ---
 # Service Fabric application upgrade: advanced topics
