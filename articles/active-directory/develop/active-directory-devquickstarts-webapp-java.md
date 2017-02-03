@@ -225,7 +225,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
  * YOUR_CLIENT_SECRET is the **Application Secret** that you created in the portal.
  * YOUR_TENANT_NAME is the **tenant name** of your app (for example, contoso.onmicrosoft.com).
 
- As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, we use /secure as a place for our protected content and to force authentication to Azure Active Directory.
+ As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, you use /secure as a place for the protected content and to force authentication to Azure Active Directory.
 
 2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following code:
 
@@ -252,12 +252,12 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
     </beans>
     ```
 
- This code tells the web app to use Spring, and it indicates where to find the JSP file, which we write in the next section.
+ This code tells the web app to use Spring, and it indicates where to find the JSP file, which Y write in the next section.
 
 ## Step 4: Create the JSP View files (for BasicFilter MVC)
-We are half-way through setting up our web app in WEB-INF. Next, we create the JSP files that the web app executes, an action that we hinted at in the configuration.
+You are half-way through setting up your web app in WEB-INF. Next, you create the JSP files for BasicFilter model view controller (MVC), which the web app executes. We hinted at creating the files during the configuration.
 
-Earlier, we told Java in our XML configuration files that we have a `/` resource that loads JSP files, and we have a `/secure` resource that passes through a filter that we called BasicFilter.
+Earlier, you told Java in the XML configuration files that you have a `/` resource that loads JSP files, and you have a `/secure` resource that passes through a filter, which you called BasicFilter.
 
 To create the JSP files, do the following:
 
@@ -274,7 +274,7 @@ To create the JSP files, do the following:
     </html>
     ```
 
- This code simply redirects to a secure page that is protected by our filter.
+ This code simply redirects to a secure page that is protected by the filter.
 
 2. In the same directory, create an error.jsp file to catch any errors that might happen:
 
@@ -322,7 +322,7 @@ To create the JSP files, do the following:
 
     This page redirects to specific requests, which the BasicFilter servlet reads and then executes on by using the `ADAJ4J` library.
 
-Of course, we now need to set up the Java files so that the servlet can do its work.
+You now need to set up the Java files so that the servlet can do its work.
 
 ## Step 5: Create some Java helper files (for BasicFilter MVC)
 Our goal in this step is to create Java files that will:
@@ -339,9 +339,9 @@ To write some Java files for this work:
 
 1. Create a folder in your root directory called adal4jsample to store all the Java files.
 
-    In this example, we are using the namespace com.microsoft.aad.adal4jsample in our Java files. Most IDEs create a nested folder structure for this purpose (for example, /com/microsoft/aad/adal4jsample). You can do this also, but it is not necessary.
+    In this example, you are using the namespace com.microsoft.aad.adal4jsample in the Java files. Most IDEs create a nested folder structure for this purpose (for example, /com/microsoft/aad/adal4jsample). You can do this also, but it is not necessary.
 
-2. Inside this folder, create a file called JSONHelper.java, which you'll use to help parse the JSON data from our tokens. To create the file, paste the following code:
+2. Inside this folder, create a file called JSONHelper.java, which you'll use to help parse the JSON data from your tokens. To create the file, paste the following code:
 
     ```Java
 
@@ -563,7 +563,7 @@ To write some Java files for this work:
 
     ```
 
-3. Create a file called HttpClientHelper.java, which you will use to help parse the HTTP data from our AAD endpoint. To create the file, paste the following code:
+3. Create a file called HttpClientHelper.java, which you will use to help parse the HTTP data from your AAD endpoint. To create the file, paste the following code:
 
     ```Java
 
@@ -1291,10 +1291,11 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     //    }
     //
     //}
+
     ```
 
 ## Step 7: Create the authentication model and controller files (for BasicFilter)
-We acknowledge that Java can be verbose, but we're almost done. Before you write the BasicFilter servlet to handle the requests, you need to write some more helper files that the ADAL4J needs.
+We acknowledge that Java can be verbose, but you're almost done. Before you write the BasicFilter servlet to handle the requests, you need to write some more helper files that the ADAL4J needs.
 
 1. Create a file called AuthHelper.java, which will give you methods to use to determine the state of the signed-in user. The methods include:
 
@@ -1368,7 +1369,7 @@ We acknowledge that Java can be verbose, but we're almost done. Before you write
     }
     ```
 
-3. Create a file called AadController.java, which is the controller of our MVC pattern and will both give you the JSP controller and expose the secure/aad URL endpoint for the app. The file also includes the graph query. To create the file, paste the following code:
+3. Create a file called AadController.java, which is the controller of your MVC pattern. The file gives you the JSP controller and exposes the secure/aad URL endpoint for the app. The file also includes the graph query. To create the file, paste the following code:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1686,15 +1687,16 @@ You can now create the BasicFilter.java file, which handles the requests from th
         }
 
     }
+
     ```
 
-This servlet exposes all the methods that the ADAL4J will expect from our app to run. The methods include:
+This servlet exposes all the methods that the ADAL4J will expect from the app to run. The methods include:
 
-* **getAccessTokenFromClientCredentials()**: Gets access token from our secret
+* **getAccessTokenFromClientCredentials()**: Gets access token from the secret
 * **getAccessTokenFromRefreshToken()**: Gets access token from a refresh token
-* **getAccessToken()**: Gets access token from an OpenID Connect flow (which we use)
+* **getAccessToken()**: Gets access token from an OpenID Connect flow (which you use)
 * **createSessionPrincipal()**: Creates a session principal to use for Graph API access
-* **getRedirectUrl()**: Gets the redirectURL to compare it with the value you entered in the portal.
+* **getRedirectUrl()**: Gets the redirectURL to compare it with the value you entered in the portal
 
 ## Compile and run the sample in Tomcat
 
