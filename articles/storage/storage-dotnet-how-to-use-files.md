@@ -603,7 +603,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
     SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can’t use a SAS to delegate access to its contents.
 2. **Are Azure File shares visible publicly over the Internet, or are they only reachable from Azure?**
    
-    As long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (*e.g.*, Windows 8 or Windows Server 2012), your file share is available via the Internet.  
+    As long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (*e.g.*, Windows 8 or Windows Server 2012), your file share is available via the Internet. Please work with your local ISP provider to unblock the port. In the interim, you can view your files using Storage Explorer or any other third party such as Cloudberry.
 3. **Does the network traffic between an Azure virtual machine and a file share count as external bandwidth that is charged to the subscription?**
    
     If the file share and virtual machine are in different regions, the traffic between them will be charged as external bandwidth.
@@ -658,6 +658,7 @@ See these links for more information about Azure File storage.
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
 * [Using the Azure CLI with Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Troubleshooting Azure File storage problems](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)

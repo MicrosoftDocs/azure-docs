@@ -130,23 +130,23 @@ In this step, you create a user account to access your data warehouse. We also s
 
 Since you are currently logged in as the server admin you have permissions to create logins and users.
 
-2. Using SSMS or another query client, open a new query for **master**.
+1. Using SSMS or another query client, open a new query for **master**.
 
     ![New Query on Master](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![New Query on Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. In the query window, run this T-SQL command to create a login named XLRCLOGIN and user named Loading User. This login can connect to the logical SQL server.
+2. In the query window, run this T-SQL command to create a login named MedRCLogin and user named LoadingUser. This login can connect to the logical SQL server.
 
     ```sql
-    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Now querying the *SQL Data Warehouse database*, create a database user based on the login you created to access and perform operations on the database.
 
     ```sql
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 4. Give the database user control permissions to the database called NYT. 
@@ -158,13 +158,16 @@ Since you are currently logged in as the server admin you have permissions to cr
     > If your database name has hyphens in it, be sure to wrap it in brackets! 
     >
 
-### Give the user extra large resource allocations
+### Give the user medium resource allocations
 
-1. Run this T-SQL command to make it a member of the extra large resource class, which is called xlargerc. 
+1. Run this T-SQL command to make it a member of the medium resource class, which is called mediumrc. 
 
     ```sql
-    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
+    > [!NOTE]
+    > Click [here](sql-data-warehouse-develop-concurrency.md#resource-classes) to learn more about concurrency and resource classes! 
+    >
 
 2. Connect to the logical server with the new credentials
 
