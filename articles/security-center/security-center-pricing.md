@@ -38,7 +38,7 @@ A 90 day free trial is available for the Standard tier. To get the free trial of
 
 ![Free trial][1]
 
-At the end of 90 days, should you choose to continue using the service, we will automatically start charging for usage.
+At the end of 90 days, should you choose to continue using the service, we automatically start charging for usage.
 
 ## Upgrade to Standard
 Upgrade to the Standard tier to add advanced threat detection. To get the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard**.
@@ -48,7 +48,7 @@ Upgrade to the Standard tier to add advanced threat detection. To get the Standa
 ## Why upgrade to Standard?
 The Standard tier of Security Center provides all features of the Free tier plus advanced threat detection. Advanced threat detection helps identify active threats targeting your Azure resources and provides you with the insights needed to respond quickly.
 
-Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
+Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are used to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
 
 Security analytics that come with the Standard tier are:
 
