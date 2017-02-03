@@ -1,5 +1,5 @@
 ---
-title: Convert a Vm from unmanged to managed disks - Azure | Microsoft Docs
+title: Convert a VM from unmanged to managed disks - Azure | Microsoft Docs
 description: Convert a Vm from unmanaged disks to managed disks using PowerShell in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/03/2017
 ms.author: cynthn
 
 ---
@@ -35,11 +35,10 @@ Test the migration process by migrating a test virtual machine before performing
 
 1. Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
 
-  
     ```powershell
 	$rgName = "myResourceGroup"
 	$vmName = "myVM"
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+	Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
    
     The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
@@ -121,7 +120,8 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 	    if($disk.OwnerId -eq $vm.Id)
 		    {
 		     $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType PremiumLRS
-			 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName -DiskName $disk.Name
+			 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName `
+			 -DiskName $disk.Name
 			}
 		}
     ```
@@ -130,7 +130,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
     ```powershell
     Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
-
+    ```
 
 ## Next steps
 
