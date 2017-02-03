@@ -7,10 +7,9 @@ ms.locale: en-US
 
 
 # Office Store app and add-in submission FAQ
-Find information about submitting your Office 365 web app or Office and SharePoint Add-ins to the Office Store.
- 
 
-For the most current version of the validation policies, see  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md).
+
+For the most current version of the validation policies, see  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md).
  
 
 
@@ -99,7 +98,7 @@ The following is the update process for Office Add-ins:
     
  
 
- **Note**  You cannot have two or more versions of the same add-in in the store at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two Office Store listings and will potentially split your customer base.
+ >**Note:**  You cannot have two or more versions of the same add-in in the store at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two Office Store listings and will potentially split your customer base.
  
 
 Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see  [SharePoint Add-ins update process](http://msdn.microsoft.com/library/sharepoint-add-ins-update-process%28Office.15%29.aspx).
@@ -118,7 +117,7 @@ You can now submit paid apps and add-ins to the Office Store through the Seller 
 - If your SharePoint Add-in contains an Office Add-in, it must be priced as free in the Office Store. Paid SharePoint Add-ins that contain Office Add-ins will not be accepted until these commerce capabilities are enabled.
     
  
-- Additional restrictions apply to autohosted add-ins. For information, see  *Can I submit an autohosted SharePoint Add-in to the Office Store?*  and policy 10.2 in [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md).
+- Additional restrictions apply to autohosted add-ins. For information, see  *Can I submit an autohosted SharePoint Add-in to the Office Store?*  and policy 10.2 in the [validation policies](validation-policies.md).
     
  
 In addition, consider the following:
@@ -195,5 +194,5 @@ Two aspects of your submission relate to supported languages:
  
 2. In your Seller Dashboard submission first step, you select a default language . As a second step, you can add additional languages via  **Add A Language**.
     
-     **Note**  You can declare more languages in your or add-in package than are available for submission in Seller Dashboard.
+     >**Note:**  You can declare more languages in your or add-in package than are available for submission in Seller Dashboard.
 
