@@ -84,9 +84,9 @@ A [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexc
 
 This error can occur for one of two reasons:
 
-1. If the load is not evenly distributed across all partitions on the Event Hub, and one partition hits the local throughput unit limitation.
+1. The load is not evenly distributed across all partitions on the Event Hub, and one partition hits the local throughput unit limitation.
 	
-	Resolution: There might not be a quick resolution for this – revising the partition distribution strategy or resorting to using EventHubClient.Send(eventDataWithOutPartitionKey) can help.
+	Resolution: Revising the partition distribution strategy or trying [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) might help.
 
 2. The Event Hubs namespace does not have sufficient throughput units (you can check the **Metrics** blade on Event Hubs namespace blade in the [Azure portal](https://portal.azure.com) to confirm). Note that the portal shows aggregated (1 minute) information, but we measure the throughtput in real time – so it is only an estimate.
 
