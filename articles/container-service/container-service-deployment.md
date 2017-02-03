@@ -26,12 +26,12 @@ ms.author: rogardle
 
 
 
-Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. This document walks you through deploying an Azure Container Service cluster by using the Azure portal or Azure Resource Manager quickstart templates. 
+Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. This document walks you through deploying an Azure Container Service cluster by using the Azure portal or an Azure Resource Manager quickstart template. 
 
 > [!NOTE]
 > Kubernetes support in Azure Container Service is currently in preview.
 
-
+You can also deploy an Azure Container Service cluster by using the [Azure CLI 2.0 (Preview)](container-service-create-acs-cluster-cli.md) or the Azure Container Service APIs.
 
 
 
@@ -105,7 +105,7 @@ Azure Container Service provides rapid deployment of popular open-source contain
 
     ![Deployment status](media/container-service-deployment/acs-portal8.png)  <br />
 
-When the deployment has completed, the Azure Container Service cluster is ready for use.
+The deployment takes several minutes to complete. Then, the Azure Container Service cluster is ready for use.
 
 
 
@@ -123,49 +123,43 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (P
     * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
     * [Kubernetes template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-2. Log in to your Azure account (`az login`), and make sure that the Azure CLI is connected to your Azure subscription. You can do this by using the following command:
+2. Log in to your Azure account (`az login`), and make sure that the Azure CLI is connected to your Azure subscription. You can see the default subscription by using the following command:
 
     ```Azure CLI
     az account show
     ```
     
-    If you have more than one subscription and need to set a different default subscription, run `az account set`.
+    If you have more than one subscription and need to set a different default subscription, run `az account set --subscription` and specify the subscription ID or name.
 
-3. Create a resource group named **RESOURCE_GROUP** in a specified Azure region:
+3. As a best practice, use a new resource group for the deployment. To create a resource group, use the `az group create` command specify a resource group name and location: 
 
     ```Azure CLI
     az group create --name "RESOURCE_GROUP" --location "LOCATION"
 
-4. To use the 
+4. Create a JSON file containing the required template parameters. Download the parameters file named `azuredeploy.parameters.json` that accompanies the Azure Container Service template `azuredeploy.json` in GitHub. Enter required parameter values for your cluster. 
 
-4. Create a Container Service cluster with the following command, where:
+    For example, to use the [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos), supply parameter values for `dnsNamePrefix` and `sshRSAPublicKey`. See the descriptions in `azuredeploy.json` and options for other parameters.  
+ 
+
+5. Create a Container Service cluster by passing the deployment parameters file with the following command, where:
 
     * **RESOURCE_GROUP** is the name of the resource group that you created in the previous step.
     * **DEPLOYMENT_NAME** (optional) is a name you give to the deployment.
-    * **LOCATION** is the Azure region where the resource group was created.
-    * **TEMPLATE_URI** is the location of the deployment file. Note that this must be the Raw file, not a pointer to the GitHub UI. To find this URL, select the azuredeploy.json file in GitHub, and click the **Raw** button.
-
-    > [!NOTE]
-    > When you run this command, the shell prompts you for deployment parameter values.
-    >
+    * **TEMPLATE_URI** is the location of the deployment file `azuredeploy.json`. This URI must be the Raw file, not a pointer to the GitHub UI. To find this URI, select the `azuredeploy.json` file in GitHub, and click the **Raw** button.
 
     ```Azure CLI
-    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI
+    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters @azuredeploy.parameters.json
     ```
 
-### Provide template parameters
-This version of the command requires you to define parameters interactively. If you want to provide parameters, such as a JSON-formatted string or a parameters file, use the `--parameters` switch. For example:
+    You can also provide parameters as a JSON-formatted string on the command line. Use a command similar to the following:
 
- ```Azure CLI
-az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters "{ \"param1\": {\"value1\"} … }"
-```
+    ```Azure CLI
+    az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters "{ \"param1\": {\"value1\"} … }"
+    ```
 
-
-```Azure CLI
-az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI ---parameters @azuredeploy.parameters.json
-```
-
-To see an example parameters file named `azuredeploy.parameters.json`, look for it with the Azure Container Service templates in GitHub.
+    > [!NOTE]
+    > The deployment takes several minutes to complete.
+    > 
 
 ### Equivalent PowerShell commands
 You can also deploy an Azure Container Service cluster template with PowerShell. This document is based on the version 1.0 [Azure PowerShell module](https://azure.microsoft.com/blog/azps-1-0/).
@@ -188,7 +182,7 @@ You can also deploy an Azure Container Service cluster template with PowerShell.
     Login-AzureRmAccount
     ```
 
-4. If you're deploying to a new resource group, you must first create the resource group. To create a new resource group, use the `New-AzureRmResourceGroup` command, and specify a resource group name and destination region:
+4. As a best practice, use a new resource group for the deployment. To create a resource group, use the `New-AzureRmResourceGroup` command, and specify a resource group name and destination region:
 
     ```powershell
     New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
