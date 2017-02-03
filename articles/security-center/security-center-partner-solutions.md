@@ -27,6 +27,7 @@ This document walks you through how to monitor the health status of your partner
 
 ## Monitoring partner solutions
 The **Partner solutions** tile on the **Security Center** blade lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
+
 ![Partner solutions tile][1]
 
 The **Partner solutions** tile displays the number of partner solutions and a status summary for those solutions.
@@ -40,15 +41,19 @@ The **STATUS** of a partner solution can be:
 * Not reported (gray) - the solution has not reported anything yet, a solution's status may be unreported if it has just been connected and is still deploying.
 
 If there are no solutions integrated with your subscription the tile will state that there are no solutions. Selecting the **Partner solutions** tile will enable you to open the **Recommendations** blade to deploy partner security solutions.
+
 ![No partner solutions][2]
 
 To view the health of your partner solutions:
 
 1. Select the **Partner solutions** tile. A blade opens displaying a list of your partner solutions connected to Security Center.
+
    ![Partner solutions][3]
 2. Select a partner solution. In this example, lets select the **F5-WAF2** solution.  A blade opens showing you the status of the partner solution and the solution's associated resources. Select **Solution console** to open the partner management experience for this solution.
+
    ![Partner solution detail][4]
 3. Go back to the **F5-WAF2** blade and select **Link app**. The **Link Applications** blade opens. Here you can connect resources to the partner solution.
+
    ![Link resources to partner solution][5]
 
 ## See also
