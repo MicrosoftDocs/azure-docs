@@ -28,9 +28,9 @@ A Cordova plug-in wraps Azure AD native SDKs on iOS, Android, Windows Store, and
 
 In this tutorial, we'll use the Apache Cordova plug-in for Active Directory Authentication Library (ADAL) to improve a simple app by adding the following features:
 
-* With just few lines of code, authenticate a user and obtain a token.
+* With just a few lines of code, authenticate a user and obtain a token.
 * Use that token to invoke the Graph API to query that directory and display the results.  
-* Leverage the ADAL token cache for minimizing the authentication prompts for the user.
+* Use the ADAL token cache to minimize authentication prompts for the user.
 
 To make those improvements, you need to:
 
@@ -81,13 +81,13 @@ Each target platform has different prerequisites:
 ## Step 1: Register an application with Azure AD
 This step is optional. This tutorial provides pre-provisioned values that you can use to see the sample in action without doing any provisioning in your own tenant. However, we recommend that you do perform this step and become familiar with the process, because it will be required when you create your own applications.
 
-Azure AD will issue tokens to only known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant. To register a new application in your tenant:
+Azure AD issues tokens to only known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant. To register a new application in your tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click your account. In the **Directory** list, choose the Active Directory tenant where you want to register your application.
 3. Click **More Services** in the left navigation, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
-5. Follow the prompts and create a new **Native Client Application**. (Despite the fact that Cordova apps are HTML based, we're creating a native client application here. The **Native Client Application** option must be selected, or the application won't work.)
+5. Follow the prompts and create a **Native Client Application**. (Although Cordova apps are HTML based, we're creating a native client application here. The **Native Client Application** option must be selected, or the application won't work.)
   * **Name** describes your application to users.
   * **Redirect URI** is the URI that's used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
 
@@ -125,7 +125,7 @@ There are multiple ways to create Cordova applications. In this tutorial, we'll 
 
      cordova plugin add cordova-plugin-whitelist
 
-5. Add all of the platforms that you want to support. To have a working sample, you need to execute at least one of the following commands. Note that you won't be able to emulate iOS on Windows or emulate Windows on a Mac.
+5. Add all the platforms that you want to support. To have a working sample, you need to execute at least one of the following commands. Note that you won't be able to emulate iOS on Windows or emulate Windows on a Mac.
 
     cordova platform add android
     cordova platform add ios
@@ -136,7 +136,7 @@ There are multiple ways to create Cordova applications. In this tutorial, we'll 
     cordova plugin add cordova-plugin-ms-adal
 
 ## Step 4: Add code to authenticate users and obtain tokens from Azure AD
-The application that you're developing in this tutorial will provide a simple directory search feature, where the user can type the alias of any user in the directory and visualize some basic attributes. The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings, and results display logic (in www/js/index.js). The only task left for you is to add the logic that implements identity tasks.
+The application that you're developing in this tutorial will provide a simple directory search feature. The user can then type the alias of any user in the directory and visualize some basic attributes. The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings, and results display logic (in www/js/index.js). The only task left for you is to add the logic that implements identity tasks.
 
 The first thing you need to do in your code is introduce the protocol values that Azure AD uses for identifying your app and the resources that you target. Those values will be used to construct the token requests later on. Insert the following snippet at the top of the index.js file:
 
@@ -181,7 +181,7 @@ Next, add the token request code. Insert the following snippet between the `sear
 Let's examine that function by breaking it down in its two main parts.
 This sample is designed to work with any tenant, as opposed to being tied to a particular one. It uses the "/common" endpoint, which allows the user to enter any account at authentication time and directs the request to the tenant where it belongs.
 
-This first part of the method inspects the ADAL cache to see if a token is already stored. If so, the method uses the tenants where the token came from for re-initializing ADAL. This is necessary to avoid extra prompts, because the use of "/common" always results in asking the user to enter a new account.
+This first part of the method inspects the ADAL cache to see if a token is already stored. If so, the method uses the tenants where the token came from for reinitializing ADAL. This is necessary to avoid extra prompts, because the use of "/common" always results in asking the user to enter a new account.
 
 ```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
@@ -246,13 +246,13 @@ The concrete steps for running the app vary by platform.
    Mobile (requires a Windows 10 Mobile device connected to a PC): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
-   > During the first run, you might be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
+   > During the first run, you might be asked to sign in for a developer license. For more information, see [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### Windows 8.1 Tablet/PC
    `cordova run windows`
 
    > [!NOTE]
-   > During the first run, you might be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
+   > During the first run, you might be asked to sign in for a developer license. For more information, see [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### Windows Phone 8.1
    To run on a connected device: `cordova run windows --device -- --phone`
@@ -276,7 +276,7 @@ The concrete steps for running the app vary by platform.
    To run on the default emulator: `cordova emulate ios`
 
    > [!NOTE]
-   > Make sure you have the `ios-sim` package installed to run on the emulator. See the "Prerequisites" section for more details.
+   > Make sure you have the `ios-sim` package installed to run on the emulator. For more information, see the "Prerequisites" section.
 
     Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run the application on specific device or emulator (for example, `cordova run android --target="iPhone-6"`).
 
