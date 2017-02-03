@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 
 ---
@@ -22,8 +22,8 @@ This document walks you through how to monitor the health status of your partner
 
 > [!NOTE]
 > This document introduces the service by using an example deployment. This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Monitoring partner solutions
 The **Partner solutions** tile on the **Security Center** blade lets you monitor at a glance the health status of your partner solutions integrated with your Azure subscription.
