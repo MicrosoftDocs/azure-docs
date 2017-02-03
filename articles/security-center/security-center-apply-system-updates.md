@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 02/03/2017
 ms.author: terrylan
 
 ---
@@ -27,12 +27,17 @@ Azure Security Center monitors daily Windows and  Linux virtual machines (VMs) f
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Apply system updates**.
+
    ![Apply system updates][1]
 2. The **Apply system updates** blade opens displaying a list of VMs missing system updates. Select a VM.
+
    ![Select a VM][2]
 3. A blade opens displaying a list of missing updates for that VM. Select a system update. In this example, let’s select KB3156016.
+
    ![Missing security updates][3]
+
 4. Follow the steps in the **Security Update** blade to apply the missing update.
+
    ![Security update][4]
 
 ## Reboot after system updates
