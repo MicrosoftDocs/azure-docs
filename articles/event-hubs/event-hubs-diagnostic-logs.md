@@ -63,8 +63,8 @@ TaskName | The description of task that failed
 ActivityId | Internal Id for tracking purpose
 trackingId | Internal Id for tracking purpose
 resourceId | ARM Resource Id
-eventHub | Event Hub full name (Includes namespace name
-partitionId | 1
+eventHub | Event Hub full name (Includes namespace name)
+partitionId | The partition being written to within the Event Hub
 archiveStep | ArchiveFlushWriter
 startTime | Failure start time
 failures | Number of times failure has occured
@@ -94,15 +94,15 @@ category | ArchiveLogs
 ### Operation logs schema
 Name | Description
 ------- | -------
-ActivityId | |Internal Id for tracking purpose
-EventName | |Operation name			 
-resourceId | |ARM Resource Id
-SubscriptionId | |Subscription Id
-EventTimeString | |Operation time
-EventProperties | |Operation properties
-Status | |Operation Status
-Caller | |Caller of operation (Portal or Management Client)
-category | |OperationalLogs
+ActivityId | Internal Id for tracking purpose
+EventName | Operation name			 
+resourceId | ARM Resource Id
+SubscriptionId | Subscription Id
+EventTimeString | Operation time
+EventProperties | Operation properties
+Status | Operation Status
+Caller | Caller of operation (Portal or Management Client)
+category | OperationalLogs
 
 #### Example Operation log
 
