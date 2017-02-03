@@ -57,7 +57,7 @@ Some organizations want to add B2B collaboration users, provision them to applic
 Your organization might have added contacts representing external collaborators so that they show up in the Global Address List and as email address suggestions during email composition. You might be wondering what happens when you now add these same collaborators as B2B collaboration users in the directory, right? In a future release, B2B collaboration users and your contact objects will be able to co-exist in your company directory. Stay tuned for our announcements!
 
 ### Can I make my guest users limited admins?
-Absolutely. If this is what your organization needs, find out how in [Adding guest users to a role](active-directory-users-assign-role-azure-portal).
+Absolutely. If this is what your organization needs, find out how in [Adding guest users to a role](active-directory-users-assign-role-azure-portal.md).
 
 ### Does Azure AD B2B collaboration support permitting B2B users to access the Azure portal?
 B2B collaboration users should not need to access the Azure portal unless they are assigned a limited administrator or global administrator role. In this case, they can access the portal. If a guest user who is not in these roles accesses the portal, then he/she may be able to access certain parts of the experience because the Guest user role has certain permissions in the directory as described in previous sections.
@@ -68,7 +68,7 @@ You can block access to the [Azure portal](https://portal.azure.com) by guest us
 1. Modify the **All Users** group to only contain Members
   ![](media/active-directory-b2b-faq/modify-all-users-group.png)
 2. Create a dynamic group that contains Guest users
-  ![](media/active-directory-b2b-faq/image15.png)
+  ![](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video.
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
