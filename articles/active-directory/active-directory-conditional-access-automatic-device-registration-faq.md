@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/04/2017
 ms.author: markvi
 
 ---
@@ -134,6 +134,12 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 
 **A:** A likely cause is that the user is logged in to the device using the built-in administrator account. 
 Please create a different local account before using Azure Active Directory Join to complete the setup. 
+
+---
+
+**Q: Where can I find instructions for the setup of automatic device registration?**
+
+**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ---
 
