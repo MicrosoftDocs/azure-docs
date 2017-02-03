@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
-ms.author: rick.byham@microsoft.com
+ms.author: rickbyh
 
 ---
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
