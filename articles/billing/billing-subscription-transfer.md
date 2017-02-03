@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/8/2016
+ms.date: 02/03/2017
 ms.author: genli
 
 ---
@@ -78,7 +78,7 @@ To change your subscription to a different offer, see [Switch your Azure subscri
   If the subscription is transferred to another tenant, the users associated with the previous tenant lose access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms. These include:
 
   * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
-  * Access keys for services like Storage. For more information, see [About Azure storage accounts](storage/storage-create-storage-account.md)
+  * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md)
   * Remote Access credentials for services like Azure Virtual Machines
 
   This is not a complete list. The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources. Most resources can be updated as follows:
@@ -112,14 +112,14 @@ To accept a subscription transfer, a credit card, or similar payment method must
 
 * **How do I migrate data and services for my Azure subscription to new subscription?**
 
-  See [Move resources to new resource group or subscription](./azure-resource-manager/resource-group-move-resources.md).
+  See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Next steps after accepting ownership of a subscription
 1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293).
 2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Update credentials associated with this subscription's services. These include:
    * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
-   * Access keys for services like Storage. For more information, see [About Azure storage accounts](storage/storage-create-storage-account.md)
+   * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/storage-create-storage-account.md)
    * Remote Access credentials for services like Azure Virtual Machines
 4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. If you’re working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/03/2017
 ms.author: cjiang
 
 ---
@@ -34,7 +34,7 @@ In this scenario, Kelley Wall is a user who has an Azure subscription under the 
 ### Prerequisites
 For the association to work properly, the following prerequisites are necessary:
 
-* You need the credentials of the service administrator of the Azure subscription. Co-administrators cannot execute a subset of the steps. To change your service administrator, see [How to add or change Azure administrator roles](./billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
+* You need the credentials of the service administrator of the Azure subscription. Co-administrators cannot execute a subset of the steps. To change your service administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
 * You need the credentials of a global administrator of the Office 365 tenant.
 * The email address of the service administrator must not be contained in the Office 365 tenant.
 * The email address of the service administrator must not match that of any global administrator of the Office 365 tenant.
@@ -107,7 +107,7 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
     ![azure-confirm-directory-mapping](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
    
    > [!WARNING]
-   > Additionally, all [Role-Based Access Control (RBAC)](active-directory/role-based-access-control-configure.md) users with Assigned access in the existing resource groups will also be removed. However, the warning you receive only mentions the removal of co-administrators.
+   > Additionally, all [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) users with Assigned access in the existing resource groups will also be removed. However, the warning you receive only mentions the removal of co-administrators.
    > 
    > 
    

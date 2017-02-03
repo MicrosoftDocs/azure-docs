@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 01/07/2017
+ms.date: 02/03/2017
 ms.author: mobandyo;sirishap;bryanla
 
 ---
@@ -204,7 +204,7 @@ The best part is that you only have to go through this process once. When the wo
 * If you would like to dive right into the sample code, check out our Microsoft Azure Billing API Code Samples on [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### Learn More
-* See the [Azure Resource Manager Overview](azure-resource-manager/resource-group-overview.md) article to learn more about the Azure Resource Manager.
+* See the [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) article to learn more about the Azure Resource Manager.
 
 <!--Image references-->
 

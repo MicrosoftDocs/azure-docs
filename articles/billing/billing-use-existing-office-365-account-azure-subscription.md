@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 02/03/2017
 ms.author: cjiang
 
 ---
@@ -132,7 +132,7 @@ Office 365 and Azure use the Azure Active Directory service to manage users and 
 
 ![Background information](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
 
-For more information, see [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
+For more information, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
 > Azure subscriptions are owned by individual users in the directory.

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/03/2017
 ms.author: vikdesai
 
 ---
@@ -41,6 +41,6 @@ Azure supports any email address but doesn’t verify that the email address wor
 ## Check on your alerts
 After you set up alerts, the Account Center lists them and shows how many more you can set up. For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up. The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format. Click the plus sign for an alert in the list to edit it, or click the trash-can to delete it.
 
-[Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
+[Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
-[Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
+[Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
