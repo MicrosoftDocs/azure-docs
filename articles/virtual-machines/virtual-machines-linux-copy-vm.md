@@ -28,29 +28,9 @@ You can complete the task using one of the following CLI versions:
 - [Azure CLI 1.0](virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – our CLI for the classic and resource management deployment models
 - Azure CLI 2.0 (Preview) - our next generation CLI for the resource management deployment model (this article)
 
-## Before you begin
-Ensure that you meet the following prerequisites before you start the steps:
-
-* You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
-* You also need some information about your existing Azure Linux VM:
-
-| Source VM information | Where to get it |
-| --- | --- |
-| VM name |`azure vm list` |
-| Resource Group name |`azure vm list` |
-| Location |`azure vm list` |
-| Storage Account name |`azure storage account list -g <resourceGroup>` |
-| Container name |`azure storage container list -a <sourcestorageaccountname>` |
-| Source VM VHD file name |`azure storage blob list --container <containerName>` |
-
-* You will need to make some choices about your new VM: 
-     <br> -Container name
-     <br> -VM name 
-     <br> -VM size 
-     <br> -vNet name 
-     <br> -SubNet name 
-     <br> -IP Name 
-     <br> -NIC name
+## Prerequisites
+- You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+- You need an Azure VM that you will use as your source when you create a copy.
 
 ## Stop the VM
 Deallocate the source VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
