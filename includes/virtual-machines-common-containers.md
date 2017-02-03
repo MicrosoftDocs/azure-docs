@@ -1,9 +1,6 @@
+Azure cloud solutions are built on virtual machines (emulation of physical computer hardware), which enable agile packaging of software deployments and better resource consolidation than physical hardware. [Docker](https://www.docker.com) containers and the docker ecosystem has dramatically expanded the ways you can develop, ship and manage distributed software. Application code in a container is isolated from the host VM and other containers on the same VM. This isolation gives you more development and deployment agility.
 
-
-
-Azure offers you great cloud solutions, built on virtual machines&mdash;based on the emulation of physical computer hardware&mdash;to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level&mdash;in addition to the agility that Azure VMs already give you.
-
-**But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
+Azure offers the following Docker values:
 
 * [Many](../articles/virtual-machines/virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [different](../articles/virtual-machines/virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ways to create Docker hosts for containers to suit your situation
 * The [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) creates clusters of container hosts using orchestrators such as **marathon** and **swarm**.
