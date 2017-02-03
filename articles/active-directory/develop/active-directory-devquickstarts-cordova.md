@@ -108,13 +108,13 @@ There are multiple ways to create Cordova applications. In this tutorial, we'll 
 
 1. From your shell or command line, type the following command:
 
-     cordova create DirSearchClient
+        cordova create DirSearchClient
 
    That command creates the folder structure and scaffolding for the Cordova project.
 
 2. Move to the new DirSearchClient folder:
 
-    cd .\DirSearchClient
+        cd .\DirSearchClient
 
 3. Copy the content of the starter project in the www subfolder by using a file manager or the following command in your shell:
 
@@ -123,17 +123,17 @@ There are multiple ways to create Cordova applications. In this tutorial, we'll 
 
 4. Add the whitelist plug-in. This is necessary for invoking the Graph API.
 
-     cordova plugin add cordova-plugin-whitelist
+        cordova plugin add cordova-plugin-whitelist
 
 5. Add all the platforms that you want to support. To have a working sample, you need to execute at least one of the following commands. Note that you won't be able to emulate iOS on Windows or emulate Windows on a Mac.
 
-    cordova platform add android
-    cordova platform add ios
-    cordova platform add windows
+        cordova platform add android
+        cordova platform add ios
+        cordova platform add windows
 
 6. Add the ADAL for Cordova plug-in to your project:
 
-    cordova plugin add cordova-plugin-ms-adal
+        cordova plugin add cordova-plugin-ms-adal
 
 ## Step 4: Add code to authenticate users and obtain tokens from Azure AD
 The application that you're developing in this tutorial will provide a simple directory search feature. The user can then type the alias of any user in the directory and visualize some basic attributes. The starter project contains the definition of the basic user interface of the app (in www/index.html) and the scaffolding that wires up basic app event cycles, user interface bindings, and results display logic (in www/js/index.js). The only task left for you is to add the logic that implements identity tasks.
