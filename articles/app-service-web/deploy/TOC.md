@@ -6,7 +6,8 @@
 # [Deploy from local Git](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 # [Deploy WebJobs](../websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 # Automate deployment with CLI
-# Test in production
 # Set deployment credentials
-# Assign custom domain name
-# Assign custom SSL 
+# Debug remotely
+# Profile your app remotely
+# Assign custom domain
+# Assign custom SSL

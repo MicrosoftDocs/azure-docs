@@ -1,13 +1,14 @@
+# Quickstart
+## [Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+## Linux (preview)
+
 # Overview	
 ## [What is App Service?](../../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## App Service for developers 
 ## App Service everywhere
 
-# Get started
-
-## [First PHP app](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
-## First PHP app for Linux
-
+# [Concepts](../concepts/TOC.md)	
+		
 # Tutorials
 
 ## [Laravel app with MySQL](../app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
@@ -19,17 +20,19 @@
 ## Develop your app	
 ### Set up your PHP project for App Service
 ### Configure PHP runtime
-### Configure IIS server (Windows)
-### Configure Apache server (Linux)
-### Use app settings
-### Use connection strings
+### Configure server
+#### Configure IIS server
+#### Configure Apache on Linux
+### Configure application	
+#### Use app settings
+#### Use connection strings
 
 ## [Deploy to App Service](../deploy/TOC.md)
 	
-## Connect to DB/resources
-### Connect to MySQL DB in Azure
-### Connect to LocalDB
-### Connect to on-premises data (Hybrid Connections)
+## Connect to DB/resources		
+### Connect to Cloud DB
+### Connect to local DB
+### Connect to on-premises data 
 ### Connect to Azure Virtual Network
 
 ## Secure app
@@ -51,29 +54,10 @@
 ## Back up content
 ### Back up your app
 ### Restore your app from backup
-
-# Concepts	
-## App Service	
-## Service architecture
-### Service types
-### App state (warm vs. cold)
-## App Service plan	
-## App Service Environments
-## Deployment slots	
-## Authentication/Authorization
-		
-## Extensibility	
-### API
-### Site extensions
 		
 # Reference	
-## API reference	
-## Learning paths	
-## Cookbooks	
-## Reference architectures
-### Deployment scripts
-### Common web.config
-### Common application.xdt transforms
+## REST API 
+## CLI 2.0
 		
 # Resources	
 ## Pricing 	
@@ -81,4 +65,10 @@
 ## Service Updates & Release Notes	
 ## Community Content	
 ## Samples	
-## Videos	
+## Videos
+## Cookbooks	
+### Reference Architectures	
+### Deployment Scripts	
+### Common Web.config	
+### Common Application.xdt Transforms
+	
