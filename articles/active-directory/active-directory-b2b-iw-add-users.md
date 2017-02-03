@@ -29,6 +29,8 @@ Assign B2B collaboration users to a app as an information worker in a partner or
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
 
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps).
+
 ## Information workers adding B2B collaboration users to a group
 
 Information workers can similarly add B2B collaboration users to an assigned group that is enabled for self-service group management.
@@ -44,10 +46,6 @@ This is the scenario in which this is most useful:
 2. The admin in the host organization sets up policies that allow Sam to identify and add other users from the partner organization (Litware).
 4. Now Sam can add other users from Litware to the WoodGrove directory, groups or applications without needing invitations to be redeemed. If Sam has the appropriate enumeration privileges in Litware, this happens automatically.
 
-
-## Related articles
-
-Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)

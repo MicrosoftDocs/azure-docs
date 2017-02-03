@@ -54,7 +54,7 @@ You can complete the task using one of the following CLI versions:
 ## Deploy a web app
 Let's deploy a web app to Azure App Service.
 
-1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
+1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `az --version` to verify that Git and Azure CLI
    are installed on your machine.
    
     ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)

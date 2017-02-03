@@ -39,6 +39,6 @@
 
 | Media Reserved Unit type | Maximum File Size (GB)| 
 | --- | --- | 
-|S1	| 35|
-|S2	| 75|
+|S1	| 325|
+|S2	| 640|
 |S3	| 260|
