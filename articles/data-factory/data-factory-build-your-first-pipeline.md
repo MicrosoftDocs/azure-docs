@@ -48,7 +48,7 @@ In this tutorial, you perform the following steps:
 	In this tutorial, the input and output datasets specify locations of input and output data in the Azure Blob Storage. The Azure Storage linked service specifies what Azure Storage Account is used. An input dataset specifies where the input files are located and an output dataset specifies where the output files will be placed. 
 
 
-See [Introduction to Azure Data Factory](../articles/data-factory/data-factory-introduction.md) article for a detailed overview of Azure Data Factory.
+See [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of Azure Data Factory.
   
 Here is the **diagram view** of the sample data factory you build in this tutorial. **MyFirstPipeline** has one activity of type Hive that consumes **AzureBlobInput** dataset as an input and produces **AzureBlobOutput** dataset as an output. 
 
@@ -77,7 +77,7 @@ From the sample lines shown above, the first one (with 2016-01-01) is written to
 Before you begin this tutorial, you must have the following prerequisites:
 
 1. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
-2. **Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, note down the **account name** and **access key**. See [View, copy and regenerate storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, note down the **account name** and **access key**. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionalweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This is the query that transforms input data to produce output data. 
 4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage. 
