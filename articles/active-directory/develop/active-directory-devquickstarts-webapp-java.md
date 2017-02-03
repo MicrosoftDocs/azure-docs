@@ -252,7 +252,7 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
     </beans>
     ```
 
- This code tells the web app to use Spring, and it indicates where to find the JSP file, which Y write in the next section.
+ This code tells the web app to use Spring, and it indicates where to find the JSP file, which you write in the next section.
 
 ## Step 4: Create the JSP View files (for BasicFilter MVC)
 You are half-way through setting up your web app in WEB-INF. Next, you create the JSP files for BasicFilter model view controller (MVC), which the web app executes. We hinted at creating the files during the configuration.
@@ -320,7 +320,7 @@ To create the JSP files, do the following:
     </html>
     ```
 
-    This page redirects to specific requests, which the BasicFilter servlet reads and then executes on by using the `ADAJ4J` library.
+    This page redirects to specific requests, which the BasicFilter servlet reads and then executes on by using the ADAJ4J.
 
 You now need to set up the Java files so that the servlet can do its work.
 
@@ -722,7 +722,7 @@ To write some Java files for this work:
 ## Step 6: Create the Java Graph API Model files (for BasicFilter MVC)
 As indicated previously, you use the Graph API to get data about the signed-in user. To make this process easy, create both a file to represent a Directory object and a file to represent the user so that the OO pattern of Java can be used.
 
-1. Create a file called DirectoryObject.java, which you will use to store basic data about any Directory object. You can use this file later for any other Graph queries you might perform. To create the file, paste the following code:
+1. Create a file called DirectoryObject.java, which you use to store basic data about any Directory object. You can use this file later for any other Graph queries you might perform. To create the file, paste the following code:
 
     ```Java
 
@@ -777,7 +777,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
 
     ```
 
-2. Create a file called User.java, which you will use to store basic data about any user from the directory. These are basic getter and setter methods for directory data, so you can paste the following code:
+2. Create a file called User.java, which you use to store basic data about any user from the directory. These are basic getter and setter methods for directory data, so you can paste the following code:
 
     ```Java
 
@@ -791,9 +791,9 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     import org.json.JSONObject;
 
     /**
-     *  The **User** class holds together all the members of a WAAD User entity and all the access methods and set methods.
-     *  @author Azure Active Directory Contributor
-     */
+    *  The **User** class holds together all the members of a WAAD User entity and all the access methods and set methods.
+    *  @author Azure Active Directory Contributor
+    */
     @XmlRootElement
     public class User extends DirectoryObject{
 
@@ -879,7 +879,6 @@ As indicated previously, you use the Graph API to get data about the signed-in u
             this.objectId = objectId;
         }
 
-
         /**
          * @return The objectType of this user.
          */
@@ -907,7 +906,6 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         public void setUserPrincipalName(String userPrincipalName) {
             this.userPrincipalName = userPrincipalName;
         }
-
 
         /**
          * @return The usageLocation of this user.
@@ -1256,10 +1254,10 @@ As indicated previously, you use the Graph API to get data about the signed-in u
 
 
     /**
-     * The DirectReports class holds the essential data for a single DirectReport entry. That is,
-     * it holds the displayName and the objectId of the direct entry. It also provides the
-     * access methods to set or get the displayName and the ObjectId of this entry.
-     */
+    * The DirectReports class holds the essential data for a single DirectReport entry. That is,
+    * it holds the displayName and the objectId of the direct entry. It also provides the
+    * access methods to set or get the displayName and the ObjectId of this entry.
+    */
     //class DirectReport extends User{
     //
     //    private String displayName;
