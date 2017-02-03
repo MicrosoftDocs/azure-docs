@@ -34,7 +34,9 @@ Update 0.4 corresponds to the software version **10.0.10289.0**.
 ## What's new in the Update 0.4
 Update 0.4 is primarily a bug-fix build coupled with a few enhancements. In this version, several bugs resulting in backup failures in the previous version have been addressed. The main enhancements and bug-fixes are as follows:
 
-- **Backup performance enhancements** - This release has made several key enhancements to improve the backup performance. As a result, the backups that involve a large number of files see a significant reduction in the time to complete, for full and incremental backups. 
+- **Backup performance enhancements** - This release has made several key enhancements to improve the backup performance. As a result, the backups that involve a large number of files see a significant reduction in the time to complete, for full and incremental backups.
+
+- **Enhanced restore performance** - This release contains enhancements that significantly improve the restore performance when using large number of files. If using 2 - 4 million files, we recommend that you provision a virtual array with 16 GB RAM to see the improvements. When using less than 2 million files, the minimum requirement for the virtual machine continues to be 8 GB RAM.
 
 - **Improvements to Support package** - The improvements include logging in the statistics for disk, CPU, memory, network, and cloud into the Support package thereby improving the process of diagnosing/debugging device issues.
 
