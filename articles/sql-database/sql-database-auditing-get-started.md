@@ -38,7 +38,7 @@ SQL Database Auditing allows you to:
 
 There are two **Auditing methods**:
 
-* **Blob auditing** - logs are written to Azure Blob Storage. This is a newer auditing method, which provides **higher performance**, supports **higher granularity object-level auditing**, and is **more cost effective**.
+* **Blob auditing** (aka **Engine Auditing**) - logs are written to Azure Blob Storage. This is a newer auditing method, which provides **higher performance**, supports **higher granularity object-level auditing**, and is **more cost effective**.
 * **Table auditing** - logs are written to Azure Table Storage.
 
 You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
@@ -103,7 +103,7 @@ Audit logs are aggregated in the Azure storage account you chose during setup.
 
 You can explore audit logs using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
 
-See below specifics for analysis of both **Table** and **Blob** audit logs.
+See below specifics for analysis of both **Blob** and **Table** audit logs.
 
 ### <a id="subheading-3-1">Blob Auditing</a>
 Blob Auditing logs are saved as a collection of Blob files within a container named "**sqldbauditlogs**".
@@ -128,6 +128,8 @@ There are several methods to view Blob Auditing logs:
      
      * Extended Events Reader **C# library** ([more info here](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
      * Querying Extended Events Files Using **PowerShell** ([more info here](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/))
+
+3. We have created a **sample application** that runs in Azure and utilizes OMS public APIs to push SQL audit logs into OMS for consumption via the OMS dashboard - [more info here](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration).
 
 ### <a id="subheading-3-2">Table Auditing</a>
 Table Auditing logs are saved as a collection of Azure Storage Tables with a **SQLDBAuditLogs** prefix.
