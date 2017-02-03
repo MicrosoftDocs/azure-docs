@@ -37,6 +37,7 @@ To discover how easy it is to set up MFA for B2B collaboration users, see how in
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup]
 
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
 
 ## B2B users MFA experience for offer redemption
 Check out the animation below to see the redemption experience, as shown in the following video:
