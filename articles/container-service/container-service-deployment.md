@@ -125,7 +125,7 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (P
 
 2. Log in to your Azure account (`az login`), and make sure that the Azure CLI is connected to your Azure subscription. You can see the default subscription by using the following command:
 
-    ```Azure CLI
+    ```azurecli
     az account show
     ```
     
@@ -133,8 +133,9 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (P
 
 3. As a best practice, use a new resource group for the deployment. To create a resource group, use the `az group create` command specify a resource group name and location: 
 
-    ```Azure CLI
+    ```azurecli
     az group create --name "RESOURCE_GROUP" --location "LOCATION"
+    ```
 
 4. Create a JSON file containing the required template parameters. Download the parameters file named `azuredeploy.parameters.json` that accompanies the Azure Container Service template `azuredeploy.json` in GitHub. Enter required parameter values for your cluster. 
 
@@ -145,15 +146,15 @@ Follow these steps to deploy a cluster using a template and the Azure CLI 2.0 (P
 
     * **RESOURCE_GROUP** is the name of the resource group that you created in the previous step.
     * **DEPLOYMENT_NAME** (optional) is a name you give to the deployment.
-    * **TEMPLATE_URI** is the location of the deployment file `azuredeploy.json`. This URI must be the Raw file, not a pointer to the GitHub UI. To find this URI, select the `azuredeploy.json` file in GitHub, and click the **Raw** button.
+    * **TEMPLATE_URI** is the location of the deployment file `azuredeploy.json`. This URI must be the Raw file, not a pointer to the GitHub UI. To find this URI, select the `azuredeploy.json` file in GitHub, and click the **Raw** button.  
 
-    ```Azure CLI
+    ```azurecli
     az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters @azuredeploy.parameters.json
     ```
 
     You can also provide parameters as a JSON-formatted string on the command line. Use a command similar to the following:
 
-    ```Azure CLI
+    ```azurecli
     az group deployment create -g RESOURCE_GROUP -n DEPLOYMENT_NAME --template-uri TEMPLATE_URI --parameters "{ \"param1\": {\"value1\"} … }"
     ```
 
