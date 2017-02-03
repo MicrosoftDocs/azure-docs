@@ -123,7 +123,8 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \PhysicalDisk\TransfersPerSecond |CountPerSecond |
 | \PhysicalDisk\ReadsPerSecond |CountPerSecond |
 | \PhysicalDisk\WritesPerSecond |CountPerSecond |
-| \PhysicalDisk\AverageReadTime |Seconds || \PhysicalDisk\AverageWriteTime |Seconds |
+| \PhysicalDisk\AverageReadTime |Seconds |
+| \PhysicalDisk\AverageWriteTime |Seconds |
 | \PhysicalDisk\AverageTransferTime |Seconds |
 | \PhysicalDisk\AverageDiskQueueLength |Count |
 | \NetworkInterface\BytesTransmitted |Bytes |
