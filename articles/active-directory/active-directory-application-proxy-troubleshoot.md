@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/03/2016
 ms.author: kgremban
 ---
 
@@ -47,7 +47,6 @@ If registration fails during the Connector wizard installation, there are two wa
 | Error | Description | Resolution |
 | --- | --- | --- |
 | Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.' |You closed the registration window without performing login to Azure AD. |Run the Connector wizard again and register the Connector. |
-| Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'AADSTS50001: Resource `https://proxy.cloudwebappproxy.net /registerapp` is disabled.' |Application Proxy is disabled. |Make sure you enable Application Proxy in the Azure classic portal before trying to register the Connector. For more information on enabling Application Proxy, see [Enable Application Proxy services](active-directory-application-proxy-enable.md). |
 | Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.' |If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. |Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](active-directory-application-proxy-enable.md). |
 | Connector registration failed: Make sure your computer is connected to the Internet. Error: 'There was no endpoint listening at `https://connector.msappproxy.net :9090/register/RegisterConnector` that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.' |If you sign in using your Azure AD username and password but then receive this error, it may be that all ports above 8081 are blocked. |Make sure that the necessary ports are open. For more information, see [Application Proxy prerequisites](active-directory-application-proxy-enable.md). |
 | Clear error is presented in the registration window. Cannot proceed – only to close the window. |You entered the wrong username or password. |Try again. |
@@ -70,13 +69,16 @@ If registration fails during the Connector wizard installation, there are two wa
 | This corporate app can’t be accessed. You are not authorized to access this application. Authorization failed. Make sure to assign the user with access to this application. |Your users may get this error when trying to access the app you published if they use Microsoft accounts instead of their corporate account to sign in. Guest users may also get this error. |Microsoft Account users and guests cannot access IWA applications. Make sure the user signs in using their corporate account that matches the domain of the published application. |
 | This corporate app can’t be accessed right now. Please try again later…The connector timed out. |Your users may get this error when trying to access the app you published if they are not properly defined for this application on the on-prem side. |Make sure that your users have the proper permissions as defined for this backend application on the on-prem machine. |
 
+## My error wasn't listed here
+
+If you encounter an error or problem with Azure AD Application Proxy that isn't listed in this troubleshooting guide, we'd like to hear about it. Send an email to our [feedback team](mailto:aadapfeedback@microsoft.com) with the details of the error you encountered.
+
 ## See also
 * [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
 * [Enable conditional access](active-directory-application-proxy-conditional-access.md)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
