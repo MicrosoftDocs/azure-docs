@@ -18,7 +18,7 @@ ms.author: maheshu
 
 ---
 
-# Enable Kerberos Constrained Delegation on a managed domain
+# Configure Kerberos Constrained Delegation on a managed domain
 
 ## Kerberos Constrained Delegation
 Kerberos delegation enables an account to impersonate another security principal (such as a user) to access resources. Consider a web application that accesses a back-end web API in the context of a user. In this example, the web application (running in the context of a service account or a computer/machine account) impersonates the user when accessing the resource (back-end web API). Kerberos delegation is insecure since it does not restrict the resources the impersonating account can access in the context of the user.
@@ -32,21 +32,21 @@ Traditional KCD also has a few issues associated with it. In earlier operating s
 >
 >
 
-## Resource-based Kerberos Constrained Delegation
+## Resource based Kerberos Constrained Delegation
 In Windows Server 2012 R2 and Windows Server 2012, the ability to configure constrained delegation for the service has been transferred from the domain administrator to the service administrator. In this way, the back-end service administrator can allow or deny front-end services. This model is known as **Resource-based Kerberos Constrained Delegation**.
 
-Resource-based KCD is configured using PowerShell. You use the Set-ADComputer or Set-ADUser cmdlets, depending on whether the impersonating account is a computer account or a user account/service account.
+Resource based KCD is configured using PowerShell. You use the Set-ADComputer or Set-ADUser cmdlets, depending on whether the impersonating account is a computer account or a user account/service account.
 
-### Configure resource-based KCD for a computer account on a managed domain
-Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com' and it needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
+### Configure resource based KCD for a computer account on a managed domain
+Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com' and it needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource based KCD for this scenario.
 
 ```
 $ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
 Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
-### Configure resource-based KCD for a user account on a managed domain
-Assume you have a web app running as a service account 'appsvc' and it needs to access the resource (a web API running as a service account - 'backendsvc') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
+### Configure resource based KCD for a user account on a managed domain
+Assume you have a web app running as a service account 'appsvc' and it needs to access the resource (a web API running as a service account - 'backendsvc') in the context of domain users. Here's how you would set up resource based KCD for this scenario.
 
 ```
 $ImpersonatingAccount = Get-ADUser -Identity appsvc
