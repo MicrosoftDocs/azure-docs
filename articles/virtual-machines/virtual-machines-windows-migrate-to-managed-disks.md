@@ -99,7 +99,6 @@ Test the migration process by migrating a test virtual machine before performing
 
 
 ## Migrate existing Azure VMs using Standard Unmanaged Disks to Premium Managed Disks
-==================================================================================
 
 This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. 
 
@@ -124,64 +123,75 @@ Update the VM size to make sure it matches your capacity and performance require
 
 Follow the step by step PowerShell cmdlets below to create the new VM.
 
-1.  First, set the common parameters:
+1.  First, set the common parameters. Make sure the [VM size](virtual-machines-windows-sizes.md) you select supports Premium storage.
 
->   \$resourceGroupName = 'YourResourceGroupName'
-
->   \$vmName = 'YourVMName'
-
->   \# Premium storage capable size available in the region where VM is located
-
->   e.g. Standard\_DS2\_v2
-
->   \$size = 'Standard\_DS2\_v2'
-
+    ```powershell
+    $resourceGroupName = 'YourResourceGroupName'
+	$vmName = 'YourVMName'
+	$size = 'Standard_DS2_v2'
+	```
 1.  Get the VM with Unmanaged disks
 
->   \$vm = Get-AzureRmVM -Name \$vmName -ResourceGroupName \$resourceGroupName
+    ```powershell
+    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+    ```
+	
+1.  Stop (Deallocate) the VM.
 
-1.  Stop (Deallocate) the VM
+    ```powershell
+	Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+	```
 
->   Stop-AzureRmVM -ResourceGroupName \$resourceGroupName -VMName \$vmName -Force
+1.  Update the size of the VM to Premium Storage capable size available in the region where VM is located.
 
-1.  Update the size of the VM to Premium Storage capable VM size available in the region where VM is located
+    ```powershell
+	$vm.HardwareProfile.VmSize = $size
+	Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
+	```
 
->   \$vm.HardwareProfile.VmSize = \$size
-
->   Update-AzureRmVM -VM \$vm -ResourceGroupName \$resourceGroupName
-
-1.  Convert virtual machine with Unmanaged disks to Managed Disks
+1.  Convert virtual machine with Unmanaged disks to Managed Disks.
 
     Note: If you get internal server error while executing preceding command,
     please retry the command 2-3 times before reaching out to our support team.
 
-    Note: This feature is available through SDKs only, it will be available soon
-    in Azure portal
+    ```powershell
+	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName
+	```
 
->   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName \$resourceGroupName
->   -VMName
+1.  Stop (Deallocate) the VM.
 
-1.  Stop (Deallocate) the VM
-
-    Stop-AzureRmVM -ResourceGroupName \$resourceGroupName -VMName \$vmName
-    -Force
+    ```powershell
+    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
+	```
 
 2.  Upgrade all the disks to Premium Storage
 
->   \$vmDisks = Get-AzureRmDisk -ResourceGroupName \$resourceGroupName
+    ```powershell
+	$vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
+	foreach ($disk in $vmDisks) 
+	    {
+	    if($disk.OwnerId -eq $vm.Id)
+		    {
+		     $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType StandardLRS
+			 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName -DiskName $disk.Name
+			}
+		}
+    ```
 
->   foreach (\$disk in \$vmDisks) {
 
->   if(\$disk.OwnerId -eq \$vm.Id){
 
->   \$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType StandardLRS
 
->   Update-AzureRmDisk -DiskUpdate \$diskUpdateConfig -ResourceGroupName
->   \$resourceGroupName -DiskName \$disk.Name
 
->   }
 
->   }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -377,7 +387,7 @@ parameter.
     New-AzureRmVM -VM \$VirtualMachine -ResourceGroupName \$resourceGroupName
     -Location \$location
 
-### Specialized (non-sysprepped) OS VHD and data VHD to create a single Azure VM instance
+## Specialized (non-sysprepped) OS VHD and data VHD to create a single Azure VM instance
 
 Create an OS disk using your specialized OS VHD and data Disks using data VHDs
 so that you can create a new VM instance from the OS and data Disks.
