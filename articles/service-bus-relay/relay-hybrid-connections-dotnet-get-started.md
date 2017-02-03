@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 
 ---
 # Get started with Relay Hybrid Connections
@@ -38,6 +38,8 @@ Since Hybrid Connections requires both a client and a server component, we will 
 If you already have a Relay namespace created, jump to the [Create a Hybrid Connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+
+Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.  
 
 ## 2. Create a Hybrid Connection using the Azure portal
 If you already have a Hybrid Connection created, jump to the [Create a server application](#3-create-a-server-application-listener) section.
