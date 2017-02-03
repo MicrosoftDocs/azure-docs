@@ -1,7 +1,7 @@
 
 ---
 title: Using certificates with Enterprise Integration Pack | Microsoft Docs
-description: Learn how to use certificates with the Enterprise Integration Pack and Logic Apps
+description: Learn how to use certificates with the Enterprise Integration Pack | Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
-ms.author: padmamvc
+ms.author: padmavc
 
 ---
 # Learn about certificates and Enterprise Integration Pack
