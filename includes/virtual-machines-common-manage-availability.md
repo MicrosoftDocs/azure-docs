@@ -42,7 +42,7 @@ If the load balancer is not configured to balance traffic across multiple virtua
 ## Use multiple storage accounts for each availability set
 If you use Azure Managed Disks, you can skip the following guidance. Azure Managed Disks inherently provide high availability and redunacy as the disks are stored in fault domains that align with your VM availability sets.
 
-If you use storage account-based disks, there are best practices to be followed with regards to the storage accounts used by the Virtual Hard Disks (VHDs) within the VM. Each disk (VHD) is a page blob in an Azure Storage account. It is important to ensure that there is redundancy and isolation across the storage accounts in order to provide high availability for the VMs within the Availability Set.
+If you use unmanaged disks, there are best practices to be followed with regards to the storage accounts used by the Virtual Hard Disks (VHDs) within the VM. Each disk (VHD) is a page blob in an Azure Storage account. It is important to ensure that there is redundancy and isolation across the storage accounts in order to provide high availability for the VMs within the Availability Set.
 
 1. **Keep all disks (OS and data) associated with a VM in the same storage account**
 2. **Storage account [limits](../articles/storage/storage-scalability-targets.md) should be considered** when adding more VHDs to a storage account
