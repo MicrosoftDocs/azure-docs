@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: apipm
+ms.author: apimpm
 ---
 # How to import the definition of an API with operations in Azure API Management
 In API Management, new APIs can be created and the operations added manually, or the API can be imported along with the operations in one step.
