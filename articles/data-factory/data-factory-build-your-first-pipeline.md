@@ -27,21 +27,33 @@ ms.author: spelluru
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-In this tutorial, you build your first Azure data factory with a data pipeline that transforms data by running Hive script on an Azure HDInsight (Hadoop) cluster. 
+In this tutorial, you build your first Azure data factory with a data pipeline. The pipeline transforms input data by running Hive script on an Azure HDInsight (Hadoop) cluster to produce output data.  
 
-This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial.   
+This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, you can do the tutorial using one of the following tools/SDKs: Azure portal, Visual Studio, PowerShell, Resource Manager Template, REST API. Select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial using one of these options.    
 
 ## Tutorial overview
 In this tutorial, you perform the following steps:
 
 1. Create a **data factory**. A data factory can contain one or more data pipelines that move and transform data. 
-2. Create **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as HDInsight Hadoop cluster processes/transforms data.    
+
+	In this tutorial, you create one pipeline in the data factory. 
+2. Create a **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script on a HDInsight Hadoop cluster. The script first creates a table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
+
+	In this tutorial, the pipeline uses the Hive Activity to transform data by running a Hive query on an Azure HDInsight Hadoop cluster. 
+3. Create **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as HDInsight Hadoop cluster processes/transforms data.
+
+	In this tutorial, you create two linked services: **Azure Storage** and **Azure HDInsight**. The Azure Storage linked service links an Azure Storage Account that holds the input/output data to the data factory. Azure HDInsight linked service links an Azure HDInsight cluster that is used to transform data to the data factory. 
 3. Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
-4. Create the **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script on a HDInsight Hadoop cluster. The script first creates a table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
+
+	In this tutorial, the input and output datasets specify locations of input and output data in the Azure Blob Storage. The Azure Storage linked service specifies what Azure Storage Account is used. An input dataset specifies where the input files are located and an output dataset specifies where the output files will be placed. 
+
+
+See [Introduction to Azure Data Factory](../articles/data-factory/data-factory-introduction.md) article for a detailed overview of Azure Data Factory.
   
-Here is the **diagram view** of the sample data factory you build in this tutorial. 
+Here is the **diagram view** of the sample data factory you build in this tutorial. **MyFirstPipeline** has one activity of type Hive that consumes **AzureBlobInput** dataset as an input and produces **AzureBlobOutput** dataset as an output. 
 
 ![Diagram view in Data Factory tutorial](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+
 
 In this tutorial, **inputdata** folder of the **adfgetstarted** Azure blob container contains one file named input.log. This log file has entries from three months: January, February, and March of 2016. Here are the sample rows for each month in the input file. 
 
@@ -64,16 +76,15 @@ From the sample lines shown above, the first one (with 2016-01-01) is written to
 ## Prerequisites
 Before you begin this tutorial, you must have the following prerequisites:
 
-1. Read through [Introduction to Azure Data Factory](../articles/data-factory/data-factory-introduction.md) article if you haven't already done so. 
-2. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
+1. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
 2. **Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, note down the **account name** and **access key**. See [View, copy and regenerate storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionalweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)
+3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionalweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This is the query that transforms input data to produce output data. 
 4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage. 
 6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 7. Upload **input.log** file to the **inputdata** folder in the **adfgetstarted** container. 
 
-After you complete the prerequisites, select one of the following options to do the tutorial: 
+After you complete the prerequisites, select one of the following tools/SDKs to do the tutorial: 
 
 - [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
@@ -81,4 +92,4 @@ After you complete the prerequisites, select one of the following options to do 
 - [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure portal and Visual Studio provides GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.  
+Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.  
