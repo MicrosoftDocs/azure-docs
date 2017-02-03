@@ -1,5 +1,5 @@
 ---
-title: Migrate from Windows-based HDInsight to Linux-based HDInsight | Microsoft Docs
+title: Migrate from Windows-based HDInsight to Linux-based HDInsight -Azure | Microsoft Docs
 description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -48,7 +48,9 @@ actions:
 4.	Import any transient data you backed up.
 5.	Start jobs/continue processing using the new cluster.
 
-
-
-
+## Next Steps
+* [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Connect to a Linux-based cluster using SSH from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
 
