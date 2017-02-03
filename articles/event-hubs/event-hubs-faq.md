@@ -77,10 +77,10 @@ Technical support for Event Hubs is available through the [community forums](htt
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
 ## Next steps
-To learn more about Event Hubs, see the following articles:
+You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview][Event Hubs overview].
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

@@ -78,5 +78,8 @@ There are two common causes for this error: incorrect configuration, or a transi
     Sometimes the Event Hubs service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps
-For the complete Service Bus and Event Hubs .NET API reference, see the [Azure reference on MSDN](/dotnet/api/).
+You can learn more about Event Hubs by visiting the following links:
 
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
+* [Event Hubs FAQ](event-hubs-faq.md)
