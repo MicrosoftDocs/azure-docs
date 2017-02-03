@@ -120,7 +120,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 	    {
 	    if($disk.OwnerId -eq $vm.Id)
 		    {
-		     $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType StandardLRS
+		     $diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType PremiumLRS
 			 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $resourceGroupName -DiskName $disk.Name
 			}
 		}
