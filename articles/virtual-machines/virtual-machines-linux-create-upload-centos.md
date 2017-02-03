@@ -120,7 +120,6 @@ This article assumes that you have already installed a CentOS (or similar deriva
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-
 	>[!Note]
 	The rest of this guide will assume you are using at least the `[openlogic]` repo, which will be used to install the Azure Linux agent below.
 
