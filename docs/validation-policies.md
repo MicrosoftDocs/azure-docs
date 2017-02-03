@@ -15,7 +15,6 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_1"> </a>
 
 
-|||
 |:-----|:-----|
 |1.1|Your app or add-in must offer unique value or utility within the app or add-in experience that extends Office or SharePoint functionality for Office Store customers.|
 |1.2|Your app or add-in must work according to your description, and must not be in an unfinished state.|
@@ -25,7 +24,6 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_2"> </a>
 
 
-|||
 |:-----|:-----|
 |2.1|Apps or add-ins can contain ads. The primary purpose of the app or add-in must be more than the display of the advertisement.|
 |2.2|Ads in your app or add-in must comply with our content policies, described in policy 6.|
@@ -36,7 +34,6 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_3"> </a>
 
 
-|||
 |:-----|:-----|
 |3.1|Currently, Microsoft does not provide native application programming interfaces (APIs) to support purchases in apps and add-ins. You may use any third-party payment system for those purchases.|
 |3.2|Where an app or add-in requires additional features to operate as advertised, to which an extra charge applies, you must clearly notify users in your description that those payments are required to access those features. Notification is also necessary if your app or add-in offers additional features or content for sale, either through purchases within the app or add-in or other means. |
@@ -47,7 +44,6 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_4"> </a>
 
 
-|||
 |:-----|:-----|
 |4.1|Your app or add-in must not stop responding, end unexpectedly, or contain programming errors.|
 |4.2|Your updated app or add-in must not decrease the app or add-in's functionality in a way that would be unexpected to a reasonable customer.|
@@ -60,8 +56,8 @@ This document describes the criteria that are used to validate that Office 365 w
 |4.9|No action should take more than three seconds to respond without some type of loading UX or warning.|
 |4.10|Your app or add-in should not consume an unreasonable amount of memory that negatively impacts the performance of an average customer's environment.|
 |4.11|Your app or add-in UI should not look unfinished.|
-|4.12|Your app or add-in must be fully functional with the supported operating systems, browsers, and devices for Office 2013, Office 2016, SharePoint 2013, and Office 365.Your app or add-in's described features must work on a touch-only device without a physical keyboard or mouse.|
-|4.12.1  **Office Add-ins**| General requirements: Add-ins must be compatible with all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). Your add-in must work in all Office applications specified in the **Hosts** element in your add-in manifest. For details, see [Specify Office hosts and API requirements](https://dev.office.com/docs/add-ins/overview/specify-office-hosts-and-api-requirements).  Your add-in must work across all platforms that support the methods that you define in the **Requirements** element in your add-in manifest. For details about which platforms support which methods, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability). |
+|4.12|Your app or add-in must be fully functional with the supported operating systems, browsers, and devices for Office 2013, Office 2016, SharePoint 2013, and Office 365.<br/>Your app or add-in's described features must work on a touch-only device without a physical keyboard or mouse.|
+|4.12.1  **Office Add-ins**| General requirements:<br/>- Add-ins must be compatible with all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS).<br/>- Your add-in must work in all Office applications specified in the **Hosts** element in your add-in manifest. For details, see [Specify Office hosts and API requirements](https://dev.office.com/docs/add-ins/overview/specify-office-hosts-and-api-requirements).<br/>- Your add-in must work across all platforms that support the methods that you define in the **Requirements** element in your add-in manifest. For details about which platforms support which methods, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability). |
 || Platform-specific requirements: Your add-in must support Office Online applications that are compatible with the APIs listed in the **Requirements** element. To test your add-in in Office Online, see [Debug add-ins in Office Online](https://dev.office.com/docs/add-ins/testing/debug-add-ins-in-office-online).  Add-ins that support iOS must be fully functional on the latest iPad device using the latest iOS operating system.|
 || Outlook-specific requirements: If your scenario requires showing an add-in on every message or appointment (whether in read or compose), it must support [add-in commands](http://msdn.microsoft.com/library/a806cdfa-4230-4bcb-bb3f-7e3d1c2f26c2 %28Office.15%29.aspx).  Outlook add-ins must not include the CustomPane extension point in the VersionOverrides node. If your add-in manifest includes the **SupportsPinning** element, the content of the add-in, when pinned, must not be static and must clearly display data related to the message that is open or selected in the mailbox.|
 || Word, Excel, and PowerPoint requirements: Effective Feb 1, 2017, add-ins that use the taskpane manifest must support add-in commands.|
@@ -81,7 +77,6 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_5"> </a>
 
 
-|||
 |:-----|:-----|
 |5.1|You must submit a privacy link. The linked privacy documentation must be clearly titled as such. The content of the privacy statement must be under the direct control of the app or add-in provider.If your app or add-in does not collect or transmit user information, you must link to a statement that states this fact.For information about common mistakes to avoid, see  [How can I avoid errors when submitting my app or add-in to the Office Store?](office-store-app-and-add-in-submission-faq.md#bk_q2) in [Office Store app and add-in submission FAQ](office-store-app-and-add-in-submission-faq.md).|
 |5.2|Your app or add-in must obtain consent to publish personal information.|
@@ -102,8 +97,6 @@ This document describes the criteria that are used to validate that Office 365 w
 ## 6. Apps and add-ins are appropriate for a global audience
 <a name="bk_6"> </a>
 
-
-|||
 |:-----|:-----|
 |6.1|Your app or add-in must not contain adult content.|
 |6.2|Your app or add-in must not contain content that advocates discrimination, hatred, or violence based on membership in a particular racial, ethnic, national, linguistic, religious, or other social group, or based on a person's gender, age, or sexual orientation.|
@@ -123,8 +116,6 @@ This document describes the criteria that are used to validate that Office 365 w
 ## 7. Apps and add-ins are easily identified and understood
 <a name="bk_7"> </a>
 
-
-|||
 |:-----|:-----|
 |7.1|The metadata that you submit with your app or add-in must be accurate.For information on common mistakes to avoid, see  [How can I avoid errors when submitting my app or add-in to the Office Store?](office-store-app-and-add-in-submission-faq.md#bk_q2) in [Office Store app and add-in submission FAQ](office-store-app-and-add-in-submission-faq.md).|
 |7.2|Your app or add-in must have a unique name.|
@@ -156,8 +147,6 @@ This document describes the criteria that are used to validate that Office 365 w
 ## 8. Updates to paid apps or add-ins must not decrease the app or add-in's functionality
 <a name="bk_9"> </a>
 
-
-|||
 |:-----|:-----|
 |8.1|If you update your app or add-in's pricing/licensing terms, you must continue to offer the original functionality to the existing customer base at the original pricing. New prices and/or licensing terms may only apply to new users.|
 |8.2|If you update your app or add-in's pricing from free to paid, existing users must receive the same level of functionality as before the update.|
@@ -170,15 +159,12 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_10"> </a>
 
 
-|||
 |:-----|:-----|
 |9.1|If your app or add-in is found to violate any of our store policies, it can be removed from the Office Store. If a customer needs to be refunded, the refund will be deducted from any pending payouts to your account.|
 
 ## 10. Apps and add-ins utilize supported capabilities
 <a name="bk_11"> </a>
 
-
-|||
 |:-----|:-----|
 |10.1|Your paid app or add-in must follow the Office Store commerce requirements. For more information, see  *Can I submit a paid app or add-in to the Office Store?*  in [Office Store app and add-in submission FAQ](office-store-app-and-add-in-submission-faq.md).|
 |10.2|If your SharePoint Add-in has autohosting capabilities, it will not be accepted in the Office Store. For more information, see  [Update on Autohosted Add-ins Preview program](https://blogs.office.com/2014/05/16/update-on-autohosted-apps-preview-program/).|
@@ -193,8 +179,6 @@ This document describes the criteria that are used to validate that Office 365 w
 ## 11. Add-ins provide a seamless and fluid experience for Office Store customers
 <a name="bk_12"> </a>
 
-
-|||
 |:-----|:-----|
 |11.1|Add-ins can fail validation for issues related to  [Office Add-in design guidelines](http://msdn.microsoft.com/library/d5b2ab2e-dfc8-47c8-919c-e9c23358d70c%28Office.15%29.aspx) and [SharePoint Add-in design guidelines](http://msdn.microsoft.com/library/design-sharepoint-add-ins%28Office.15%29.aspx) and which impede the customer experience within Office and SharePoint.|
 |11.2|Add-ins that depend on external accounts or services must provide a clear and simple sign in/sign out and signup experience.|
@@ -207,7 +191,6 @@ This document describes the criteria that are used to validate that Office 365 w
 <a name="bk_12"> </a>
 
 
-|||
 |:-----|:-----|
 |12.1|Office Mix Add-ins must be for an educational purpose. |
 |12.2|Office Mix Add-ins must be created using the Office Mix platform.|
@@ -244,7 +227,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 <a name="bk_addresources"> </a>
 
 
--  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md)
+-  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
     
  
 -  [Office Store app and add-in submission FAQ](office-store-app-and-add-in-submission-faq.md)
