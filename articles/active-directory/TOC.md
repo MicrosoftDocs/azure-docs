@@ -99,20 +99,6 @@
 ### [Register your device](active-directory-azureadjoin-personal-device.md)
 ### [Register a Windows 10 device](active-directory-azureadjoin-user-upgrade.md)
 
-### [Conditional access](active-directory-conditional-access.md)
-#### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Supported apps](active-directory-conditional-access-supported-apps.md)
-#### [Register devices](active-directory-conditional-access-device-registration-overview.md)
-#### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
-##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
-#### [Manage Authenticator app](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Understand device policies](active-directory-conditional-access-device-policies.md)
-#### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
-#### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
-#### [FAQs](active-directory-conditional-faqs.md)
-#### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
-#### [Reference](active-directory-conditional-access-technical-reference.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Set up device registration](active-directory-azureadjoin-setup.md)
@@ -126,10 +112,6 @@
 #### Troubleshooting
 ##### [Troubleshooting for Windows 10 and Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
 ##### [Troubleshooting for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
-
-### Certificate-based Authentication
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
 
 ## Manage apps
 ### [Overview](active-directory-enable-sso-scenario.md)
@@ -240,6 +222,22 @@
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Secure your identities
+### [Conditional access](active-directory-conditional-access.md)
+#### [Get started](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Supported apps](active-directory-conditional-access-supported-apps.md)
+#### [Register devices](active-directory-conditional-access-device-registration-overview.md)
+#### [Manage automatic registration](active-directory-conditional-access-automatic-device-registration.md)
+##### [Setup](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [Manage Authenticator app](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Understand device policies](active-directory-conditional-access-device-policies.md)
+#### [Set up access to connected apps](active-directory-conditional-access-policy-connected-applications.md)
+#### [Deploy on-premises](active-directory-conditional-access-on-premises-setup.md)
+#### [FAQs](active-directory-conditional-faqs.md)
+#### [Troubleshoot](active-directory-conditional-access-device-remediation.md)
+#### [Reference](active-directory-conditional-access-technical-reference.md)
+### Certificate-based Authentication
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Enable](active-directory-identityprotection-enable.md)
 #### [Detect vulnerabilities](active-directory-identityprotection-vulnerabilities.md)
