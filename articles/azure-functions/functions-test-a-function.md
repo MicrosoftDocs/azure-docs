@@ -29,10 +29,10 @@ This topic demonstrates the various ways to test functions, which includes the f
 + Timer-triggered function.
 + Testing application or framework.  
 
-All of the testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You will create this function in the first section.
+All of the testing methods shown use an HTTP trigger function that accepts input through either a query string parameter or the request body. You will create this function in the first section.
 
 ## Create a function for testing
-For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
+For most of this tutorial, we will use a slightly modified version of the HttpTrigger JavaScript function template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure Portal].
 
 The default function template is basically a hello world function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
 
@@ -40,7 +40,7 @@ Update the function with the following code which we will use for testing:
 
 ```javascript
 module.exports = function(context, req) {
-    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
     context.log("Request Headers = " + JSON.stringify(req.headers));    
 
     if (req.query.name || (req.body && req.body.name)) {
@@ -105,7 +105,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
     2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
+    2016-04-05T21:55:30.738 HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
 ### Test with a browser
@@ -127,7 +127,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+    2016-03-23T07:35:10.338 HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
     2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T07:35:10.338 Name was provided as a query string param.
     2016-03-23T07:35:10.338 Processing User Information...
@@ -167,7 +167,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
     2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:04:57.763 Processing user info from request body...
     2016-03-23T08:04:57.763 Processing User Information...
@@ -178,7 +178,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 ### Test a blob trigger using Storage Explorer
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. In the [Azure Portal] for your Functions app, create a new C#, F# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. In the [Azure Portal] for your Functions app, create a new C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
         files
 2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
@@ -214,7 +214,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
     2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:03:18.697 Processing user info from request body...
     2016-03-23T08:03:18.697 Processing User Information...
@@ -294,7 +294,7 @@ In the browser window for the queue function, you will see the each message bein
 
 ## Test a function with Code
 ### Test a HTTP trigger function with Code: Node.js
-You can use Node.js code to execute a http request to test your Azure Function.
+You can use a Node.js app to execute a HTTP request to test your function.
 
 Make sure to set:
 
@@ -302,7 +302,7 @@ Make sure to set:
 * Your function name in the `path`.
 * Your access code (`<your code>`) in the `path`.
 
-Code Example:
+Code example:
 
 ```javascript
 var http = require("http");
@@ -357,7 +357,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
     2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
     2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
     2016-03-23T08:09:01.153 Request Body Type = object
