@@ -65,7 +65,7 @@ The sample copies time-series data from an Azure Blob Storage to Azure Data Lake
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
-            "dataLakeStoreUri": "adl://[accountname].azuredatalakestore.net/",
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
@@ -234,7 +234,7 @@ The sample copies time-series data from an Azure Data Lake store to an Azure blo
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
-            "dataLakeStoreUri": "adl://[accountname].azuredatalakestore.net/",
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
@@ -433,7 +433,7 @@ To use service principal authentication, firstly you need register an applicatio
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
-            "dataLakeStoreUri": "adl://[accountname].azuredatalakestore.net/",
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": "<service principal key>",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
