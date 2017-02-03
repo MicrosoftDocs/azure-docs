@@ -41,7 +41,7 @@ You can set collection level throughput for your DocumentDB collections in the A
         .SingleOrDefault();
 
     // Set the throughput to the new value, for example 12,000 request units per second
-    offer = new OfferV2(offer, 12,000);
+    offer = new OfferV2(offer, 12000);
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
