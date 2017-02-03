@@ -203,6 +203,18 @@
 ## How to
 ### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple for partners
+## Overview
+### [What is the solution?](storsimple-partner-csp-overview.md)
+
+## Get started
+### [Deploy virtual array for CSP](storsimple-partner-csp-deploy.md)
+
+## Release notes
+### [StorSimple release notes](https://aka.ms/storsimple-latest-relnote)
+### [CSP release notes](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple for CSP: FAQ](storsimple-partner-csp-faq.md)
+
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
