@@ -17,7 +17,7 @@ ms.date: 2/2/2017
 ms.author: anoopkv
 ---
 
-# How to setup & configure a Failback Process Server (Resource Manager)
+# How to setup & configure a Failback Process Server (Azure Classic)
 > [!div class="op_single_selector"]
 > * [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-arm.md)
