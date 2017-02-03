@@ -1,10 +1,10 @@
 ---
-title: Telemetry sampling in Application Insights | Microsoft Docs
+title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
@@ -12,17 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/03/2017
 ms.author: awills
 
 ---
 # Sampling in Application Insights
 
 
-Sampling is a feature in [Azure Application Insights](app-insights-overview.md) is the recommended way to reduce telemetry traffic and storage while preserving  a statistically correct analysis of application data. The filter selects items that are related so that you can navigate between items when you are doing diagnostic investigations.
+Sampling is a feature in [Azure Application Insights](app-insights-overview.md). It is the recommended way to reduce telemetry traffic and storage, while preserving  a statistically correct analysis of application data. The filter selects items that are related, so that you can navigate between items when you are doing diagnostic investigations.
 When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
 
-Sampling reduces traffic, helps you keep within monthly data quotas, and helps you avoid throttling.
+Sampling reduces traffic and data costs, and helps you avoid throttling.
 
 ## In brief:
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain 1 in 5 events, a sampling rate of 20%. 
@@ -100,14 +100,8 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     The value assigned when the app has just started. Don't reduce this while you're debugging. 
-    
-* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
-  
-    A semi-colon delimited list of types that you do not want to be sampled. Possible types are "Dependency", "Event", "Exception", "PageView", "Request", "Trace". The types specified in the tag will not be sampled; however, the types that are not specified will be sampled. **Available since version 2.2.0**
 
-* `<IncludedTypes>Request;Dependency</IncludedTypes>`
-  
-    A semi-colon delimited list of types that you want to be sampled. Possible types are "Dependency", "Event", "Exception", "PageView", "Request", "Trace". The types specified in the tag will be sampled; however, the types that are not specified will not be sampled. **Available since version 2.2.0**
+**To switch off** adaptive sampling, remove the AdaptiveSamplingTelemetryProcessor node from applicationinsights-config.
 
 ### Alternative: configure adaptive sampling in code
 Instead of adjusting sampling in the .config file, you can use code. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
