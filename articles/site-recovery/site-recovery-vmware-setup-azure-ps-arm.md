@@ -28,14 +28,7 @@ This article describes how to setup & configure a Process Server in Azure for fa
 > This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model please follow the steps in [How to setup & configure a Failback Process Server (Classic)](./site-recovery-setup-azure-ps-classic.md)
 
 ## Prerequisites
-This article assumes that
-1. You have already configured a **Site to Site VPN** or an **Express Route (c)** connection between your on-premises network and the Azure Virtual Network into which the virtual machines have been failed over into.
-2. Your user account has permissions to create a new virtual machine in the Azure Subscription that the virtual machines have been failed over into.
-3. Your subscription has a minimum of XX Cores available to spin up a new Process Server virtual machine.
-4. You have the **Configuration Server Passphrase** available.
-
-> [!TIP]
-> Ensure that you are able to connect port 443 of the Configuration Server (running on-premises) from the Azure Virtual Network that the Virtual Machines have been failed over into.
+  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 ## Deploy Process Server on Azure
 1. In the Vault > **Site Recovery Infrastructure** (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines" heading) select the configuration server.
@@ -67,3 +60,4 @@ This article assumes that
 5. Click the OK button to start deploying the process server virtual machine.
 
 ## Registering the Process Server
+  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-register-process-server.md)]

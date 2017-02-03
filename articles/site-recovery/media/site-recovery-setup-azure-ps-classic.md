@@ -26,3 +26,12 @@ This article describes how to setup & configure a Process Server in Azure for fa
 
 > [!NOTE]
 > This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model please follow the steps in [How to setup & configure a Failback Process Server (Resource Manager)](./site-recovery-setup-azure-ps-arm.md)
+
+## Prerequisites
+  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+
+## Deploy Process Server on Azure
+ <To do Anoop KV>
+ 
+## Registering the Process Server
+  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-vmware-register-process-server.md)]
