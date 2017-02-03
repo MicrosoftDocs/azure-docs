@@ -1,11 +1,3 @@
----
-title: Seller Dashboard accessibility features
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: c190ecce-d10d-427e-8fa0-bbdf62ff7184
-ms.locale: en-US
----
-
-
 # Seller Dashboard accessibility features
 The Seller Dashboard includes the following accessibility features for people with disabilities:
 

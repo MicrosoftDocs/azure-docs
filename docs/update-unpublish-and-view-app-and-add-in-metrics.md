@@ -1,11 +1,3 @@
----
-title: Update, unpublish, and view app and add-in metrics in the Seller Dashboard
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 7313d32b-5345-4039-ac5d-a1ba0aef890b
-ms.locale: en-US
----
-
-
 # Update, unpublish, and view app and add-in metrics in the Seller Dashboard
 
 After you submit your apps or add-ins to the Seller Dashboard, you might want to update them or remove (unpublish) them from Office Store listings. You can also delete your apps or add-ins from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your apps and add-ins are performing.

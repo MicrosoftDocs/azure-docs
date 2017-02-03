@@ -1,10 +1,3 @@
----
-title: Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 260ef238-0be4-42d6-ba15-1249a8e2ff12
-ms.locale: en-US
----
-
 
 # Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store
 Use the Seller Dashboard to submit Office Add-ins, SharePoint Add-ins, and Office 365 web apps using Azure AD to the Office Store. 

@@ -1,11 +1,3 @@
----
-title: Create or update client IDs and secrets in the Seller Dashboard
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: f7852781-922f-4499-9dd4-c266907a8c14
-ms.locale: en-US
----
-
-
 # Create or update client IDs and secrets in the Seller Dashboard
 Create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your add-ins in the Seller Dashboard to enable OAuth in your SharePoint Add-ins.
  

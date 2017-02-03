@@ -1,11 +1,3 @@
----
-title: Validation policies for apps and add-ins submitted to the Office Store (version 2.0)
-ms.prod: SHAREPOINT
-ms.assetid: cd90836a-523e-42f5-ab02-5123cdf9fefe
-ms.locale: en-US
----
-
-
 
 # Validation policies for apps and add-ins submitted to the Office Store (version 2.0)
 This document describes the criteria that are used to validate that Office 365 web apps, Office Add-ins, and SharePoint Add-ins are eligible to be listed in the Office Store.

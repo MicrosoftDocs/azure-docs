@@ -1,11 +1,3 @@
----
-title: Submit apps for Office 365 operated by 21Vianet in China
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 69193ed4-e275-467f-9e3b-72efb2ae3893
-ms.locale: en-US
----
-
-
 # Submit apps for Office 365 operated by 21Vianet in China
 >**Note:**  If your add-in is not a SharePoint Add-in that requires OAuth authentication, this does not apply to you. 
  

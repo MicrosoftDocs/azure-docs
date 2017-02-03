@@ -1,12 +1,3 @@
----
-title: Office and SharePoint Add-in license XML schema structure
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 8ce3d78d-9ea7-41d1-a297-c4d212491609
-ms.locale: en-US
----
-
-
-
 # Office and SharePoint Add-in license XML schema structure
 
 The add-in license schema defines the structure that specifies usage properties in add-in licenses. If your add-in includes license validation checks, use this schema to create test licenses to test the license validation code in your add-in. For more information, see  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md).

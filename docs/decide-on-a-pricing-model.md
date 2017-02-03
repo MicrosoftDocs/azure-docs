@@ -1,11 +1,3 @@
----
-title: Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app
-ms.prod: SHAREPOINT
-ms.assetid: 145d9466-3c3d-4294-aa23-82068a8e7ae9
-ms.locale: en-US
----
-
-
 # Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app
 
 The Office Store provides a variety of pricing options. You don't have to set your pricing model until you submit your app or add-in, and you don't have to specify anything in your app or add-in to support the pricing option you choose. However, it's a good idea to decide on your pricing model during your design and development process. The pricing model you choose might influence the features and behavior you include. Also, certain monetizing strategies, such as using the licensing framework, or offering ads or additional purchases, require you to implement custom code.

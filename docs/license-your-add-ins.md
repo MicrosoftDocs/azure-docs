@@ -1,11 +1,3 @@
----
-title: License your Office and SharePoint Add-ins
-ms.prod: SHAREPOINT
-ms.assetid: 3e0e8ff6-66d6-44ff-b0c2-59108ebd9181
-ms.locale: en-US
----
-
-
 # License your Office and SharePoint Add-ins
 
 The licensing framework for Office and SharePoint Add-ins gives you a way to include code in your add-ins to verify and enforce their legal use. You can restrict access to your add-ins to only those users who have a valid license, or specify which features are available, how the add-in behaves, or other logic, based on the properties of that license. If you plan to sell your add-in, you should build in logic that uses the licensing framework to determine whether a user has a valid license for the add-in, and give access to its features based on the license's properties.

@@ -1,11 +1,3 @@
----
-title: Create effective Office Store apps and add-ins
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: c66a6e6b-2e96-458f-8f8c-2a499fe942c9
-ms.locale: en-US
----
-
-
 # Create effective Office Store apps and add-ins
  
 

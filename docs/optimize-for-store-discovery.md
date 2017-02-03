@@ -1,11 +1,3 @@
----
-title: Optimize the Office Store placement and ranking of your Office Add-in
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: ac8b34b0-c186-4548-aa5b-896f5c4c4e07
-ms.locale: en-US
----
-
-
 # Optimize the Office Store placement and ranking of your Office Add-in
 
 Do you want to deliver a top-quality add-in experience, generative positive customer reviews, and optimize your add-in's placement in the Office Store? The depth and value that you provide in your add-in determines in part your add-in's Office Store placement and ranking in store search results. To create a high-quality add-in experience, apply the  [best practices for add-in development](http://msdn.microsoft.com/library/013e1486-4482-42c1-bcda-edf8de06e771%28Office.15%29.aspx). Then, make sure that customers find and use your add-in by  [creating an effective Office Store listing](create-effective-office-store-apps-and-add-ins.md). 

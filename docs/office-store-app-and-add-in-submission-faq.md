@@ -1,11 +1,3 @@
----
-title: Office Store app and add-in submission FAQ
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 0ceb385c-a608-40cc-8314-78e39d6c75d0
-ms.locale: en-US
----
-
-
 # Office Store app and add-in submission FAQ
 
 

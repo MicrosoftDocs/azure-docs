@@ -1,11 +1,3 @@
----
-title: Promote your Office or SharePoint Add-in or Office 365 web app
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: b19e21f8-76f5-44e1-9971-bef79cad4c71
-ms.locale: en-US
----
-
-
 # Promote your Office or SharePoint Add-in or Office 365 web app
 Promote your Office Add-in, SharePoint Add-in, or Office 365 web app in the Office Store by adding Office Store badges to your webpage.
  

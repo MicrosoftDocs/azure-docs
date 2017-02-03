@@ -1,11 +1,3 @@
----
-title: Prepare localized apps and add-ins
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 61721040-c4fe-4c24-9237-1eb07b8ad5cb
-ms.locale: en-US
----
-
-
 # Prepare localized apps and add-ins
 
 To offer your Office Add-in, SharePoint Add-in, or Office 365 app in languages beyond the primary language, you will need localized metadata for each additional language. The best customer experience is with apps or add-ins that have web services and functionality that support these additional languages. You will also need to create descriptions in each language. For a list of the languages that the Seller Dashboard currently accepts, see Table 2 later in this article.

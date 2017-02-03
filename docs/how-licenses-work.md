@@ -1,11 +1,3 @@
----
-title: How licenses work for Office and SharePoint Add-ins
-ms.prod: MULTIPLEPRODUCTS
-ms.assetid: 733271c5-a2cc-41a2-b837-74ecf986b2cf
-ms.locale: en-US
----
-
-
 # How licenses work for Office and SharePoint Add-ins 
 
 The licensing framework for Office and SharePoint Add-ins gives you a way to include code in your add-ins to verify and enforce their legal use. You can restrict access to your add-ins to only those users who have a valid license, or specify which features are available, how the add-in behaves, or other logic, based on the properties of that license. To write effective license checks, it is important to understand the types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
