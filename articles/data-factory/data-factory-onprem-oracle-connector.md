@@ -32,7 +32,7 @@ Oracle connector support two versions of drivers:
 - **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. You are **recommended** to use this driver. With that, you don't need to install anything else besides the gateway to connect to Oracle, and you can also experience better copy performance. Oracle Database version 10g Release 2 or later are supported.
 
     > [!NOTE]
-    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle.
+    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
     >
 
 - **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
@@ -416,10 +416,6 @@ The following table provides description for JSON elements specific to Oracle li
 | gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
 
 See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises Oracle data source.
-
->[!NOTE]
-> Note the test connection capability in Data Management Gateway Diagnostics tab only support ODP.NET driver. Alternatively, you can use the copy wizard to validate Microsoft driver.
->
 
 **Example: using Microsoft driver**
 ```JSON
