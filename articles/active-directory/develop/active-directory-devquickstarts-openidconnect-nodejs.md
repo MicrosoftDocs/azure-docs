@@ -255,31 +255,31 @@ Your app is now properly configured to communicate with the endpoint by using th
 
 1. First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:
 
-```JavaScript
+    ```JavaScript
 
-    //Routes (section 4)
+        //Routes (section 4)
 
-    app.get('/', function(req, res){
-      res.render('index', { user: req.user });
-    });
+        app.get('/', function(req, res){
+          res.render('index', { user: req.user });
+        });
 
-    app.get('/account', ensureAuthenticated, function(req, res){
-      res.render('account', { user: req.user });
-    });
+        app.get('/account', ensureAuthenticated, function(req, res){
+          res.render('account', { user: req.user });
+        });
 
-    app.get('/login',
-      passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-      function(req, res) {
-        log.info('Login was called in the Sample');
-        res.redirect('/');
-    });
+        app.get('/login',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('Login was called in the Sample');
+            res.redirect('/');
+        });
 
-    app.get('/logout', function(req, res){
-      req.logout();
-      res.redirect('/');
-    });
+        app.get('/logout', function(req, res){
+          req.logout();
+          res.redirect('/');
+        });
 
-```
+    ```
 
 2.  Let's review these in detail:
 
