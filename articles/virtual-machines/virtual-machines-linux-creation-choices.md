@@ -52,7 +52,7 @@ The following examples use the Azure CLI 2.0 (Preview). Read each article for mo
     --name myVM
     ```
 
-    * If you wish to use non-managed (native) disks, add the `--use-native-disks` flag to the above command. A storage account will be created for you. For more information, see [insert link to new Azure Managed Disks overview doc](insert link).
+    * If you wish to use unmanaged disks, add the `--use-unmanaged-disks` flag to the above command. A storage account will be created for you. For more information, see [insert link to new Azure Managed Disks overview doc](insert link).
 
 * [Create a secured Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
@@ -70,7 +70,7 @@ The following examples use the Azure CLI 2.0 (Preview). Read each article for mo
 
 * [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 5Gb non-managed (native) disk named `myDataDisk.vhd` to an existing VM named `myVM`:
+  * The following example uses [az vm disk attach-new](/cli/azure/vm/disk#attach-new) to add a 5Gb unmanaged disk named `myDataDisk.vhd` to an existing VM named `myVM`:
     
     ```azurecli
     az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
@@ -134,7 +134,7 @@ If you require specific customizations, you can use an image based on an existin
 * [Information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
-  * Quick-start **az vm** example commands to capture an existing VM using non-managed (native) disks:
+  * Quick-start **az vm** example commands to capture an existing VM using unmanaged disks:
     
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
