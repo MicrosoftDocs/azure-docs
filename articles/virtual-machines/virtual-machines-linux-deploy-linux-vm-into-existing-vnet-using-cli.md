@@ -169,7 +169,7 @@ az vm create \
 If you use managed disks, skip this step. If you wish to use unmanaged disks, you need to add the following additional parameters to the proceeding command to create unmanaged disks in the storage account named `mystorageaccount`: 
 
 ```azurecli
-    --use-native-disk \
+    --use-unmanaged-disk \
     --storage-account mystorageaccount
 ```
 
