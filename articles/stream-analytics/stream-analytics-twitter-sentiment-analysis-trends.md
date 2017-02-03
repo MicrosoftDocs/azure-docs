@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/03/2017
+ms.date: 01/24/2017
 ms.author: jeffstok
----
 
+---
 # Social media analysis: Real-time Twitter sentiment analysis in Azure Stream Analytics
 Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You'll write an Azure Stream Analytics query to analyze the data. You'll then either store the results for later perusal or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
 
@@ -42,7 +42,6 @@ Use the following steps to create an event hub.
 4. Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions.
 
    ![Shared Access Policies where you can create a policy with Manage permissions.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
-
 5. Click **SAVE** at the bottom of the page.
 6. Go to the **DASHBOARD**, click **CONNECTION INFORMATION** at the bottom of the page, and then copy and save the connection information. (Use the copy icon that appears under the search icon.)
 
@@ -63,20 +62,16 @@ Follow these steps to set up the application:
    [Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
    Note that you will need to make an empty application to generate a token.  
-
 3. Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with the connection string and name of your event hub. The connection string that you copied earlier gives you both the connection string and the name of your event hub, so be sure to separate them and put each in the correct field. For example, consider the following connection string:
 
-`     Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub`
+     Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
 
    The TwitterClient.exe.config file should contain your settings as in the following example:
 
-```
      add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
      add key="EventHubName" value="yourhub"
-```
 
    It is important to note that the text "EntityPath=" does **not** appear in the EventHubName value.
-
 4. *Optional:* Adjust the keywords to search for.  As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".  You can adjust the values for **twitter_keywords** in TwitterClient.exe.config, if desired.
 5. Run TwitterClient.exe to start your application. You will see Tweet events with the **CreatedAt**, **Topic**, and **SentimentScore** values being sent to your event hub.
 
@@ -93,7 +88,6 @@ Now that Tweet events are streaming in real time from Twitter, we can set up a S
    * **REGION**: Select the region where you want to run the job. Consider placing the job and the event hub in the same region to ensure better performance and to ensure that you will not be paying to transfer data between regions.
    * **STORAGE ACCOUNT**: Choose the Azure storage account that you would like to use to store monitoring data for all Stream Analytics jobs that run within this region. You have the option to choose an existing storage account or to create a new one.
 3. Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.  
-
    ![Stream Analytics service icon](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
    The new job will be shown with a status of **CREATED**. Notice that the **START** button on the bottom of the page is disabled. You must configure the job input, output, and query before you can start the job.
@@ -111,13 +105,11 @@ Now that Tweet events are streaming in real time from Twitter, we can set up a S
    * **EVENT HUB NAME**: Select the name of the event hub.
    * **EVENT HUB POLICY NAME**: Select the event hub policy that you created earlier in this tutorial.
    * **EVENT HUB CONSUMER GROUP**: Type the name of the consumer group that you created earlier in this tutorial.
-
 5. Click the right button.
 6. Specify the following values:
 
    * **EVENT SERIALIZER FORMAT**: JSON
    * **ENCODING**: UTF8
-   
 7. Click the **CHECK** button to add this source and to verify that Stream Analytics can successfully connect to the event hub.
 
 ### Specify job query
@@ -136,10 +128,9 @@ To start, we will do a simple pass-through query that projects all the fields in
 1. Click **QUERY** at the top of the Stream Analytics job page.
 2. In the code editor, replace the initial query template with the following:
 
-   `SELECT * FROM TwitterStream`
+     SELECT * FROM TwitterStream
 
    Make sure that the name of the input source matches the name of the input that you specified earlier.
-
 3. Click **Test** under the query editor.
 4. Go to your sample .json file.
 5. Click the **CHECK** button, and see the results below the query definition.
@@ -151,30 +142,23 @@ To compare the number of mentions among topics, we'll use a [TumblingWindow](htt
 
 1. Change the query in the code editor to:
 
-```
      SELECT System.Timestamp as Time, Topic, COUNT(*)
      FROM TwitterStream TIMESTAMP BY CreatedAt
      GROUP BY TUMBLINGWINDOW(s, 5), Topic
-```
 
    This query uses the **TIMESTAMP BY** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field wasn't specified, the windowing operation would be performed by using the time that each event arrived at the event hub.  Learn more in the "Arrival Time Vs Application Time" section of [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
    This query also accesses a timestamp for the end of each window by using the **System.Timestamp** property.
-
 2. Click **Rerun** under the query editor to see the results of the query.
 
 #### Identify trending topics: Sliding window
 To identify trending topics, we'll look for topics that cross a threshold value for mentions in a given amount of time. For the purposes of this tutorial, we'll check for topics that are mentioned more than 20 times in the last five seconds by using a [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1. Change the query in the code editor to:
-
-```
      SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
      FROM TwitterStream TIMESTAMP BY CreatedAt
      GROUP BY SLIDINGWINDOW(s, 5), topic
      HAVING COUNT(*) > 20
-```
-
 2. Click **Rerun** under the query editor to see the results of the query.
 
    ![Sliding Window query output](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
@@ -184,13 +168,10 @@ The final query that we will test uses **TumblingWindow** to get the number of m
 
 1. Change the query in the code editor to:
 
-```
      SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
      Max(SentimentScore), STDEV(SentimentScore)
      FROM TwitterStream TIMESTAMP BY CreatedAt
      GROUP BY TUMBLINGWINDOW(s, 5), Topic
-```     
-
 2. Click **Rerun** under the query editor to see the results of the query.
 3. This is the query that we will use for our dashboard.  Click **SAVE** at the bottom of the page.
 
