@@ -327,7 +327,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
                 };
                 ```
 
-                2. Create the `/routes/user.js` route under the root directory.
+2. Create the `/routes/user.js` route under the root directory.
 
                 ```JavaScript
                 /*
