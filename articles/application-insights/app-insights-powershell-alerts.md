@@ -78,7 +78,7 @@ The GUID is the subscription ID (not the instrumentation key of the application)
      -Location "East US" -RuleType Metric
 
 ## Example 2
-I have an application in which I use [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
+I have an application in which I use [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -117,7 +117,7 @@ The same rule can be used for the metric reported by using the [measurement para
 | `request.rate` |Request rate |Rate of all requests to the application per second. |
 | `requestFailed.count` |Failed requests |Count of HTTP requests that resulted in a response code >= 400 |
 | `view.count` |Page views |Count of client user requests for a web page. Synthetic traffic is filtered out. |
-| {your custom metric name} |{Your metric name} |Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties). |
+| {your custom metric name} |{Your metric name} |Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties). |
 
 The metrics are sent by different telemetry modules:
 
