@@ -1,6 +1,6 @@
 ---
 title: Enable HTTPS on an Azure CDN Custom Domain | Microsoft Docs
-description: Learn how to enable HTTPS on your Azure CDN endpoint with a custom domain 
+description: Learn how to enable HTTPS on your Azure CDN endpoint with a custom domain. 
 services: cdn
 documentationcenter: ''
 authors=camsoper
@@ -92,6 +92,10 @@ After the domain name is validated it will take up to 6-8 hours for the custom d
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
 	
 	A SAN cert follows the same encryption and security standards as a dedicated cert. All issued SSL certificates are using SHA-256 for enhanced server security.
+
+5. *Can I use custom domain HTTPS with Azure CDN from Akamai?*
+
+	Currently, this feature is only available with Azure CDN from Verizon. We are working on supporting this feature with Azure CDN from Akamai in the coming months.
 
 
 ## Next steps
