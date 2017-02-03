@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/03/2017
 ms.author: jgao
 
 ---
@@ -64,7 +64,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
    
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";
    
@@ -93,7 +93,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                     };
    
                     System.Console.WriteLine("Submitting the MR job to the cluster...");
-                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
@@ -126,6 +126,10 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
             }
         }
 4. Press **F5** to run the application.
+
+To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".
+
+When the job completes successfully, the output is blank. To see the result of the MapReduce job, use the Azure portal to explore the default storage container in the Blob storage.  The file name is "part-r-00000".
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
