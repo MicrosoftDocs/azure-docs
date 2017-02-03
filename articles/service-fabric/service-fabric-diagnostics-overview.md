@@ -314,7 +314,6 @@ In the configuration there are two inputs defined, the two EventSource based sou
         _logger.LogInformation("{RequestName} {Duration}", "MyRequest", sw.ElapsedMilliseconds);
     }
 ```
-
 5. To view the events in Application Insights, open the Azure portal and navigate to your ApplicationInsights resource. Then click "Search" in the upper left and the events should be visible.
 
 ![Application Insights Search view of events](./media/service-fabric-diagnostics-overview/ai-search-events.png)
