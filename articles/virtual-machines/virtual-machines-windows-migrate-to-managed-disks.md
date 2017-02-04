@@ -1,6 +1,6 @@
 ---
-title: Migrate to managed disks in Azure | Microsoft Docs
-description: Migrate virtual machines created using storage accounts to use managed disks.
+title: Migrate VMs to managed disks in Azure | Microsoft Docs
+description: Migrate Azure virtual machines created using storage accounts to use managed disks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 02/03/2017
 ms.author: cynthn
 
 ---
@@ -29,6 +29,7 @@ You can migrate to Managed Disks in following scenarios:
 
 | Scenario                                           | Documentation link                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| VMs within an availability set that use unmanaged disks to managed disks   | [Convert VMs in an availability set to use managed disks](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#XXX)                                                                         |
 | Premium unmanaged disks to Premium managed disks   | [Convert existing Azure VMs to managed disks of the same storage type](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
 | Standard unmanaged disks to Standard managed disks | [Convert existing Azure VMs to managed disks of the same storage type](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
 | Standard unmanaged disks to Premium managed disks  | [Migrate existing Azure VMs using Standard Unmanaged Disks to Premium Managed Disks](virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md#migrate-existing-azure-vms-using-standard-unmanaged-disks-to-premium-managed-disks)                            |
