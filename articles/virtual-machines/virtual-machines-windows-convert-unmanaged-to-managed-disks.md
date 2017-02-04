@@ -54,7 +54,6 @@ foreach($vmInfo in $avSet.VirtualMachinesReferences)
 
    ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
    
-   Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.Name
 	}
 ```
 
@@ -78,14 +77,6 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
     ```powershell
     ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
     ```
-
-3. Start the VM 
-
-    ```powershell
-    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
-    ```
-
-
 
 
 ## Migrate existing Azure VMs using standard unmanaged Disks to Premium Managed Disks
@@ -144,11 +135,6 @@ This section will show you how to convert your existing Azure VMs on Standard un
 
     You can also have a mixture of disks that use standard and Premium storage.
 	
-3. Start the VM 
-
-    ```powershell
-    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vmName
-    ```
 
 ## Next steps
 
