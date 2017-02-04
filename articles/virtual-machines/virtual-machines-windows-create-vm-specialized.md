@@ -1,6 +1,6 @@
 ---
-title: Create VM from a specialized VHD | Microsoft Docs
-description: Create a new VM by attaching specialized VHD, in the Resource Manager deployment model.
+title: Create VM from a specialized disk | Microsoft Docs
+description: Create a new VM by attaching a specialized managed disk or unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,16 +14,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/03/2017
 ms.author: cynthn
 
 ---
-# Create a VM from a specialized VHD
-Create a new VM by attaching a specialized VHD as the OS disk using Powershell. A specialized is a copy of VHD from and exisitng VM that maintains the user accounts, applications and other state data from your original VM. 
+# Create a VM from a specialized disk
+
+Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](xxx.md) or a specialized unmanaged disk to create the new VM.
 
 If you want to create a VM from a generalized VHD, see [Create a VM from a generalized VHD image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Create the subNet and vNet
+
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
 
 1. Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
@@ -98,32 +100,34 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 	
 ## Configure the OS disk
 
+The specialised OS could be a VHD that you [uploaded to Azure](virtual-machines-windows-upload-image.md) or a [copy the VHD from an existing Azure VM](virtual-machines-windows-vhd-copy.md). 
+
 You can choose one of two options:
-- **Option 1**: Import a specialized VHD from a storage account to create a managed disk and use that as the OS disk.
+- **Option 1**: Create a specialized managed disk from a specialied VHD in an existing storage account to use as the OS disk.
 
 or 
 
-- **Option 2**: Use a specialized VHD stored in your own storage account. This could be a VHD that you [uploaded to Azure](virtual-machines-windows-upload-image.md) or a [copy the VHD from an existing Azure VM](virtual-machines-windows-vhd-copy.md).
+- **Option 2**: Use a specialized VHD stored in your own storage account (an unmanaged disk). 
 
-### Option 1: Use a managed disk
+### Option 1: Create a managed disk from an unmanaged specialized disk
 
-1. Create a managed disk by importing an existing specialized VHD from an azure storage account.
+1. Create a managed disk from the existing specialized VHD in your storage account. This example uses **myOSDisk1** for the disk name, puts the disk in **StandardLRS** storage and uses **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd** as the URI for the source VHD.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
 	-AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
 	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
-    -ResourceGroupName $resourceGroupName
+    -ResourceGroupName $rgName
     ```
 
-2. Add the OS disk to the configuration. This example sets the size of the disk to 128GB and attaches the managed disk as the Windows OS disk.
+2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
 	
 	```powershell
 	$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
 	-DiskSizeInGB 128 -CreateOption Attach -Windows
 	```
 
-Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using  [Create managed data disks](virtual-machines-windows-create-managed-data-disk.md). 
+Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](virtual-machines-windows-create-managed-data-disk.md). 
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
@@ -132,7 +136,7 @@ $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOptio
 
 ### Option 2: Attach a VHD that is in an existing storage account
 
-1. Set the URI for the VHD that you want to use. In this example, the VHD file named "myOsDisk.vhd" is kept in a storage account named "myStorageAccount" in a container named "myContainer".
+1. Set the URI for the VHD that you want to use. In this example, the VHD file named **myOsDisk.vhd** is kept in a storage account named **myStorageAccount** in a container named **myContainer**.
 
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
