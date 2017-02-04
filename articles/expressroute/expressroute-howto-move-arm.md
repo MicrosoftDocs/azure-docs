@@ -77,7 +77,7 @@ To move your circuit, modify and run the following snippet:
 > After the move has finished, the new name that is listed in the previous cmdlet will be used to address the resource. The circuit will essentially be renamed.
 > 
 
-## Update circuit access
+## Modify circuit access
 
 ### To enable ExpressRoute circuit access for both deployment models
 After moving your classic ExpressRoute circuit to the Resource Manager deployment model, you can enable access to both deployment models. Run the following cmdlets to enable access to both deployment models:
