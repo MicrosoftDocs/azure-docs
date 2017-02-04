@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/22/2016
-ms.author: ronitr; ronmat; carlrab
+ms.author: ronitr; ronmat
 
 ---
 # Get started with SQL Database Dynamic Data Masking (Azure Portal)
