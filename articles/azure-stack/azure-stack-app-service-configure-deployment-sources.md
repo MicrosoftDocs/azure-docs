@@ -54,7 +54,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 9. Click **Source control configuration**.
 10. Copy and paste the **Client Id** and **Client Secret** into the corresponding input boxes for GitHub.
 11. Click **Save**.
-12. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+12. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#schedule-repair-of-management-roles).
 
 
 ## Configure BitBucket
@@ -80,7 +80,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 11. Click **Source control configuration**.
 12. Copy and paste the **Key** into the **Client Id** input box and **Secret** into the **Client Secret** input box for BitBucket.
 13. Click **Save**.
-14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#schedule-repair-of-management-roles).
 
 ## Configure OneDrive
 
@@ -109,7 +109,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 13. Click **Source control configuration**.
 14. Copy and paste the **Application Id** into the **Client Id** input box and **Password** into the **Client Secret** input box for OneDrive.
 15. Click **Save**.
-16. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+16. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#schedule-repair-of-management-roles).
 
 ## Configure DropBox
 
@@ -132,7 +132,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 11. Click **Source control configuration**.
 12. Copy and paste the **Application Key** into the **Client Id** input box and **App secret** into the **Client Secret** input box for DropBox.
 13. Click **Save**.
-14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#schedule-repair-of-management-roles).
 
 ## Schedule Repair of Management Roles
 In order for the settings updated in the configuration of the various deployment sources to be applied, the Management Roles need to be repaired.  This process ensures that the configuration values are applied correctly and the configured Deployment Sources are made available to tenants.
