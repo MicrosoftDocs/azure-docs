@@ -36,10 +36,11 @@ The managed disk will be created in the **West-US** location, in a resource grou
     $location = "westus"
     $dataDiskName = "myDataDisk"
     $dataVhdUri = "https://mystorageaccount.blob.core.windows.net/vhds/datadisk.vhd"
+	```
 
 2. Create the data disk. 
     ```powershell
-    $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import -SourceUri $dataVhdUri) -ResourceGroupName $resourceGroupName
+    $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $dataVhdUri) -ResourceGroupName $resourceGroupName
 	```
 	
 	
@@ -62,10 +63,8 @@ The disk size in this example is 128GB, but you should choosed a size that meets
 
 2. Create the data disk.
     ```powershell
-    $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreationDataCreateOption Empty -DiskSizeGB 128) -ResourceGroupName $resourceGroupName
+    $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Empty -DiskSizeGB 128) -ResourceGroupName $resourceGroupName
 	```
 	
 # Next Steps	
-- [Create a specialized VM](virtual-machines-windows-create-vm-specialized.md)
-- [Create a generalized VM](virtual-machines-windows-create-vm-generalized.md)
 - If you already have a VM, you can [attach a data disk](virtual-machines-windows-attach-disk-portal.md).
