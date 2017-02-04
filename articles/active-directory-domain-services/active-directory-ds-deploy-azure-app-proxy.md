@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/06/2017
 ms.author: maheshu
 
 ---
@@ -98,11 +98,13 @@ You have set up the Azure AD Application Proxy and integrated it with your Azure
 
 
 ## Deployment note - Publish IWA (Integrated Windows Authentication) applications using Azure AD Application Proxy
-Enable single sign-on to your applications using Integrated Windows Authentication (IWA) by granting Application Proxy Connectors permission to impersonate users, and send and receive tokens on their behalf. Configure Kerberos Constrained Delegation (KCD) for the connector to grant the required permissions to access resources on the managed domain. Use the resource-based KCD mechanism on managed domains for increased security.
+Enable single sign-on to your applications using Integrated Windows Authentication (IWA) by granting Application Proxy Connectors permission to impersonate users, and send and receive tokens on their behalf. Configure kerberos constrained delegation (KCD) for the connector to grant the required permissions to access resources on the managed domain. Use the resource-based KCD mechanism on managed domains for increased security.
 
 
-### Enable resource-based KCD for the Azure AD Application Proxy connector
-The Azure Application Proxy connector should be configured for Kerberos Constrained Delegation so it can impersonate users on the managed domain. On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional account-level KCD cannot be configured on a managed domain**. Use resource-based KCD as described in this [article](active-directory-ds-enable-kcd.md).
+### Enable resource-based kerberos constrained delegation for the Azure AD Application Proxy connector
+The Azure Application Proxy connector should be configured for kerberos constrained delegation (KCD), so it can impersonate users on the managed domain. On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional account-level KCD cannot be configured on a managed domain**. 
+
+Use resource-based KCD as described in this [article](active-directory-ds-enable-kcd.md).
 
 > [!NOTE]
 > You need to be a member of the 'AAD DC Administrators' group, to administer the managed domain using AD PowerShell cmdlets.
