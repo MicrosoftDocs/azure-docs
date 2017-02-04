@@ -24,6 +24,7 @@
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
+#### [Diagnostic logs](event-hubs-diagnostic-logs.md)
 ### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
