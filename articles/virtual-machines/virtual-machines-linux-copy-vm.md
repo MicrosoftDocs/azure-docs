@@ -30,7 +30,7 @@ You can complete the task using one of the following CLI versions:
 
 ## Prerequisites
 - You need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
-- You need an Azure VM that you will use as your source when you create a copy.
+- You need an Azure VM to use as your source when you create a copy.
 
 ## Stop the VM
 Deallocate the source VM with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
@@ -81,7 +81,7 @@ az storage blob copy start \
 ```
 
 ## Set up the virtual network for your new VM
-The following steps will create a new virtual network, subnet, public IP address, and virtual network interface card (NIC). These steps are optional. If you are copying a VM for troubleshooting purposes or additional deployments, you may not wish to use a VM in an existing virtual network. If you wish to create a virtual network infrastructure for your copied VMs, follow these next few steps, otherwise skip ahead to [create a VM](#create-a-vm).
+The following steps create a new virtual network, subnet, public IP address, and virtual network interface card (NIC). These steps are optional. If you are copying a VM for troubleshooting purposes or additional deployments, you may not wish to use a VM in an existing virtual network. If you wish to create a virtual network infrastructure for your copied VMs, follow these next few steps, otherwise skip ahead to [create a VM](#create-a-vm).
 
 Create the virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
