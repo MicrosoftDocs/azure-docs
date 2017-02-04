@@ -38,7 +38,7 @@ You need to have already [generalized the VM](virtual-machines-windows-generaliz
 8. in **Location, choose the location of your resource group.
 9. In **OS type** select the type of operating system, either Windows or Linux.
 10. In **OS state** select either specialized or generalized. 
-11. In **Storage blob** type the URI for the VHD file you want to use or click **Browse** to look for the VHD in Azure storage.
+11. In **Storage blob**, click **Browse** to look for the VHD in Azure storage.
 12. In **Account type** choose Standard_LRS or Premium_LRS. Standard uses hard-disk drives and Premium uses solid-state drives. Both use locally-redundant storage.
 13. In **Disk caching** select the appropriate disk caching option. The options are **None**, **Read-only** and ** Read\write**.
 14. Optional: You can also add an existing data disk to the image.  
