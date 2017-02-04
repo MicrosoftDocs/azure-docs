@@ -42,7 +42,7 @@ A few other tools can assist you as you create a logic app deployment template. 
 >
 
 ### Install the logic app template PowerShell module
-The easiest way to install the module is via the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), by using the command `Install-Module -Name LogicAppTemplate`.  
+The easiest way to install the module is via the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate), by using the command `Install-Module -Name LogicAppTemplate`.  
 
 You also can install the PowerShell module manually:
 
