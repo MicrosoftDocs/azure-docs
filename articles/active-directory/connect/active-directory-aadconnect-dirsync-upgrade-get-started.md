@@ -24,7 +24,7 @@ Before you start installing Azure AD Connect, make sure to [download Azure AD Co
 
 * The required version of .Net and PowerShell. Newer versions are required to be on the server than what DirSync needed.
 * The proxy server configuration. If you use a proxy server to reach the internet, this setting must be configured before you upgrade. DirSync always used the proxy server configured for the user installing it, but Azure AD Connect uses machine settings instead.
-* The URLs required to be open in the proxy server. For basic scenarios, those also supported by DirSync, the requirements are the same. If you want to use any of the new features included with Azure AD Connect, some new URLs must be opened.
+* The URLs required to be open in the proxy server. For basic scenarios, those scenarios also supported by DirSync, the requirements are the same. If you want to use any of the new features included with Azure AD Connect, some new URLs must be opened.
 
 > [!NOTE]
 > Once you have enabled your new Azure AD Connect server to start synchronizing changes to Azure AD, you must not roll back to using DirSync or Azure AD Sync. Downgrading from Azure AD Connect to legacy clients including DirSync and Azure AD Sync is not supported and can lead to issues such as data loss in Azure AD.
@@ -48,7 +48,7 @@ The expected time to complete the upgrade is displayed by the wizard. This estim
 If you want to do a configuration migration and do a parallel deployment, then you can override the in-place upgrade recommendation. You might for example take the opportunity to refresh the hardware and operating system. For more information, see the [parallel deployment](#parallel-deployment) section.
 
 **Parallel deployment**  
-If you have more than 50,000 objects, then a parallel deployment is recommended. This avoids any operational delays experienced by your users. The Azure AD Connect installation attempts to estimate the downtime for the upgrade, but if you've upgraded DirSync in the past, your own experience is likely to be the best guide.
+If you have more than 50,000 objects, then a parallel deployment is recommended. This deployment avoids any operational delays experienced by your users. The Azure AD Connect installation attempts to estimate the downtime for the upgrade, but if you've upgraded DirSync in the past, your own experience is likely to be the best guide.
 
 ### Supported DirSync configurations to be upgraded
 The following configuration changes are supported with upgraded DirSync:
