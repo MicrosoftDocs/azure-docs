@@ -1,6 +1,6 @@
 ---
 title: Convert a VM from unmanged to managed disks - Azure | Microsoft Docs
-description: Convert a Vm from unmanaged disks to managed disks using PowerShell in the Resource Manager deployment model
+description: Convert a VM from unmanaged disks to managed disks using PowerShell in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -20,12 +20,19 @@ ms.author: cynthn
 ---
 # Convert a VM from unmanaged disks to managed disks
 
-If you have existing Azure VMs that use unmanaged disks in storage accounts and you want those VMs to be able to take advantage of managed disks, you can convert the VMs. The VMs are first shit down and deallocated, then you use Powershell to convert the VM to use managed disks (both the OS disks and data disks are converted during this proces) then you restart the VM and they will now be using managed disks.
+If you have existing Azure VMs that use unmanaged disks in storage accounts and you want those VMs to be able to take advantage of managed disks, you can convert the VMs. The VMs are shut down and deallocated, then you use Powershell to convert the VM to use managed disks. After the conversion, you restart the VM and it will now be using managed disks.
+
+The process converts both the OS disk and any attached data disks from using a unmanaged disks in a storage account to using managed disks. 
+
+This process requires a restart of the VM, so you can schedule the migration of your VMs during a pre-existing maintenance window.
+
+Test the migration process by migrating a test virtual machine before performing the migration in production because the migration process is not reversible.
+
 
 > [!IMPORTANT] 
 > During the conversion, you will be deallocating the VM. Deallocating the VM means that it will have a new IP address when it is started after the conversion. If you have a dependency on a fixed IP, you should use a reserved IP.
 
-## Convert an unmanaged availability set to a managed availability set
+## Convert VMs in an availability set to managed disks in a managed availability set
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
 
@@ -40,10 +47,7 @@ Update-AzureRmAvailabilitySet -Location $location -Name $avsetName -ResourceGrou
 
 ## Convert existing Azure VMs to managed disks of the same storage type
 
-This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SDD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. The process converts both the OS disk and any attached data disks from using a unmanaged disks in a storage account to using managed disks. requires a restart of the VM, so you can schedule the migration of your VMs during a pre-existing maintenance window.
-
-Test the migration process by migrating a test virtual machine before performing the migration in production as the migration process is not reversible.
-
+This section covers how to convert your existing Azure VMs from unmanaged disks in storage accounts to managed disks when you will be using the same storage type. You can use this process to go from Premium (SDD) unmanaged disks to Premium managed disks or from standard (HDD) unmanaged disks to standard managed disks. 
 
 1. Create variables and deallocate the VM. This example sets the resource group name to **myResourceGroup** and the VM name to **myVM**.
 
@@ -108,22 +112,15 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 	Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 	```
 
-1.  Convert virtual machine with Unmanaged disks to Managed Disks.
+1.  Convert virtual machine with unmanaged disks to Managed Disks.
 
-    Note: If you get internal server error while executing preceding command,
-    please retry the command 2-3 times before reaching out to our support team.
+    Note: If you get internal server error, please retry 2-3 times before reaching out to our support team.
 
     ```powershell
 	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName
 	```
 
-1.  Stop (Deallocate) the VM.
-
-    ```powershell
-    Stop-AzureRmVM -ResourceGroupName $resourceGroupName -VMName $vmName -Force
-	```
-
-2.  Upgrade all the disks to Premium Storage
+2.  Upgrade all of the disks to Premium Storage.
 
     ```powershell
 	$vmDisks = Get-AzureRmDisk -ResourceGroupName $resourceGroupName 
@@ -138,6 +135,8 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 		}
     ```
 
+    You can also have a mixture of disks that use standard and Premium storage.
+	
 3. Start the VM 
 
     ```powershell
@@ -146,5 +145,5 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 ## Next steps
 
-You can take a read-only copy of a VM using [snapshots](xxx.md).
+Take a read-only copy of a VM using [snapshots](xxx.md).
 
