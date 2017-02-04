@@ -34,7 +34,7 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Convert the VM to managed disks with [az vm convert](/cli/azure/vm#convert). The following process converst the VM named `myVM` including the OS disk and any data disks:
+2. Convert the VM to managed disks with [az vm convert](/cli/azure/vm#convert). The following process converts the VM named `myVM` including the OS disk and any data disks:
 
     ```azurecli
     az vm convert --resource-group-myResourceGroup --name myVM
@@ -71,7 +71,7 @@ All VMs in the availability set must be deallocated before you convert the avail
     az vm availability-set update -g myResourceGroup -n myAvailabilitySet --set sku.name=Aligned
     ```
 
-4. Convert all the VMs to managed disks with [az vm convert](/cli/azure/vm#convert). The following process converst the VM named `myVM` including the OS disk and any data disks:
+4. Convert all the VMs to managed disks with [az vm convert](/cli/azure/vm#convert). The following process converts the VM named `myVM` including the OS disk and any data disks:
 
     ```azurecli
     az vm convert --resource-group-myResourceGroup --name myVM
