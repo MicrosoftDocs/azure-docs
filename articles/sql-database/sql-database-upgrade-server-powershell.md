@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/03/2017
 ms.author: sstein
 
 ---
