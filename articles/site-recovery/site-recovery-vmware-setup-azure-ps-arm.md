@@ -25,7 +25,7 @@ ms.author: anoopkv
 This article describes how to set up & configure a Process Server in Azure for failing back virtual machines from Azure to on-premises.
 
 > [!NOTE]
-> This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to setup & configure a Failback Process Server (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md)
+> This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 ## Prerequisites
 
@@ -42,10 +42,10 @@ This article describes how to set up & configure a Process Server in Azure for f
   ![Add Process Server](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps-page-1.png)
 |**Field Name**|**Value**|
 |-|-|
-|Choose where you want to deploy your process server| Select the value **Deploy a failback process server in Azure** |
-|Subscription| Select the Azure Subscription where you failed over the virtual machines|
-| Resource Group | You can create a Resource Group to deploy this Process Server or choose to deploy the Process Server in an existing Resource Group|
-|Location| Select the Azure Data Center into which the virtual machines where failed over into|
+|Choose where you want to deploy your process server|.Select the value **Deploy a failback process server in Azure** |
+|Subscription|.Select the Azure Subscription where you failed over the virtual machines|
+| Resource Group|.You can create a Resource Group to deploy this Process Server or choose to deploy the Process Server in an existing Resource Group|
+|Location|.Select the Azure Data Center into which the virtual machines where failed over into|
 |Azure Network|Select the Azure Virtual Network(VNet) that the virtual machines where failed over into. If you had failed over virtual machines into multiple Azure VNets, then you need a Process server deployed per VNet|
 
 4. Fill up the rest of the properties for the process server
