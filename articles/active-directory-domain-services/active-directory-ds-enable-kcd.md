@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Enable Kerberos Constrained Delegation | Microsoft Docs'
-description: Enable Kerberos Constrained Delegation on Azure Active Directory Domain Services managed domains
+title: 'Azure Active Directory Domain Services: Enable kerberos constrained delegation | Microsoft Docs'
+description: Enable kerberos constrained delegation on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -13,14 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/06/2017
 ms.author: maheshu
 
 ---
 
-# Configure Kerberos Constrained Delegation on a managed domain
+# Configure kerberos constrained delegation (KCD) on a managed domain
+Many applications need to access resources in the context of the user. Active Directory supports a mechanism called Kerberos delegation, which enables this use-case. Further, you can restrict delegation so that only specific resources can be accessed in the context of the user. Azure AD Domain Services managed domains are different from traditional Active Directory domains since they are more securely locked down.
 
-## Kerberos Constrained Delegation
+This article shows you how to configure kerberos constrained delegation on an Azure AD Domain Services managed domain.
+
+## Kerberos constrained delegation (KCD)
 Kerberos delegation enables an account to impersonate another security principal (such as a user) to access resources. Consider a web application that accesses a back-end web API in the context of a user. In this example, the web application (running in the context of a service account or a computer/machine account) impersonates the user when accessing the resource (back-end web API). Kerberos delegation is insecure since it does not restrict the resources the impersonating account can access in the context of the user.
 
 Kerberos constrained delegation (KCD) restricts the services/resources to which the specified server can act on the behalf of a user. Traditional KCD requires domain administrator privileges to configure a domain account for a service and it restricts the account to a single domain.
@@ -32,10 +35,10 @@ Traditional KCD also has a few issues associated with it. In earlier operating s
 >
 >
 
-## Resource-based Kerberos Constrained Delegation
-In Windows Server 2012 R2 and Windows Server 2012, the ability to configure constrained delegation for the service has been transferred from the domain administrator to the service administrator. In this way, the back-end service administrator can allow or deny front-end services. This model is known as **Resource-based Kerberos Constrained Delegation**.
+## Resource-based kerberos constrained delegation
+In Windows Server 2012 R2 and Windows Server 2012, the ability to configure constrained delegation for the service has been transferred from the domain administrator to the service administrator. In this way, the back-end service administrator can allow or deny front-end services. This model is known as **resource-based kerberos constrained delegation**.
 
-resource-based KCD is configured using PowerShell. You use the Set-ADComputer or Set-ADUser cmdlets, depending on whether the impersonating account is a computer account or a user account/service account.
+Resource-based KCD is configured using PowerShell. You use the Set-ADComputer or Set-ADUser cmdlets, depending on whether the impersonating account is a computer account or a user account/service account.
 
 ### Configure resource-based KCD for a computer account on a managed domain
 Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com'. It needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
