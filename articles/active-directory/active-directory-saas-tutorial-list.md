@@ -24,7 +24,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 ## List of Tutorials
 
-
 | Logo| App Name |
 | --- | --- |
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Frankly.png)| [&frankly](https://go.microsoft.com/fwLink/?LinkID=823723&clcid=0x409)|
@@ -146,7 +145,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_IdeaScale.png)| [IdeaScale](https://go.microsoft.com/fwLink/?LinkID=512746&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_IglooSoftware.png)| [Igloo Software](https://go.microsoft.com/fwLink/?LinkID=522555&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ImageRelay.png)| [Image Relay](https://go.microsoft.com/fwLink/?LinkID=708688&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_InforRetail .png)| [Infor Retail – Information Management](https://go.microsoft.com/fwLink/?LinkID=837422&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_InforRetail.png)| [Infor Retail – Information Management](https://go.microsoft.com/fwLink/?LinkID=837422&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Innotas.png)| [Innotas](https://go.microsoft.com/fwLink/?LinkID=510266&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_InsideView.png)| [InsideView](https://go.microsoft.com/fwLink/?LinkID=512719&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Insperity.png)| [Insperity ExpensAble](https://go.microsoft.com/fwLink/?LinkID=733447&clcid=0x409)|
@@ -316,7 +315,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler ZSCloud](https://go.microsoft.com/fwLink/?LinkID=512735&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
-
 
 
 ## Related Articles
