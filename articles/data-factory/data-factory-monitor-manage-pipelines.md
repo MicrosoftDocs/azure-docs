@@ -20,11 +20,10 @@ ms.author: spelluru
 # Monitor and manage Azure Data Factory pipelines by using the Azure portal and PowerShell
 > [!div class="op_single_selector"]
 > * [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-> * [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
->
->
+> * [Using Monitoring and Management app](data-factory-monitor-manage-app.md)
 
-The Data Factory service provides a reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard helps that you can use to perform the following tasks:
+
+Azure Data Factory provides a reliable and complete view of your storage, processing, and data movement services. The service provides you a monitoring dashboard that you can use to:
 
 * Quickly assess end-to-end data pipeline health.
 * Identify issues, and take corrective action if needed.
@@ -32,7 +31,7 @@ The Data Factory service provides a reliable and complete view of your storage, 
 * Track relationships between your data across any of your sources.
 * View full historical accounting of job execution, system health, and dependencies.
 
-This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
+This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified about failures.
 
 ## Understand pipelines and activity states
 Using the Azure portal, you can do tasks like the following:
@@ -41,90 +40,91 @@ Using the Azure portal, you can do tasks like the following:
 * View activities in a pipeline.
 * View input and output datasets.
 
-This section also provides how a slice transitions from one state to another state.   
+This section also describes how a slice transitions from one state to another state.   
 
 ### Navigate to your data factory
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Data factories** in the menu on the left. If you do not see it, click **More services >** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
+2. Click **Data factories** in the menu on the left. If you don't see it, click **More services >**, and click **Data factories** under the **INTELLIGENCE + ANALYTICS** category.
 
-   ![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+   ![Browse all > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
    You should see all the data factories in the **Data factories** blade.
-3. In the Data factories blade, select the data factory you are interested in.
+3. In the **Data factories** blade, select the data factory that you're interested in.
 
-    ![select data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)  
+    ![Select data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+
    You should see the home page (**Data factory** blade) for the data factory.
 
    ![Data factory blade](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Diagram view of your data factory
-The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets.
+The **Diagram** view of a data factory provides a single pane of glass to monitor and manage the data factory and its assets.
 
-To see the diagram view of your data factory, click **Diagram** on the data factory home page.
+To see the **Diagram** view of your data factory, click **Diagram** on the **Data factory** home page.
 
 ![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and tables. You can also see the data lineage information (show upstream and downstream items of selected items).
+You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and tables. You can also see the data lineage information (that is, show upstream and downstream items of selected items).
 
 ### Activities inside a pipeline
-1. Right-click the pipeline and click **Open pipeline** to see all activities in the pipeline along with input and output datasets for the activities. This feature is useful when your pipeline comprises of more than one Activity and you want to understand the operational lineage of a single pipeline.
+1. Right-click the pipeline and click **Open pipeline** to see all activities in the pipeline, along with input and output datasets for the activities. This feature is useful when your pipeline includes more than one activity and you want to understand the operational lineage of a single pipeline.
 
     ![Open pipeline menu](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
 2. In the following example, you see two activities in the pipeline with their inputs and outputs. The activity titled **JoinData** of type HDInsight Hive Activity and **EgressDataAzure** of type Copy Activity are in this sample pipeline.
 
     ![Activities inside a pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
-3. You can navigate back to Data Factory home page by clicking Data factory link in the breadcrumb at the top-left corner.
+3. You can navigate back to the **Data factory** home page by clicking the **Data factory** link in the breadcrumb at the top-left corner.
 
     ![Navigate back to data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
-### View state of each activity inside a pipeline
+### View the state of each activity inside a pipeline
 You can view the current state of an activity by viewing the status of any of the datasets produced by the activity.
 
-In the following example, the **BlobPartitionHiveActivity** ran successfully and produced a dataset named **PartitionedProductsUsageTable**, which is in **Ready** state.
+In the following example, the **BlobPartitionHiveActivity** ran successfully and produced a dataset named **PartitionedProductsUsageTable**, which is in the **Ready** state.
 
-![State of pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+![State of the pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Double-clicking the **PartitionedProductsUsageTable** in the diagram view showcases all the slices produced by different activity runs inside a pipeline. You can see that the **BlobPartitionHiveActivity** ran successfully every month for last eight months and produced the slices in **Ready** state.
+By double-clicking the **PartitionedProductsUsageTable** in the **Diagram**, you can see all the slices that are produced by different activity runs inside a pipeline. You can see that the **BlobPartitionHiveActivity** ran successfully every month for the last eight months and produced the slices in the **Ready** state.
 
-The dataset slices in data factory can have one of the following statuses:
+The dataset slices in the data factory can have one of the following statuses:
 
 <table>
 <tr>
     <th align="left">State</th><th align="left">Substate</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time has not come for the slice to run.</td>
+    <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time hasn't come for the slice to run.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>The upstream dependencies are not ready.</td>
+<td>DatasetDependencies</td><td>The upstream dependencies aren't ready.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>The compute resources are not available.</td>
+<td>ComputeResources</td><td>The compute resources aren't available.</td>
 </tr>
 <tr>
 <td>ConcurrencyLimit</td> <td>All the activity instances are busy running other slices.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Activity is paused and cannot run the slices until it is resumed.</td>
+<td>ActivityResume</td><td>The activity is paused and can't run the slices until it's resumed.</td>
 </tr>
 <tr>
 <td>Retry</td><td>Activity execution is retried.</td>
 </tr>
 <tr>
-<td>Validation</td><td>Validation has not started yet.</td>
+<td>Validation</td><td>Validation hasn't started yet.</td>
 </tr>
 <tr>
 <td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
 </tr>
 <tr>
-<tr
-<td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
+<tr>
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validation is in progress.</td>
 </tr>
 <td>-</td>
 <td>The slice is being processed.</td>
 </tr>
 <tr>
-<td rowspan="4">Failed</td><td>TimedOut</td><td>Execution took longer than that is allowed by the activity.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>The activity execution took longer than what is allowed by the activity.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>Canceled by user action.</td>
@@ -138,10 +138,10 @@ The dataset slices in data factory can have one of the following statuses:
 <td>Ready</td><td>-</td><td>The slice is ready for consumption.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>The slice is not processed.</td>
+<td>Skipped</td><td>None</td><td>The slice isn't processed.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>A slice that used to exist with a different status, but has been reset.</td>
+<td>None</td><td>-</td><td>A slice used to exist with a different status, but has been reset.</td>
 </tr>
 </table>
 
