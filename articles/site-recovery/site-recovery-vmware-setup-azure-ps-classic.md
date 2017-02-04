@@ -29,10 +29,19 @@ This article describes how to set up & configure a Process Server in Azure for f
 
 ## Prerequisites
 
-[!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+[!INCLUDE [site-recovery-vmware-process-server-prereq](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 ## Deploy Process Server on Azure
- <To do Anoop KV>
+
+1. In Azure Marketplace, create a virtual machine using the **Microsoft Azure Site Recovery Process Server V2** </br>
+    ![Marketplace_image_1](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image.png)
+2. Ensure that you select the deployment model as **Classic** </br>
+  ![Marketplace_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image-classic.png)
+3. In the Create virtual machine wizard > Basic Settings, ensure you select the Subscription and Location to which where you failed over the virtual machines.</br>
+  ![create_image_1](./media/site-recovery-vmware-setup-azure-ps-classic/azureps-classic-basic-info.png)
+4. Ensure that the virtual machine is connected to the Azure Virtual Network to which the failed over virtual machine is connected.</br>
+  ![create_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/azureps-classic-settings.png)
+5. Once the Process Server virtual machine is provisioned, you need to log in and register it with the Configuration Server.
 
 ## Registering the Process Server
 

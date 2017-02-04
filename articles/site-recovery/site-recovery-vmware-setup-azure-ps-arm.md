@@ -10,14 +10,14 @@ editor: ''
 ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
 ---
 
-# How to setup & configure a Failback Process Server (Resource Manager)
+# How to set up & configure a Failback Process Server (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-arm.md)
 > * [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
