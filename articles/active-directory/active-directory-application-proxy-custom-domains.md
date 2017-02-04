@@ -1,11 +1,11 @@
 ---
-title: Working with Custom Domains in Azure AD Application Proxy | Microsoft Docs
-description: Covers how work with custom domains in Azure AD Application Proxy.
+title: Custom domains in Azure AD Application Proxy | Microsoft Docs
+description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: ''
+editor: harshja
 
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 
 ---
@@ -67,11 +67,9 @@ A: Yes, self-signed certificates are allowed. Note that if you’re using a priv
 Q: Is there a place to see all the certificates for my tenant?  
 A: This is not supported in the current version.  
 
-## See also
-* [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-* [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+## Next steps
+* [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
+* [Enable conditional access](active-directory-application-proxy-conditional-access.md) to your published apps.
 * [Add your custom domain name to Azure AD](active-directory-add-domain.md)
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 

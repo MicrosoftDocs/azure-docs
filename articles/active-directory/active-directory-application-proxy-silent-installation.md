@@ -1,6 +1,6 @@
 ---
-title: How to silently install the Azure AD Application Proxy Connector | Microsoft Docs
-description: Covers how to perform a silent installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
+title: Silent install Azure AD Application Proxy Connector | Microsoft Docs
+description: Covers how to perform an unattended installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
 author: kgremban
@@ -45,7 +45,7 @@ This can be accomplished using either of the following methods:
 * Register the Connector using a token created offline
 
 ### Register the Connector using a Windows PowerShell credential object
-1. Create the Windows PowerShell Credentials object by running the following, where "<username>" and "<password>" should be replaced with the username and password for your directory:
+1. Create the Windows PowerShell Credentials object by running the following, where \<username\> and \<password\> should be replaced with the username and password for your directory:
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -112,9 +112,12 @@ This can be accomplished using either of the following methods:
         }
 
 
-2. Once you have the token create a SecureString using the token: <br>
+2. Once you have the token create a SecureString using the token:
+
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-3. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID: <br>
+
+3. Run the following Windows PowerShell command, where SecureToken is the name of the token you created above and tenantID is your tenant's GUID:
+
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 ## Next steps 
