@@ -29,7 +29,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 
 ## View Deployment Sources in App Service Administration
 
-1. Login to the Azure Stack portal as the service administrator.
+1. Log in to the Azure Stack portal as the service administrator.
 2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
     ![App Service Resource Provider Admin][1]
 3. Click **Source control configuration**.   Here you see the list of all Deployment Sources configured.
@@ -40,44 +40,44 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 > [!NOTE]
 > You will require a GitHub account to complete this task.  You may wish to use an account for your organization rather than a personal account.
 
-1. Login to GitHub, browse to https://www.github.com/settings/developers and click **Register a new application**
+1. Log in to GitHub, browse to https://www.github.com/settings/developers and click **Register a new application**
     ![GitHub - Register a new application][3]
 2. Enter an **Application name** for example - App Service on Azure Stack
-3. Enter the **Homepage URL**.  **This must be the Azure Stack Portal address** for example - https://portal.azurestack.local
+3. Enter the **Homepage URL**.  **The Homepage URL must be the Azure Stack Portal address** for example - https://portal.azurestack.local
 4. Enter an **Application Description**
-5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment the URL is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
-7. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+7. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 
 ## Configure BitBucket
 
 > [!NOTE]
-> You will require a BitBucket account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+> You require a BitBucket account to complete this task.  You may wish to use an account for your organization rather than a personal account.
 
-1. Login to BitBucket and browse to **Integrations** under your account
+1. Log in to BitBucket and browse to **Integrations** under your account
     ![BitBucket Dashboard - Integrations][7]
 2. Click **OAuth** under Access Management and **Add consumer**
     ![BitBucket Add OAuth Consumer][8]
 3. Enter a **Name** for the consumer, for example App Service on Azure Stack
 4. Enter a **Description** for the application
-5. Enter the **Callback URL**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain please substitute your domain for azurestack.local.  The Url must follow the capitalization as listed here for BitBucket integration to succeed.
+5. Enter the **Callback URL**.  In a default Azure Stack deployment the Callback URL is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain substitute your domain for azurestack.local.  The Url must follow the capitalization as listed here for BitBucket integration to succeed.
 6. Enter the **URL** - this should be the Azure Stack Portal URL, for example https://portal.azurestack.local
 7. Select the **Permissions** required
     **Repositories** : **Read**
     **Webhooks : **Read and write**
 8. Click **Save**.  You will now see this new application, along with the **Key** and **Secret** under **OAuth consumers**.
     ![BitBucket Application Listing][9]
-9. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+9. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Configure OneDrive
 
 > [!NOTE]
-> OneDrive for Business Accounts are not currently supported.  You will need to have a Microsoft Account linked to a OneDrive account to complete this task.  You may wish to use an account for your organisation rather than a personal account.
+> OneDrive for Business Accounts are not currently supported.  You need to have a Microsoft Account linked to a OneDrive account to complete this task.  You may wish to use an account for your organization rather than a personal account.
 
-1. Browse to https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm and login using your Microsoft Account.
+1. Browse to https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm and Log in using your Microsoft Account.
 2. Click **Add an app** under **My applications**
 ![OneDrive Applications][10]
 3. Enter a **Name** for the New Application Registration, enter **App Service on Azure Stack**, and click **Create Application**
@@ -87,21 +87,21 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 > [!NOTE]
 > Make sure to make a note of the new password as it is not retrievable once you click OK at this stage.
 6. Under **Platforms** click **Add Platform** and select **Web**
-7. Enter the **Redirect URI**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+7. Enter the **Redirect URI**.  In a default Azure Stack deployment the Redirect URI is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
 ![OneDrive Application - Add Web Platform][12]
 8. Set the **Microsoft Graph Permissions** - **Delegated Permissions**
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![OneDrive Application - Graph Permissions][13]
 9. Click **Save**
-10. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+10. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Configure DropBox
 
 > [!NOTE]
-> You will need to have a DropBox account to complete this task.  You may wish to use an account for your organization rather than a personal account.
+> You need to have a DropBox account to complete this task.  You may wish to use an account for your organization rather than a personal account.
 
-1. Browse to https://www.dropbox.com/developers/apps and login using your DropBox Account
+1. Browse to https://www.dropbox.com/developers/apps and Log in using your DropBox Account
 2. Click **Create app** 
 ![Dropbox applications][14]
 3. Select **DropBox API**
@@ -110,21 +110,21 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 ![Dropbox application registration][15]
 6. Click **Create App**.  You will now be presented with a page listing the settings for the App including **App key** and **App secret**.
 7. Check the **App folder name** is set to **App Service on Azure Stack**
-8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment this is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
+8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment the Redirect URI is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
 ![Dropbox application configuration][16]
-9. If you do not wish to configure any other Deployment Sources please proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+9. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Schedule Repair of Management Roles
 In order for the settings updated in the configuration of the various deployment sources to be applied, the Management Roles need to be repaired.  This process ensures that the configuration values are applied correctly and the configured Deployment Sources are made available to tenants.
 
-1. In a new browser tab or window Login to the Azure Stack Portal as the service administrator.
-2. Browse to **Resource Providers** and select the ** App Service Resource Provider Admin**.
+1. In a new browser tab or window Log in to the Azure Stack Portal as the service administrator.
+2. Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.
 3. Click **Source control configuration**
 4. Copy and paste the **Client Id** and **Client Secret** into the corresponding input boxes for GitHub.
 5. Click **Save**
 6. Click **Roles**
 7. Click **Management Server**
-8. Click **Repair All** and select **Yes**.  This schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimize downtime.
+8. Click **Repair All** and select **Yes**.  This operation schedules a repair on all Management Servers to complete the integration.  The repair operations are managed to minimize downtime.
     ![App Service Resource Provider Admin - Roles - Management Server Repair All][6]
 
 <!--Image references-->
