@@ -1,6 +1,6 @@
 ---
-title: Capture an image of a VM in Azure | Microsoft Docs
-description: Capture an image of a generalized VM in Azure for using with managed disks. 
+title: Capture a managed image of a VM in Azure | Microsoft Docs
+description: Capture a managed image of a generalized VM in Azure for using with VMs using managed disks. 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 02/04/2017
 ms.author: cynthn
 
 ---
-# How to capture an image of a generalized VM in Azure
+# How to capture a managed image of a generalized VM in Azure
 
-An image resource can be created from a generalized VM that is stored as either a managed disk or a storage account based VHD. The image can then be used to create multiple VMs that use managed disks for storage. The image includes all of the disks that are attached to the VM.
+A managed image resource can be created from a generalized VM that is stored as either a managed disk or an unmanaged disks in a storage account. The image can then be used to create multiple VMs that use managed disks for storage. The image includes all of the disks that are attached to the VM, including the OS disks and all data disks.
 
 
 ## Prerequisites
 You need to have already [generalized the VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and Stop\deallocatted the VM. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
 
-## Portal 
+## Create a managed image in the portal 
 
 1. Open the [portal](https://portal.azure.com).
 2. Click the plus sign to create a new resource.
@@ -47,7 +47,7 @@ You need to have already [generalized the VM](virtual-machines-windows-generaliz
 
 
 
-## PowerShell
+## Create a managed image using Powershell
 
 You will need to URI of the OS disk and any data disks that you want to be included in the image. You can get the URIs by using the [Get-AzureRMVM](/powershell/get-azurermvm.md) cmdlet.
 
@@ -86,6 +86,7 @@ You will need to URI of the OS disk and any data disks that you want to be inclu
    
     ```powershell
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+	```
 	
 7. Get the virtual machine. 
 
@@ -105,5 +106,5 @@ You will need to URI of the OS disk and any data disks that you want to be inclu
     ```	
 
 ## Next steps
-- Now you can [create a VM from the image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Now you can [create a VM from the generalized managed image](virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
