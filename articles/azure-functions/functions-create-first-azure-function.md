@@ -22,7 +22,7 @@ ms.author: glenga
 ## Overview
 Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions enables you to create scheduled or triggered units of code implemented in various programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
 
-This topic shows you how to use the Azure Functions quickstart in the portal to create a simple "hello world"  Node.js function that is invoked by an HTTP-trigger. You can also watch a short video to see how these steps are performed in the portal.
+This topic shows you how to use the Azure Functions quickstart in the portal to create a simple "hello world"  JavaScript function that is invoked by an HTTP-trigger. You can also watch a short video to see how these steps are performed in the portal.
 
 ## Watch the video
 The following video shows how to perform the basic steps in this tutorial. 
@@ -38,7 +38,7 @@ Before you can create your first function, you need to have an active Azure acco
 
 1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
 2. Type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. Note that you must enter a valid name, which can contain only letters, numbers, and hyphens. Underscore (**_**) is not an allowed character.
-3. In the **Quickstart** tab, click **WebHook + API** and **JavaScript**, then click **Create a function**. A new predefined Node.js function is created. 
+3. In the **Quickstart** tab, click **WebHook + API** and **JavaScript**, then click **Create a function**. A new predefined JavaScript function is created. 
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 4. (Optional) At this point in the quickstart, you can choose to take a quick tour of Azure Functions features in the portal. After you have completed or skipped the tour, you can test your new function by using the HTTP trigger.

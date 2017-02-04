@@ -25,9 +25,7 @@ Azure Functions is an event-driven, compute-on-demand experience that extends th
 This topic shows you how to use the Azure portal to create a simple "hello world"  Node.js Azure Function that is invoked by an HTTP-trigger. Before you can create a function in the Azure portal, you must explicitly create a function app in Azure App Service. To have the function app created for you automatically, see [the other Azure Functions quickstart tutorial](functions-create-first-azure-function.md), which is a simpler quickstart experience and includes a video.
 
 ## Create a function app
-A function app hosts the execution of your functions in Azure. Follow these steps to create a function app in the Azure portal.
-
-A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). Follow these steps to create a function app in the Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Click **+New** > **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
