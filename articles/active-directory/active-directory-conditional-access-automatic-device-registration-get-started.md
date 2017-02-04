@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2017
 ms.author: markvi
 
 ---
@@ -37,8 +37,11 @@ These scenarios are as follows:
 - **Conditional access for Office 365 applications with Microsoft Intune:** IT admins can provision conditional access device policies to secure 
   corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see Conditional Access Device Policies for Office 365 services.
 
-- **Conditional access to applications that are hosted on-premises:** You can use registered devices with access policies for applications that are configured to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see Setting up On-premises Conditional Access using Azure Active Directory Device Registration.
-Setting up Azure Active Directory Device Registration
+- **Conditional access to applications that are hosted on-premises:** You can use registered devices with access policies for applications that are configured 
+to use AD FS with Windows Server 2012 R2. For more information about setting up conditional access for on-premises, see 
+[Setting up On-premises Conditional Access using Azure Active Directory device registration](active-directory-conditional-access-on-premises-setup.md).
+
+## Setting up Azure Active Directory Device Registration
 
 To setup device registration, you have multiple options:
 
