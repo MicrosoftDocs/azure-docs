@@ -49,7 +49,12 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
-7. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+7.  In a new browser tab or window Login to the Azure Stack Portal as the service administrator . 
+8.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. 
+9. Click **Source control configuration**.
+10. Copy and paste the **Client Id** and **Client Secret** into the corresponding input boxes for GitHub.
+11. Click **Save**.
+12. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 
 ## Configure BitBucket
@@ -66,11 +71,16 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 5. Enter the **Callback URL**.  In a default Azure Stack deployment the Callback URL is in the form https://portal.azurestack.local/TokenAuthorize, if you are running under a different domain substitute your domain for azurestack.local.  The Url must follow the capitalization as listed here for BitBucket integration to succeed.
 6. Enter the **URL** - this should be the Azure Stack Portal URL, for example https://portal.azurestack.local
 7. Select the **Permissions** required
-    **Repositories** : **Read**
-    **Webhooks : **Read and write**
+    **Repositories**: **Read**
+    **Webhooks**: **Read and write**
 8. Click **Save**.  You will now see this new application, along with the **Key** and **Secret** under **OAuth consumers**.
     ![BitBucket Application Listing][9]
-9. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+9.  In a new browser tab or window Login to the Azure Stack Portal as the service administrator . 
+10.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. 
+11. Click **Source control configuration**.
+12. Copy and paste the **Key** into the **Client Id** input box and **Secret** into the **Client Secret** input box for BitBucket.
+13. Click **Save**.
+14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Configure OneDrive
 
@@ -93,8 +103,13 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![OneDrive Application - Graph Permissions][13]
-9. Click **Save**
-10. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+10. Click **Save**.
+11.  In a new browser tab or window Login to the Azure Stack Portal as the service administrator . 
+12.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. 
+13. Click **Source control configuration**.
+14. Copy and paste the **Application Id** into the **Client Id** input box and **Password** into the **Client Secret** input box for OneDrive.
+15. Click **Save**.
+16. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Configure DropBox
 
@@ -112,7 +127,12 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 7. Check the **App folder name** is set to **App Service on Azure Stack**
 8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment the Redirect URI is in the form https://portal.azurestack.local/tokenauthorize, if you are running under a different domain please substitute your domain for azurestack.local
 ![Dropbox application configuration][16]
-9. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
+9.  In a new browser tab or window Login to the Azure Stack Portal as the service administrator . 
+10.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. 
+11. Click **Source control configuration**.
+12. Copy and paste the **Application Key** into the **Client Id** input box and **App secret** into the **Client Secret** input box for DropBox.
+13. Click **Save**.
+14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#Schedule-Repair-of-Management-Roles).
 
 ## Schedule Repair of Management Roles
 In order for the settings updated in the configuration of the various deployment sources to be applied, the Management Roles need to be repaired.  This process ensures that the configuration values are applied correctly and the configured Deployment Sources are made available to tenants.
