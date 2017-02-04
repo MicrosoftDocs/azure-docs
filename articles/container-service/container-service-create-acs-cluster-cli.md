@@ -71,7 +71,7 @@ Other inputs are set to default values (see the following screen) unless overwri
 
 
 ### Quick `acs create` using defaults
-If you have an SSH public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following :
+If you have an SSH public key file `id_rsa.pub` in the default location (or created one for [OS X and Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) or [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use a command like the following:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -131,7 +131,7 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
-This command does not delete all resources (network and storage) created while creating the container service. To delete all resources, it is recommended that a single ACS cluster be created per resource group. Then, delete the resource group when the cluster is no longer required.
+This command does not delete all resources (network and storage) created while creating the container service. To delete all resources easily, it is recommended you deploy each cluster in a distinct resource group. Then, delete the resource group when the cluster is no longer required.
 
 ## Next steps
 Now that you have a functioning cluster, see these documents for connection and management details:
