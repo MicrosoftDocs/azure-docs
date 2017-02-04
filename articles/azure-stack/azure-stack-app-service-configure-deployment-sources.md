@@ -49,7 +49,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
     ![GitHub - Register a new application with values populated][4]
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
-7.  In a new browser tab or window Login to the Azure Stack Portal as the service administrator. 
+7.  In a new browser tab or window Log in to the Azure Stack Portal as the service administrator. 
 8.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. 
 9. Click **Source control configuration**.
 10. Copy and paste the **Client Id** and **Client Secret** into the corresponding input boxes for GitHub.
