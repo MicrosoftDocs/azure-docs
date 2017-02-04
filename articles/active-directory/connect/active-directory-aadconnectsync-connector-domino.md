@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/04/2017
 ms.author: billmath
 
 ---
@@ -486,4 +486,3 @@ There are several ways in Domino to extend the schema so it appears as a custom 
 
 ## Troubleshooting
 * For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
