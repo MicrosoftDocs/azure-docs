@@ -31,9 +31,9 @@ Before performing this procedure, make sure that the STS the claims aware app re
 
 ## ADFS configuration
 1. Open ADFS Management.
-2. Go to **Relying Party Trusts**, right click on the app you are publishing with Application Proxy, and choose **Properties**.  
+2. Go to **Relying Party Trusts**, right-click on the app you are publishing with Application Proxy, and choose **Properties**.  
 
-   ![Relying Party Trusts right click on app name - screentshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+   ![Relying Party Trusts right-click on app name - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
 
 3. On the **Endpoints** tab, under **Endpoint type**, select **WS-Federation**.
 4. Under **Trusted URL** enter the URL you entered in the Application Proxy under **External URL** and click **OK**.  
