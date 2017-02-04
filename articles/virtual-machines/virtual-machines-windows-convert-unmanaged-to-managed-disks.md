@@ -36,14 +36,27 @@ Test the migration process by migrating a test virtual machine before performing
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
 
+The following script updates the availability set to be a managed availabiilty set, then it deallocates, coverts the disks and then restarts each Vm in the availability set.
+
 ```powershell
-$avsetName = "myAVSet"
-$rgName = "myResourceGroup"
-$location = "West US"
-Update-AzureRmAvailabilitySet -Location $location -Name $avsetName -ResourceGroupName $rgName -Managed
+$rgName = 'myResourceGroup'
+$avSetName = 'myAvailabilitySet'
+
+$avSet =  Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+
+Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Managed
+
+foreach($vmInfo in $avSet.VirtualMachinesReferences)
+	{
+   $vm =  Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
+
+   Stop-AzureRmVM -ResourceGroupName $rgName -Name  $vm.Name -Force
+
+   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
+   
+   Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.Name
+	}
 ```
-
-
 
 ## Convert existing Azure VMs to managed disks of the same storage type
 
