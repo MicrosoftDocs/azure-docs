@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 02/05/2017
 ms.author: billmath
-
 ---
+
 # Azure AD Connect sync: Configure Filtering
-With filtering, you can control which objects should appear in Azure AD from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. End users using Office 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would get the same experience they would with an on-premises implementation of Exchange or Lync.
+With filtering, you can control which objects should appear in Azure AD from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. End users using Office 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would get the same experience they would get with an on-premises implementation of Exchange or Lync.
 
 In some cases, it is required to make some changes to the default configuration. Here are some examples:
 
@@ -174,7 +174,7 @@ New OUs created after filtering has been configured are synchronized by default.
 If all sub-OUs are synchronized, then the box will be white with a blue checkbox.  
 ![OU with all boxes selected](./media/active-directory-aadconnectsync-configure-filtering/ousyncnewall.png)
 
-If some sub-OUs have been unselected, then the box is instead grey with a white checkbox.  
+If some sub-OUs have been unselected, then the box is instead gray with a white checkbox.  
 ![OU with some sub-OUs unselected](./media/active-directory-aadconnectsync-configure-filtering/ousyncnew.png)
 
 With this configuration, a new OU created under ManagedObjects is synchronized.
@@ -182,7 +182,7 @@ With this configuration, a new OU created under ManagedObjects is synchronized.
 The Azure AD Connect installation wizard will always create this configuration.
 
 ### Do not synchronize new OUs
-You can configure the sync engine to not synchronize new OUs after the filtering configuration has completed. This is indicated in the UI with the box being solid grey with no checkmark. To get this behavior, click the box until it becomes white with no checkmark. Then select the sub-OUs you want to synchronize.
+You can configure the sync engine to not synchronize new OUs after the filtering configuration has completed. This is indicated in the UI with the box being solid gray with no checkmark. To get this behavior, click the box until it becomes white with no checkmark. Then select the sub-OUs you want to synchronize.
 
 ![OU with root unselected](./media/active-directory-aadconnectsync-configure-filtering/oudonotsyncnew.png)
 

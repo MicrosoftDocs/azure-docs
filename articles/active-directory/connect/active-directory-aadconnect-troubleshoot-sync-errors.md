@@ -211,7 +211,7 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 * proxyAddresses
 
 ### Possible Scenarios
-1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates.
+1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 50 certificates, but the recommendation is to have less than 25 certificates.
 2. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
 3. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned >500 ProxyAddresses.
 
