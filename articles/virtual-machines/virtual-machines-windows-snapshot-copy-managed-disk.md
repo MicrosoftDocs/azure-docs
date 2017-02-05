@@ -65,7 +65,7 @@ $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDis
 3. Create the snapshot configurations. 
 
  ```powershell
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreationDataCreateOption Copy -Location $location 
+$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. Take the snapshot.
 
