@@ -109,10 +109,9 @@ The following section describes the configuration of auditing using the Azure Po
 
     > [!NOTE]
     > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
-
     > * You need to use a different *storage account* or *retention period* for a specific database.
     > * You want to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (e.g. if table inserts need to be audited only for a specific database).
-    >
+    > <br><br>
     > Otherwise, it is **recommended to only enable server-level Blob Auditing** and leave the database-level auditing disabled for all databases.
 
 ###<a>Table Auditing</a>
