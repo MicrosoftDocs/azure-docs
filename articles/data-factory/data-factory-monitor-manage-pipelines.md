@@ -105,16 +105,16 @@ The dataset slices in the data factory can have one of the following statuses:
 <td>ConcurrencyLimit</td> <td>All the activity instances are busy running other slices.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>The activity is paused and can't run the slices until it's resumed.</td>
+<td>ActivityResume</td><td>The activity is paused and can't run the slices until the activity is resumed.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Activity execution is retried.</td>
+<td>Retry</td><td>Activity execution is being retried.</td>
 </tr>
 <tr>
 <td>Validation</td><td>Validation hasn't started yet.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
+<td>ValidationRetry</td><td>Validation is waiting to be retried.</td>
 </tr>
 <tr>
 <tr>
@@ -127,13 +127,13 @@ The dataset slices in the data factory can have one of the following statuses:
 <td rowspan="4">Failed</td><td>TimedOut</td><td>The activity execution took longer than what is allowed by the activity.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>Canceled by user action.</td>
+<td>Canceled</td><td>The slice was canceled by user action.</td>
 </tr>
 <tr>
 <td>Validation</td><td>Validation has failed.</td>
 </tr>
 <tr>
-<td>-</td><td>Failed to generate and/or validate the slice.</td>
+<td>-</td><td>The slice failed to be generated and/or validated.</td>
 </tr>
 <td>Ready</td><td>-</td><td>The slice is ready for consumption.</td>
 </tr>
@@ -141,7 +141,7 @@ The dataset slices in the data factory can have one of the following statuses:
 <td>Skipped</td><td>None</td><td>The slice isn't processed.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>A slice used to exist with a different status, but has been reset.</td>
+<td>None</td><td>-</td><td>A slice used to exist with a different status, but it has been reset.</td>
 </tr>
 </table>
 
@@ -151,32 +151,32 @@ You can view the details about a slice by clicking a slice entry in the **Recent
 
 ![Slice details](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
-If the slice has been executed multiple times, you see multiple rows in the **Activity runs** list. You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files along with an error message if any. This feature is useful to view and debug logs without having to leave your data factory.
+If the slice has been executed multiple times, you see multiple rows in the **Activity runs** list. You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files, along with an error message if there is one. This feature is useful to view and debug logs without having to leave your data factory.
 
 ![Activity run details](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-If the slice is not in the **Ready** state, you can see the upstream slices that are not ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. This feature is useful when your slice is in **Waiting** state and you want to understand the upstream dependencies on which the slice is waiting.
+If the slice isn't in the **Ready** state, you can see the upstream slices that aren't ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. This feature is useful when your slice is in **Waiting** state and you want to understand the upstream dependencies that the slice is waiting on.
 
-![Upstream slices not ready](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+![Upstream slices that are not ready](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### Dataset state diagram
-Once you deploy a data factory and the pipelines have a valid active period, the dataset slices transition from one state to another. Currently the slice status follows the following state diagram:
+After you deploy a data factory and the pipelines have a valid active period, the dataset slices transition from one state to another. Currently, the slice status follows the following state diagram:
 
 ![State diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-The dataset state transition flow in data factory: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
+The dataset state transition flow in data factory is the following: Waiting -> In-Progress/In-Progress (Validating) -> Ready/Failed.
 
-The slices start in a **Waiting** state for pre-conditions to be met before executing. Then, the activity starts executing and the slice goes in **In-Progress** state. The activity execution may succeed or fail. The slice is marked as **Ready**’ or **Failed** based on the result of the execution.
+The slices start in a **Waiting** state, waiting for preconditions to be met before executing. Then, the activity starts executing, and the slice goes into an **In-Progress** state. The activity execution might succeed or fail. The slice is marked as **Ready** or **Failed**, based on the result of the execution.
 
-You can reset the slice to go back from **Ready** or **Failed** state to **Waiting** state. You can also mark the slice state to **Skip**, which prevents the activity from executing and not process the slice.
+You can reset the slice to go back from the **Ready** or **Failed** state to the **Waiting** state. You can also mark the slice state to **Skip**, which prevents the activity from executing and not processing the slice.
 
 ## Manage pipelines
-You can manage your pipelines using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets.
+You can manage your pipelines by using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets.
 
 ### Pause and resume pipelines
-You can pause/suspend pipelines using the **Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
+You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
 
-For example: in the following screen shot, an issue has been identified with the **PartitionProductsUsagePipeline** in **productrecgamalbox1dev** data factory and we want to suspend the pipeline.
+For example, in the following screenshot, an issue has been identified with the **PartitionProductsUsagePipeline** in **productrecgamalbox1dev** data factory, and we want to suspend the pipeline.
 
 ![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
@@ -191,7 +191,7 @@ For example:
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-Once the issue has been fixed with the **PartitionProductsUsagePipeline**, the suspended pipeline can be resumed by running the following PowerShell command:
+After the issue has been fixed with the **PartitionProductsUsagePipeline**, you can resume the suspended pipeline by running the following PowerShell command:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -202,25 +202,25 @@ For example:
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 ## Debug pipelines
-Azure Data Factory provides rich capabilities via Azure portal and Azure PowerShell to debug and troubleshoot pipelines.
+Azure Data Factory provides rich capabilities for you to debug and troubleshoot pipelines by using the Azure portal and Azure PowerShell.
 
 ### Find errors in a pipeline
-If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state due to the failure. You can debug and troubleshoot errors in Azure Data Factory using the following mechanisms.
+If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state because of the failure. You can debug and troubleshoot errors in Azure Data Factory by using the following methods.
 
-#### Use the Azure portal to debug an error:
-1. In the **TABLE** blade, click the problem slice with **STATUS** set to **Failed**.
+#### Use the Azure portal to debug an error
+1. In the **Table** blade, click the problem slice with the **Status** set to **Failed**.
 
    ![Table blade with problem slice](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. In the **DATA SLICE** blade, click the activity run that failed.
+2. In the **Data slice** blade, click the activity run that failed.
 
-   ![Dataslice with an error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. In the **ACTIVITY RUN DETAILS** blade, you can download the files associated with the HDInsight processing. Click Download for Status/stderr to download the error log file that contains details about the error.
+   ![Data slice with an error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+3. In the **Activity run details** blade, you can download the files that are associated with the HDInsight processing. Click **Download** for Status/stderr to download the error log file that contains details about the error.
 
    ![Activity run details blade with error](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### Use PowerShell to debug an error
-1. Launch **Azure PowerShell**.
-2. Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.        
+1. Start **Azure PowerShell**.
+2. Run the **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.        
 
 	```powershell   
 	Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -231,8 +231,8 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 	Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 	```
 
-   Replace **StartDateTime** with the StartDateTime value you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
-3. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
+   Replace **StartDateTime** with the the StartDateTime value that you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
+3. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about the activity run for the slice.
 
 	```powershell   
 	Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
@@ -245,8 +245,8 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 	```
 
-    The value of StartDateTime is the start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
-4. You should see the output with details about the error (similar to the following):
+    The value of StartDateTime is the start time for the error/problem slice that you noted from the previous step. The date-time should be enclosed in double quotes.
+4. You should see output with details about the error that is similar to the following:
 
 	```   
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
@@ -270,35 +270,35 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
 	```
-5. You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the output and download the log files using the **-DownloadLogsoption** for the cmdlet.
+5. You can run the **Save-AzureRmDataFactoryLog** cmdlet with the Id value that you see from the output, and download the log files by using the **-DownloadLogsoption** for the cmdlet.
 
 	```powershell
 	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
 	```
 
 ## Rerun failures in a pipeline
-### Using the Azure portal
-Once you troubleshoot and debug failures in a pipeline, you can rerun failures by navigating to the error slice and clicking the **Run** button on the command bar.
+### Use the Azure portal
+After you troubleshoot and debug failures in a pipeline, you can rerun failures by navigating to the error slice and clicking the **Run** button on the command bar.
 
 ![Rerun a failed slice](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-In case the slice has failed validation due to a policy failure (for ex: data not available), you can fix the failure and validate again by clicking the **Validate** button on the command bar.
+In case the slice has failed validation because of a policy failure (for example, if data isn't available), you can fix the failure and validate again by clicking the **Validate** button on the command bar.
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-### Using Azure PowerShell
-You can rerun failures by using the Set-AzureRmDataFactorySliceStatus cmdlet. See [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet.
+### Use Azure PowerShell
+You can rerun failures by using the Set-AzureRmDataFactorySliceStatus cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet.
 
 **Example:**
-The following example sets the status of all slices for the table 'DAWikiAggregatedData' to 'Waiting' in the Azure data factory 'WikiADF'.
+The following example sets the status of all slices for the table `DAWikiAggregatedData` to `Waiting` in the Azure data factory `WikiADF`.
 
-The UpdateType is set to UpstreamInPipeline, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to "Waiting." Other possible value for this parameter is "Individual."
+The `UpdateType` is set to `UpstreamInPipeline`, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to `Waiting`. The other possible value for this parameter is `Individual`.
 
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
 
 ## Create alerts
-Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. You can create alerts on these events. Data Factory allows you to capture various metrics and create alerts on metrics. We recommend that you use events for real-time monitoring and metrics for historical purposes.
+Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. You can create alerts on these events. You can use Data Factory to capture various metrics and create alerts on metrics. We recommend that you use events for real-time monitoring and use metrics for historical purposes.
 
 ### Alerts on events
 Azure events provide useful insights into what is happening in your Azure resources. Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. When using the Azure Data Factory, events are generated when:
