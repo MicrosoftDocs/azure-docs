@@ -108,7 +108,7 @@ The following section describes the configuration of auditing using the Azure Po
 2. Enabling Blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server Blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the Server policy and once by the Database policy).
 
     > [!NOTE]
-    > You should avoid enabling both server Blob auditing and database Blob auditing unless:
+    > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
 
     > * You need to use a different *storage account* or *retention period* for a specific database.
     > * You want to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (e.g. if table inserts need to be audited only for a specific database).
