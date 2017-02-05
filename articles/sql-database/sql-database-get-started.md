@@ -326,7 +326,7 @@ Follow the steps in this procedure to create a new database on the logical serve
 ## Troubleshoot connectivity to Azure SQL Database
 
 > [!IMPORTANT]
-> If you have connectivity issues, see [Connectivity issues](sql-database-troubleshoot-common-connection-issues).
+> If you have connectivity issues, see [Connectivity issues](sql-database-troubleshoot-common-connection-issues.md).
 > 
 
 ## Delete a single database in the Azure portal
