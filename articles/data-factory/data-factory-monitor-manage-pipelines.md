@@ -301,21 +301,20 @@ Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiAD
 Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. You can create alerts on these events. You can use Data Factory to capture various metrics and create alerts on metrics. We recommend that you use events for real-time monitoring and use metrics for historical purposes.
 
 ### Alerts on events
-Azure events provide useful insights into what is happening in your Azure resources. Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. When using the Azure Data Factory, events are generated when:
+Azure events provide useful insights into what is happening in your Azure resources. Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. When you're using Azure Data Factory, events are generated when:
 
-* Azure Data Factory is created/updated/deleted.
-* Data processing (called as Runs) has started/completed.
-* An on-demand HDInsight cluster is created and removed.
+* A data factory is created, updated, or deleted.
+* Data processing (as "runs") has started or completed.
+* An on-demand HDInsight cluster is created or removed.
 
-You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met. This feature is useful when you want to get notified on failures and don’t want to continuously monitor your data factory.
+You can create alerts on these user events and configure them to send email notifications to the administrator and coadministrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met. This feature is useful when you want to get notified on failures and don’t want to continuously monitor your data factory.
 
 > [!NOTE]
-> Currently, the portal does not show alerts on events. Use the [Monitoring and Management App](data-factory-monitor-manage-app.md) to see all alerts.
->
->
+> Currently, the portal doesn't show alerts on events. Use the [Monitoring and Management app](data-factory-monitor-manage-app.md) to see all alerts.
 
-#### Specifying an alert definition:
-To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on. In the following example, the alert sends an email notification for the RunFinished operation. To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).
+
+#### Specify an alert definition
+To specify an alert definition, you create a JSON file that describes the operations that you want to be alerted on. In the following example, the alert sends an email notification for the RunFinished operation. To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).
 
 ```JSON
 {
@@ -356,7 +355,7 @@ To specify an alert definition, you create a JSON file describing the operations
 }
 ```
 
-From the JSON definition, **subStatus** can be removed if you don’t want to be alerted on a specific failure.
+You can remove **subStatus** from the JSON definition if you don’t want to be alerted on a specific failure.
 
 This example sets up the alert for all data factories in your subscription. If you want the alert to be set up for a particular data factory, you can specify data factory **resourceUri** in the **dataSource**:
 
@@ -364,9 +363,9 @@ This example sets up the alert for all data factories in your subscription. If y
 "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 ```
 
-The following table provides the list of available operations and statuses (and sub-statuses).
+The following table provides the list of available operations and statuses (and substatuses).
 
-| Operation name | Status | Sub status |
+| Operation name | Status | Substatus |
 | --- | --- | --- |
 | RunStarted |Started |Starting |
 | RunFinished |Failed / Succeeded |FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned |
@@ -374,16 +373,16 @@ The following table provides the list of available operations and statuses (and 
 | OnDemandClusterCreateSuccessful |Succeeded | |
 | OnDemandClusterDeleted |Succeeded | |
 
-See [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) for details about JSON elements used in the example.
+See [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) for details about the JSON elements that are used in the example.
 
-#### Deploying the alert
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
+#### Deploy the alert
+To deploy the alert, use the Azure PowerShell cmdlet **New-AzureRmResourceGroupDeployment**, as shown in the following example:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 ```
 
-Once the resource group deployment has completed successfully, you see the following messages:
+After the resource group deployment has finished successfully, you see the following messages:
 
 ```
 VERBOSE: 7:00:48 PM - Template is valid.
@@ -404,11 +403,10 @@ Outputs           :
 
 > [!NOTE]
 > You can use the [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API to create an alert rule. The JSON payload is similar to the JSON example.  
->
->
 
-#### Retrieving the list of Azure resource group deployments
-To retrieve the list of deployed Azure resource group deployments, use the cmdlet: **Get-AzureRmResourceGroupDeployment**, as shown in the following example:
+
+#### Retrieve the list of Azure resource group deployments
+To retrieve the list of deployed Azure resource group deployments, use the cmdlet **Get-AzureRmResourceGroupDeployment**, as shown in the following example:
 
 ```powershell
 Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
@@ -425,24 +423,24 @@ Parameters        :
 Outputs           :
 ```
 
-#### Troubleshooting user events
-1. You can see all the events generated after clicking the **Metrics and operations** tile.
+#### Troubleshoot user events
+1. You can see all the events that are generated after clicking the **Metrics and operations** tile.
 
     ![Metrics and operations tile](./media/data-factory-monitor-manage-pipelines/metrics-and-operations-tile.png)
 2. Click the **Events** tile to see the events.
 
     ![Events tile](./media/data-factory-monitor-manage-pipelines/events-tile.png)
-3. In the **Events** blade, you can see details about events, filter events and so on.
+3. In the **Events** blade, you can see details about events, filtered events, and so on.
 
     ![Events blade](./media/data-factory-monitor-manage-pipelines/events-blade.png)
-4. Click an **operation** in the operations list that causes an error.
+4. Click an **Operation** in the operations list that causes an error.
 
     ![Select an operation](./media/data-factory-monitor-manage-pipelines/select-operation.png)
-5. Click an **error** event to see details about the error.
+5. Click an **Error** event to see details about the error.
 
     ![Event error](./media/data-factory-monitor-manage-pipelines/operation-error-event.png)
 
-See [Azure Insight cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) for PowerShell cmdlets that you can use to add/get/remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet:
+See [Azure Insight cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) for PowerShell cmdlets that you can use to add, get, or remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet:
 
 ```powershell
 get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
@@ -514,67 +512,67 @@ get-help Get-AlertRule -examples
 ```
 
 
-If you see the alert generation events on the portal blade but you don't receive email notifications, check whether e-mail address specified is set to receive emails from external senders. The alert e-mails may have been blocked by your e-mail settings.
+If you see the alert generation events on the portal blade but you don't receive email notifications, check whether the e-mail address that is specified is set to receive emails from external senders. The alert e-mails might have been blocked by your e-mail settings.
 
 ### Alerts on metrics
-Data Factory allows you to capture various metrics and create alerts on metrics. You can monitor and create alerts on the following metrics for the slices in your data factory.
+In Data Factory, you can capture various metrics and create alerts on metrics. You can monitor and create alerts on the following metrics for the slices in your data factory:
 
-* Failed Runs
-* Successful Runs
+* **Failed Runs**
+* **Successful Runs**
 
-These metrics are useful and allow you to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to your storage account. Therefore, to enable metrics, set up a storage account.
+These metrics are useful and help you to get an overview of overall failed and successful runs in the data factory. Metrics are emitted every time there is a slice run. At the beginning of the hour, these metrics are aggregated and pushed to your storage account. To enable metrics, set up a storage account.
 
-#### Enabling metrics:
-To enable metrics, click the following from Data Factory blade:
+#### Enable metrics:
+To enable metrics, click the following from **Data Factory** blade:
 
-**Monitoring** -> **Metric** -> **Diagnostic settings** -> **Diagnostic**
+**Monitoring** > **Metric** > **Diagnostic settings** > **Diagnostic**
 
 ![Diagnostics link](./media/data-factory-monitor-manage-pipelines/diagnostics-link.png)
 
-On the **Diagnostic** blade, click **On** and select the storage account and save.
+On the **Diagnostics** blade, click **On**, select the storage account, and click **Save**.
 
 ![Diagnostics blade](./media/data-factory-monitor-manage-pipelines/diagnostics-blade.png)
 
-Once saved, it may take up to one hour for the metrics to be visible on the monitoring blade, because metrics aggregation happens hourly.
+It might take up to one hour for the metrics to be visible on the **Monitoring** blade because metrics aggregation happens hourly.
 
-### Setting up an alert on metrics:
-Click **Data Factory metrics** blade:
+### Set up an alert on metrics:
+Click the **Data Factory metrics** tile:
 
 ![Data factory metrics tile](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
 
 On the **Metric** blade, click **+ Add alert** on the toolbar.
-![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/add-alert.png)
+![Data factory metric blade > Add alert](./media/data-factory-monitor-manage-pipelines/add-alert.png)
 
 On the **Add an alert rule** page, do the following steps, and click **OK**.
 
-* Enter a name for the alert (example: failed alert).
-* Enter a description for the alert (example: send an email when a failure occurs).
-* Select a metric (failed runs vs. successful runs).
+* Enter a name for the alert (example: "failed alert").
+* Enter a description for the alert (example: "send an email when a failure occurs").
+* Select a metric ("Failed Runs" vs. "Successful Runs").
 * Specify a condition and a threshold value.   
-* Specify the period.
+* Specify the period of time.
 * Specify whether an email should be sent to owners, contributors, and readers.
 
-![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
+![Data factory metric blade > Add alert rule](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
 
-Once the alert rule is added successfully, the blade closes and you see the new alert on the **Metric** page.
+After the alert rule is added successfully, the blade closes and you see the new alert on the **Metric** page.
 
-![Data factory metric blade - add alert](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
+![Data factory metric blade > New alert added](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
 
-You should also see the number of alerts on the **Alerts** tile. Click **Alerts** tile.
+You should also see the number of alerts in the **Alert rules** tile. Click the **Alert rules** tile.
 
 ![Data factory metric blade - Alert rules](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
 
-In the **Alerts** blade, you see any existing alerts. To add an alert, click **Add alert** on the toolbar.
+On the **Alerts rules** blade, you see any existing alerts. To add an alert, click **Add alert** on the toolbar.
 
 ![Alert rules blade](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 
 ### Alert notifications
-Once the alert rule matches the condition, you should get an alert activated email. Once the issue is resolved and the alert condition doesn’t match any more, you get an alert resolved email.
+After the alert rule matches the condition, you should get an alert-activated email. After the issue is resolved and the alert condition doesn’t match any more, you get an alert-resolved email.
 
-This behavior is different than events where a notification is sent on every failure for which alert rule qualifies.
+This behavior is different than events where a notification is sent on every failure that an alert rule qualifies for.
 
-### Deploying alerts using PowerShell
-You can deploy alerts for metrics in the same way as you do for events.
+### Deploy alerts by using PowerShell
+You can deploy alerts for metrics the same way that you do for events.
 
 **Alert definition:**
 
@@ -618,22 +616,22 @@ You can deploy alerts for metrics in the same way as you do for events.
 }
 ```
 
-Replace subscriptionId, resourceGroupName, and dataFactoryName in the sample with appropriate values.
+Replace *subscriptionId*, *resourceGroupName*, and *dataFactoryName* in the sample with appropriate values.
 
-*metricName* as of now supports two values:
+*metricName* currently supports two values:
 
 * FailedRuns
 * SuccessfulRuns
 
-**Deploying the alert:**
+**Deploy the alert**
 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
+To deploy the alert, use the Azure PowerShell cmdlet **New-AzureRmResourceGroupDeployment**, as shown in the following example:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 ```
 
-You should see following message after successful deployment:
+You should see following message after a successful deployment:
 
 ```
 VERBOSE: 12:52:47 PM - Template is valid.
@@ -651,13 +649,13 @@ Parameters        :
 Outputs           
 ```
 
-You can also use the **Add-AlertRule** cmdlet to deploy an alert rule. See [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  
+You can also use the **Add-AlertRule** cmdlet to deploy an alert rule. See the [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  
 
 ## Move a data factory to a different resource group or subscription
 You can move a data factory to a different resource group or a different subscription by using the **Move** command bar button on the home page of your data factory.
 
 ![Move data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
-You can also move any related resources (such as alerts associated with the data factory) along with the data factory.
+You can also move any related resources (such as alerts that are associated with the data factory), along with the data factory.
 
-![Move Resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+![Move resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
