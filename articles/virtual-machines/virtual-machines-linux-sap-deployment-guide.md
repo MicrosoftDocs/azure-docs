@@ -308,7 +308,7 @@ In this article, we cover the steps to deploy SAP NetWeaver-based applications o
 Setting up an Azure virtual machine (VM) for SAP software deployment requires multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on Linux virtual machines in Azure.
 
 ### Local computer
-To manage Windows or Linux VMs, you can use a PowerShell script and the Azure portal. For both of these tools, you need a local computer running Windows 7 or a later version of Windows. If you want to manage only Linux VMs and you want to use a Linux computer for this task, you can use Azure CLI.
+To manage Windows or Linux VMs, you can use a PowerShell script and the Azure portal. For both tools, you need a local computer running Windows 7 or a later version of Windows. If you want to manage only Linux VMs and you want to use a Linux computer for this task, you can use Azure CLI.
 
 ### Internet connection
 To download and run the tools and scripts that are required for SAP software deployment, you must be connected to the Internet. The Azure VM that is running the Azure Enhanced Monitoring Extension for SAP also needs access to the Internet. If the Azure VM is part of an Azure Virtual Network or on-premises domain, make sure that the relevant proxy settings are set, as described in [Configure the proxy][deployment-guide-configure-proxy].
@@ -421,7 +421,7 @@ You can create a virtual machine by using one of the SAP templates published in 
 * [Three-tier configuration (multiple virtual machines) template (sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image]
   To create a three-tier system by using multiple virtual machines, use this template.
 
-When you open a template, enter the following parameters in the Azure portal:
+In the Azure portal, enter the following parameters for the template:
 
 1. Basics
   * **Subscription**: The subscription you want to deploy the template to.
@@ -437,7 +437,7 @@ When you open a template, enter the following parameters in the Azure portal:
     * Select **HA** for a configuration that is suitable for a high-availability installation. Two database servers and two servers for ABAP SAP Central Services (ASCS) are created.
   * **Storage Type** (two-tier template only): The type of storage to use.
     * For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see these resources:
-      * [Use of Azure Premium SSD storage for SAP DBMS instance][2367194]
+      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
@@ -449,7 +449,7 @@ When you open a template, enter the following parameters in the Azure portal:
 3. Terms and conditions  
     Review and accept the legal terms.
 
-To confirm your selections and parameters, select **Purchase**.
+4.  Select **Purchase**.
 
 The Azure VM Agent is deployed by default when you use an image from the Azure Marketplace.
 
@@ -474,7 +474,7 @@ After you deploy your VM in Azure, follow the same guidelines and tools to insta
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scenario 2: Deploying a VM with a custom image for SAP
 Because different versions of an operating systems or DBMS have different patch requirements, the images you find in the Azure Marketplace might not meet your needs. You might instead want to create a VM by using your own OS/DBMS VM image, which you can deploy several times afterward.
-You use different steps to create private Linux images and private Windows images.
+You use different steps to create a private image for Linux than a private image for Windows.
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -488,7 +488,7 @@ You use different steps to create private Linux images and private Windows image
 >
 
 - - -
-You can prepare and create a custom image, and then use it to create multiple new VMs. This is described in [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]. Set up your database content either by using SAP Software Provisioning Manager to install a new SAP system, which restores a database backup from a VHD that is attached to the virtual machine, or by directly restoring a database backup from Azure storage if your DBMS supports it. For more in formation, see [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]. If you have already installed an SAP system in your on-premises VM (especially for two-tier systems), you can adapt the SAP system settings after the deployment of the Azure VM by using the System Rename procedure supported by SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise, you can install the SAP software after you deploy the Azure VM.
+You can prepare and create a custom image, and then use it to create multiple new VMs. This is described in [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]. Set up your database content either by using SAP Software Provisioning Manager to install a new SAP system, which restores a database backup from a VHD that is attached to the virtual machine, or by directly restoring a database backup from Azure storage if your DBMS supports it. For more information, see [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]. If you have already installed an SAP system in your on-premises VM (especially for two-tier systems), you can adapt the SAP system settings after the deployment of the Azure VM by using the System Rename procedure supported by SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise, you can install the SAP software after you deploy the Azure VM.
 
 The following flowchart shows the SAP-specific sequence of steps for deploying a VM from a custom image:
 
@@ -502,7 +502,7 @@ To create a two-tier system by using only one virtual machine, use this template
 * [Three-tier configuration (multiple virtual machines) template (sap-3-tier-user-image)][sap-templates-3-tier-user-image]
 To create a three-tier system by using multiple virtual machines or your own OS image, use this template.
 
-When you open a template, enter the following parameters in the Azure portal:
+In the Azure portal, enter the following parameters for the template:
 
 1. Basics
   * **Subscription**: The subscription you want to deploy the template to.
@@ -517,7 +517,7 @@ When you open a template, enter the following parameters in the Azure portal:
     * Select **HA** for a configuration that is suitable for a high-availability installation. Two database servers and two servers for ASCS are created.
   * **Storage Type**: (two-tier template only) The type of storage to use.
     * For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
-      * [Use of Azure Premium SSD storage for SAP DBMS instance][2367194]
+      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
       * [Premium Storage: High-performance storage for Azure virtual machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
@@ -532,7 +532,7 @@ When you open a template, enter the following parameters in the Azure portal:
 3. Terms and conditions  
     Review and accept the legal terms.
 
-To confirm your selections and parameters, select **Purchase**.
+4.  Select **Purchase**.
 
 #### Install the VM Agent (Linux only)
 To use the templates described in the preceding section, the Linux Agent must already be installed in the user image. Otherwise, the deployment fails. Download and install the VM Agent in the user image as described in [Download, install, and enable the Azure VM Agent][deployment-guide-4.4]. If you don’t use the templates, you can also install the VM Agent afterwards.
@@ -586,7 +586,7 @@ To create a deployment by using a private OS disk through the Azure portal, use 
 * [Two-tier configuration (only one virtual machine) template (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
 To create a two-tier system by using only one virtual machine, use this template.
 
-When you open a template, enter the following parameters in the Azure portal:
+In the Azure portal, enter the following parameters for the template:
 
 1. Basics
   * **Subscription**: The subscription you want to deploy the template to.
@@ -599,7 +599,7 @@ When you open a template, enter the following parameters in the Azure portal:
     * The number of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
   * **Storage Type** (two-tier template only): The type of storage to use.
     * For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
-      * [Use of Azure Premium SSD storage for SAP DBMS instance][2367194]
+      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
       * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machine DBMS deployment for SAP on Linux][dbms-guide]
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
@@ -611,10 +611,10 @@ When you open a template, enter the following parameters in the Azure portal:
 3. Terms and conditions  
     Review and accept the legal terms.
 
-To confirm your selections and parameters, select **Purchase**.
+4.  Select **Purchase**.
 
 #### Install the VM Agent
-To use the templates described in the preceding section, the VM Agent has to be installed on the OS disk. Otherwise, the deployment fails. Download and install the VM Agent in the VM, described in [Download, install, and enable the Azure VM Agent][deployment-guide-4.4].
+To use the templates described in the preceding section, the VM Agent must be installed on the OS disk. Otherwise, the deployment fails. Download and install the VM Agent in the VM, described in [Download, install, and enable the Azure VM Agent][deployment-guide-4.4].
 
 If you don’t use the templates described in the preceding section, you can also install the VM Agent afterwards.
 
@@ -914,21 +914,21 @@ If the **Health status** value is not **OK**, follow the instructions in [Health
 
   a.  Make sure that the waagent is installed and enabled.
 
-    1.  Run `sudo ls -al /var/lib/waagent/`
+      1.  Run `sudo ls -al /var/lib/waagent/`
 
-      **Expected result**: Lists the content of the waagent directory.
+        **Expected result**: Lists the content of the waagent directory.
 
-    2.  Run `ps -ax | grep waagent`
+      2.  Run `ps -ax | grep waagent`
 
-       **Expected result**: Displays one entry similar to: `python /usr/sbin/waagent -daemon`
+         **Expected result**: Displays one entry similar to: `python /usr/sbin/waagent -daemon`
 
   b.  Make sure that the Linux Diagnostic Extension is installed and enabled.
 
     1.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'`
 
-       **Expected result**: Lists the content of the Linux Diagnostic Extension directory.
+         **Expected result**: Lists the content of the Linux Diagnostic Extension directory.
 
-    2. Run `ps -ax | grep diagnostic`
+   2. Run `ps -ax | grep diagnostic`
 
        **Expected result**: Displays one entry similar to: `python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
 
@@ -980,7 +980,7 @@ Make sure that every health check result is **OK**. If some checks do not displa
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
 The AzureEnhancedMonitoring Windows service collects performance metrics in Azure. If the service has not been installed correctly or if it is not running in your VM, no performance metrics can be collected.
 
-##### Scenario 1: The installation directory of the Azure Enhanced Monitoring Extension is empty
+##### The installation directory of the Azure Enhanced Monitoring Extension is empty
 
 ###### Issue
 The installation directory
@@ -990,7 +990,7 @@ is empty.
 ###### Solution
 The extension is not installed. Determine whether it is a proxy issue (as described earlier). You might need to restart the machine or rerun the `Set-AzureRmVMAEMExtension` configuration script.
 
-##### Scenario 2: Service for Azure Enhanced Monitoring does not exist
+##### Service for Azure Enhanced Monitoring does not exist
 
 ###### Issue
 The Windows AzureEnhancedMonitoring service does not exist.
@@ -1005,7 +1005,7 @@ If the service does not exist as shown in the preceding figure, the Azure Enhanc
 
 After you deploy the extension, after one hour, recheck whether the Azure performance counters are provided in the Azure VM.
 
-##### Scenario 3: Service for Azure Enhanced Monitoring exists, but fails to start
+##### Service for Azure Enhanced Monitoring exists, but fails to start
 
 ###### Issue
 The Windows AzureEnhancedMonitoring service exists and is enabled but fails to start. For more information, check the application event log.
@@ -1019,9 +1019,9 @@ The AzureEnhancedMonitoring Windows service collects performance metrics in Azur
 If troubleshooting by using SAP Note [1999351] doesn't resolve the issue, rerun the `Set-AzureRmVMAEMExtension` configuration script. You might have to wait an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem still exists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
 
 #### ![Linux][Logo_Linux] Azure performance counters do not show up at all
-The collection of the performance metrics on Azure is done by a deamon. If the deamon is not running, no performance metrics can be collected at all.
+The collection of the performance metrics on Azure is done by a daemon. If the daemon is not running, no performance metrics can be collected at all.
 
-##### The installation directory of the Azure Enhanced Monitoring extension is empty
+##### Scenario: The installation directory of the Azure Enhanced Monitoring extension is empty
 
 ###### Issue
 The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure Enhanced Monitoring extension.
