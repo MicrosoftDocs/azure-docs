@@ -55,7 +55,7 @@ In this case, we have chosen the Standard tier for our service.
 ![](./media/search-create-service-portal/create-service.png)
 
 ## Scale your service
-After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
+After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available and you WILL NOT have the option to modify pricing tier once free is selected.
 
 ***Partitions*** allow your service to store and search through more documents.
 
