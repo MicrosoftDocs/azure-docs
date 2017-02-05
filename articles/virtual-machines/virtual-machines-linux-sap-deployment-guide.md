@@ -910,39 +910,39 @@ If the **Health status** value is not **OK**, follow the instructions in [Health
 
     **Expected result**: Returns as empty or does not exist.
 
-3.  If the first check was not successful, run these additional checks:
+If the preceding check was not successful, run these additional checks:
 
-  a.  Make sure that the waagent is installed and enabled.
+1.  Make sure that the waagent is installed and enabled.
 
-      1.  Run `sudo ls -al /var/lib/waagent/`
+  a.  Run `sudo ls -al /var/lib/waagent/`
 
-        **Expected result**: Lists the content of the waagent directory.
+      **Expected result**: Lists the content of the waagent directory.
 
-      2.  Run `ps -ax | grep waagent`
+  b.  Run `ps -ax | grep waagent`
 
-         **Expected result**: Displays one entry similar to: `python /usr/sbin/waagent -daemon`
+   **Expected result**: Displays one entry similar to: `python /usr/sbin/waagent -daemon`
 
-  b.  Make sure that the Linux Diagnostic Extension is installed and enabled.
+2. Make sure that the Linux Diagnostic Extension is installed and enabled.
 
-    1.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'`
+  a.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'`
 
-         **Expected result**: Lists the content of the Linux Diagnostic Extension directory.
+   **Expected result**: Lists the content of the Linux Diagnostic Extension directory.
 
-   2. Run `ps -ax | grep diagnostic`
+ b. Run `ps -ax | grep diagnostic`
 
-       **Expected result**: Displays one entry similar to: `python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
+   **Expected result**: Displays one entry similar to: `python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
 
-  c.   Make sure that the Azure Enhanced Monitoring Extension is installed and running.
+3.   Make sure that the Azure Enhanced Monitoring Extension is installed and running.
 
-    1.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'`
+  a.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'`
 
-       **Expected result**: Lists the content of the Azure Enhanced Monitoring Extension directory.
+    **Expected result**: Lists the content of the Azure Enhanced Monitoring Extension directory.
 
-    2.  Run `ps -ax | grep AzureEnhanced`
+  b. Run `ps -ax | grep AzureEnhanced`
 
-       **Expected result**: Displays one entry similar to: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+     **Expected result**: Displays one entry similar to: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
-4. Install SAP Host Agent as described in SAP Note [1031096], and check the output of `saposcol`.
+3. Install SAP Host Agent as described in SAP Note [1031096], and check the output of `saposcol`.
 
   a.  Run `/usr/sap/hostctrl/exe/saposcol -d`
 
@@ -950,8 +950,7 @@ If the **Health status** value is not **OK**, follow the instructions in [Health
 
   c.  Check whether the metric **Virtualization_Configuration\Enhanced Monitoring Access** is **true**.
 
-5.  If you already have an SAP NetWeaver ABAP application server installed, open transaction ST06 and check if the enhanced monitoring is enabled.
-
+If you already have an SAP NetWeaver ABAP application server installed, open transaction ST06 and check if the enhanced monitoring is enabled.
 If any of these checks fail, and for detailed information about how to redeploy the extension, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health check for the Azure monitoring infrastructure configuration
