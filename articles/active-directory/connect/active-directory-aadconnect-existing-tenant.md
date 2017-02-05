@@ -23,22 +23,22 @@ Most of the topics for how to use Azure AD Connect assumes you start with a new 
 ## The basics
 An object in Azure AD is either mastered in the cloud (Azure AD) or on-premises. For one single object, you cannot manage some attributes on-premises and some other attributes in Azure AD. Each object has a flag indicating where the object is managed.
 
-You can manage some users on-premises and other in the cloud. A common scenario for this is an organization with a mix of office workers and blue color workers. The office workers have an on-premises AD account, but the blue color workers do not. You would manage some users on-premises and some in Azure AD.
+You can manage some users on-premises and other in the cloud. A common scenario for this configuration is an organization with a mix of office workers and blue color workers. The office workers have an on-premises AD account, but the blue color workers do not. You would manage some users on-premises and some in Azure AD.
 
 If you started to manage users in Azure AD that are also in on-premises AD and later want to use Connect, then there are some additional concerns you need to consider.
 
 ## Sync with existing users in Azure AD
 When you install Azure AD Connect and you start synchronizing, the Azure AD sync service (in Azure AD) does a check on every new object and try to find an existing object to match. There are three attributes used for this process: **userPrincipalName**, **proxyAddresses**, and **sourceAnchor**/**immutableID**. A match on **userPrincipalName** and **proxyAddresses** is known as a **soft match**. A match on **sourceAnchor** is known as **hard match**. For the **proxyAddresses** attribute only the value with **SMTP:**, that is the primary email address, is used for the evaluation.
 
-If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes with an existing value in Azure AD are overwritten with the on-premises value. The exception is when an attribute has a **NULL** value on-premises. In this case, the value in Azure AD will remain, but you can still only change it on-premises to something else.
+If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes with an existing value in Azure AD are overwritten with the on-premises value. The exception is when an attribute has a **NULL** value on-premises. In this case, the value in Azure AD remains, but you can still only change it on-premises to something else.
 
 > [!WARNING]
-> Since all attributes in Azure AD are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Office 365 and not kept it updated in on-premises AD DS, then you will lose any values in Azure AD/Office 365 not present in AD DS.
+> Since all attributes in Azure AD are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Office 365 and not kept it updated in on-premises AD DS, then you lose any values in Azure AD/Office 365 not present in AD DS.
 
 > [!IMPORTANT]
 > If you use password sync, which is always used by express settings, then the password in Azure AD is overwritten by the password in on-premises AD. If your users are used to manage different passwords, then you need to inform them that they should use the on-premises password when you have installed Connect.
 
-The previous section and warning must be considered in your planning. If you have made a lot of changes in Azure AD not reflected in on-premises AD DS, then you need to plan for how to populate AD DS with the updated values before you sync your objects with Azure AD Connect.
+The previous section and warning must be considered in your planning. If you have made many changes in Azure AD not reflected in on-premises AD DS, then you need to plan for how to populate AD DS with the updated values before you sync your objects with Azure AD Connect.
 
 The match is only evaluated for new objects coming from Connect. If you change an exiting object so it is matching any of these attributes, then you see an error instead.
 
