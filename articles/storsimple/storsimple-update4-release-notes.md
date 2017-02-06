@@ -1,46 +1,52 @@
 ---
-title: StorSimple 8000 Series Update 3 release notes | Microsoft Docs
-description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3.
+title: StorSimple 8000 Series Update 4 release notes | Microsoft Docs
+description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 4.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
-ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
+ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 02/06/2017
 ms.author: alkohli
 
 ---
-# StorSimple 8000 Series Update 3 release notes
-## Overview
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 3. They also contain a list of the StorSimple software updates included in this release. 
+# StorSimple 8000 Series Update 4 release notes
 
-Update 3 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.2. The device version associated with Update 3 is 6.3.9600.17759.
+## Overview
+
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 4. They also contain a list of the StorSimple software updates included in this release. 
+
+Update 4 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 3.1. The device version associated with Update 4 is 6.3.9600.17818.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 3 has device software, LSI driver and firmware, and Storport and Spaceport updates. It takes approximately 1.5-2 hours to install this update. 
+> * Update 4 has device software, USM firmware, LSI driver and firmware, Storport and Spaceport, security, and other OS updates. It takes approximately 1.5-2 hours to install this update. 
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
-> 
-> 
 
-## What's new in Update 3
-The following key improvements and bug fixes have been made in Update 3.
+## What's new in Update 4
 
-* **Automated space reclamation changes** – Starting Update 3, the space reclamation algorithms run on the standby controller of the system resulting in faster execution. For more information on the ports that are required to work with space reclamation, refer to the [StorSimple networking requirements](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
-* **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
-* **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
+The following key improvements and bug fixes have been made in Update 4.
+
+* **Automated space reclamation changes** – Starting Update 4, more intelligence has been built into the space reclamation algorithms thereby resulting in faster execution.
+* **Performance enhancements** – Update 4 has improved locally pinned volume ingestion performance.
+* **Standalone diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released that  several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. This tool can be executed via a cmdlet using the Windows PowerShell for StorSimple.
+To download this tool, go to [StorSimple Diagnostics tool]().
+* **Migration tool** - In this release, a StorSimple Migration tool will be available for Support and customers to facilitate the consolidation of recovery buckets during the migration workflow. To download this tool, go to [StorSimple Migration tool](). 
 * **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
+* **MPIO support for StorSimple Snapshot Manager** - From this release onwards, StorSimple Snapshot Manager has support built-in for MPIO.
+* **FIPS-related changes** - In this release, FIPS will be enabled by default on all the StorSimple 8000 series devices. This implies that cryptographic validations will occur for all the devices.
+* **Failback optimizations** - In Update 4, several failback optimizations have done that will allow the users to 
 
-## Issues fixed in Update 3
-The following tables provides a summary of issues that were fixed in Update 3.    
+## Issues fixed in Update 4
+The following tables provides a summary of issues that were fixed in Update 4.    
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
@@ -51,7 +57,8 @@ The following tables provides a summary of issues that were fixed in Update 3.
 | 5 |Backup |In certain rare instances, in the previous versions of software, when user took a backup of a remote clone, they would run into cloud errors and the operation would error out. In this release, the issue is fixed and the operation completes successfully. |Yes |Yes |
 | 6 |Backup policy |In certain rare instances, in the earlier releases of software, there was a bug related to the deletion of backup policy. This issue is fixed in this release. |Yes |Yes |
 
-## Known issues in Update 3
+## Known issues in Update 4
+
 The following table provides a summary of known issues in this release.
 
 | No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
@@ -77,14 +84,17 @@ The following table provides a summary of known issues in this release.
 | 19 |Locally pinned volumes |If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. |This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. |Yes |No |
 | 20 |Locally pinned volumes |If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted. |This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario. | | |
 | 21 |Volume conversion |Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. |If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. | | |
-| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is succeesfully updated to Update 3, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
+| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is succeesfully updated to Update 4, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
 
-## Controller and firmware updates in Update 3
-This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
+## Controller and firmware updates in Update 4
 
-## Virtual device updates in Update 3
+This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 4](storsimple-install-update-4.md) on your StorSimple device.
+
+## Virtual device updates in Update 4
+
 This update cannot be applied to the StorSimple Cloud Appliance (also known as the virtual device). New virtual devices will need to be created. 
 
 ## Next step
-Learn how to [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
+
+Learn how to [install Update 4](storsimple-install-update-4.md) on your StorSimple device.
 

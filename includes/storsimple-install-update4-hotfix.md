@@ -9,7 +9,7 @@ Perform the following steps to download the software update from the Microsoft U
 
     ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **3186843**, and then click **Search**.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **4011839**, and then click **Search**.
    
     The hotfix listing appears, for example, **Cumulative Software Bundle Update 4.0 for StorSimple 8000 Series**.
    
@@ -88,15 +88,16 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     You should see the following versions:
    
-   * `HcsSoftwareVersion: 6.3.9600.17814`
+   * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
+   *  `HcsSoftwareVersion: 6.3.9600.17818`
 
      
-     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
+         If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
      
-     > [!IMPORTANT]
-     > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
+         > [!IMPORTANT]
+         > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
      
-2. Repeat steps 3-5 to install the second order updates. Multiple updates can be installed by just running the Start-HcsHotfix cmdlet and pointing to the folder where second order updates are located. The cmdlet will occupy all the updates available in the folder. If any update is already installed, the update logic will detect that and not apply the update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+7. Repeat steps 3-5 to install the second order updates. Multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If any update is already installed, the update logic will detect that and not apply the update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -164,7 +165,7 @@ To install the disk firmware updates, follow the instructions below.
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8100
        Name: Update4-8100-mystorsimple
-       Software Version: 6.3.9600.17814
+       Software Version: 6.3.9600.17818
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
        You are connected to Controller1
        ---------------------------------------------------------------
