@@ -22,7 +22,7 @@ Perform the following steps to download the software update from the Microsoft U
 > [!NOTE]
 > The hotfixes must be accessible from both controllers to detect any potential error messages from the peer > controller.
 >
-> The hotfixes must be copied in 3 separate folders. The device software update must be copied in one folder, all the other non-disruptive updates should be copied in the second folder, and maintenance mode updates should be copied in another folder.
+> The hotfixes must be copied in 3 separate folders. The device software update must be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates should be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates should be copied in _ThirdOrderUpdate_ folder.
 
 #### To install and verify regular mode hotfixes
 
@@ -40,11 +40,11 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     Supply the password when prompted.
    
-    A sample output is shown below.
+    A sample output for installing the first order updates is shown below.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \hcsmdssoftwareupdate.exe -Credential contoso\John
+        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
         Confirm
    
@@ -63,7 +63,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     Controller0>Get-HcsUpdateStatus
     RunInprogress       : True
     LastHotfixTimestamp :
-    LastUpdateTimestamp : 8/29/2016 2:04:02 AM
+    LastUpdateTimestamp : 02/03/2017 2:04:02 AM
     Controller0Events   :
     Controller1Events   :
     ```
@@ -73,8 +73,8 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     ```
     Controller0>Get-HcsUpdateStatus
     RunInprogress       : False
-    LastHotfixTimestamp : 8/30/2016 9:15:55 AM
-    LastUpdateTimestamp : 8/30/2016 9:06:07 AM
+    LastHotfixTimestamp : 02/03/2017 9:15:55 AM
+    LastUpdateTimestamp : 02/03/2017 9:06:07 AM
     Controller0Events   :
     Controller1Events   :
     ```
@@ -96,7 +96,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
      > [!IMPORTANT]
      > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
      
-2. Repeat steps 3-5 to install the second order updates. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+2. Repeat steps 3-5 to install the second order updates. Multiple updates can be installed by just running the Start-HcsHotfix cmdlet and pointing to the folder where second order updates are located. The cmdlet will occupy all the updates available in the folder. If any update is already installed, the update logic will detect that and not apply the update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
@@ -124,7 +124,7 @@ To install the disk firmware updates, follow the instructions below.
    
         -----------------------MAINTENANCE MODE------------------------
         Microsoft Azure StorSimple Appliance Model 8100
-        Name: Update2-8100-SHG0997879L76673
+        Name: Update4-8100-mystorsimple
         Copyright (C) 2014 Microsoft Corporation. All rights reserved.
         You are connected to Controller0 - Passive
         ---------------------------------------------------------------
@@ -136,14 +136,14 @@ To install the disk firmware updates, follow the instructions below.
         [4] Change language
         Please enter your choice>
    
-    Both the controllers then restart into Maintenance mode.
+    Both the controllers then restart into maintenance mode.
 2. To install the disk firmware update, type:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
     A sample output is shown below.
    
-        Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
+        Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\ThirdOrderUpdates\ -Credential contoso\john
         Enter Password:
         WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
         Confirm
@@ -163,8 +163,8 @@ To install the disk firmware updates, follow the instructions below.
    
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8100
-       Name: Update2-8100-SHG0997879L76YD
-       Software Version: 6.3.9600.17705
+       Name: Update4-8100-mystorsimple
+       Software Version: 6.3.9600.17814
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
        You are connected to Controller1
        ---------------------------------------------------------------
@@ -172,32 +172,49 @@ To install the disk firmware updates, follow the instructions below.
        Controller1>Get-HcsFirmwareVersion
    
        Controller0 : TalladegaFirmware
-         ActiveBIOS:0.45.0006
-         BackupBIOS:0.45.0008
-         MainCPLD:17.0.0005
-         ActiveBMCRoot:2.0.000E
-         BackupBMCRoot:2.0.000E
-         BMCBoot:2.0.0001
-         LsiFirmware:19.00.00.00
-         LsiBios:07.37.00.00
-         Battery1Firmware:06.29
-         Battery2Firmware:06.29
-         DomFirmware:X231600
-         CanisterFirmware:3.5.0.32
-         CanisterBootloader:5.03
-         CanisterConfigCRC:0xD1B030A4
-         CanisterVPDStructure:0x06
-         CanisterGEMCPLD:0x17
-         CanisterVPDCRC:0xEE3504B4
-         MidplaneVPDStructure:0x0C
-         MidplaneVPDCRC:0xA6BD4F64
-         MidplaneCPLD:0x10
-         PCM1Firmware:1.00|1.05
-         PCM1VPDStructure:0x05
-         PCM1VPDCRC:0x41BEF99C
-         PCM2Firmware:1.00|1.05
-         PCM2VPDStructure:0x05
-         PCM2VPDCRC:0x41BEF99C
+           ActiveBIOS:0.45.0010
+              BackupBIOS:0.45.0006
+              MainCPLD:17.0.000b
+              ActiveBMCRoot:2.0.001F
+              BackupBMCRoot:2.0.001F
+              BMCBoot:2.0.0002
+              LsiFirmware:20.00.04.00
+              LsiBios:07.37.00.00
+              Battery1Firmware:06.2C
+              Battery2Firmware:06.2C
+              DomFirmware:X231600
+              CanisterFirmware:3.5.0.56
+              CanisterBootloader:5.03
+              CanisterConfigCRC:0x9134777A
+              CanisterVPDStructure:0x06
+              CanisterGEMCPLD:0x19
+              CanisterVPDCRC:0x142F7DC2
+              MidplaneVPDStructure:0x0C
+              MidplaneVPDCRC:0xA6BD4F64
+              MidplaneCPLD:0x10
+              PCM1Firmware:1.00|1.05
+              PCM1VPDStructure:0x05
+              PCM1VPDCRC:0x41BEF99C
+              PCM2Firmware:1.00|1.05
+              PCM2VPDStructure:0x05
+              PCM2VPDCRC:0x41BEF99C
+
+     EbodFirmware
+              CanisterFirmware:3.5.0.56
+              CanisterBootloader:5.03
+              CanisterConfigCRC:0xB23150F8
+              CanisterVPDStructure:0x06
+              CanisterGEMCPLD:0x14
+              CanisterVPDCRC:0xBAA55828
+              MidplaneVPDStructure:0x0C
+              MidplaneVPDCRC:0xA6BD4F64
+              MidplaneCPLD:0x10
+              PCM1Firmware:3.11
+              PCM1VPDStructure:0x03
+              PCM1VPDCRC:0x6B58AD13
+              PCM2Firmware:3.11
+              PCM2VPDStructure:0x03
+              PCM2VPDCRC:0x6B58AD13
    
          DisksFirmware
          SEAGATE:ST400FM0073:XGEG

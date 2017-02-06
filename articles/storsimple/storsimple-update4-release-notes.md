@@ -1,61 +1,57 @@
 ---
-title: StorSimple 8000 Series Update 2.2 release notes | Microsoft Docs
-description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.2.
+title: StorSimple 8000 Series Update 3 release notes | Microsoft Docs
+description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
 editor: ''
 
-ms.assetid: 5cf03ea8-2a0f-4552-b6dc-7ea517783d7b
+ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/18/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 
 ---
-# StorSimple 8000 Series Update 2.2 release notes
+# StorSimple 8000 Series Update 3 release notes
 ## Overview
-The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2.2. They also contain a list of the StorSimple software updates included in this release. 
+The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 3. They also contain a list of the StorSimple software updates included in this release. 
 
-Update 2.2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.1. The device version associated with Update 2.2 is 6.3.9600.17708.
+Update 3 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.2. The device version associated with Update 3 is 6.3.9600.17759.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
-> * Update 2.2 has software only updates. It takes approximately 1.5-2 hours to install this update. 
-> * If you are running Update 2.1, we recommend that you apply Update 2.2 as soon as possible.
+> * Update 3 has device software, LSI driver and firmware, and Storport and Spaceport updates. It takes approximately 1.5-2 hours to install this update. 
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 > 
 > 
 
-## What's new in Update 2.2
-The following key improvements have been made in Update 2.2.
+## What's new in Update 3
+The following key improvements and bug fixes have been made in Update 3.
 
-* **Automated space reclamation optimization** – When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
-* **Snapshot performance enhancements** – Update 2.2 has improved the time to process a cloud snapshot in certain scenarios where large volumes are being used and there is minimal to no data churn. A scenario that would benefit from this enhancement would be the archive volumes.
-* **Hardening of Support package gathering** – There have been improvements in the way the Support package is gathered and uploaded in this release. 
-* **Update reliability improvements** – This release has bug fixes that result in an improved Update reliability.
+* **Automated space reclamation changes** – Starting Update 3, the space reclamation algorithms run on the standby controller of the system resulting in faster execution. For more information on the ports that are required to work with space reclamation, refer to the [StorSimple networking requirements](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
+* **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
+* **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
 
-## Issues fixed in Update 2.2
-The following tables provides a summary of issues that were fixed in Updates 2.2 and 2.1.    
+## Issues fixed in Update 3
+The following tables provides a summary of issues that were fixed in Update 3.    
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
-| 1 |Host performance |In the earlier release, host-side performance issues were observed during the creation of a locally pinned volume and during the conversion of a tiered volume to a locally pinned volume. These issues are fixed in this release thereby resulting in an improvement in the host performance during the volume creation and conversion procedures. |Yes |No |
-| 2 |Locally pinned volumes |In rare instances, the system would crash when creating a locally pinned volume. This bug has been fixed in this release. |Yes |No |
-| 3 |Tiering |There were sporadic crashes when the metadata for the StorSimple Cloud Appliances (8010 and 8020) tiered to   the cloud. This issue is fixed in this release. |No |Yes |
-| 4 |Snapshot creation |There were issues related to the creation of incremental snapshots in scenarios with large volumes and minimal to no data churn. These issues are fixed in this release. |Yes |Yes |
-| 5 |Openstack authentication |When using Openstack as the cloud service provider, the user would run into an infrequent bug related to the authentication where the JSON parser resulted in a crash. This bug is fixed in this release. |Yes |No |
-| 6 |Host-side copy |In earlier versions of software,   an infrequent bug related to the ODX timing was seen when copying the data   from one volume to another volume. This would result in a controller failover and the system could potentially go into Recovery mode. This bug is fixed in   this release. |Yes |No |
-| 7 |Windows Management   Instrumentation (WMI) |In the previous versions of   software, there were several instances of web proxy failure with the   exception “<ManagementException> Provider load failure”. This bug was attributed to a WMI memory leak and is now fixed. |Yes |No |
-| 8 |Update |In certain rare instances, in   the previous versions of software, the user received a   "CisPowershellHcsscripterror" when trying to scan or install updates. This issue is fixed in this release. |Yes |Yes |
-| 9 |Support package |In this release, there have been improvements to the way the Support package is gathered and uploaded. |Yes |Yes |
+| 1 |Host-side data migration |In the earlier release, the StorSimple Cloud Appliance was going offline during a host-side data migration. This issue is fixed in this release. |No |Yes |
+| 2 |Locally pinned volumes |In the previous release, there were issues related to I/O failures, volume conversion failures, and datapath failures for locally pinned volumes. These issues were root-caused and fixed in this release. |Yes |No |
+| 3 |Monitoring |There were multiple issues related to reporting units and monitoring as well as device dashboard charts where incorrect information was displayed for locally pinned volumes. These issues are fixed in this release. |Yes |No |
+| 4 |Heavy writes I/O |When using StorSimple for workloads involving heavy writes, the user would run into an infrequent bug where the working set was being tiered into the cloud. This bug is fixed in this release. |Yes |Yes |
+| 5 |Backup |In certain rare instances, in the previous versions of software, when user took a backup of a remote clone, they would run into cloud errors and the operation would error out. In this release, the issue is fixed and the operation completes successfully. |Yes |Yes |
+| 6 |Backup policy |In certain rare instances, in the earlier releases of software, there was a bug related to the deletion of backup policy. This issue is fixed in this release. |Yes |Yes |
 
-## Known issues in Update 2.2
+## Known issues in Update 3
 The following table provides a summary of known issues in this release.
 
 | No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
@@ -81,15 +77,14 @@ The following table provides a summary of known issues in this release.
 | 19 |Locally pinned volumes |If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. |This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. |Yes |No |
 | 20 |Locally pinned volumes |If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted. |This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario. | | |
 | 21 |Volume conversion |Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. |If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. | | |
+| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is succeesfully updated to Update 3, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
 
-## Controller and firmware updates in Update 2.2
-This release has software-only updates. However, if you are updating from a version prior to Update 2, you will need to install driver, Storport, Spaceport, and (in some cases) disk firmware updates on your device.
+## Controller and firmware updates in Update 3
+This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
 
-For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 2.2](storsimple-install-update-21.md) on your StorSimple device.
-
-## Virtual device updates in Update 2.2
-This update cannot be applied to the virtual device. New virtual devices will need to be created. 
+## Virtual device updates in Update 3
+This update cannot be applied to the StorSimple Cloud Appliance (also known as the virtual device). New virtual devices will need to be created. 
 
 ## Next step
-Learn how to [install Update 2.2](storsimple-install-update-21.md) on your StorSimple device.
+Learn how to [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
 
