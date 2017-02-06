@@ -1,5 +1,5 @@
 ---
-title: 'How to set up a failback Process Server (Resource Manager) In Azure | Microsoft Docs'
+title: ' Manage a Process Server running in Azure (Resource Manager) | Microsoft Docs'
 description: This article describes how to set up a failback Process Server (Resource Manager) In Azure.
 services: site-recovery
 documentationcenter: ''
@@ -10,19 +10,19 @@ editor: ''
 ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article 
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
 ---
 
-# How to set up & configure a Failback Process Server (Resource Manager)
+# Manage a Process Server running in Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-arm.md)
-> * [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
+> * [Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-This article describes how to set up & configure a Process Server in Azure for failing back virtual machines from Azure to on-premises.
+During failback it is recommended to deploy Process Server in the Azure if there is high latency between the Azure Virtual Network and your on-premises network. This article describes how you can set up, configure and manage the process servers runnning in Azure.
 
 > [!NOTE]
 > This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Classic)](./site-recovery-vmware-setup-azure-ps-classic.md)
@@ -31,7 +31,7 @@ This article describes how to set up & configure a Process Server in Azure for f
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
-## Deploy Process Server on Azure
+## Deploy a Process Server on Azure
 1. In the Vault > **Site Recovery Infrastructure** (under the "Manage" heading) > **Configuration Servers** (under "For VMware and Physical Machines" heading), select the configuration server.
 2. In the Configuration Server details page that opens click "+ Process server"
 
@@ -48,7 +48,7 @@ This article describes how to set up & configure a Process Server in Azure for f
 |Location|Select the Azure Data Center into which the virtual machines where failed over into|
 |Azure Network|Select the Azure Virtual Network(VNet) that the virtual machines where failed over into. If you failed over virtual machines into multiple Azure VNets, then you need a Process server deployed per VNet|
 
-4. Fill up the rest of the properties for the process server
+4. Fill in the rest of the properties for the process server
 
   ![Add Process Server](./media/site-recovery-vmware-setup-azure-ps-arm/add-ps-page-2.png)
 |**Field Name**|**Value**|
@@ -60,6 +60,43 @@ This article describes how to set up & configure a Process Server in Azure for f
 | IP Address|IP Address that you would like the Process Server to assume once it boots up|
 5. Click the OK button to start deploying the process server virtual machine.
 
-## Registering the Process Server
+> [!NOTE]
+> In order to be able to use this Process Server for failback, you need to register it with the on-premises configuration server.
+
+## Registering the Process Server (running in Azure) to a Configuration Server (running on-premises)
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+
+## Upgrading the Process Server to latest version.
+
+[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-upgrade-process-server.md)]
+
+## Unregistering the Process Server (running in Azure) from a Configuration Server (running on-premises)
+
+The steps to unregister a process server differs depending on its connection status with the Configuration Server.
+
+### Unregister a Process Server that is in a connected state
+
+1. Remote into the Process Server as a Administrator.
+2. Launch the **Control Panel** and open **Programs > Uninstall a program**
+3. Uninstall a program by the name **Microsoft Azure Site Recovery Configuration/Process Server**
+4. Once step 3 is completed, you can uninstall **Microsoft Azure Site Recovery Configuration/Process Server Dependencies**
+
+Once the uninstallation is complete the Process Server should be unregistered from your configuration server.
+
+### Unregister a Process Server that is in a disconnected state
+
+> [!WARNING]
+> Use the below steps as the last resort and you have no way to revive the virtual machine on which the Process Server was installed.
+
+1. Logon to your Configuration Server as an Administrator.
+2. Open a Administrative Command prompt and browse to the directory `%ProgramData%\ASR\home\svsystems\bin`
+3. Now run the Command
+```
+perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
+```
+4. This will purge the details of the Process Server from the system.
+
+
+
+## Common Issues

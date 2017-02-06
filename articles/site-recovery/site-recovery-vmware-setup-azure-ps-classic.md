@@ -1,5 +1,5 @@
 ---
-title: 'How to set up a failback Process Server (Classic) In Azure | Microsoft Docs'
+title: ' Manage a Process Server running in Azure(Classic) | Microsoft Docs'
 description: This article describes how to set up a failback Process Server(Classic) In Azure.
 services: site-recovery
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 2/2/2017
 ms.author: anoopkv
 ---
 
-# How to set up & configure a Failback Process Server (Azure Classic)
+# Manage a Process Server running in Azure (Classic).
 > [!div class="op_single_selector"]
 > * [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-arm.md)
 
-This article describes how to set up & configure a Process Server in Azure for failing back virtual machines from Azure to on-premises.
+During failback it is recommended to deploy Process Server in the Azure if there is high latency between the Azure Virtual Network and your on-premises network. This article describes how you can set up, configure and manage the process servers runnning in Azure.
 
 > [!NOTE]
 > This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-arm.md)
@@ -31,7 +31,7 @@ This article describes how to set up & configure a Process Server in Azure for f
 
 [!INCLUDE [site-recovery-vmware-process-server-prereq](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
-## Deploy Process Server on Azure
+## Deploy a Process Server on Azure
 
 1. In Azure Marketplace, create a virtual machine using the **Microsoft Azure Site Recovery Process Server V2** </br>
     ![Marketplace_image_1](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image.png)
@@ -43,6 +43,19 @@ This article describes how to set up & configure a Process Server in Azure for f
   ![create_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/azureps-classic-settings.png)
 5. Once the Process Server virtual machine is provisioned, you need to log in and register it with the Configuration Server.
 
-## Registering the Process Server
+> [!NOTE]
+> In order to be able to use this Process Server for failback, you need to register it with the on-premises configuration server.
+
+## Registering the Process Server (running in Azure) to a Configuration Server (running on-premises)
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+
+## Upgrading the Process Server to latest version.
+
+[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-upgrade-process-server.md)]
+
+## Unregistering the Process Server (running in Azure) from a Configuration Server (running on-premises)
+
+[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+
+## Common Issues
