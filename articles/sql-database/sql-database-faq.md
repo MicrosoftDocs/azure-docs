@@ -26,6 +26,15 @@ The current version of SQL Database is V12. Version V11 has been retired.
 ## What is the SLA for SQL Database?
 We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
+## How do I reset the password for the server admin?
+In the [Azure Portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
+
+## How do I manage databases and logins?
+See [Managing databases and logins](sql-database-manage-logins.md).
+
+## How do I make sure only authorized IP addresses are allowed to access a server?
+See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
+
 ## How does the usage of SQL Database show up on my bill?
 SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
 
