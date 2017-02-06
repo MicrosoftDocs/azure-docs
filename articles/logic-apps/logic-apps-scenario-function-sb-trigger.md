@@ -1,6 +1,6 @@
 ---
-title: Logic app scenario: Create an Azure Functions Service Bus trigger | Microsoft Docs
-description: Use Azure Functions to create a Service Bus trigger for a logic app
+title: Scenario - Trigger logic apps with Azure Functions and Azure Service Bus | Microsoft Docs
+description: Create a function to trigger a logic app by using Azure Functions and Azure Service Bus trigger
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
