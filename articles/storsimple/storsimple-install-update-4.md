@@ -41,7 +41,7 @@ Perform the following steps to update your device to [Update 4](storsimple-updat
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17814)**. The **Last updated date** should also be modified. 
+Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17818)**. The **Last updated date** should also be modified. 
 
    - You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. 
  

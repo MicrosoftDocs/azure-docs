@@ -199,7 +199,7 @@ To install the disk firmware updates, follow the instructions below.
               PCM2VPDStructure:0x05
               PCM2VPDCRC:0x41BEF99C
 
-     EbodFirmware
+           EbodFirmware
               CanisterFirmware:3.5.0.56
               CanisterBootloader:5.03
               CanisterConfigCRC:0xB23150F8
@@ -216,19 +216,19 @@ To install the disk firmware updates, follow the instructions below.
               PCM2VPDStructure:0x03
               PCM2VPDCRC:0x6B58AD13
    
-         DisksFirmware
-         SEAGATE:ST400FM0073:XGEG
-         SEAGATE:ST400FM0073:XGEG
-         SEAGATE:ST400FM0073:XGEG
-         SEAGATE:ST400FM0073:XGEG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
-         SEAGATE:ST4000NM0023:XMGG
+           DisksFirmware
+            SEAGATE:ST400FM0073:XGEG
+            SEAGATE:ST400FM0073:XGEG
+            SEAGATE:ST400FM0073:XGEG
+            SEAGATE:ST400FM0073:XGEG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
+            SEAGATE:ST4000NM0023:XMGG
    
     Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
    
