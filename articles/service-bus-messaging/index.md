@@ -68,7 +68,7 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/guide.svg" alt="" />
+                            <img src="media/index/deploy.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

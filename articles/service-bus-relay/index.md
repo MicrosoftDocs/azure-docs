@@ -128,7 +128,8 @@ Relay supports a variety of different transport protocols and web services stand
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3><a href="/azure/service-bus-relay/service-bus-relay-samples">Samples</h3>
+                        <h3>Samples</h3>
+                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Service Bus Relay Samples</a></p>
                     </div>
                 </div>
             </div>
