@@ -1,25 +1,66 @@
 ---
 title: Azure Marketplace for Azure Government partners | Microsoft Docs
 description: This article provides a comparison of features and guidance on developing applications for Azure Government.
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: tsingh
 manager: asimm
-editor: ''
 
 ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
+ms.date: 11/14/2016
 ms.author: zakramer;tsingh;divacc
 
 ---
 # Azure Marketplace for Azure Government
 If you're an Azure Government partner who's interested in publishing offerings to the Azure Marketplace, find the details in this article.
+
+Currently BYOL VM Images and Solution Templates are supported in Azure Government Marketplace. As a best practice, Solution Templates should be reviewed prior to publishing to Azure Government to ensure it will function on both Azure Public and Azure Government Clouds. If you are only publishing a VM Image you can proceed to the publishing steps further below.
+
+## Pre-Publishing Validation for Solution Templates
+
+Before you publish your solution template to Azure Government, we recommend checking a couple of common best practice areas to ensure your Template will work in both Azure Public Cloud and Azure Government.
+
+1.	Verify endpoints are not hard coded into your solution Template for Azure Public Cloud. These won't be valid for any other Azure Environments. Instead modify the Solution template to request an API call to pull the valid end point:  
+
+  Example:
+
+  Incorrect VHD uri (hard coded)
+  "uri": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net/',  '/osdisk.vhd')]",
+
+  Correct VHD uri (referenced)
+
+  "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'osdisk.vhd')]",
+
+  The corrected syntax will ensure the template will work on any cloud (Gov, Public Azure, AzureStack, China, etc)
+
+2.	Verify that resources used in your solution template are available in the Sovereign Cloud you are publishing to.
+RPs in Azure & API version
+
+    Identify availability Azure Government using Resource Explorer in the portal:
+
+  1.	Log into Azure Government Portal
+  2.	Launch Resource Explorer, following steps listed here https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#supported-regions
+
+  Most commonly used extensions; Availability in Fairfax  
+
+  | Publisher/Type | Available Versions in Fairfax |
+  | --- | --- |
+  | Microsoft.OSTCExtensions/CustomScriptForLinux | 1; 1.1; 1.2.2.0; 1.3.0.2; 1.4.1.0; 1.5.2.0 |
+  | Microsoft.Compute/CustomScriptExtension | 1.2; 1.3; 1.4; 1.7; 1.8 |
+  | Microsoft.Azure.Extensions/DockerExtension | Not Available |
+  | Microsoft.Azure.Extensions/CustomScript | 2.0.2 |
+  | Microsoft.OSTCExtensions/LinuxDiagnostic | 2.0.9005; 2.1.9005; 2.2.9005; 2.3.9011 |
+  | Microsoft.Powershell/DSC | 2.19.0.0 |
+
+> [!NOTE]
+> If you put locations in for a list of allowed values, you will need to periodically update it as new regions are added.  
+
 
 ## Publishing
 > [!NOTE]

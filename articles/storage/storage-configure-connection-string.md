@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 12/12/2016
 ms.author: marsma
 
 ---
@@ -73,7 +73,7 @@ AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-One scenario where you may wish to do specify an explicit endpoint is if you have mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string, and optionally specify the default endpoints for the other service if your application uses them.
+One scenario where you may wish to do specify an explicit endpoint is if you have mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string, and optionally specify the default endpoints for the other services if your application uses them.
 
 Here are examples of valid connection strings that specify an explicit endpoint for the Blob service:
 

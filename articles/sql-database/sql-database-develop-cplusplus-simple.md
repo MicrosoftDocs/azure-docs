@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: tobiast
 
 ---
@@ -127,7 +127,7 @@ You can find the GetStarted solution that contains all the samples in this artic
 
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [ODBC API Reference](https://msdn.microsoft.com/library/ms714562\(v=vs.85\).aspx)
+* More information on the [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## Additional resources
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)

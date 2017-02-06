@@ -19,10 +19,6 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Monitoring products comparison](operations-management-suite-monitoring-product-comparison.md)
 ### [Manage alerts](operations-management-suite-monitoring-alerts.md)
-## Manage
-### [Plan and deploy](operations-management-suite-solutions-creating.md)
-### [Automation resources](operations-management-suite-solutions-resources-automation.md)
-### [Views](operations-management-suite-solutions-resources-views.md)
 ## Automate
 ### [Azure Automation overview](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Backup
@@ -34,6 +30,12 @@
 ### [Baseline assessment](oms-security-baseline.md)
 ### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Connect security products](oms-security-connect-products.md)
+## Create solutions
+### [Management solutions](operations-management-suite-solutions-creating.md)
+### [Automation resources](operations-management-suite-solutions-resources-automation.md)
+### [Log searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Views](operations-management-suite-solutions-resources-views.md)
 ## [Integrate with OMS](operations-management-suite-integration.md)
 
 

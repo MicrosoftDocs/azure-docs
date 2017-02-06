@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
-ms.author: markusvi
+ms.date: 02/01/2017
+ms.author: markvi
 
 ---
 # Azure Active Directory FAQ
@@ -40,6 +40,13 @@ For more details, see:
 In fact, all the users you have enabled for Microsoft Online services are defined as user accounts in one or more Azure AD instances. You can enable these accounts for free Azure AD capabilities such as cloud application access.
 
 Additionally, Azure AD paid services (e.g.: Azure AD basic, Premium, EMS, etc.) complement other Online services such as Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
+
+- - -
+
+- - -
+**Q: Is there a report that shows when my Azure AD user licenses will expire?**
+
+**A:** No.  This is not currenlty available.
 
 - - -
 ## Getting started with Hybrid Azure AD

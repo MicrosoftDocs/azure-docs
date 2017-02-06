@@ -74,7 +74,7 @@ A preliminary index is typically inferred from the dataset. Add, edit, or delete
 4. Click the **Analyzer** tab if you want to specify a language analyzer at the field level. Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code.
    
    * Click **Searchable** to designate full-text search on the field and enable the Analyzer drop-down list.
-   * Choose the analyzer you want. See [Create an index for documents in multiple language](search-language-support.md) for details.
+   * Choose the analyzer you want. See [Create an index for documents in multiple languages](search-language-support.md) for details.
 5. Click the **Suggester** to enable type-ahead query suggestions on selected fields.
 
 ## Import your data
@@ -90,11 +90,17 @@ In Azure Search, structural updates to an index will require a rebuild of that i
 
 Edits that don't require a rebuild include adding a new field, changing scoring profiles, changing suggesters, or changing language analyzers. See [Update Index](https://msdn.microsoft.com/library/azure/dn800964.aspx) for more information.
 
-## Next step
+## Query an index using Search Explorer
+
+The portal includes **Search Explorer** so that you can query an index without having to write any code. You can use Search Explorer on any index.
+
+The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). Results are returned in JSON so that you can inspect the entire document.
+
+## Next steps
 Review these links to learn more about indexers:
 
 * [Indexing Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexing DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [Indexing DocumentDB](search-howto-index-documentdb.md)
 * [Indexing Blob Storage (preview)](search-howto-indexing-azure-blob-storage.md)
 * [Indexing Table Storage (preview)](search-howto-indexing-azure-tables.md)
 

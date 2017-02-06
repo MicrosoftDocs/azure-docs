@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/09/2017
 ms.author: femila
 
 ---
@@ -35,7 +35,7 @@ Before beginning troubleshooting verify that the user and device have been confi
 If you cannot solve your issue with the guidance below, you can contact our support engineers. When you contact them, it is recommended to include the following information:
 
 - **General description of the error** – Are there error messages seen by the user? If there was no error message, describe the unexpected behavior you noticed, in detail. What features are enabled for sync and what is the user expecting to sync? Are multiple features not syncing or is it isolated to one?
--** Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
+- **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
 - **Information about the user** – What identity is the user using to log into the device? How is the user logging into the device? Are they part of a selected security group allowed to sync? 
 - **Information about the device** – Is this device Azure AD Joined or domain-joined? What build is the device on? What are the most recent updates?
 - **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
@@ -49,9 +49,7 @@ This section gives suggestions on how to troubleshoot and diagnose problems rela
 1. After joining your Windows 10 PC to a domain that is configured to allow Enterprise State Roaming, logon with your work account. Go to **Settings** > **Accounts** > **Sync Your Settings** and confirm that sync and the individual settings are on, and that the top of the settings page indicates that you are syncing with your work account. Confirm the same account is also used as your login account in **Settings** > **Accounts** > **Your Info**. 
 2. Verify that sync works across multiple machines by making some changes on the original machine, such as moving the taskbar to the right or top side of the screen. Watch the change propagate to the second machine within 5 minutes. 
  - Locking and unlocking the screen (Win + L) can help trigger a sync.
- - You must be using the same logon account on both PCs for sync to work – as Enterprise State.
-
-## Roaming is tied to the user account and not the machine account.
+ - You must be using the same logon account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
 
 **Potential Issue**: The settings page has the toggles grayed out, and instead of seeing an account, you see the text “Some Windows features are only available if you are using a Microsoft account or work account”. This issue may arise for devices that have been set up to be domain-joined and registered to Azure AD, but the device has not successfully authenticated to Azure AD. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. To verify this issue, follow the steps in verify the device registration status to check if this is the case.
 
@@ -60,7 +58,7 @@ Enterprise State Roaming requires the device to be registered with Azure AD. Alt
 
 1.	Open the command prompt un-elevated. To do this in Windows, open the Run launcher (Win + R) and type “cmd” to open.
 2.	Once the command prompt is open, type “*dsregcmd.exe /status*”.
-3.	For expected output, the AzureAdJoined  field value should be “YES”,  WamDefaultSet field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(AzureAd)” at the end.
+3.	For expected output, the **AzureAdJoined**  field value should be “YES”,  **WamDefaultSet** field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(AzureAd)” at the end.
 
 **Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device does not sync. If it is showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. The user may have to wait a few hours for the policy to be applied. Other troubleshooting steps may include retrying auto-registration by signing out and back in, or launching the task in Task Scheduler. In some cases, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
@@ -68,7 +66,7 @@ Enterprise State Roaming requires the device to be registered with Azure AD. Alt
 **Potential issue**: The field for **AzureAdSettingsUrl** is empty and the device does not sync. The user may have last logged into the device before Enterprise State Roaming was enabled in the Azure Active Directory Portal. In the portal, try having the IT Admin disable  and re-enable Users May Sync Settings and Enterprise App Data. Once re-enabled, restart the device and have the user login. 
 
 ## Enterprise State Roaming and Multi-Factor Authentication 
-Under certain conditions, Enterprise State Roaming can fail to sync data if Azure Multi-Factor Authentication is configured. For additional details on these symptoms, please see the support document KB3193683. 
+Under certain conditions, Enterprise State Roaming can fail to sync data if Azure Multi-Factor Authentication is configured. For additional details on these symptoms, please see the support document [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Potential issue**: If your device is configured to require Multi-Factor Authentication on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 devices with their Microsoft Passport for Work PIN or by completing Multi-Factor Authentication while accessing other Azure services like Office 365.
 
@@ -101,6 +99,8 @@ Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update ([KB31
 ### Theme is not syncing, as well as data protected with Windows Information Protection 
 
 To prevent data leakage, data that is protected with [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)  will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
+
+
 
 **Recommended action**  
 None. Future updates to Windows may resolve this issue.
@@ -157,8 +157,15 @@ Proceed with the steps listed [KB3196528](https://support.microsoft.com/kb/31965
 
 
 
-##Next steps
+## Next steps
 
 - Use the [User Voice forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) to provide feedback and make suggestions on how to improve Enterprise State Roaming.
 
 - For more details, see the [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md). 
+
+## Related topics
+* [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
+* [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
+* [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)

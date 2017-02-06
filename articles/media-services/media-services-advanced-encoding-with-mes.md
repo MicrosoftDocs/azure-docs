@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 01/05/2017
 ms.author: juliako
 
 ---
@@ -804,7 +804,11 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
     }
 
 ## <a id="concatenate"></a>Concatenate two or more video files
+
 The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share  properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
+
+>[!NOTE]
+>The current design of the concatenation feature expects that the input video clips are consistent in terms of resolution, frame rate etc. 
 
 ### Requirements and considerations
 

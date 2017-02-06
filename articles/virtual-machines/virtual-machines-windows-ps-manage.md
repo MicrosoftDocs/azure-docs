@@ -215,5 +215,5 @@ The script file can contain something like this code to initialize the disks:
     }
 
 ## Next Steps
-If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
+If there were issues with a deployment, you might look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

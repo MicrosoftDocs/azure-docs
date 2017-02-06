@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 12/15/2016
 ms.author: danlep
 
 ---
@@ -34,6 +34,23 @@ A Microsoft HPC Pack 2016 cluster requires a Personal Information Exchange (PFX)
 * It must have a private key capable of key exchange
 * Key usage includes Digital Signature and Key Encipherment
 * Enhanced key usage includes Client Authentication and Server Authentication
+
+If you don’t already have a certificate that meets these requirements, you can request the certificate from a certification authority. Alternatively, you can use the following commands to generate the self-signed certificate based on the operating system on which you run the command, and export the PFX format certificate with private key.
+
+* **For Windows 10 or Windows Server 2016**, run the built-in **New-SelfSignedCertificate** PowerShell cmdlet as follows:
+
+  ```PowerShell
+  New-SelfSignedCertificate -Subject "CN=HPC Pack 2016 Communication" -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2") -CertStoreLocation cert:\CurrentUser\My -KeyExportPolicy Exportable -NotAfter (Get-Date).AddYears(5)
+  ```
+* **For operating systems earlier than Windows 10 or Windows Server 2016**, download the [self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from the Microsoft Script Center. Extract its contents and run the following commands at a PowerShell prompt:
+
+    ```PowerShell 
+    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+  
+    New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
+    ```
+
+### Upload certificate to an Azure key vault
 
 Before deploying the HPC cluster, upload the certificate to an [Azure key vault](../key-vault/index.md) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
@@ -120,7 +137,7 @@ Enter or modify values for the template parameters. Click the icon next to each 
 
 Specify the values you recorded in the Prerequisites for the following parameters: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
-###Step 3. Review legal terms and create
+### Step 3. Review legal terms and create
 Click **Review legal terms** to review the terms. If you agree, click **Purchase**, and then click **Create** to start the deployment.
 
 ## Connect to the cluster

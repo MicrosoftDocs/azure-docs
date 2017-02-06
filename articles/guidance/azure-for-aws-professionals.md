@@ -1,12 +1,13 @@
 ---
-title: Azure for AWS professionals | Microsoft Docs
-description: An introduction to Azure services for AWS professionals.
+title: Introduction to Azure for AWS experts | Microsoft Docs
+description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms.
 services: ''
 documentationcenter: ''
+keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
 author: lbrader
 manager: christb
 
-ms.assetid: 
+ms.assetid:
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -17,33 +18,31 @@ ms.author: lbrader
 
 ---
 
-# Microsoft Azure for AWS Professionals
+# Introduction to Microsoft Azure accounts, platform, and services for AWS experts
 
-Because Azure and AWS built their capabilities independently over time, each
-have important implementation and design differences that can make it difficult
-for users familiar with one platform to understand and use the capabilities of
-the other.
+This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
 
-This document will discuss how accounts and resources are organized in Azure,
-how available solutions are structured, and how the major services map between
-AWS and Azure. Its goal is to make getting started with Azure easier for AWS
-professionals by clarifying the key similarities and differences between the two
-platforms.
+You'll learn:
+
+* How accounts and resources are organized in Azure.
+* How available solutions are structured in Azure.
+* How the major Azure services differ from AWS services.
+
+ Azure and AWS built their capabilities independently over time so that each has important implementation and design differences.
 
 ## Overview
 
 Like AWS, Microsoft Azure is built around a core set of compute, storage,
 database, and networking services. In many cases, both platforms offer a basic
 equivalence between the products and services they offer. Both AWS and Azure
-allow you to build highly available solutions based on Windows or Linux hosts,
-so If you're used to development using Linux and OSS technology, both platforms
+allow you to build highly available solutions based on Windows or Linux hosts. So, if you're used to development using Linux and OSS technology, both platforms
 can do the job.
 
 While the capabilities of both platforms are similar, the resources that provide
 those capabilities are often organized differently. Exact one-to-one
 relationships between the services required to build a solution are not always
 clear. There are also cases where a particular service might be offered on one
-platform, but not the other.
+platform, but not the other. See [charts of comparable Azure and AWS services](guidance-azure-for-aws-professionals-service-map.md).
 
 ## Accounts and subscriptions
 
@@ -64,7 +63,7 @@ owner accounts, and can be reassigned to new owners as needed.
 
 Subscriptions are assigned three types of administrator accounts:
 
--   **Account Administrator** - This is the subscription owner, and is the
+-   **Account Administrator** - The subscription owner and the
     account billed for the resources used in the subscription. The account
     administrator can only be changed by transferring ownership of the
     subscription.
@@ -82,8 +81,7 @@ Subscriptions are assigned three types of administrator accounts:
     administrator, but otherwise have full control over subscription resources
     and users.
 
-Below the subscription level other users can be assigned permissions on
-individual resources.
+Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a
 full list of these limits, see [Azure subscription and service limits, quotas,
@@ -101,24 +99,19 @@ portal](https://blogs.msdn.microsoft.com/girishp/2015/09/20/increasing-core-quot
 -   [How to download your Azure billing invoice and daily usage
     data](https://azure.microsoft.com/documentation/articles/billing-download-azure-invoice-daily-usage-date/)
 
-## Managing resources
+## Resource management
 
 The term "resource" in Azure is used in the same way as in AWS, meaning any
 compute instance, storage object, networking device, or other entity you can
 create or configure within the platform.
 
 Azure resources are deployed and managed using one of two models: [Azure
-Resource Manager, or the older Azure Service Management
-(Classic)](https://azure.microsoft.com/documentation/articles/azure-classic-rm/).
+Resource Manager, or the older Azure [classic deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
 Any new resources are created using the Resource Manager model.
 
 ### Resource groups
 
-Both Azure and AWS have entities called "resource groups" that organize
-resources such as VMs, storage, and virtual networking devices. However, [Azure
-resource
-groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)
-are not directly comparable to AWS resource groups.
+Both Azure and AWS have entities called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. However, [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) are not directly comparable to AWS resource groups.
 
 While AWS allows a resource to be tagged into multiple resource groups, an Azure
 resource is always associated with one resource group. A resource created in one
@@ -178,7 +171,7 @@ Spinnaker](http://www.spinnaker.io/), are also available on Azure.
 ## Regions and zones (high availability)
 
 In AWS, availability centers around the concept of Availability Zones. In Azure,
-fault domains, and availability sets are all involved in building highly
+fault domains and availability sets are all involved in building highly
 available solutions. Paired regions provide additional disaster recovery
 capabilities.
 
@@ -187,7 +180,7 @@ capabilities.
 In AWS, a region is divided into two or more Availability Zones. An Availability
 Zone corresponds with a physically isolated datacenter in the geographic region.
 If you deploy your application servers to separate Availability Zones, a
-hardware or connectivity outage affecting one zone will not impact any servers
+hardware or connectivity outage affecting one zone does not impact any servers
 hosted in other zones.
 
 In Azure, a [fault
@@ -201,7 +194,7 @@ domains. If a power failure or network outage occurs in one fault domain, at
 least some of the set's VMs are in another fault domain and unaffected by the
 outage.
 
-![AWS Availability Zones compared with Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault-domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
+![AWS Availability Zones comparison to Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault-domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
 <br/>*AWS Availability Zones compared with Azure fault domains and availability sets*
 <br/><br/>
 
@@ -210,8 +203,8 @@ to ensure one instance in each role is operational. For example, in a standard
 three-tier web application, you would want to create a separate availability set
 for front-end, application, and data instances.
 
-![Availability sets for each application role](./media/azure-for-aws-professionals/three-tier-example.png "Availability sets for each application role")
-<br/>*Availability sets for each application role*
+![Azure availability sets for each application role](./media/azure-for-aws-professionals/three-tier-example.png "Availability sets for each application role")
+<br/>*Azure availability sets for each application role*
 <br/><br/>
 
 When VM instances are added to availability sets, they are also assigned an
@@ -227,13 +220,12 @@ given time.
 In Azure, you use [paired
 regions](https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/)
 to support redundancy across two predefined geographic regions, ensuring that
-even if an outage affects an entire Azure region, your solution will still be
+even if an outage affects an entire Azure region, your solution is still
 available.
 
 Unlike AWS Availability Zones, which are physically separate datacenters but may
 be in relatively nearby geographic areas, paired regions are usually separated
-by at least 300 miles. This is intended to ensure larger scale disasters will
-only impact one of the regions in the pair. Neighboring pairs can be set to sync
+by at least 300 miles. This is intended to ensure larger scale disasters only impact one of the regions in the pair. Neighboring pairs can be set to sync
 database and storage service data, and are configured so that platform updates
 are rolled out to only one region in the pair at a time.
 
@@ -256,9 +248,9 @@ creating a full copy of your solution in both regions.
 
 ## Services
 
-Consult the [complete AWS and Azure service comparison matrix](https://aka.ms/azure4aws-services) for a full listing of how all services map between platforms. 
+Consult the [complete AWS and Azure service comparison matrix](https://aka.ms/azure4aws-services) for a full listing of how all services map between platforms.
 
-Note that not all Azure products and
+Not all Azure products and
 services are available in all regions. Consult the [Products by
 Region](https://azure.microsoft.com/regions/services/) page for details. You can find the uptime guarantees and downtime credit policies for each Azure
 product or service on the [Service Level
@@ -321,7 +313,12 @@ Autoscaling in Azure is handled by two services:
 -   [App Service
     Autoscale](https://azure.microsoft.com/documentation/articles/web-sites-scale/) - provides the capability to autoscale Azure App Service solutions.
 
+
+#### Container Service
+The [Azure Container Service](https://docs.microsoft.com/azure/container-service/container-service-intro) supports Docker containers managed through Docker Swarm, Kubernetes, or DC/OS.
+
 #### Other compute services 
+
 
 Azure offers several compute services that do not have direct equivalents in
 AWS:
@@ -428,7 +425,7 @@ The Azure equivalents of the two Elastic Load Balancing services are:
 
 #### Route 53, Azure DNS, and Azure Traffic Manager
 
-In AWS Route 53 provides both DNS name management and DNS-level traffic routing
+In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 and failover services. In Azure this is handled through two services:
 
 -   [Azure DNS](https://azure.microsoft.com/documentation/services/dns/) - provides domain and DNS management.
@@ -523,7 +520,7 @@ In addition to the [Application Gateway Web Application
 Firewall](https://azure.microsoft.com/documentation/articles/application-gateway-webapplicationfirewall-overview/),
 you can also [use web application
 firewalls](https://azure.microsoft.com/documentation/articles/application-gateway-webapplicationfirewall-overview/)
-from third party vendors like [Barracuda
+from third-party vendors like [Barracuda
 Networks](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf/).
 
 #### See also
@@ -536,13 +533,13 @@ Networks](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf
 
 ### Application and messaging services
 
-#### Simple Email Service 
+#### Simple Email Service
 
 AWS provides the Simple Email Service (SES) for sending notification,
-transactional, or marketing emails. In Azure third party solutions like
+transactional, or marketing emails. In Azure, third-party solutions like
 [Sendgrid](https://sendgrid.com/partners/azure/) provide email services.
 
-#### Simple Queueing Service 
+#### Simple Queueing Service
 
 AWS Simple Queueing Service (SQS) provides a messaging system for connecting
 applications, services, and devices within the AWS platform. Azure has two
@@ -576,7 +573,7 @@ testing resources for Linux and Windows environments.
 -   [How to use Service Bus
     queues](https://azure.microsoft.com/documentation/articles/service-bus-nodejs-how-to-use-queues/)
 
-### Analytics and big data 
+### Analytics and big data
 
 [The Cortana Intelligence
 Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/) is
@@ -590,10 +587,10 @@ services:
     Factory](https://azure.microsoft.com/documentation/services/data-factory/) - provides data orchestration and data pipeline functionality.
 
 -   [SQL Data
-    Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) - large scale relational data storage.
+    Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) - large-scale relational data storage.
 
 -   [Data Lake
-    Store](https://azure.microsoft.com/documentation/services/data-lake-store/) - large scale storage optimized for big data analytics workloads.
+    Store](https://azure.microsoft.com/documentation/services/data-lake-store/) - large-scale storage optimized for big data analytics workloads.
 
 -   [Machine
     Learning](https://azure.microsoft.com/documentation/services/machine-learning/) - used to build and apply predictive analytics on data.
@@ -602,7 +599,7 @@ services:
     Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/) - real-time data analysis.
 
 -   [Data Lake
-    Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview/) - large scale analytics service optimized to work with Data Lake Store
+    Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview/) - large-scale analytics service optimized to work with Data Lake Store
 
 -   [PowerBI](https://powerbi.microsoft.com/) - used to power data
     visualization.
@@ -631,7 +628,7 @@ services:
 
 #### Notifications
 
-Notification Hubs do not support sending SMS or email messages, so third party
+Notification Hubs do not support sending SMS or email messages, so third-party
 services are needed for those delivery types.
 
 #### See also
@@ -648,6 +645,8 @@ services are needed for those delivery types.
 ### Management and monitoring
 
 #### See also
+-   [Monitoring and diagnostics
+    guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring/)
 
 -   [Best practices for creating Azure Resource Manager
     templates](https://azure.microsoft.com/documentation/articles/resource-manager-template-best-practices/)
@@ -655,10 +654,8 @@ services are needed for those delivery types.
 -   [Azure Resource Manager Quickstart
     templates](https://azure.microsoft.com/documentation/templates/)
 
--   [Monitoring and diagnostics
-    guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring/)
 
-## Next steps 
+## Next steps
 
 -   [Complete AWS and Azure service comparison
     matrix](https://aka.ms/azure4aws-services)

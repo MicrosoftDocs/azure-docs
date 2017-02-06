@@ -1,5 +1,5 @@
 ---
-title: Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Microsoft Docs
+title: Rolling application upgrades - Azure SQL Database | Microsoft Docs
 description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
 services: sql-database
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: monicar
 
 ms.assetid: 58f42859-1e37-463c-a3d8-a3ca2e867148
 ms.service: sql-database
-ms.custom: business continuity; app development
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

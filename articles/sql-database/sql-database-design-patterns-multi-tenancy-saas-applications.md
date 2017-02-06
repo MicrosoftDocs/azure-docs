@@ -4,19 +4,19 @@ description: This article discusses the requirements and common data architectur
 keywords: ''
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: ''
 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 
 ---
 # Design patterns for multitenant SaaS applications and Azure SQL Database

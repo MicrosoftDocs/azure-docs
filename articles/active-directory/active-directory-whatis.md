@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 12/16/2016
 ms.author: curtand
 
 ---
@@ -58,56 +58,100 @@ Azure AD is a multi-customer public directory service, which means that within A
 
 You can use Azure AD Connect to sync your on-premises identities with Azure AD.
 
+---
+
 ### Authentication and authorization details
 
-| Azure AD                                   | On-premises AD DS |
-|--------------------------------------------|-------------------|
-| <li>   SAML      <li>   WS-Federation    <li>   Interactive with supported credentials  <li>   OAuth 2.0   <li>   OpenID Connect                          | <li>   SAML   <li>   WS-Federation  <li>   NTLM  <li>   Kerberos   <li>   MD5   <li>   Basic          |
+#### Azure AD
+`SAML`, `WS-Federation`, Interactive with supported credentials, OAuth 2.0, OpenID Connect 
+
+#### On-premises AD DS
+`SAML`, `WS-Federation`, NTLM, Kerberos, MD5, Basic
+
+---
 
 ### Object repository details
 
-| Azure AD                                          | On-premises AD DS |
-|---------------------------------------------------|-------------------|
-| Access via Azure AD Graph and Microsoft Graph | X.500 LDAP    |
+#### Azure AD
+Access via Azure AD Graph and Microsoft Graph 
+
+#### On-premises AD DS
+X.500 LDAP  
+
+---
+
 
 ### Programmatic access details
 
-| Azure AD                        | On-premises AD DS |
-|---------------------------------|-------------------|
-| MS/Azure AD Graph REST APIs | LDAP          |
+#### Azure AD
+MS/Azure AD Graph REST APIs 
+
+#### On-premises AD DS
+LDAP 
+
+---
 
 ### SSO to applications details
 
-| Azure AD           | On-premises AD DS   |
-|--------------------|---------------------|
-| <li>   OpenID Connect  <li>   SAML          | <li>   SAML      <li>   WS-Fed   <li>   Open-ID connect  |
+#### Azure AD
+`OpenID Connect`, `SAML` 
+
+#### On-premises AD DS
+`Open-ID Connect`, `SAML`, WS-Fed 
+
+---
 
 ### Access management details
 
-| Azure AD         | On-premises AD DS     |
-|------------------------------------|------------------------------------------------------------------------|
-| <li>   Resource-defined scope and role based access control   <li>   Client-define delegated and application permissions        <li>   Consent Framework (enforces proper user/admin consent, as defined/requested by resource/client)  <li>   Via app role, can be applied individually or through groups, supports:   <ul> <li>   Admin managed       <li>   Self-service application access  <li>   User consent </ul>         | <li>   Via ACLs, can be applied individually or through groups, supports:  <ul><li>   Admin managed  </ul>                                                 |
+#### Azure AD
+Resource-defined scope and role based access control, Client-define delegated and application permissions, Consent Framework (enforces proper user/admin consent, as defined/requested by resource/client) 
+
+Via app role, can be applied individually or through groups, supports: Admin managed, Self-service application access, User consent
+
+#### On-premises AD DS
+Via ACLs, can be applied individually or through groups, supports: Admin managed 
+
+---
 
 ### Group management details
 
-| Azure AD                          | On-premises AD DS                                 |
-|-----------------------------------|---------------------------------------------------|
-| <li>   Admin managed    <li>   Rule/dynamic managed   <li>   Self-service group management  | <li>   Admin managed      <li>   External system (FIM, or other) required for:  <ul><li>   Rule/dynamic managed      </ul>                 |
+#### Azure AD
+`Admin managed`, Rule/dynamic managed, Self-service group management 
+
+#### On-premises AD DS
+`Admin managed`, External system (FIM, or other) required for Rule/dynamic managed |
+
+---
 
 ### Supported credentials details
 
-| Azure AD           | On-premises AD DS  |
-|--------------------|--------------------|
-| <li>   Username + password  <li>   Smartcard     | <li>   Username + password  <li>   Smartcard     |
+#### Azure AD
+`Username + password`, `Smartcard` 
+
+#### On-premises AD DS
+`Username + password`, `Smartcard` 
+ 
+---
+
+
+
+
+
 
 
 ## How can I get started?
-* If you are an IT admin:
-  * [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
-  * Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
-* If you are a developer:
-  * Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
-  * [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and  start integrating your apps with Azure AD
+
+**If you are an IT admin:**
+
+* [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
+
+* Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
+
+**If you are a developer:**
+ 
+* Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
+
+* [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and  start integrating your apps with Azure AD
 
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:

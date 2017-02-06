@@ -4,7 +4,7 @@ description: Describes how to add or change Azure Co-Administrator, Service Admi
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: vikdesai
 editor: ''
 tags: billing
 

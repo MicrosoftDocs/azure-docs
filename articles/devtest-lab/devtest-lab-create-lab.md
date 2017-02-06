@@ -36,9 +36,8 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
    1. Enter a **Lab Name** for the new lab.
    2. Select the **Subscription** to associate with the lab.
    3. Select a **Location** in which to store the lab.
-   4. Select **Auto-shutdown** to specify if you want to enable - and define the parameters for - the automatic shutting down of all the lab's VMs.
-   5. Select the **Storage type** to indicate the storage disk type for the lab's VMs. 
-   6. Select **Create**.
+   4. Select **Auto-shutdown** to specify if you want to enable - and define the parameters for - the automatic shutting down of all the lab's VMs. 
+   5. Select **Create**.
       
       ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

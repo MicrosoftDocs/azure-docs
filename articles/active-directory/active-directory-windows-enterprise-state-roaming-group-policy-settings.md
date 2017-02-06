@@ -1,3 +1,4 @@
+
 ---
 title: Group Policy and MDM settings | Microsoft Docs
 description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices. These policies are applied to the user’s entire device.
@@ -54,4 +55,5 @@ The Group Policy settings apply to Windows 10 devices that are joined to an Acti
 * [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 

@@ -44,7 +44,7 @@
 ### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
 ### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure DocumentDB indexer](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Azure DocumentDB indexer](search-howto-index-documentdb.md)
 ### [Index CSV blobs](search-howto-index-csv-blobs.md)
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
 ### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -61,15 +61,14 @@
 
 # Reference
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET Management](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (Management)](/dotnet/api/microsoft.azure.management.search)
+## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Management)](/rest/api/searchmanagement)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
-## Using Search APIs
-##X [API versions](search-api-versions.md)
+## [API versions](search-api-versions.md)
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## Demo sites
@@ -81,7 +80,7 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 ## Partner & community
 ### [Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [Multi-level faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [Multilevel faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 ### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)

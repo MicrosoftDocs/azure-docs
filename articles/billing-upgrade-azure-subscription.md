@@ -3,8 +3,8 @@ title: Upgrade your free Azure subscription to Pay-As-You-Go | Microsoft Docs
 description: Describes the process and requirements for upgrading from a free subscription to Pay-As-You-Go
 services: ''
 documentationcenter: ''
-author: jlian
-manager: mbaldwin
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2016
+ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 
 ---
-# How to use Azure Active Directory and Resource Manager to manage a customer’s resources
+# Use Resource Manager authentication API to access subscriptions
 ## Introduction
 If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions. 
 
@@ -107,7 +107,7 @@ Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize en
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-The query string parameters that are available for this request are described in the [request an authorization code](../active-directory/active-directory-protocols-oauth-code.md#request-an-authorization-code) topic.
+The query string parameters that are available for this request are described in the [request an authorization code](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) topic.
 
 The following example shows how to request OAuth2.0 authorization:
 
@@ -120,7 +120,7 @@ Azure AD authenticates the user, and, if necessary, asks the user to grant permi
 ### Auth request (Open ID Connect)
 If you not only wish to access Azure Resource Manager on behalf of the user, but also allow the user to sign in to your application using their Azure AD account, issue an Open ID Connect Authorize Request. With Open ID Connect, your application also receives an id_token from Azure AD that your app can use to sign in the user.
 
-The query string parameters that are available for this request are described in the [Send the sign-in request](../active-directory/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) topic.
+The query string parameters that are available for this request are described in the [Send the sign-in request](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) topic.
 
 An example Open ID Connect request is:
 
@@ -137,7 +137,7 @@ Now that your application has received the authorization code from Azure AD, it 
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-The query string parameters that are available for this request are described in the [use the authorization code](../active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
+The query string parameters that are available for this request are described in the [use the authorization code](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
 
 The following example shows a request for code grant token with password credential:
 
@@ -148,7 +148,7 @@ The following example shows a request for code grant token with password credent
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](../active-directory/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
+When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
 See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication. 
 
@@ -172,7 +172,7 @@ A successful token response contains the (user + app) access token for Azure Res
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-The parameters to use with the refresh request are described in [refreshing the access token](../active-directory/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+The parameters to use with the refresh request are described in [refreshing the access token](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 The following example shows how to use the refresh token:
 
@@ -222,14 +222,14 @@ When your application authenticates a user from an Azure AD, it creates a servic
 
 You only have an access token for Azure Resource Manager - you need a new access token to call the Azure AD Graph API. Every application in Azure AD has permission to query its own service principal object, so an app-only access token is sufficient.
 
-<a id="app-azure-ad-graph">
+<a id="app-azure-ad-graph" />
 
 ### Get app-only access token for Azure AD Graph API
 To authenticate your app and get a token to Azure AD Graph API, issue a Client Credential Grant OAuth2.0 flow token request to Azure AD token endpoint (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 
-The query string parameters that are available for this request are described in the [Request an Access Token](../active-directory/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) topic.
+The query string parameters that are available for this request are described in the [Request an Access Token](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) topic.
 
 An example request for client credential grant token: 
 

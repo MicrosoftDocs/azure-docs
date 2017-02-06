@@ -1,5 +1,5 @@
 ---
-title: Deploy Multiple Instances of Resources | Microsoft Docs
+title: Deploy multiple instances of Azure resources | Microsoft Docs
 description: Use copy operation and arrays in an Azure Resource Manager template to iterate multiple times when deploying resources.
 services: azure-resource-manager
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 11/02/2016
 ms.author: tomfitz
 
 ---
-# Create multiple instances of resources in Azure Resource Manager
+# Deploy multiple instances of resources in Azure Resource Manager templates
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource.
 
 ## copy, copyIndex, and length
@@ -119,7 +119,7 @@ Use the following template:
     "parameters": { 
       "org": { 
          "type": "array", 
-             "defaultValue": [ 
+         "defaultValue": [ 
              "Contoso", 
              "Fabrikam", 
              "Coho" 
@@ -166,13 +166,13 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
                      "count": 3 
                   }
             },
-           {
-               "apiVersion": "2015-06-15", 
-               "type": "Microsoft.Compute/virtualMachines", 
-               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-               "dependsOn": ["storagecopy"],
-               ...
-           }
+            {
+                "apiVersion": "2015-06-15", 
+                "type": "Microsoft.Compute/virtualMachines", 
+                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+                "dependsOn": ["storagecopy"],
+                ...
+            }
         ],
         "outputs": {}
     }
@@ -426,7 +426,7 @@ In the resources section, deploy multiple instances of the template that defines
 },
 ```
 
-In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number or data disks and the correct names for data disks.
+In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number of data disks and the correct names for data disks.
 
 ```
 {

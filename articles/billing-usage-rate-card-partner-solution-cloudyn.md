@@ -4,7 +4,7 @@ description: Provides a unique perspective from Microsoft Azure Billing partner 
 services: ''
 documentationcenter: ''
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 08/16/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 
 ---
@@ -64,7 +64,7 @@ Common Cloudyn ITFM use cases enabled by usage and RateCard APIs include:
 ## Video
 Here's a short video which shows how an Azure customer can use Cloudyn for Azure and the Azure Billing APIs, to gain insights from their Azure consumption data.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
 > 
 > 
 

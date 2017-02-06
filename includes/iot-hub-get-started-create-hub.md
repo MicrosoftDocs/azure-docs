@@ -2,7 +2,7 @@
 Create an IoT hub for your simulated device app to connect to. The following steps show you how to complete this task by using the Azure portal.
 
 1. Sign in to the [Azure portal][lnk-portal].
-2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.
+2. In the Jumpbar, click **New** > **Internet of Things** > **IoT Hub**.
    
     ![Azure portal Jumpbar][1]
 3. In the **IoT hub** blade, choose the configuration for your IoT hub.
@@ -11,7 +11,7 @@ Create an IoT hub for your simulated device app to connect to. The following ste
    
    * In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
    * Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
-   * In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
+   * In **Resource group**, either create a resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
    * In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
 4. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
    
@@ -31,7 +31,7 @@ Create an IoT hub for your simulated device app to connect to. The following ste
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
+[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md

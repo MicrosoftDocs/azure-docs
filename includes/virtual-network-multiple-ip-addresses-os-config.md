@@ -39,7 +39,11 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 		```
 
 	You should see a .cfg file.
-4. Open the file: vi *filename*.
+4. Open the file:
+
+		```bash
+		vi eth0.cfg
+		```
 
 	You should see the following lines at the end of the file:
 
@@ -102,36 +106,40 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 
 	You should see *ifcfg-eth0* as one of the files.
 
-5. Copy the *ifcfg-eth0* file and name it *ifcfg-eth0:0* with the following command:
+5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
 
 	```bash
-	cp ifcfg-eth0 ifcfg-eth0:0
+	touch ifcfg-eth0:0
 	```
 
-6. Edit the *ifcfg-eth0:0* file with the following command:
+6. Open the *ifcfg-eth0:0* file with the following command:
 
 	```bash
-	vi ifcfg-eth1
+	vi ifcfg-eth0:0
 	```
 
-7. Change the device to the appropriate name in the file; *eth0:0* in this case, with the following command:
+7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
 
 	```bash
 	DEVICE=eth0:0
+        BOOTPROTO=static
+        ONBOOT=yes
+        IPADDR=192.168.101.101
+        NETMASK=255.255.255.0
+
 	```
 
-8. Change the *IPADDR = YourPrivateIPAddress* line to reflect the IP address.
-9. Save the file with the following command:
+8. Save the file with the following command:
 
 	```bash
 	:wq
 	```
 
-10. Restart the network services and make sure the changes are successful by running the following commands:
+9. Restart the network services and make sure the changes are successful by running the following commands:
 
 	```bash
 	/etc/init.d/network restart
-	Ipconfig
+	ifconfig
 	```
 
 	You should see the IP address you added, *eth0:0*, in the list returned.

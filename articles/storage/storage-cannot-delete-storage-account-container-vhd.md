@@ -88,7 +88,7 @@ To resolve the most common issues, try the following method:
 3. Locate the disks that are associated with the storage account, container, or VHD that you want to delete. When you check the location of the disk, you will find the associated storage account, container, or VHD.
 
     ![Image that shows location information for disks on Azure classic portal](./media/storage-cannot-delete-storage-account-container-vhd/DiskLocation.png)
-4. Delete the disks use one of the following methods:
+4. Delete the disks by using one of the following methods:
 
   - If  there is no VM listed on the **Attached To** field of the disk, you can delete the disk directly.
 

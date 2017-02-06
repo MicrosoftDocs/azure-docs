@@ -1,5 +1,5 @@
 ---
-title: Set up data science environments for use in the Team Data Science Process | Microsoft Docs
+title: Set up data science environments in Azure | Microsoft Docs
 description: Set up data science environments for use in the Team Data Science Process
 services: machine-learning
 documentationcenter: ''

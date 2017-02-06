@@ -39,7 +39,7 @@ A **data source** specifies what data needs to be indexed, credentials to access
 The following data sources are currently supported:
 
 * **Azure SQL Database** and **SQL Server on Azure VMs**. For a targeted walk-through, see [this article](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Azure DocumentDB**. For a targeted walk-through, see [this article](../documentdb/documentdb-search-indexer.md). 
+* **Azure DocumentDB**. For a targeted walk-through, see [this article](search-howto-index-documentdb.md). 
 * **Azure Blob Storage**, including the following document formats: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP, and plain text files (including JSON). For  a targeted walk-through, see [this article](search-howto-indexing-azure-blob-storage.md).
 * **Azure Table Storage**. For a targeted walk-through, see [this article](search-howto-indexing-azure-tables.md).
 

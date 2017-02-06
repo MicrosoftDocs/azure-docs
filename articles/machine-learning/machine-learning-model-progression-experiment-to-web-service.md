@@ -1,5 +1,5 @@
 ---
-title: How a Machine Learning model progresses from an experiment to an operationalized Web service | Microsoft Docs
+title: How an Azure Machine Learning model becomes a web service | Microsoft Docs
 description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 
 ---
@@ -32,7 +32,7 @@ Once you’re satisfied with your experiment, you can deploy it as a ***Classic 
 In this article, we give an overview of the mechanics of how your Machine Learning model progresses from a development experiment to an operationalized Web service.
 
 > [!NOTE]
-> There are other ways to develop and deploy machine learning models, but this article is focused on how you use Machine Learning Studio. For a discussion of how to create a classic predictive Web service with R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> There are other ways to develop and deploy machine learning models, but this article is focused on how you use Machine Learning Studio. For example, to read a description of how to create a classic predictive Web service with R, see the blog post [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 > 
 > 
 
@@ -41,7 +41,7 @@ While Azure Machine Learning Studio is designed to help you develop and deploy a
 ## Developing and deploying a predictive Web service
 Here are the stages that a typical solution follows as you develop and deploy it using Machine Learning Studio:
 
-![Deployment flow](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Deployment flow](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Figure 1 - Stages of a typical predictive analysis model*
 

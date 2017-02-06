@@ -81,7 +81,7 @@ If you have questions about Azure Log Integration, send an email to [AzSIEMteam@
 ## Next steps
 To learn more about Azure Audit Logs and property definitions, see:
 
-* [Audit operations with Resource Manager](../resource-group-audit.md)
+* [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) - To retrieve audit log events.
 
 To learn more about Security Center, see the following:

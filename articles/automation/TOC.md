@@ -19,13 +19,14 @@
 ### [Source control integration](automation-source-control-integration.md)
 ## Automate runbooks
 ### [Start a runbook](automation-starting-a-runbook.md)
-### [Start a runbook from a web call](automation-webhooks.md)
-### [Schedule a runbook](automation-scheduling-a-runbook.md)
+### [Start a runbook from a webhook](automation-webhooks.md)
 ### [Run runbooks in your datacenter](automation-hybrid-runbook-worker.md)
 ### [Configure runbook input parameters](automation-runbook-input-parameters.md)
+### [Error handling in graphical runbooks](automation-runbook-graphical-error-handling.md)
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
+### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
@@ -59,7 +60,7 @@
 ### [Move Automation Account](automation-migrate-account-subscription.md)
 ## Troubleshoot
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
-### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
+### [Troubleshoot Hybrid Runbook Worker](automation-troubleshooting-hybrid-runbook-worker.md)
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)

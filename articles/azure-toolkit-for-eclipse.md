@@ -4,7 +4,7 @@ description: Learn about the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
+manager: erikre
 editor: ''
 
 ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 
 ---
@@ -68,7 +68,7 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
   * [Create a Hello World Web App for Azure in IntelliJ]
   * [What's New in the Azure Toolkit for IntelliJ]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center].
+For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
 <!-- URL List -->
 
@@ -82,6 +82,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Azure Project Properties]: ./azure-toolkit-for-eclipse-azure-project-properties.md
 [Azure Role Properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md

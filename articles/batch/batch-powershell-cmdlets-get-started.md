@@ -1,9 +1,9 @@
 ---
-title: Get started with Azure Batch PowerShell | Microsoft Docs
+title: Get started with PowerShell for Azure Batch | Microsoft Docs
 description: Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service
 services: batch
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 10/20/2016
-ms.author: marsma
+ms.date: 01/23/2017
+ms.author: tamram
 
 ---
 # Get started with Azure Batch PowerShell cmdlets

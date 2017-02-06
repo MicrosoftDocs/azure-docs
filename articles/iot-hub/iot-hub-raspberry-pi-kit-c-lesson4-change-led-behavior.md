@@ -1,5 +1,5 @@
 ---
-title: 'Optional: Change the on and off behavior of the LED | Microsoft Docs'
+title: 'Connect Raspberry Pi (C) to Azure IoT - Lesson 4: Modify app | Microsoft Docs'
 description: Customize the messages to change the LED's on and off behavior.
 services: iot-hub
 documentationcenter: ''

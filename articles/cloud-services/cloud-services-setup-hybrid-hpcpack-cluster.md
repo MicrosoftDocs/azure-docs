@@ -174,7 +174,7 @@ For this tutorial you will add two Small nodes.
 1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), in the **Actions** pane, click **Add Node**.
    
     ![Add Node][add_node1]
-2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Azure nodes**, and then click **Next**.
+2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Windows Azure nodes**, and then click **Next**.
    
     ![Add Azure Node][add_node1_1]
 3. On the **Specify New Nodes** page, select the Azure node template you created previously (called by default **Default AzureNode Template**). Then specify **2** nodes of size **Small**, and then click **Next**.
@@ -194,7 +194,7 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
 1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), click one or both nodes and then, in the **Actions** pane, click **Start**.
    
    ![Start Nodes][add_node4]
-2. In the **Start Azure Nodes** dialog box, click **Start**.
+2. In the **Stop Windows Azure nodes** dialog box, click **Start**.
    
     ![Start Nodes][add_node5]
    
@@ -247,7 +247,7 @@ After you try out the cluster, stop the Azure nodes to avoid unnecessary charges
 1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), select both Azure nodes. Then, in the **Actions** pane, click **Stop**.
    
     ![Stop Nodes][stop_node1]
-2. In the **Stop Azure Nodes** dialog box, click **Stop**.
+2. In the **Stop Windows Azure nodes** dialog box, click **Stop**.
    
     ![Stop Nodes][stop_node2]
 3. The nodes transition to the **Stopping** state. After a few minutes, HPC Cluster Manager shows that the nodes are **Not-Deployed**.

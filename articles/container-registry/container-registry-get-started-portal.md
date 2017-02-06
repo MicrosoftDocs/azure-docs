@@ -1,5 +1,5 @@
 ---
-title: Create a container registry in the portal | Microsoft Docs
+title: Create Azure container registry - portal | Microsoft Docs
 description: Get started creating and managing Azure container registries with the Azure portal
 services: container-registry
 documentationcenter: ''
