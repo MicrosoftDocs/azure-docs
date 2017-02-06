@@ -20,13 +20,13 @@ ms.author: aglick
 # Azure resiliency technical guidance: recovery from a region-wide service disruption
 Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity. For the current list of regions, see the [Azure regions page](https://azure.microsoft.com/regions/).
 
-Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Or facilities can be lost entirely, for example due to a natural disaster. This article explains the capabilities of Azure for creating applications that are distributed across regions. Such distribution helps to minimize the possibility that a failure in one region could affect other regions.
+Under rare circumstances, it is possible that facilities in an entire region can become inaccessible, for example due to network failures. Facilities can be lost entirely too, for example due to a natural disaster. This article explains the capabilities of Azure to create applications that are distributed across regions. This kind of distribution helps to minimize the possibility that a failure in one region could affect other regions.
 
 ## Cloud services
 ### Resource management
-You can distribute compute instances across regions by creating a separate cloud service in each target region, and then publishing the deployment package to each cloud service. However, note that distributing traffic across cloud services in different regions must be implemented by the application developer or with a traffic management service.
+You can distribute compute instances across regions by creating a separate cloud service in each target region, and then publishing the deployment package to each cloud service. However, the distribution of traffic across cloud services in different regions must be implemented by the application developer or with a traffic management service.
 
-Determining the number of spare role instances to deploy in advance for disaster recovery is an important aspect of capacity planning. Having a full-scale secondary deployment ensures that capacity is already available when needed; however, this effectively doubles the cost. A common pattern is to have a small, secondary deployment, just large enough to run critical services. This small secondary deployment is a good idea, both to reserve capacity, and for testing the configuration of the secondary environment.
+Determining the number of spare role instances to deploy in advance for disaster recovery is an important aspect of capacity planning. Having a full-scale secondary deployment ensures that capacity is already available when needed. However, this effectively doubles the cost. A common pattern is to have a small, secondary deployment, large enough to run critical services. This small secondary deployment is a good idea, both to reserve capacity, and for testing the configuration of the secondary environment.
 
 > [!NOTE]
 > The subscription quota is not a capacity guarantee. The quota is simply a credit limit. To guarantee capacity, the required number of roles must be defined in the service model, and the roles must be deployed.
@@ -39,25 +39,25 @@ To load balance traffic across regions requires a traffic management solution. A
 ### Strategies
 Many alternative strategies are available for implementing distributed compute across regions. These must be tailored to the specific business requirements and circumstances of the application. At a high level, the approaches can be divided into the following categories:
 
-* **Redeploy on disaster**: In this approach the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time.
+* **Redeploy on disaster**: In this approach, the application is redeployed from scratch at the time of disaster. This is appropriate for non-critical applications that don’t require a guaranteed recovery time.
 * **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
 * **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
 A complete discussion of distributed design is outside the scope of this article. For further information, see [Disaster recovery and high availability for applications built on Microsoft Azure](https://aka.ms/drtechguide).
 
 ## Virtual machines
-Recovery of infrastructure as a service (IaaS) virtual machines (VMs) is similar to platform as a service (PaaS) compute recovery in many respects. There are important differences, however, due to the fact that an IaaS VM consists of both the VM and the VM disk.
+Recovery of infrastructure as a service (IaaS) virtual machines (VMs) is similar to platform as a service (PaaS) compute recovery in many respects. There are important differences, however, as an IaaS VM consists of both the VM and the VM disk.
 
 * **Use Azure Backup to create cross region backups that are application consistent**.
-  [Azure Backup](https://azure.microsoft.com/services/backup/) enables customers to create application consistent backups across multiple VM disks, and support replication of backups across regions. You can do this by choosing to geo-replicate the backup vault at the time of creation. Note that replication of the backup vault must be configured at the time of creation. It can't be set later. If a region is lost, Microsoft will make the backups available to customers. Customers will be able to restore to any of their configured restore points.
-* **Separate the data disk from the operating system disk**. An important consideration for IaaS VMs is that you cannot change the operating system disk without re-creating the VM. This is not a problem if your recovery strategy is to redeploy after disaster. However, it might be a problem if you are using the Warm Spare approach to reserve capacity. To implement this properly, you must have the correct operating system disk deployed to both the primary and secondary locations, and the application data must be stored on a separate drive. If possible, use a standard operating system configuration that can be provided on both locations. After a failover, you must then attach the data drive to your existing IaaS VMs in the secondary DC. Use AzCopy to copy snapshots of the data disk(s) to a remote site.
+  [Azure Backup](https://azure.microsoft.com/services/backup/) enables customers to create application consistent backups across multiple VM disks, and support replication of backups across regions. You can do this by choosing to geo-replicate the backup vault at the time of creation. Replication of the backup vault must be configured at the time of creation. It can't be set later. If a region is lost, Microsoft makes the backups available to customers. Customers are able to restore to any of their configured restore points.
+* **Separate the data disk from the operating system disk**. An important consideration for IaaS VMs is that you cannot change the operating system disk without re-creating the VM. This is not a problem if your recovery strategy is to redeploy after disaster. However, it might be a problem if you are using the Warm Spare approach to reserve capacity. To implement this properly, you must have the correct operating system disk deployed to both the primary and secondary locations, and the application data must be stored on a separate drive. If possible, use a standard operating system configuration that can be provided on both locations. After a failover, you must then attach the data drive to your existing IaaS VMs in the secondary DC. Use AzCopy to copy snapshots of each data disk to a remote site.
 * **Be aware of potential consistency issues after a geo-failover of multiple VM disks**. Each VM disk is implemented as an Azure Blob storage instance, and each disk has the same geo-replication characteristic. Unless [Azure Backup](https://azure.microsoft.com/services/backup/) is used, there are no guarantees of consistency across disks, because geo-replication is asynchronous and replicates independently. Individual VM disks are guaranteed to be in a crash consistent state after a geo-failover, but not consistent across disks. This could cause problems in some cases (for example, in the case of disk striping).
 
 ## Storage
-### Recovery by using Geo-Redundant Storage of blob, table, queue and VM disk storage
-In Azure, blobs, tables, queues, and VM disks are all geo-replicated by default. This is referred to as Geo-Redundant Storage (GRS). GRS replicates storage data to a paired datacenter hundreds of miles apart within a specific geographic region. GRS is designed to provide additional durability in case there is a major datacenter disaster. Microsoft controls when failover occurs, and failover is limited to major disasters in which the original primary location is deemed unrecoverable in a reasonable amount of time. Under some scenarios, this can be several days. Data is typically replicated within a few minutes, although a synchronization interval is not yet covered by a service level agreement.
+### Recovery by using Geo-Redundant Storage of blob, table, queue, and VM disk storage
+In Azure, blobs, tables, queues, and VM disks are all geo-replicated by default. This is referred to as Geo-Redundant Storage (GRS). GRS replicates storage data to a paired datacenter that is hundreds of miles apart within a specific geographic region. GRS is designed to provide additional durability in case there is a major datacenter disaster. Microsoft controls when failover occurs, and failover is limited to major disasters in which the original primary location is deemed unrecoverable in a reasonable amount of time. Under some scenarios, this can be several days. Data is typically replicated within a few minutes, although a synchronization interval is not yet covered by a service level agreement.
 
-In the event of a geo-failover, there will be no change to how the account is accessed (the URL and account key will not change). The storage account will, however, be in a different region after failover. This could impact applications that require regional affinity with their storage account. Even for services and applications that do not require a storage account in the same datacenter, the cross-datacenter latency and bandwidth charges might be compelling reasons to move traffic to the failover region temporarily. This could factor into an overall disaster recovery strategy.
+If a geo-failover occurs, there are no changes to how the account is accessed (the URL and account key will not change). The storage account will, however, be in a different region after failover. This could impact applications that require regional affinity with their storage account. Even for services and applications that do not require a storage account in the same datacenter, the cross-datacenter latency and bandwidth charges might be compelling reasons to move traffic to the failover region temporarily. This could factor into an overall disaster recovery strategy.
 
 In addition to automatic failover provided by GRS, Azure has introduced a service that gives you read access to the copy of your data in the secondary storage location. This is called Read-Access Geo-Redundant Storage (RA-GRS).
 
@@ -69,10 +69,10 @@ It's important to know where your data is geo-replicated, in order to know where
 [!INCLUDE [paired-region-list](../../includes/paired-region-list.md)]
 
 ### Geo-replication pricing
-Geo-replication is included in current pricing for Azure Storage. This is called Geo-Redundant Storage (GRS). If you do not want your data geo-replicated you can disable geo-replication for your account. This is called Locally Redundant Storage, and it is charged at a discounted price compared to GRS.
+Geo-replication is included in current pricing for Azure Storage. This is called Geo-Redundant Storage (GRS). If you do not want your data geo-replicated, you can disable geo-replication for your account. This is called Locally Redundant Storage, and it is charged at a discounted price compared to GRS.
 
 ### Determining if a geo-failover has occurred
-If a geo-failover occurs, this will be posted to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/). Applications can implement an automated means of detecting this, however, by monitoring the geo-region for their storage account. This can be used to trigger other recovery operations, such as activation of compute resources in the geo-region where their storage moved to. You can perform a query for this from the service management API, by using [Get Storage Account Properties](https://msdn.microsoft.com/library/ee460802.aspx). The relevant properties are:
+If a geo-failover occurs, the failure is posted to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/). Applications can implement an automated means of detecting this, however, by monitoring the geo-region for their storage account. This can be used to trigger other recovery operations, such as activation of compute resources in the geo-region where their storage moved to. You can perform a query for this from the service management API, by using [Get Storage Account Properties](https://msdn.microsoft.com/library/ee460802.aspx). The relevant properties are:
 
     <GeoPrimaryRegion>primary-region</GeoPrimaryRegion>
     <StatusOfPrimary>[Available|Unavailable]</StatusOfPrimary>
@@ -111,16 +111,16 @@ Service Bus uses a unique namespace that does not span Azure regions. So the fir
 To migrate an App Service application, such as Web Apps or Mobile Apps, to a secondary Azure region, you must have a backup of the website available for publishing. If the outage does not involve the entire Azure datacenter, it might be possible to use FTP to download a recent backup of the site content. Then create a new app in the alternate region, unless you have previously done this to reserve capacity. Publish the site to the new region, and make any necessary configuration changes. These changes could include database connection strings or other region-specific settings. If necessary, add the site’s SSL certificate and change the DNS CNAME record so that the custom domain name points to the redeployed Azure Web App URL.
 
 ### Azure HDInsight
-The data associated with HDInsight is stored by default in Azure Blob storage. HDInsight requires that a Hadoop cluster processing MapReduce jobs must be co-located in the same region as the storage account that contains the data being analyzed. Provided you use the geo-replication feature available to Azure Storage, you can access your data in the secondary region where the data was replicated if for some reason the primary region is no longer available. You can create a new Hadoop cluster in the region where the data has been replicated and continue processing it. For other availability considerations, see [HDInsight (Availability)](resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
+The data associated with HDInsight is stored by default in Azure Blob storage. HDInsight requires that a Hadoop cluster processing MapReduce jobs must be co-located in the same region as the storage account that contains the data being analyzed. Provided you use the geo-replication feature available to Azure Storage, you can access your data in the secondary region where the data was replicated if for some reason the primary region is no longer available. You can create a Hadoop cluster in the region where the data has been replicated and continue processing it. For other availability considerations, see [HDInsight (Availability)](resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
 ### SQL Reporting
-At this time, recovering from the loss of an Azure region requires multiple SQL Reporting instances in different Azure regions. These SQL Reporting instances should access the same data, and that data should have its own recovery plan in the event of a disaster. You can also maintain external backup copies of the RDL file for each report.
+Currently, recovering from the loss of an Azure region requires multiple SQL Reporting instances in different Azure regions. These SQL Reporting instances should access the same data, and that data should have its own recovery plan if a disaster occurs. You can also maintain external backup copies of the RDL file for each report.
 
 ### Azure Media Services
 Media Services has a different recovery approach for encoding and streaming. Typically, streaming is more critical during a regional outage. To prepare for this, you should have a Media Services account in two different Azure regions. The encoded content should be located in both regions. During a failure, you can redirect the streaming traffic to the alternate region. Encoding can be performed in any Azure region. If encoding is time-sensitive, for example during live event processing, you must be prepared to submit jobs to an alternate datacenter during failures.
 
 ### Virtual network
-Configuration files provide the quickest way to set up a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for the current network to a network configuration file. In the event of an outage in the primary region, [restore the virtual network](../virtual-network/virtual-networks-create-vnet-classic-portal.md) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
+Configuration files provide the quickest way to set up a virtual network in an alternate Azure region. After configuring the virtual network in the primary Azure region, [export the virtual network settings](../virtual-network/virtual-networks-create-vnet-classic-portal.md) for the current network to a network configuration file. For an outage in the primary region, [restore the virtual network](../virtual-network/virtual-networks-create-vnet-classic-portal.md) from the stored configuration file. Then configure other cloud services, virtual machines, or cross-premises settings to work with the new virtual network.
 
 ## Checklists for disaster recovery
 ## Cloud services checklist
@@ -136,7 +136,7 @@ Configuration files provide the quickest way to set up a virtual network in an a
 ## Storage checklist
 1. Review the "Storage" section of this article.
 2. Do not disable geo-replication of storage resources.
-3. Understand the alternate region for geo-replication in the event of failover.
+3. Understand the alternate region for geo-replication if a failover occurs.
 4. Create custom backup strategies for user-controlled failover strategies.
 
 ## Azure SQL Database checklist
@@ -162,7 +162,7 @@ Configuration files provide the quickest way to set up a virtual network in an a
 
 ## HDInsight checklist
 1. Review the "HDInsight" section of this article.
-2. Create a new Hadoop cluster in the region with replicated data.
+2. Create a Hadoop cluster in the region with replicated data.
 
 ## SQL Reporting checklist
 1. Review the "SQL Reporting" section of this article.
@@ -173,7 +173,7 @@ Configuration files provide the quickest way to set up a virtual network in an a
 1. Review the "Media Services" section of this article.
 2. Create a Media Services account in an alternate region.
 3. Encode the same content in both regions to support streaming failover.
-4. Submit encoding jobs to an alternate region in the event of a service disruption.
+4. Submit encoding jobs to an alternate region if a service disruption occurs.
 
 ## Virtual network checklist
 1. Review the "Virtual network" section of this article.
