@@ -32,7 +32,7 @@ Here's an example showing the addition of a user to the Guest Inviter role throu
 
 ## Controlling who can Invite
 
-![control how to invite](media/active-directory-b2b-delegate-invitations/control-who-can-invite.png)
+![control how to invite](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
 
 With Azure AD B2B collaboration, we allowing the tenant admin to set the following invitation policies:
 
