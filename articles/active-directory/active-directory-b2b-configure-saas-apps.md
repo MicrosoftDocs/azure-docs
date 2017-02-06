@@ -24,11 +24,11 @@ ms.author: sasubram
 Azure Active Directory (Azure AD) B2B collaboration works with most applications that integrate with Azure AD. In this section, we'll walk through instructions on how to configure some popular SAS apps for use with Azure AD B2B.
 Before we look at application specific instructions, here are some rules of thumb:
 
-1. Remember that for most of the applications, user provision needs to happen manually (that is, users have to be created manually in the application as well).
+* Remember that for most of the applications, user provision needs to happen manually (that is, users have to be created manually in the application as well).
 
-2. For apps that support automatic provisioning (like Dropbox), there will be separate invitations created from the applications. User must be sure to accept each invitation.
+* For apps that support automatic provisioning (like Dropbox), there will be separate invitations created from the applications. User must be sure to accept each invitation.
 
-3. In the User Attributes, always set User Identifier to user.mail (to mitigate any issues with mangled UPD in guest users)
+* In the User Attributes, always set User Identifier to user.mail (to mitigate any issues with mangled UPD in guest users)
 
 
 ##DropBox for Business
@@ -109,7 +109,7 @@ Browse our other articles on Azure AD B2B collaboration:
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B collaboration user properties](active-directory-b2b-user-properties.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
-* [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
 * [B2B collaboration user tokens](active-directory-b2b-user-token.md)

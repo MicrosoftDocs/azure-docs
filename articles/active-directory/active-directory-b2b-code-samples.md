@@ -25,7 +25,8 @@ ms.author: sasubram
 ## Code Sample
 This sample illustrates how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. You'll see how the email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.
 
-```namespace SampleInviteApp
+```
+namespace SampleInviteApp
 {
     using System.Globalization;
     using System;
@@ -154,7 +155,8 @@ This sample illustrates how to call the invitation API, in "app-only" mode, to g
             public List<Recipient> recipients;
         }
     }
-}```
+}
+```
 
 ## PowerShell example
 The following example will walk you through how you can bulk invite external users to an organization from email addresses that you may have stored in a .CSV file.
@@ -162,23 +164,29 @@ The following example will walk you through how you can bulk invite external use
 1. Prepare the .CSV file
   Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data. Your CSV file could look like the following:
 
-  ```    InvitedUserEmailAddress
+  ```
+    InvitedUserEmailAddress
     user1@contoso.com
     user2@outlook.com
     user3@gmail.com
-    user4@yahoo.com```
+    user4@yahoo.com
+    ```
 
 2. Get the latest Azure AD PowerShell
   To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the Powershell module's release page](https://www.powershellgallery.com/packages/AzureADPreview).
 
 3. Sign in to your tenancy
 
-  ```Connect-AzureAd and login```
+    ```
+    Connect-AzureAd and login
+    ```
 
 4. Run the PowerShell cmdlt
 
-  ```$Invitations = import-csv C:\data\invitations.csv
-  foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://google.com -SendInvitationMessage $true}```
+    ```
+    $Invitations = import-csv C:\data\invitations.csv
+    foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InviteRedirectUrl http://google.com -SendInvitationMessage $true}
+  ```
 
 This will send an invitation to the email address in invitations.csv. Additional features of this cmdlet include customized text in the email message, include a display name for the invited user, sending messages to CCs or suppressing email messages altogether.
 
@@ -189,7 +197,7 @@ Browse our other articles on Azure AD B2B collaboration:
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B collaboration user properties](active-directory-b2b-user-properties.md)
 * [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
-* [Delegate B2bB collaboration invitations](active-directory-b2b-delegate-invitations.md)
+* [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
 * [B2B collaboration user tokens](active-directory-b2b-user-token.md)

@@ -28,9 +28,11 @@ We can assign the user to Guest Inviter role to send invitations. You don't have
 
 Here's an example showing the addition of a user to the Guest Inviter role through PowerShell:
 
-```Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress >```
+```
+Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress >
+```
 
-## Controlling who can Invite
+## Controlling who can invite
 
 ![control how to invite](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
 
