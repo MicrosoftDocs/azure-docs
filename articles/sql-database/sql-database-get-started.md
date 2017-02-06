@@ -25,19 +25,18 @@ In this quick start tutorial, you learn how to:
 
 * [Create a new logical server](sql-database-get-started#create-a-new-logical-sql-server) (5 minutes)
 * [View the logical server properties](sql-database-get-started#view-the-logical-server-properties) (5 minutes
-* [Create a server-level firewall rule](sql-database-get-started#create-a-server-level-firewall-rule (5 minutes)
-* [Connect to the server using SSMS](sql-database-get-started##connect-to-the-server-using-ssms (5 minutes)
-* [Create a database with sample data](sql-database-get-started#create-a-database-with-sample-data (5 minutes)
-* [View the database properties](sql-database-get-started#view-the-database-properties (5 minutes)
-* [Query the database using the Azure portal](sql-database-get-started#query-the-database-in-the-azure-portal (5 minutes)
-* [Connect and query the database using SSMS](sql-database-get-started#connect-and-query-the-database-using-ssms (5 minutes)
-* [Create a blank database using SSMS](sql-database-get-started#create-a-blank-database-using-ssms (5 minutes)
-* [Troubleshoot connectivity](sql-database-get-started#troubleshoot-connectivity (5 minutes)
-* [Delete a database](sql-database-get-started#delete-a-database (5 minutes)
+* [Create a server-level firewall rule](sql-database-get-started#create-a-server-level-firewall-rule) (5 minutes)
+* [Connect to the server using SSMS](sql-database-get-started##connect-to-the-server-using-ssms) (5 minutes)
+* [Create a database with sample data](sql-database-get-started#create-a-database-with-sample-data) (5 minutes)
+* [View the database properties](sql-database-get-started#view-the-database-properties) (5 minutes)
+* [Query the database using the Azure portal](sql-database-get-started#query-the-database-in-the-azure-portal) (5 minutes)
+* [Connect and query the database using SSMS](sql-database-get-started#connect-and-query-the-database-using-ssms) (5 minutes)
+* [Create a blank database using SSMS](sql-database-get-started#create-a-blank-database-using-ssms) (5 minutes)
+* [Troubleshoot connectivity](sql-database-get-started#troubleshoot-connectivity) (5 minutes)
+* [Delete a database](sql-database-get-started#delete-a-database) (5 minutes)
 
 
-
-When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
+When you finish this quick start tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
 
 **Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
 
