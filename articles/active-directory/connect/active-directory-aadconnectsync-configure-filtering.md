@@ -301,6 +301,9 @@ Now it is time to enable the scheduler again.
 1. Start **Task Scheduler** from the start menu.
 2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Enable**.
 
+## Group-based filtering
+Group-based filtering can be configured the first time you install Azure AD Connect using custom installation. It is intended for a pilot deployment where only a small set of objects should be synchronized. When you have disabled group-based filtering it cannot be enabled again. It is **not supported** to use group based filtering in a custom configuration. It is only supported to be enabled with the installation wizard. When you have completed your pilot, then you should use one of the other filtering options in this topic.
+
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
