@@ -29,7 +29,7 @@ Before we go any further, you'll probably want to save the following resources. 
 * [Power BI Embedded .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
-> [AZURE.NOTE] Before you can configure and run the Power BI Embedded get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure Portal see [Getting Started with Power BI Embedded](power-bi-embedded-get-started.md).
+> [!NOTE] Before you can configure and run the Power BI Embedded get started sample, you need to create at least one **Workspace Collection** in your Azure subscription. To learn how to create a **Workspace Collection** in the Azure Portal see [Getting Started with Power BI Embedded](power-bi-embedded-get-started.md).
 
 ## Configure the sample app
 
@@ -58,7 +58,7 @@ Checking import state... Publishing
 Checking import state... Succeeded
 ```
 
-> [AZURE.NOTE] If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
+> [!NOTE] If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
 
 At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
@@ -92,7 +92,7 @@ The **Microsoft Power BI Embedded** sample is an example dashboard web app that 
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
-> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
+> [!NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
 
 ### Model
 
@@ -231,8 +231,10 @@ https://app.powerbi.com/reportEmbed
 $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
-> [AZURE.NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
+> [!NOTE] {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
 
 ## See also
 * [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
 * [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
+
+More questions? [Try the Power BI Community](http://community.powerbi.com/)
