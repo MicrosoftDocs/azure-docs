@@ -151,7 +151,7 @@ We now have a virtual network, a subnet, and a network security group acting as 
 
 Create your VM with [az vm create](/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 (Preview) to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [insert link to overview doc](). If you wish to use unmanaged disks, see the additional note below.
+The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). If you wish to use unmanaged disks, see the additional note below.
 
 ```azurecli
 az vm create \
