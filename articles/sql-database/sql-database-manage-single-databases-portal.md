@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # Create and manage single Azure SQL databases with the Azure portal
 
-You can create and manage single Azure SQL databases with the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API or C#. This topic is about using the Azure portal. For PowerShell, see [Create and manage single databases with Powershell](sql-database-manage-single-databases-powershell.md). For Transact-SQL, see [Create and manage single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+You can create and manage single Azure SQL databases with the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API, or C#. This topic is about using the Azure portal. For PowerShell, see [Create and manage single databases with Powershell](sql-database-manage-single-databases-powershell.md). For Transact-SQL, see [Create and manage single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 ## Create a single Azure SQL database with the Azure portal
 
@@ -50,16 +50,16 @@ Open the SQL Database blade for the database you want to scale up or down:
 
 1. In the [Azure portal](https://portal.azure.com), click **More services** > **SQL databases**.
 2. Click the database you want to change.
-3. On the **SQL database** blade click **Pricing tier (scale DTUs)**:
+3. On the **SQL database** blade, click **Pricing tier (scale DTUs)**:
    
    ![pricing tier](./media/sql-database-manage-single-database-portal/new-tier.png)
 
 4. Choose a new tier and click **Select**:
    
-   Clicking **Select** submits a scale request to change the pricing tier. Depending on the size of your database the scale operation can take some time to complete (see the info at the top of this article).
+   Clicking **Select** submits a scale request to change the pricing tier. Depending on the size of your database, the scale operation can take some time to complete (see the info at the top of this article).
    
    > [!NOTE]
-   > Changing your database pricing tier does not change the max database size. To change your database max size use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) or [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
+   > Changing your database pricing tier does not change the max database size. To change your database max size, use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) or [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
    > 
    > 
    
