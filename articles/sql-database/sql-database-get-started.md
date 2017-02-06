@@ -23,17 +23,17 @@ ms.author: carlrab
 
 In this quick start tutorial, you learn how to:
 
-* [Create a new logical server using the Azure portal](sql-database-get-started#view-the-logical-sql-server-properties-using-the-azure-portal) (5 minutes)
-* View the logical SQL Server properties using the Azure portal (5 minutes)
-* Create a server-level firewall rule using the Azure portal (5 minutes)
-* Connect to the SQL logical server using SQL Server Management Studio (5 minutes)
-* Create a database with sample data using the Azure portal (5 minutes)
-* View the database properties using the Azure portal (5 minutes)
-* Query the database using the Azure portal (5 minutes)
-* Connect and query the database using SQL Server Management Studio (5 minutes)
-* Create a new database using SQL Server Management Studio (5 minutes)
-* Troubleshoot connectivity to Azure SQL Database (5 minutes)
-* Delete a single database using the Azure portal (5 minutes)
+* [Create a new logical server](sql-database-get-started#create-a-new-logical-sql-server) (5 minutes)
+* [View the logical server properties](sql-database-get-started#view-the-logical-server-properties) (5 minutes
+* [Create a server-level firewall rule](sql-database-get-started#create-a-server-level-firewall-rule (5 minutes)
+* [Connect to the server using SSMS](sql-database-get-started##connect-to-the-server-using-ssms (5 minutes)
+* [Create a database with sample data](sql-database-get-started#create-a-database-with-sample-data (5 minutes)
+* [View the database properties](sql-database-get-started#view-the-database-properties (5 minutes)
+* [Query the database using the Azure portal](sql-database-get-started#query-the-database-in-the-azure-portal (5 minutes)
+* [Connect and query the database using SSMS](sql-database-get-started#connect-and-query-the-database-using-ssms (5 minutes)
+* [Create a blank database using SSMS](sql-database-get-started#create-a-blank-database-using-ssms (5 minutes)
+* [Troubleshoot connectivity](sql-database-get-started#troubleshoot-connectivity (5 minutes)
+* [Delete a database](sql-database-get-started#delete-a-database (5 minutes)
 
 
 
@@ -68,7 +68,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
 
 <a name="create-logical-server-bk"></a>
 
-## Create a new logical SQL server using the Azure portal
+## Create a new logical SQL server
 
 Follow the steps in this procedure to create a new logical server using the Azure portal in the region of your choice.
 
@@ -114,7 +114,7 @@ Follow the steps in this procedure to create a new logical server using the Azur
 
     ![create button](./media/sql-database-get-started/create.png)
 
-## View the logical SQL Server properties using the Azure portal
+## View the logical server properties
 
 Follow the steps in this procedure to view the server properties using the Azure portal. You will need the fully qualified server name to connect to this server in a subsequent procedure. 
 
@@ -138,7 +138,7 @@ Follow the steps in this procedure to view the server properties using the Azure
 
     ![sql server full name](./media/sql-database-get-started/sql-server-full-name.png)
 
-## Create a server-level firewall rule using the Azure portal
+## Create a server-level firewall rule
 
 Follow the steps in this procedure to create a new server-level firewall rule using the Azure portal to enable you to connect to your server using SQL Server Management Studio in the next procedure.
 
@@ -158,7 +158,7 @@ Follow the steps in this procedure to create a new server-level firewall rule us
 
     ![add client IP](./media/sql-database-get-started/save-firewall-rule.png)
 
-## Connect to the SQL logical server using SQL Server Management Studio (SSMS)
+## Connect to the server using SSMS
 
 Follow the steps in this procedure to connect to the SQL logical server using SQL Server Management Studio.
 
@@ -192,7 +192,7 @@ Follow the steps in this procedure to connect to the SQL logical server using SQ
     > To explore SQL security, see [Get Started with SQL security](sql-database-control-access-sql-authentication-get-started.md)
     >
 
-## Create a database with sample data using the Azure portal
+## Create a database with sample data
 
 Follow the steps in this procedure to create a database with sample data using the Azure portal. You will create this database attached to the logical server that you previously created. If the Basic service tier is not available in the region in which you created your server, delete your server and recreate it in another region. For deletion steps, see the last procedure in this tutorial.
 
@@ -226,7 +226,7 @@ Follow the steps in this procedure to create a database with sample data using t
 
     ![create button](./media/sql-database-get-started/create.png)
 
-## View the database properties using the Azure portal
+## View the database properties
 
 Follow the steps in this procedure to query the database using the Azure portal.
 
@@ -279,7 +279,7 @@ Follow the steps in this procedure to query the database using the query editor 
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
 
-## Connect and query the database using SQL Server Management Studio
+## Connect and query the database using SSMS
 
 Follow the steps in this procedure to connect to the database using SQL Server Management Studio and then query the sample data to view the objects in the database.
 
@@ -300,7 +300,7 @@ Follow the steps in this procedure to connect to the database using SQL Server M
 
     ![new sample db query system objects with ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## Create a new database using SQL Server Management Studio
+## Create a blank database using SSMS
 
 Follow the steps in this procedure to create a new database on the logical server using SQL Server Management Studio.
 
@@ -329,13 +329,13 @@ Follow the steps in this procedure to create a new database on the logical serve
 
     ![new blank database in object explorer](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
-## Troubleshoot connectivity to Azure SQL Database
+## Troubleshoot connectivity
 
 > [!IMPORTANT]
 > If you have connectivity issues, see [Connectivity issues](sql-database-troubleshoot-common-connection-issues.md).
 > 
 
-## Delete a single database in the Azure portal
+## Delete a single database
 
 Follow the steps in this procedure to delete a single database using the Azure portal.
 
