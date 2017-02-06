@@ -145,7 +145,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
    - In **Programs and Features**, right-click **Microsoft SQL Server 2016 (64-bit)** and click **Uninstall/Change**. 
    - Click **Remove**. 
    - Select the default instance.
-   - Remove all features under **MSSQLSERVER**. Do not remove **Shared Features**. See the following picture:
+   - Remove all features under **Database Engine Serices**. Do not remove **Shared Features**. See the following picture:
 
       ![Remove Features](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
