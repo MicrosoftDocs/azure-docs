@@ -67,7 +67,8 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 Instrumentation adds DLLs and ApplicationInsights.config to your app.
 
->[!IMPORTANT] When you re-publish the app, re-run Status Monitor to ensure that instrumentation is still enabled. This is necessary because the Application Insights DLLs and .config file may be deleted by the publication process. 
+>[!IMPORTANT]
+>When you re-publish the app, re-run Status Monitor to ensure that instrumentation is still enabled. This is necessary because the Application Insights DLLs and .config file may be deleted by the publication process. 
 >
 > Alternatively, [add Application Insights to your app in Visual Studio][greenbrown] before you republish. This provides you with more detailed monitoring and the ability to code your own telemetry.
 
