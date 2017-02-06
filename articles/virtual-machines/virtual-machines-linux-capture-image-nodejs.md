@@ -1,5 +1,5 @@
 ---
-title: Capture a Linux VM to use as a template | Microsoft Docs
+title: Capture an Azure Linux VM to use as a template | Microsoft Docs
 description: Learn how to capture and generalize an image of a Linux-based Azure virtual machine (VM) created with the Azure Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
