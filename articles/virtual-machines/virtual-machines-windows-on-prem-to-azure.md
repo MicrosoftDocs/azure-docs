@@ -35,13 +35,16 @@ Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or V
 ## Upload a specialized VHD to Azure and use managed disks 
 
 1. [Upload a Windows VHD from an on-premises VM to Azure](virtual-machines-windows-upload-image.md)
-2. ()[]
+2. (Create a managed disk from the uploaded VHD)[virtual-machines-windows-create-managed-disk-ps.md#]
 3. [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md)
+
 
 ## Upload a generalized VHD to Azure and use unmanaged disks in a storage account
 
 1. [Generalized the Windows VM using Sysprep](virtual-machines-windows-generalize-vhd.md)
 2. [Upload a Windows VHD from an on-premises VM to Azure](virtual-machines-windows-upload-image.md)
+3. [Capture an unmanaged image of the VHD](virtual-machines-windows-capture-image)
+4. [Create a VM from an unmanged image in Azure](virtual-machines-windows-create-vm-generalized.md)
 
 
 
