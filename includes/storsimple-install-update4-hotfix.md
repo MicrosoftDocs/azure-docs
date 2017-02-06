@@ -44,7 +44,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
-        \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
+        \FirstOrderUpdate\ -Credential contoso\John
    
         Confirm
    
@@ -90,14 +90,13 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    *  `HcsSoftwareVersion: 6.3.9600.17818`
-
+   
+    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
      
-         If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
+    > [!IMPORTANT]
+    > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
      
-         > [!IMPORTANT]
-         > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the remaining updates.
-     
-7. Repeat steps 3-5 to install the second order updates. Multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If any update is already installed, the update logic will detect that and not apply the update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+7. Repeat steps 3-5 to install the second order updates. Multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If an update is already installed, the update logic will detect that and not apply that update. After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`
