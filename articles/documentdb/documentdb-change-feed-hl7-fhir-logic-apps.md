@@ -72,7 +72,7 @@ Logic Apps handle the workflow process. The following screenshots show the Logic
 
 3. **Process notification app**: Send an email notification with the FHIR resource documents in the body.
 
-	![The Logic App that sends patient email with the HL7 FHIR resource in the body](./media/documentdb-change-feed-hl7-fhir logic-apps/documentdb-hl7-fhir-logic-apps-send-email.png)
+	![The Logic App that sends patient email with the HL7 FHIR resource in the body](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-send-email.png)
 
 #### Service Bus
 The following figure shows the patients queue. The Tag property value is used for
