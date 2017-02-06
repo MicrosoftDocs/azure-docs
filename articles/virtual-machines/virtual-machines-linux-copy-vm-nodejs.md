@@ -55,21 +55,19 @@ Ensure that you meet the following prerequisites before you start the steps:
 ## Login and set your subscription
 1. Login to the CLI.
 
-```azurecli
-azure login
-```
-
+    ```azurecli
+    azure login
+    ```
 2. Make sure you are in Resource Manager mode.
 
-```azurecli
-azure config mode arm
-```
-
+    ```azurecli
+    azure config mode arm
+    ```
 3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
 
-```azurecli
-azure account set mySubscriptionID
-```
+    ```azurecli
+    azure account set mySubscriptionID
+    ```
 
 ## Stop the VM
 Stop and deallocate the source VM. You can use 'azure vm list' to get a list of all of the VMs in your subscription and their resource group names.
