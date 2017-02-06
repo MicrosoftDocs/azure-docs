@@ -47,16 +47,16 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 	```
 
 	Returned output:
-	
-	Name            : LinkToVNet2
-	Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-	Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	ResourceGroupName    : vnet101
-	VirtualNetworkName    : vnet1
-	PeeringState        : Initiated
-	ProvisioningState    : Succeeded
-	RemoteVirtualNetwork    : {
-	"Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
+		
+		Name            : LinkToVNet2
+		Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+		Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+		ResourceGroupName    : vnet101
+		VirtualNetworkName    : vnet1
+		PeeringState        : Initiated
+		ProvisioningState    : Succeeded
+		RemoteVirtualNetwork    : {
+		"Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
 	                                    }
 	    AllowVirtualNetworkAccess    : True
 	    AllowForwardedTraffic    : False
