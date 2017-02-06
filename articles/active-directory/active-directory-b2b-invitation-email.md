@@ -1,5 +1,5 @@
 ---
-title: The elements of the Azure Active Diretory B2B collaboration invitation email | Microsoft Docs
+title: The elements of the Azure Active Directory B2B collaboration invitation email | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
 services: active-directory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 
 ---
@@ -23,6 +23,8 @@ ms.author: sasubram
 # The elements of the B2B collaboration invitation email
 
 Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. The primary goal for this is to increase trust in the recipient and add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to accept the invitation. This is a key component to reducing sharing friction. And of course, we also want the email to look great!
+
+![Azure AD B2b invitation email](media/active-directory-b2b-invitation-email/invitation-email.png)
 
 ## Explaining the email
 Let's look at a few elements of the email so you know how best to make use of these capabilities.
@@ -39,7 +41,7 @@ We use a LinkedIn-like pattern for the From address. Our goal here is to be clea
 The reply to email is set to the inviter's email when available, so that replying to the email will send an email back to the inviter.
 
 ### Branding
-The invitation emails from your tenant use the company branding that you may have set up for your tenant. If you want to take advantage of this, here are the details on how to configure it. The banner logo will show up in the email. Follow the image size and quality instructions here for best results. In addition, the company name also shows up in the call to action.
+The invitation emails from your tenant use the company branding that you may have set up for your tenant. If you want to take advantage of this, [here](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) are the details on how to configure it. The banner logo will show up in the email. Follow the image size and quality instructions [here](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) for best results. In addition, the company name also shows up in the call to action.
 
 ### Call to action
 The call to action consists of two parts: explaining why the recipient has received the mail and what the recipient is being asked to do about it.
@@ -50,15 +52,15 @@ The call to action consists of two parts: explaining why the recipient has recei
 
 ### Inviter's information
 The inviter's display name will be included in the email. And in addition, if you've set up a profile picture for your Azure AD account, the inviting email will include that picture as well. Both of these are intended to increase your recipient's confidence in the email.
+
 If the inviter hasn't yet set up their profile picture, Azure AD creates an icon with the inviter's initials in place of the picture as shown:
 
   ![displaying the inviter's initials](media/active-directory-b2b-invitation-email/inviters-initials.png)
 
 ### Body
-This will contain the message that the inviter typed in the UX or passed through the invitation API. This is just a simple text box, which will not process html tags for security reasons.
+This will contain the message that the inviter composes or is passed through the invitation API. This is just a text area, which will not process HTML tags for security reasons.
 
 ### Footer section
-
 The footer contains the Microsoft company brand and will let the recipient know if the email was sent from an unmonitored alias. Special cases:
 
 - The inviter doesn't have an email address in the inviting tenancy
@@ -76,5 +78,12 @@ The footer contains the Microsoft company brand and will let the recipient know 
 Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-how-it-works.md)
+* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
+* [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
+* [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
+* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
