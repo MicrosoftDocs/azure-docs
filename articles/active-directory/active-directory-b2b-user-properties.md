@@ -89,19 +89,7 @@ It is possible to turn off the default guest user limitations so that guest user
 Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-how-it-works.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B collaboration frequently-asked questions (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-
-* [B2B collaboration user properties](active-directory-b2b-user-properties.md)
-* [Adding a B2B collaboration user to a role](active-directory-b2b-add-user-to-role.md)
+* [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
 * [Delegate B2bB collaboration invitations](active-directory-delegate-invitations.md)
 * [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
