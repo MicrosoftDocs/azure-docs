@@ -1,5 +1,5 @@
 ---
-title: Configure Deployment Sources | Microsoft Docs
+title: Configure Deployment Sources for App Services on Azure Stack | Microsoft Docs
 description: How a Service Administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/06/2017
 ms.author: anwestg
 
 ---
 
-# Configure Deployment Sources
+# Configure deployment sources
 
 App Service on Azure Stack supports on-demand deployment from multiple Source Control Providers.  This feature enables application developers to be able to deploy direct from their source control repositories.  In order for tenants to be able to configure App Service to connect to their repositories, Administrators must first configure the integration between App Service on Azure Stack and the Source Control Provider.  The Source Control Providers supported, in addition to local Git, are:
 
@@ -134,7 +134,7 @@ App Service on Azure Stack supports on-demand deployment from multiple Source Co
 13. Click **Save**.
 14. If you do not wish to configure any other Deployment Sources, proceed to [Schedule Repair of Management Roles](azure-stack-app-service-configure-deployment-sources.md#schedule-repair-of-management-roles).
 
-## Schedule Repair of Management Roles
+## Schedule repair of management roles
 In order for the settings updated in the configuration of the various deployment sources to be applied, the Management Roles need to be repaired.  This process ensures that the configuration values are applied correctly and the configured Deployment Sources are made available to tenants.
 
 1. In a new browser tab or window Log in to the Azure Stack Portal as the service administrator.
