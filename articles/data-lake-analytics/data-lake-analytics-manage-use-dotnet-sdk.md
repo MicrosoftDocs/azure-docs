@@ -24,7 +24,7 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 **Prerequisites**
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following prerequisites:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -133,7 +133,7 @@ The following code sample's Main method shows how to connect to Azure and initia
     }
 
 ## Data Lake client management objects
-The Azure Data Lake SDK includes sets of client management objects from which you do most of your programming, and are in thsese two namespaces:
+The Azure Data Lake SDK includes sets of client management objects from which you do most of your programming, and are in these two namespaces:
 * Mirosoft.Azure.Management.DataLake.Analytics
 * Microsot.Azure.Management.DataLake.Store
 
@@ -298,7 +298,7 @@ You can create links in your Data Lake environment to Azure Storage blogs.
     _adlaClient.StorageAccounts.Add(_resourceGroupName, _adlaAccountName, "<Azure Storage Account Name>", addParams);
 
 ### List Data Lake data sources
-The following code lists the Data Lake Store accounts and the Data Lake Storage accouts (for Azure Storage) for a specified Data Lake Analytics account.
+The following code lists the Data Lake Store accounts and the Data Lake Storage accounts (for Azure Storage) for a specified Data Lake Analytics account.
 
     var sAccnts = _adlaClient.StorageAccounts.ListByAccount(_resourceGroupName, acctName);
 
@@ -410,10 +410,10 @@ The following code checks if an Azure Storage account (storageAccntName) exists 
     bool containerExists = _adlaClient.Account.StorageContainerExists(_resourceGroupName, analyticsAccountName, storageAccntName, containerName));
 
 ## Manage catalog and jobs
-The DataLakeAnalyticsCatalogManagementClient object provides methods for managing the SQL database provided for each Azure Data Lake Store. The DataLakeAnalyticsJobManagementClient provides methods to submit and manage jobs run on the database with U-SQL scriptps.
+The DataLakeAnalyticsCatalogManagementClient object provides methods for managing the SQL database provided for each Azure Data Lake Store. The DataLakeAnalyticsJobManagementClient provides methods to submit and manage jobs run on the database with U-SQL scripts.
 
 ### List Databases and Schemas
-Among the several things you can list, the most common are databases and their schema. The following code obtinas a collection of databases, and then enumerates the schema for each database.
+Among the several things you can list, the most common are databases and their schema. The following code obtains a collection of databases, and then enumerates the schema for each database.
 
     private void ListCatalogItems(string dlaAccountName)
     {
@@ -499,13 +499,13 @@ To read data from a blob on a linked Azure Storage account, you must use the ful
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/<path to source>
 
-For example, if a source file (SearchLog.tsv) is stored in a blob container named "samples" in the "contso_33" sorage account, the path for the FROM statement would be:
+For example, if a source file (SearchLog.tsv) is stored in a blob container named "samples" in the "contso_33" storage account, the path for the FROM statement would be:
 
     FROM: "wasb://samples@constoso_33.blob.core.windows.net/SearchLog.tsv"
 
 ## Azure Resource Groups and Data Lake Analytics
 Applications are typically made up of many components, for example a web app, database, database server, storage,
-and third party services. Azure Resource Manager enables you to work with the resources in your application 
+and third-party services. Azure Resource Manager enables you to work with the resources in your application 
 as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all the 
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging, and production. You can clarify billing 
