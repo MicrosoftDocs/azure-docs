@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/21/2016
-ms.author: carlrab; sashan
+ms.author: sashan
 
 ---
 # Storing Azure SQL Database Backups for up to 10 years

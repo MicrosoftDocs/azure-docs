@@ -19,7 +19,7 @@ ms.author: sasubram
 
 ---
 
-# Multi-factor authentication for B2B collaboration users
+# Multi-factor authentication for Azure Active Directory B2B collaboration users
 
 With this Azure AD B2B collaboration public preview refresh, we are introducing the capability for organizations to enforce multi-factor authentication (MFA) policies for B2B collaboration users also. In this refresh, MFA is always enforced at the resource tenancy.
 
@@ -37,23 +37,26 @@ To discover how easy it is to set up MFA for B2B collaboration users, see how in
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup]
 
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
 
 ## B2B users MFA experience for offer redemption
 Check out the animation below to see the redemption experience, as shown in the following video:
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption]
 
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+
 ## MFA reset for B2B collaboration users
 Currently, the admin can require B2B collaboration users to proof up again only by using the following PowerShell cmdlets. Therefore, the following PowerShell cmdlts should be used if you want to reset a B2B user's proof up method.
 Note: To use the new cmdlet, you need to install the Azure AD PowerShell V2 module, which you can get from here: https://www.powershellgallery.com/packages/AzureADPreview
 1. Connect to Azure AD
-    ```Connect-AzureAd and login```
+    Connect-AzureAd and login
 2. Get all users with proof up methods
-    ```Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName,
+    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName,
     @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   Here is an example:
     PS C:\Users\tjwasser> Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e
-={($_.StrongAuthenticationMethods).MethodType}}```
+={($_.StrongAuthenticationMethods).MethodType}}
 
   UserPrincipalName   |   Methods
   ----------------- | -------
@@ -69,8 +72,8 @@ Note: To use the new cmdlet, you need to install the Azure AD PowerShell V2 modu
 
 3. Reset the MFA method for a specific user
   You can then use that UserPrincipalName to run the reset command to require the B2B user to set proof-up methods again. Example:
-    ```Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName
-    gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com```
+    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName
+    gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
 
 ## Next steps
 

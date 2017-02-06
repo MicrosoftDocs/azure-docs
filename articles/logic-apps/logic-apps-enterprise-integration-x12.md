@@ -53,7 +53,7 @@ After you log into the [Azure portal](http://portal.azure.com "Azure portal"):
 | Send Settings |These properties apply to all messages sent by an agreement |  
 
 > [!NOTE]
-> Resoultuion of X12 agreement depens on matching the sender qualifier and identifier, and the receiver qualifier and identifier defined in the partner and incoming message.  If there are changes to these values at partner, edit the agreement as well.
+> Resolution of X12 agreement depends on matching the sender qualifier and identifier, and the receiver qualifier and identifier defined in the partner and incoming message.  If there are changes to these values at partner, edit the agreement as well.
 > 
 > 
 

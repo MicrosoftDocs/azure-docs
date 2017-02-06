@@ -23,7 +23,7 @@ ms.author: wesmc
 
 ##Overview
 
-This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.  
+This article provides a collection of best practices for you to consider when implementing function apps. Keep in mind that your Azure Function App is an Azure App Service. So those best practices would apply.
 
 
 ## Avoid large long running functions

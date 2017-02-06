@@ -24,8 +24,8 @@
 ### [Identity management security best practices](azure-security-identity-management-best-practices.md)
 ## PaaS services
 ### [Securing PaaS deployments](security-paas-deployments.md)
-### [Securing PaaS applications using SQL](security-paas-applications-using-sql.md)
-### [Securing PaaS applications using App Services](security-paas-applications-using-app-services.md)
+#### [Securing PaaS applications using SQL](security-paas-applications-using-sql.md)
+#### [Securing PaaS applications using App Services](security-paas-applications-using-app-services.md)
 ### [IoT security overview](security-internet-of-things-overview.md)
 ### [IoT security best practices](azure-security-iot-best-practices.md)
 ## Vertical industries
