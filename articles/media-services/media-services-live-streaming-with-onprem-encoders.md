@@ -29,9 +29,9 @@ In Azure Media Services, a *channel* represents a pipeline for processing live-s
 
 * An on-premises live encoder sends a single-bitrate stream to the channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (fragmented MP4). The channel then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream. Media Services delivers the stream to customers who request it.
 
-Starting with the Media Services 2.10 release, when you create a channel, you can specify how you want your channel to receive the input stream and whether or not you want the channel to perform live encoding of your stream. You have two options:
+Starting with the Media Services 2.10 release, when you create a channel, you can specify how you want your channel to receive the input stream. You can also specify whether you want the channel to perform live encoding of your stream. You have two options:
 
-* **None**: Specify this value if you plan to use an on-premises live encoder that will have a multi-bitrate stream (a pass-through stream) as output. In this case, the incoming stream passes through to the output without any encoding. This is the behavior of a channel prior to the 2.10 release. This topic gives details about working with channels of this type.
+* **None**: Specify this value if you plan to use an on-premises live encoder that will have a multi-bitrate stream (a pass-through stream) as output. In this case, the incoming stream passes through to the output without any encoding. This is the behavior of a channel before the 2.10 release. This topic gives details about working with channels of this type.
 * **Standard**: Choose this value if you plan to use Media Services to encode your single-bitrate live stream to a multi-bitrate stream. Be aware that leaving a live encoding channel in a **Running** state will incur billing charges. We recommend that you immediately stop your running channels after your live-streaming event is complete to avoid extra hourly charges. Media Services delivers the stream to customers who request it.
 
 > [!NOTE]
@@ -87,7 +87,7 @@ Use the secondary URL if you want to improve the durability and fault tolerance 
 
 - Single encoder double-pushing to both primary and secondary URLs:
 
-    The main purpose of this scenario is to provide more resiliency to network fluctuations and jitters. Some RTMP encoders don't handle network disconnects well. When a network disconnect happens, an encoder might stop encoding and then not send the buffered data when a reconnect happens. This causes discontinuities and data loss. Network disconnects can happen because of a bad network or maintenance on the Azure side. Primary/secondary URLs reduce the network problems and provide a controlled upgrade process. Each time a scheduled network disconnect happens, Media Services manages the primary and secondary disconnects and provides a delayed disconnect between the two. Encoders then have time to keep sending data and reconnect again. The order of the disconnects can be random, but there will be always a delay between primary/secondary or secondary/primary URLs. In this scenario, the encoder is still the single point of failure.
+    The main purpose of this scenario is to provide more resiliency to network fluctuations and jitters. Some RTMP encoders don't handle network disconnects well. When a network disconnect happens, an encoder might stop encoding and then not send the buffered data when a reconnect happens. This causes discontinuities and data loss. Network disconnects can happen because of a bad network or maintenance on the Azure side. Primary/secondary URLs reduce the network problems and provide a controlled upgrade process. Each time a scheduled network disconnect happens, Media Services manages the primary and secondary disconnects and provides a delayed disconnect between the two. Encoders then have time to keep sending data and reconnect again. The order of the disconnects can be random, but there will always be a delay between primary/secondary or secondary/primary URLs. In this scenario, the encoder is still the single point of failure.
 
 - Multiple encoders, with each encoder pushing to a dedicated point:
 
@@ -138,7 +138,7 @@ Channels provide a preview endpoint (preview URL) that you use to preview and va
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
 
-Note that currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
+Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address will be allowed. An allowed IP address can be specified as one of the following:
@@ -190,7 +190,7 @@ The following table demonstrates supported closed captioning and ad insertion st
 | --- | --- |
 | CEA-708 and EIA-608 (708/608) |CEA-708 and EIA-608 are closed-captioning standards for the United States and Canada.<p><p>Currently, captioning is supported only if carried in the encoded input stream. You need to use a live media encoder that can insert 608 or 708 captions in the encoded stream that's sent to Media Services. Media Services delivers the content with inserted captions to your viewers. |
 | TTML inside .ismt (Smooth Streaming text tracks) |Media Services dynamic packaging enables your clients to stream content in any of the following formats: DASH, HLS, or Smooth Streaming. However, if you ingest fragmented MP4 (Smooth Streaming) with captions inside .ismt (Smooth Streaming text tracks), you can deliver the stream to only Smooth Streaming clients. |
-| SCTE-35 |SCTE-35 is a digital signaling system that's used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<p><p>Note that currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming. |
+| SCTE-35 |SCTE-35 is a digital signaling system that's used to cue advertising insertion. Downstream receivers use the signal to splice advertising into the stream for the allotted time. SCTE-35 must be sent as a sparse track in the input stream.<p><p>Currently, the only supported input stream format that carries ad signals is fragmented MP4 (Smooth Streaming). The only supported output format is also Smooth Streaming. |
 
 ## <a id="considerations"></a>Considerations
 When you're using an on-premises live encoder to send a multi-bitrate stream to a channel, the following constraints apply:
