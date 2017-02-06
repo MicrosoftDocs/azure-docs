@@ -33,7 +33,7 @@ In this quick start tutorial, you learn how to:
 * [Connect and query the database with SSMS](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
 * [Create a blank database with SSMS](sql-database-get-started.md#create-a-blank-database-with-ssms) 
 * [Troubleshoot connectivity](sql-database-get-started.md#troubleshoot-connectivity) 
-* [Delete a database](sql-database-get-started.md#delete-a-database) 
+* [Delete a database](sql-database-get-started.md#delete-a-single-database) 
 
 
 When you finish this quick start tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have twp server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. 
