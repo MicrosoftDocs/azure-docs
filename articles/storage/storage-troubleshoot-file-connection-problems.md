@@ -42,6 +42,9 @@ This article lists common problems that are related to Microsoft Azure File stor
 * [Mount error 115 when attempting to mount Azure Files on the Linux VM](#error15)
 * [Linux VM experiencing random delays in commands like "ls"](#delayproblem)
 
+**Accessing from other applications**
+* [Can I reference the azure file share for my application through a webjob?](#webjobs)
+
 <a id="quotaerror"></a>
 
 ## Quota error when trying to open a file
@@ -234,8 +237,13 @@ Check the **serverino** in your "/etc/fstab" entry:
 //azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,
 file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
-If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.
+If the **serverino** option is not present, unmount and mount Azure Files again by having the **serverino** option selected.+
 
+<a id="webjobs"></a> 
+
+## Accessing from other applications
+### Can I reference the azure file share for my application through a webjob?
+Mounting SMB shares in appservice sandbox isn’t possible. As a workaround, you can map the Azure file share as a mapped drive and allow the application to access it as a drive letter.
 ## Learn more
 * [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md)
 * [Get started with Azure File storage on Linux](storage-how-to-use-files-linux.md)
