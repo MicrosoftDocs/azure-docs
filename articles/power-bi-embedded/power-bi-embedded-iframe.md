@@ -457,7 +457,7 @@ And here's our result:
 
 ![](media/power-bi-embedded-iframe/view-report.png)
 
-At this time, Power BI Embedded only shows the report in the iframe. But, keep an eye on the [Power BI Blog](). Future improvements could use new client side APIs that will let us send information into the iframe as well as get information out. Exciting stuff!
+At this time, Power BI Embedded only shows the report in the iframe. But, keep an eye on the [Power BI Blog](https://powerbi.microsoft.com/blog/). Future improvements could use new client side APIs that will let us send information into the iframe as well as get information out. Exciting stuff!
 
 ## See also
 * [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
