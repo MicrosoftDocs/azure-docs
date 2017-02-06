@@ -22,7 +22,7 @@ ms.author: anoopkv
 > * [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-arm.md)
 
-During failback it is recommended to deploy Process Server in the Azure if there is high latency between the Azure Virtual Network and your on-premises network. This article describes how you can set up, configure and manage the process servers running in Azure.
+During failback, it is recommended to deploy Process Server in Azure if there is high latency between the Azure Virtual Network and your on-premises network. This article describes how you can set up, configure, and manage the process servers running in Azure.
 
 > [!NOTE]
 > This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-arm.md)
@@ -44,7 +44,7 @@ During failback it is recommended to deploy Process Server in the Azure if there
 5. Once the Process Server virtual machine is provisioned, you need to log in and register it with the Configuration Server.
 
 > [!NOTE]
-> In order to be able to use this Process Server for failback, you need to register it with the on-premises configuration server.
+> To be able to use this Process Server for failback, you need to register it with the on-premises configuration server.
 
 ## Registering the Process Server (running in Azure) to a Configuration Server (running on-premises)
 
@@ -57,5 +57,3 @@ During failback it is recommended to deploy Process Server in the Azure if there
 ## Unregistering the Process Server (running in Azure) from a Configuration Server (running on-premises)
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-## Common Issues

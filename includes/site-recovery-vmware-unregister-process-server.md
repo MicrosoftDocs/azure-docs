@@ -15,6 +15,7 @@ The steps to unregister a process server differs depending on its connection sta
 1. Log on to your Configuration Server as an Administrator.
 2. Open an Administrative Command prompt and browse to the directory `%ProgramData%\ASR\home\svsystems\bin`
 3. Now run the Command
+
 ```
 perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
 ```
