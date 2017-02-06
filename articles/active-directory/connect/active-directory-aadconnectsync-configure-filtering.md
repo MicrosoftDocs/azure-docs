@@ -199,7 +199,7 @@ Inbound based filtering is using the default configuration where objects going t
 In the inbound filtering, you use the power of **scope** to determine which objects should or should not be synchronized. This is where you make adjustments to fit your own organization's requirements. The scope module has **group** and **clause** to determine when a sync rule should be in scope. A **group** contains one or many **clause**. There is a logical AND between multiple clauses and a logical OR between multiple groups.
 
 Let us look at an example:  
-![Scope](./media/active-directory-aadconnectsync-configure-filtering/scope.png)
+![Scope](./media/active-directory-aadconnectsync-configure-filtering/scope.png)  
 This should be read as **(department = IT) OR (department = Sales AND c = US)**.
 
 In the samples and steps below, you use the user object as an example, but you can use this for all object types.
