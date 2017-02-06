@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/02/2017
 ms.author: glenga
 
 ---
@@ -25,9 +25,7 @@ Azure Functions is an event-driven, compute-on-demand experience that extends th
 This topic shows you how to use the Azure portal to create a simple "hello world"  Node.js Azure Function that is invoked by an HTTP-trigger. Before you can create a function in the Azure portal, you must explicitly create a function app in Azure App Service. To have the function app created for you automatically, see [the other Azure Functions quickstart tutorial](functions-create-first-azure-function.md), which is a simpler quickstart experience and includes a video.
 
 ## Create a function app
-A function app hosts the execution of your functions in Azure. Follow these steps to create a function app in the Azure portal.
-
-A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). Follow these steps to create a function app in the Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign-in with your Azure account.
 2. Click **+New** > **Compute** > **Function App**, select your **Subscription**, type a unique **App name** that identifies your function app, then specify the following settings:
@@ -39,6 +37,8 @@ A function app hosts the execution of your functions in Azure. If you don't alre
    * **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or create one. 
      
      ![Create new function app in the Azure portal](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
+
+	Note that you must enter a valid **App name**, which can contain only letters, numbers, and hyphens. Underscore (**_**) is not an allowed character.
 
 3. Click **Create** to provision and deploy the new function app.  
 
@@ -54,29 +54,10 @@ These steps create a function from the Azure Functions quickstart.
 2. (Optional) At this point in the quickstart, you can choose to take a quick tour of Azure Functions features in the portal.    After you have completed or skipped the tour, you can test your new function by using the HTTP trigger.
 
 ## Test the function
-Since the Azure Functions quickstarts contain functional code, you can immediately test your new function.
-
-1. In the **Develop** tab, review the **Code** window and notice that this Node.js code expects an HTTP request with a *name* value passed either in the message body or in a query string. When the function runs, this value is returned in the response message.
-   
-2. Click **Test** to display the built-in HTTP test request pane for the function.
- 
-    ![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
-
-2. In the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
-
-3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar. Append the query string value `&name=yourname` to the URL and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## Next steps
-This quickstart demonstrates a simple execution of a basic HTTP-triggered function. To learn more about using Azure Functions in your apps, see the following topics:
-
-* [Azure Functions developer reference](functions-reference.md)  
-  Programmer reference for coding functions and defining triggers and bindings.
-* [Testing Azure Functions](functions-test-a-function.md)  
-  Describes various tools and techniques for testing your functions.
-* [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the consumption-based App Service plan, and how to choose the right plan. 
-* [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
-  Azure Functions uses the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
