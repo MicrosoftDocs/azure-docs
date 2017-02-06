@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
-ms.author: deonhe
+ms.author: estfan
 
 ---
 # Overview of the Enterprise Integration Pack

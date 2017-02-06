@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: estfan
 
 ---
 # Learn about receiving data using the B2B features of the Enterprise Integration Pack
