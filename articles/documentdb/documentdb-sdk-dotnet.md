@@ -52,7 +52,6 @@ ms.author: rnagpal
 * Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
 * Fix for an issue wherein the session container was not being updated with the token for failed requests in Gateway mode.
 * Fix for an issue wherein a query with UDF calls in projection was failing in some cases.
-* Client side performance fixes for increasing the read and write throughput of the requests.
 
 ### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
