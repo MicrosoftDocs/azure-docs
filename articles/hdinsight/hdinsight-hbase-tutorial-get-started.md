@@ -74,11 +74,11 @@ Currently, there are two way to access HBase. This section covers using the HBas
 
 For most people, data appears in the tabular format:
 
-![hdinsight hbase tabular data][img-hbase-sample-data-tabular]
+![HDInsight hbase tabular data][img-hbase-sample-data-tabular]
 
 In HBase which is an implementation of BigTable, the same data looks like:
 
-![hdinsight hbase bigtable data][img-hbase-sample-data-bigtable]
+![HDInsight hbase bigtable data][img-hbase-sample-data-bigtable]
 
 It'll make more sense after you finish the next procedure.  
 
@@ -102,7 +102,7 @@ It'll make more sense after you finish the next procedure.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![HDInsight hadoop hbase shell][img-hbase-shell]
 6. Get a single row
    
         get 'Contacts', '1000'

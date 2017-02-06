@@ -47,14 +47,14 @@ The following procedure shows you how to install HDInsight applications to an ex
 3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Click **Applications** under the **Configurations** category. You can see a list of installed applications if there are any. If you can find Applications, that means there is no applications for this version of the HDInsight cluster.
    
-    ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    ![HDInsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Click **Add** from the blade menu. 
    
-    ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
+    ![HDInsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
     You can see a list of existing HDInsight applications.
    
-    ![hdinsight applications available applications](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
+    ![HDInsight applications available applications](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Click one of the applications, accept the legal terms, and then click **Select**.
 
 You can see the installation status from the portal notifications (click the bell icon on the top of the portal). After the application is installed, the application will appear on the Installed Apps blade.
@@ -90,7 +90,7 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
 3. Click an HDInsight cluster.
 4. From the **Settings** blade, click **Applications** under the **General** category. The Installed Apps blade lists all the installed applications. 
    
-    ![hdinsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    ![HDInsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Click one of the installed applications to show the property. The property blade lists:
    
    * App name: application name.
