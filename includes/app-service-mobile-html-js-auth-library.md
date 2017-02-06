@@ -71,7 +71,7 @@ This example gets a token from Live Connect, which is supplied to your App Servi
 
 ###<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 
-The authentication information can be retrieved from the `/.auth/me` endpoint using a HTTP call with any AJAX
+The authentication information can be retrieved from the `/.auth/me` endpoint using an HTTP call with any AJAX
 library.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
 is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
 
