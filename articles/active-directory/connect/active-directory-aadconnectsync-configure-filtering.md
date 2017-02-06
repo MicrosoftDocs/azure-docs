@@ -138,9 +138,8 @@ For each of the five profiles, take the following steps for each **removed** dom
 
 The result should be that each domain you want to synchronize should be listed as a step in each run profile.
 
-To close the **Configure Run Profiles** dialog, click **OK**.
-
-* To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
+1. To close the **Configure Run Profiles** dialog, click **OK**.
+2.  To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
 The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
