@@ -1,5 +1,5 @@
 ---
-title: 'Azure portal: Manage Azure SQL Database servers | Microsoft Docs'
+title: 'Azure portal: Create and manage Azure SQL Database servers | Microsoft Docs'
 description: Quick reference on how to create and manage Azure SQL Database servers with the Azure portal.
 services: sql-database
 documentationcenter: ''
@@ -37,7 +37,7 @@ You can create and manage Azure SQL Database server with the [Azure portal](http
 > For a getting started tutorial using the Azure portal and SQL Server Management Studio, see [Get started with Azure SQL Database servers, databases and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md).
 >
 
-## View and update an Azure SQL server settings using the Azure portal
+## View and update Azure SQL server settings using the Azure portal
 1. Open the **SQL servers** blade in the [Azure portal](https://portal.azure.com/). 
 
     ![new sql server](./media/sql-database-get-started/new-sql-server.png)
@@ -47,7 +47,7 @@ You can create and manage Azure SQL Database server with the [Azure portal](http
     ![sql server blade](./media/sql-database-get-started/sql-server-blade.png)
 
 > [!TIP]
-> For a getting started tutorial the creates a server using the Azure portal, see [Create a database - Azure portal](sql-database-get-started.md).
+> For a getting started tutorial that creates a server using the Azure portal, see [Create a database - Azure portal](sql-database-get-started.md).
 >
 
 ## Additional resources
