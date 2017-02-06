@@ -42,7 +42,7 @@ First, create a resource group with [az group create](/cli/azure/group#create). 
 az group create --name myResourceGroup --location westus
 ```
 
-Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account#create). Even if you wish to use [Azure Managed Disks](link to new managed disks overview doc), you need to create a storage account that you upload your VHD to before converting to a managed disk. The following example creates a storage account named `mystorageaccount`:
+Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account#create). Even if you wish to use [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md), you need to create a storage account that you upload your VHD to before converting to a managed disk. The following example creates a storage account named `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -71,7 +71,7 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ### Azure Managed Disks
-You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
+You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). To create a VM from your VHD, first convert the VHD to a managed disk with [az disk create](/cli/azure/disk/create):
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
@@ -158,13 +158,13 @@ Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-g
 Resource groups logically bring together all the Azure resources to support your virtual machines, such as the virtual networking and storage. For more information resource groups, see [resource groups overview](../azure-resource-manager/resource-group-overview.md). Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](/cli/azure/group#create).
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location:
-
+[Azure Managed Disks overview](../storage/storage-managed-disks-overview.md)
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
 ## Create a storage account
-When you create a VM, you can do so with Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks are stored as page blobs within a storage account. For more information, see [Azure Managed Disks overview]() or [Azure blob storage here](../storage/storage-introduction.md#blob-storage). Even if you wish to use [Azure Managed Disks](link to new managed disks overview doc), you need to create a storage account that you upload your VHD to before converting to a managed disk.
+When you create a VM, you can do so with Azure Managed Disks or unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. Unmanaged disks are stored as page blobs within a storage account. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md) or [Azure blob storage here](../storage/storage-introduction.md#blob-storage). Even if you wish to use managed disks, you need to create a storage account that you upload your VHD to before converting to a managed disk.
 
 Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. You can create VMs with managed disks in any resource group within your subscription.
 
