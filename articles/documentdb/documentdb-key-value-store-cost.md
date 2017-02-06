@@ -1,5 +1,4 @@
-
-as ---
+---
 title: Azure DocumentDB as a key value store – Cost overview | Microsoft Docs
 description: Learn about the low cost of using Azure DocumentDB as a key value store.
 keywords: key value store
