@@ -20,7 +20,7 @@ ms.author: carlrab
 ---
 # Create and manage single Azure SQL databases with PowerShell
 
-You can create and manage single Azure SQL databases using the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API or C#. This topic is about using PowerShell. For the Azure portal, see [Create and manage single databases with the Azure portal](sql-database-manage-single-databases-powershell.md). For Transact-SQL, see [Create and manage single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md). 
+You can create and manage single Azure SQL databases using the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API, or C#. This topic is about using PowerShell. For the Azure portal, see [Create and manage single databases with the Azure portal](sql-database-manage-single-databases-powershell.md). For Transact-SQL, see [Create and manage single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md). 
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -45,7 +45,7 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
 >
 ## Change the service tier and performance level of a single database
 
-Run the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx) cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Run the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx) cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example, *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
 Replace ```{variables}``` with your values (do not include the curly braces).
 
