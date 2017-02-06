@@ -155,9 +155,7 @@
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
 ### [Data movement](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, Queues, Tables, and Files](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## Java
-### [Resource Manager](/java/api/com.microsoft.azure.management.storage)
-### [Blobs, Queues, Tables, and Files](/java/api/com.microsoft.azure.storage)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
