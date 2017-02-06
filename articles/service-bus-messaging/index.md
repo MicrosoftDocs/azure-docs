@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+title: Service Bus Messaging Documentation
 description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
 ---
 # Service Bus Messaging Documentation
-Learn how to use Service Bus Messaging to connect across on-premises and cloud environments. Tutorials, videos, API references, and other documentation show how to set up cloud messaging between applications and services.
+The messaging service provides dependable information delivery as a brokered or third-party communication mechanism.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -13,7 +14,7 @@ Learn how to use Service Bus Messaging to connect across on-premises and cloud e
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/service-bus.svg" alt="" />
+                            <img src="media/index/service-bus.svg" alt="Learn about Service Bus Messaging" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -36,6 +37,42 @@ Learn how to use Service Bus Messaging to connect across on-premises and cloud e
                     </div>
                     <div class="cardText">
                         <h3>Azure Service Bus Messaging Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="Create a namespace using the Portal" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a namespace using the Portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="Build a multi-tier Service Application" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Build a multi-tier Service Application</h3>
                     </div>
                 </div>
             </div>

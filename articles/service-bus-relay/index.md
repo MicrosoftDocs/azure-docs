@@ -1,9 +1,12 @@
 ---
 layout: LandingPage
-description: Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations.
+title: Service Bus Relay Documentation
+description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
 ---
 # Service Bus Relay Documentation
-Learn how to use Service Bus Relay to connect across on-premises and cloud environments. Tutorials, videos, API references, and other documentation show how to set up cloud messaging between applications and services.
+Learn how Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.  
+
+Relay supports a variety of different transport protocols and web services standards.  The relay service supports traditional one-way, request/response, and peer-to-peer traffic. It also supports event distribution at internet-scope to enable publish/subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -13,7 +16,7 @@ Learn how to use Service Bus Relay to connect across on-premises and cloud envir
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/service-bus.svg" alt="" />
+                            <img src="media/index/service-bus.svg" alt="Learn about Service Bus Relay" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,11 +34,83 @@ Learn how to use Service Bus Relay to connect across on-premises and cloud envir
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="Azure Service Bus Relay Video Library" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Azure Service Bus Relay Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="Create a namespace" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create a namespace</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>    
+    <li>
+        <a href="">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="Get started with Hybrid Connections" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with Hybrid Connections</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="Get started with WCF Relay" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with WCF Relay</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/placeholder.svg" alt="Get started sharing Access Signatures" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started sharing Access Signatures</h3>
                     </div>
                 </div>
             </div>
