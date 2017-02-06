@@ -1,5 +1,5 @@
 ---
-title: 'High-Performance Premium Storage using Azure VM Disks | Microsoft Docs'
+title: High-Performance Premium Storage using Azure VM Disks | Microsoft Docs
 description: Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure VMs. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
 services: storage
 documentationcenter: ''

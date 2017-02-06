@@ -20,7 +20,7 @@ ms.author: yuemlu
 
 # Azure Storage Managed Disks
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-disks.md)) and size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-vm-disks.md)) and size of disk you need, and Azure creates and manages the disk for you.
 
 ## Benefits of managed disks
 
