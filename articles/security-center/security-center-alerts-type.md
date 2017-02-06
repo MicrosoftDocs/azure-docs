@@ -166,7 +166,10 @@ By leveraging Microsoft threat intelligence feeds, Azure Security Center can det
 
 This alert gives information that enables you to identify the resource that was used to initiate this attack, the attacked resource, the victim IP, the attacker IP and the detection time.
 
-[AZURE.NOTE] Live IP addresses were removed from this screenshot for privacy purpose.
+> [!NOTE]
+> Live IP addresses were removed from this screenshot for privacy purpose.
+>
+>
 
 ### Possible outgoing denial-of-service attack detected
 Anomalous network traffic originated from one virtual machine can lead Security Center to trigger a potential denial-of-service type of attack.
