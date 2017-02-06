@@ -56,7 +56,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 	PeeringState        : Initiated
 	ProvisioningState    : Succeeded
 	RemoteVirtualNetwork    : {
-	                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
+	"Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
 	                                    }
 	    AllowVirtualNetworkAccess    : True
 	    AllowForwardedTraffic    : False
@@ -91,11 +91,11 @@ To create a VNet peering by using PowerShell, please follow the steps below:
         RemoteVirtualNetworkAddressSpace : null
 4. Once the VNet peering link is created, enter the following command to view the link state:
 
-	```PowerShell
+	```powershell
 	Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
 	```
 
-    Returned output:
+	Returned output:
    
         Name            : LinkToVNet2
         Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -184,11 +184,11 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 
 4. In User-B’s login session, run the cmdlet below:
 
-	```powerhshell
+	```powershell
 	$vnet5 = Get-AzureRmVirtualNetwork -ResourceGroupName vendor-vnets -Name vnet5
 
 	Add-AzureRmVirtualNetworkPeering -Name LinkToVNet3 -VirtualNetwork $vnet5 -RemoteVirtualNetworkId "/subscriptions/<Subscriptoin-A-Id>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/VNet3" -BlockVirtualNetworkAccess
-	```powershell
+	```
 
 5. After peering is established, any VM in VNet3 should be able to communicate with any VM in VNet5.
 
@@ -222,7 +222,7 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 2. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:
-	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`.
+	- Register the preview capability in your Azure subscription by entering the following command from PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
 	- Complete steps 1-2 in the [Peering across subscriptions](#x-sub) section of this article.
 2. Read the virtual network object for **VNET1**, the Azure Resource Manager virtual network, by entering the following command:
 
@@ -232,7 +232,7 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 
 3. To establish VNet peering in this scenario, only one link is needed, specifically a link from **VNET1** to **VNET2**. This step requires knowing your classic VNet's resource ID. The resource group ID format looks like the following example:
 
-        /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
+       	subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
 	Be sure to replace SubscriptionID, ResourceGroupName, and VirtualNetworkName with the appropriate names.
 
