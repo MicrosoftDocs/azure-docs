@@ -55,12 +55,36 @@ You can now [publish](automation-creating-importing-runbook#to-publish-a-runbook
 Create a [webhook](automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you will need it for a service hook in VSTS. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token. 
 
 Integrating with VSTS (Sync-VSTS.ps1) will take the following parameters.
+### Sync-VSTS Parameters
+
+Parameter | Description| 
+--------|------------|
+WebhookData | This will contain the checkin information sent from the VSTS service hook. You should leave this parameter blank.| 
+ResourceGroup | This the name of the resource group that the automation account is in.|
+AutomationAccountName | The name of the automation account that will sync with VSTS.|
+VSFolder | The name of the folder in VSTS where the runbooks and configurations exist.|
+VSAccount | The name of the Visual Studio Team Services account.| 
+VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.| 
+
+
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSWebhook.png)
 
 If you are using VSTS with GIT (Sync-VSTSGit.ps1) it will take the following parameters.
+
+Parameter | Description|
+--------|------------|
+WebhookData | This will contain the checkin information sent from the VSTS service hook. You should leave this parameter blank.| ResourceGroup | This the name of the resource group that the automation account is in.|
+AutomationAccountName | The name of the automation account that will sync with VSTS.|
+VSAccount | The name of the Visual Studio Team Services account.|
+VSProject | The name of the project in VSTS where the runbooks and configurations exist.|
+GitRepo | The name of the Git repository.|
+GitBranch | The name of the branch in VSTS Git repository.|
+VSFolder | The name of the folder in VSTS Git branch.|
+VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.|
+
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 ## Step 5:
-Create a service hook in VSTS for check ins to the folder that triggers this webhook on code check in. Select Web Hooks as the service to integrate with you create a new subscription. You can learn more about service hooks on [VSTS Service Hooks documentation](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
+Create a service hook in VSTS for check ins to the folder that triggers this webhook on code check in. Select Web Hooks as the service to integrate with when you create a new subscription. You can learn more about service hooks on [VSTS Service Hooks documentation](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
 You should now be able to do all checkins of your runbooks and configurations into VSTS and have these automatically sync’d into your automation account.
