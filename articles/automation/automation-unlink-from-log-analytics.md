@@ -35,13 +35,17 @@ After you remove these solutions you can perform the following steps to unlink y
 2. On the Unlink workspace blade, click **Unlink worksapce**.<br><br> ![Unlink workspace blade](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  You will receive a prompt verifying you wish to proceed.<br><br>
 3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
-If you used the Update Management solution, optionally you may want to remove some items that are no longer needed after you remove the solution.
+If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
 * Update schedules.  Each will have names that match the update deployments you created)
 
 * Hybrid worker groups created for the solution.  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
-If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the start and stop schedules created when the solution was installed.  
+If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
+
+* Start and stop VM runbook schedules 
+* Start and stop VM runbooks
+* Variables   
 
 # Next steps
 
