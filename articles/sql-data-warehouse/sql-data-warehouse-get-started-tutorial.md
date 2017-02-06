@@ -126,6 +126,8 @@ In this step, you create a user account to access your data warehouse. We also s
 
 - For optimize data compression, the user usually needs load with large or extra large resource allocations. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
+<!----!Loc Comment: Above sentence seems to be not clear. What do you mean by "needs load with..."? Thanks.--->
+
 ### Create an account that can control a database
 
 Since you are currently logged in as the server admin you have permissions to create logins and users.
