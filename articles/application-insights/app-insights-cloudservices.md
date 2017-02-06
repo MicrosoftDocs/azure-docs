@@ -53,7 +53,7 @@ What follows tells you how to adapt your own cloud service project in the same w
 ## Plan resources and resource groups
 The telemetry from your app will be stored, analyzed and displayed in an Azure resource of type Application Insights. 
 
-Each resource belongs to a resource group. Resource groups are used for managing costs, for granting access to team members, and to deploy updates in  a single coordinated transaction. For example, you could [write a script to deploy](../resource-group-template-deploy.md) an Azure Cloud Service and its Application Insights monitoring resources all in one operation.
+Each resource belongs to a resource group. Resource groups are used for managing costs, for granting access to team members, and to deploy updates in  a single coordinated transaction. For example, you could [write a script to deploy](../azure-resource-manager/resource-group-template-deploy.md) an Azure Cloud Service and its Application Insights monitoring resources all in one operation.
 
 ### Resources for components
 The recommended scheme is to create a separate resource for each component of your application - that is, each web role and worker role. You can analyze each component separately, but can create a [dashboard](app-insights-dashboards.md) that brings together the key charts from all the components, so that you can compare and monitor them together. 

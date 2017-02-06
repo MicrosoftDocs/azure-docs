@@ -1,5 +1,5 @@
 ---
-title: Deploying Azure ML web services that use Data Import and Data Export modules | Microsoft Docs
+title: Using Import/Export Data in Azure Machine Learning web services | Microsoft Docs
 description: Learn how to use the Import Data and Export Data modules to send and receive data from a web service.
 services: machine-learning
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 
 ---
@@ -103,14 +103,13 @@ To deploy as a Classic Web Service and create an application to consume it:
 8. Update the value of the *apiKey* variable with the API key saved earlier.
 9. Locate the request declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you will use the original query, but define a new table name.
    
-     var request = new BatchExecutionRequest() 
-     {    
-   
-         GlobalParameters = new Dictionary<string, string>() {
-         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-         { "Table", "dbo.ScoredTable2" },
-         }
-     };
+		var request = new BatchExecutionRequest() 
+		{    		
+			GlobalParameters = new Dictionary<string, string>() {
+				{ "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+				{ "Table", "dbo.ScoredTable2" },
+			}
+		};
 10. Run the application. 
 
 On completion of the run, a new table is added to the database containing the scoring results.
@@ -128,16 +127,15 @@ To deploy as a New Web Service and create an application to consume it:
 8. Update the value of the *apiKey* variable with the **Primary Key** located in the **Basic consumption info** section.
 9. Locate the *scoreRequest* declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you will use the original query, but define a new table name.
    
-     var scoreRequest = new
-     {
-   
-         Inputs = new Dictionary<string, StringTable>()
-         {
-         },
-         GlobalParameters = new Dictionary<string, string>() {
-              { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-             { "Table", "dbo.ScoredTable3" },
-         }
-     };
+		var scoreRequest = new
+		{		
+			Inputs = new Dictionary<string, StringTable>()
+			{
+			},
+			GlobalParameters = new Dictionary<string, string>() {
+				{ "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+				{ "Table", "dbo.ScoredTable3" },
+			}
+		};
 10. Run the application. 
 

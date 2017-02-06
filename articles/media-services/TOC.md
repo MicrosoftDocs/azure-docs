@@ -4,6 +4,12 @@
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Connect programmatically
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Deliver video on demand
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -21,11 +27,10 @@
 ### Manage entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Connect programmatically
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
-### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
+### [Manage streaming endpoints](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
+### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
 
 ## Upload content
@@ -33,6 +38,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Upload large files with Aspera](media-services-upload-files-with-aspera.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
 ## [Encode content](media-services-encode-asset.md)
@@ -44,7 +50,7 @@
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
 ##### [Output metadata](media-services-output-metadata-schema.md)
-#### MES Presets 
+#### [MES Presets](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -92,8 +98,10 @@
 
 ## [Stream live](media-services-manage-channels-overview.md)
 ### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
-### Cloud encoder tutorials
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configure on-premises encoders for use with cloud encoder](media-services-live-encoders-overview.md)
@@ -109,6 +117,7 @@
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
 ### [Encrypting your Content with Storage Encryption using AMS REST API](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady License Template Overview](media-services-playready-license-template-overview.md)
+### [Widevine license template overview](media-services-widevine-license-template-overview.md)
 ### [DRM license delivery](media-services-deliver-keys-and-licenses.md)
 ### [Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
 ### [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
@@ -134,8 +143,8 @@
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-#### [Face redaction walkthrough](media-services-redactor-walkthrough.md)
+### [Process with Face Redactor](media-services-face-redaction.md)
+#### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
@@ -147,16 +156,15 @@
 ### [Media Processing](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Streaming Endpoints
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Deliver content](media-services-deliver-content-overview.md)
 ### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
 ### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-### Create filters
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Create filters with REST](media-services-rest-dynamic-manifest.md)
 ### Publish content
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -179,7 +187,6 @@
 ### [Manage assets across multiple Storage accounts](meda-services-managing-multiple-storage-accounts.md)
 ### [Using Axinom to deliver Widevine licenses to Azure Media Services  ](media-services-axinom-integration.md)
 ### [Using castLabs to deliver Widevine licenses to Azure Media Services](media-services-castlabs-integration.md)
-### [Widevine License Template Overview](media-services-widevine-license-template-overview.md)
 
 ## Monitor
 ### Check job progress

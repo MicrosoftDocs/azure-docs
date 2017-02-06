@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to add intelligent capabilities to your applications, such as vision, speech, and language analytics. Get quick start guides and API references.
 ---
 #Cognitive Services Documentation
 
-Cognitive Services (Preview) is a series of APIs which can be used to enable natural and contextual interaction within your applications.  Cognitive Services offers Language, Speech, Vision, Search, and Knowledge APIs.
+Learn how to enable natural and contextual interaction within your applications with Cognitive Services. Quick start tutorials and API references help you incorporate artificial intelligence capabilities for text, speech, vision, and search. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -92,11 +93,4 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Cognitive Services Documentation
-        </div>
-    </a>
-</div>
+

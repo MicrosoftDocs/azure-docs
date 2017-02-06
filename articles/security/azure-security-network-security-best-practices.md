@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2016
+ms.date: 01/09/2017
 ms.author: TomSh
 
 ---
@@ -72,8 +72,8 @@ We recommend that you configure User Defined Routes when you deploy a virtual ne
 
 > [!NOTE]
 > user Defined Routes are not required and the default system routes will work in most instances.
-> 
-> 
+>
+>
 
 You can learn more about User Defined Routes and how to configure them by reading the article [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -232,4 +232,3 @@ However, there is a lot of planning and design issues that need to be addressed 
 Microsoft has created the [Datacenter Extension Reference Architecture Diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) and supporting collateral to help you understand what such a datacenter extension would look like. This provides an example reference implementation that you can use to plan and design a secure enterprise datacenter extension to the cloud. We recommend that you review this document to get an idea of the key components of a secure solution.
 
 To learn more about how to securely extend your datacenter into Azure, please view the video [Extending Your Datacenter to Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-

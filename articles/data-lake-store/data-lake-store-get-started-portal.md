@@ -1,6 +1,6 @@
 ---
-title: Get started with Data Lake Store | Microsoft Docs
-description: Use the portal to create a Data Lake Store account and perform basic operations in the Data Lake Store
+title: Use Azure portal to get started with Data Lake Store | Microsoft Docs
+description: Use the Azure portal to create a Data Lake Store account and perform basic operations in the Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme

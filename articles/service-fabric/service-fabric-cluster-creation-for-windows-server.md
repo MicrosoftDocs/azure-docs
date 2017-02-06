@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2016
-ms.author: dkshir;chackdan
+ms.author: ryanwi;chackdan
 
 ---
 # Create and manage a cluster running on Windows Server

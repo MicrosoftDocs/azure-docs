@@ -1,5 +1,5 @@
 ---
-title: Parallel Bulk Data Import Using SQL Partition Tables | Microsoft Docs
+title: Build and optimize tables for fast parallel import of data into a SQL Server on an Azure VM| Microsoft Docs
 description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
 documentationcenter: ''
@@ -13,19 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---
 # Parallel Bulk Data Import Using SQL Partition Tables
-This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using *Partitioned Tables and Views*. 
+This document describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using *Partitioned Tables and Views*. 
 
 ## Create a new database and a set of filegroups
-* [Create a new database](https://technet.microsoft.com/library/ms176061.aspx) (if it doesn't exist)
-* Add database filegroups to the database which will hold the partitioned physical files
-  
-  Note: This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if the database exists already
-* Add one or more files (as needed) to each database filegroup
+* [Create a new database](https://technet.microsoft.com/library/ms176061.aspx), if it doesn't exist already.
+* Add database filegroups to the database which will hold the partitioned physical files.This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if the database exists already.
+* Add one or more files (as needed) to each database filegroup.
   
   > [!NOTE]
   > Specify the target filegroup which holds data for this partition and the physical database file name(s) where the filegroup data will be stored.
@@ -73,7 +71,7 @@ Create partitioned table(s) according to the data schema, mapped to the database
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:
+  To verify the ranges in effect in each partition according to the function/scheme, run the following query:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,

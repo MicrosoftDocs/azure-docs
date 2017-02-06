@@ -149,7 +149,6 @@ Learn more about the distributing data globally with DocumentDB in the following
 
 * [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
 * [Consistency levels](documentdb-consistency-levels.md)
-* [How throughput works with multiple regions](documentdb-manage.md)
 * [Add regions using the Azure portal](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/

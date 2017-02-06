@@ -1,6 +1,6 @@
 ---
-title: Manage DNS zones using CLI | Microsoft Docs
-description: You can manage DNS zones using Azure CLI. How to update, delete and create DNS zones on Azure DNS
+title: Manage DNS zones in Azure DNS - Azure CLI | Microsoft Docs
+description: You can manage DNS zones using Azure CLI. This article shows how to update, delete and create DNS zones on Azure DNS.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 ---
 
-# How to manage DNS Zones using CLI
+# How to manage DNS Zones in Azure DNS using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-This guide shows how to manage your DNS zone resources using the cross-platform Azure CLI.
+This guide shows how to manage your DNS zones by using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
 
-These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI to use these Azure DNS commands. You can install Azure CLI for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-Azure DNS is an Azure Resource Manager-only service. It does not have a 'classic' deployment model. You need to make sure the Azure CLI is configured to use Resource Manager mode. You can do this by using the `azure config mode arm` command.
+[!INCLUDE [dns-cli-setup](../../includes/dns-cli-setup-include.md)]
 
-If you see the message "*error: 'dns' is not an azure command*", it's most likely because you are using Azure CLI in Azure Service Management mode, not Resource Manager mode.
+## Getting help
 
 All CLI commands relating to Azure DNS start with `azure network dns`. Help is available for each command using the `--help` option (short form `-h`).  For example:
 
@@ -42,11 +42,7 @@ azure network dns zone create -h
 
 A DNS zone is created using the `azure network dns zone create` command. For help, see `azure network dns zone create -h`.
 
-The examples below show how to create a DNS zone with or without [Azure Resource Manager tags](dns-zones-records.md#tags).
-
-### To create a DNS zone
-
-The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create your DNS zone, substituting the values for your own.
+The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*:
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com
@@ -54,7 +50,7 @@ azure network dns zone create MyResourceGroup contoso.com
 
 ### To create a DNS zone with tags.
 
-The following example shows how to create a DNS zone with two tags, *project = demo* and *env = test*, using the `--tags` parameter (short form `-t`).
+The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*, by using the `--tags` parameter (short form `-t`):
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com -t "project=demo";"env=test"
@@ -109,7 +105,7 @@ azure network dns zone list
 
 Changes to a DNS zone resource can be made using `azure network dns zone set`. For help, see `azure network dns zone set -h`.
 
-This command does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It is only used to update properties of the zone resource itself. These properties are currently limited to the [Azure Resource Manager 'tags'](dns-zones-records.md#tags) for the zone resource.
+This command does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets-cli.md)). It is only used to update properties of the zone resource itself. These properties are currently limited to the [Azure Resource Manager 'tags'](dns-zones-records.md#tags) for the zone resource.
 
 The following example shows how to update the tags on a DNS zone. The existing tags are replaced by the value specified.
 
@@ -122,7 +118,7 @@ azure network dns zone set MyResourceGroup contoso.com -t "team=support"
 DNS zones can be deleted using `azure network dns zone delete`. For help, see `azure network dns zone delete -h`.
 
 > [!NOTE]
-> Deleting a DNS zone will also delete all DNS records within the zone. This operation cannot be undone. If the DNS zone is in use, services using the zone will fail when the zone is deleted.
+> Deleting a DNS zone also deletes all DNS records within the zone. This operation cannot be undone. If the DNS zone is in use, services using the zone will fail when the zone is deleted.
 >
 >To protect against accidental zone deletion, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md).
 

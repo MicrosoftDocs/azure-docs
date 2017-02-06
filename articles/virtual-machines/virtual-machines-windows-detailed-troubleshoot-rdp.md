@@ -1,5 +1,5 @@
 ---
-title: Detailed remote desktop troubleshooting | Microsoft Docs
+title: Detailed remote desktop troubleshooting in Azure | Microsoft Docs
 description: Review detailed troubleshooting steps for remote desktop errors where you cannot to a Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 
 ---
@@ -25,8 +25,6 @@ This article provides detailed troubleshooting steps to diagnose and fix complex
 
 > [!IMPORTANT]
 > To eliminate the more common Remote Desktop errors, make sure to read [the basic troubleshooting article for Remote Desktop](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before proceeding.
-> 
-> 
 
 You may encounter a Remote Desktop error message that does not resemble any of the specific error messages covered in [the basic Remote Desktop troubleshooting guide](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Follow these steps to determine why the Remote Desktop (RDP) client is unable to connect to the RDP service on the Azure VM.
 

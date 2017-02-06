@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to set up security monitoring and policy management for Azure resources. Tutorials, a REST API reference, and other documentation.
 ---
 # Security Center Documentation
 
-Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Learn how to use Security Center to get visibility into and control over the security of your Azure resources.  Tutorials, a REST API reference, and other documentation show you how to set up security monitoring and policy management that works with a broad ecosystem of security solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -80,11 +81,4 @@ Security Center helps you prevent, detect, and respond to threats with increased
     </li>
 </ul>	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Security Center Documentation
-        </div>
-    </a>
-</div>
+

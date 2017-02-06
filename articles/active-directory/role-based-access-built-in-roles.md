@@ -1,5 +1,5 @@
 ---
-title: 'RBAC: Built-in Roles | Microsoft Docs'
+title: Actions and NotActions - roles in Azure RBAC | Microsoft Docs
 description: This topic describes the built in roles for role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 
 ---
@@ -25,14 +25,17 @@ The following table provides brief descriptions of the built-in roles. Click the
 
 > [!NOTE]
 > The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
-> 
-> 
+>
+>
 
 | Role name | Description |
 | --- | --- |
 | [API Management Service Contributor](#api-management-service-contributor) |Can manage API Management services |
 | [Application Insights Component Contributor](#application-insights-component-contributor) |Can manage Application Insights components |
 | [Automation Operator](#automation-operator) |Able to start, stop, suspend, and resume jobs |
+| [Backup Contributor](#backup-contributor) | Can manage backup in Recovery Services vault |
+| [Backup Operator](#backup-operator) | Can manage backup except removing backup, in Recovery Services vault |
+| [Backup Reader](#backup-reader) | Can view all backup management services  |
 | [BizTalk Contributor](#biztalk-contributor) |Can manage BizTalk services |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) |Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) |Can manage everything except access. |
@@ -114,6 +117,98 @@ Able to start, stop, suspend, and resume jobs
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Read resource groups |
 | Microsoft.Support/* |Create and manage support tickets |
+
+### Backup Contributor
+Can manage all backup management actions, except creating Recovery Services vault and giving access to others
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Read virtual networks |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Manage results of operation on backup management |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Create and manage backup containers inside backup fabrics of Recovery Services vault |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Create and manage backup jobs |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export backup jobs into an excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Create and manage meta data related to backup management |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Create and manage Results of backup management operations |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | Create and manage backup policies |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Create and manage items which can be backed up |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Create and manage backed up items |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Create and manage containers holding backup items |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Create and manage certificates related to backup in Recovery Services vault |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Create and manage extended info related to vault | 
+| Microsoft.RecoveryServices/Vaults/read | Read recovery services vaults |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Manage discovery operation for fetching newly created containers |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Create and manage registered identities |
+| Microsoft.RecoveryServices/Vaults/usages/* | Create and manage usage of Recovery Services vault |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Storage/storageAccounts/read | Read storage accounts |
+| Microsoft.Support/* |Create and manage support tickets |
+
+### Backup Operator
+Can manage all backup management actions except creating vaults, removing backup and giving access to others
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Read virtual networks |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Read results of operation on backup management |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Read operation results on protection containers |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Perform on-demand backup operation on a backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Read result of operation performed on backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Read status of operation performed on backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Read backed up items |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Read recovery point of a backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Perform a restore operation using a recovery point of a backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Read containers holding backup item |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Create and manage backup jobs |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export backup jobs into an excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Read meta data related to backup management |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Create and manage Results of backup management operations |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Read results of operations performed on backup policies |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | Read backup policies |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Create and manage items which can be backed up |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Read backed up items |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Read backed up containers holding backup items |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Read extended info related to vault | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Write extended info related to vault | 
+| Microsoft.RecoveryServices/Vaults/read | Read recovery services vaults |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Manage discovery operation for fetching newly created containers |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Read results of operation performed on Registered items of the vault |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Read registered items of the vault |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Write registered items to vault |
+| Microsoft.RecoveryServices/Vaults/usages/read | Read usage of the Recovery Services vault |
+| Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Read resource groups |
+| Microsoft.Storage/storageAccounts/read | Read storage accounts |
+| Microsoft.Support/* | Create and manage support tickets |
+
+### Backup Reader
+Can monitor backup management in Recovery Services vault
+
+| **Actions** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Read results of operation on backup management |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Read operation results on protection containers |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Read result of operation performed on backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Read status of operation performed on backed up item |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Read backed up items |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Read containers holding backup item |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Read results of backup jobs |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | Read backup jobs |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export backup jobs into an excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Read meta data related to backup management |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Read backup management operation results |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Read results of operations performed on backup policies |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Read backup policies |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Read backed up items |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Read backed up containers holding backup items |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Read extended info related to vault |
+| Microsoft.RecoveryServices/Vaults/read  | Read recovery services vaults |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Read result of discovery operation for fetching newly created containers |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Read results of operation performed on Registered items of the vault |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Read registered items of the vault |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Read usage of the Recovery Services vault |
 
 ### BizTalk Contributor
 Can manage BizTalk services
@@ -549,4 +644,3 @@ Can manage websites but not the web plans to which they are connected
 * [Custom roles in Azure RBAC](role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
 * [Create an access change history report](role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
 * [Role-Based Access Control troubleshooting](role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
-

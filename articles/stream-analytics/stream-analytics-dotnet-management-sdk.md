@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 
 ---
@@ -82,43 +82,45 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 2. Add an authentication helper method:
+
+   ```   
+   public static string GetAuthorizationHeader()
+   {
    
-     public static string GetAuthorizationHeader()
-     {
+       AuthenticationResult result = null;
+       var thread = new Thread(() =>
+       {
+           try
+           {
+               var context = new AuthenticationContext(
+                   ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                   ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
    
-         AuthenticationResult result = null;
-         var thread = new Thread(() =>
-         {
-             try
-             {
-                 var context = new AuthenticationContext(
-                     ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                     ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+               result = context.AcquireToken(
+                   resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                   clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                   redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                   promptBehavior: PromptBehavior.Always);
+           }
+           catch (Exception threadEx)
+           {
+               Console.WriteLine(threadEx.Message);
+           }
+       });
    
-                 result = context.AcquireToken(
-                     resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                     clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                     redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                     promptBehavior: PromptBehavior.Always);
-             }
-             catch (Exception threadEx)
-             {
-                 Console.WriteLine(threadEx.Message);
-             }
-         });
+       thread.SetApartmentState(ApartmentState.STA);
+       thread.Name = "AcquireTokenThread";
+       thread.Start();
+       thread.Join();
    
-         thread.SetApartmentState(ApartmentState.STA);
-         thread.Name = "AcquireTokenThread";
-         thread.Start();
-         thread.Join();
+       if (result != null)
+       {
+           return result.AccessToken;
+       }
    
-         if (result != null)
-         {
-             return result.AccessToken;
-         }
-   
-         throw new InvalidOperationException("Failed to acquire token");
-     }  
+       throw new InvalidOperationException("Failed to acquire token");
+   }
+   ```  
 
 ## Create a Stream Analytics management client
 A **StreamAnalyticsManagementClient** object allows you to manage the job and the job components, such as input, output, and transformation.
@@ -142,7 +144,7 @@ Add the following code to the beginning of the **Main** method:
 
 The **resourceGroupName** variable's value should be the same as the name of the resource group you created or picked in the prerequisite steps.
 
-To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
+To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 The remaining sections of this article assume that this code is at the beginning of the **Main** method.
 

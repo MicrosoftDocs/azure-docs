@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to add robust search capabilities, including activity monitoring, to custom web or mobile applications. API references and other documentation.
 ---
 # Azure Search Documentation
 
-Azure Search is a managed cloud search service that helps you build a powerful search experience into custom apps, and then monitor service, index, and query activity through portal views. Key capabilities include scalable full-text search over multiple languages, geo-spatial search, filtering and faceted navigation, type-ahead queries, hit highlighting, and custom analyzers.
+Learn how to add search capabilities to your custom web or mobile apps using Azure Search, a managed cloud search service. Tutorials, API references, and other documentation show you how to add scalable full-text search over multiple languages, geo-spatial search, filtering and faceted navigation, type-ahead queries, hit highlighting, and custom analyzers.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,8 +128,8 @@ Azure Search is a managed cloud search service that helps you build a powerful s
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET Management</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Management)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Management)</a></p>
                    </div>
                 </div>
             </div>
@@ -149,11 +150,4 @@ Azure Search is a managed cloud search service that helps you build a powerful s
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Search Documentation
-        </div>
-    </a>
-</div>
+

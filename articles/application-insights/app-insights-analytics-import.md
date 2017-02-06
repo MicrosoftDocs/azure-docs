@@ -25,14 +25,14 @@ Currently, you can import CSV (comma-separated value) files, or similar formats 
 
 There are three situations where importing to Analytics is useful:
 
-* **Join with app telemetry.** For example, you could import a table that maps URLs from your website to more readable page titles. In Analytics you can create a dashboard chart report that shows the ten most popular pages in your website. Now it can show the page titles instead of the URLs.
+* **Join with app telemetry.** For example, you could import a table that maps URLs from your website to more readable page titles. In Analytics, you can create a dashboard chart report that shows the ten most popular pages in your website. Now it can show the page titles instead of the URLs.
 * **Correlate your application telemetry** with other sources such as network traffic, server data, or CDN log files.
-* **Apply Analytics to a separate data stream.** Application Insights Analytics is a very powerful tool, that works well with sparse, timestamped streams - much better than SQL in many cases. If you have such a stream from some other source, you can analyze it with Analytics.
+* **Apply Analytics to a separate data stream.** Application Insights Analytics is a powerful tool, that works well with sparse, timestamped streams - much better than SQL in many cases. If you have such a stream from some other source, you can analyze it with Analytics.
 
-Sending data to your data source is very easy. 
+Sending data to your data source is easy. 
 
 1. (One time) Define the schema of your data in a 'data source'.
-2. (Periodically) Upload your data to Azure storage, and call the REST API to notify us that new data is waiting for ingestion. Within a few minutes the data is available for query in Analytics.
+2. (Periodically) Upload your data to Azure storage, and call the REST API to notify us that new data is waiting for ingestion. Within a few minutes, the data is available for query in Analytics.
 
 The frequency of the upload is defined by you and how fast would you like your data to be available for queries. It is more efficient to upload data in larger chunks, but not larger than 1GB.
 
@@ -48,13 +48,13 @@ You need:
 
  * If you want to analyze your data separately from any other telemetry, [create a new Application Insights resource](app-insights-create-new-resource.md).
  * If you're joining or comparing your data with telemetry from an app that is already set up with Application Insights, then you can use the resource for that app.
- * You need contributor or owner access to that resource.
+ * Contributor or owner access to that resource.
  
 2. Azure storage. You upload to Azure storage, and Analytics gets your data from there. 
 
  * We recommend you create a dedicated storage account for your blobs. If your blobs are shared with other processes, it takes longer for our processes to read your blobs.
 
-2. While this feature is in preview, you need to ask for access.
+2. While this feature is in preview, you must ask for access.
 
  * From your Application Insights resource in the [Azure portal](https://portal.azure.com), open Analytics. 
  * At the bottom of the schema pane, click the 'Contact us' link under **Other Data Sources.** 
@@ -63,7 +63,7 @@ You need:
 
 ## Define your schema
 
-Before you can import data, you need to define a *data source,* which specifies the schema of your data.
+Before you can import data, you must define a *data source,* which specifies the schema of your data.
 
 1. Start the data source wizard
 
@@ -99,7 +99,7 @@ You can perform the following process manually, or set up an automated system to
 2. [Create a Shared Access Signature key for the blob](../storage/storage-dotnet-shared-access-signature-part-2.md). The key should have an expiration period of one day and provide read access.
 3. Make a REST call to notify Application Insights that data is waiting.
 
- * Endpoint: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Endpoint: `https://dc.services.visualstudio.com/v2/track`
  * HTTP method: POST
  * Payload:
 
@@ -111,29 +111,29 @@ You can perform the following process manually, or set up an automated system to
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
        "ver":1,
        "name":"Microsoft.ApplicationInsights.OpenSchema",
        "time":"<DateTime>",
-       "iKey":<instrumentation key>"
+       "iKey":"<instrumentation key>"
     }
 ```
 
 The placeholders are:
 
 * `Blob URI with Shared Access Key`: You get this from the procedure for creating a key. It is specific to the blob.
-* `Data source name`: The name you gave to your data source. The data in this blob should conform to the schema you defined for this source.
-* `DateTime`: The time at which the request is submitted, UTC. We accept the following formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822  ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
+* `Schema ID`: The schema ID generated for your defined schema. The data in this blob should conform to the schema.
+* `DateTime`: The time at which the request is submitted, UTC. We accept these formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822 ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` of your Application Insights resource.
 
 The data is available in Analytics after a few minutes.
 
 ## Error responses
 
-* **400 bad request**: indicates that the request payload is invalid. Check the following:
+* **400 bad request**: indicates that the request payload is invalid. Check:
  * Correct instrumentation key.
  * Valid time value. It should be the time now in UTC.
  * Data conforms to the schema.
@@ -146,7 +146,7 @@ More detailed information is available in the response error message.
 
 ## Sample code
 
-This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) Nuget package.
+This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet package.
 
 ### Classes
 
@@ -246,7 +246,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -255,7 +255,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -271,7 +271,10 @@ namespace IngestionClient
             HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -282,11 +285,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 
@@ -325,4 +327,4 @@ Use this code for each blob.
 ## Next steps
 
 * [Tour of the Analytics query language](app-insights-analytics-tour.md)
-* [Use *logstash* to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* [Use *Logstash* to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

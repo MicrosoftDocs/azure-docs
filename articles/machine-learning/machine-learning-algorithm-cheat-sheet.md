@@ -71,7 +71,6 @@ Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to
 
 * Neural networks can be used with categorical variables by creating a **dummy variable** for each category and setting it to 1 in cases where the category applies, 0 where it doesn’t.
 
--->
 
 <!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">

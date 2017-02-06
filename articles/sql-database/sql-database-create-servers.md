@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: how to
+ms.custom: servers
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 11/23/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 
 ---
@@ -49,8 +49,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -59,7 +59,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
 ```
 
 > [!TIP]
-> For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+> For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md).
 >
 
 ## Additional resources

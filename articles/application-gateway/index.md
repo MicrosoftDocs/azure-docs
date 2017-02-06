@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to deploy a cloud application delivery controller. Documentation shows how to set up application-level routing and load balancing for a web front end.
 ---
 #Application Gateway Documentation
 
-Azure Application Gateway provides Application Deliver Controller (ADC) as a service.  It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the application geateway.  It is a dedicated virtual appliance for your application with scalability and high availability as well as a rich set of diagnostics and logging for better manageability.
+Learn how to deploy Application Gateway, an application delivery controller (ADC) as a service. Tutorials, API references, and other documentation show you how to set up application-level routing and load balancing services that let you build a scalable and highly-available web front end.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -146,11 +147,4 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
     </li>
 </ul>	
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Application Gateway Documentation
-        </div>
-    </a>
-</div>
+

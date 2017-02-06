@@ -1,5 +1,5 @@
 ---
-title: Use incremental snapshots for backup and recovery of Azure virtual machines | Microsoft Docs
+title: Use incremental snapshots for backup and recovery of Azure VMs | Microsoft Docs
 description: Create a custom solution for backup and recovery of your Azure virtual machine disks using incremental snapshots.
 services: storage
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: aungoo
 
 ---

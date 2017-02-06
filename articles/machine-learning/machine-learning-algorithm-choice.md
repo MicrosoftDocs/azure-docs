@@ -322,7 +322,7 @@ And for those overachievers who wish to [specify their own network
 structure](http://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
-## ![Boundaries learned by neural networks][6]
+![Boundaries learned by neural networks][6]
 ***The boundaries learned by neural networks can be complex and
 irregular***
 

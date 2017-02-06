@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 01/24/2017
 ms.author: markvi
 
 ---
@@ -38,8 +38,8 @@ The following applications support conditional access for Office 365 and other A
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication) |
 | Office 365 Exchange Online |iOS, Android |Outlook mobile app |
 | Office 365 Exchange Online |Mac OS X |Outlook 2016 for multi-factor authentication and location only; device-based policy support planned for the future, Skype for Business support planned for the future |
-| Office 365 SharePoint Online |Windows 10 |Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive for Business app (Next Generation Sync Client, or NGSC) support planned for the future, Office Groups support planned for the future, SharePoint app support planned for the future |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 apps, Office 2013 (with modern authentication), OneDrive for Business app (Groove sync client) |
+| Office 365 SharePoint Online |Windows 10 |Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support planned for the future, SharePoint app support planned for the future |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Office mobile apps |
 | Office 365 SharePoint Online |Mac OS X |Office 2016 apps for multi-factor authentication and location only; device-based policy support planned for the future |
 | Office 365 Yammer |Windows 10, iOS, and Android |Office Yammer app |
@@ -70,18 +70,18 @@ You can use the following example rules to block legacy protocol access at the A
 By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from the extranet.
 
 ##### Rule 1
-    @RuleName = “Allow all intranet traffic”
+    @RuleName = "Allow all intranet traffic"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### Rule 2
-    @RuleName = “Allow Exchange ActiveSync ”
+    @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### Rule 3
-    @RuleName = “Allow extranet browser and browser dialog traffic”
-    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    @RuleName = "Allow extranet browser and browser dialog traffic"
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
@@ -89,20 +89,20 @@ By applying the following three rules to the AD FS relying party trust for Micro
 By applying the following three rules to the AD FS relying party trust for Microsoft Office 365 Identity Platform, Exchange ActiveSync traffic, and browser and modern authentication traffic, have access. Legacy apps are blocked from any location.
 
 ##### Rule 1
-    @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
+    @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 ##### Rule 2
-    @RuleName = “Allow Exchange ActiveSync”
+    @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 ##### Rule 3
-    @RuleName = “Allow extranet browser and browser dialog traffic”
-    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    @RuleName = "Allow extranet browser and browser dialog traffic"
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");

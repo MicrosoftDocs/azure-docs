@@ -4,7 +4,7 @@ description: Describes how to change the profile of your Azure account, and answ
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 

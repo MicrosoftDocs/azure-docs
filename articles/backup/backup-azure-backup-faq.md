@@ -1,10 +1,11 @@
+
 ---
 title: Azure Backup FAQ | Microsoft Docs
 description: Answers to frequently asked questions about the backup service, backup agent, backup and retention, recovery, security and other common questions about backup and disaster recovery.
 services: backup
 documentationcenter: ''
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: ''
 keywords: backup and disaster recovery; backup service
 
@@ -14,12 +15,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: trinadhk; giridham; arunak; markgal; jimpark;
+ms.date: 2/1/2017
+ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 
 ---
 # Azure Backup service- FAQ
-This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## What is the list of supported operating systems from which I can back up to Azure using Azure Backup? <br/>
 Azure Backup supports the following list of operating systems for backing up: files and folders, and workload applications protected using Azure Backup Server and SCDPM.
@@ -30,6 +31,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 | Windows 7 and latest SPs |64 bit |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 and latest SPs |64 bit |Enterprise, Pro |
 | Windows 10 |64 bit |Enterprise, Pro, Home |
+| Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
@@ -53,7 +55,7 @@ We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azur
 Yes, the vault credentials expire after 48 hours. If the file expires, log in to the Azure portal and download the vault credentials files from your vault.
 
 ## Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
-Yes. As of September 2016, you can create 25 backup vaults per subscription. You can create upto 25 Recovery Services vaults per each supported region of Azure backup per subscription. If you need additional vaults, create a new subscription.
+Yes. As of September 2016, you can create 25 backup vaults per subscription. You can create up to 25 Recovery Services vaults per supported region of Azure Backup per subscription. If you need additional vaults, create a new subscription.
 
 ## Are there any limits on the number of servers/machines that can be registered against each vault? <br/>
 Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, the limit is 200 VMs per vault. If you need to register more machines, create another vault.
@@ -63,7 +65,7 @@ Backup data is sent to the datacenter of the vault to which it is registered. Th
 
 ## What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped.
-Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data that was previously backed up to the vault with the old server name, you can recover that data using the [**Another server**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) option in the **Recover Data** wizard.
+Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data that was previously backed up to the vault with the old server name, you can recover that data using the [**Another server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
 
 ## What types of drives can I backup files and folders from? <br/>
 The following set of drives/volumes can't get backup:
@@ -84,7 +86,6 @@ The following types are supported:
 * Compressed + Sparse
 * Hard Links: Not supported, skipped
 * Reparse Point: Not supported, skipped
-* Encrypted + Compressed: Not supported, skipped
 * Encrypted + Sparse: Not supported, skipped
 * Compressed Stream: Not supported, skipped
 * Sparse Stream: Not supported, skipped

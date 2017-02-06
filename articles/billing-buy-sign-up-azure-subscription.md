@@ -4,7 +4,7 @@ description: Describes How to buy or sign up for an Azure subscription
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 

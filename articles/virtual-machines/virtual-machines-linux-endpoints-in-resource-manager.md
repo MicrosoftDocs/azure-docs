@@ -1,5 +1,5 @@
 ---
-title: Classic Endpoints in Resource Manager | Microsoft Docs
+title: Understand endpoints for Linux VM in Azure | Microsoft Docs
 description: Understand how endpoints from the Classic deployment model are now implemented in Resource Manager using Network Security Groups and ACL rules
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 10/27/2016
 ms.author: iainfou
 
 ---
-# Classic Endpoints in Resource Manager
+# Classic endpoints for Linux VMs with Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## Next steps

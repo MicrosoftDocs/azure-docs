@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,7 +19,7 @@ ms.author: torsteng
 
 ---
 # Elastic Database client library with Entity Framework
-This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
+This document shows the changes in an Entity Framework application that are needed to integrate with the [Elastic Database tools](sql-database-elastic-scale-introduction.md). The focus is on composing [shard map management](sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework **Code First** approach. The [Code First - New Database](http://msdn.microsoft.com/data/jj193542.aspx) tutorial for EF serves as our running example throughout this document. The sample code accompanying this document is part of elastic database tools' set of samples in the Visual Studio Code Samples.
 
 ## Downloading and Running the Sample Code
 To download the code for this article:
@@ -31,7 +31,7 @@ To download the code for this article:
   
     ![Entity Framework and elastic database sample app][1] 
   
-    Select the sample called **Elastic DB Tools for Azure SQL – Entity Framework Integration**. After accepting the license, the sample loads. 
+    Select the sample called **Elastic DB Tools for Azure SQL - Entity Framework Integration**. After accepting the license, the sample loads. 
 
 To run the sample, you need to create three empty databases in Azure SQL Database:
 
@@ -196,7 +196,7 @@ Schema deployment through EF migrations works best on **unopened connections**. 
 This leads to an approach where schema deployment through EF migrations is tightly coupled with the registration of the new database as a shard in the application’s shard map. This relies on the following prerequisites: 
 
 * The database has already been created. 
-* The database is empty – it holds no user schema and no user data.
+* The database is empty - it holds no user schema and no user data.
 * The database cannot yet be accessed through the elastic database client APIs for data-dependent routing. 
 
 With these prerequisites in place, we can create a regular un-opened **SqlConnection** to kick off EF migrations for schema deployment. The following code sample illustrates this approach. 
@@ -253,7 +253,7 @@ One might have used the version of the constructor inherited from the base class
 The approaches outlined in this document entail a couple of limitations: 
 
 * EF applications that use **LocalDb** first need to migrate to a regular SQL Server database before using elastic database client library. Scaling out an application through sharding with Elastic Scale is not possible with **LocalDb**. Note that development can still use **LocalDb**. 
-* Any changes to the application that imply database schema changes need to go through EF migrations on all shards. The sample code for this document does not demonstrate how to do this. Consider using Update-Database with a ConnectionString parameter to iterate over all shards; or extract the T-SQL script for the pending migration using Update-Database with the –Script option and apply the T-SQL script to your shards.  
+* Any changes to the application that imply database schema changes need to go through EF migrations on all shards. The sample code for this document does not demonstrate how to do this. Consider using Update-Database with a ConnectionString parameter to iterate over all shards; or extract the T-SQL script for the pending migration using Update-Database with the -Script option and apply the T-SQL script to your shards.  
 * Given a request, it is assumed that all of its database processing is contained within a single shard as identified by the sharding key provided by the request. However, this assumption does not always hold true. For example, when it is not possible to make a sharding key available. To address this, the client library provides the **MultiShardQuery** class that implements a connection abstraction for querying over several shards. Learning to use the **MultiShardQuery** in combination with EF is beyond the scope of this document
 
 ## Conclusion

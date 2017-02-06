@@ -1,10 +1,10 @@
 ---
-title: How to change the credit card used to pay for an Azure subscription | Microsoft Docs
+title: Change the credit card used for Azure | Microsoft Docs
 description: Describes how to How to change the credit card used to pay for an Azure subscription
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: ''
 tags: billing
 

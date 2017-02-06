@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to use monitoring and diagnostics services to track performance, maintain security, and identify trends. API references, best practices, and more.
 ---
 
 # Monitoring and Diagnostics Documentation
 
-Monitoring and Diagnostics is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Monitoring and Diagnostics represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Learn how to use Azure monitoring and diagnostics services to track performance, maintain security, and identify trends. Tutorials, API references, best practices, and other documentation help you understand the uses of monitoring and diagnostics and how to plan and deploy scalable and reliable solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -139,13 +140,20 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema">Azure Diagnostics Schema</a></h3>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0">Azure Diagnostics Schema 1.0</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2">Azure Diagnostics Schema 1.2</a></p>
+                        <p><a href="/azure/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5">Azure Diagnostics Schema 1.3 to 1.5</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Monitoring and Diagnostics Documentation
-        </div>
-    </a>
-</div>
+

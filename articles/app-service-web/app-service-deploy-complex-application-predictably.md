@@ -38,7 +38,7 @@ In this tutorial, you will use the following tools. Since it’s not comprehensi
 ### Azure Resource Manager templates (JSON)
 Every time you create a web app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](/marketplace) like the [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/) app can include the MySQL database, storage accounts, the App Service plan, the web app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For information on how to download and use these templates, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### Azure SDK 2.6 for Visual Studio
 The newest SDK contains improvements to the Resource Manager template support in the JSON editor. You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.
@@ -126,7 +126,7 @@ Note the following about the highlighted JSON code:
 * The nested resources inside `“resources”: […]`, where the database and the firewall rules are defined, have a `dependsOn` element that specifies the resource ID of the root-level SQLServer resource. This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.
   
   > [!NOTE]
-  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../resource-group-template-functions.md).
+  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md).
   > 
   > 
 * The effect of the `dependsOn` element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially. 
@@ -263,10 +263,10 @@ Find out how to [apply agile methodologies and continuously publish your microse
 <a name="resources"></a>
 
 ## More resources
-* [Azure Resource Manager Template Language](../resource-group-authoring-templates.md)
-* [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
-* [Azure Resource Manager Template Functions](../resource-group-template-functions.md)
-* [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
-* [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
-* [Troubleshooting Resource Group Deployments in Azure](../resource-manager-troubleshoot-deployments-portal.md)
+* [Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md)
+* [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
+* [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 

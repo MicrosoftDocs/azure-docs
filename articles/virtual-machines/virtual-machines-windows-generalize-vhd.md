@@ -1,5 +1,5 @@
 ---
-title: Generalize a Windows VHD | Microsoft Docs
+title: Generalize a Windows VM to use in Azure | Microsoft Docs
 description: Learn to use Sysprep to generalize a Windows VM to use with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

@@ -35,10 +35,10 @@ management experiences as well.
 When you create resources through the portal or by deploying a template through Azure PowerShell or Azure CLI, links are 
 automatically created for some dependent resources. You can also programmatically link resources by using the 
 [Linked Resources REST API](https://msdn.microsoft.com/library/azure/mt238499.aspx) or by declaring the relationships in the template. 
-For a complete discussion of working with linked resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
+For a complete discussion of working with linked resources, see [Linking resources in Azure Resource Manager](../azure-resource-manager/resource-group-link-resources.md).
 
 ## Next steps
-* If you need an introduction to writing Azure Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md).
-* To dive into greater detail about creating links between resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
-* To understand more about working with resource groups through the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).
+* If you need an introduction to writing Azure Resource Manager templates, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
+* To dive into greater detail about creating links between resources, see [Linking resources in Azure Resource Manager](../azure-resource-manager/resource-group-link-resources.md).
+* To understand more about working with resource groups through the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
 

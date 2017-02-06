@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
-ms.custom: app development
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: cpp

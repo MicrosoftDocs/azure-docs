@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: hero-article
-ms.date: 11/02/2016
+ms.date: 12/25/2016
 ms.author: aasthan
 
 ---
@@ -21,10 +21,12 @@ ms.author: aasthan
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
-> 
+ 
 
 Welcome to the C++ tutorial for the Azure DocumentDB endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources, including a C++ database.
 
@@ -283,7 +285,5 @@ To build the GetStarted solution that contains all the samples in this article, 
 * Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 
 

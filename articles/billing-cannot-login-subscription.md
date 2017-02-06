@@ -4,7 +4,7 @@ description: Describes how to troubleshoot some common Azure subscription login 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: ''
 tags: billing
 

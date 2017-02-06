@@ -1,6 +1,6 @@
 ---
-title: Scale resource levels for query and indexing workloads in Azure Search | Microsoft Docs
-description: Capacity planning in Azure Search is based on combinations of partition and replica computer resources, where each resource is priced in billable search units.
+title: Capacity planning for Azure Search | Microsoft Docs
+description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
 services: search
 documentationcenter: ''
 author: HeidiSteen
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: heidist
 ---
 

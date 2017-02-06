@@ -3,7 +3,7 @@ title: Configure your standalone cluster | Microsoft Docs
 description: This article describes how to configure your standalone or private Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: dsk-2015
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2016
-ms.author: dkshir
+ms.author: ryanwi
 
 ---
 # Configuration settings for standalone Windows cluster

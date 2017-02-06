@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to get insights into mobile app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
 ---
 # Mobile Engagement Documentation
 
-Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, user segmentation, and enables push notifications and in-app messaging.
+Learn how to increase the usage, retention, and monetization of mobile apps with Mobile Engagement. Tutorials, SDKs, and other documentation show you how to get insights into app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -190,12 +191,4 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Mobile Engagement Documentation
-        </div>
-    </a>
-</div>
 

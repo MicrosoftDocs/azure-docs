@@ -110,15 +110,17 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Logs](virtual-network-nsg-manage-log.md)
-#### Troubleshoot
-##### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Troubleshoot routes
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### Virtual machines
 #### [View and modify hostnames](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
+
+## Troubleshoot
+### Network security groups
+#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Routes
+#### [Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Reference
 ## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))

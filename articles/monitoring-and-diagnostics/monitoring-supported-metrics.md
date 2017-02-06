@@ -32,14 +32,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
 |memory_metric|Memory|Bytes|Average|Memory. Range 0-25 GB for S1, 0-50 GB for S2 and 0-100 GB for S4|
 
-## Microsoft.ApiManagement/service
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|TotalRequests|Total Gateway Requests|Count|Sum|Number of Gateway requests|
-|TotalSuccessfulRequests|Successful Gateway Requests|Count|Sum|Number of processed gateway requests|
-|TotalFailedRequests|Failed Gateway Requests|Count|Sum|Number of failures in gateway requests|
-
 ## Microsoft.Batch/batchAccounts
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|

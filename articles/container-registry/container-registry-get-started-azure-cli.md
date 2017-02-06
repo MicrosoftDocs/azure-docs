@@ -1,5 +1,5 @@
 ---
-title: Create a container registry with the Azure CLI | Microsoft Docs
+title: Create Azure container registry - CLI | Microsoft Docs
 description: Get started creating and managing Azure container registries with the Azure CLI 2.0 Preview
 services: container-registry
 documentationcenter: ''
@@ -93,12 +93,12 @@ az acr credential show -n myRegistry
 
 ### Enable admin user for an existing registry
 ```azurecli
-az acr update -n myRegistry --enable-admin
+az acr update -n myRegistry --admin-enabled true
 ```
 
 ### Disable admin user for an existing registry
 ```azurecli
-az acr update -n myRegistry --disable-admin
+az acr update -n myRegistry --admin-enabled false
 ```
 
 ## List images and tags

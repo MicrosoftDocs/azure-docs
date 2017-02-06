@@ -1,10 +1,10 @@
 ---
-title: Understanding your bill | Microsoft Docs
+title: Understanding your bill for Azure | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
 documentationcenter: ''
 author: genlin
-manager: stevenpo
+manager: ruchic
 editor: ''
 tags: billing
 
@@ -127,6 +127,15 @@ The Daily usage section of the file shows usage details that affect the billing 
 |Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
 |Service Info 1 |The project name that the service belongs to on your subscription. |
 |Service Info 2 |This is a legacy field that captures optional service-specific metadata. |
+
+## Tips for cost management
+It's good to be proactive about controlling your costs:
+
+- Estimate costs using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and when you add a service
+- [Set up billing alerts](../billing-set-up-alerts.md)
+- [Review your usage and costs regularly in Azure portal](./billing-getting-started.md#costs)
+
+To learn more, see [Getting started with Azure billing and cost management](./billing-getting-started.md).
 
 ## How do I make a payment?
 If you set up a credit card or a debit card as your payment method, the payment is made automatically. If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

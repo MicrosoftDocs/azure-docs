@@ -26,7 +26,7 @@ You can set up web tests for any HTTP or HTTPS endpoint that is accessible from 
 There are two types of web test:
 
 * [URL ping test](#create): a simple test that you can create in the Azure portal.
-* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
+* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Enterprise and upload to the portal.
 
 You can create up to 10 web tests per application resource.
 
@@ -119,7 +119,7 @@ To create a multi-step test, you record the scenario by using Visual Studio, and
 Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
 
 #### 1. Record a scenario
-Use Visual Studio Enterprise or Ultimate to record a web session.
+Use Visual Studio Enterprise to record a web session.
 
 1. Create a web performance test project.
 
@@ -236,7 +236,7 @@ From the Overview blade, open **Settings**, **Performance Tests**. When you crea
 When the test is complete, you are shown response times and success rates.
 
 ## Automation
-* [Use PowerShell scripts to set up a web test](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automatically.
+* [Use PowerShell scripts to set up a web test](app-insights-powershell.md#add-an-availability-test) automatically.
 * Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
 
 ## Questions? Problems?

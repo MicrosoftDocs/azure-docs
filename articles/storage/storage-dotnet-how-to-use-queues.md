@@ -20,7 +20,7 @@ ms.author: robinsh
 # Get started with Azure Queue storage using .NET
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## Overview
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
@@ -161,7 +161,7 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 CloudQueueMessage message = queue.GetMessage();
 message.SetMessageContent("Updated contents.");
 queue.UpdateMessage(message,
-    TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
+    TimeSpan.FromSeconds(60.0),  // Make it invisible for another 60 seconds.
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 

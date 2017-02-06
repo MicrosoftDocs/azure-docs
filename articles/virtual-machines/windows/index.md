@@ -1,9 +1,25 @@
 ---
 layout: LandingPage
----
-#Windows Virtual Machines Documentation
+description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
 
-Azure Virtual Machines (VM) is one of several types of on-demand scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. And, you keep control of configuration, patching, and installing the software that runs on the VM.
+title: Azure Virtual Machines for Windows Documentation, Tutorials and API Reference | Microsoft Docs
+services: virtual-machines
+author: carolz
+manager: carolz
+layout: LandingPage
+
+ms.assetid: 
+ms.service: virtual-machines
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
+
+---
+# Windows Virtual Machines Documentation
+
+Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -144,11 +160,4 @@ Azure Virtual Machines (VM) is one of several types of on-demand scalable comput
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Windows Virtual Machine Documentation
-        </div>
-    </a>
-</div>
+

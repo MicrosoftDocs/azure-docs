@@ -1,6 +1,6 @@
 ---
-title: Create on-demand Linux-based Hadoop clusters in HDInsight using Azure Data Factory | Microsoft Docs
-description: Learn how to create on-demand HDInsight clusters using Azure Data Factory.
+title: Create Azure HDInsight (Hadoop) using Data Factory | Microsoft Docs
+description: Learn how to create on-demand Hadoop clusters in HDInsight using Azure Data Factory.
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 
 ---
-# Create on-demand Linux-based Hadoop clusters in HDInsight using Azure Data Factory
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# Create on-demand Hadoop clusters in HDInsight using Azure Data Factory
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. In this article, you learn how to Azure Data Factory to create an [Azure HDInsight on-demand linked service](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service), and use the cluster to run a Hive job. Here is the high-level flow:
 
@@ -54,13 +54,14 @@ There are many benefits with using HDInsight with Data factory:
 >
 >
 
-## Prerequisites:
+## Prerequisites
+
 Before you begin the instructions in this article, you must have the following items:
 
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure CLI or Azure PowerShell.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Prepare storage account
 You can use up to three storage accounts in this scenario:
@@ -103,7 +104,7 @@ To simplify the tutorial, you use one storage account to serve the three purpose
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 
-The container name is *adfgetstarted*.  Keep it as it is. Otherwise you need to update the Resource Management template.
+The container name is *adfgetstarted*.  Keep it as it is. Otherwise you need to update the Resource Manager template.
 
 If you need help with this CLI script, see [Using the Azure CLI with Azure Storage](../storage/storage-azure-cli.md).
 
@@ -194,9 +195,9 @@ If you need help with this PowerShell script, see [Using the Azure PowerShell wi
 7. Open the folder and check the files in the folders.
 
 ## Create data factory
-With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You use the Azure portal to call a custom Resource Management template in this tutorial. You can also call the Resource Management template from [Azure CLI](../resource-group-template-deploy-cli.md) and [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
+With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You use the Azure portal to call a custom Resource Manager template in this tutorial. You can also call the Resource Manager template from [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
-The top-level Resource Management template contains:
+The top-level Resource Manager template contains:
 
     {
         "contentVersion": "1.0.0.0",
@@ -324,9 +325,9 @@ The *hdinsight-hive-on-demand* resource contains four resources:
 
 **To create a data factory**
 
-1. Click the following image to sign in to Azure and open the Resource Management template in the Azure portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. The template is located at https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Enter **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** and **STORAGEACCOUNTKEY** for the account you created in the last section, and then click **OK**. Data Factory Name must be globally unique.
 3. In **Resource Group**, select the same resource group you used in the last section.
 4. Click **Legal terms**, and then click **Create**.
@@ -337,7 +338,7 @@ The *hdinsight-hive-on-demand* resource contains four resources:
 
     ![Azure Data Factory HDInsight on-demand Hive activity pipeline diagram](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
-    The names are defined in the Resource Management template.
+    The names are defined in the Resource Manager template.
 9. Double-click **AzureBlobOutput**.
 10. On the **Recent updated slices**, you shall see one slice. If the status is **In progress**, wait until it is changed to **Ready**.
 
@@ -348,7 +349,7 @@ The *hdinsight-hive-on-demand* resource contains four resources:
    * adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx: This is the default container for the HDInsight cluster. Default container name follows the pattern:  "adf<yourdatafactoryname>-linkedservicename-datetimestamp".
    * adfjobs: This is the container for the ADF job logs.
 
-     The data factory output is stored in afgetstarted as you configured in the Resource Management template.
+     The data factory output is stored in afgetstarted as you configured in the Resource Manager template.
 2. Click **adfgetstarted**.
 3. Double-click **partitioneddata**. You will see a **year=2014** folder because all the web logs are dated in year 2014.
 
@@ -374,7 +375,7 @@ With on-demand HDInsight linked service, an HDInsight cluster is created every t
 
 In case you don't want to delete the storage account when you delete the resource group, you can consider the following architecture design by separating the business data from the default storage account. In this case, you will have one resource group for the storage account with the business data, and the other resource group for the default storage account and the data factory.  When you delete the second resource group, it will not impact the business data storage account.  To do so:
 
-* Add the following to the top-level resource group along with the Microsoft.DataFactory/datafactories resource in your Resource Management template. It creates a new storage account:
+* Add the following to the top-level resource group along with the Microsoft.DataFactory/datafactories resource in your Resource Manager template. It creates a new storage account:
 
         {
             "name": "[parameters('defaultStorageAccountName')]",

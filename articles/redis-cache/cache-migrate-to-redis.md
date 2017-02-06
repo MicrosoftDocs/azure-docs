@@ -1,6 +1,6 @@
 ---
-title: Cache Migrate to Redis | Microsoft Docs
-description: Learn how to migrate Managed Cache Service applications to Azure Redis Cache
+title: Migrate Managed Cache Service applications to Redis - Azure | Microsoft Docs
+description: Learn how to migrate Managed Cache Service and In-Role Cache applications to Azure Redis Cache
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/30/2016
+ms.date: 01/23/2017
 ms.author: sdanie
 
 ---
@@ -81,26 +81,30 @@ Uninstalling the Managed Cache Service NuGet package removes the Managed Cache S
 
 Ensure that the `dataCacheClients` entry is removed from the `configSections` element. Do not remove the entire `configSections` element; just remove the `dataCacheClients` entry, if it is present.
 
-    <configSections>
-      <!-- Existing sections omitted for clarity. -->
-      <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
-    </configSections>
+```xml
+<configSections>
+  <!-- Existing sections omitted for clarity. -->
+  <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
+</configSections>
+```
 
 Ensure that the `dataCacheClients` section is removed. The `dataCacheClients` section will be similar to the following example.
 
-    <dataCacheClients>
-      <dataCacheClientname="default">
-        <!--To use the in-role flavor of Azure Cache, set identifier to be the cache cluster role name -->
-        <!--To use the Azure Managed Cache Service, set identifier to be the endpoint of the cache cluster -->
-        <autoDiscoverisEnabled="true"identifier="[Cache role name or Service Endpoint]"/>
+```xml
+<dataCacheClients>
+  <dataCacheClientname="default">
+    <!--To use the in-role flavor of Azure Cache, set identifier to be the cache cluster role name -->
+    <!--To use the Azure Managed Cache Service, set identifier to be the endpoint of the cache cluster -->
+    <autoDiscoverisEnabled="true"identifier="[Cache role name or Service Endpoint]"/>
 
-        <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
-        <!--Use this section to specify security settings for connecting to your cache. This section is not required if your cache is hosted on a role that is a part of your cloud service. -->
-        <!--<securityProperties mode="Message" sslEnabled="true">
-          <messageSecurity authorizationInfo="[Authentication Key]" />
-        </securityProperties>-->
-      </dataCacheClient>
-    </dataCacheClients>
+    <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
+    <!--Use this section to specify security settings for connecting to your cache. This section is not required if your cache is hosted on a role that is a part of your cloud service. -->
+    <!--<securityProperties mode="Message" sslEnabled="true">
+      <messageSecurity authorizationInfo="[Authentication Key]" />
+    </securityProperties>-->
+  </dataCacheClient>
+</dataCacheClients>
+```
 
 Once the Managed Cache Service configuration is removed, you can configure the cache client as described in the following section.
 
@@ -115,7 +119,9 @@ In Managed Cache Service, connections to the cache were handled by the `DataCach
 
 Add the following using statement to the top of any file from which you want to access the cache.
 
-    using StackExchange.Redis
+```c#
+using StackExchange.Redis
+```
 
 If this namespace doesn’t resolve, be sure that you have added the StackExchange.Redis NuGet package as described in [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
@@ -126,33 +132,37 @@ If this namespace doesn’t resolve, be sure that you have added the StackExchan
 
 To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the endpoint and key. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This provides a thread-safe way to initialize only a single connected `ConnectionMultiplexer` instance. In this example `abortConnect` is set to false, which means that the call will succeed even if a connection to the cache is not established. One key feature of `ConnectionMultiplexer` is that it will automatically restore connectivity to the cache once the network issue or other causes are resolved.
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-    });
+```c#
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 The cache endpoint, keys, and ports can be obtained from the **Redis Cache** blade for your cache instance. For more information, see [Redis Cache properties](cache-configure.md#properties).
 
 Once the connection is established, return a reference to the Redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
-    IDatabase cache = Connection.GetDatabase();
+```c#
+IDatabase cache = Connection.GetDatabase();
 
-    // Perform cache operations using the cache object...
-    // Simple put of integral data types into the cache
-    cache.StringSet("key1", "value");
-    cache.StringSet("key2", 25);
+// Perform cache operations using the cache object...
+// Simple put of integral data types into the cache
+cache.StringSet("key1", "value");
+cache.StringSet("key2", 25);
 
-    // Simple get of data types from the cache
-    string key1 = cache.StringGet("key1");
-    int key2 = (int)cache.StringGet("key2");
+// Simple get of data types from the cache
+string key1 = cache.StringGet("key1");
+int key2 = (int)cache.StringGet("key2");
+```
 
 The StackExchange.Redis client uses the `RedisKey` and `RedisValue` types for accessing and storing items in the cache. These types map onto most primitive language types, including string, and often are not used directly. Redis Strings are the most basic kind of Redis value, and can contain many types of data, including serialized binary streams, and while you may not use the type directly, you will use methods that contain `String` in the name. For most primitive data types you store and retrieve items from the cache using the `StringSet` and `StringGet` methods, unless you are storing collections or other Redis data types in the cache. 
 
@@ -162,7 +172,9 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
 
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
-    cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+```c#
+cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+```
 
 Azure Redis Cache can work with .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer. This gives the developer flexibility in the choice of the serializer. For more information and sample code, see [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 

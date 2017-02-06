@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
 ---
 
 # Stream Analytics Documentation
 
-Azure Stream Analytics is a fully managed real-time event processing engine that helps to unlock deep insights from data.  Stream Analytics make it easy to set up real-time analytic computations on data streaming from devices, sensors, web sites, social media, applications, infrastructure system, and more.
+Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Analytics, a fully managed event-processing engine. Tutorials and other documentation show you how to analyze data in real time from applications, sensors, devices, social media, and more. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -157,11 +158,4 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Stream Analytics Documentation
-        </div>
-    </a>
-</div>
+

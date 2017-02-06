@@ -42,6 +42,7 @@ To learn more, please refer to the FAQ.
 Availability for File Storage
 Storage Service Encryption for File Storage is currently available in East Asia region.
 
+
 To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
@@ -93,6 +94,7 @@ To learn more, please visit [Transfer data with the AzCopy Command-Line Utility]
 
 #### Using SMB
 Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure Fileshare on Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) and [how to mount Azure File share on Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+
 
 #### Using the Storage Client Libraries
 You can copy blob or file data to and from blob storage or between storage accounts using our rich set of Storage Client Libraries including .NET, C++, Java, Android, Node.js, PHP, Python, and Ruby.

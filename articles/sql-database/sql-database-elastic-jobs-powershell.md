@@ -1,5 +1,5 @@
 ---
-title: Create and manage Elastic Database jobs using PowerShell
+title: Create and manage elastic jobs using PowerShell | Microsoft Docs
 description: PowerShell used to manage Azure SQL Database pools
 services: sql-database
 documentationcenter: ''
@@ -8,7 +8,7 @@ author: ddove
 
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,7 +17,7 @@ ms.date: 10/24/2016
 ms.author: ddove
 
 ---
-# Create and manage a SQL Database elastic database jobs using PowerShell (preview)
+# Create and manage SQL Database elastic jobs using PowerShell (preview)
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
@@ -355,7 +355,7 @@ Retrieve all top level job executions, including inactive job executions:
 Retrieve all child job executions of a provided job execution ID, including inactive job executions:
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Retrieve all job executions created using a schedule / job combination, including inactive jobs:
 
@@ -369,13 +369,13 @@ Retrieve all jobs targeting a specified shard map, including inactive jobs:
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Retrieve all jobs targeting a specified custom collection, including inactive jobs:
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Retrieve the list of job task executions within a specific job execution:
 
@@ -583,7 +583,7 @@ Use [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.aspx) a
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger
     -ScheduleName $scheduleName
-    –JobName $jobName
+    -JobName $jobName
     Write-Output $jobTrigger
 
 ### To remove a scheduled association to stop job from executing on schedule

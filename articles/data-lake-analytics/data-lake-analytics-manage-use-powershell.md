@@ -327,7 +327,7 @@ The ARM group however can be located in a different data center.
 
 ## Appendix A - Data Lake Analytics ARM template
 The following ARM template can be used to deploy a Data Lake Analytics account and its dependent Data Lake Store account.  Save it as a json file, and then use PowerShell script to call the template. For more information, see
-[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md) and [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+[Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) and [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

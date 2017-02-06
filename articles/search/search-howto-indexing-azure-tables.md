@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 ---
 
@@ -31,7 +31,7 @@ To set up table indexing:
 
 1. Create a data source
    * Set the `type` parameter to `azuretable`
-   * Pass in your storage account connection string as the `credentials.connectionString` parameter
+   * Pass in your storage account connection string as the `credentials.connectionString` parameter. See [How to specify credentials](#Credentials) below for details.
    * Specify the table name using the `container.name` parameter
    * Optionally, specify a query using the `container.query` parameter. Whenever possible, use a filter on PartitionKey for best performance; any other query will result in a full table scan, which can result in poor performance for large tables.
 2. Create a search index with the schema that corresponds to the columns in the table that you want to index.
@@ -45,11 +45,25 @@ To set up table indexing:
     {
         "name" : "table-datasource",
         "type" : "azuretable",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
 
 For more on the Create Datasource API, see [Create Datasource](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+
+<a name="Credentials"></a>
+#### How to specify credentials ####
+
+You can provide the credentials for the table in one of these ways: 
+
+- **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
+- **Storage account shared access signature** (SAS) connection string: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. The SAS should have the list and read permissions on containers (tables in this case) and objects (table rows).
+-  **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. The SAS should have the list and read permissions on the table.
+
+For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### Create index
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01

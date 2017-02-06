@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions for classic VMs | Microsoft Docs
+title: Frequently asked questions for classic Windows VMs | Microsoft Docs
 description: Provides answers to some of the common questions about Azure Windows virtual machines created with the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

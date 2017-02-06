@@ -1,5 +1,5 @@
 ---
-title: Service Bus FAQ | Microsoft Docs
+title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: Answers some frequently-asked questions about Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
@@ -141,6 +141,6 @@ To learn more about Service Bus messaging, see the following topics.
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
-[here]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
+[here]: service-bus-powershell-how-to-provision.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
 [Shared Access Signatures]: service-bus-sas-overview.md
