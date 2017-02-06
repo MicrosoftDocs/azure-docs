@@ -8,6 +8,7 @@
 ## [Proxy and firewall](log-analytics-proxy-firewall.md)
 ## [Usage data](log-analytics-usage.md)
 ## [Log Analytics FAQ](log-analytics-faq.md)
+## [Service providers](log-analytics-service-providers.md)
 
 # How To
 ## Collect data
@@ -62,6 +63,7 @@
 ## Develop
 ### [Data collector API](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
+### [Resource Manager templates](log-analytics-template-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [Alert API](log-analytics-api-alerts.md)
 

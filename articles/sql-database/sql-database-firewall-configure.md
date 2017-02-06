@@ -17,7 +17,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/23/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 
 ---
 # Overview of Azure SQL Database firewall rules 

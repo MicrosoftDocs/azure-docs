@@ -1,5 +1,5 @@
 ---
-title: Link a virtual network to an ExpressRoute circuit by using the Resource Manager deployment model and the Azure portal | Microsoft Docs
+title: 'Link a virtual network to an ExpressRoute circuit: Azure portal | Microsoft Docs'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits.
 services: expressroute
 documentationcenter: na

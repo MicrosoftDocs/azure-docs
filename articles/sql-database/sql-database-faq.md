@@ -19,6 +19,13 @@ ms.author: sashan;carlrab
 
 ---
 # SQL Database FAQ
+
+## What is the current version of SQL Database?
+The current version of SQL Database is V12. Version V11 has been retired.
+
+## What is the SLA for SQL Database?
+We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
+
 ## How does the usage of SQL Database show up on my bill?
 SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
 
@@ -52,6 +59,7 @@ Elastic pools are billed per the following characteristics:
 The unit eDTU price for an elastic pool is higher than the unit DTU price for a single database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
 
 To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
+
 ## How does the use of Active Geo-Replication in an elastic pool show up on my bill?
 Unlike single databases, using [Active Geo-Replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 

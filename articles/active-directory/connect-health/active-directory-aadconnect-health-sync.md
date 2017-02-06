@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: vakarand
 
 ---
@@ -103,7 +103,7 @@ Following data is available in the detailed view for each error
 ![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/errorreport04.png)
 
 ### Download the error report as CSV
-This capability is coming soon. Stay tuned for more updates.
+By selecting the "Export" button you can download a CSV file with all the details about all the errors.
 
 ## Related links
 * [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

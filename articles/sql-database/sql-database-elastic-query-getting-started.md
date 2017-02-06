@@ -4,7 +4,7 @@ description: how to use cross database database queries
 services: sql-database
 documentationcenter: ''
 manager: jhubbard
-author: SilviaDoomra
+author: ddove
 
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: SilviaDoomra
+ms.author: ddove
 
 ---
 # Report across scaled-out cloud databases (preview)
@@ -48,7 +48,9 @@ Here you will create a shard map manager along with several shards, followed by 
 
     ![Azure portal and pricing tier][3]
 
-    Note: you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+    > [!NOTE]
+    > you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+    >
 
 ## Create database objects
 ### Database-scoped master key and credentials

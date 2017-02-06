@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/13/2017
+ms.date: 02/01/2017
 ms.author: larryfr
 
 ---
@@ -92,6 +92,11 @@ If you need to install HDInsight into a secured Virtual Network, you must allow 
 
 > [!IMPORTANT]
 > The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following to find the IP addresses for the region you are using.
+
+__Brazil South__ region:
+
+* 191.235.84.104
+* 191.235.87.113
 
 __Canada East__ region:
 

@@ -67,7 +67,7 @@ As a security measure, Azure Backup retains deleted backup data for additional 1
 
 For **Microsoft Recovery Services Agent (MARS)** users:
 
-1. If the machine where backups were happening is still available, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-the-same-machine) in MARS to recover from all the old recovery points.
+1. If the machine where backups were happening is still available, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in MARS to recover from all the old recovery points.
 2. If the machine mentioned above is not available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) to use another MARS machine to get this data.
 
 For **Azure Backup Server** users:
