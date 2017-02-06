@@ -26,6 +26,12 @@ When firewall rules have been configured, people can connect to a SQL Database a
 
 >  [!NOTE]  
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
+>
+
+> [!TIP]
+> For a tutorial using SQL Server authentication, see [Tutorial: SQL Server authentication](sql-database-control-access-sql-authentication-get-started.md). For a tutorial using Azure Active Directory authentication, see [Tutorial: AAD authentication](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## Unrestricted administrative accounts
 There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the properties of your SQL server.
