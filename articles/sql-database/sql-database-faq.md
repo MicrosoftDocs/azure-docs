@@ -20,7 +20,7 @@ ms.author: sashan;carlrab
 ---
 # SQL Database FAQ
 
-## What is the current version of SQL Database
+## What is the current version of SQL Database?
 The current version of SQL Database is V12. Version V11 has been retired.
 
 ## What is the SLA for SQL Database?
