@@ -70,6 +70,9 @@ ionic platform add browser
 ionic run browser
 ```
 
+The Azure Mobile Apps Cordova plugin supports both Ionic v1 and v2 apps.  Only the Ionic v2 apps require the
+additional declaration for the `WindowsAzure` object.
+
 ## <a name="auth"></a>How to: Authenticate Users
 Azure App Service supports authenticating and authorizing app users using various external identity
 providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
