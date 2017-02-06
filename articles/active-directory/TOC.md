@@ -200,6 +200,15 @@
 #### [FAQ](active-directory-b2b-faq.md)
 #### [API and customization](active-directory-b2b-api.md)
 #### [Multi-factor authentication for B2B](active-directory-b2b-mfa-instructions.md)
+#### [Add a guest user to a role](active-directory-b2b-add-guest-to-role.md)
+#### [Delegate invitations](active-directory-b2b-delegate-invitations.md)
+#### [Dynamic groups and B2B](active-directory-b2b-dynamic-groups.md)
+#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
+#### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
+#### [B2B user tokens](active-directory-b2b-user-token.md)
+#### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
+#### [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
+#### [Current limitations](active-directory-b2b-current-limitations.md)
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 

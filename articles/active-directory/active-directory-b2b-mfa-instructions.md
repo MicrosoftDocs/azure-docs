@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 02/06/2017
 ms.author: sasubram
 
 ---
@@ -24,7 +24,7 @@ ms.author: sasubram
 With this Azure AD B2B collaboration public preview refresh, we are introducing the capability for organizations to enforce multi-factor authentication (MFA) policies for B2B collaboration users also. In this refresh, MFA is always enforced at the resource tenancy.
 
 This means:
-1. Admin or Information worker in Company A invites user from company B to an application �Foo� in Company A.
+1. Admin or Information worker in Company A invites user from company B to an application Foo in Company A.
 2. Application *Foo* in company A is configured to require MFA on access.
 3. When user from company B attempts to access app Foo from company A tenant, they will be asked to complete an MFA challenge as required by company A's MFA policy.
 4. User can set up their MFA with company A, choose their MFA option
