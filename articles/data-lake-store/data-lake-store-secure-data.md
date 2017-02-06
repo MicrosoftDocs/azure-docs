@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 
 ---
@@ -40,13 +40,12 @@ For instructions on how to create AAD security groups and how to add users to th
 When you assign users or security groups to Azure Data Lake Store accounts, you control access to the management operations on the account using the Azure portal and Azure Resource Manager APIs. 
 
 1. Open an Azure Data Lake Store account. From the left pane, click **Browse**, click **Data Lake Store**, and then from the Data Lake Store blade, click the account name to which you want to assign a user or security group.
-2. In your Data Lake Store account blade, click **Settings**. From the **Settings** blade, click **Users**.
+
+2. In your Data Lake Store account settings blade, click **Access Control (IAM)**. The blade by default lists **Subscription admins** group as an owner.
    
     ![Assign security group to Azure Data Lake Store account](./media/data-lake-store-secure-data/adl.select.user.icon.png "Assign security group to Azure Data Lake Store account")
-3. The **User** blade by default lists **Subscription admins** group as an owner. 
-   
-    ![Add users and roles](./media/data-lake-store-secure-data/adl.add.group.roles.png "Add users and roles")
-   
+
+
     There are two ways to add a group and assign relevant roles.
    
    * Add a user/group to the account and then assign a role, or
