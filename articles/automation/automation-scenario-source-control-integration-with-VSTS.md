@@ -91,4 +91,4 @@ You should now be able to do all checkins of your runbooks and configurations in
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-If you run this runbook manually without being triggered by VSTS, you can leave the webhookdata parameter empty and it will just do full sync from the VSTS folder specified.
+If you run this runbook manually without being triggered by VSTS, you can leave the webhookdata parameter empty and it will do a full sync from the VSTS folder specified.
