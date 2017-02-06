@@ -40,7 +40,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 ## Copy the VM
-To copy a VM, you create a copy of the underlying virtual hard disk. This process allows you to create a specialized VM that contains the same configuration and settings as the source VM. The process for copying the virtual disk is different between Azure Managed Disks and unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. As managed disks are a top-level resource, they are easier to work with - you can make a direct copy of the disk resource. For more information about Azure Managed Disks, see [insert link to overview doc](). Choose one of the appropriate following steps for the storage type of your source VM:
+To copy a VM, you create a copy of the underlying virtual hard disk. This process allows you to create a specialized VM that contains the same configuration and settings as the source VM. The process for copying the virtual disk is different between Azure Managed Disks and unmanaged disks. Managed disks are handled by the Azure platform and do not require any preparation or location to store them. As managed disks are a top-level resource, they are easier to work with - you can make a direct copy of the disk resource. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). Choose one of the appropriate following steps for the storage type of your source VM:
 
 - [Managed disks](#managed-disks)
 - [Unmanaged disks](#unmanaged-disks) 
