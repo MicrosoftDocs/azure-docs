@@ -10,7 +10,7 @@ In this section, you will
     ```
     npm init
     ```
-2. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save

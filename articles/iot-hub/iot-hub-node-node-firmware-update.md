@@ -48,17 +48,17 @@ Follow the [Get started with device management](iot-hub-node-node-device-managem
 ## Trigger a remote firmware update on the device using a direct method
 In this section, you create a Node.js console app that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
 
-1. Create a new empty folder called **triggerfwupdateondevice**.  In the **triggerfwupdateondevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+1. Create an empty folder called **triggerfwupdateondevice**.  In the **triggerfwupdateondevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iot-hub** and **azure-iot-device-mqtt** Device SDK packages:
    
     ```
     npm install azure-iot-hub --save
     ```
-3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
+3. Using a text editor, create a **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
    
     ```
