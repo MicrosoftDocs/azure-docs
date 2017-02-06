@@ -1,6 +1,7 @@
-<!--author=alkohli last changed: 02/03/17-->
+<!--author=alkohli last changed: 02/06/17-->
 
 #### To download hotfixes
+
 Perform the following steps to download the software update from the Microsoft Update Catalog.
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
@@ -21,9 +22,10 @@ Perform the following steps to download the software update from the Microsoft U
 > [!NOTE]
 > The hotfixes must be accessible from both controllers to detect any potential error messages from the peer > controller.
 >
-> The hotfixes must be copied in 3 separate folders. The device software update must be copied in one folder, maintenance mode updates should be copied in another folder and all the remaining updates should be copied in the third folder.
+> The hotfixes must be copied in 3 separate folders. The device software update must be copied in one folder, all the other non-disruptive updates should be copied in the second folder, and maintenance mode updates should be copied in another folder.
 
 #### To install and verify regular mode hotfixes
+
 Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure Portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
@@ -214,5 +216,6 @@ To install the disk firmware updates, follow the instructions below.
     Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
    
    `Exit-HcsMaintenanceMode`
-5. The controllers restart when you exit Maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the Maintenance mode updates for 24 hours.
+
+5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
 

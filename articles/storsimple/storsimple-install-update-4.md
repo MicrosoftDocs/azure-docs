@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/03/2017
+ms.date: 02/06/2017
 ms.author: alkohli
 
 ---
@@ -23,7 +23,7 @@ ms.author: alkohli
 
 This tutorial explains how to install Update 4 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 4 includes device software, USM firmware, LSI driver and firmware, Storport and Spaceport, OS security updates and a host of other OS updates.  The device software, USM firmware, Spaceport, and Storport fixes and other updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure classic portal or via the hotfix method. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 4 includes device software, USM firmware, LSI driver and firmware, Storport and Spaceport, OS security updates and a host of other OS updates.  The device software, USM firmware, Spaceport, and Storport fixes and other updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure classic portal or via the hotfix method. The disk firmware updates are disruptive updates and can only be applied via the hotfix method using the Windows PowerShell interface of the device. 
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
@@ -39,7 +39,7 @@ Perform the following steps to update your device to [Update 4](storsimple-updat
 > [!NOTE]
 > If you are applying Update 2 or later (including Update 2.1), Microsoft will be able to pull additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. By accepting Update 2 or later, you allow us to provide this proactive support. 
 
-[!INCLUDE [storsimple-install-update4-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
+[!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
 Verify that your device is running **StorSimple 8000 Series Update 4 (6.3.9600.17814)**. The **Last updated date** should also be modified. 
    - If you are updating from a version prior to Update 2, you will also see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates).
@@ -63,10 +63,11 @@ The hotfix method involves the following three steps:
 
 1. Download the hotfixes from the Microsoft Update Catalog.
 2. Install and verify the regular mode hotfixes.
-3. Install and verify the maintenance mode hotfix (only when updating from pre-Update 2 software).
+3. Install and verify the maintenance mode hotfix.
 
 #### Download updates for your device
-**If your device is running Update 2.1 or 2.2**, you must download and install the following hotfixes in the prescribed order:
+
+You must download and install the following hotfixes in the prescribed order:
 
 | Order | KB | Description | Update type | Install time |
 | --- | --- | --- | --- | --- |
@@ -93,7 +94,7 @@ You may also need to install disk firmware updates on top of all the updates sho
 
 Perform the following steps to download and install the hotfixes.
 
-[!INCLUDE [storsimple-install-update3-hotfix](../../includes/storsimple-install-update3-hotfix.md)]
+[!INCLUDE [storsimple-install-update4-hotfix](../../includes/storsimple-install-update4-hotfix.md)]
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
