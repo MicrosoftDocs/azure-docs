@@ -41,9 +41,6 @@ You can migrate to Managed Disks in following scenarios:
 
 This section helps you to make the best decision on VM and disk types.
 
-**Prerequisites**
-
--   You will need the Microsoft Azure PowerShell module. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs) for installation instructions.
 
 ## Location
 
