@@ -26,6 +26,7 @@
 ### [Track a runbook job](automation-runbook-execution.md)
 ### [Change runbook settings](automation-runbook-settings.md)
 ### [Manage Azure Automation data](automation-managing-data.md)
+### [Call Azure Automation Runbook from Log Analytics alert](automation-invoke-runbook-from-omsla-alert.md)
 ## Deploy configuration management (DSC)
 ### [Desired State Configuration (DSC)](automation-dsc-overview.md)
 ### [Getting started](automation-dsc-getting-started.md)
