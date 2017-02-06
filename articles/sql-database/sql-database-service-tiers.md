@@ -73,7 +73,7 @@ The duration of the entire scale-up process depends on both the size and service
 * The new properties for the database are not applied until the changes are complete.
 
 > ![IMPORTANT]
-> For detailed steps, see [Managing single databases with the Azure portal](sql-database-manage-single-databases-portal.md), [Managing single databases with Powershell](sql-database-manage-single-databases-powershell.md), or [Managing single databases with Transact-SQL](sql-database-single-databases-manage-tsql.md).
+> For detailed steps, see [Managing single databases with the Azure portal](sql-database-manage-single-databases-portal.md), [Managing single databases with Powershell](sql-database-manage-single-databases-powershell.md), or [Managing single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
 ## Elastic pool service tiers and performance in eDTUs
