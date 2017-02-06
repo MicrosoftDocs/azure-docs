@@ -79,7 +79,7 @@ There are five types of Standard Managed disks that can be used with your VM. Ea
 
 By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance.
 
-## Pricing**
+## Pricing
 
 Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/storage/disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
 
