@@ -24,7 +24,8 @@ Use either the Azure portal or the Azure CLI 2.0 (Preview) to take a snapshot of
 
 ## Use Azure CLI 2.0 (Preview) to take a snapshot
 
-> [!NOTE] The following example requires the Azure CLI 2.0 (Preview) installed and logged into your Azure account.
+> [!NOTE] 
+> The following example requires the Azure CLI 2.0 (Preview) installed and logged into your Azure account.
 
 The following steps show how to obtain and take a snapshot of a managed OS disk using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` created with a managed OS disk in the `myResourceGroup` resource group.
 
