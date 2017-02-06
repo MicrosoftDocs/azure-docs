@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/3/2017
+ms.date: 2/6/2017
 ms.author: pvrk;markgal
 
 ---
@@ -53,7 +53,7 @@ Currently, File recovery from an encrypted VM backup is not supported.
 
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-    You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. The destination location for the files or folders can't use Windows Storage Spaces.
+    You can run the script on any machine that has the same (or compatible) operating system as the machine used to generate the recovery point. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces, then you can't run the executable script on this virtual machine. Instead, run the executable script on any other machine that uses Windows Storage Spaces. Running the executable script on a computer with a compatible operating system is recommended.
 
     ![File recovery blade](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
