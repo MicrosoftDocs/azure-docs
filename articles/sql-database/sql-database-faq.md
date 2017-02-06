@@ -27,7 +27,7 @@ The current version of SQL Database is V12. Version V11 has been retired.
 We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Microsoft Azure SQL Database and our Internet gateway. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
 ## How do I reset the password for the server admin?
-In the [Azure Portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
+In the [Azure portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
 ## How do I manage databases and logins?
 See [Managing databases and logins](sql-database-manage-logins.md).
@@ -48,7 +48,7 @@ Examples
 * If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database is charged at the Premium rate until 3:00 p.m., after which it is charged at the Basic rates.
 
 ## How does elastic pool usage show up on my bill and what happens when I change eDTUs per pool?
-elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
+Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://azure.microsoft.com/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
 
 Examples
 
@@ -61,7 +61,7 @@ Elastic pools are billed per the following characteristics:
 
 * An elastic pool is billed upon its creation, even when there are no databases in the pool.
 * An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
-* If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
+* If an elastic pool is resized to a new number of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of single databases.
 * The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 * Price is computed by (number of pool eDTUs)x(unit price per eDTU).
 
