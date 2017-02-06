@@ -193,7 +193,7 @@
     topicHref: /azure/operations-management-suite/operations-management-suite-overview
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
-    topicHref: /azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded
+    topicHref: /azure/power-bi-embedded/
   - name: Redis Cache
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/cache-faq
