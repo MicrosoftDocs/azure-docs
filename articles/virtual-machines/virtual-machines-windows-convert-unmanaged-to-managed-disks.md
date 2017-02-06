@@ -8,13 +8,13 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: afdae4a1-6dfb-47b4-902a-f327f9bfe5b4
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/06/2017
 ms.author: cynthn
 
 ---
@@ -138,5 +138,5 @@ This section will show you how to convert your existing Azure VMs on Standard un
 
 ## Next steps
 
-Take a read-only copy of a VM using [snapshots](xxx.md).
+Take a read-only copy of a VM using [snapshots](virtual-machines-windows-snapshot-copy-managed-disk.md).
 
