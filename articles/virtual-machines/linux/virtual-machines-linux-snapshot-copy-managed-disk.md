@@ -68,7 +68,7 @@ The output should look something like:
 2. Starting in the upper-left, click **New** and search for **snapshot**.
 3. In the Snapshot blade, click **Create**.
 4. Enter a **Name** for the snapshot.
-5. Select an existing [Resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
+5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
 6. Select an Azure datacenter Location.  
 7. For **Source disk**, select the Managed Disk to snapshot.
 8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
