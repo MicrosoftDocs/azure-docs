@@ -32,7 +32,7 @@ After you remove these solutions you can perform the following steps to unlink y
 ## Unlink workspace
 
 1. From the Azure portal, open your Automation account, and in the Automation account blade, in the account blade, select **Unlink workspace**.<br><br> ![Unlink workspace option](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
-2. On the Unlink workspace blade, click **Unlink worksapce**.<br><br> ![Unlink workspace blade](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  You will receive a prompt verifying you wish to proceed.
+2. On the Unlink workspace blade, click **Unlink worksapce**.<br><br> ![Unlink workspace blade](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  You will receive a prompt verifying you wish to proceed.<br><br>
 3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
 If you used the Update Management solution, optionally you may want to remove some items that are no longer needed after you remove the solution.
