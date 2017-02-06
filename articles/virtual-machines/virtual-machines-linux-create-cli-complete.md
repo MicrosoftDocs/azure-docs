@@ -50,7 +50,7 @@ First, create the resource group with [az group create](/cli/azure/group#create)
 az group create --name myResourceGroup --location westeurope
 ```
 
-This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. For more information about Azure Managed Disks, see [insert link to overview doc](). If you instead wish to use unmanaged disks, you need to create a storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
+This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). If you instead wish to use unmanaged disks, you need to create a storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -254,7 +254,7 @@ By default, the output is in JSON (JavaScript Object Notation). To output as a l
 ```
 
 ## Create a storage account
-This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). Skip to [Create a virtual network and subnet](#create-a-virtual-network-and-subnet) if you wish to use Azure Managed Disks. 
+This next step is optional. The default action when you create a VM with the Azure CLI 2.0 (Preview) is to use Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). Skip to [Create a virtual network and subnet](#create-a-virtual-network-and-subnet) if you wish to use Azure Managed Disks. 
 
 If you wish to use unmanaged disks, you need to create a storage account for your VM disks and for any additional data disks that you want to add.
 
