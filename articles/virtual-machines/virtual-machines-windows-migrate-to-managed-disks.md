@@ -21,7 +21,7 @@ ms.author: cynthn
 
 # Migrate to managed disks in Azure
 
-Azure managed disks removes the need of managing [Storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) for Azure VMs. You only have specify the type ([Premium](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) or [Standard](xxx.md) and size of disk you need, and Azure will create and manage the disk for you. Moreover, migrate your existing Azure VMs to Managed Disks to benefit from  better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
+Azure managed disks removes the need of managing [Storage accounts](../storage/storage-introduction.md) for Azure VMs. You only have specify the type ([Premium](../storage/storage-premium-storage-performance.md) or [Standard](../storage/storage-standard-vm-disks.md) and size of disk you need, and Azure will create and manage the disk for you. Moreover, migrate your existing Azure VMs to Managed Disks to benefit from  better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
 
 If you are currently using Standard storage option for your Disks, migrate to Premium Managed Disks to take advantage of speed and performance of these Disks. [Premium Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) are stored on Solid State Drives (SSD) which deliver high-performance, low-latency disk support for virtual machines running I/O-intensive workloads.
 
@@ -29,7 +29,7 @@ You can migrate to Managed Disks in following scenarios:
 
 | Scenario                                           | Documentation link                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| VMs within an availability set that use unmanaged disks to managed disks   | [Convert VMs in an availability set to use managed disks](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#XXX)                                                                         |
+| VMs within an availability set that use unmanaged disks to managed disks   | [Convert VMs in an availability set to use managed disks](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)                                                                        |
 | Premium unmanaged disks to Premium managed disks   | [Convert existing Azure VMs to managed disks of the same storage type](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
 | Standard unmanaged disks to Standard managed disks | [Convert existing Azure VMs to managed disks of the same storage type](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
 | Standard unmanaged disks to Premium managed disks  | [Migrate existing Azure VMs using Standard Unmanaged Disks to Premium Managed Disks](virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md#migrate-existing-azure-vms-using-standard-unmanaged-disks-to-premium-managed-disks)                            |
@@ -85,23 +85,6 @@ Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing
 
 
 
-
-
-
-
 ## Next steps
 
-
-Learn more about Azure VM Disks and Azure Virtual Machines:
-
--   [Managed Disks
-    Overview](xxx.md)
-
--   [Premium
-    Storage](../storage/storage-premium-storage-performance.md)
-
--   [Disks
-    Pricing](https://azure.microsoft.com/pricing/details/storage/disks/)
-
--   [Premium Storage: High-Performance Storage for Azure Virtual Machine
-    Workloads](../storage/storage-premium-storage.md)
+- Learn more about [Managed Disks](../storage/storage-managed-disks-overview.md)
