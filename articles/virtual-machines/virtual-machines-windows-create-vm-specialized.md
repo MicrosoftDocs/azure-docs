@@ -20,9 +20,8 @@ ms.author: cynthn
 ---
 # Create a VM from a specialized disk
 
-Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](xxx.md) or a specialized unmanaged disk to create the new VM.
+Create a new VM by attaching a specialized disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an exisitng VM that maintains the user accounts, applications and other state data from your original VM. You can use either a specialized [managed disk](../storage/storage-managed-disks-overview.md.md) or a specialized unmanaged disk to create the new VM.
 
-If you want to create a VM from a generalized VHD, see [Create a VM from a generalized VHD image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Create the subNet and vNet
 
@@ -127,7 +126,7 @@ or
 	-DiskSizeInGB 128 -CreateOption Attach -Windows
 	```
 
-Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](virtual-machines-windows-create-managed-data-disk.md). 
+Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](virtual-machines-windows-create-managed-disk-ps.md). 
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
@@ -159,6 +158,7 @@ When using a storage account, the data and operating system disk URLs look somet
 
 
 ## Create the VM
+
 Create the VM using the configurations that we just created.
 
 ```powershell
