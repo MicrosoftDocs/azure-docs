@@ -49,7 +49,7 @@ See [Azure Resource Groups and Data Lake Analytics](## Azure Resource Groups and
 
 
 ## Connect to Azure Data Lake
-You will need the following Nuget packages:
+You need the following Nuget packages:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Common
@@ -133,7 +133,7 @@ The following code sample's Main method shows how to connect to Azure and initia
     }
 
 ## Data Lake client management objects
-The Azure Data Lake SDK includes sets of client management objects from which you will do most of your programming, and are in thsese two namespaces:
+The Azure Data Lake SDK includes sets of client management objects from which you do most of your programming, and are in thsese two namespaces:
 * Mirosoft.Azure.Management.DataLake.Analytics
 * Microsot.Azure.Management.DataLake.Store
 
@@ -170,7 +170,7 @@ The following code shows how to create a Data Lake store account. Before you use
     _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
 ### Create a Data Lake Analytics account
-The following code shows how to create a Data Lake analytics account. The DataLakeAnalyticsAccountManagementClient object's Create method takes a collection of Data Lake store accounts for one of its parameters. This collection must be populated with instances of DataLakeStoreAccountInfo objects. In this example, these DataLakeStoreAccountInfo objects are obtained from a helper method (AdlaFromAdlsStoreAccounts). In addition, not all Data Lake store accounts in a subscription should necessarily be in a single Data Lake analytics account, so this code also verifies names against an approved list.
+The following code shows how to create a Data Lake analytics account. The DataLakeAnalyticsAccountManagementClient object's Create method takes a collection of Data Lake store accounts for one of its parameters. This collection must be populated with instances of DataLakeStoreAccountInfo objects. In this example, these DataLakeStoreAccountInfo objects are obtained from a helper method (AdlaFromAdlsStoreAccounts). In addition, not all Data Lake store accounts in a subscription should necessarily be in a single Data Lake analytics account, so this code checks names against an approved list.
 
         // create analytics account
         public void CreateAnalyticsAccount(string acctname)
@@ -212,7 +212,7 @@ The following code shows how to create a Data Lake analytics account. The DataLa
 ## Manage accounts
 
 ### List Data Lake Store and Analytic accounts
-The following code lists the Data Lake store accounts in a subscription. Note that list operations do not always provide all the properties of an object and that in some cases you will need to do a Get operation on the object.
+The following code lists the Data Lake store accounts in a subscription. List operations do not always provide all the properties of an object and that in some cases you need to do a Get operation on the object.
             
     var adlsAccounts = _adlsClient.Account.List().ToList();
     Console.WriteLine($"You have {adlsAccounts.Count} Data Lake Store accounts.");
@@ -231,7 +231,7 @@ The following code lists the Data Lake store accounts in a subscription. Note th
 
         
 ### Get an account
-The following code uses a DataLakeAnalyticsAccountManagementClient to return a Data Lake Analytics account if the account exists. 
+The following code uses a DataLakeAnalyticsAccountManagementClient to return a Data Lake Analytics account, if the account exists. 
 
     public DataLakeAnalyticsAccount GetDlaAccount(string strName)
     {
@@ -334,7 +334,7 @@ The following code uses a DataLakeStoreFileSystemManagementClient to upload a lo
     uploader.Execute();
 
 ### Create a file in a Data Lake Store Account
-In addition to uploading files, you can easily programmatically create files in your Data Lake Store account for analysis. The following code writes the first four byte values of 100 random byte arrays to .csv file.
+In addition to uploading files, you can easily programmatically create files in your Data Lake Store account for analysis. The following code writes the first four values of 100 random byte arrays to .csv file.
 
         MemoryStream azMem = new MemoryStream();
         StreamWriter sw = new StreamWriter(azMem, UTF8Encoding.UTF8);
@@ -482,7 +482,7 @@ The following code lists information about jobs that failed.
         }
     }
 ### Reference Azure Storage in U-SQL Scripts
-The following is the beginning of a U-SQL script. This script specifies to read the data from a file on a Data Lake Store account: "/Samples/Data/SearchLog.tsv"
+The following code is the beginning of a U-SQL script. This script specifies to read the data from a file on a Data Lake Store account: "/Samples/Data/SearchLog.tsv"
 
     @searchlog =
     EXTRACT UserId          int,
@@ -505,10 +505,10 @@ For example, if a source file (SearchLog.tsv) is stored in a blob container name
 
 ## Azure Resource Groups and Data Lake Analytics
 Applications are typically made up of many components, for example a web app, database, database server, storage,
-and 3rd party services. Azure Resource Manager enables you to work with the resources in your application 
-as a group, referred to as an Azure Resource Group. You can deploy, update, monitor or delete all of the 
+and third party services. Azure Resource Manager enables you to work with the resources in your application 
+as a group, referred to as an Azure Resource Group. You can deploy, update, monitor, or delete all the 
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
-template can work for different environments such as testing, staging and production. You can clarify billing 
+template can work for different environments such as testing, staging, and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
 Resource Manager Overview](../azure-resource-manager/resource-group-overview.md). 
 
