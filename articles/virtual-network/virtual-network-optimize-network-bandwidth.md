@@ -3,8 +3,8 @@ title: Optimize VM network throughput | Microsoft Docs
 description: Learn how to optimize Azure virtual machine network throughput.
 services: virtual-network
 documentationcenter: na
-author: your-github-username-case-sensitive
-manager: your-manager
+author: steveesp
+manager: Gerald DeGrace
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2017
-ms.author: your-ms-alias
+ms.author: steveesp
 
 ---
 
