@@ -14,7 +14,7 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/service-bus.svg" alt="Learn about Service Bus Messaging" />
+                            <img src="media/index/service-bus.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="Create a namespace using the Portal" />
+                            <img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ The messaging service provides dependable information delivery as a brokered or 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="Build a multi-tier Service Application" />
+                            <img src="media/index/guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
