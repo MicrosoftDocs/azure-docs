@@ -33,14 +33,14 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 	> The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 	>
 
-1. Read virtual network objects:
+2. Read virtual network objects:
 
 	```powershell
 	$vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
 	$vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
 	```
 
-2. To establish VNet peering, you need to create two links, one for each direction. The following step will create a VNet peering link for VNet1 to VNet2 first:
+3. To establish VNet peering, you need to create two links, one for each direction. The following step will create a VNet peering link for VNet1 to VNet2 first:
 
 	```powershell
 	Add-AzureRmVirtualNetworkPeering -Name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.Id
@@ -65,7 +65,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 	        RemoteGateways        : null
 	        RemoteVirtualNetworkAddressSpace : null
 
-3. This step will create a VNet peering link for VNet2 to VNet1:
+4. This step will create a VNet peering link for VNet2 to VNet1:
 
 	```powershell
 	Add-AzureRmVirtualNetworkPeering -Name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.Id
@@ -89,7 +89,7 @@ To create a VNet peering by using PowerShell, please follow the steps below:
         UseRemoteGateways    : False
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
-4. Once the VNet peering link is created, enter the following command to view the link state:
+5. Once the VNet peering link is created, enter the following command to view the link state:
 
 	```powershell
 	Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
