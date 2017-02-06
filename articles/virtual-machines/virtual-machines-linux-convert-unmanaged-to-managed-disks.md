@@ -55,8 +55,8 @@ All VMs in the availability set must be deallocated before you convert the avail
 1. List all VMs in an availability set with [az vm availability-set list](/cli/azure/vm/availability-set#list). The following example lists all VMs in the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
-    az vm availability-set list --resource-group myResourceGroup \
-        --name myAvailabilitySet --query '[].{}
+    az vm availability-set show --resource-group myResourceGroup \
+        --name myAvailabilitySet --query [virtualMachines[*].id] --output table
     ```
 
 2. Deallocate all the VMs with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocate the VM named `myVM` in the resource group named `myResourceGroup`:
@@ -68,7 +68,8 @@ All VMs in the availability set must be deallocated before you convert the avail
 3. Convert the availability set with [az vm availability-set update](/cli/azure/vm/availability-set#update). The following example converts the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
     ```azurecli
-    az vm availability-set update -g myResourceGroup -n myAvailabilitySet --set sku.name=Aligned
+    az vm availability-set update --resoruce-group myResourceGroup \
+        --name myAvailabilitySet --set sku.name=Aligned
     ```
 
 4. Convert all the VMs to managed disks with [az vm convert](/cli/azure/vm#convert). The following process converts the VM named `myVM` including the OS disk and any data disks:
@@ -82,3 +83,6 @@ All VMs in the availability set must be deallocated before you convert the avail
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
+
+## Next steps
+For more information about storage options, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md)
