@@ -46,6 +46,30 @@ For more information on creating [your first Apache Cordova app], see their docu
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
+## <a name="ionic"></a>Setting up an Ionic 2 App
+
+To properly configure an Ionic v2 project, first create a basic app and add the Cordova plugin:
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+Add the following lines to `app.component.ts` to create the client object:
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+You can now build and run the project in the browser:
+
+```
+ionic platform add browser
+ionic run browser
+```
+
 ## <a name="auth"></a>How to: Authenticate Users
 Azure App Service supports authenticating and authorizing app users using various external identity
 providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
