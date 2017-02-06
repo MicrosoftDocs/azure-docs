@@ -73,7 +73,7 @@ The duration of the entire scale-up process depends on both the size and service
 * The new properties for the database are not applied until the changes are complete.
 
 > ![IMPORTANT]
-> For detailed steps,see [Managing single databases with the Azure portal](sql-database-manage-portal.md), [Managing single databases with Powershell](sql-database-manage-powershell.md), or [Managing single databases with Transact-SQL](sql-database-manage-tsql.md).
+> For detailed steps,see [Managing single databases with the Azure portal](sql-database-manage-single-databases-portal.md), [Managing single databases with Powershell](sql-database-manage-single-databases-powershell.md), or [Managing single databases with Transact-SQL](sql-database-single-databases-manage-tsql.md).
 >
 
 ## Elastic pool service tiers and performance in eDTUs
@@ -94,7 +94,7 @@ After initially picking a service tier and performance level, you can scale the 
 * Time to change the pool size (eDTUs) depends on the combined size of all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space of all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 > ![IMPORTANT]
-> For detailed steps,see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-sharp.md).
+> For detailed steps,see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-csharp.md).
 >
 
 ## Next steps
