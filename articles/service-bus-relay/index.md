@@ -52,7 +52,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="Create a namespace" />
+                            <img src="media/index/deploy.svg" alt="Create a namespace" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -70,7 +70,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="Get started with Hybrid Connections" />
+                            <img src="media/index/get-started.svg" alt="Get started with Hybrid Connections" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -88,7 +88,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="Get started with WCF Relay" />
+                            <img src="media/index/get-started.svg" alt="Get started with WCF Relay" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -106,7 +106,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="Get started sharing Access Signatures" />
+                            <img src="media/index/get-started.svg" alt="Get started sharing Access Signatures" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -128,8 +128,7 @@ Relay supports a variety of different transport protocols and web services stand
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager">TBD</a></p>
+                        <h3><a href="/azure/service-bus-relay/service-bus-relay-samples">Samples</h3>
                     </div>
                 </div>
             </div>
@@ -140,8 +139,9 @@ Relay supports a variety of different transport protocols and web services stand
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/servicebus">TBD</a></p>
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.servicebus">Hybrid Connections .NET API</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicebus">WCF Relay .NET API</a></p>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardText">
                         <h3>Other</h3>
-                        <p><a href="/dotnet/api/">TBD</a></p>
+                        <p><a href="service-bus-relay-port-settings.md">Port settings</a></p>
                    </div>
                 </div>
             </div>
