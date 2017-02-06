@@ -56,7 +56,7 @@ Before you can use SQLLine, you must have the following:
         cd %phoenix_home%\bin
         sqlline.py [The FQDN of one of the Zookeepers]
 
-    ![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
+    ![HDInsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
     The commands used in the sample:
 
