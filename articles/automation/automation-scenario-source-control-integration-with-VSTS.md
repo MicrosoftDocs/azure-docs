@@ -41,7 +41,7 @@ Create a [personal access token](https://www.visualstudio.com/en-us/docs/integra
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png)
 ## Step 2:
-Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks into the Automation account. 
+Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks into the Automation account. You can name this VSToken. 
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 ## Step 3:
