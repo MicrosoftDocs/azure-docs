@@ -44,6 +44,33 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 For more information on creating [your first Apache Cordova app], see their documentation.
 
+## <a name="ionic"></a>Setting up an Ionic v2 App
+
+To properly configure an Ionic v2 project, first create a basic app and add the Cordova plugin:
+
+```
+ionic start projectName --v2
+cd projectName
+ionic plugin add cordova-plugin-ms-azure-mobile-apps
+```
+
+Add the following lines to `app.component.ts` to create the client object:
+
+```
+declare var WindowsAzure: any;
+var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
+```
+
+You can now build and run the project in the browser:
+
+```
+ionic platform add browser
+ionic run browser
+```
+
+The Azure Mobile Apps Cordova plugin supports both Ionic v1 and v2 apps.  Only the Ionic v2 apps require the
+additional declaration for the `WindowsAzure` object.
+
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>How to: Authenticate Users
