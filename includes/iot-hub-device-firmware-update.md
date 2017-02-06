@@ -1,5 +1,5 @@
 ## Create a simulated device app
-In this section, you will
+In this section, you:
 
 * Create a Node.js console app that responds to a direct method called by the cloud
 * Trigger a simulated firmware update
