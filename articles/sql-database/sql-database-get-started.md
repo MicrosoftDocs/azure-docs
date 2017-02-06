@@ -23,12 +23,18 @@ ms.author: carlrab
 
 In this quick start tutorial, you learn how to:
 
-* Create a single database in the Azure portal
-* Query a database in the Azure portal
-* Create a server-level firewall rule in the Azure portal
-* Use SQL Server Management Studio with Azure SQL Database
-* Troubleshoot connectivity to Azure SQL Database
-* Deleting a single database in the Azure portal
+* [Create a new logical server using the Azure portal](sql-database-get-started#view-the-logical-sql-server-properties-using-the-azure-portal) (5 minutes)
+* View the logical SQL Server properties using the Azure portal (5 minutes)
+* Create a server-level firewall rule using the Azure portal (5 minutes)
+* Connect to the SQL logical server using SQL Server Management Studio (5 minutes)
+* Create a database with sample data using the Azure portal (5 minutes)
+* View the database properties using the Azure portal (5 minutes)
+* Query the database using the Azure portal (5 minutes)
+* Connect and query the database using SQL Server Management Studio (5 minutes)
+* Create a new database using SQL Server Management Studio (5 minutes)
+* Troubleshoot connectivity to Azure SQL Database (5 minutes)
+* Delete a single database using the Azure portal (5 minutes)
+
 
 
 When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
