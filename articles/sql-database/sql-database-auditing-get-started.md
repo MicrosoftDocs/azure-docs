@@ -42,7 +42,7 @@ There are two **Auditing methods**:
 * **Table auditing** - logs are written to Azure Table Storage.
 
 > [!IMPORTANT]
-> The introduction of the new Blob Auditing brings a major change to the way Server auditing policy is being inherited by the database. See [Blob/Table differences in Server auditing policy inheritance](#subheading-8) section for additional details.
+> The introduction of the new Blob Auditing brings a major change to the way server auditing policy is being inherited by the database. See [Blob/Table differences in server auditing policy inheritance](#subheading-8) section for additional details.
 
 You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
 
@@ -101,21 +101,26 @@ The following section describes the configuration of auditing using the Azure Po
 
 ###<a>Blob Auditing</a>
 
-1. If **Server Blob auditing is enabled**, it will **always audit** the database, regardless of:
+1. If **Server Blob auditing is enabled**, it **always applies to the database** (i.e. the database will be audited), regardless of:
     - The database auditing settings.
     - Whether or not the "Inherit settings from server" checkbox is checked in the database blade.
 
-2. Enabling Blob auditing in the database, in addition to enabling it in the server, will **not** override or change any of the settings of the Server Blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the Server policy and once by the Database policy).
+2. Enabling Blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server Blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the Server policy and once by the Database policy).
 
-3. The only reason to enable both Server Blob auditing and Database Blob auditing is if there is a need to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (e.g. if table inserts need to be audited only for a specific database). Otherwise, it is recommended to only enable Server Blob auditing and leave the database-level auditing disabled for all databases.
+    > [!NOTE]
+    > You should avoid enabling both server Blob auditing and database Blob auditing together, unless:
+    > * You need to use a different *storage account* or *retention period* for a specific database.
+    > * You want to audit different event types or categories for a specific database than are being audited for the rest of the databases on this server (e.g. if table inserts need to be audited only for a specific database).
+    > <br><br>
+    > Otherwise, it is **recommended to only enable server-level Blob Auditing** and leave the database-level auditing disabled for all databases.
 
 ###<a>Table Auditing</a>
 
-1. If **Server Table auditing is enabled**, it will only apply to the database if the "Inherit settings from server" checkbox is checked in the database blade. If the checkbox is unchecked and the database-level auditing is disabled, the database will not be audited.
+If **server-level Table auditing is enabled**, it only applies to the database if the "Inherit settings from server" checkbox is checked in the database blade (this is checked by default for all existing and newly created databases).
 
-2. If the "Inherit settings from server" checkbox is checked, any changes made to the auditing settings in database will override the server settings for this database.
+- If the checkbox is *checked*, any changes made to the auditing settings in database **override** the server settings for this database.
 
-
+- If the checkbox is *unchecked* and the database-level auditing is disabled, the database will not be audited.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 Audit logs are aggregated in the Azure storage account you chose during setup.
@@ -137,8 +142,8 @@ There are several methods to view Blob Auditing logs:
 
     An **Audit records** blade will open, where you'll be able to view the logs.
 
-    * You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
-    * You can toggle between audit records that were created by server policy or database policy audit
+    - You can choose to view specific dates by clicking on **Filter** at the top area of the Audit records blade
+    - You can toggle between audit records that were created by server policy or database policy audit
 
     ![Navigation Pane][11]
 2. Download log files from your Azure Storage Blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
@@ -196,9 +201,11 @@ When using Geo-replicated databases, it is possible to set up Auditing on either
 1. **Primary database** - turn on **Blob Auditing** either on the server or the database itself, as described in [Set up auditing for your database](#subheading-2-1) section.
 2. **Secondary database** - Blob Auditing can only be turned on/off from the Primary database auditing settings.
 
-   * Turn on **Blob Auditing** on the **Primary database**, as described in [Set up auditing for your database](#subheading-2-1) section. (**Note:** Blob Auditing must be enabled on the database itself, not the server).
+   * Turn on **Blob Auditing** on the **Primary database**, as described in [Set up auditing for your database](#subheading-2-1) section. Blob Auditing must be enabled on the *primary database itself*, not the server.
    * Once Blob Auditing is enabled on the Primary database, it will also become enabled on the Secondary database.
-   * **Important:** By default, the **storage settings** for the Secondary database will be identical to those of the Primary database, causing **cross-regional traffic**. You can avoid this by enabling Blob Auditing on the **Secondary Server** and configuring a **local storage** in the Secondary Server storage settings (this will override the storage location for the Secondary database and result in each database saving the Audit logs to a local storage).  
+
+    > [!IMPORTANT]
+    > By default, the **storage settings** for the Secondary database will be identical to those of the Primary database, causing **cross-regional traffic**. You can avoid this by enabling Blob Auditing on the **Secondary server** and configuring a **local storage** in the Secondary server storage settings (this will override the storage location for the Secondary database and result in each database saving the Audit logs to a local storage).  
 
 <br>
 
@@ -247,7 +254,7 @@ You can also configure Auditing in Azure SQL Database using the following automa
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation (PowerShell / REST API)]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance](#subheading-8)  
+[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)  
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
