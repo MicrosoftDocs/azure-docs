@@ -390,7 +390,7 @@ The easiest way to create a new virtual machine with an image from the Azure Mar
 4.  In the **Select a deployment model** box, select **Resource Manager**.
 5.  Select **Create**.
 
-The wizard guides you through setting the required parameters to create the virtual machine, along with all required resources, like network interfaces and storage accounts. Some of these parameters are:
+The wizard guides you through setting the required parameters to create the virtual machine, in addition to all required resources, like network interfaces and storage accounts. Some of these parameters are:
 
 1. **Basics**:
   * **Name**: The name of the resource (the virtual machine name).
@@ -484,7 +484,7 @@ After you deploy your VM in Azure, follow the same guidelines and tools to insta
 [comment]: <> (MSSedusch TODO why do we need to recommend a file management, for example, File Server or VHD? Is that so different from on-premises?)
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Scenario 2: Deploying a VM with a custom image for SAP
-Because different versions of an operating systems or DBMS have different patch requirements, the images you find in the Azure Marketplace might not meet your needs. You might instead want to create a VM by using your own OS/DBMS VM image, which you can deploy again later.
+Because different versions of an operating system or DBMS have different patch requirements, the images you find in the Azure Marketplace might not meet your needs. You might instead want to create a VM by using your own OS/DBMS VM image, which you can deploy again later.
 You use different steps to create a private image for Linux than to create one for Windows.
 
 - - -
@@ -625,7 +625,7 @@ In the Azure portal, enter the following parameters for the template:
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
   * **OS disk VHD URI**: The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
-  * **New or existing subnet**: Determines whether a new virtual network and subnet are created or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
+  * **New or existing subnet**: Determines whether a new virtual network and subnet are created, or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
   * **Subnet ID**: The ID of the subnet to which the virtual machines will connect to. Select the subnet of your VPN or Azure ExpressRoute virtual network to use to connect the virtual machine to your on-premises network. The ID usually looks like this:
 
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
@@ -662,7 +662,7 @@ Update the SAP monitoring configuration in any of the following scenarios:
 
 To update monitoring settings, update the monitoring infrastructure by following the steps in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5].
 
-## Detailed tasks for SAP software deployment in a Linux VM
+## Detailed tasks for SAP software deployment on a Linux VM
 This section has detailed steps for doing specific tasks in the configuration and deployment process.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
@@ -836,7 +836,7 @@ For more information about `Set-AzureRmVMAEMExtension`, see [Set-AzureRmVMAEMExt
 
 The `Set-AzureRmVMAEMExtension` configuration does all the steps to configure host monitoring for SAP.
 
-The script output includes the following:
+The script output includes the following information:
 
 * Confirmation that monitoring for the base VHD (with the OS) and all additional VHDs mounted to the VM has been configured.
 * The next two messages confirm the configuration of Storage Metrics for a specific storage account.
