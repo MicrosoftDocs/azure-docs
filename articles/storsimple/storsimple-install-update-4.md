@@ -27,7 +27,7 @@ Update 4 includes device software, USM firmware, LSI driver and firmware, Storpo
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal.
-> * We recommend that you install the software and other regular updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must also be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
+> * We recommend that you install the software and other regular updates via the Azure classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must also be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 > * If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 4 prior to updating the device.
 
 

@@ -37,16 +37,16 @@ The following key improvements and bug fixes have been made in Update 4.
 
 * **Automated space reclamation changes** – Starting Update 4, more intelligence has been built into the space reclamation algorithms thereby resulting in faster execution.
 * **Performance enhancements** – Update 4 has improved locally pinned volume ingestion performance.
-* **Standalone diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released that  several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. This tool can be executed via a cmdlet using the Windows PowerShell for StorSimple.
-To download this tool, go to [StorSimple Diagnostics tool]().
-* **Migration tool** - In this release, a StorSimple Migration tool will be available for Support and customers to facilitate the consolidation of recovery buckets during the migration workflow. To download this tool, go to [StorSimple Migration tool](). 
+* **Standalone diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released that allows for easy diagnosing and troubleshooting of issues related to system, network, and hardware health. To download this tool, go to [StorSimple Diagnostics tool]().
+* **Migration tool** - In this release, a StorSimple Migration tool is made available for Support and customers to facilitate the consolidation of recovery buckets during the migration workflow. To download this tool, go to [StorSimple Migration tool](). 
 * **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
 * **MPIO support for StorSimple Snapshot Manager** - From this release onwards, StorSimple Snapshot Manager has support built-in for MPIO.
 * **FIPS-related changes** - In this release, FIPS will be enabled by default on all the StorSimple 8000 series devices. This implies that cryptographic validations will occur for all the devices.
-* **Failback optimizations** - In Update 4, several failback optimizations have done that will allow the users to 
+* **Failback optimizations** - In Update 4, several failback optimizations have been implemented.
+
 
 ## Issues fixed in Update 4
-The following tables provides a summary of issues that were fixed in Update 4.    
+The following table provides a summary of issues that were fixed in Update 4.    
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
@@ -84,7 +84,7 @@ The following table provides a summary of known issues in this release.
 | 19 |Locally pinned volumes |If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. |This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. |Yes |No |
 | 20 |Locally pinned volumes |If you try to convert a tiered volume (created and cloned with Update 1.2 or earlier) to a locally pinned volume and your device is running out of space or there is a cloud outage, then the clone(s) can be corrupted. |This problem occurs only with volumes that were created and cloned with pre-Update 2.1 software. This should be an infrequent scenario. | | |
 | 21 |Volume conversion |Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. |If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. | | |
-| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is succeesfully updated to Update 4, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
+| 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is successfully updated to Update 4, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
 
 ## Controller and firmware updates in Update 4
 
