@@ -429,8 +429,8 @@ You can create a virtual machine by using one of the SAP templates published in 
 In the Azure portal, enter the following parameters for the template:
 
 1. **Basics**:
-  * **Subscription**: The subscription you want to deploy the template to.
-  * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group, or you can select an existing resource group in the subscription.
+  * **Subscription**: The subscription to use to deploy the template.
+  * **Resource group**: The resource group to use to deploy the template. You can create a new resource group, or you can select an existing resource group in the subscription.
   * **Location**: Where to deploy the template. If you selected an existing resource group, the location of that resource group is used.
 
 2. **Settings**:
@@ -518,9 +518,9 @@ To create a deployment by using a private OS image from the Azure portal, use on
 In the Azure portal, enter the following parameters for the template:
 
 1. **Basics**:
-  * **Subscription**: The subscription you want to deploy the template to.
-  * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the subscription.
-  * **Location**: The location you want to deploy the template to. If you selected an existing resource group, the location of that resource group is used.
+  * **Subscription**: The subscription to use to deploy the template.
+  * **Resource group**: The resource group to use to deploy the template. You can create a new resource group or select an existing resource group in the subscription.
+  * **Location**: Where to deploy the template. If you selected an existing resource group, the location of that resource group is used.
 2. **Settings**:
   * **SAP System ID**: The SAP System ID.
   * **OS type**: The operating system type you want to deploy (Windows or Linux).
@@ -608,8 +608,8 @@ To create a deployment by using a private OS disk through the Azure portal, use 
 In the Azure portal, enter the following parameters for the template:
 
 1. **Basics**:
-  * **Subscription**: The subscription you want to deploy the template to.
-  * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the subscription.
+  * **Subscription**: The subscription to use to deploy the template.
+  * **Resource group**: The resource group to use to deploy the template. You can create a new resource group or select an existing resource group in the subscription.
   * **Location**: Where to deploy the template. If you selected an existing resource group, the location of that resource group is used.
 2. **Settings**:
   * **SAP System ID**: The SAP System ID.
@@ -689,7 +689,7 @@ The result looks like this:
 ![Result of Azure PowerShell cmdlet version check][deployment-guide-figure-600]
 <a name="figure-6"></a>
 
-If the Azure cmdlet version installed on your computer is the current version, the first page of the installation wizard indicates it by adding **(Installed)** to the product title (see the following screenshot). Your PowerShell Azure cmdlets are up-to-date. Select **Exit** to close the installation wizard.
+If the Azure cmdlet version installed on your computer is the current version, the first page of the installation wizard indicates it by adding **(Installed)** to the product title (see the following screenshot). Your PowerShell Azure cmdlets are up-to-date. To close the installation wizard, select **Exit**.
 
 ![Installation page for Azure PowerShell cmdlets indicating that the most recent version of Azure PowerShell cmdlets are installed][deployment-guide-figure-700]
 <a name="figure-7"></a>
