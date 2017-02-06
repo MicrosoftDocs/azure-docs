@@ -46,7 +46,7 @@ For more information on creating [your first Apache Cordova app], see their docu
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="ionic"></a>Setting up an Ionic 2 App
+## <a name="ionic"></a>Setting up an Ionic v2 App
 
 To properly configure an Ionic v2 project, first create a basic app and add the Cordova plugin:
 
