@@ -26,7 +26,7 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 This tutorial shows you how to:
 
 * Create a .NET console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
-* Create a simulated device app that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image.  Throughout executing each stage the device uses the reported properties to update progress.
+* Create a simulated device app that implements a **firmwareUpdate** direct method. This method initiates a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image. During each stage of the update, the device uses the reported properties to report on progress.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
@@ -47,7 +47,7 @@ Follow the [Get started with device management](iot-hub-csharp-node-device-manag
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Trigger a remote firmware update on the device using a direct method
-In this section, you create a .NET console app (using C#) that initiates a remote firmware update on a device using a direct method and uses device twin queries to periodically get the status of the active firmware update on that  device.
+In this section, you create a .NET console app (using C#) that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **TriggerFWUpdate**.
 
@@ -62,7 +62,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Add the following fields to the **Program** class. Replace the multiple placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -120,7 +120,7 @@ You are now ready to run the apps.
 3. You see the device response to the direct method in the console.
 
 ## Next steps
-In this tutorial, you used a direct method to trigger a remote firmware update on a device and periodically used the reported properties to understand the progress of the firmware update process.  
+In this tutorial, you used a direct method to trigger a remote firmware update on a device and used the reported properties to follow the progress of the firmware update.
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 

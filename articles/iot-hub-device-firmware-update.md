@@ -5,7 +5,7 @@ In this section, you will
 * Trigger a simulated firmware update
 * Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
-1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
@@ -15,7 +15,7 @@ In this section, you will
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+3. Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
 
 4. Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
    
@@ -31,7 +31,7 @@ In this section, you will
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function which is used to update reported properties:
+6. Add the following function that is used to update reported properties:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -69,7 +69,7 @@ In this section, you will
       callback(error);
     }
     ```
-8. Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample deplays for four seconds before proceeding to download the firmware image:
+8. Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample deplays for four seconds before proceeding to download the firmware image:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
