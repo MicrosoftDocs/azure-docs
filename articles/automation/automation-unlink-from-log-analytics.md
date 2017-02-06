@@ -1,5 +1,5 @@
 ---
-title: Unlink Automation Account from OMS Log Analytics | Microsoft Docs
+title: Unlink Automation Account from Log Analytics | Microsoft Docs
 description: This article provides an overview of how to unlink your Azure Automation account from an OMS workspace.
 services: automation
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.date: 02/06/2017
 ms.author: magoedte
 ---
 
-# How to unlink your Automation account from an OMS Log Analytics workspace
+# How to unlink your Automation account from a Log Analytics workspace
 
-Azure Automation integrates with Microsoft Operations Management Suite (OMS) Log Analytics to not only support proactive monitoring of your runbook jobs across all of your Automation accounts, but is also required when you import the following solutions that are dependent on Log Analytics:
+Azure Automation integrates with Log Analytics to not only support proactive monitoring of your runbook jobs across all of your Automation accounts, but is also required when you import the following solutions that are dependent on Log Analytics:
 
 * [Update Management](../operations-management-suite/oms-solution-update-management.md)
 * [Change Tracking](../log-analytics/log-analytics-change-tracking.md)
 * [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
  
-If at some point you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you proceed, you will first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding.  Review the topic for the particular solution you have imported to understand the steps required to remove it.  
+If you decide you no longer wish to integrate your Automation account with Log Analytics, you can unlink your account directly from the Azure portal.  Before you proceed, you will first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding.  Review the topic for the particular solution you have imported to understand the steps required to remove it.  
 
 After you remove these solutions you can perform the following steps to unlink your Automation account.
 
