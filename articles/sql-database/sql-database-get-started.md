@@ -36,7 +36,7 @@ In this quick start tutorial, you learn how to:
 * [Delete a database](sql-database-get-started#delete-a-database) (5 minutes)
 
 
-When you finish this quick start tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
+When you finish this quick start tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have twp server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. 
 
 **Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
 
