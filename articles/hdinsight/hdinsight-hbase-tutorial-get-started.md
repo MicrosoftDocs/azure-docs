@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 
 ---
@@ -22,10 +22,8 @@ ms.author: jgao
 
 Learn how to create HBase clusters in HDInsight, create HBase tables, and query the tables by using Apache Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
-The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [HBase tutorial: Get started using Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
-
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [HBase tutorial: Get started using Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## Before you begin
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
