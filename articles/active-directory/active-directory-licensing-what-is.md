@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 02/06/2017
 ms.author: curtand
 
 ---
 # What is Microsoft Azure Active Directory licensing?
 
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-licensing-get-started-azure-portal)
+> * [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 > * [Azure classic portal](active-directory-licensing-what-is.md)
 >
 >

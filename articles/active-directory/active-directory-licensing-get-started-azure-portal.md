@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 01/23/2017
+  ms.date: 02/06/2017
   ms.author: curtand
 
 ---
@@ -23,7 +23,7 @@
 # Get started with Azure Active Directory licensing in the Azure portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal](active-directory-licensing-get-started-azure-portal)
+> * [Azure portal](active-directory-licensing-get-started-azure-portal.md)
 > * [Azure classic portal](active-directory-licensing-what-is.md)
 >
 >
