@@ -82,7 +82,7 @@ Click any tile or chart to see more detail.
 
 ### More detail in the portal
 
-* [**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream) displays telemetry almost instantly.
+* [**Live Metrics Stream**](app-insights-live-stream.md) displays telemetry almost instantly.
 
     ![From the Overview blade, click Live Stream](./media/app-insights-asp-net/livestream.png)
 
