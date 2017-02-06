@@ -24,7 +24,7 @@ ms.author: carlrab
 In this quick start tutorial, you learn how to:
 
 * [Create a new logical server](sql-database-get-started#create-a-new-logical-sql-server) (5 minutes)
-* [View the logical server properties](sql-database-get-started#view-the-logical-server-properties) (5 minutes
+* [View the logical server properties](sql-database-get-started#view-the-logical-server-properties) (5 minutes)
 * [Create a server-level firewall rule](sql-database-get-started#create-a-server-level-firewall-rule) (5 minutes)
 * [Connect to the server using SSMS](sql-database-get-started##connect-to-the-server-using-ssms) (5 minutes)
 * [Create a database with sample data](sql-database-get-started#create-a-database-with-sample-data) (5 minutes)
