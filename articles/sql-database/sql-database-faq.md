@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: sashan;carlrab
 
 ---
