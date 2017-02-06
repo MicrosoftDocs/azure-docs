@@ -264,7 +264,7 @@ After you try out the cluster, stop the Azure nodes to avoid unnecessary charges
     This completes the tutorial.
 
 ## Next steps
-* Explore the documentation for [HPC Pack 2012 R2 and HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697).
+* Explore the documentation for [HPC Pack](https://technet.microsoft.com/library/cc514029).
 * To set up a hybrid HPC Pack cluster deployment at greater scale, see [Burst to Azure Worker Role Instances with Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
 * For other ways to create an HPC Pack cluster in Azure, including using Azure Resource Manager templates, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * See [Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)](../batch/big-compute-resources.md) for more about the range of Big Compute and HPC cloud solutions in Azure.
