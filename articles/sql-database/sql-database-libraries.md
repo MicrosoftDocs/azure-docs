@@ -1,5 +1,5 @@
 ---
-title: Connection libraries for SQL Database | Microsoft Azure
+title: Connection libraries for SQL Database | Microsoft Docs
 description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. The modules are released by the community or by Microsoft.
 services: sql-database
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/06/2017
 ms.author: genemi
 
 ---
