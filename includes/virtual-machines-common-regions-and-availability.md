@@ -37,8 +37,13 @@ You can see the full [list of regional pairs here](../articles/best-practices-av
 Some services or VM features are only available in certain regions, such as specific VM sizes or storage types. There are also some global Azure services that do not require you to select a particular region, such as [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md), or [Azure DNS](../articles/dns/dns-overview.md). To assist you in designing your application environment, you can check the [availability of Azure services across each region](https://azure.microsoft.com/regions/#services). 
 
 ## Storage availability
-Understanding Azure regions and geographies becomes important when you consider the available Azure Storage replication options. When you create a storage account, you must select one of the following replication options:
+Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
+**Azure Managed Disks**
+* Locally redundant storage (LRS)
+  * Replicates your data three times within the region in which you created your storage account.
+
+**Storage account-based disks**
 * Locally redundant storage (LRS)
   * Replicates your data three times within the region in which you created your storage account.
 * Zone redundant storage (ZRS)
@@ -56,11 +61,15 @@ The following table provides a quick overview of the differences between the sto
 | Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
 | Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md).
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
 
 ### Storage costs
-Prices vary depending on the storage type and availability that you select. 
+Prices vary depending on the storage type and availability that you select.
 
+**Azure Managed Disks**
+* Premium Managed Disks are backed by Solid State Drives (SSDs) and Standard Managed Disks are backed by regular spinning disks. Both Premium and Standard Managed Disks are charged based on the provisioned capacity for the disk.
+
+**Unmanaged disks**
 * Premium storage is backed by Solid State Drives (SSDs) and is charged based on the capacity of the disk.
 * Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
   * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
