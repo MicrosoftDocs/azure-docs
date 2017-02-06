@@ -3,7 +3,7 @@ title: Create a Linux VM using the Azure Portal | Microsoft Docs
 description: Create a Linux VM using the Azure Portal.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
+author: iainfoulds
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 1/17/2016
-ms.author: v-livech
+ms.author: iainfou
 
 ---
 # Create a Linux VM on Azure using the Portal
@@ -56,7 +56,7 @@ Choose a VM size. The following examples choose **DS1_V2 Standard**, which insta
 ![Choose an Azure VM size](./media/virtual-machines-linux-quick-create-portal/select_vm_size.png)
 
 ## Storage and network
-In the **Settings** blade, you can elect to use Azure Managed Disks for your VM. The current default setting is to use unmanaged disks. Azure Managed Disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). For unmanaged disks, you need to create or select a storage account for your virtual hard disks:
+In the **Settings** blade, you can elect to use Azure Managed Disks for your VM. The current default setting is to use unmanaged disks. Azure Managed Disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). For unmanaged disks, you need to create or select a storage account for your virtual hard disks:
 
 ![Select storage account for non-managed disks](./media/virtual-machines-linux-quick-create-portal/configure_non_managed_disks.png)
 
