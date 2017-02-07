@@ -158,7 +158,6 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 1. Create the subNet. This example creates a subnet named **mySubNet**, in the resource group **myResourceGroup**, and sets the subnet address prefix to **10.0.0.0/24**.
    
     ```powershell
-    $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
@@ -243,8 +242,7 @@ or
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
 	-AccountType StandardLRS  -Location $location -CreationDataCreateOption Import `
-	-SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
-    -ResourceGroupName $rgName
+	-SourceUri $urlOfUploadedImageVhd -ResourceGroupName $rgName
     ```
 
 2. Add the OS disk to the configuration. This example sets the size of the disk to **128 GB** and attaches the managed disk as a **Windows** OS disk.
@@ -266,7 +264,7 @@ $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOptio
 1. Set the URI for the VHD that you want to use. In this example, the VHD file named **myOsDisk.vhd** is kept in a storage account named **myStorageAccount** in a container named **myContainer**.
 
     ```powershell
-    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
+    $osDiskUri = $urlOfUploadedImageVhd
     ```
 2. Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
     
@@ -290,13 +288,12 @@ When using a storage account, the data and operating system disk URLs look somet
 Create the VM using the configurations that we just created.
 
 ```powershell
-#Create the new VM
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 If this command was successful, you'll see output like this:
 
-```powershell
+```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK   
