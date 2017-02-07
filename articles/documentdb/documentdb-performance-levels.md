@@ -54,6 +54,8 @@ The following table compares the throughput and storage options available in sin
 |Maximum storage|Unlimited|10 GB|10 GB|10 GB|10 GB|
 |Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|
 
+Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer)
+
 <a name="uninterrupted-access"></a>
 
 ## What do I need to do to ensure uninterrupted access to my data?
@@ -163,6 +165,12 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 * [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+
+<a name="ea-customer"></a>
+
+## How am I impacted if I'm an EA customer?
+
+EA customers will be price protected until the end of their current contract.
 
 ## Next steps
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
