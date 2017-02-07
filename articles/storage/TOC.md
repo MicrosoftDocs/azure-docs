@@ -80,7 +80,8 @@
 #### [High-performance Premium Storage and unmanaged and managed VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
-#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
+<!--
+#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md) -->
 #### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
 ### Using unmanaged disks
 #### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)

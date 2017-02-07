@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Azure Storage Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-storage.md)) and size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or Standard <!--[Standard](storage-standard-storage.md)-->) and size of disk you need, and Azure creates and manages the disk for you.
 
 ## Benefits of managed disks
 
@@ -57,10 +57,9 @@ When using Managed Disks, the following billing considerations apply:
 Let’s take a closer look at these.
 
 **Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](storage-premium-storage.md)
-(SSD-based) and
-[Standard](storage-standard-storage.md)
-(HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+[Premium](storage-premium-storage.md) (SSD-based) and
+Standard (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+<!-- [Standard](storage-standard-storage.md) -->
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
@@ -111,7 +110,8 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Premium storage and disks](storage-premium-storage.md)
 
-* [Standard storage and disks](storage-standard-storage.md)
+<!--
+* [Standard storage and disks](storage-standard-storage.md) -->
 
 ### Operational guidance
 
