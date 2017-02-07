@@ -191,9 +191,9 @@ If your sign-in is successful, then you know that:
 
 **To test certificate authentication on your mobile Office application:** 
 
-1. On your test device, install an Office mobile application (e.g. OneDrive).
+1. On your test device, install an Office mobile application (e.g., OneDrive).
 3. Launch the application. 
-4. Enter your user name, and then pick the user certificate you want to use. 
+4. Enter your user name, and then select the user certificate you want to use. 
 
 You should be successfully signed in. 
 
@@ -214,5 +214,5 @@ An EAS profile can be configured and placed on the device through the utilizatio
 **To test certificate authentication:**  
 
 1. Configure an EAS profile in the application that satisfies the requirements above.  
-2. Once the profile is properly configured, open the application, and verify that mail is synchronizing. 
+2. Open the application, and verify that mail is synchronizing. 
 
