@@ -1,20 +1,6 @@
 ---
-title: Migrate your DocumentDB S1 account | Microsoft Docs
-description: Take advantage of increased throughput in your DocumentDB S1 account by making a few simple changes in the Azure portal.
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: 6f373fb6-b0d9-4745-b17c-88e8bc5f906a
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-performance-levels
+ROBOTS: NOINDEX, NOFOLLOW
 
 ---
 # Migrate your DocumentDB S1, S2, or S3 account
