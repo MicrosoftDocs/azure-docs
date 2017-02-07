@@ -1,5 +1,4 @@
----
-title: Create an Azure VM using PowerShell | Microsoft Docs
+-title: Create an Azure VM using PowerShell | Microsoft Docs
 description: Use Azure PowerShell and Azure Resource Manager to easily create a new VM running Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -9,10 +8,8 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
-ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: virtual-machines-windowsms.workload: na
+ms.tgt_pltfrm: nams.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: davidmu
@@ -20,11 +17,9 @@ ms.author: davidmu
 ---
 # Create a Windows VM using Resource Manager and PowerShell
 This article shows you how to quickly create an Azure Virtual Machine running Windows Server and the resources it needs using [Resource Manager](../azure-resource-manager/resource-group-overview.md) and PowerShell. 
-
 All the steps in this article are required to create a virtual machine and it should take about 30 minutes to do the steps. Replace example parameter values in the commands with names that make sense for your environment.
 
-## Step 1: Install Azure PowerShell
-See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+## Step 1: Install Azure PowerShellSee [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Step 2: Create a resource group
 All resources must be contained in a resource group, so lets create that first.  
@@ -47,7 +42,7 @@ All resources must be contained in a resource group, so lets create that first.
     ```
 
 ## Step 3: (Optional) Create a storage account
-You currently have a choice when creating a virtual machine of using [Azure Managed Disks](../managed-disks/managed-disks-overview.md) or non-managed (native) disks. If you choose to use a non-managed (native) disk, you must create a [storage account](../storage/storage-introduction.md) to store the virtual hard disk that is used by the virtual machine that you create. If you choose to use a managed disk, the storage account is not needed. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+You currently have a choice when creating a virtual machine of using [Azure Managed Disks](../storage/storage-managed-disks-overview.md) or unmanaged disks. If you choose to use a unmanaged disk, you must create a [storage account](../storage/storage-introduction.md) to store the virtual hard disk that is used by the virtual machine that you create. If you choose to use a managed disk, the storage account is not needed. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 1. Test the storage account name for uniqueness. This command tests the name **myStorageAccount**.
    
@@ -133,7 +128,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
 
-6. If you are using a non-managed (native) disk, run this command to define the name and location of the VM hard disk; otherwise, skip this step. The virtual hard disk file for a non-managed (native) disk is stored in a container. This command creates the disk in a container named **vhds/myOsDisk1.vhd** in the storage account that you created.
+6. If you are using an unmanaged disk, run this command to define the name and location of the VM hard disk; otherwise, skip this step. The virtual hard disk file for an unmanaged disk is stored in a container. This command creates the disk in a container named **vhds/myOsDisk1.vhd** in the storage account that you created.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -147,7 +142,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     $myVM = Set-AzureRmVMOSDisk -VM $myVM  -Name "myOsDisk1" -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
     ```
 
-    If you are using a non-managed (native) disk, run this command to set the operating system disk in the configuration:
+    If you are using an managed disk, run this command to set the operating system disk in the configuration:
 
     ```powershell
     $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
