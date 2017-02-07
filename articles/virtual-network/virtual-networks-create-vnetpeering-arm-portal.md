@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network peering - Portal | Microsoft Docs
+title: Azure Virtual Network peering - Portal | Microsoft Docs
 description: Learn how to create a virtual network peering using the Azure portal.
 services: virtual-network
 documentationcenter: ''
