@@ -13,6 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
+
 #DocumentDB Documentation
 
 Learn how to use DocumentDB in high-performance applications for web, mobile, gaming, and IoT. Tutorials and other documentation show you how to store JSON data and perform SQL queries over a flexible schema in this NoSQL database service.
