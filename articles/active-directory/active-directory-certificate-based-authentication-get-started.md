@@ -21,10 +21,33 @@ This topic shows you how to configure and utilize certificate based authenticati
 
 CBA enables you to be authenticated by Azure Active Directory with a client certificate on an Android or iOS device when connecting your Exchange online account to: 
 
-* Office mobile applications such as Microsoft Outlook and Microsoft Word   
-* Exchange ActiveSync (EAS) clients 
+- Office mobile applications such as Microsoft Outlook and Microsoft Word   
+
+- Exchange ActiveSync (EAS) clients 
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
+
+
+## General requirements
+
+For all certificate-based authority related scenarios, the following must be true:  
+
+- Access to certificate authority(s) to issue client certificates.  
+
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
+
+- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
+
+- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.  
+
+- The client certificate must be issued for client authentication.  
+
+- For Exchange ActiveSync clients only, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
+
+
+
+
+
 
 ## Step 1: Select your device platform
 
@@ -145,7 +168,7 @@ The date you set must be in the future. If the date is not in the future, the **
 
 ## Step 5: Test your configuration
 
-## Testing Office mobile applications
+### Testing Office mobile applications
 To test certificate authentication on your mobile Office application: 
 
 1. On your test device, install an Office mobile application (e.g. OneDrive) from the Google Play Store.
@@ -155,7 +178,7 @@ To test certificate authentication on your mobile Office application:
 
 You should be successfully signed in. 
 
-## Testing Exchange ActiveSync client applications
+### Testing Exchange ActiveSync client applications
 To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
 
 * The user certificate to be used for authentication 

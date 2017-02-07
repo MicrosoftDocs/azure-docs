@@ -31,23 +31,6 @@ This topic provides you with the requirements and the supported scenarios for co
 
 
 
-## General requirements
-
-For all certificate-based authority related scenarios, the following must be true:  
-
-- Access to certificate authority(s) to issue client certificates.  
-
-- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
-
-- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
-
-- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.  
-
-- The client certificate must be issued for client authentication.  
-
-- For Exchange ActiveSync clients only, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
-
-
 ## Office mobile applications support
 | Apps | Support |
 | --- | --- |
@@ -58,7 +41,7 @@ For all certificate-based authority related scenarios, the following must be tru
 | Yammer |![Check][1] |
 | Skype for Business |![Check][1] |
 
-### Requirements for Android
+### Implementation requirements
 
 The device OS version must be Android 5.0 (Lollipop) and above. 
 
