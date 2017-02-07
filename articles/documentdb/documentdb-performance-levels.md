@@ -136,11 +136,12 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
     > 
 
 **To migrate to single partition collections using the .NET SDK**
+
 Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, visit our [getting started tutorial](documentdb-get-started.md).
 
-Here is a code snippet for changing the offer throughput to 5,000 request units per second:
+Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     
-    ```c#
+```C#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -152,13 +153,7 @@ Here is a code snippet for changing the offer throughput to 5,000 request units 
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
-    ```
-
-
-> [!NOTE]
-> Collections provisioned with under 10,000 request units per second can be migrated between offers with user-defined throughput and pre-defined throughput (S1, S2, S3) at any time. Collections that are provisioned with above 10,000 request units per second cannot be converted to pre-defined throughput levels.
-> 
-> 
+```
 
 Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods:
 
@@ -176,7 +171,7 @@ EA customers will be price protected until the end of their current contract.
 ## Next steps
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
 
-1.	[Partitioning data in DocumentDB](documentdb-partition-data.md): understand the difference between single partition and partitioned collection, tips on partitioning strategy to scale seamlessly
-2.	[DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/): Learn about the cost of provisioning throughput and consuming storage
-3.	[Request units](documentdb-request-units.md): Understand the consumption of throughput for different operation type (for example: Read, Write, Query)
-4.	[Modeling data in DocumentDB](documentdb-modeling-data.md)
+1.	[Partitioning data in DocumentDB](documentdb-partition-data.md). Understand the difference between single partition collections and partitioned collection, as well as tips on implementing a partitioning strategy to scale seamlessly.
+2.	[DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/). Learn about the cost of provisioning throughput and consuming storage.
+3.	[Request units](documentdb-request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.
+4.	[Modeling data in DocumentDB](documentdb-modeling-data.md). Learn how to model your data for DocumentDB.
