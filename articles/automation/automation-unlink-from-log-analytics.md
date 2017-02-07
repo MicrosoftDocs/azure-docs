@@ -1,5 +1,5 @@
 ---
-title: Unlink Azure Automation Account from Log Analytics | Microsoft Docs
+title: Unlink Azure Automation account from Log Analytics | Microsoft Docs
 description: This article provides an overview of how to unlink your Azure Automation account from an OMS workspace.
 services: automation
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 02/06/2017
+ms.date: 02/07/2017
 ms.author: magoedte
 ---
 
