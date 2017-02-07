@@ -25,7 +25,7 @@ Fault domains define the group of virtual machines that share a common power sou
    ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ### Managed Disk fault domains and availability sets
-For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all of the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
+For VMs using [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region.
 
 
 ## Configure each application tier into separate availability sets
@@ -42,7 +42,7 @@ Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overvi
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
 ## Use multiple storage accounts for each availability set
-If you use Azure Managed Disks, you can skip the following guidance. Azure Managed Disks inherently provide high availability and redundnacy as the disks are stored in fault domains that align with your VM availability sets. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
+If you use Azure Managed Disks, you can skip the following guidance. Azure Managed Disks inherently provide high availability and redundancy as the disks are stored in fault domains that align with your VM availability sets. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md).
 
 If you use unmanaged disks, there are best practices to be followed with regards to the storage accounts used by the Virtual Hard Disks (VHDs) within the VM. Each disk (VHD) is a page blob in an Azure Storage account. It is important to ensure that there is redundancy and isolation across the storage accounts to provide high availability for the VMs within the Availability Set.
 
