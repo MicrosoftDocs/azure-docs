@@ -172,12 +172,21 @@ The date you set must be in the future. If the date is not in the future, the **
 
 ## Step 4: Test your configuration
 
+### Testing your certificate
+
+As a first configuration test, you should try to sign in to [Outlook Web Access](https://outlook.office365.com) or [SharePoint Online](https://microsoft.sharepoint.com) using your **on-device browser**.
+
+If your sign-in is successful, then you know that:
+
+- The user certificate has been provisioned to your test device
+- AD FS is configured correctly  
+
+
 ### Testing Office mobile applications
 
 **To test certificate authentication on your mobile Office application:** 
 
-1. On your test device, install an Office mobile application (e.g. OneDrive) from the Google Play Store.
-2. Verify that the user certificate has been provisioned to your test device. 
+1. On your test device, install an Office mobile application (e.g. OneDrive).
 3. Launch the application. 
 4. Enter your user name, and then pick the user certificate you want to use. 
 
@@ -185,17 +194,19 @@ You should be successfully signed in.
 
 ### Testing Exchange ActiveSync client applications
 
-To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
+To access Exchange ActiveSync (EAS) via certificate based authentication, an EAS profile containing the client certificate must be available to the application. 
+
+The EAS profile must contain the following information:
 
 - The user certificate to be used for authentication 
 
 - The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
 
-An EAS profile can be configured and placed on the device through the utilization of an MDM such as Intune or by manually placing the certificate in the EAS profile on the device.  
+An EAS profile can be configured and placed on the device through the utilization of Mobile device management (MDM) such as Intune or by manually placing the certificate in the EAS profile on the device.  
 
 ### Testing EAS client applications on Android
 
-**To test certificate authentication with an application on Android 5.0 (Lollipop) or later:**  
+**To test certificate authentication:**  
 
 1. Configure an EAS profile in the application that satisfies the requirements above.  
 2. Once the profile is properly configured, open the application, and verify that mail is synchronizing. 
