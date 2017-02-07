@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# Migrate a single Azure VM from classic to Managed Disks and the Resource Manager deployment model
+# Migrate a single Azure VM from classic to Managed Disks 
 
 
 This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
