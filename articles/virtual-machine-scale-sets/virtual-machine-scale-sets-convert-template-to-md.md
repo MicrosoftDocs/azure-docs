@@ -138,7 +138,7 @@ With the changes above, the scale set uses managed disks for the OS disk, but wh
 
 If you specify `n` disks in this array, each VM in the scale set gets `n` data disks. Do note, however, that these data disks are raw devices. They are not formatted. It is up to the customer to attach, paritition, and format the disks before using them. Optionally, we could also specify `"managedDisk": { "storageAccountType": "Premium_LRS" }` in each data disk object to specify that it should be a premium data disk. Only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks.
 
-To learn more about using data disks with scale sets, please see [this article](./virtual-machine-scale-sets-attached-disks.md).
+To learn more about using data disks with scale sets, see [this article](./virtual-machine-scale-sets-attached-disks.md).
 
 
 ## Next steps
