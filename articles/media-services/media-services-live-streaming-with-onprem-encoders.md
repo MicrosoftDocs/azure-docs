@@ -184,7 +184,7 @@ The following table shows how channel states map to the billing mode.
 | **Stopped** |**Stopped** |No |
 
 ## <a id="cc_and_ads"></a>Closed captioning and ad insertion
-The following table demonstrates supported closed captioning and ad insertion standards.
+The following table demonstrates supported standards for closed captioning and ad insertion.
 
 | Standard | Notes |
 | --- | --- |
@@ -203,7 +203,7 @@ When you're using an on-premises live encoder to send a multi-bitrate stream to 
 * You cannot change the input protocol while the channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
 * You can ingest a single bitrate in your channel. But because the channel does not process the stream, the client applications will also receive a single bitrate stream. (We don't recommend this option.)
 
-Here are other considerations related to working with channels and components:
+Here are other considerations related to working with channels and related components:
 
 * Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
 * A channel can be stopped only when it's in the **Running** state and all programs on the channel have been stopped.
