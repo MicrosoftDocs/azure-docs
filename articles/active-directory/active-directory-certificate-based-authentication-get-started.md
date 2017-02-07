@@ -15,17 +15,17 @@ ms.date: 02/06/2017
 ms.author: markvi
 
 ---
-# Get started with certificate based authentication on Android
+# Get started with certificate based authentication 
 
-This topic shows you how to configure and utilize certificate based authentication (CBA) for users of tenants in Office 365 Enterprise, Business, and Education plans. 
-
-CBA enables you to be authenticated by Azure Active Directory with a client certificate on an Android or iOS device when connecting your Exchange online account to: 
+Certificate based authentication enables you to be authenticated by Azure Active Directory with a client certificate on an Window, Android or iOS device when connecting your Exchange online account to: 
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word   
 
 - Exchange ActiveSync (EAS) clients 
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device. 
+
+This topic provides you with the steps to configure and utilize certificate based authentication for users of tenants in Office 365 Enterprise, Business, and Education plans. 
 
 
 ## General requirements
@@ -46,10 +46,14 @@ For all certificate-based authority related scenarios, the following must be tru
 
 
 
-
-
-
 ## Step 1: Select your device platform
+
+As a first step, for the device plattform you care about, you need to review the following:
+
+- The Office mobile applications support 
+- The specific implementation requirements  
+
+Currently, certificate based authentication supports the following device platforms:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -140,8 +144,6 @@ Retrieve the certificate authorities currently stored in Azure Active Directory 
 
 
 ## Step 4: Configure revocation
-
-This step is optional and not required if you only want to do a quick functionality test.
 
 To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
 
