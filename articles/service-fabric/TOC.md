@@ -161,6 +161,7 @@
 ### [View health reports](service-fabric-view-entities-aggregated-health.md)
 
 ## Monitor and diagnose
+### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Monitor and diagnose services locally
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

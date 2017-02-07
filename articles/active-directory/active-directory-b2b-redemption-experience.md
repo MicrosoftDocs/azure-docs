@@ -31,6 +31,7 @@ Azure AD B2B collaboration makes it easy for any email address to be used for re
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
 
+If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
 
 ## Next steps
 
