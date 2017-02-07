@@ -13,6 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
+
 # Logic Apps Documentation
 
 Learn how to develop Logic Apps that simplify and integrate scalable workflows in the cloud. Tutorials, templates, and API references help you design and deploy automated business workflows across on-premises and the cloud.
