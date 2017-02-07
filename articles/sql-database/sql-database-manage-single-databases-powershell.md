@@ -40,9 +40,11 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -ServerName $sqlServerName -DatabaseName $databaseName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
+
 > [!TIP]
 > For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md).
 >
+
 ## Change the service tier and performance level of a single database
 
 Run the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx) cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example, *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
@@ -67,7 +69,7 @@ Set-AzureRmContext -SubscriptionId $SubscriptionId
 Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
 ```
 
-## Additional resources
+## Next steps
 * For an overview of management tools, see [Overview of management tools](sql-database-manage-overview.md).
 * To see how to perform management tasks using the Azure portal, see [Manage Azure SQL Databases using the Azure portal](sql-database-manage-portal.md).
 * To see how to perform management tasks using PowerShell, see [Manage Azure SQL Databases using PowerShell](sql-database-manage-powershell.md).
