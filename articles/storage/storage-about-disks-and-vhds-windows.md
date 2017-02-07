@@ -1,5 +1,5 @@
 ---
-title: About disks and VHDs for Windows VMs | Microsoft Docs
+title: About disks and VHDs for Microsoft Azure Windows VMs | Microsoft Docs
 description: Learn about the basics of disks and VHDs for Windows virtual machines in Azure.
 services: storage
 documentationcenter: ''
