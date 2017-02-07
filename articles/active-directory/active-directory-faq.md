@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2017
+ms.date: 02/07/2017
 ms.author: markvi
 
 ---
 # Azure Active Directory FAQ
 Azure Active Directory is a comprehensive Identity as a Service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
-For more details, see [What is Azure Active Directory?](active-directory-whatis.md).
+For more details, see [What is Azure Active Directory?](active-directory-whatis.md)
 
 ## Accessing Azure and Azure Active Directory
 **Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
@@ -47,6 +47,14 @@ Additionally, Azure AD paid services (e.g.: Azure AD basic, Premium, EMS, etc.) 
 **Q: Is there a report that shows when my Azure AD user licenses will expire?**
 
 **A:** No.  This is not currenlty available.
+
+- - -
+
+- - -
+**Q: How do I leave a tenant when I am added as a collaborator?**
+
+**A:** When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization and Microsoft is currently working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
+
 
 - - -
 ## Getting started with Hybrid Azure AD
