@@ -63,7 +63,7 @@ myVM    myDisk
 Copy the disk by creating a new managed disk with [az disk create](/cli/azure/disk#create). The following example creates a disk named `myCopiedDisk` from the managed disk named `myDisk`:
 
 ```azurecli
-az disk create --resource-group myResourceGroup --name myCopiedDisk --source-disk myDisk
+az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
 ``` 
 
 Verify the managed disks now in your resource group with [az disk list](/cli/azure/disk#list). The following example lists the managed disks in the resource group named `myResourceGroup`:

@@ -63,7 +63,7 @@ If you need to quickly accomplish the task, the following section details the ba
 4. Create an image from the VM resource with [az image create](/cli//azure/image#create):
    
     ```azurecli
-    az image create --resource-group myResourceGroup --name myImage --source-virtual-machine myVM
+    az image create --resource-group myResourceGroup --name myImage --source myVM
     ```
 
 5. Create a VM from your image resource with [az vm create](/cli/azure/vm#create):
@@ -107,7 +107,7 @@ Use the Azure CLI 2.0 (Preview) to generalize and capture the VM. In the followi
 3. Now reate an image of the VM resource with [az image create](/cli//azure/image#create). The following example creates an image named `myImage` in the resource group named `myResourceGroup` using the VM resource named `myVM`:
    
     ```azurecli
-    az image create --resource-group myResourceGroup --name myImage --source-virtual-machine myVM
+    az image create --resource-group myResourceGroup --name myImage --source myVM
     ```
    
    > [!NOTE]
@@ -152,4 +152,4 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Make any updates or configuration changes.
 - Follow the steps again to deprovision, deallocate, generalize, and capture the VM. 
 
-For more information on managing your VMs with the CLI, see [Azure CLI 2.0 (Preview)](cli/azure/overview).
+For more information on managing your VMs with the CLI, see [Azure CLI 2.0 (Preview)](/cli/azure/overview).

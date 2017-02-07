@@ -28,7 +28,7 @@ The following example attaches a `50`GB disk to the VM named `myVM` in the resou
 To use managed disks:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –vm-name myVM –disk myDataDisk –new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
 ```
 
 To use unmanaged disks:
@@ -47,7 +47,7 @@ Using managed disks enables you to focus on your VMs and their disks without wor
 If you just need a new disk on your VM, you can use the `az vm disk attach` command.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –vm-name myVM –disk myDataDisk –new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
 ```
 
 ### Attach an existing disk 
@@ -57,7 +57,7 @@ In many cases you attach disks that have already been created. You will first fi
 ```azurecli
 # find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
-az vm disk attach-disk -g rasquill-script --vm-name myVM --disk $diskId
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 The output looks something like the following (you can use the `-o table` option to any command to format the output in ):
