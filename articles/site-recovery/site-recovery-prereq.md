@@ -21,7 +21,7 @@ ms.author: rajanaki
 
  Site Recovery is an Azure service that contributes to your Business Continuity and Disaster Recovery (BCDR) strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you can failover to a secondary location to keep apps and workloads available. You can failback to your primary location when it returns to normal operations. For more about Site Recovery, see [What is Site Recovery?](site-recovery-overview.md)
 
-This article summarizes the prerequisites required to begin Site Recovery replication to Azure.
+This article summarizes the prerequisites required to begin Site Recovery replication to Azure. 
 
 Post any comments at the bottom of the article, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
