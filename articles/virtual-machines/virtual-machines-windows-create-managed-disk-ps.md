@@ -1,5 +1,5 @@
 ---
-title: Create a managed disk from a VHD| Microsoft Docs
+title: Create a managed disk from a VHD in Azure| Microsoft Docs
 description: Create a managed disk from a VHD that is currently in an Azure storage account, using the Resource Manager deployment model. 
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2016
+ms.date: 02/05/2017
 ms.author: cynthn
 
 ---
 
-# Create managed disks from unmanged disks in a storage account
+# Create managed disks from unmanaged disks in a storage account
 
 A managed disk can be created from an existing data disk or an OS disk that is currently in an Azure storage account. You can also crate an empty disk that can be used as a new data disk for a VM. 
 
@@ -45,13 +45,13 @@ The managed disk will be created in the **West-US** location, in a resource grou
 	
 	
 
-### Create an empty data disk as a managed
+## Create an empty data disk as a managed disk
 
 In the example we create an empty data disk as managed disk and assign it to the parameter **$dataDisk2** to use later. An empty data disk will need to be initialized loggin g in to the VM and using diskmgmt.msc or [remotely using WinRM and a script](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine), once it is attached to a running VM.
 
 The empty data disk will be created in the **West Central US** location, in a resource group named **myResourceGroup**. The disk will be named **myEmptyDataDisk**. The empty disk will be created in premium locally-redundant storage (LRS). StandardLRS and PremiumLRS are the only **-AccountType** options available for managed disks.
 
-The disk size in this example is 128GB, but you should choosed a size that meets the needs of any applications running on your VM.
+The disk size in this example is 128GB, but you should choose a size that meets the needs of any applications running on your VM.
 
 1.  Set some parameters
 
@@ -66,5 +66,5 @@ The disk size in this example is 128GB, but you should choosed a size that meets
     $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig -AccountType PremiumLRS -Location $location -CreateOption Empty -DiskSizeGB 128) -ResourceGroupName $rgName
 	```
 	
-# Next Steps	
+## Next Steps	
 - If you already have a VM, you can [attach a data disk](virtual-machines-windows-attach-disk-portal.md).
