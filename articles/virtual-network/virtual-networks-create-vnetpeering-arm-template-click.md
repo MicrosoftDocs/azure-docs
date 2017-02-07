@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network peering - Template | Microsoft Docs
+title: Azure Virtual Network peering - Template | Microsoft Docs
 description: Learn how to create a virtual network peering using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: ''
