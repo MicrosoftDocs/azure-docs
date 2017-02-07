@@ -23,8 +23,6 @@ ms.author: cynthn
 Availiability sets provide redundancy to your application. We recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Avoid leaving a single instance virtual machine in an availability set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events.
->
 > VMs must be created in the same resource group as the availability set.
 > 
 
@@ -49,7 +47,7 @@ For more information about creating and using availability sets, see [Manage the
    * **Location** - select a location from the drop-down.
    * **Managed** - select *Yes* to create a managed availability set to use with VMs that use Managed Disks for storage. Select **No** if the VMs that will be in the set use unmanaged disks in a storage account.
    
-4. When you are done entering the information, click **Create**. Once the availability group has been created, you can see it in the list after you refresh the portal.
+4. When you are done entering the information, click **Create**. 
 
 ## Use the portal to create a virtual machine and an availability set at the same time
 If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set. If you choose to use Managed Disks for your VM, a managed availability set will be created.
@@ -67,13 +65,15 @@ This example creates an availability set named **myAvailabilitySet** in the **my
 If you are using managed disks for your VMs, type:
 
 ```powershell
-    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" -Name "myAvailabilitySet" -Location "West US" -managed
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+	-Name "myAvailabilitySet" -Location "West US" -managed
 ```
 
 If you are using your own storage accounts for your VMs, type:
 
 ```powershell
-    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" -Name "myAvailabilitySet" -Location "West US" 
+    New-AzureRmAvailabilitySet -ResourceGroupName "myResourceGroup" '
+	-Name "myAvailabilitySet" -Location "West US" 
 ```
 
 For more information, see [New-AzureRmAvailabilitySet](/powershell/new-azurermavailabilityset).
