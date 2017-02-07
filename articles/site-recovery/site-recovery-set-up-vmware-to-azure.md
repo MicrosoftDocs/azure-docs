@@ -27,9 +27,9 @@ This article describes how to set up your on-premises environment to start repli
 ## Prerequisites
 
 The article assumes that you have already created:
-- A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal")
-- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions)
-- A virtual machine on which to install the configuration server
+- A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal").
+- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- A virtual machine on which to install the configuration server.
 
 ### Configuration server minimum requirements
 The configuration server software should be deployed on a highly available VMware virtual machine. The following table lists the minimum hardware, software, and network requirements for a configuration server.
@@ -41,7 +41,7 @@ The configuration server software should be deployed on a highly available VMwar
 ## Choose your protection goals
 
 1. In the Azure portal, go to the **Recovery Services** vault blade and select your vault.
-2. In the Resource Menu of the vault, go to **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+2. On the resource menu of the vault, go to **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals.png)
 3. In **Protection goal**, select **To Azure**, and choose **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
