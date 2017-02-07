@@ -31,8 +31,8 @@ With Premium Storage, Azure offers the ability to truly lift-and-shift your dema
 
 There are two ways to create Premium disks for Azure VMs:
 
-<!-- why does this point to the standard disk article? ROBIN --> 
-**[Unmanaged Disks](storage-standard-vm-disks.md)**: 
+<!-- can we get a hyperlink from the compute folks? ROBIN --> 
+**Unmanaged Disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
 **[Azure Managed Disks](storage-managed-disks-overview.md)**: 
@@ -40,8 +40,10 @@ This feature manages the storage accounts used for the VM disks. You specify the
 
 Even though both types of disks are available, we recommend using Managed Disks. Managed Disks gets you away from the day-to-day management of storage accounts for your VMs. 
 
-To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating existing Azure VM to Managed Disks - Linux](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
-
+To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). 
+<!-- need hyperlinks robin
+For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating existing Azure VM to Managed Disks - Linux](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+-->
 <!-- Robin -- need hyperlink if you're going to add this here. 
 and [Migrating VMs from other platforms to Managed Disks - Premium/Standard](ADD HYPERLINK ROBIN). -->
 
