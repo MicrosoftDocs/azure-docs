@@ -22,7 +22,7 @@ ms.author: mikeray
 
 # Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
 
-This article explains how to create a SQL Server Failover Cluster Instance (FCI) on Azure virtual machines in Resource Manager model. In this solution, [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) provides synchronized storage to each cluster node. S2D is new in Windows Server 2016.
+This article explains how to create a SQL Server Failover Cluster Instance (FCI) on Azure virtual machines in Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows Cluster. S2D is new in Windows Server 2016.
 
 The following diagram shows the complete solution on Azure virtual machines:
 
@@ -132,7 +132,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
       - **{BYOL} SQL Server 2016 Standard on Windows Server Datacenter 2016** 
    
    >[!IMPORTANT]
-   >After you create the virtual machine, remove the SQL Server instance. You will use the pre-installed media to create the SQL Server FCI after you configure the WSFC and S2D. 
+   >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the WSFC and S2D. 
 
    Alternatively, you can use Azure Marketplace images with just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you configure the WSFC and S2D. This image does not contain SQL Server installation media. Place the installation media in a location where you can run the SQL Server installation for each server.
 
@@ -178,7 +178,7 @@ With these prerequisites in place, you can proceed with building your WSFC. The 
 
 After the virtual machines are created and configured, you can configure the WSFC.
 
-## Step 2: Configure WSFC with S2D
+## Step 2: Configure the Windows Server Failover Cluster (WSFC) with S2D
 
 The next step is to configure the WSFC with S2D. In this step, you will do the following substeps:
 
@@ -256,13 +256,15 @@ New-Cluster -Name <WSFC-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.
 
 ### Create a cloud witness
 
-[Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
+Cloud Witness is a new type of cluster quorum witness stored in an Azure Storage Blob. This removes the need of a separate VM hosting a witness share.
 
-Create a blob container. 
+1. [Create a cloud witness for the WSFC](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). 
 
-Save the access keys and the container URL.
+1. Create a blob container. 
 
-Configure the WSFC cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
+1. Save the access keys and the container URL.
+
+1. Configure the WSFC cluster quorum witness. See, [Configure the quorum witness in the user interface].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) in the UI.
 
 ### Add storage
 
