@@ -23,31 +23,31 @@ ms.author: mimig
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB collections.
 >
 
-This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to the new Standard pricing tier on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
+This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
 
 - [Why are the S1, S2, and S3 performance levels being retired?](#why-retired)
-- [How does the Standard pricing tier compare to the S1, S2, S3 performance levels?](#compare)
+- [How do single partition collections and partitioned collections compare to the S1, S2, S3 performance levels?](#compare)
 - [What do I need to do to ensure uninterrupted access to my data?](#uninterrupted-access)
 - [How will my collection change after the migration?](#collection-change)
-- [How will my billing change after I’m migrated to the Standard pricing tier?](#billing-change)
+- [How will my billing change after I’m migrated to single partition collections?](#billing-change)
 - [What if I need more than 10 GB of storage?](#more-storage-needed)
 - [Can I change between the S1, S2, and S3 performance levels before August 1, 2017?](#change-before)
 - [How will I know when my collection has migrated?](#when-migrated)
-- [How do I migrate from the S1, S2, S3 performance levels to the Standard pricing tier on my own?](#migrate-diy)
+- [How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?](#migrate-diy)
 
 <a name="why-retired"></a>
 
 ## Why are the S1, S2, and S3 performance levels being retired?
 
-The S1, S2, and S3 performance levels do not offer the flexibility that the new DocumentDB Standard pricing tier offers. With the S1, S2, S3 performance levels, both the throughput and storage capacity were pre-set. DocumentDB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
+The S1, S2, and S3 performance levels do not offer the flexibility that DocumentDB single partition collections offers. With the S1, S2, S3 performance levels, both the throughput and storage capacity were pre-set. DocumentDB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
 
 <a name="compare"></a>
 
-## How does the Standard pricing tier compare to the S1, S2, S3 performance levels?
+## How do single partition collections and partitioned collections compare to the S1, S2, S3 performance levels?
 
-The following table compares the throughput and storage options available in Standard pricing and the S1, S2, S3 performance levels. Here is an example for US East 2 region:
+The following table compares the throughput and storage options available in single partition collections, partitioned collections, and S1, S2, S3 performance levels. Here is an example for US East 2 region:
 
-|   |Standard with partitioned collection|Standard with single partition collection|S1|S2|S3|
+|   |Partitioned collection|Single partition collection|S1|S2|S3|
 |---|---|---|---|---|---|
 |Maximum throughput|Unlimited|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimum throughput|2.5K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
@@ -58,13 +58,13 @@ The following table compares the throughput and storage options available in Sta
 
 ## What do I need to do to ensure uninterrupted access to my data?
 
-Nothing, DocumentDB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to the Standard performance tier on July 31, 2017. 
+Nothing, DocumentDB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to a single partition collection on July 31, 2017. 
 
 <a name="collection-change"></a>
 
 ## How will my collection change after the migration?
 
-If you have an S1 collection, you will be migrated to a single partition collection with 400 RU/s throughput. 400 RU/s is the lowest throughput available with single partition collections. However, the cost for 400 RU/s in the new standard pricing tier is approximately the same as you were paying with your S1 collection and 250 RU/s – so you are not paying for the extra 150 RU/s available to you.
+If you have an S1 collection, you will be migrated to a single partition collection with 400 RU/s throughput. 400 RU/s is the lowest throughput available with single partition collections. However, the cost for 400 RU/s in the a single partition collection is approximately the same as you were paying with your S1 collection and 250 RU/s – so you are not paying for the extra 150 RU/s available to you.
 
 If you have an S2 collection, you will be migrated to a single partition collection with 1 K RU/s. You will see no change to your throughput level.
 
@@ -76,39 +76,39 @@ In each of these cases, after your collection is migrated, you will be able to c
 
 <a name="billing-change"></a>
 
-## How will my billing change after I’m migrated to the Standard pricing tier?
+## How will my billing change after I’m migrated to the single partition collections?
 
 Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East region, and you migrate these 10 S1 collections to 10 single partition collections at 400 RU/sec (the minimum level). Your bill will look as follows if you keep the 10 single partition collections for a full month:
 
-![How S1 pricing for 10 collections compares to 10 collections using Standard pricing](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
+![How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
 
 <a name="more-storage-needed"></a>
 
 ## What if I need more than 10 GB of storage?
 
-Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection with the Standard pricing tier, all of which have 10 GB of storage available, you can use the DocumentDB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md). For information about how to migrate your S1, S2, S3, or single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data.md#migrating-from-single-partition). 
+Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection, all of which have 10 GB of storage available, you can use the DocumentDB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md). For information about how to migrate your S1, S2, S3, or single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data.md#migrating-from-single-partition). 
 
 <a name="change-before"></a>
 
 ## Can I change between the S1, S2, and S3 performance levels before August 1, 2017?
 
-Only existing accounts with S1, S2, and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. By August 1, 2017, the S1, S2, and S3 performance levels will no longer be available. If you change from S1, S3, or S3 to Standard pricing, you cannot return to the S1, S2, or S3 performance levels.
+Only existing accounts with S1, S2, and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. By August 1, 2017, the S1, S2, and S3 performance levels will no longer be available. If you change from S1, S3, or S3 to a single partition collection, you cannot return to the S1, S2, or S3 performance levels.
 
 <a name="when-migrated"></a>
 
 ## How will I know when my collection has migrated?
 
-The migration will occur on July 31, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the DocumentDB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing
+The migration will occur on July 31, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the DocumentDB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing.
 
 ![How to confirm your collection has migrated to the Standard pricing tier](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
 
 <a name="migrate-diy"></a>
 
-## How do I migrate from S1, S2, S3 performance levels to the Standard pricing tier?
+## How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?
 
-You can migrate from the S1, S2, and S3 performance levels to the Standard pricing tier using the Azure portal or programmatically. You can do this on your own before August 1 to benefit from the flexible throughput options available with the Standard pricing tier, or we will migrate your collections for you on July 31, 2017.
+You can migrate from the S1, S2, and S3 performance levels to single partition collections using the Azure portal or programmatically. You can do this on your own before August 1 to benefit from the flexible throughput options available with single partition collections, or we will migrate your collections for you on July 31, 2017.
 
-**To migrate to Standard pricing using the Azure portal**
+**To migrate to single partition collections using the Azure portal**
 
 1. In the [**Azure portal**](https://portal.azure.com), click **NoSQL (DocumentDB)**, then select the DocumentDB account to modify. 
  
@@ -132,7 +132,7 @@ You can migrate from the S1, S2, and S3 performance levels to the Standard prici
     > 
     > 
 
-**To migrate to Standard pricing using the .NET SDK**
+**To migrate to single partition collections using the .NET SDK**
 Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, visit our [getting started tutorial](documentdb-get-started.md).
 
 Here is a code snippet for changing the offer throughput to 5,000 request units per second:
