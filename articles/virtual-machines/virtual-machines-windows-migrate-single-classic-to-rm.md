@@ -22,7 +22,7 @@ ms.author: cynthn
 # Migrate a single Azure VM from classic to Managed Disks and the Resource Manager deployment model
 
 
-This section will help you to migrate your existing Azure VMs from the classic deployment model to Managed Disks in the Resource Manager deployment model
+This section will help you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
 
 ## Plan for the migration to Managed Disks
 
@@ -159,12 +159,14 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 	$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
 	
 	New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+	```
 
-> [NOTE]
+> [!NOTE]
 >There may be additional steps necessary to support your application that is not be covered by this guide.
 >
 >
 
 ## Next steps
 
+- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
