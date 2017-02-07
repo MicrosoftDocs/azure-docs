@@ -72,6 +72,7 @@
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)
 ### [Create a collection](documentdb-create-collection.md)
+### [Set throughput](documentdb-set-throughput.md)
 ### [Add global replication](documentdb-portal-global-replication.md)
 ### [Add and edit documents](documentdb-view-json-document-explorer.md)
 ### [Query documents](documentdb-query-collections-query-explorer.md)
