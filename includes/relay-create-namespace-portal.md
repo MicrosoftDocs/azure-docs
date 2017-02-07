@@ -18,6 +18,8 @@
    
     ![connection-string][connection-string]
 
+5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
