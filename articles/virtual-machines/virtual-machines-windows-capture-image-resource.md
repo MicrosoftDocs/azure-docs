@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2017
+ms.date: 02/06/2017
 ms.author: cynthn
 
 ---
@@ -35,12 +35,12 @@ You need to have already [generalized the VM](virtual-machines-windows-generaliz
 5. In the **Image** blade, click **Create**.
 6. In **Name**, type a name for the image.
 7. In **Resource Group** either select **Create new** and type in a name or select **From existing** and select a resource group to use from the drop-down list.
-8. in **Location, choose the location of your resource group.
+8. In **Location**, choose the location of your resource group.
 9. In **OS type** select the type of operating system, either Windows or Linux.
 10. In **OS state** select either specialized or generalized. 
 11. In **Storage blob**, click **Browse** to look for the VHD in Azure storage.
 12. In **Account type** choose Standard_LRS or Premium_LRS. Standard uses hard-disk drives and Premium uses solid-state drives. Both use locally-redundant storage.
-13. In **Disk caching** select the appropriate disk caching option. The options are **None**, **Read-only** and ** Read\write**.
+13. In **Disk caching** select the appropriate disk caching option. The options are **None**, **Read-only** and **Read\write**.
 14. Optional: You can also add an existing data disk to the image.  
 15. When you are done making your selections, click **Create**.
 16. After the image is created, you will see it as an **Image** resource in the list of resources in the resource group you chose.
