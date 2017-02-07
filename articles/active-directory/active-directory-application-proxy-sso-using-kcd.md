@@ -102,6 +102,8 @@ The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD 
 
 ![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
+For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)
+
 ### Delegated login identity
 Delegated login identity helps you handle two different login scenarios:
 
