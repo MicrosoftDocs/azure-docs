@@ -72,7 +72,7 @@ The duration of the entire scale-up process depends on both the size and service
 * The restore service offerings are different for the various service tiers. If you are downgrading you may lose the ability to restore to a point in time, or have a lower backup retention period. For more information, see [Azure SQL Database Backup and Restore](sql-database-business-continuity.md).
 * The new properties for the database are not applied until the changes are complete.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > For detailed steps, see [Managing single databases with the Azure portal](sql-database-manage-single-databases-portal.md), [Managing single databases with Powershell](sql-database-manage-single-databases-powershell.md), or [Managing single databases with Transact-SQL](sql-database-manage-single-databases-tsql.md).
 >
 
@@ -93,7 +93,7 @@ After initially picking a service tier and performance level, you can scale the 
 * Changing the min eDTUs per database or max eDTUs per database typically completes in five minutes or less.
 * Time to change the pool size (eDTUs) depends on the combined size of all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space of all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > For detailed steps, see [Managing elastic pools with the Azure portal](sql-database-elastic-pool-manage-portal.md), [Managing elastic pools with Powershell](sql-database-elastic-pool-manage-powershell.md), [Managing elastic pools with Transact-SQL](sql-database-elastic-pool-manage-tsql.md), or [Managing elastic pools with C#](sql-database-elastic-pool-manage-csharp.md).
 >
 
