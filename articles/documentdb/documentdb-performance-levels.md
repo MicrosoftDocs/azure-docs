@@ -19,7 +19,7 @@ ms.author: mimig
 ---
 # Performance levels in DocumentDB
 
-> [!IMPORTANT]: 
+> [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are no longer available for new DocumentDB collections.
 >
 
@@ -102,7 +102,8 @@ You can migrate from the S1, S2, and S3 performance levels to the Standard prici
 
 3. Back in the **Scale** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Estimated Monthly Bill** at the bottom of the page updates automatically to provide an estimate of the monthly cost. 
 
-    >[!IMPORTANT] IMPORTANT: Once you save your changes and move to the Standard pricing tier, you cannot roll back to the S1, S2, or S3 performance levels.
+    >[!IMPORTANT] 
+    > Once you save your changes and move to the Standard pricing tier, you cannot roll back to the S1, S2, or S3 performance levels.
 
 4. Click **Save** to save your changes.
 
