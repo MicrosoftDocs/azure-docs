@@ -4,9 +4,7 @@ title: Service Bus Relay Documentation
 description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
 ---
 # Service Bus Relay Documentation
-Learn how Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.  
-
-Relay supports a variety of different transport protocols and web services standards.  The relay service supports traditional one-way, request/response, and peer-to-peer traffic. It also supports event distribution at internet-scope to enable publish/subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency.
+Learn how Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -16,7 +14,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/service-bus.svg" alt="Learn about Service Bus Relay" />
+                            <img src="/media/index/service-bus.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -34,7 +32,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="Azure Service Bus Relay Video Library" />
+                            <img src="/media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -52,7 +50,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/deploy.svg" alt="Create a namespace" />
+                            <img src="/media/index/deploy.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -70,7 +68,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Get started with Hybrid Connections" />
+                            <img src="/media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -88,7 +86,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Get started with WCF Relay" />
+                            <img src="/media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -106,7 +104,7 @@ Relay supports a variety of different transport protocols and web services stand
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="Get started sharing Access Signatures" />
+                            <img src="/media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
