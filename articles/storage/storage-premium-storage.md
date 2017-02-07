@@ -45,7 +45,7 @@ To get started with Azure Premium Storage, visit [Get started for free](https://
 <!-- Robin -- need hyperlink if you're going to add this here. 
 and [Migrating VMs from other platforms to Managed Disks - Premium/Standard](ADD HYPERLINK ROBIN). -->
 
-<!-- is premium storage not available everywhere? ROBIN -->
+<!-- is premium storage not available everywhere? Also, this article doesn't list prmeium storage. ROBIN -->
 > [!NOTE]
 > Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services).
 > 
