@@ -1,5 +1,5 @@
 ---
-title: Convert a VM from unmanged to managed disks - Azure | Microsoft Docs
+title: Convert a VM from unmanaged to managed disks - Azure | Microsoft Docs
 description: Convert a VM from unmanaged disks to managed disks using PowerShell in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
@@ -79,7 +79,7 @@ This section covers how to convert your existing Azure VMs from unmanaged disks 
     ```
 
 
-## Migrate existing Azure VMs using standard unmanaged Disks to Premium Managed Disks
+## Migrate existing Azure VMs using standard unmanaged disks to Premium managed disks
 
 This section will show you how to convert your existing Azure VMs on Standard unmanaged disks to Premium managed disks. In order to use Premium Managed Disks, your VM must use a [VM size](virtual-machines-windows-sizes.md) that supports Premium storage.
 
@@ -110,9 +110,9 @@ This section will show you how to convert your existing Azure VMs on Standard un
 	Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 	```
 
-1.  Convert virtual machine with unmanaged disks to Managed Disks.
+1.  Convert virtual machine with unmanaged disks to Managed Disks. 
 
-    Note: If you get internal server error, please retry 2-3 times before reaching out to our support team.
+	If you get internal server error, please retry 2-3 times before reaching out to our support team.
 
     ```powershell
 	ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $resourceGroupName -VMName
