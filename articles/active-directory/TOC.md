@@ -142,18 +142,28 @@
 #### Publish apps
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-publish.md)
+##### [Connectors](application-proxy-understand-connectors.md)
+##### [Security](application-proxy-security-considerations.md)
+##### [Networks](application-proxy-network-topology-considerations.md)
+##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Publish on separate networks
 ##### [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Classic portal](active-directory-application-proxy-connectors.md)
+##### [On-premises](application-proxy-working-with-proxy-servers.md)
 #### [Custom domains](active-directory-application-proxy-custom-domains.md)
 #### [Single sign-on](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Azure portal](application-proxy-sso-azure-portal.md)
 #### [Claims-aware apps](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native client apps](active-directory-application-proxy-native-client.md)
+#### [Custom home page](application-proxy-office365-app-launcher.md)
 #### [Conditional access](active-directory-application-proxy-conditional-access.md)
 #### [Silent install](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 ### [Understand SSO for apps](active-directory-appssoaccess-whatis.md)
+
 
 ### Integrate SaaS apps
 #### [Azure portal](active-directory-enterprise-apps-manage-sso.md)
