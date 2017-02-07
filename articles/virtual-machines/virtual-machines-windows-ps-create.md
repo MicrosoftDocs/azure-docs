@@ -142,7 +142,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     $myVM = Set-AzureRmVMOSDisk -VM $myVM  -Name "myOsDisk1" -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
     ```
 
-    If you are using an managed disk, run this command to set the operating system disk in the configuration:
+    If you are using an unmanaged disk, run this command to set the operating system disk in the configuration:
 
     ```powershell
     $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
