@@ -269,7 +269,6 @@ See [List and show clusters](#list-and-show-clusters).
 ## Open HDInsight Query console
 The HDInsight Query console includes the following features:
 
-* **Getting started gallery**: To use the gallery , see [Learn Hadoop by using the Azure HDInsight Getting Started Gallery](hdinsight-learn-hadoop-use-sample-gallery.md).
 * **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hdinsight-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
