@@ -91,7 +91,7 @@ follow these steps.
 
 2. Generate a shared access signature for the schema.
 
-	![Storage sccount, with shared access signatures tab highlighted](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+	![Storage account, with shared access signatures tab highlighted](media/logic-apps-enterprise-integration-schemas/blob-2.png)
 
 3. In **Add Schema**, select **Large file**, 
 and provide the shared access signature URI in the **Content URI** text box.
