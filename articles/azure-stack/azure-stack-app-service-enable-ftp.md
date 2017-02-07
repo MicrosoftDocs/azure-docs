@@ -31,7 +31,7 @@ Once you have successfully deployed App Service on Azure Stack if you wish to en
 3.  Note the **Public IP Address** of the **FTP-NIC**. 
 ![Azure Stack Network Interface Details][2]
 4.  Next Browse to **Virtual Machines** and select the **FTP0-VM**. ![Azure Stack Virtual Machines][3]
-5.  Open a remote desktop session to the VM using the **Connect** button and login to the session using the Administrator credentials you set during App Service deployment. 
+5.  Open a remote desktop session to the VM using the **Connect** button and login to the session using the Administrator credentials you set during App Service deployment.  
 ![Azure Stack Virtual Machine Details][4]
 6.  Open **Internet Information Service (IIS) Manager** on the FTP VM (FTP0-VM).
 7.  Under **Sites** select **Hosting FTP Site**.
