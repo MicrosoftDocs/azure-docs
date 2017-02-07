@@ -1,6 +1,6 @@
 ---
-title: Migrate VMs to managed disks in Azure | Microsoft Docs
-description: Migrate Azure virtual machines created using storage accounts to use managed disks.
+title: Convert Azure VMs to managed disks in Azure | Microsoft Docs
+description: Convert Azure virtual machines created using storage accounts to use Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/07/2017
 ms.author: cynthn
 
 ---
 
-# Migrate to managed disks in Azure
+# Convert Azure VMs to managed disks in Azure
 
 Azure managed disks removes the need of managing [Storage accounts](../storage/storage-introduction.md) for Azure VMs. You only have specify the type ([Premium](../storage/storage-premium-storage-performance.md) or [Standard](../storage/storage-standard-vm-disks.md) and size of disk you need, and Azure will create and manage the disk for you. Moreover, migrate your existing Azure VMs to Managed Disks to benefit from  better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
 
@@ -27,7 +27,7 @@ If you are currently using Standard storage option for your Disks, migrate to Pr
 
 You can migrate to Managed Disks in following scenarios:
 
-| Migrate...                                            | Documentation link                                                                                                                                                                                                                                                                  |
+| Convert...                                            | Documentation link                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | VMs in an availability set that use unmanaged disks to managed disks   | [Convert VMs in an availability set to use managed disks](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)                                                                        |
 | Premium unmanaged disks to Premium managed disks   | [Convert existing Azure VMs to managed disks of the same storage type](virtual-machines-windows-convert-unmanaged-to-managed-disks.md#convert-existing-azure-vms-to-managed-disks-of-the-same-storage-type)                                                                         |
@@ -37,14 +37,14 @@ You can migrate to Managed Disks in following scenarios:
 
 
 
-## Plan for the migration to Managed Disks
+## Plan for the conversion to Managed Disks
 
 This section helps you to make the best decision on VM and disk types.
 
 
 ## Location
 
-Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services byRegion](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
+Pick a location where Azure Managed Disks are available. If you are moving to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to move to. See [Azure Services byRegion](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
 
 ## VM sizes
 
