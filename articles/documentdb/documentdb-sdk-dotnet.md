@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 02/06/2017
 ms.author: rnagpal
 
 ---
@@ -47,6 +47,16 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
+
+### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
+* Fix for an issue wherein the session container was not being updated with the token for failed requests in Gateway mode.
+* Fix for an issue wherein a query with UDF calls in projection was failing in some cases.
+
+### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Fix for an issue wherein the session container was not being updated with the token for failed requests.
+* Added support for the SDK to work in a 32-bit host process. Note that if you use cross partition queries, 64-bit host processing is recommended for improved performance.
+* Improved performance for scenarios involving queries with a large number of partition key values in an IN expression.
 
 ### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
@@ -162,9 +172,9 @@ ms.author: rnagpal
   * LINQ provider support for OrderBy() or OrderByDescending()
   * IndexingPolicy to support Order By 
     
-        **NB: Possible breaking change** 
+    **NB: Possible breaking change** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
@@ -186,6 +196,8 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.4](#1.11.4) |February 06, 2017 |--- |
+| [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |

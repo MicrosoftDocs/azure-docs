@@ -1,5 +1,5 @@
 ---
-title: 'Quick-start guide: Manual installation of single-instance SAP HANA on Azure VMs | Microsoft Docs'
+title: SAP HANA on Linux VMs in Azure | Microsoft Docs
 description: A quick-start guide for manual installation of single-instance SAP HANA on Azure VMs
 services: virtual-machines-linux
 documentationcenter: ''

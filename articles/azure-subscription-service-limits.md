@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: byvinyal
 
 ---
@@ -62,6 +62,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
 * [Key Vault](#key-vault-limits)
+* [Log Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -69,7 +70,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
-* [Operational Insights](#operational-insights-limits)
 * [Resource Group](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
@@ -231,7 +231,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### Operational Insights limits
+### Log Analytics limits
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### Backup limits

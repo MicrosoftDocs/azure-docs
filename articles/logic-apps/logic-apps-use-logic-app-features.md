@@ -1,6 +1,6 @@
 ---
-title: Use Logic App features | Microsoft Docs
-description: Learn how to use the advanced features of logic apps.
+title: Add conditions and triggers to run workflows - Azure Logic Apps | Microsoft Docs
+description: Control how workflows run in Azure Logic Apps by adding conditional logic, triggers, actions, and parameters.
 author: stepsic-microsoft-com
 manager: anneta
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2016
+ms.date: 01/28/2017
 ms.author: stepsic
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Security health monitoring in Azure Security Center | Microsoft Docs
+title: Security monitoring in Azure Security Center | Microsoft Docs
 description: This article helps you to get started with monitoring capabilities in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 
 ---
@@ -57,8 +57,8 @@ This section has a set of [recommendations for each virtual machine](security-ce
 
 > [!NOTE]
 > Only virtual machines that have at least one public endpoint are shown in the **Networking Health** blade in the **Network topology** list.
-> 
-> 
+>
+>
 
 Each recommendation has a set of actions that you can perform after you click it. For example, if you click **Missing system updates**, the **Missing system updates** blade opens. It lists the virtual machines that are missing patches and the severity of the missing update as shown in the following screenshot.
 
@@ -84,8 +84,8 @@ To view the recommendation details, click the name of the virtual machine. A new
 
 > [!NOTE]
 > The security recommendations here are the same as those in the **Recommendations** blade. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines but also for all resources that are available in the **Resource Health** tile.
-> 
-> 
+>
+>
 
 #### Virtual machines section
 The virtual machines section gives you an overview of all virtual machines and recommendations. Each column represents one set of recommendations as shown in the following screenshot:
@@ -211,4 +211,3 @@ In this article, you learned how to use monitoring capabilities in Azure Securit
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Find frequently asked questions about using the service.
 * [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
-

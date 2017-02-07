@@ -1,6 +1,6 @@
 ---
-title: Learn about Enterprise Integration Pack Decode X12 Message Connctor | Microsoft Docs
-description: Learn how to use partners with the Enterprise Integration Pack and Logic apps
+title: Decode X12 messages in Azure logic apps | Microsoft Docs
+description: How to use the X12 decoder in the Enterprise Integration Pack in your logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,45 +13,48 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 01/27/2017
 ms.author: padmavc
 
 ---
-# Get started with Decode X12 Message
+# Get started with Decode X12 messages
 Validates EDI and partner-specific properties, generates XML document for each transaction set and generates acknowledgment for processed transaction.
 
-## Create the connection
-### Prerequisites
+## Prereqs
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account is required to use Decode X12 message connector. See details on how to create an [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) and [X12 agreement](../logic-apps/logic-apps-enterprise-integration-x12.md)
 
-### Connect to Decode X12 Message using the following steps:
+## Decode X12 messages
+
 1. [Create a Logic App](../logic-apps/logic-apps-create-a-logic-app.md) provides an example
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message
+2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter “x12” in the search box.  Select X12 – Decode X12 Message:
    
     ![search x12](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
+3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details:
    
     ![integration account connection](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)     
-4. Enter the Integration Account details.  Properties with an asterisk are required
+4. Enter the Integration Account details.  Properties with an asterisk are required:
    
    | Property | Details |
    | --- | --- |
    | Connection Name * |Enter any name for your connection |
    | Integration Account * |Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location |
    
-    Once complete, your connection details look similar to the following
+    Once complete, your connection details look similar to the following:
    
     ![integration account connection created](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
-5. Select **Create**
-6. Notice the connection has been created.
+5. Select **Create**.
+6. Notice the connection has been created:
    
     ![integration account connection details](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
-7. Select X12 flat file message to decode
+7. Select X12 flat file message to decode:
    
     ![provide mandatory fields](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
-## X12 Decode does following
+## X12 Decode details
+
+The X12 Decode connector does following:
+
 * Validates the envelope against trading partner agreement
 * Generates an XML document for each transaction set.
 * Validates EDI and partner-specific properties

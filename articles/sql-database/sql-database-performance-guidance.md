@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database and performance for single databases | Microsoft Docs
+title: Azure SQL Database performance for single databases | Microsoft Docs
 description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
 services: sql-database
 documentationcenter: na
@@ -106,7 +106,10 @@ Again, these queries return a point-in-time count. If you collect multiple sampl
 For SQL Database analysis, you can get historical statistics on sessions. Query **sys.resource_stats**, and use the **active_session_count** column. See the next section for more information about using this view.
 
 ## Monitor resource use
-Two views can help you monitor resource use for a SQL database relative to its service tier:
+
+You can monitor resource usage using [SQL Database Query Performance Insight](sql-database-query-performance.md) and [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+
+You can also monitor usage using these two views:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)

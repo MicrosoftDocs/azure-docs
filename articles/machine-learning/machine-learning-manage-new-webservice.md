@@ -1,5 +1,5 @@
 ---
-title: Manage a Web service using the Azure Machine Learning Web Serivces portal | Microsoft Docs
+title: Use the Azure Machine Learning Web Services portal | Microsoft Docs
 description: Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services
 services: machine-learning
 documentationcenter: ''

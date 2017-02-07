@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 
 ---
 # Overview of business continuity with Azure SQL Database

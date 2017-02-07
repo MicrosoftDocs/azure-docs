@@ -52,7 +52,7 @@ The Service Fabric SDK includes an add-in for Visual Studio that provides templa
 Try this extensive [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) to get familiar with the end-to-end development flow for Service Fabric.  Learn to create a stateless service, configure monitoring and health reports, and perform an application upgrade. 
 
 The following Channel9 video walks you through the process of creating a C# app in Visual Studio:  
-<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
+<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
 <img src="./media/service-fabric-content-roadmap/first-app-vid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 

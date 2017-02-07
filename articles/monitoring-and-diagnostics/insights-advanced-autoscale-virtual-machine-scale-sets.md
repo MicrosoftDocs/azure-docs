@@ -1,8 +1,8 @@
 ---
-title: Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets | Microsoft Docs
-description: Configure autoscale for VM Scale Sets based on multiple rules and profiles with email and webhoook notifications for scale actions.
+title: Advanced Autoscale using Azure Virtual Machines | Microsoft Docs
+description: Uses Resource Manager and VM Scale Sets with multiple rules and profiles which send email and call webhook URLs with scale actions.
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -17,8 +17,8 @@ ms.author: ashwink
 
 ---
 
-# Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets
-You can scale out and in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
+# Advanced autoscale configuration using Resource Manager templates for VM Scale Sets
+You can scale-in and scale-out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
 
 > [!NOTE]
 > While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling Cloud Services and Web Apps.

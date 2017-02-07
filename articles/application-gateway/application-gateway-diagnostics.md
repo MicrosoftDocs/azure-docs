@@ -32,6 +32,9 @@ Azure provides the capability to monitor resources with logging and metrics. App
 
 Appplication gateway provides the capability to monitor the health of individual members of the backend pools through the portal, PowerShell, and CLI. Aggregated health summary of backend pools can also be found through the performance diagnostic logs. The backend health report reflects the output of the Application Gateway health probe to the backend instances. When probing is successful and the backend can be served traffic to, it is considered healthy, otherwise it is considered unhealthy.
 
+> [!important]
+> If there is a NSG on Application Gateway subnet, port ranges 65503-65534 should be opened on Application Gateway instances.
+
 ### View backend health through the portal
 
 There is nothing that is needed to be done to view backend health. In an existing application gateway, navigate to **Monitoring** > **Backend health**. Each member in the backend pool is listed on this page (whether it is a NIC, IP or FQDN). Backend pool name, port, backend http settings name and health status are shown. Valid values for health status are "Healthy", "Unhealthy" and "Unknown".
