@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/03/2017
+ms.date: 02/07/2017
 ms.author: alkohli
 ---
-# Install Updates on your StorSimple Virtual Array
+# Install Update 0.4 on your StorSimple Virtual Array
 
 ## Overview
 
-This article describes the steps required to install updates on your StorSimple Virtual Array via the local web UI and via the Azure portal. You need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. 
+This article describes the steps required to install Update 0.4 on your StorSimple Virtual Array via the local web UI and via the Azure portal. You need to apply software updates or hotfixes to keep your StorSimple Virtual Array up-to-date. 
 
 Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime. 
 
