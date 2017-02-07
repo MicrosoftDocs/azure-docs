@@ -19,7 +19,9 @@ ms.author: mimig
 ---
 # Performance levels in DocumentDB
 
-> [!IMPORTANT] : The S1, S2, and S3 performance levels discussed in this article are no longer available for new DocumentDB collections.
+> [!IMPORTANT]: 
+> The S1, S2, and S3 performance levels discussed in this article are no longer available for new DocumentDB collections.
+>
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how these performance levels will be migrated to the new Standard pricing tier on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
 
@@ -72,7 +74,7 @@ Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East re
 
 ## What if I need more than 10 GB of storage?
 
-Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection with the Standard pricing tier, all of which have 10 GB of storage available, you can use the DocumentDB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data). For information about how to migrate your S1, S2, S3, or single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data#migrating-from-single-partition). 
+Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection with the Standard pricing tier, all of which have 10 GB of storage available, you can use the DocumentDB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md). For information about how to migrate your S1, S2, S3, or single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data.md#migrating-from-single-partition). 
 
 ## Can I change between the S1, S2, and S3 performance levels before August 1, 2017?
 
