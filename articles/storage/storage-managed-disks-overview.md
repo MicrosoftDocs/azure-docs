@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Premium and Standard Managed Disks Overview | Microsoft Docs
+title: Azure Premium and Standard Managed Disks Overview | Microsoft Docs
 description: Overview of Azure Managed Disks, which handles the storage accounts for you when using Azure VMs
 services: storage
 documentationcenter: na
