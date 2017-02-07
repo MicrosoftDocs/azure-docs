@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to develop logic apps that automate and simplify business workflows across on-premises and the cloud. Tutorials, templates, and API references.
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Logic Apps Documentation
 
