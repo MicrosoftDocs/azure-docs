@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure DocumentDB Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use DocumentDB, a schema-free NoSQL document database. Tutorials show how to integrate with apps and use SQL queries on JSON documents.
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #DocumentDB Documentation
 
