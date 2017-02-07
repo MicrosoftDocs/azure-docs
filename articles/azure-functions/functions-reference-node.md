@@ -1,6 +1,6 @@
 ---
-title: Azure Functions NodeJS developer reference | Microsoft Docs
-description: Understand how to develop Azure Functions using NodeJS.
+title: JavaScript developer reference for Azure Functions | Microsoft Docs
+description: Understand how to develop Azure Functions using JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,18 +16,18 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 
 ---
-# Azure Functions NodeJS developer reference
+# Azure Functions JavaScript developer guide
 > [!div class="op_single_selector"]
 > * [C# script](functions-reference-csharp.md)
 > * [F# script](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
+The JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
