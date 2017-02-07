@@ -20,12 +20,12 @@ ms.author: estfan
 # Receive data in logic apps with the B2B features in the Enterprise Integration Pack
 
 After you create an integration account that has partners and agreements, 
-you are ready to implement a business to business (B2B) workflow for your logic app 
-by using the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+you are ready to create a business to business (B2B) workflow for your logic app 
+with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
-To use the AS2 and X12 actions, you will need 
+To use the AS2 and X12 actions, you must have 
 an Enterprise Integration Account. Learn 
 [how to create an Enterprise Integration Account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
@@ -53,7 +53,7 @@ the AS2 and X12 actions to receive data from a trading partner:
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Add the **Body** that you will take as input. 
+6. Add the **Body** to take as input. 
 In this example, select the body of the HTTP request 
 that triggers the logic app. Or enter an expression 
 to input the headers in the**HEADERS** field:
@@ -67,7 +67,7 @@ In this example, select the headers of the HTTP request that trigger the logic a
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
 
-9. Enter the word **x12** in the search box to filter all actions to the one that you want.
+9. To filter all actions to the one that you want, enter the word **x12** in the search box.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-10.png)
 
@@ -94,8 +94,8 @@ This input is the output from the previous AS2 action.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
-13. Enter the word **response** in the search box to filter 
-all actions to the one that you want.
+13. To filter all actions to the one that you want, 
+enter the word **response** in the search box.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-15.png)
 
@@ -116,9 +116,9 @@ set the response **BODY** field with this expression:
 
 You are now done setting up your B2B logic app. 
 In a real world application, you might want to store the 
-decoded X12 data in a line-of-business (LOB) app or data store 
-by adding further actions or writing custom APIs to connect 
-your own LOB apps and use these APIs in your logic app.
+decoded X12 data in a line-of-business (LOB) app or data store. 
+To connect your own LOB apps and use these APIs in your logic app, 
+you can add further actions or write custom APIs.
 
 ## Features and use cases
 
