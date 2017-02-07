@@ -16,6 +16,8 @@ ms.date: 01/02/2017
 ms.author: banders
 
 ---
+Note: If you are in the Microsoft Azure Government Cloud, please use https://review.docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics instead.
+
 # Get started with Log Analytics
 You can get up and running with Log Analytics in the Microsoft Operations Management Suite (OMS) in minutes. You have two options when choosing how to create an OMS workspace, which is similar to an account:
 
