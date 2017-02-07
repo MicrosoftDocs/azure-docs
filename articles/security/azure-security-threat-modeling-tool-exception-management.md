@@ -1,5 +1,5 @@
 ---
-  title: Exception Management: Threat Modeling Tool | Microsoft Docs
+  title: Exception Management | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
   description: mitigations for threats exposed in the Threat Modeling Tool 
   services: ''
   documentationcenter: ''
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 02/06/2017
+  ms.date: 02/07/2017
   ms.author: rodsan
 ---
 
@@ -24,8 +24,6 @@
 | Web API | <ul><li>[Ensure that proper exception handling is done in ASP.NET Web API ](#exception)</li></ul> |
 | Web Application | <ul><li>[Do not expose security details in error messages ](#messages)</li><li>[Implement Default error handling page ](#default)</li><li>[Set Deployment Method to Retail in IIS](#deployment)</li><li>[Exceptions should fail safely](#fail)</li></ul> |
 
-# Mitigations
-
 ## <a id="servicedebug"></a>WCF- Do not include serviceDebug node in configuration file
 
 | #                       | #            |
@@ -34,7 +32,7 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic, NET Framework 3 |
 | Attributes              | N/A  |
-| References              | [MSDN](https://msdn.microsoft.com/en-us/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 
 Windows Communication Framework (WCF) services can be configured to expose debugging information. Debug information should not be used in production environments. The `<serviceDebug>` tag defines whether the debug information feature is enabled for a WCF service. 
 
@@ -60,7 +58,7 @@ RECOMMENDATIONS Disable debugging information in the service. This can be accomp
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | Generic, NET Framework 3 |
-| References              | [MSDN](https://msdn.microsoft.com/en-us/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 
 Publicly exposing information about a service can provide attackers with valuable insight into how they might exploit the service. 
 
@@ -216,7 +214,7 @@ Trapping all errors within an application and providing generic error messages, 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Edit ASP.NET Error Pages Settings Dialog Box](https://technet.microsoft.com/en-us/library/dd569096(WS.10).aspx) |
+| References              | [Edit ASP.NET Error Pages Settings Dialog Box](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
 
 When an ASP.NET application fails and causes an HTTP/1.x 500 Internal Server Error, or a feature configuration (such as Request Filtering) prevents a page from being displayed, an error message will be generated. Administrators can choose whether or not the application should display a friendly message to the client, detailed error message to the client, or detailed error message to localhost only. The <customErrors> tag in the web.config has three modes:
 * On: Specifies that custom errors are enabled. If no defaultRedirect attribute is specified, users see a generic error. The custom errors are shown to the remote clients and to the local host
@@ -233,7 +231,7 @@ Open the `web.config` file for the application/site and ensure that the tag has 
 | SDL Phase               | Deployment |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [deployment Element (ASP.NET Settings Schema)](https://msdn.microsoft.com/en-US/library/ms228298(VS.80).aspx) |
+| References              | [deployment Element (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
 
 The `<deployment retail>` switch is intended for use by production IIS servers. This switch is used to help applications run with the best possible performance and least possible security information leakages by disabling the application's ability to generate trace output on a page, disabling the ability to display detailed error messages to end users, and disabling the debug switch. 
 

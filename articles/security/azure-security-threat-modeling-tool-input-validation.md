@@ -1,5 +1,5 @@
 ---
-  title: Input Validation: Threat Modeling Tool | Microsoft Docs
+  title: Input Validation | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
   description: mitigations for threats exposed in the Threat Modeling Tool 
   services: ''
   documentationcenter: ''
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 02/06/2017
+  ms.date: 02/07/2017
   ms.author: rodsan
 ---
 
@@ -26,8 +26,6 @@
 | Azure Document DB | <ul><li>[Use parametrized SQL queries for DocumentDB](#sql-docdb)</li></ul> | 
 | WCF | <ul><li>[WCF Input validation through Schema binding](#schema-binding)</li><li>[WCF- Input validation through Parameter Inspectors](#parameters)</li></ul> | 
 
-# Mitigations
-
 ## <a id="disable-xslt"></a>Disable XSLT scripting for all transforms using untrusted style sheets
 
 | #                       | #            |
@@ -36,7 +34,28 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [XSLT Security](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript Property](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
+
+XSLT supports scripting inside style sheets using the `<msxml:script>` element. This allows custom functions to be used in an XSLT transformation. The script is executed under the context of the process performing the transform. 
+
+XSLT script must be disabled when in an untrusted environment to prevent execution of untrusted code. *If using .NET:* XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the `XsltSettings.EnableScript` property. 
+
+```C#
+XsltSettings settings = new XsltSettings();
+settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
+```
+
+If you are using using MSXML 6.0, XSLT scripting is disabled by default; however, you must ensure that it has not been explicitly enabled through the XML DOM object property AllowXsltScript. 
+
+```C#
+doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
+```
+
+If you are using MSXML 5 or below, XSLT scripting is enabled by default and you must explicitly disable it. Set the XML DOM object property AllowXsltScript to false. 
+
+```C#
+doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
+```
 
 ## <a id="out-sniffing"></a>Ensure that each page that could contain user controllable content opts out of automatic MIME sniffing
 
@@ -46,7 +65,76 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [IE8 Security Part V - Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
+
+For each page that could contain user controllable content, you must use the HTTP Header `X-Content-Type-Options:nosniff`. 
+
+To comply with this requirement, you can either set the required header page by page for only those pages that might contain user-controllable content, or you can set it globally for all pages in the application. 
+
+To enable the required header globally for all pages in the application, you can do one of the following: 
+
+* Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 
+
+```
+<system.webServer> 
+  <httpProtocol> 
+    <customHeaders> 
+      <add name=""X-Content-Type-Options"" value=""nosniff""/>
+    </customHeaders>
+  </httpProtocol>
+</system.webServer> 
+```
+* Add the header through the global Application\_BeginRequest 
+
+``` 
+void Application_BeginRequest(object sender, EventArgs e)
+{
+  this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
+} 
+```
+
+* Implement custom HTTP module 
+
+``` 
+public class XContentTypeOptionsModule : IHttpModule 
+  {
+    #region IHttpModule Members 
+    public void Dispose() 
+    { 
+
+    } 
+    public void Init(HttpApplication context)
+    { 
+      context.PreSendRequestHeaders += newEventHandler(context_PreSendRequestHeaders); 
+    } 
+    #endregion 
+    void context_PreSendRequestHeaders(object sender, EventArgs e) 
+      { 
+        HttpApplication application = sender as HttpApplication; 
+        if (application == null) 
+          return; 
+        if (application.Response.Headers[""X-Content-Type-Options ""] != null) 
+          return; 
+        application.Response.Headers.Add(""X-Content-Type-Options "", ""nosniff""); 
+      } 
+  } 
+
+``` 
+
+You can enable the required header only for specific pages by adding it to individual responses: 
+
+```
+this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
+``` 
+
+Training [IE8 Security Part V: Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)
+
+Frequently Asked Questions 
+
+* What is a MIME-type? - Each type of file delivered from a web server has an associated [MIME type](http://en.wikipedia.org/wiki/Mime_type) (also called a *content-type*) that describes the nature of the content (that is, image, text, application, etc). 
+* What is the X-Content-Type-Options Header? - The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. Support for this header was added in Internet Explorer 8 (IE8). For more information see [IE8 Security Part V: Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx). 
+* Does the X-Content-Type-Options protect all users from MIME-Sniffing Attacks? - No, only users of Internet Explorer 8 (IE8) will benefit from X-Content-Type-Options. Previous versions of Internet Explorer do not currently respect the X-Content-Type-Options header. 
+* Why is this recommendation only applicable for IE? - At the time of writing, Internet Explorer 8 (and later) are the only major browsers to implement a MIME-sniffing opt-out feature. If and when other major browsers (Firefox, Safari, Chrome) implement similar features, this recommendation will be updated to include syntax for those browsers as well.
 
 ## <a id="xml-resolution"></a>Harden or Disable XML Entity Resolution
 
@@ -56,7 +144,58 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [XML Entity Expansion](http://capec.mitre.org/data/definitions/197.html), [XML Denial of Service Attacks and Defenses](http://msdn.microsoft.com/magazine/ee335713.aspx), [MSXML Security Overview](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [Best Practices for Securing MSXML Code](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [NSXMLParserDelegate Protocol Reference](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [Resolving External References](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
+
+Although it is not widely used, there is a feature of XML that allows the XML parser to expand macro entities with values defined either within the document itself or from external sources. For example, the document might define an entity "companyname" with the value "Microsoft," so that every time the text "&companyname;" appears in the document, it is automatically replaced with the text Microsoft. Or, the document might define an entity "MSFTStock" that references an external web service to fetch the current value of Microsoft stock. 
+
+Then any time "&MSFTStock;" appears in the document, it is automatically replaced with the current stock price. However, this functionality can be abused to create denial of service (DoS) conditions. An attacker can nest multiple entities to create an exponential expansion XML bomb that consumes all available memory on the system. 
+
+Alternatively, he can create an external reference that streams back an infinite amount of data or that simply hangs the thread. As a result, all teams must disable internal and/or external XML entity resolution entirely if their application does not use it, or manually limit the amount of memory and time that the application can consume for entity resolution if this functionality is absolutely necessary. If entity resolution is not required by your application, then disable it. For .NET Framework code, you can use the following approaches: 
+
+```C#
+XmlTextReader reader = new XmlTextReader(stream);
+reader.ProhibitDtd = true;
+
+XmlReaderSettings settings = new XmlReaderSettings();
+settings.ProhibitDtd = true;
+XmlReader reader = XmlReader.Create(stream, settings);
+
+// for .NET 4
+XmlReaderSettings settings = new XmlReaderSettings();
+settings.DtdProcessing = DtdProcessing.Prohibit;
+XmlReader reader = XmlReader.Create(stream, settings);
+```
+
+Note that the default value of `ProhibitDtd` in `XmlReaderSettings` is true, but in `XmlTextReader` it is false. If you are using XmlReaderSettings, you do not need to set ProhibitDtd to true explicitly, but it is recommended for safetyâ€™s sake that you do. Also note that the XmlDocument class allows entity resolution by default. To disable entity resolution for XmlDocuments, use the `XmlDocument.Load(XmlReader)` overload of the Load method and set the appropriate properties in the XmlReader argument to disable resolution, as illustrated in the following code: 
+
+```C#
+XmlReaderSettings settings = new XmlReaderSettings();
+settings.ProhibitDtd = true;
+XmlReader reader = XmlReader.Create(stream, settings);
+XmlDocument doc = new XmlDocument();
+doc.Load(reader);
+```
+
+If disabling entity resolution is not possible for your application, set the XmlReaderSettings.MaxCharactersFromEntities property to a reasonable value according to your application's needs. This will limit the impact of potential exponential expansion DoS attacks. The following code provides an example of this approach: 
+
+```C#
+XmlReaderSettings settings = new XmlReaderSettings();
+settings.ProhibitDtd = false;
+settings.MaxCharactersFromEntities = 1000;
+XmlReader reader = XmlReader.Create(stream, settings);
+```
+
+If you need to resolve inline entities but do not need to resolve external entities, set the XmlReaderSettings.XmlResolver property to null. For example: 
+
+```C#
+XmlReaderSettings settings = new XmlReaderSettings();
+settings.ProhibitDtd = false;
+settings.MaxCharactersFromEntities = 1000;
+settings.XmlResolver = null;
+XmlReader reader = XmlReader.Create(stream, settings);
+```
+
+Note that in MSXML6, ProhibitDTD is set to true (disabling DTD processing) by default. For Apple OSX/iOS code, there are two XML parsers you can use: NSXMLParser and libXML2. 
 
 ## <a id="app-verification"></a>Applications utilizing http.sys perform URL canonicalization verification
 
@@ -68,6 +207,19 @@
 | Attributes              | N/A  |
 | References              | N/A  |
 
+Any application that uses http.sys should follow these guidelines: 
+
+* Limit the URL length to no more than 16,384 characters (ASCII or Unicode). This is the absolute maximum URL length based on the default Internet Information Services (IIS) 6 setting. Websites should strive for a length shorter than this if possible. 
+* Use the standard .NET Framework file I/O classes (such as FileStream) as these will take advantage of the canonicalization rules in the .NET FX. 
+* Explicitly build an allow-list of known filenames. 
+* Explicitly reject known filetypes you will not serve UrlScan rejects: exe, bat, cmd, com, htw, ida, idq, htr, idc, shtm[l], stm, printer, ini, pol, dat files. 
+* Catch the following exceptions: 
+  * System.ArgumentException (for device names) 
+  * System.NotSupportedException (for data streams) 
+  * System.IO.FileNotFoundException (for invalid escaped filenames) 
+  * System.IO.DirectoryNotFoundException (for invalid escaped dirs) 
+* *Do not* call out to Win32 file I/O APIs. On an invalid URL gracefully return a 400 error to the user, and log the real error.
+
 ## <a id="controls-users"></a>Ensure appropriate controls are in place when accepting files from users
 
 | #                       | #            |
@@ -76,7 +228,125 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload), [File Signature Table](http://www.garykessler.net/library/file_sigs.html) |
+
+Uploaded files represent a significant risk to applications. 
+
+The first step in many attacks is to get some code to the system to be attacked. Then the attack only needs to find a way to get the code executed. Using a file upload helps the attacker accomplish the first step. The consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, and simple defacement. 
+
+It depends on what the application does with the uploaded file and especially where it is stored. Server side validation of file uploads is missing. Following security controls should be implemented for File Upload functionality:
+
+* File Extension check (only a valid set of allowed file type should be accepted) 
+* Maximum file size limit 
+* File should not be uploaded to webroot; the location should be a directory on non-system drive 
+* Naming convention should be followed, such that the uploaded file name have some randomness, so as to prevent file overwrites 
+* Files should be scanned for anti-virus before writing to the disk 
+* Ensure that the file name and any other metadata (e.g., file path) are validated for malicious characters 
+* File format signature should be checked, to prevent a user from uploading a masqueraded file (e.g., uploading an exe file by changing extension to txt) 
+
+For the last point regarding file format signature validation, refer to the class below for details: 
+
+```C#
+        private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
+                    {
+                    { ".DOC", new List<byte[]> { new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 } } },
+                    { ".DOCX", new List<byte[]> { new byte[] { 0x50, 0x4B, 0x03, 0x04 } } },
+                    { ".PDF", new List<byte[]> { new byte[] { 0x25, 0x50, 0x44, 0x46 } } },
+                    { ".ZIP", new List<byte[]> 
+                                            {
+                                              new byte[] { 0x50, 0x4B, 0x03, 0x04 },
+                                              new byte[] { 0x50, 0x4B, 0x4C, 0x49, 0x54, 0x55 },
+                                              new byte[] { 0x50, 0x4B, 0x53, 0x70, 0x58 },
+                                              new byte[] { 0x50, 0x4B, 0x05, 0x06 },
+                                              new byte[] { 0x50, 0x4B, 0x07, 0x08 },
+                                              new byte[] { 0x57, 0x69, 0x6E, 0x5A, 0x69, 0x70 }
+                                                }
+                                            },
+                    { ".PNG", new List<byte[]> { new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A } } },
+                    { ".JPG", new List<byte[]>
+                                    {
+                                              new byte[] { 0xFF, 0xD8, 0xFF, 0xE0 },
+                                              new byte[] { 0xFF, 0xD8, 0xFF, 0xE1 },
+                                              new byte[] { 0xFF, 0xD8, 0xFF, 0xE8 }
+                                    }
+                                    },
+                    { ".JPEG", new List<byte[]>
+                                        { 
+                                            new byte[] { 0xFF, 0xD8, 0xFF, 0xE0 },
+                                            new byte[] { 0xFF, 0xD8, 0xFF, 0xE2 },
+                                            new byte[] { 0xFF, 0xD8, 0xFF, 0xE3 }
+                                        }
+                                        },
+                    { ".XLS", new List<byte[]>
+                                            {
+                                              new byte[] { 0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1 },
+                                              new byte[] { 0x09, 0x08, 0x10, 0x00, 0x00, 0x06, 0x05, 0x00 },
+                                              new byte[] { 0xFD, 0xFF, 0xFF, 0xFF }
+                                            }
+                                            },
+                    { ".XLSX", new List<byte[]> { new byte[] { 0x50, 0x4B, 0x03, 0x04 } } },
+                    { ".GIF", new List<byte[]> { new byte[] { 0x47, 0x49, 0x46, 0x38 } } }
+                };
+
+        public static bool IsValidFileExtension(string fileName, byte[] fileData, byte[] allowedChars)
+        {
+            if (string.IsNullOrEmpty(fileName) || fileData == null || fileData.Length == 0)
+            {
+                return false;
+            }
+
+            bool flag = false;
+            string ext = Path.GetExtension(fileName);
+            if (string.IsNullOrEmpty(ext))
+            {
+                return false;
+            }
+
+            ext = ext.ToUpperInvariant();
+
+            if (ext.Equals(".TXT") || ext.Equals(".CSV") || ext.Equals(".PRN"))
+            {
+                foreach (byte b in fileData)
+                {
+                    if (b > 0x7F)
+                    {
+                        if (allowedChars != null)
+                        {
+                            if (!allowedChars.Contains(b))
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            if (!fileSignature.ContainsKey(ext))
+            {
+                return true;
+            }
+
+            List<byte[]> sig = fileSignature[ext];
+            foreach (byte[] b in sig)
+            {
+                var curFileSig = new byte[b.Length];
+                Array.Copy(fileData, curFileSig, b.Length);
+                if (curFileSig.SequenceEqual(b))
+                {
+                    flag = true;
+                    break;
+                }
+            }
+
+            return flag;
+        }
+```
 
 ## <a id="typesafe"></a>Ensure that type-safe parameters are used in Web Application for data access
 
@@ -88,15 +358,50 @@
 | Attributes              | N/A  |
 | References              | N/A  |
 
+If you use the Parameters collection, SQL treats the input is as a literal value rather then as executable code. The Parameters collection can be used to enforce type and length constraints on input data. Values outside of the range trigger an exception. If type-safe SQL parameters are not used, attackers might be able to execute injection attacks that are embedded in the unfiltered input. 
+
+Use type safe parameters when constructing SQL queries to avoid possible SQL injection attacks that can occur with unfiltered input. You can use type safe parameters with stored procedures and with dynamic SQL statements. Parameters are treated as literal values by the database and not as executable code. Parameters are also checked for type and length. 
+
+The following code shows how to use type safe parameters with the SqlParameterCollection when calling a stored procedure. 
+
+```C#
+using System.Data;
+using System.Data.SqlClient;
+
+using (SqlConnection connection = new SqlConnection(connectionString))
+{ 
+DataSet userDataset = new DataSet(); 
+SqlDataAdapter myCommand = new SqlDataAdapter(LoginStoredProcedure", connection); 
+myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
+myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
+myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
+myCommand.Fill(userDataset);
+}  
+```
+
+In the preceding code example, the input value cannot be longer than 11 characters. If the data does not conform to the type or length defined by the parameter, the SqlParameter class throws an exception. 
+
 ## <a id="binding-mvc"></a>Use separate model binding classes or binding filter lists to prevent MVC mass assignment vulnerability
 
 | #                       | #            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | MVC5, MVC6 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Metadata Attributes](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [Public Key Security Vulnerability And Mitigation](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [Complete Guide to Mass Assignment in ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [Getting Started with EF using MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
+
+* When should I look for over-posting vulnerabilities? - Over-posting vulnerabilities can occur any place you bind model classes from user input. Frameworks like MVC can represent user data in custom .NET classes, including Plain Old CLR Objects (POCOs). MVC automatically populates these model classes with data from the request, providing a convenient representation for dealing with user input. When these classes include properties that should not be set by the user, the application can be vulnerable to over-posting attacks, which allow user control of data that the application never intended. Like MVC model binding, database access technologies such as object/relational mappers like Entity Framework often also support using POCO objects to represent database data. These data model classes provide the same convenience in dealing with database data as MVC does in dealing with user input. Because both MVC and the database support similar models, like POCO objects, it seems easy to reuse the same classes for both purposes. This practice fails to preserve separation of concerns, and it is one common area where unintended properties are exposed to model binding, enabling over-posting attacks. 
+* Why shouldn't I use my unfiltered database model classes as parameters to my MVC actions? - Because MVC model binding will bind anything in that class. Even if the data does not appear in your view, a malicious user can send an HTTP request with this data included, and MVC will gladly bind it because your action says that database class is the shape of data it should accept for user input. 
+* Why should I care about the shape used for model binding? - Using ASP.NET MVC model binding with overly broad models exposes an application to over-posting attacks. Over-posting could enable attackers to change application data beyond what the developer intended, such as overriding the price for an item or the security privileges for an account. Applications should use action-specific binding models (or specific allowed property filter lists) to provide an explicit contract for what untrusted input to allow via model binding. 
+* Is having separate binding models just duplicating code? - No, it is a matter of separation of concerns. If you reuse database models in action methods, youâ€™re saying any property (or sub-property) in that class can be set by the user in an HTTP request. If thatâ€™s not what you want MVC to do, you need a filter list or a separate class shape to show MVC what data can come from user input instead. 
+* If I have separate binding models for user input, do I have to duplicate all my data annotation attributes? - Not necessarily. You can use MetadataTypeAttribute on the database model class to link to the metadata on a model binding class. Just note that the type referenced by the MetadataTypeAttribute must be a subset of the referencing type (it can have fewer properties, but not more). 
+* Moving data back and forth between user input models and database models is tedious. Can I just copy over all properties using reflection? - Yes. The only properties that appear in the binding models are the ones you have determined to be safe for user input. Thereâ€™s no security reason that prevents using reflection to copy over all properties that exist in common between these two models. 
+* What about [Bind(Exclude ="â€¦")]. Can I use that instead of having separate binding models? - This approach is not recommended. Using [Bind(Exclude ="â€¦")] means that any new property is bindable by default. When a new property is added, thereâ€™s an extra step to remember to keep things secure, rather than having the design be secure by default. Depending on the developer checking this list every time a property is added is risky. 
+* Is [Bind(Include ="â€¦")] useful for Edit operations? - No. [Bind(Include ="â€¦")] is only suitable for INSERT-style operations (adding new data). For UPDATE-style operations (revising existing data), use another approach, like having separate binding models or passing an explicit list of allowed properties to UpdateModel or TryUpdateModel. Adding a [Bind(Include ="â€¦")] attribute on an Edit operation means that MVC will create an object instance and set only the listed properties, leaving all others at their default values. When the data is persisted, it will entirely replace the existing entity, resetting the values for any omitted properties to their defaults. For example, if IsAdmin was omitted from a [Bind(Include ="â€¦")] attribute on an Edit operation, any user whose name was edited via this action would be reset to IsAdmin = false (any edited user would lose administrator status). If you want to prevent updates to certain properties, use one of the other approaches above. Note that some versions of MVC tooling generate controller classes with [Bind(Include ="â€¦")] on Edit actions and imply that removing a property from that list will prevent over-posting attacks. However, as described above, that approach does not work as intended and instead will reset any data in the omitted properties to their default values. 
+* For Create operations, are there any caveats using [Bind(Include ="â€¦")] rather than separate binding models? - Yes. First this approach does not work for Edit scenarios, requiring maintaining two separate approaches for mitigating all over-posting vulnerabilities. Second, separate binding models enforce separation of concerns between the shape used for user input and the shape used for persistence, something [Bind(Include ="â€¦")] does not do. Third, note that [Bind(Include ="â€¦")] can only handle top-level properties; you cannot allow only portions of sub-properties (such as "Details.Name") in the attribute. Finally, and perhaps most importantly, using [Bind(Include ="â€¦")] adds an extra step that must be remembered any time the class is used for model binding. If a new action method binds to the data class directly and forgets to include a [Bind(Include ="â€¦")] attribute, it can be vulnerable to over-posting attacks, so the [Bind(Include ="â€¦")] approach is somewhat less secure by default. If you use [Bind(Include ="â€¦")], take care always to remember to specify it every time your data classes appear as action method parameters. 
+* For Create operations, what about putting the [Bind(Include ="â€¦")] attribute on the model class itself? Doesnâ€™t this approach avoid the need to remember putting the attribute on every action method? - This approach works in some cases. Using [Bind(Include ="â€¦")] on the model type itself (rather than on action parameters using this class), does avoid the need to remember to include the [Bind(Include ="â€¦")] attribute on every action method. Using the attribute directly on the class effectively creates a separate surface area of this class for model binding purposes. However, this approach only allows for one model binding shape per model class. If one action method needs to allow model binding of a field (for example, an administrator-only action that updates user roles) and other actions need to prevent model binding of this field, this approach will not work. Each class can only have one model binding shape; if different actions need different model binding shapes, they need to represent these separate shapes using either separate model binding classes or separate [Bind(Include ="â€¦")] attributes on the action methods. 
+* What are binding models? Are they the same thing as view models? - These are two related concepts. The term binding model refers to a model class used in an actionâ€™s parameter list (the shape passed from MVC model binding to the action method). The term view model refers to a model class passed from an action method to a view. Using a view-specific model is a common approach for passing data from an action method to a view. Often, this shape is also suitable for model binding, and the term â€œview modelâ€ can be used to refer the same model used in both places. To be precise, this procedure talks specifically about binding models, focusing on the shape passed to the action, which is what matters for mass assignment purposes. 
 
 ## <a id="rendering"></a>Encode untrusted web output prior to rendering
 
@@ -104,9 +409,23 @@
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, Web Forms, MVC5, MVC6 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [How to prevent Cross-site scripting in ASP.NET](http://msdn.microsoft.com/library/ms998274.aspx), [Cross-site Scripting](http://cwe.mitre.org/data/definitions/79.html), [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
+
+Cross-site scripting (commonly abbreviated as XSS) is an attack vector for online services or any application/component that consumes input from the web. XSS vulnerabilities may allow an attacker to execute script on another user's machine through a vulnerable web application. Malicious scripts can be used to steal cookies and otherwise tamper with a victim's machine through JavaScript. XSS is prevented by validating user input, ensuring it is well formed and encoding before it is rendered in a web page. Input validation and output encoding can be done by using Web Protection Library. For Managed code (C\#, VB.net, etc), use one or more appropriate encoding methods from the Web Protection (Anti-XSS) Library, depending on the context where the user input gets manifested: 
+
+```C#
+* Encoder.HtmlEncode 
+* Encoder.HtmlAttributeEncode 
+* Encoder.JavaScriptEncode 
+* Encoder.UrlEncode
+* Encoder.VisualBasicScriptEncode 
+* Encoder.XmlEncode 
+* Encoder.XmlAttributeEncode 
+* Encoder.CssEncode 
+* Encoder.LdapEncode 
+```
 
 ## <a id="typemodel"></a>Perform input validation and filtering on all string type Model properties
 
@@ -114,9 +433,18 @@
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, MVC5, MVC6 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Adding Validation](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validating Model Data in an MVC Application](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Guiding Principles For Your ASP.NET MVC Applications](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+
+All the input parameters must be validated before they are used in the application to ensure that the application is safeguarded against malicious user inputs. Validate the input values using regular expression validations on server side with a whitelist validation strategy. Unsanitized user inputs / parameters passed to the methods can cause code injection vulnerabilities. 
+
+For web applications, entry points can also include form fields, QueryStrings, cookies, HTTP headers, and web service parameters. 
+
+The following input validation checks must be performed upon model binding:
+
+* The model properties should be annotated with RegularExpression annotation, for accepting allowed characters and maximum permissible length
+* The controller methods should perform ModelState validity
 
 ## <a id="richtext"></a>Sanitization should be applied on form fields that accept all characters e.g, rich text editor
 
@@ -126,7 +454,21 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Encode Unsafe Input](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML Sanitizer](https://github.com/mganss/HtmlSanitizer) |
+
+Identify all static markup tags that you want to use. A common practice is to restrict formatting to safe HTML elements, such as <b> (bold) and <i> (italic). 
+
+Before writing the data, HTML-encode it. This makes any malicious script safe by causing it to be handled as text, not as executable code. 
+
+1. Disable ASP.NET request validation by the adding the ValidateRequest="false" attribute to the @ Page directive. 
+2. Encode the string input with the HtmlEncode method. 
+3. Use a StringBuilder and call its Replace method to selectively remove the encoding on the HTML elements that you want to permit. 
+
+The pagein the references disables ASP.NET request validation by setting ValidateRequest="false". It HTML-encodes the input and selectively allows the <b> and <i> Alternatively, a .NET library for HTML sanitization may also be used. 
+
+HtmlSanitizer is a .NET library for cleaning HTML fragments and documents from constructs that can lead to XSS attacks. It uses AngleSharp to parse, manipulate, and render HTML and CSS. HtmlSanitizer can be installed as a NuGet package, and the user input can be passed through relevant HTML or CSS sanitization methods, as applicable, on the server side. Please note that Sanitization as a security control should be considered only as a last option. 
+
+Input validation and Output Encoding are considered better security controls. 
 
 ## <a id="inbuilt-encode"></a>Do not assign DOM elements to sinks that do not have inbuilt encoding
 
@@ -138,6 +480,19 @@
 | Attributes              | N/A  |
 | References              | N/A  |
 
+Many javascript functions don't do encoding by default. When assigning untrusted input to DOM elaments via such functions, may result in cross site script (XSS) executions. 
+
+Following are insecure examples: 
+
+```
+document.getElementByID("div1").innerHtml = value;
+$("#userName").html(res.Name);
+return $('<div/>').html(value)
+$('body').append(resHTML);   
+```
+
+Don't use innerHtml; instead use innerText. Similarly, instead of $("#elm").html(), use $("#elm").text() 
+
 ## <a id="redirect-safe"></a>Validate all redirects within the application are closed or done safely
 
 | #                       | #            |
@@ -146,7 +501,13 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [The OAuth 2.0 Authorization Framework - Open Redirectors](http://tools.ietf.org/html/rfc6749#section-10.15) |
+
+Application design requiring redirection to a user-supplied location must constrain the possible redirection targets to a predefined "safe" list of sites or domains. All redirects in the application must be closed/safe. 
+
+To do this:
+* Identify all redirects
+* Implement an appropriate mitigation for each redirect. Appropriate mitigations include redirect whitelists or user confirmation. If a web site or service with an open redirect vulnerability uses Facebook/OAuth/OpenID identity providers, an attacker can steal a user's logon token and impersonate that user. This is an inherent risk when using OAuth, which is documented in RFC 6749 "The OAuth 2.0 Authorization Framework", Section 10.15 "Open Redirectors" Similarly, users' credentials can be compromised by spear phishing attacks using open redirects
 
 ## <a id="string-method"></a>Implement input validation on all string type parameters accepted by Controller methods
 
@@ -154,9 +515,11 @@
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, MVC5, MVC6 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Validating Model Data in an MVC Application](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Guiding Principles For Your ASP.NET MVC Applications](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+
+For methods that just accept primitive data type, and not models as argument,input validation using Regular Expression should be done. Here Regex.IsMatch should be used with a valid regex pattern. If the input doesn't match the specified Regular Expression, control should not proceed further, and an adequate warning regarding validation failure should be displyed. 
 
 ## <a id="dos-expression"></a>Set upper limit timeout for regular expression processing to prevent DoS due to bad regular expressions
 
@@ -164,9 +527,15 @@
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, Web Forms, MVC5, MVC6  |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [DefaultRegexMatchTimeout Property ](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
+
+To ensure denial of service attacks against badly created regular expressions, that cause a lot of backtracking, set the global default timeout. If the processing time takes longer than the defined upper limit, it would throw a Timeout exception. If nothing is configured, the timeout would be infinite. For example, the following configuration will throw a RegexMatchTimeoutException, if the processing takes more than 5 seconds: 
+
+```C#
+<httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
+```
 
 ## <a id="html-razor"></a>Avoid using Html.Raw in Razor views
 
@@ -174,9 +543,23 @@
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | MVC5, MVC6 |
 | Attributes              | N/A  |
 | References              | N/A  |
+
+ASP.Net WebPages (Razor) perform automatic HTML encoding. All strings printed by embedded code nuggets (@ blocks) are automatically HTML-encoded. However, when HtmlHelper.Raw Method is invoked, it returns markup that is not HTML encoded. If Html.Raw() helper method is used, it bypasses the automatic encodig protection that Razor provides. Following is an insecure example: 
+
+```C#
+<div class="form-group">
+            @Html.Raw(Model.AccountConfirmText)
+        </div>
+        <div class="form-group">
+            @Html.Raw(Model.PaymentConfirmText)
+        </div>
+</div>
+```
+
+Do not use Html.Raw() unless you need to display markup. This method does not perform output encoding implicitly. Use other ASP.NET helpers e.g., @Html.DisplayFor() 
 
 ## <a id="stored-proc"></a>Do not use dynamic queries in stored procedures
 
@@ -188,15 +571,108 @@
 | Attributes              | N/A  |
 | References              | N/A  |
 
+A SQL injection attack exploits vulnerabilities in input validation to run arbitrary commands in the database. It can occur when your application uses input to construct dynamic SQL statements to access the database. It can also occur if your code uses stored procedures that are passed strings that contain raw user input. Using the SQL injection attack, the attacker can execute arbitrary commands in the database. 
+
+All SQL statements (including the SQL statements in stored procedures) must be parameterized. Parameterized SQL statements will accept characters that have special meaning to SQL (like single quote) without problems because they are strongly typed. Following is an example of insecure dynamic Stored Procedure: 
+
+```C#
+CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
+(
+  @productName nvarchar(200) = NULL,
+  @startPrice float = NULL,
+  @endPrice float = NULL
+)
+AS
+ BEGIN
+  DECLARE @sql nvarchar(max)
+  SELECT @sql = ' SELECT ProductID, ProductName, Description, UnitPrice, ImagePath' +
+       ' FROM dbo.Products WHERE 1 = 1 '
+       PRINT @sql
+  IF @productName IS NOT NULL
+     SELECT @sql = @sql + ' AND ProductName LIKE ''%' + @productName + '%'''
+  IF @startPrice IS NOT NULL
+     SELECT @sql = @sql + ' AND UnitPrice > ''' + CONVERT(VARCHAR(10),@startPrice) + ''''
+  IF @endPrice IS NOT NULL
+     SELECT @sql = @sql + ' AND UnitPrice < ''' + CONVERT(VARCHAR(10),@endPrice) + ''''
+
+  PRINT @sql
+  EXEC(@sql)
+ END
+```
+
+Following is the same stored procedure implemented securely: 
+
+```C#
+CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
+(
+             @productName nvarchar(200) = NULL,
+             @startPrice float = NULL,
+             @endPrice float = NULL
+)
+AS
+       BEGIN
+             SELECT ProductID, ProductName, Description, UnitPrice, ImagePath
+             FROM dbo.Products where
+             (@productName IS NULL or ProductName like '%'+ @productName +'%')
+             AND
+             (@startPrice IS NULL or UnitPrice > @startPrice)
+             AND
+             (@endPrice IS NULL or UnitPrice < @endPrice)         
+       END
+```
+
 ## <a id="validation-api"></a>Ensure that model validation is done on Web API methods
 
 | #                       | #            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | MVC5, MVC6 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Model Validation in ASP.NET Web API ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+
+When a client sends data to a web API, it is mandatory to validate the data before doing any processing. For ASP.NET Web APIs which accept models as input, use data annotations on models to set validation rules on the properties of the model. The following code demonstrates the same: 
+
+```C#
+using System.ComponentModel.DataAnnotations;
+
+namespace MyApi.Models
+{
+    public class Product
+    {
+        public int Id { get; set; }
+        [Required]
+        [RegularExpression(@"^[a-zA-Z0-9]*$", ErrorMessage="Only alphanumeric characters are allowed.")]
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        [Range(0, 999)]
+        public double Weight { get; set; }
+    }
+}
+
+In the action method of the API controllers, validity of the model has to be explicitly checked as shown below: 
+
+```C#
+namespace MyApi.Controllers
+{
+    public class ProductsController : ApiController
+    {
+        public HttpResponseMessage Post(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                // Do something with the product (not shown).
+
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+    }
+}
+```
 
 ## <a id="string-api"></a>Implement input validation on all string type parameters accepted by Web API methods
 
@@ -204,9 +680,11 @@
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, MVC 5, MVC 6 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Validating Model Data in an MVC Application](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Guiding Principles For Your ASP.NET MVC Applications](http://msdn.microsoft.com/magazine/dd942822.aspx) |
+
+For methods that just accept primitive data type, and not models as argument,input validation using Regular Expression should be done. Here Regex.IsMatch should be used with a valid regex pattern. If the input doesn't match the specified Regular Expression, control should not proceed further, and an adequate warning regarding validation failure should be displyed. 
 
 ## <a id="typesafe-api"></a>Ensure that type-safe parameters are used in Web API for data access
 
@@ -218,6 +696,27 @@
 | Attributes              | N/A  |
 | References              | N/A  |
 
+If you use the Parameters collection, SQL treats the input is as a literal value rather then as executable code. The Parameters collection can be used to enforce type and length constraints on input data. Values outside of the range trigger an exception. If type-safe SQL parameters are not used, attackers might be able to execute injection attacks that are embedded in the unfiltered input. 
+
+Use type safe parameters when constructing SQL queries to avoid possible SQL injection attacks that can occur with unfiltered input. You can use type safe parameters with stored procedures and with dynamic SQL statements. Parameters are treated as literal values by the database and not as executable code. Parameters are also checked for type and length. The following code shows how to use type safe parameters with the SqlParameterCollection when calling a stored procedure. 
+
+```C#
+using System.Data;
+using System.Data.SqlClient;
+
+using (SqlConnection connection = new SqlConnection(connectionString))
+{ 
+DataSet userDataset = new DataSet(); 
+SqlDataAdapter myCommand = new SqlDataAdapter(LoginStoredProcedure", connection); 
+myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
+myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
+myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
+myCommand.Fill(userDataset);
+}  
+```
+
+In the preceding code example, the input value cannot be longer than 11 characters. If the data does not conform to the type or length defined by the parameter, the SqlParameter class throws an exception. 
+
 ## <a id="sql-docdb"></a>Use parametrized SQL queries for DocumentDB
 
 | #                       | #            |
@@ -226,7 +725,9 @@
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [Announcing SQL Parameterization in DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+
+Although DocumentDB only supports read-only queries, SQL injection is still possible if queries are constructed by concatinating with user input. It might be possible for a user to gain access to data they shouldn’t be accessing within the same collection by crafting malicious SQL queries. Use parameterized SQL queries if queries are constructed based on user input. 
 
 ## <a id="schema-binding"></a>WCF Input validation through Schema binding
 
@@ -234,9 +735,15 @@
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, NET Framework 3 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
+
+Lack of validation leads to different type injection attacks. 
+
+EXPLANATION Message validation represents one line of defense in the protection of your WCF application. With this approach, you validate messages using schemas to protect WCF service operations from attack by a malicious client. Validate all messages received by the client to protect the client from attack by a malicious service. Message validation makes it possible to validate messages when operations consume message contracts or data contracts, which cannot be done using parameter validation. Message validation allows you to create validation logic inside schemas, thereby providing more flexibility and reducing development time. Schemas can be reused across different applications inside the organization, creating standards for data representation. Additionally, message validation allows you to protect operations when they consume more complex data types involving contracts representing business logic 
+
+RECOMMENDATIONS To perform message validation, you first build a schema that represents the operations of your service and the data types consumed by those operations. You then create a .NET class that implements a custom client message inspector and custom dispatcher message inspector to validate the messages sent/received to/from the service. Next, you implement a custom endpoint behavior to enable message validation on both the client and the service. Finally, you implement a custom configuration element on the class that allows you to expose the extended custom endpoint behavior in the configuration file of the service or the client" 
 
 ## <a id="parameters"></a>WCF- Input validation through Parameter Inspectors
 
@@ -244,6 +751,12 @@
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
-| Applicable Technologies | Generic |
+| Applicable Technologies | Generic, NET Framework 3 |
 | Attributes              | N/A  |
-| References              | N/A  |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
+
+EXPLANATION Input and data validation represents one important line of defense in the protection of your WCF application. You should validate all parameters exposed in WCF service operations to protect the service from attack by a malicious client. Conversely, you should also validate all return values received by the client to protect the client from attack by a malicious service 
+
+RECOMMENDATIONS WCF provides different extensibility points that allow you to customize the WCF runtime behavior by creating custom extensions. Message Inspectors and Parameter Inspectors are two extensibility mechanisms used to gain greater control over the data passing between a client and a service. You should use parameter inspectors for input validation and use message inspectors only when you need to inspect the entire message flowing in and out of a service. 
+
+To perform input validation, you will build a .NET class and implement a custom parameter inspector in order to validate parameters on operations in your service. You will then implement a custom endpoint behavior to enable validation on both the client and the service. Finally, you will implement a custom configuration element on the class that allows you to expose the extended custom endpoint behavior in the configuration file of the service or the client

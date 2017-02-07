@@ -1,7 +1,7 @@
 
 
   ---
-  title: Session Management: Threat Modeling Tool | Microsoft Docs
+  title: Session Management | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
   description: mitigations for threats within session management exposed in the Threat Modeling Tool 
   services: ''
   documentationcenter: ''
@@ -15,7 +15,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 01/25/2017
+  ms.date: 02/07/2017
   ms.author: rodsan
 ---
 
@@ -29,8 +29,6 @@
 | Identity Server | <ul><li>[Implement proper logout when using Identity Server](#proper-logout)</li></ul> |
 | Web Application | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logoout)</li></ul> |
 | Web API | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
-
-# Mitigations
 
 ## <a id="logout-adal"></a>Implement proper logout using ADAL methods when using Azure AD
 
@@ -159,7 +157,7 @@ IdentityServer supports the ability to federate with external identity providers
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | EnvironmentType - OnPrem |
-| References              | [httpCookies Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](http://msdn.microsoft.com/en-us/library/system.web.httpcookie.secure.aspx) |
+| References              | [httpCookies Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 
 Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over
 HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS.
@@ -226,7 +224,7 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 | SDL Phase               | Build |  
 | Applicable Technologies | Web Forms |
 | Attributes              | N/A  |
-| References              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.requiressl.aspx) |
+| References              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
 
 The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute . 
 The following code example sets the requireSSL attribute in the Web.config file.
@@ -367,7 +365,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | SDL Phase               | Build |  
 | Applicable Technologies | Web Forms |
 | Attributes              | N/A  |
-| References              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/en-us/library/ms972969.aspx#securitybarriers_topic2) |
+| References              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
 
 CSRF attacks in WebForm based applications can be mitigated by setting ViewStateUserKey to a random string that varies for each user - user ID or, better yet, session ID. For a number of technical and social reasons, session ID is a much better fit because a session ID is unpredictable, times out, and varies on a per-user basis.
 Here's the code you need to have in all of your pages:
@@ -387,7 +385,7 @@ void Page_Init (object sender, EventArgs e) {
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/en-us/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| References              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
 
 Session timeout represents the event occuring when a user do not perform any action on a web site during a interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (ie. "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.
 
@@ -406,7 +404,7 @@ Session timeout represents the event occuring when a user do not perform any act
 | SDL Phase               | Build |  
 | Applicable Technologies | Web Forms |
 | Attributes              | N/A  |
-| References              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/en-gb/library/1d3t3c61(v=vs.100).aspx) |
+| References              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 
 Set the Forms Authentication Ticket cookie timeout to 15 minutes:
 

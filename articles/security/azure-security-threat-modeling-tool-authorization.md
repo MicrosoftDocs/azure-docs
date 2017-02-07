@@ -1,5 +1,5 @@
 ---
-  title: Authorization: Threat Modeling Tool | Microsoft Docs
+  title: Authorization | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
   description: mitigations for threats exposed in the Threat Modeling Tool 
   services: ''
   documentationcenter: ''
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 02/03/2017
+  ms.date: 02/07/2017
   ms.author: rodsan
 ---
 
@@ -36,8 +36,6 @@
 | Web API | <ul><li>[Implement proper authorization mechanism in ASP.NET Web API](#authz-aspnet)</li></ul> |
 | IoT Device | <ul><li>[Perform authorization checks in the device if it supports various actions that require different permission levels](#device-permission)</li></ul> |
 | IoT Field Gateway | <ul><li>[Perform authorization checks in the Field Gateway if it supports various actions that require different permission levels](#field-permission)</li></ul> |
-
-# Mitigations
 
 ## <a id="acl-restricted-access"></a>Ensure that proper ACLs are configured to restrict unauthorized access to data on the device
 
@@ -130,6 +128,7 @@ SELECT data
 FROM personaldata 
 WHERE userID=:id < - session var 
 ```
+
 Now an possible attacker can not tamper and change the application operation since the identifier for retrieving the data is handeld server-side.
 
 ## <a id="enumerable-browsing"></a>Ensure that content and resources are not enumerable or accessible via forceful browsing
@@ -145,6 +144,7 @@ Now an possible attacker can not tamper and change the application operation sin
 Sensitive static and configuration files should not be kept in the webroot. For content not required to be public, either proper access controls should be applied or removal of the content itself.
 
 Also, forceful browsing is usually combined with Brute Force techniques to gather information by attempting to access as many URLs as possible to enumerate directories and files on a server. Attackers may check for all variations of commonly existing files. For example, a password file search would encompass files including psswd.txt, password.htm, password.dat, and other variations.
+
 To mitigate this, capabilities for detection of bruteforce attempts should be included.
 
 ## <a id="privileged-server"></a>Ensure that least-privileged accounts are used to connect to Database server
@@ -155,7 +155,7 @@ To mitigate this, capabilities for detection of bruteforce attempts should be in
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [SQL Database permissions hierarchy](https://msdn.microsoft.com/en-us/library/ms191465), [SQL database securables](https://msdn.microsoft.com/en-us/library/ms190401) |
+| References              | [SQL Database permissions hierarchy](https://msdn.microsoft.com/library/ms191465), [SQL database securables](https://msdn.microsoft.com/library/ms190401) |
 
 Least-privileged accounts should be used to connect to the database. Application login should be restricted in the database and should only execute selected stored procedures. Application's login should have no direct table access. 
 
@@ -185,7 +185,7 @@ Note: RLS as an out-of-the-box database feature is applicable only to SQL Server
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [SQL Database permissions hierarchy](https://msdn.microsoft.com/en-us/library/ms191465), [SQL database securables](https://msdn.microsoft.com/en-us/library/ms190401) |
+| References              | [SQL Database permissions hierarchy](https://msdn.microsoft.com/library/ms191465), [SQL database securables](https://msdn.microsoft.com/library/ms190401) |
 
 Members of the SysAdmin fixed server role should be very limited and never contain accounts used by applications.  Please review the list of users in the role and remove any unnecessary accounts. The following query can be used to audit users in sysadmin role:
 
@@ -197,7 +197,7 @@ Members of the SysAdmin fixed server role should be very limited and never conta
 | SDL Phase               | Deployment |  
 | Applicable Technologies | Generic |
 | Attributes              | Gateway choice - Azure IoT Hub |
-| References              | [Iot Hub Access Control](https://azure.microsoft.com/en-in/documentation/articles/iot-hub-devguide/#Security) |
+| References              | [Iot Hub Access Control](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
 
 Provide least privilege permissions to various components that connect to Cloud Gateway (IoT Hub). Typical example is – Device management/provisioning component uses registryread/write, Event Processor (ASA) uses Service Connect. Individual devices connect using Device credentials
 
@@ -209,7 +209,7 @@ Provide least privilege permissions to various components that connect to Cloud 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/en-in/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 
 A SAS key is used to generate individual device tokens. Use a send-only permissions SAS key while generating the device token for a given publisher
 
@@ -221,7 +221,7 @@ A SAS key is used to generate individual device tokens. Use a send-only permissi
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/en-in/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 
 A token that grants direct access to the event hub should not be given to the device. Using a least privileged token for the device that gives access only to a publisher would help identify and blacklist it if found to be a rogue or compromised device.
 
@@ -233,7 +233,7 @@ A token that grants direct access to the event hub should not be given to the de
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/en-in/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| References              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 
 Provide least privilege permissions to various back-end applications that connect to the Event Hub. Generate separate SAS keys for each back-end application and only provide the required permissions - Send, Recieve or Manage to them.
 
@@ -257,7 +257,7 @@ A resource token is associated with a DocumentDB permission resource and capture
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Use role assignments to manage access to your Azure subscription resources](https://azure.microsoft.com/en-in/documentation/articles/role-based-access-control-configure/)  |
+| References              | [Use role assignments to manage access to your Azure subscription resources](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
 
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. 
 
@@ -269,7 +269,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 | SDL Phase               | Deployment |  
 | Applicable Technologies | Generic |
 | Attributes              | Environment - Azure |
-| References              | [Role-based access control for Service Fabric clients](https://azure.microsoft.com/en-in/documentation/articles/service-fabric-cluster-security-roles/) |
+| References              | [Role-based access control for Service Fabric clients](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
 
 Azure Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure.
 
@@ -309,7 +309,7 @@ Perform security modeling of portal accounts keeping in mind that the security m
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | StorageType - Table |
-| References              | [How to delegate access to objects in your Azure storage account using SAS](https://azure.microsoft.com/en-in/documentation/articles/storage-security-guide/#_data-plane-security) |
+| References              | [How to delegate access to objects in your Azure storage account using SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
 
 In certain business scenarios, Azure Table Storage may be required to store sensitive data that caters to different parties. E.g., sensitive data pertaining to different countries. In such cases, SAS signatures can be constructed by specifying the partition and row key ranges, such that a user can access data specific to a particular country. 
 
@@ -321,7 +321,7 @@ In certain business scenarios, Azure Table Storage may be required to store sens
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [How to secure your storage account with Role-Based Access Control (RBAC)](https://azure.microsoft.com/en-gb/documentation/articles/storage-security-guide/#management-plane-security) |
+| References              | [How to secure your storage account with Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 
 When you create a new storage account, you select a deployment model of Classic or Azure Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account. 
 
@@ -350,9 +350,10 @@ If the application can access any of these files, it denotes that the applicatio
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic, NET Framework 3 |
 | Attributes              | N/A  |
-| References              | [MSDN](https://msdn.microsoft.com/en-us/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 
 The system uses a weak class reference, which might allow an attacker to execute unauthorized code. The program references a user-defined class that is not uniquely identified. When .NET loads this weakly identified class, the CLR type loader searches for the class in the following locations in the specified order:
+
 * If the assembly of the type is known, the loader searches the configuration file's redirect locations, GAC, the current assembly using configuration information, and the application base directory.
 * If the assembly is unknown, the loader searches the current assembly, mscorlib, and the location returned by the TypeResolve event handler.
 This CLR search order can be modified with hooks such as the Type Forwarding mechanism and the AppDomain.TypeResolve event.
@@ -394,7 +395,7 @@ Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"" />
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic, NET Framework 3 |
 | Attributes              | N/A  |
-| References              | [MSDN](https://msdn.microsoft.com/en-us/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 
 This service does not use an authorization control. When a client calls a particular WCF service, WCF provides various authorization schemes that verify that the caller has permission to execute the service method on the server. If authorization controls are not enabled for WCF services, an authenticated user can achieve privilege escalation.
 
@@ -409,9 +410,11 @@ Example 1: The following configuration instructs WCF to not check the authorizat
 </serviceBehaviors>
 </behaviors>
 ```
+
 Use a service authorization scheme to verify that the caller of the service method is authorized to do so. WCF provides two modes and allows the definition of a custom authorization scheme. The UseWindowsGroups mode uses Windows roles and users and the UseAspNetRoles mode uses an ASP.NET role provider, such as SQL Server, to authenticate.
 
 Example 2: The following configuration instructs WCF to make sure that the client is part of the Administrators group before executing the Add service:
+
 ```
 <behaviors>
 <serviceBehaviors>
@@ -422,7 +425,9 @@ Example 2: The following configuration instructs WCF to make sure that the clien
 </serviceBehaviors>
 </behaviors>
 ```
+
 The service is then declared as the following:
+
 ```
 [PrincipalPermission(SecurityAction.Demand,
 Role = ""Builtin\\Administrators"")]
@@ -498,7 +503,9 @@ public class CustomController : ApiController
 | Attributes              | N/A  |
 | References              | N/A  |
 
-The Device should authorize the caller to check if the caller has the required permissions to perform the action requested. For e.g. Lets say the device is a Smart Door Lock that can be monitored from the cloud, plus it provides functionalities like Remotely locking the door. The Smart Door Lock provides unlocking functionality only when someone physically comes near the door with a Card. In this case, the implementation of the remote command and control should be done in such a way that it does not provide any functionality to unlock the door as the cloud gateway is not authorized to send a command to unlock the door.
+The Device should authorize the caller to check if the caller has the required permissions to perform the action requested. For e.g. Lets say the device is a Smart Door Lock that can be monitored from the cloud, plus it provides functionalities like Remotely locking the door. 
+
+The Smart Door Lock provides unlocking functionality only when someone physically comes near the door with a Card. In this case, the implementation of the remote command and control should be done in such a way that it does not provide any functionality to unlock the door as the cloud gateway is not authorized to send a command to unlock the door.
 
 ## <a id="field-permission"></a>Perform authorization checks in the Field Gateway if it supports various actions that require different permission levels
 

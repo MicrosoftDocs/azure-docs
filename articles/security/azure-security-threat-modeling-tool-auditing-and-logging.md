@@ -1,7 +1,5 @@
-
-
   ---
-  title: Auditing and Logging: Threat Modeling Tool | Microsoft Docs
+  title: Auditing and Logging | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
   description: mitigations for threats exposed in the Threat Modeling Tool 
   services: ''
   documentationcenter: ''
@@ -15,7 +13,7 @@
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: article
-  ms.date: 01/23/2017
+  ms.date: 02/07/2017
   ms.author: rodsan
 ---
 
@@ -30,8 +28,6 @@
 | Web API | <ul><li>[Ensure that auditing and logging is enforced on Web API](#logging-web-api)</li></ul> |
 | IoT Field Gateway | <ul><li>[Ensure that appropriate auditing and logging is enforced on Field Gateway](#logging-field-gateway)</li></ul> |
 | IoT Cloud Gateway | <ul><li>[Ensure that appropriate auditing and logging is enforced on Cloud Gateway](#logging-cloud-gateway)</li></ul> |
-
-# Mitigations
 
 ## <a id="sensitive-entities"></a>Identify sensitive entities in your solution and implement change auditing
 
@@ -80,6 +76,7 @@ Log rotation is an automated process used in system administration in which date
 | References              | N/A  |
 
 Check that you do not log any sensitive data that a user submits to your site. Check for intentional logging as well as side effects caused by design issues. Examples of sensitive data include:
+
 * User Credentials 
 * Social Security number or other identifying information 
 * Credit card numbers or other financial information 
@@ -98,7 +95,9 @@ Check that you do not log any sensitive data that a user submits to your site. C
 | References              | N/A  |
 
 Check to ensure access rights to log files are appropriately set. Application accounts should have write-only access and operators and support personnel should have read-only access as needed.  Administrators accounts are the only accounts which should have full access.
+
 Check Windows ACL on log files to ensure they are properly restricted:
+
 * Application accounts should have write-only access 
 * Operators and support personnel should have read-only access as needed 
 * Administrators are the only accounts that should have full access
@@ -128,6 +127,7 @@ Ensure that the application monitors user management events such as successful a
 Controls should be in place which throw security exception in case of application misuse. E.g., If input validation is in place and an attacker attempts to inject malicious code that does not match the regex, a security exception can be thrown which can be an indicative of system misuse
 
 For example, it is recommended to have security exceptions logged and actions taken for the following issues:
+
 * Input validation
 * CSRF violations
 * Brute force (upper limit for number of requests per user per resource)
@@ -153,7 +153,7 @@ Azure provides built-in diagnostics to assist with debugging an App Service web 
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Configure Login Auditing](https://msdn.microsoft.com/en-us/library/ms175850.aspx) |
+| References              | [Configure Login Auditing](https://msdn.microsoft.com/library/ms175850.aspx) |
 
 Database Server login auditing must be enabled to detect/confirm password guessing attacks. It is important to capture failed login attempts. Capturing both successful and failed login attempts provides additional benefit during forensic investigations
 
@@ -165,9 +165,11 @@ Database Server login auditing must be enabled to detect/confirm password guessi
 | SDL Phase               | Build |  
 | Applicable Technologies | SQL Azure |
 | Attributes              | SQL Version - V12 |
-| References              | [Get Started with SQL Database Threat Detection](https://azure.microsoft.com/en-in/documentation/articles/sql-database-threat-detection-get-started/) |
+| References              | [Get Started with SQL Database Threat Detection](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/) |
 
-Threat Detection detects anomalous database activities indicating potential security threats to the database. It provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users can explore the suspicious events using Azure SQL Database Auditing to determine if they result from an attempt to access, breach or exploit data in the database. Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
+Threat Detection detects anomalous database activities indicating potential security threats to the database. It provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users can explore the suspicious events using Azure SQL Database Auditing to determine if they result from an attempt to access, breach or exploit data in the database. 
+
+Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
 ## <a id="analytics"></a>Use Azure Storage Analytics to audit access of Azure Storage
 
@@ -177,7 +179,7 @@ Threat Detection detects anomalous database activities indicating potential secu
 | SDL Phase               | Deployment |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A |
-| References              | [Using Storage Analytics to monitor authorization type](https://azure.microsoft.com/en-in/documentation/articles/storage-security-guide/#storage-analytics) |
+| References              | [Using Storage Analytics to monitor authorization type](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
 
 For each storage account, one can enable Azure Storage Analytics to perform logging and store metrics data. The storage analytics logs provide important information such as authentication method used by someone when they access storage. 
 
@@ -191,9 +193,10 @@ This can be really helpful if you are tightly guarding access to storage. For ex
 | SDL Phase               | Build |  
 | Applicable Technologies | .NET Framework |
 | Attributes              | N/A  |
-| References              | [MSDN](https://msdn.microsoft.com/en-us/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 
 The lack of a proper audit trail after a security incident can hamper forensic efforts. Windows Communication Foundation (WCF) offers the ability to log successful and/or failed authentication attempts. Logging failed authentication attempts can warn administrators of potential brute-force attacks. Similarly, logging successful authentication events can provide a useful audit trail when a legitimate account is compromised. Enable WCF's service security audit feature. The following is an example configuration with auditing enabled:
+
 ```
 <system.serviceModel>
 <behaviors>
@@ -215,11 +218,12 @@ messageAuthenticationAuditLevel=""SuccessAndFailure"" />
 | SDL Phase               | Build |  
 | Applicable Technologies | .NET Framework |
 | Attributes              | N/A  |
-| References              | [MSDN](https://msdn.microsoft.com/en-us/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| References              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
 
 Developed solution is configured not to generate an exception when it fails to write to an audit log. If WCF is configured not to throw an exception when it is unable to write to an audit log, the program will not be notified of the failure and auditing of critical security events may not occur.
-### Example 1
-The `<behavior/>` element of the WCF configuration file below instructs WCF to not notify the application when WCF fails to write to an audit log.
+
+Example 1: The `<behavior/>` element of the WCF configuration file below instructs WCF to not notify the application when WCF fails to write to an audit log.
+
 ````
 <behaviors>
 <serviceBehaviors>
@@ -232,6 +236,7 @@ messageAuthenticationAuditLevel="Success" />
 </serviceBehaviors>
 </behaviors>
 ````
+
 Configure WCF to notify the program whenever it is unable to write to an audit log. The program should have an alternative notification scheme in place to alert the organization that audit trails are not being maintained. 
 
 ## <a id="logging-web-api"></a>Ensure that auditing and logging is enforced on Web API
@@ -266,6 +271,12 @@ When multiple devices connect to a Field Gateway, ensure that connection attempt
 | SDL Phase               | Build |  
 | Applicable Technologies | Generic |
 | Attributes              | N/A  |
-| References              | [Introduction to IoT Hub operations monitoring](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-operations-monitoring/) |
+| References              | [Introduction to IoT Hub operations monitoring](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
 
-Design for collecting and storing audit data gathered through IoT Hub Operations Monitoring. Enable the following monitoring categories – "Device identity operations", "Device-to-cloud communications", "cloud-to-device communications", "Connections" and "File uploads"
+Design for collecting and storing audit data gathered through IoT Hub Operations Monitoring. Enable the following monitoring categories:
+
+* "Device identity operations"
+* "Device-to-cloud communications"
+* "Cloud-to-device communications"
+* "Connections"
+* "File uploads"
