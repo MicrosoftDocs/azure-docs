@@ -211,7 +211,7 @@
 ### [Deploy virtual array for CSP](storsimple-partner-csp-deploy.md)
 
 ## Release notes
-### [StorSimple release notes](https://aka.ms/storsimple-latest-relnote)
+### [StorSimple release notes](https://aka.ms/storsimple-virtual-array-latest-relnote)
 ### [CSP release notes](https://partner.microsoft.com/Support/whats-new)
 ### [StorSimple for CSP: FAQ](storsimple-partner-csp-faq.md)
 
