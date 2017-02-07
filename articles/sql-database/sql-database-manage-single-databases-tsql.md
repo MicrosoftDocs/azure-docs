@@ -46,7 +46,7 @@ Change your database max size using [Transact-SQL (T-SQL)](https://msdn.microsof
 > For a tutorial creating a database using Transact-SQL, see [Create a database - Azure portal](sql-database-get-started.md).
 >
 
-## Additional resources
+## Next steps
 * For an overview of management tools, see [Overview of management tools](sql-database-manage-overview.md).
 * To see how to perform management tasks using the Azure portal, see [Manage Azure SQL Databases using the Azure portal](sql-database-manage-portal.md).
 * To see how to perform management tasks using PowerShell, see [Manage Azure SQL Databases using PowerShell](sql-database-manage-powershell.md).
