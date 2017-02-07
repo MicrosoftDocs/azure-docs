@@ -99,11 +99,18 @@ For the configuration, you can use the [Azure Active Directory PowerShell Versio
 
 As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete and modify the trusted certificate authorities that are defined in your directory. 
 
-**Connect -** To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread) cmdlet:
+### Connect
+
+To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread) cmdlet:
 
     Connect-AzureAD 
 
-**Retrieve -** To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority) cmdlet. 
+
+### Retrieve 
+
+To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority) cmdlet. 
+
+    Get-AzureADTrustedCertificateAuthority 
  
 
 **Add -** To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority) cmdlet: 
