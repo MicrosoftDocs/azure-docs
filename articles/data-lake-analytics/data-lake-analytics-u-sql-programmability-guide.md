@@ -389,6 +389,7 @@ The advantage of code-behind is, that the tooling is taking care of the followin
 You can see the generated prologue and epilogue when you open the script:
 
 ![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
 **Figure 2**: Auto-generated prologue and epilogue for code-behind
 <br />
 
@@ -436,6 +437,7 @@ Our [U-SQL Github site](https://github.com/Azure/usql/) offers a set of shared e
 First we download the [Visual Studio project](https://github.com/Azure/usql/tree/master/Examples/DataFormats) to our local development environment (for example, with making a local copy with the GitHub tool for Windows). Then we open the solution in Visual Studio, right-click the project as explained above to register the assembly. While this assembly has two dependencies, we only have to include the Newtonsoft dependency since System.Xml is available in the Azure Data Lake already (it has to be explicitly referenced though). Figure 6 shows how we name the assembly (note that you can choose a different name without dots as well), and add the Newtonsoft dll as well. Each of the two assemblies will now be individually registered in the specified database (for example, JSONBlog).
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
+
 **Figure 6**: How to register the Microsoft.Analytics.Samples.Formats assembly from Visual Studio
 <br />
 
