@@ -33,7 +33,7 @@ For examples of complete templates, see [Create a Consumption plan-based Azure F
 You can use the examples in this article to create a baseline Azure Functions app. You'll need these resources for your app:
 
 * [Azure Storage](../storage/index.md) account
-* Hosting plan (Consumption plan or App Service plan)
+* Hosting plan (Consumption plan or Azure App Service plan)
 * Functions app (`type`: **Microsoft.Web/Site**, `kind`: **functionapp**)
 
 ## Parameters
@@ -44,7 +44,7 @@ You can use Azure Resource Manager to define parameters for values that you want
 
 When you define parameters, use the **allowedValues** field to specify which values a user can provide during deployment. To assign a value to the parameter, if no value is provided during deployment, use the **defaultValue** field.
 
-An Azure Resource Manager template uses the following parameters:
+An Azure Resource Manager template uses the following parameters.
 
 ### appName
 
@@ -122,7 +122,7 @@ Where to deploy the Functions app.
 
 Azure Resource Manager templates use variables to incorporate parameters, so you can use more specific settings in your template.
 
-In the next example, to meet Azure Storage account [naming requirements](../storage/storage-create-storage-account.md#create-a-storage-account), we use variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to convert the entered **appName** value to lowercase.
+In the next example, to meet Azure storage account [naming requirements](../storage/storage-create-storage-account.md#create-a-storage-account), we use variables to apply [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md) to convert the entered **appName** value to lowercase.
 
 ```json
 "variables": {
@@ -135,7 +135,7 @@ In the next example, to meet Azure Storage account [naming requirements](../stor
 
 ### Storage account
 
-An Azure Storage account is required for an Azure Functions app.
+An Azure storage account is required for an Azure Functions app.
 
 ```json
 {
