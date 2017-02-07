@@ -18,7 +18,7 @@ ms.author: awills
 ---
 
 # Live Metrics Stream: instant metrics for close monitoring
-Live Metrics Stream shows you your [Application Insights](app-insights-overview.md) metrics right at this very moment, with a near real time latency of 1 second. This is extremely useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
+Live Metrics Stream shows you your [Application Insights](app-insights-overview.md) metrics right at this very moment, with a near-real-time latency of one second. This immediate monitoring is very useful when you’re releasing a new build and want to make sure that everything is working as expected, or investigating an incident in real time.
 
 ![In the Overview blade, click Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
 
