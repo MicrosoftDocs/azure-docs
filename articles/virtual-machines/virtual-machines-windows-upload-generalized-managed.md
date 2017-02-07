@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# Create a new VM from a generalized VHD uploaded to an Azure storage account
+# Create a new VM from a generalized VHD uploaded to an Azure using Managed Disks
 
 You can generalized an on-premises VM or a VM exported from another cloud and upload it to Azure. In Azure, you can create an image of the VHD using Managed Disks and use the image to create multiple new VMs.
 
@@ -27,69 +27,12 @@ A generalized VM has had all of your personal account information removed using 
 
 
 > [!IMPORTANT]
+> Review [Plan for the migration to Managed Disks](machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) before starting your migration to [Managed Disks](../storage/storage-managed-disks-overview.md).
 > Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
 
-
-* For information about pricing of the various VM sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
-* For information on storage pricing, see [Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). 
-* For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
-* To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-
-
-
-## Plan for the migration to Managed Disks
-
-This section helps you to make the best decision on VM and disk types.
-
-
-### Location
-
-Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services byRegion](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
-
-### VM sizes
-
-If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](virtual-machines-windows-sizes.md).
-Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
-
-### Disk sizes
-
-**Premium Managed Disks**
-
-There are three types of Premium Managed disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
-
-| Premium Disks Type  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| Disk size           | 128 GB            | 512 GB            | 1024 GB (1 TB)    |
-| IOPS per disk       | 500               | 2300              | 5000              |
-| Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second |
-
-**Standard Managed Disks**
-
-There are five types of Standard Managed disks that can be used with your VM. Each of them have different capacity but have same IOPS and throughput limits. Choose the type of Standard Managed disks based on the capacity needs of your application.
-
-| Standard Disk Type  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk size           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   |
-| IOPS per disk       | 500              | 500              | 500              | 500              | 500              |
-| Throughput per disk | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |
-
-### Disk caching policy 
-
-**Premium Managed Disks**
-
-By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance.
-
-### Pricing
-
-Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/storage/disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
-
-
---------------
----------
-------------
 
 ## Generalize the Windows VM using Sysprep
 
@@ -383,4 +326,6 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 ```
 
 ## Next steps
+
+To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
