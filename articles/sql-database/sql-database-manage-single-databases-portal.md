@@ -70,7 +70,7 @@ Open the SQL Database blade for the database you want to scale up or down:
    
 6. Click the notification text to open the details pane where you can see the status of the request.
 
-## Additional resources
+## Next steps
 * For an overview of management tools, see [Overview of management tools](sql-database-manage-overview.md).
 * To see how to perform management tasks using the Azure portal, see [Manage Azure SQL Databases using the Azure portal](sql-database-manage-portal.md).
 * To see how to perform management tasks using PowerShell, see [Manage Azure SQL Databases using PowerShell](sql-database-manage-powershell.md).
