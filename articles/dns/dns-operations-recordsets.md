@@ -61,10 +61,10 @@ New-AzureRmDnsRecordSet -Name '@' -RecordType A -ZoneName contoso.com -ResourceG
 If you need to create a record set containing more than one record, first create a local array and add the records, then pass the array to `New-AzureRmDnsRecordSet` as follows:
 
 ```powershell
-$ARecords = @()
-$ARecords += New-AzureRmDnsRecordConfig -IPv4Address '1.2.3.4'
-$ARecords += New-AzureRmDnsRecordConfig -IPv4Address '2.3.4.5'
-New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $ARecords
+$aRecords = @()
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address '1.2.3.4'
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address '2.3.4.5'
+New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
 [Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs. The following example shows how to create a record set with two metadata entries, 'dept=finance' and 'environment=production'.
@@ -155,14 +155,14 @@ As with `New-AzureRmDnsRecordSet`, the record set name given must be a *relative
 The following example shows how to retrieve a record set. In this example, the zone is specified using the `-ZoneName` and `-ResourceGroupName` parameters.
 
 ```powershell
-$Rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 Alternatively, you can also specify the zone using a zone object, passed using the `-Zone' parameter. 
 
 ```powershell
-$Zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
-$Rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -Zone $Zone
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -Zone $zone
 ```
 
 ## List record sets
@@ -190,8 +190,8 @@ $recordsets = Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName M
 In all the above examples, the zone can be specified either by using the `-ZoneName` and `-ResourceGroupName`parameters (as shown), or by specifying a zone object:
 
 ```powershell
-$Zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
-$RecordSets = Get-AzureRmDnsRecordSet -Zone $Zone
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+$recordsets = Get-AzureRmDnsRecordSet -Zone $zone
 ```
 
 ## Add a record to an existing record set
@@ -201,7 +201,7 @@ To add a record to an existing record set, follow the following three steps:
 1. Get the existing record set
 
 	```powershell
-	$Rs = Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A
+	$rs = Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A
 	```
 
 2. Add the new record to the local record set. This is an off-line operation.
@@ -213,7 +213,7 @@ To add a record to an existing record set, follow the following three steps:
 3. Commit the change back to the Azure DNS service. 
 
 	```powershell
-	Set-AzureRmDnsRecordSet -RecordSet $Rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 	```
 
 Using `Set-AzureRmDnsRecordSet` *replaces* the existing record set in Azure DNS (and all records it contains) with the record set specified. [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
@@ -235,7 +235,7 @@ The process to remove a record from a record set is similar to the process to ad
 1. Get the existing record set
 
 	```powershell
-	$Rs = Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A
+	$rs = Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A
 	```
 
 2. Remove the record from the local record set object. This is an off-line operation. The record that's being removed must be an exact match with an existing record across all parameters.
@@ -279,9 +279,9 @@ When using `Set-AzureRmDnsRecordSet`, [Etag checks](dns-zones-records.md#etags) 
 In this example, we change the IP address of an existing 'A' record:
 
 ```powershell
-$Rs = Get-AzureRmDnsRecordSet -name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
-$Rrs.Records[0].Ipv4Address = '9.8.7.6'
-Set-AzureRmDnsRecordSet -RecordSet $Rs
+$rs = Get-AzureRmDnsRecordSet -name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs.Records[0].Ipv4Address = '9.8.7.6'
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### To modify an SOA record
@@ -291,9 +291,9 @@ You cannot add or remove records from the automatically created SOA record set a
 The following example shows how to change the *Email* property of the SOA record:
 
 ```powershell
-$Rs = Get-AzureRmDnsRecordSet -Name '@' -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyResourceGroup
-$Rs.Records[0].Email = 'admin.contoso.com'
-Set-AzureRmDnsRecordSet -RecordSet $Rs
+$rs = Get-AzureRmDnsRecordSet -Name '@' -RecordType SOA -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs.Records[0].Email = 'admin.contoso.com'
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### To modify NS records at the zone apex
@@ -303,9 +303,9 @@ You cannot add to, remove, or modify the records in the automatically-created NS
 The following example shows how to change the TTL property of the NS record set:
 
 ```powershell
-$Rs = Get-AzureRmDnsRecordSet -Name '@' -RecordType NS -ZoneName contoso.com -ResourceGroupName MyResourceGroup
-$Rs.Ttl = 300
-Set-AzureRmDnsRecordSet -RecordSet $Rs
+$rs = Get-AzureRmDnsRecordSet -Name '@' -RecordType NS -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs.Ttl = 300
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 ### To modify record set metadata
@@ -316,16 +316,16 @@ The following example shows how to modify the metadata of an existing record set
 
 ```powershell
 # Get the record set
-$Rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 
 # Add 'dept=finance' name-value pair
-$Rs.Metadata.Add('dept', 'finance') 
+$rs.Metadata.Add('dept', 'finance') 
 
 # Remove metadata item named 'environment'
-$Rs.Metadata.Remove('environment')  
+$rs.Metadata.Remove('environment')  
 
 # Commit changes
-Set-AzureRmDnsRecordSet -RecordSet $Rs
+Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 
@@ -345,15 +345,15 @@ Remove-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -Resour
 Alternatively, the record set can be specified by name and type, and the zone specified using an object:
 
 ```powershell
-$Zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 Remove-AzureRmDnsRecordSet -Name www -RecordType A -Zone $Zone
 ```
 
 As a third option, the record set itself can be specified using a record set object:
 
 ```powershell
-$Rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
-Remove-AzureRmDnsRecordSet -RecordSet $Rs
+$rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Remove-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
 When you specify the record set to be deleted by using a record set object, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not deleted. You can use the optional `-Overwrite` switch to suppress these checks.
