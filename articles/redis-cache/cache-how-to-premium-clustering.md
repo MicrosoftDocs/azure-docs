@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/07/2017
 ms.author: sdanie
 
 ---
@@ -58,7 +58,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 <a name="cluster-size"></a>
 
 ## Change the cluster size on a running premium cache
-To change the cluster size on a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Settings** blade.
+To change the cluster size on a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Resource menu**.
 
 > [!NOTE]
 > Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
