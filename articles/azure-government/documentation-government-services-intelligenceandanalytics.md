@@ -19,6 +19,36 @@ ms.author: MeganYount
 ---
 # Azure Government Intelligence + Analytics
 This article outlines the intelligence and analytics services, variations, and considerations for the Azure Government environment.
+## Azure HDInsight
+HDInsight on Linux Standard is generally available in Azure Government.
+
+HDInsight on Linux Premium is coming soon.
+
+### Variations
+The following HDInsight features are not currently available in Azure Government.
+
+* HDInsight is not available on Windows.
+* Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option at this time.
+
+The URLs for Log Analytics are different in Azure Government:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| HDInsight Cluster | \*.azurehdinsight.net | \*.azurehdinsight.us |
+
+For more information, see [Azure HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
+
+## Power BI
+Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/> here</a>. 
+Power BI Embedded is coming soon.
+
+### Variations
+
+The URLs for Power BI are different in US Government:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Power BI URL | app.powerbi.com | app.powerbigov.us |
 
 ## Next Steps
 For supplemental information and updates subscribe to the
