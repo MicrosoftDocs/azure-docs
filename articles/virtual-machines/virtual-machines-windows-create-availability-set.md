@@ -1,6 +1,6 @@
 ---
-title: Create an VM availability set | Microsoft Docs
-description: Learn how to create an availability set for your virtual machines using Azure portal or PowerShell using the Resource Manager deployment model.
+title: Create a VM availability set in Azure | Microsoft Docs
+description: Learn how to create a managed availability set or unmanaged availability set for your virtual machines using Azure PowerShell or the portal in the Resource Manager deployment model.
 keywords: availability set
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/06/2017
 ms.author: cynthn
 
 ---
@@ -47,10 +47,12 @@ For more information about creating and using availability sets, see [Manage the
    * **Subscription** - select the subscription to use if you have more than one.
    * **Resource group** - select an existing resource group by clicking the arrow and selecting a resource group from the drop down. You can also create a new resource group by typing in a name. The name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period. All of the VMs in the availability group need to be created in the same resource group as the availability set.
    * **Location** - select a location from the drop-down.
+   * **Managed** - select *Yes* to create a managed availability set to use with VMs that use Managed Disks for storage. Select **No** if the VMs that will be in the set use unmanaged disks in a storage account.
+   
 4. When you are done entering the information, click **Create**. Once the availability group has been created, you can see it in the list after you refresh the portal.
 
 ## Use the portal to create a virtual machine and an availability set at the same time
-If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set.
+If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set. If you choose to use Managed Disks for your VM, a managed availability set will be created.
 
 ![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/virtual-machines-windows-create-availability-set/new-vm-avail-set.png)
 
