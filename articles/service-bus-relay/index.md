@@ -14,7 +14,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/index/service-bus.svg" alt="" />
+                            <img src="media/index/service-bus.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/index/video-library.svg" alt="" />
+                            <img src="meda/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/index/deploy.svg" alt="" />
+                            <img src="meda/index/deploy.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/index/get-started.svg" alt="" />
+                            <img src="meda/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -86,7 +86,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/index/get-started.svg" alt="" />
+                            <img src="meda/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,7 +104,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/index/get-started.svg" alt="" />
+                            <img src="meda/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
