@@ -1,4 +1,4 @@
-To create a cache, first sign in to the [Azure portal](https://portal.azure.com), and click **New**, **Data + Storage**, **Redis Cache**.
+To create a cache, first sign in to the [Azure portal](https://portal.azure.com), and click **New** > **Databases** > **Redis Cache**.
 
 > [!NOTE]
 > If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
