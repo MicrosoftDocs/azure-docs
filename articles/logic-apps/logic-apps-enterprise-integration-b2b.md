@@ -37,15 +37,18 @@ the AS2 and X12 actions to receive data from a trading partner:
 1. Create a logic app, then 
 [link your app to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 
-2. Add a **Request - When an HTTP request is received** trigger to your logic app.
+2. Add a **Request - When an HTTP request is received** 
+trigger to your logic app.
 
 	![](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)
 
-3. To add the **Decode AS2** action, select **Add an action**.
+3. To add the **Decode AS2** action, 
+select **Add an action**.
 
 	![](./media/logic-apps-enterprise-integration-b2b/transform-2.png)
 
-4. To filter all actions to the one that you want, enter the word **as2** in the search box.
+4. To filter all actions to the one that you want, 
+enter the word **as2** in the search box.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-5.png)
 
@@ -53,21 +56,24 @@ the AS2 and X12 actions to receive data from a trading partner:
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Add the **Body** to take as input. 
+6. Add the **Body** that you want to use as input. 
 In this example, select the body of the HTTP request 
 that triggers the logic app. Or enter an expression 
-to input the headers in the**HEADERS** field:
+that inputs the headers in the**HEADERS** field:
 
 	@triggerOutputs()['headers']
 
-7. Add the required **Headers** for AS2, which you can find in the HTTP request headers. 
-In this example, select the headers of the HTTP request that trigger the logic app.
+7. Add the required **Headers** for AS2, 
+which you can find in the HTTP request headers. 
+In this example, select the headers of the 
+HTTP request that trigger the logic app.
 
-8. Now add the Decode X12 message action by again selecting **Add an action**.
+8. Now add the Decode X12 message action by selecting **Add an action** again.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
 
-9. To filter all actions to the one that you want, enter the word **x12** in the search box.
+9. To filter all actions to the one that you want, 
+enter the word **x12** in the search box.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-10.png)
 
@@ -134,4 +140,3 @@ you can send and receive data between other apps and services like SalesForce.
 
 ## Learn more
 [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-

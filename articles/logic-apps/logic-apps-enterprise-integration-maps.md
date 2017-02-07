@@ -17,7 +17,7 @@ ms.date: 07/08/2016
 ms.author: estfan
 
 ---
-# Add maps to transform XML data
+# Add maps for XML data transform
 
 Enterprise integration uses maps to transform XML data between formats. 
 A map is an XML document that defines the data in a document that 
