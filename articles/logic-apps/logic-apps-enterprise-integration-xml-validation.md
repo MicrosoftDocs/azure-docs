@@ -1,6 +1,6 @@
 ---
-title: Overview of XML validation in the Enterprise Integration Pack | Microsoft Docs
-description: Learn how validation works in the Enterprise Integration Pack and Logic apps
+title: Validate XML - Azure Logic Apps | Microsoft Docs
+description: Validate XML against schemas in Azure logic apps and B2B scenarios by using the Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: estfan
 
 ---
 # Enterprise integration with XML validation
