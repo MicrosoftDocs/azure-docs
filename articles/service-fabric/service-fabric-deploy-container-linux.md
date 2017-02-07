@@ -70,6 +70,7 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     ./uninstall.sh
     ```
+For an example application [check out the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Adding more services to an existing application
 

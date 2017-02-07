@@ -67,6 +67,8 @@ Visual Studio provides a Service Fabric service template to help you deploy a co
 7. You can now use the package and publish action against your local cluster if this is Windows Server 2016 with container support activated. 
 8. When ready, you can publish the application to a remote cluster or check in the solution to source control. 
 
+For an example application [check out the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+
 ## Creating a Windows Server 2016 cluster
 To deploy your containerized application, you need to create a cluster running Windows Server 2016 with container support enabled. 
 This can either be on your local development machine or deployed via Azure Resource Manager (ARM) in Azure. 
