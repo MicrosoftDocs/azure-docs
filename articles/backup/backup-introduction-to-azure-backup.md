@@ -109,10 +109,10 @@ Premium Storage VMs can be restored to either Premium Storage or to normal stora
 Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning. For more information about managed disks, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/virtual-machines-windows-create-managed-data-disk.md)
 
 ### Back up managed disk VMs
-Backup of VMs on managed disks is no different than back up of Resource manager VMs. You can backup directly from VM view or from Recovery Services vault view. Backup of VMs on managed disks is supported through RestorePoint collections built on top of managed disks. Azure Backup currently doesm't support backup of managed disk VMs encrypted using Azure Disk encryption(ADE).
+Backup of VMs on managed disks is no different than back up of Resource Manager VMs. You can backup directly from VM view or from Recovery Services vault view. Backup of VMs on managed disks is supported through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backup of managed disk VMs encrypted using Azure Disk encryption(ADE).
 
 ### Restore managed disk VMs
-Azure Backup allows you to restore a complete VM with managed disks or restoring managed disks to a Resource Manager storage account. While teh disks created during restore process are managed by Azure, storage account created as part of restore process is similar to any other Resource Manager storage account and are expected to be managed by customer.
+Azure Backup allows you to restore a complete VM with managed disks or restoring managed disks to a Resource Manager storage account. While the disks created during restore process are managed by Azure, storage account created as part of restore process is similar to any other Resource Manager storage account and are expected to be managed by customer.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
