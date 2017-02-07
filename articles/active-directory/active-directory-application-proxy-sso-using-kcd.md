@@ -59,7 +59,7 @@ The Active Directory configuration varies, depending on whether your Application
 #### Connector and published server in the same domain
 1. In Active Directory, go to **Tools** > **Users and Computers**.
 2. Select the server running the Connector.
-3. Right-click and select **Properties** > **Delegation**.
+.3. Right-click and select **Properties** > **Delegation**.
 4. Select **Trust this computer for delegation to specified services only**. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server.
 5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
@@ -102,7 +102,7 @@ The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD 
 
 ![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)
+For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 ### Delegated login identity
 Delegated login identity helps you handle two different login scenarios:
