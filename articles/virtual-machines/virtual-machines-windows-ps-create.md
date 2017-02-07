@@ -7,10 +7,8 @@ author: davidmu1
 manager: timlt
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
-ms.service: virtual-machines-windowsms.workload: na
-ms.tgt_pltfrm: nams.devlang: na
+ms.service: virtual-machines-windows
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: davidmu
