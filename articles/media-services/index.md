@@ -13,6 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
+
 # Media Services Documentation
 
 Learn how to stream broadcast-quality video with Media Services, an extensible cloud platform. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
