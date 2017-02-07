@@ -13,7 +13,58 @@ If you're submitting Office 365 web apps to the Seller Dashboard, make sure that
 For information about the Office Store approval process, see  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md).
  
 
-## Submit an app or add-in and save it as a draft
+## App and add-in submission checklist
+
+This section lists the information that you need to provide when you submit your app or add-in in the Seller Dashboard. 
+
+### Add a new app
+Choose **Add a new app**. On the **Listing type** page, choose the type of app or add-in that you are submitting to the store:
+
+- Azure AD web app
+- Office add-in
+- Outlook add-in
+- SharePoint add-in
+
+### Overview page
+
+|**Field name**|**Notes**|
+|:-------------||:-------|
+|Manifest|Required (except for web apps using Azure AD)<br/><br/>For more information, see [Upload your add-in package](upload-add-in-package.md).|
+|Submission title|Required|
+|Version|Required (autopopulated)|
+|Release date (UTC)|Required|
+|Category|One required; two optional|
+|Testing notes|Optional, but recommend|
+|Cryptography and encryption information|Optional|
+|Apple developer ID|Optional|
+|Logo|Required|
+|Support document link|Required|
+|Privacy document link|Required|
+|Video link|Optional|
+|End User License Agreement|Optional|
+
+### Details page
+
+|**Field name**|**Notes**|
+|:-------------||:-------|
+|App name|Required. One entry per language.|
+|Short description|Required. One entry per language.|
+|Long description|Required. One entry per language.|
+|Screenshots|At least one is required.|
+
+For more information, see [Store listing]().
+
+### Block access page
+
+|**Field name**|**Notes**|
+|:-------------||:-------|
+|||
+
+### Pricing page
+
+|**Field name**|**Notes**|
+|:-------------||:-------|
+|||
 
 
 1. Sign in to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) with your Microsoft account.
