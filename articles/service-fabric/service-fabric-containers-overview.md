@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/6/2017
 ms.author: msfussell
 
 ---
@@ -22,8 +22,14 @@ ms.author: msfussell
 > This feature is in preview for Linux and Windows Server 2016. 
 >   
 
-## Introduction
-Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application. You get the best of both worlds, depending on your scenario.
+## Introduction and Roadmap
+Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application. 
+
+## Containers roadmap
+Over the next few releases Service Fabric will continue to add extensive support for containers on both Windows and Linux including improvments to 
+networking, resources constraints, security, diagnostics, volume drivers, and tooling support especially in Visual Studio, so that the experience of using container images
+to deploy services is first class. This provides you with the choice of using either containers to say package existing code (e.g. IIS MVC apps) or the Service Fabric programming models and because
+Service Fabric treats these all the same, you can mix them both in your applications providing you the flexibility of how to deploy your code. You get the best of both worlds, depending on your scenario.
 
 ## What are containers?
 Containers are encapsulated, individually deployable components that run as isolated instances on the same kernel to take advantage of virtualization that an operating system provides. This means that each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Along with portability, this degree of security and resource isolation is the main benefit for using containers with Service Fabric, which otherwise runs services in processes.
@@ -57,7 +63,7 @@ The following figure shows the different types of virtualization and isolation l
 Here are typical examples where a container is a good choice:
 
 * **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET Core. These ASP.NET MVC apps are dependent on Internet Information Services (IIS). You can package these into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) for information about how to create IIS images.
-* **Mix containers and Service Fabric microservices**: Use an existing container image for part of your application. For example, you might use the [NGINX container](https://hub.docker.com/_/nginx/) for the web front end of your application and stateful services built with Reliable Services for the more intensive back-end computation. An example of this scenario includes gaming applications.
+* **Mix containers and Service Fabric microservices**: Use an existing container image for part of your application. For example, you might use the [NGINX container](https://hub.docker.com/_/nginx/) for the web front end of your application and stateful services built with Reliable Services for the more intensive back-end computation.
 * **Reduce impact of "noisy neighbors" services**: You can use the resource governance ability of containers to restrict the resources that a service uses on a host. If services might consume a lot of resources and affect the performance of others (such as a long-running, query-like operation), consider putting these services into containers that have resource governance.
 
 ## Service Fabric support for containers
