@@ -1,5 +1,5 @@
 -title: Create an Azure VM using PowerShell | Microsoft Docs
-description: Use Azure PowerShell and Azure Resource Manager to easily create a new VM running Windows Server.
+description: Use Azure PowerShell and Azure Resource Manager to easily create a VM running Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
@@ -42,7 +42,7 @@ All resources must be contained in a resource group, so lets create that first.
     ```
 
 ## Step 3: (Optional) Create a storage account
-You currently have a choice when creating a virtual machine of using [Azure Managed Disks](../storage/storage-managed-disks-overview.md) or unmanaged disks. If you choose to use a unmanaged disk, you must create a [storage account](../storage/storage-introduction.md) to store the virtual hard disk that is used by the virtual machine that you create. If you choose to use a managed disk, the storage account is not needed. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+You currently have a choice when creating a virtual machine of using [Azure Managed Disks](../storage/storage-managed-disks-overview.md) or unmanaged disks. If you choose to use an unmanaged disk, you must create a [storage account](../storage/storage-introduction.md) to store the virtual hard disk that is used by the virtual machine that you create. If you choose to use a managed disk, the storage account is not needed. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 1. Test the storage account name for uniqueness. This command tests the name **myStorageAccount**.
    
