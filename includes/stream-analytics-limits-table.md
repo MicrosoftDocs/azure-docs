@@ -1,21 +1,4 @@
 ---
-title: Stream Analytics limits table
-description: Describes system limits and recommended sizes for Stream Analytics components and connections.
-services: stream-analytics
-documentationcenter: NA
-author: jeffstokes72
-manager: paulettm
-editor: cgronlun
-
-ms.service: stream-analytics
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: big-data
-ms.date: 02/07/2017
-ms.author: jeffstok
-
----
 | Limit identifier | Limit | Comments |
 | --- | --- | --- |
 | Maximum number of Streaming Units per subscription per region |50 |A request to increase streaming units for your subscription beyond 50 can be made by contacting [Microsoft Support](https://support.microsoft.com/en-us). |
