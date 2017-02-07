@@ -27,7 +27,7 @@ Customers with a Resource Manager template for creating a scale set not using ma
 
 ## Making the OS disks managed
 
-In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary (Standard_LRS is the default), but we could still specify it if we wished to. Note that only Standard_LRS and Premium_LRS are supported with managed disk. New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary becuase managed disk will automatically name the underlying storage blob containers and disks.
+In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary (Standard_LRS is the default), but we could still specify it if we wished to. Note that only Standard_LRS and Premium_LRS are supported with managed disk. New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary because managed disk will automatically name the underlying storage blob containers and disks.
 
 ```diff
    "variables": {
