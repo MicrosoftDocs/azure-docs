@@ -1,5 +1,5 @@
 ---
-title: Convert a scale set template to a managed disk scale set template | Microsoft Docs
+title: Convert an Azure Resource Manager scale set template to use managed disk | Microsoft Docs
 description: Convert a scale set template to a managed disk scale set template.
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
