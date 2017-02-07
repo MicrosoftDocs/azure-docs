@@ -20,13 +20,11 @@ ms.tgt_pltfrm: NA
 
 ---
 # Create and manage an elastic pool with the Azure portal
-This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). 
-
-You can create and manage an Azure elastic pool with the [Azure portal](https://portal.azure.com/), PowerShell, Transact-SQL, the REST API, or C#. This topic is about using the Azure portal. For PowerShell, see [Create and manage an elastic pool with Powershell](sql-database-elastic-pool-manage-powershell.md). For Transact-SQL, see [Create and manage an elastic pool with Transact-SQL](sql-database-elastic-pool-manage-tsql.md). For C#, see [Create and manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md).
+This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.com/). You can also create and manage an Azure elastic pool with [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), the REST API, or [C#][Create and manage an elastic pool with C#](sql-database-elastic-pool-manage-csharp.md). 
 
 ## Create a new elastic pool 
 
-There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
+There are two ways you can create an elastic pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends an elastic pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
 You can create multiple pools on a server, but you can't add databases from different servers into the same pool. 
 
@@ -37,14 +35,14 @@ You can create multiple pools on a server, but you can't add databases from diff
 
 ### Step 1: Create a new pool
 
-This article shows how to create a new pool from an existing **server** blade in the portal, which is the easiest way to move existing databases into a pool.
+This article shows how to create a new pool from an existing **server** blade in the portal, which is the easiest way to move existing databases into an elastic pool.
 
 > [!NOTE]
 > You can also create a new pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** in the **SQL elastic pools** browse blade. You will be able to specify a new or existing server through this pool provisioning workflow.
 >
 >
 
-1. In the [Azure portal](http://portal.azure.com/) below the list on the left side, click **More services** **>** **SQL servers**, and then click the server that contains the databases you want to add to a pool.
+1. In the [Azure portal](http://portal.azure.com/) below the list on the left side, click **More services** **>** **SQL servers**, and then click the server that contains the databases you want to add to an elastic pool.
 2. Click **New pool**.
 
     ![Add pool to a server](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -86,7 +84,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for more detail about limits for each service tier, and see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing an elastic pool. For more details about pool settings, see [Elastic pool properties](sql-database-elastic-pool.md#elastic-pool-properties).
 
 	![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -111,7 +109,7 @@ The service takes the last 30 days of telemetry into account when recommending p
 
 The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
-After adding databases to the pool, recommendations will be dynamically generated based on the historical usage of the databases you have selected. These recommendations will be shown in the eDTU and GB usage chart as well as in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating a pool optimized for your specific databases.
+After adding databases to the pool, recommendations will be dynamically generated based on the historical usage of the databases you have selected. These recommendations will be shown in the eDTU and GB usage chart as well as in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating an elastic pool optimized for your specific databases.
 
 ![dynamic recommendations](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
@@ -130,7 +128,7 @@ The graphic below shows an example elastic pool. The view includes:
 
 You can go to a particular pool to see its resource utilization. By default, the pool is configured to show storage and eDTU usage for the last hour. The chart can be configured to show different metrics over various time windows.
 
-1. Select a pool to work with.
+1. Select an elastic pool to work with.
 2. Under **Elastic Pool Monitoring** is a chart  labeled **Resource utilization**. Click the chart.
 
 	![Elastic pool monitoring][3]
@@ -257,7 +255,7 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 ## Change performance settings of an elastic pool
 
-As you monitor the resource utilization of a pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md) for more information.
+As you monitor the resource utilization of an elastic pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md) for more information.
 
 To change the eDTUs or storage limits per pool, and eDTUs per database:
 
@@ -269,8 +267,11 @@ To change the eDTUs or storage limits per pool, and eDTUs per database:
 
 2. When the setting changes, the display shows the estimated monthly cost of the change.
 
-    ![Updating a pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
+    ![Updating an elastic pool and new monthly cost](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
 
+## Latency of elastic pool operations
+* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
+* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 ## Next steps
 
