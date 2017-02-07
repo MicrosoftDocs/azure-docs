@@ -45,21 +45,19 @@ To get started with Azure Premium Storage, visit [Get started for free](https://
 <!-- Robin -- need hyperlink if you're going to add this here. 
 and [Migrating VMs from other platforms to Managed Disks - Premium/Standard](ADD HYPERLINK ROBIN). -->
 
-<!-- is premium storage not available everywhere? Also, this article doesn't list prmeium storage. ROBIN -->
 > [!NOTE]
-> Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services).
+> Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services) by looking at the regions in which the size-series VMs (DS, DSV2, Fs, and GS) are supported.
 > 
 
 ## Premium Storage features
 
 Let's take a look at some of the features of Premium Storage.
 
-**Premium storage disks**: Azure Premium Storage supports VM disks that can be attached to specific size-series VMs, including the DS, DSv2, GS, and FS series. You have a choice of three disk sizes -- P10 (128GiB), P20 (512GiB) and P30 (1024GiB) -- each with its own performance specifications. Depending on your application requirements you can attach one or more of these disks to your VM. In the following section on [Premium Storage Scalability and Performance Targets ](#premium-storage-scalability-and-performance-targets) we will describe the specifications in more detail.
+**Premium storage disks**: Azure Premium Storage supports VM disks that can be attached to specific size-series VMs, including the DS, DSv2, GS, and Fs series. You have a choice of three disk sizes -- P10 (128GiB), P20 (512GiB) and P30 (1024GiB) -- each with its own performance specifications. Depending on your application requirements you can attach one or more of these disks to your VM. In the following section on [Premium Storage Scalability and Performance Targets ](#premium-storage-scalability-and-performance-targets) we will describe the specifications in more detail.
 
 **Premium page blob**: Premium Storage supports page blobs, which are used to store persistent unmanaged disks for VMs. Unlike Standard Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues.
  Any object placed in a premium storage account will be a page blob, and it will snap to one of the supported provisioned sizes. This is why a premium storage account is not meant for storing tiny blobs.
 
-<!-- Fix the MSDN link to the SRP -->
 **Premium storage account**: To start using Premium Storage, create a premium storage account for unmanaged disks. If you prefer to use the [Azure portal](https://portal.azure.com), you can create a premium storage account by specifying the “Premium” performance tier and “Locally-redundant storage (LRS)” as the replication option. You can also create a premium storage account by specifying the type as “Premium_LRS” using the [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); the [Azure Storage Resource Provider REST API Reference](/rest/api/storagerp)(Resource Manager deployments); and the [Azure PowerShell](/powershell/azureps-cmdlets-docs) version 0.8.10 or later. Learn about premium storage account limits in the following section on [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets).
 
 **Premium Locally Redundant Storage**: A premium storage account only supports Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For considerations regarding geo replication when using Premium Storage, see the [Snapshots and Copy Blob](#snapshots-and-copy-blob) section in this article.
