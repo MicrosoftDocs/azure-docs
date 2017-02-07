@@ -196,7 +196,6 @@
 ### [Start with Hadoop](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Start with Storm](hdinsight-apache-storm-tutorial-get-started.md)
 ### [Start with HBase](hdinsight-hbase-tutorial-get-started.md)
-### [HDInsight Sample Gallery](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
 ### [Create Hadoop clusters](hdinsight-provision-clusters.md)
 #### [Use the Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md)
