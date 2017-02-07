@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/07/2017
 ms.author: sdanie
 
 ---
@@ -57,7 +57,7 @@ Select the desired subnet from the **Subnet** drop-down list, and specify the de
 > 
 > 
 
-After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Settings** blade.
+After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
 
 ![Virtual network][redis-cache-vnet-info]
 
