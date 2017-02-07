@@ -1,5 +1,5 @@
 ---
-title: Azure virtual network peering | Microsoft Docs
+title: Azure Virtual Network peering | Microsoft Docs
 description: Learn about virtual network peering in Azure.
 services: virtual-network
 documentationcenter: na
