@@ -21,10 +21,12 @@ ms.author: jeffstok
 # Using reference data or lookup tables in a Stream Analytics input stream
 Reference data (also known as a lookup table) is a finite data set that is static or slowing changing in nature, used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job you will generally use a [Reference Data Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in your Query. Stream Analytics uses Azure Blob storage as the storage layer for Reference Data, and with Azure Data Factory reference data can be transformed and/or copied to Azure Blob storage, for use as Reference Data, from [any number of cloud based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md). Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence.
 
-**Blobs are limited to 100 MB per blob.**
+Stream Analytics has a **limit of 100 MB per blob** but can handle multiple blobs by using path pattern.
+
 
 ## Configuring reference data
 To configure your reference data, you first need to create an input that is of type **Reference Data**. The table below explains each property that you will need to provide while creating the reference data input with its description:
+
 
 <table>
 <tbody>
