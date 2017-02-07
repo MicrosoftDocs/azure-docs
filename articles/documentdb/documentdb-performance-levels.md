@@ -13,80 +13,82 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/08/2016
 ms.author: mimig
 
 ---
-# Performance levels and pricing tiers in DocumentDB
-This article provides an overview of performance levels in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+# Performance levels in DocumentDB
 
-After reading this article, you'll be able to answer the following questions:  
+> [!IMPORTANT] : The S1, S2, and S3 performance levels discussed in this article are no longer available for new DocumentDB collections.
 
-* What is a performance level?
-* How is throughput reserved for a database account?
-* How do I work with performance levels?
-* How am I billed for performance levels?
+This article provides an overview of S1, S2, and S3 performance levels, and discusses how these performance levels will be migrated to the new Standard pricing tier on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
 
-## Introduction to performance levels
-Each DocumentDB collection created in a Standard DocumentDB account is provisioned with an associated performance level. Each collection in a database can have a different performance level enabling you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. 
+- Why are the S1, S2, and S3 performance levels being retired?
+- How does the Standard pricing tier compare to the S1, S2, S3 performance levels?
+- What do I need to do to ensure uninterrupted access to my data?
+- How will my collection change after the migration?
+- How will my billing change after I’m migrated to the Standard pricing tier?
+- What if I need more than 10 GB of storage?
+- Can I change between the S1, S2, and S3 performance levels before August 1st, 2017?
+- How will I know when my collection has migrated?
+- How do I migrate from the S1, S2, S3 performance levels to the Standard pricing tier on my own?
 
-DocumentDB supports both **user-defined** performance levels and **pre-defined** performance levels, as shown in the following table.  User-defined performance enables you to reserved throughput in units of 100 RU/s and have unlimited storage, whereas the three pre-defined performance levels have specified throughput options, and a 10GB storage quota. The following table compares **user-defined** performance to **pre-defined** performance.
+## Why are the S1, S2, and S3 performance levels being retired?
 
-|Performance type|Details|Throughput|Storage|Version|APIs|
-|----------------|-------|----------|-------|-------|----|
-|User-defined performance|User sets throughput in units of 100 RU/s|Unlimited|Unlimited|V2|API 2015-12-16 and newer|
-|Pre-defined performance|10 GB reserved storage.<br><br>S1 = 250 RU/s<br>S2 = 1000 RU/s<br>S3 = 2500 RU/s|2500 RU/s|10 GB|V1|Any|
+The S1, S2, and S3 performance levels do not offer the flexibility that the new DocumentDB Standard pricing tier offers. With the S1, S2, S3 performance levels, both the throughput and storage capacity were set, and DocumentDB now offers the ability to customize your throughput and storage, offering you much more flexibility in your ability to scale as your needs change.
 
-Throughput is reserved per collection, and is available for use by that collection exclusively. Throughput is measured in [request units (RUs)](documentdb-request-units.md), which identify the amount of resources required to perform various DocumentDB database operations.
+## How does the Standard pricing tier compare to the S1, S2, S3 performance levels?
 
-> [!NOTE]
-> The performance level of a collection can be adjusted through the [SDKs](documentdb-sdk-dotnet.md) or the [Azure portal](https://portal.azure.com/). Performance level changes are expected to complete within 3 minutes.
-> 
-> 
+The following table compares the throughput and storage options available in S1, S2, S3, and Standard. Here is an example for US East 2 region:
 
-## Setting performance levels for collections
-Once a collection is created, the full allocation of RUs based on the designated performance level are reserved for the collection.
+|   |Standard with partitioned collection|Standard with single partition collection|S1|S2|S3|
+|---|---|---|---|---|---|
+|Maximum throughput|Unlimited|10K RU/s|250 RU/s|1K RU/s|2.5K RU/s|
+|Minimum throughput|2.5K RU/s|400 RU/s|250 RU/s|1K RU/s|2.5K RU/s|
+|Maximum storage|Unlimited|10 GB|10 GB|10 GB|10 GB|
+|Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|
 
-Note that with both user-defined and pre-defined performance levels, DocumentDB operates based on reservation of throughput. By creating a collection, an application has reserved and is billed for reserved throughput regardless of how much of that throughput is actively used. With user-defined performance levels, storage is metered based on consumption, but with pre-defined performance levels, 10 GB of storage is reserved at the time of collection creation.  
+## What do I need to do to ensure uninterrupted access to my data?
 
-After collections are created, you can modify the performance level and/or throughput by using the [SDKs](documentdb-sdk-dotnet.md) or the [Azure portal](https://portal.azure.com/).
+Nothing, DocumentDB will handle the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to the Standard performance tier August 1st, 2017. 
 
-> [!IMPORTANT]
-> DocumentDB Standard collections are billed at an hourly rate and each collection you create will be billed for a minimum one hour of usage.
-> 
-> 
+## How will my collection change after the migration?
 
-If you adjust the performance level of a collection within an hour, you will be billed for the highest performance level set during the hour. For example, if you increase your performance level for a collection at 8:53am you will be charged for the new level starting at 8:00am. Likewise, if you decrease your performance level at 8:53am, the new rate will be applied at 9:00am.
+If you have an S1 collection, you will be migrated to a single partition collection with 400 RU/s throughput. 400 RU/s is the lowest throughput available with single partition collections; however, the cost for 400 RU/s in the new standard pricing tier is approximately the same as you were paying with your S1 collection and 250 RU/s – so you are not paying for the extra 150 RU/s available to you.
 
-Request units are reserved for each collection based on the performance level set. Request unit consumption is evaluated as a per second rate. Applications that exceed the provisioned request unit rate (or performance level) on a collection will be throttled until the rate drops below the reserved level for that collection. If your application requires a higher level of throughput, you can increase the performance level for each collection.
+If you have an S2 collection, you will be migrated to a single partition collection with 1K RU/s. You will see no change to your throughput level.
 
-> [!NOTE]
-> When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled. It is recommended to add a small number of retries when throttled in order to handle spikes in request traffic.
-> 
-> 
+If you have an S3 collection, you will be migrated to a single partition collection with 2.5K RU/s. You will see no change to your throughput level.
 
-## Working with performance levels
-DocumentDB collections enable you to group your data based on both the query patterns and performance needs of your application. With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection. The key considerations in deciding whether separate collections should be used include:
+In each of these cases, after your collection is migrated, you will be able to customize your throughput level, or scale it up and down as needed to provide low-latency access to your users. To change the throughput level after your collection has migrated, simply open your DocumentDB account in the Azure portal, click Scale, choose your collection, and then adjust the throughput level, as shown in the following screenshot.
 
-* Queries – A collection is the scope for query execution. If you need to query across a set of documents, the most efficient read patterns come from collocating documents in a single collection.
-* Transactions – All transactions are scoped to within a single collection. If you have documents that must be updated within a single stored procedure or trigger, they must be stored within the same collection. More specifically, a partition key within a collection is the transaction boundary. Please see [Partitioning in DocumentDB](documentdb-partition-data.md) for more details.
-* Performance isolation – A collection has an associated performance level. This ensures that each collection has a predictable performance through reserved RUs. Data can be allocated to different collections, with different performance levels, based on access frequency.
+![How to scale throughput in the Azure portal](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
 
-> [!IMPORTANT]
-> It is important to understand you will be billed at full standard rates based on the number of collections created by your application.
-> 
-> 
+## How will my billing change after I’m migrated to the Standard pricing tier?
 
-It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
+Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East region, and you migrate these 10 S1 collections to 10 single partition collections at 400 RU/sec (the minimum level). Your bill will look as follows if you keep the 10 single partition collections for a full month:
 
-## <a id="changing-performance-levels-using-the-azure-portal"></a>Change from S1, S2, S3 to user-defined performance
-Follow these steps to change from using pre-defined throughput levels to user-defined throughput levels in the Azure portal. By using user-defined throughput levels, you can tailor your throughput to your needs. And if you're still using an S1 account, you can increase your default throughput from 250 RU/s to 400 RU/s with just a few clicks. Note that once you move a collection from S1, S2 or S3 to Standard (user-defined), you cannot move back to S1, S2, or S3, you can however modify the throughput of a Standard collection at any time.
+![How S1 pricing for 10 collections compares to 10 collections using Standard pricing](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
 
-For more information about the pricing changes related to user-defined and pre-defined throughput, see the blog post [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/).
+## What if I need more than 10 GB of storage?
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance/player]
-> 
-> 
+Whether you have a collection with an S1, S2, or S3 performance level, or have a single partition collection with the Standard pricing tier, all of which have 10 GB of storage available, you can use the DocumentDB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data). For information about how to migrate your S1, S2, S3, or single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data#migrating-from-single-partition). 
+
+## Can I change between the S1, S2, and S3 performance levels before August 1st, 2017?
+
+Only existing accounts with S1, S2 and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. By August 1st, 2017, the S1, S2 and S3 performance levels will no longer be available.
+
+## How will I know when my collection has migrated?
+
+The migration will occur on July 31st, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the DocumentDB team will contact you by email before the migration takes place. Once the migration is complete, on August 1st, 2017, the Azure portal will show that your collection uses Standard pricing
+
+![How to confirm your collection has migrated to the Standard pricing tier](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
+
+## How do I migrate from S1, S2, S3 performance levels to the Standard pricing tier?
+
+You can migrate from the S1, S2, and S3 performance levels to the Standard pricing tier using the Azure portal or programmatically. You can do this on your own before August 1st to benefit from the flexible throughput options available with the Standard pricing tier, or we will migrate your collections for you on July 31st, 2017.
+
+** To migrate to Standard pricing using the Azure portal**
 
 1. In the [**Azure portal**](https://portal.azure.com), click **NoSQL (DocumentDB)**, then select the DocumentDB account to modify. 
  
@@ -96,19 +98,23 @@ For more information about the pricing changes related to user-defined and pre-d
 
     ![Screen shot of the Settings blade showing where to change the throughput value](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-3. Back in the **Scale** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Estimated Monthly Bill** at the bottom of the page updates automatically to provide an estimate of the monthly cost. Click **Save** to save your changes.
+3. Back in the **Scale** blade, the **Pricing Tier** is changed to **Standard** and the **Throughput (RU/s)** box is displayed with a default value of 400. Set the throughput between 400 and 10,000 [Request units](documentdb-request-units.md)/second (RU/s). The **Estimated Monthly Bill** at the bottom of the page updates automatically to provide an estimate of the monthly cost. 
 
-    If you determine that you need more throughput (greater than 10,000 RU/s) or more storage (greater than 10GB) you can create a partitioned collection. To create a partitioned collection, see [Create a collection](documentdb-create-collection.md).
+    >[!IMPORTANT] IMPORTANT: Once you save your changes and move to the Standard pricing tier, you cannot roll back to the S1, S2, or S3 performance levels.
 
-> [!NOTE]
-> Changing performance levels of a collection may take up to 2 minutes.
-> 
-> 
+4. Click **Save** to save your changes.
 
-## Changing performance levels using the .NET SDK
+    If you determine that you need more throughput (greater than 10,000 RU/s) or more storage (greater than 10GB) you can create a partitioned collection. To migrate a single partition collection to a partitioned collection, see [Migrating from single-partition to partitioned collections](documentdb-partition-data.md#migrating-from-single-partition).
+
+    > [!NOTE]
+    > Changing from S1, S2, or S3 to Standard may take up to 2 minutes.
+    > 
+    > 
+
+## To migrate to Standard pricing using the .NET SDK
 Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, please visit our [getting started tutorial](documentdb-get-started.md).
 
-Here is a code snippet for changing the offer throughput to 50,000 request units per second:
+Here is a code snippet for changing the offer throughput to 5,000 request units per second:
 
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
@@ -118,13 +124,6 @@ Here is a code snippet for changing the offer throughput to 50,000 request units
 
     // Set the throughput to 5000 request units per second
     offer = new OfferV2(offer, 5000);
-
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
-
-    // Set the throughput to S2
-    offer = new Offer(offer);
-    offer.OfferType = "S2";
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
@@ -143,36 +142,16 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a id="change-throughput"></a>Changing the throughput of a collection
-If you are already using user-defined performance, you can change the throughput of your collection by doing the following. If you need to change from an S1, S2 or S3 performance level (pre-defined performance) to user-defined performance, see [Change from S1, S2, S3 to user-defined performance](#changing-performance-levels-using-the-azure-portal).
-
-1. In the [**Azure portal**](https://portal.azure.com), click **NoSQL (DocumentDB)**, then select the DocumentDB account to modify.    
-2. On the resource menu, under **Collections**, click **Scale**, select the collection to modify from the drop down list.
-3. In the **Throughput (RU/s)** box, type the new throughput level. 
-   
-    The **Estimated Monthly Bill** at the bottom of the page updates automatically to provide an estimate of the monthly cost. Click **Save** to save your changes.
-
-    If you're not sure how much to increase your throughput, see [Estimating throughput needs](documentdb-request-units.md#estimating-throughput-needs) and the [Request unit calculator](https://www.documentdb.com/capacityplanner).
-
-## Troubleshooting
-
-If you do not see the option to change between S1, S2, or S3 performance levels on the **Choose your pricing tier** blade, click **View all** to display the Standard, S1, S2, and S3 performance levels. If you are using the Standard pricing tier, you cannot change between S1, S2, and S3.
-
-![Screen shot of the Choose your pricing tier blade with View all highlighted](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
-
-Once you change a collection from S1, S2, or S3 to Standard, you cannot move back to S1, S2, or S3.
-
 ## Next steps
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
 
 * [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 * [Modeling data in DocumentDB](documentdb-modeling-data.md)
-* [Partitioning data in DocumentDB](documentdb-partition-data.md)
+* 
 * [Request units](http://go.microsoft.com/fwlink/?LinkId=735027)
 
-To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/).
 
-To get started with scale and performance testing with DocumentDB, see [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md).
-
-[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
-[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
+1.	[Partitioning data in DocumentDB](documentdb-partition-data.md): understand the difference between single partition and partitioned collection, tips on partitioning strategy to scale seamlessly
+2.	[DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/): Learn about the cost of provisioning throughput and consuming storage
+3.	[Request units](documentdb-request-units.md): Understand the consumption of throughput for different operation type (e.g.: Read, Write, Query)
+4.	[Modeling data in DocumentDB(documentdb-modeling-data.md)
