@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Disk Storage 
+### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](../irtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
 ## Use blobs
@@ -62,13 +70,20 @@
 ### [Overview](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Use Virtual Machine Disks
+## Use disks
+### [About disks and VHDs for Azure virtual machines](storage-about-disks-and-vhds-windows.md)
+### [Azure Storage Managed Disks Overview](storage-managed-disks-overview.md)
+### [Convert a Windows VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md)
+### [Convert a Linux VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+### [Frequently Asked Questions about Azure IaaS VM Disks](storage-disk-faq.md)
 ### Premium Storage
-#### [High-performance storage for VM workloads](storage-premium-storage.md)
-#### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
+#### [High-performance Premium Storage and unmanaged and managed VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
+#### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md)
 #### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
+### Using unmanaged disks
+#### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
 ## Plan and design
 ### [Replication](storage-redundancy.md)
 ### [Scalability and performance targets](storage-scalability-targets.md)
