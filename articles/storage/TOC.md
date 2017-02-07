@@ -46,10 +46,12 @@
 ## Disk Storage 
 ### [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### Attaching a managed disk
+#### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+#### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
+### Using snapshots (full disk copy) with Managed Disks
+#### [Create copy of VHD stored as Azure Managed Disk using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+#### [Create copy of VHD stored as Azure Managed Disk using Managed Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -72,19 +74,23 @@
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Use disks
 ### [About disks and VHDs for Azure virtual machines](storage-about-disks-and-vhds-windows.md)
-### [Azure Storage Managed Disks Overview](storage-managed-disks-overview.md)
-### [Convert a Windows VM from unmanaged disks to managed disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md)
-### [Convert a Linux VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
+### Migrate existing Azure VMs to Managed Disks
+#### [Migrate a Windows VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md)
+#### [Migrate a Linux VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+### Migrate VMs from other platforms to Managed Disks
+#### [Migrate AWS and on-premises VMs to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+#### [Convert Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage and unmanaged and managed VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
-### Standard Storage
+<!--### Standard Storage-->
 <!--
 #### [Cost-effective Standard Storage and unmanaged and managed VM Disks](storage-standard-storage.md) -->
-#### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
 ### Using unmanaged disks
 #### [Migrate to Premium Storage](storage-migration-to-premium-storage.md)
+#### [Back up unmanaged VM disks with incremental snapshots](storage-incremental-snapshots.md)
 ## Plan and design
 ### [Replication](storage-redundancy.md)
 ### [Scalability and performance targets](storage-scalability-targets.md)

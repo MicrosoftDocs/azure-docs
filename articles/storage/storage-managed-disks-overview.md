@@ -18,7 +18,7 @@ ms.author: ramankum
 
 ---
 
-# Azure Storage Managed Disks Overview
+# Azure Managed Disks Overview
 
 Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](https://docs.microsoft.com/en-us/azure/storage/storage-introduction) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or Standard <!--[Standard](storage-standard-storage.md)-->) and size of disk you need, and Azure creates and manages the disk for you.
 
@@ -64,10 +64,13 @@ Standard (HDD-based). The billing of a managed disk depends on which type of sto
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
 
-| **Premium Managed Disk Type**  | **P10** | **P20** | **P30**        |         |                |
-|--------------------------------|---------|---------|----------------|---------|----------------|
-| Disk Size                      | 128 GB  | 512 GB  | 1024 GB (1 TB) |         |                |
+Here are the disk sizes available for a premium managed disk:
 
+| **Premium Managed Disk Type**  | **P10** | **P20** | **P30**        |
+|--------------------------------|---------|---------|----------------|
+| Disk Size                      | 128 GB  | 512 GB  | 1024 GB (1 TB) |
+
+Here are the disk sizes available for a standard managed disk: 
 
 | **Standard Managed Disk Type** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
 |--------------------------------|---------|---------|----------------|---------|----------------|
@@ -98,13 +101,13 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Get started with Managed Disks 
 
+* [Create a VM using Resource Manager and PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+
+* [Create a Linux VM using the Azure CLI 2.0 (Preview)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+
 * [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 
 * [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-
-* [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
-
-* [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
 
 ### Compare Managed Disks storage options 
 
@@ -115,11 +118,6 @@ For more information about Managed Disks, please refer to the following articles
 
 ### Operational guidance
 
+* [Migrate AWS and on-premises VMs to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
 
-* [Migrate AWS and on-premises VMs to Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
-
-* [Migrate from Amazon Web Services (AWS) to Azure Managed Disks](../virtual-machines/virtual-machines-windows-aws-to-azure.md)
-
-* [Upload a generalized VHD and use Managed Disks](..../virtual-machines//virtual-machines-windows-upload-generalized-managed.md)
-
-* [Upload a specialized VHD and create a new VM](../virtual-machines/virtual-machines-windows-upload-specialized.md) 
+* [Convert Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
