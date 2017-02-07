@@ -34,6 +34,7 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 - [Can I change between the S1, S2, and S3 performance levels before August 1, 2017?](#change-before)
 - [How will I know when my collection has migrated?](#when-migrated)
 - [How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?](#migrate-diy)
+- [How am I impacted if I'm an EA customer?](#ea-customer)
 
 <a name="why-retired"></a>
 
