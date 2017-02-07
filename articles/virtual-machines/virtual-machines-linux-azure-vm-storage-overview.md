@@ -13,24 +13,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/04/2016
-ms.author: v-livech
+ms.date: 2/7/2017
+ms.author: rasquill
 
 ---
 # Azure and Linux VM storage
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
 
-## Azure Storage: Standard and Premium
-Azure VM's can be built upon standard storage disks or premium storage disks.  When using the Portal to choose your VM you must toggle a dropdown on the Basics screen to view both standard and premium disks.  The screenshot below highlights that toggle menu.  When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard storage enabled VMs backed spinning disk drives will be shown, along with premium storage VMs backed by SSD.
+## Managed Disks
 
-  ![screen1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+Azure VMs are now available using [Azure Managed Disks](../storage/storage-managed-disks-overview.md), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
+
+- Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
+- Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
+- Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+
+Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see Pricing and Billing for Managed Disks(../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+
+## Azure Storage: Standard and Premium
+Azure VMs -- whether using Managed Disks or unmanaged -- can be built upon standard storage disks or premium storage disks. When using the portal to choose your VM you must toggle a dropdown on the **Basics** screen to view both standard and premium disks. When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard-storage-enabled VMs backed by spinning disk drives are shown, along with premium storage VMs backed by SSD.
 
 When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
 
 ### Create a VM with standard storage VM on the cli
 The cli flag `-z` chooses Standard_A1 with A1 being a standard storage based Linux VM.
 
-```bash
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -44,7 +52,7 @@ exampleVMname \
 ### Create a VM with premium storage on the cli
 The cli flag `-z` chooses Standard_DS1 with DS1 being a premium storage based Linux VM.
 
-```bash
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
