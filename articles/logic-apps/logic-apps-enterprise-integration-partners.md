@@ -31,7 +31,7 @@ you both in your integration account.
 ## What roles do partners perform in an integration account?
 
 You create agreements between partners to define the details 
-about the messages that those partners will exchange.
+about the messages that those partners exchange.
 
 Before you can create an agreement, you must have added 
 at least two partners to your integration account. 
@@ -56,7 +56,7 @@ then select **Integration Accounts** in the results list.
 
 	![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
 
-3. Select the integration account where you'll add your partners.
+3. Select the integration account where you want to add your partners.
 
 	![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
