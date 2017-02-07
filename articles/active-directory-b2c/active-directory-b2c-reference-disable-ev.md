@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/26/2017
+ms.date: 2/06/2017
 ms.author: parakhj
 
 ---
 # Azure Active Directory B2C: Disable email verification during consumer sign-up
-Azure Active Directory (Azure AD) B2C gives consumers the ability to sign up for your application by providing their email address and creating a local account. When you enable this feature, Azure AD B2C forces consumers to verify their email address during the sign-up process. This feature ensures that the new consumers are entering a valid email address. It also prevents a malicious automated process from generating fake accounts for your application.
+When enabled, Azure Active Directory (Azure AD) B2C gives a consumer the ability to sign up for applications by providing an email address and creating a local account. Azure AD B2C ensures valid email addresses by requiring consumers to verify them during the sign-up process. It also prevents a malicious automated process from generating fake accounts for the applications.
 
-We have received feedback that some application developers would prefer skipping the email verification during the sign-up process, and choose to have consumers verify the email address later. Disabling email verification creates a more frictionless sign-up process and helps developers differentiate the consumers that have verified their email address from those consumers that have not. To support this, we have added an option that disables email verification and gives you more control over the sign-up process.
+Some application developers prefer to skip email verification during the sign-up process and instead have consumers verify the email address later. To support this, Azure AD B2C can be configured to disable email verification and give control over the sign-up process. Doing so creates a smoother sign-up process and gives developers the flexibility to differentiate the consumers that have verified their email address from those consumers that have not.
 
-By default, your sign-up policy has email verification turned on. Use the following steps to turn it off:
+By default, sign-up policies have email verification turned on. Use the following steps to turn it off:
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies** or **Sign-up or sign-in policies** depending on what you configured for sign-up.
