@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 07/25/2016
+ms.date: 02/07/2017
 ms.author: jeffstok
 
 ---
@@ -24,4 +24,5 @@ ms.author: jeffstok
 | Maximum number of outputs per job |60 |There is a hard limit of 60 outputs per Stream Analytics job. |
 | Maximum number of functions per job |60 |There is a hard limit of 60 functions per Stream Analytics job. |
 | Maximum number of jobs per region |1500 |Each subscription may have up to 1500 jobs per geographical region. |
+| Reference data blob MB | 100 | Reference data blobs cannot be larger than 100 MB each. |
 
