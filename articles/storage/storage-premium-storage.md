@@ -31,7 +31,7 @@ With Premium Storage, Azure offers the ability to truly lift-and-shift your dema
 
 There are two ways to create Premium disks for Azure VMs:
 
-<!-- ROBIN -- ARTICLE DOESN'T EXIST YET -->
+<!-- why does this point to the standard disk article? ROBIN --> 
 **[Unmanaged Disks](storage-standard-vm-disks.md)**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
@@ -40,7 +40,11 @@ This feature manages the storage accounts used for the VM disks. You specify the
 
 Even though both types of disks are available, we recommend using Managed Disks. Managed Disks gets you away from the day-to-day management of storage accounts for your VMs. 
 
-To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). For information on migrating your existing VMs  to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Premium/Standard](ADD-HYPERLINK-ROBIN) and [Migrating VMs from other platforms to Managed Disks - Premium/Standard](ADD HYPERLINK ROBIN).
+To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating existing Azure VM to Managed Disks - Linux](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
+
+<!-- Robin -- need hyperlink if you're going to add this here. 
+and [Migrating VMs from other platforms to Managed Disks - Premium/Standard](ADD HYPERLINK ROBIN). -->
+
 <!-- is premium storage not available everywhere? ROBIN -->
 > [!NOTE]
 > Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services).
@@ -191,9 +195,11 @@ For detailed information on performing REST operations against page blobs in pre
 
 ### Managed disks
 
-A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future.
+A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Take a snapshot of a managed disk - Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md 
+) or [Take a snapshot of a managed disk - Windows](../virtual-machines/windows/virtual-machines-windows-snapshot-copy-managed-disk.md)
 
 If a managed disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate a shared access signature (SAS) to perform the copy operation.
+
 
 ## Using Linux VMs with Premium Storage
 Please refer to the important instructions below for configuring your Linux VMs on Premium Storage:
