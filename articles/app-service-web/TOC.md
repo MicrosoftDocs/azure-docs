@@ -130,7 +130,7 @@
 ### [Scale up](web-sites-scale.md)
 ### [Scale out](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Load-balance with Traffic Manager](web-sites-traffic-manager.md)
-### [High-scale with App Service Environments]((../../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json))
+### [High-scale with App Service Environments](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Reach globally with Azure CDN](cdn-websites-with-cdn.md)
 #### [Connect to Redis Cache via the Memcache protocol](web-sites-connect-to-redis-using-memcache-protocol.md)
 #### [Create a Redis Cache using a template](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
