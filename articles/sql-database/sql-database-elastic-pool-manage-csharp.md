@@ -18,7 +18,7 @@ ms.date: 10/04/2016
 ms.author: sstein
 
 ---
-# Create and manage an elastic pool with C#
+# Create and manage an elastic pool with C&#x23;
 
 This topic shows you how to create and manage scalable [elastic pools](sql-database-elastic-pool.md) with [C#](sql-database-elastic-pool-manage-csharp.md). You can also create and manage an Azure elastic pool with the [Azure portal](https://portal.azure.com/), [PowerShell](sql-database-elastic-pool-manage-powershell.md), the REST API. You can also create and move databases into and out of elastic pools using [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
