@@ -1,6 +1,6 @@
 ---
-title: Attach a data disk to a Windows VM using Powershell | Microsoft Docs
-description: How to attach new or existing data disk to a Windows VM using Powershell the Resource Manager deployment model.
+title: Attach a data disk to a Windows VM in Azure using PowerShell | Microsoft Docs
+description: How to attach new or existing data disk to a Windows VM using Powershell with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2016
+ms.date: 02/07/2017
 ms.author: cynthn
 
 ---
@@ -100,7 +100,7 @@ The script file can contain something like this code to initialize the disks:
 
 You can also attach an existing VHD as a managed data disk to a virtual machine. 
 
-### Using Managed Disk
+### Using managed disks
 
 ```powershell
 $rgName = 'myRG'
