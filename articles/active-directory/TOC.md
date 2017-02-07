@@ -192,7 +192,7 @@
 #### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
-#### [Information workers adding B2B users](active-directory-b2b-how-it-works.md)
+#### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Licensing](active-directory-b2b-licensing.md)
