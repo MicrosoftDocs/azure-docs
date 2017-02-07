@@ -26,7 +26,7 @@ This article summarizes the prerequisites required to begin Site Recovery replic
 Post any comments at the bottom of the article, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## Azure requirements
+## Azure requirements 
 
 **Requirement** | **Details**
 --- | ---
