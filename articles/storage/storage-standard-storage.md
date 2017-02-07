@@ -1,9 +1,9 @@
 ---
-title: HD-based cost-effective storage using Azure VM Disks | Microsoft Docs
-description: Explains how Standard Storage works with Azure Virtual Machines.
+title: HD-based cost-effective Standard Storage and Azure VM Disks | Microsoft Docs
+description: Discuss cost-effective Standard Storage and unmanaged and managed VM disks.
 services: storage
 documentationcenter: ''
-author: yuemlu
+author: ramankumarlive
 manager: aungoo-msft
 editor: tysonn
 
@@ -14,9 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: yuemlu
+ms.author: ramankum 
 
 ---
-# Standard Storage: HHD-based cost-effective storage for Azure Virtual Machine Workloads
+# Cost-effective Standard Storage and unmanaged and managed VM Disks
 
 This article will be posted on Tuesday 2/7/2017.

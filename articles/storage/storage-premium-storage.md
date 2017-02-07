@@ -1,9 +1,9 @@
 ---
-title: High-Performance Premium Storage using Azure VM Disks | Microsoft Docs
-description: Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure VMs. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
+title: High-Performance Premium Storage and Azure VM Disks | Microsoft Docs
+description: Discuss high-performance Premium Storage and unmanaged and managed VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
 services: storage
 documentationcenter: ''
-author: yuemlu
+author: ramankumarlive
 manager: aungoo-msft
 editor: tysonn
 
@@ -13,12 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
-ms.author: yuemlu
+ms.date: 02/06/2017
+ms.author: ramankum
 
 ---
-# Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
-
+# High-Performance Premium Storage and unmanaged and managed VM Disks
 Microsoft Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) running I/O-intensive workloads. VM disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
 
 An Azure VM supports attaching several premium storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 input/output operations per second (IOPS) per VM and disk throughput up to 2000 MB/s per VM with extremely low latencies for read operations.
@@ -31,21 +30,17 @@ With Premium Storage, Azure offers the ability to truly lift-and-shift your dema
 
 There are two ways to create Premium disks for Azure VMs:
 
-<!-- can we get a hyperlink from the compute folks? ROBIN --> 
 **Unmanaged Disks**: 
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
 **[Azure Managed Disks](storage-managed-disks-overview.md)**: 
 This feature manages the storage accounts used for the VM disks. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you.  
 
-Even though both types of disks are available, we recommend using Managed Disks. Managed Disks gets you away from the day-to-day management of storage accounts for your VMs. 
+Even though both types of disks are available, we recommend using Managed Disks. Managed Disks handles the day-to-day management of storage accounts used for your VMs for you. 
 
 To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). 
-<!-- need hyperlinks robin
-For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating existing Azure VM to Managed Disks - Linux](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
--->
-<!-- Robin -- need hyperlink if you're going to add this here. 
-and [Migrating VMs from other platforms to Managed Disks - Premium/Standard](ADD HYPERLINK ROBIN). -->
+
+For information on migrating your existing VMs to Premium Storage, see [Migrating existing Azure VM to Managed Disks - Windows](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md) or [Migrating an existing Azure Linux VM to Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
 
 > [!NOTE]
 > Premium Storage is currently supported in most regions. You can find the list of available regions in [Azure Services by Region](https://azure.microsoft.com/regions/#services) by looking at the regions in which the size-series VMs (DS, DSV2, Fs, and GS) are supported.
@@ -196,9 +191,8 @@ For detailed information on performing REST operations against page blobs in pre
 
 ### Managed disks
 
-A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Take a snapshot of a managed disk - Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md 
-).
-<!-- or [Take a snapshot of a managed disk - Windows](../virtual-machines/windows/virtual-machines-windows-snapshot-copy-managed-disk.md) -->
+A snapshot for a managed disk is a read-only copy of the managed disk which is stored as a standard managed disk. [Incremental Snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks but will be supported in the future. To learn how to take a snapshot for a managed disk, please refer to [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Windows](./Virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md) or [Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots in Linux](./Virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 
 If a managed disk is attached to a VM, certain API operations are not permitted on the disks. For example, you cannot generate a shared access signature (SAS) to perform a copy operation while the disk is attached to a VM. Instead, first create a snapshot of the disk, and then perform the copy of the snapshot. Alternately, you can detach the disk and then generate a shared access signature (SAS) to perform the copy operation.
 
@@ -212,7 +206,7 @@ Please refer to the important instructions below for configuring your Linux VMs 
 * If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
 * If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 * For premium storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
-* For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md).
 
 Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest Linux Integration Services (LIS) v4.0 for Microsoft Azure. Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workloads.
 

@@ -96,8 +96,7 @@ There are two performance tiers for storage that you can choose from when creati
 
 Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](storage-redundancy.md). 
 
-For more information about using Standard Storage with VM disks, please see [Standard Storage for VM disks](storage-standard-vm-disks.md).
-<!-- this article does not exist yet.-->
+For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](storage-standard-vm-disks.md).
 
 ### Premium storage 
 
