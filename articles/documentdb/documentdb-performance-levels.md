@@ -92,7 +92,7 @@ Whether you have a collection with an S1, S2, or S3 performance level, or have a
 
 ## Can I change between the S1, S2, and S3 performance levels before August 1, 2017?
 
-Only existing accounts with S1, S2, and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. By August 1, 2017, the S1, S2, and S3 performance levels will no longer be available.
+Only existing accounts with S1, S2, and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. By August 1, 2017, the S1, S2, and S3 performance levels will no longer be available. If you change from S1, S3, or S3 to Standard pricing, you cannot return to the S1, S2, or S3 performance levels.
 
 <a name="when-migrated"></a>
 
