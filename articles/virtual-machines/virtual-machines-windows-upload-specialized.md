@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2016
+ms.date: 02/05/2017
 ms.author: cynthn
 
 ---
 
 # Upload a specialized VHD to Azure to use for creating a new VM
 
-A specialized VHD maintains the user accounts, applications and other state data from your original VM. You can upload a specialized VHD to Azure and use it to create a VM that uses Managed Disks or an unmanaged storage account.
+A specialized VHD maintains the user accounts, applications and other state data from your original VM. You can upload a specialized VHD to Azure and use it to create a VM that uses Managed Disks or an unmanaged storage account. We recommend that you use [Managed Disks](../storage/storage-managed-disks-overview.md) to take advantage of the simplified management and additional features that Managed Disks offer.
 
 
 > [!IMPORTANT]
@@ -39,7 +39,7 @@ A specialized VHD maintains the user accounts, applications and other state data
 ## Prepare the VM
  
 If you intend to use the specialized VHD as-is to create a new VM, ensure the following steps are completed. 
-  
+  * If you are going to use Managed Disks, review [Plan for the migration to Managed Disks](machines-windows-on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
   * [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
   * Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
