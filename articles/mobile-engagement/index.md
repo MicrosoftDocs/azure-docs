@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Mobile Engagement Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to get insights into mobile app usage and real-time user segmentation, and how to enable contextually-aware push notifications and in-app messaging.
+services: mobile-engagement
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: mobile-engagement
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Mobile Engagement Documentation
 
