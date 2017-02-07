@@ -104,7 +104,7 @@
 #### [Use app settings](web-sites-configure.md)
 #### [Use connection strings](web-sites-configure.md)
 			
-## [Deploy to Azure](./deploy/TOC.md)
+## [Deploy to Azure](/deploy/TOC.md)
 
 ## Connect to DB/resources		
 ### Connect to cloud DB
