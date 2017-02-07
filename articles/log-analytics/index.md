@@ -12,7 +12,6 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-
 ---
 
 # Log Analytics Documentation
