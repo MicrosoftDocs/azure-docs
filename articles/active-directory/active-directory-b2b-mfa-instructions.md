@@ -47,33 +47,34 @@ Check out the animation below to see the redemption experience, as shown in the 
   If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
 
 ## MFA reset for B2B collaboration users
-Currently, the admin can require B2B collaboration users to proof up again only by using the following PowerShell cmdlets. Therefore, the following PowerShell cmdlts should be used if you want to reset a B2B user's proof up method.
-Note: To use the new cmdlet, you need to install the Azure AD PowerShell V2 module, which you can get from here: https://www.powershellgallery.com/packages/AzureADPreview
-1. Connect to Azure AD
-    Connect-AzureAd and login
-2. Get all users with proof up methods
-    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName,
-    @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  Here is an example:
-    PS C:\Users\tjwasser> Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e
-={($_.StrongAuthenticationMethods).MethodType}}
+Currently, the admin can require B2B collaboration users to proof up again only by using the following PowerShell cmdlets. Therefore, the following PowerShell cmdlets should be used if you want to reset a B2B collaboration user's proof up method.
 
-  UserPrincipalName   |   Methods
-  ----------------- | -------
-  @WoodGroveAzureAD.onmicrosoft.com(mailto:tjb2b_outlook.com#EXT#@WoodGroveAzureAD.onmicrosoft.com) |  {OneWaySMS, TwoWayVoiceMobile}
-  gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com | {OneWaySMS, TwoWayVoiceMobile}
-  AbbieS@WoodGroveOnline.com | {OneWaySMS, TwoWayVoiceMobile}
-  KeithB@WoodGroveOnline.com | {OneWaySMS, TwoWayVoiceMobile}
-  NitikaG@WoodGroveOnline.com| {OneWaySMS, TwoWayVoiceMobile}
-  RobD@WoodGroveOnline.com | {OneWaySMS, TwoWayVoiceMobile, PhoneAppOTP, PhoneApp...
-  mwahl@woodgroveonline.com | {OneWaySMS, TwoWayVoiceMobile}
-  AudreyO@WoodGroveOnline.com | {OneWaySMS, TwoWayVoiceMobile, PhoneAppOTP, PhoneApp...
-  SaratS@WoodGroveOnline.com|  {OneWaySMS, TwoWayVoiceMobile}
+> [!NOTE]
+> To use the new cmdlet, you need to install the Azure AD PowerShell V2 module, which you can get from here: https://www.powershellgallery.com/packages/AzureADPreview
+
+1. Connect to Azure AD and sign in
+
+  ```
+  Connect-AzureAd
+  ```
+2. Get all users with proof up methods
+
+  ```
+  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+  ```
+  Here is an example:
+
+  ```
+  PS C:\Users\tjwasser> Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName,
+  @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+  ```
 
 3. Reset the MFA method for a specific user
-  You can then use that UserPrincipalName to run the reset command to require the B2B user to set proof-up methods again. Example:
-    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName
-    gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+  You can then use that UserPrincipalName to run the reset command to require the B2B collaboration user to set proof-up methods again. Example:
+
+  ```
+  Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+  ```
 
 ## Next steps
 
