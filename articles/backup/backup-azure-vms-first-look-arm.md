@@ -30,11 +30,11 @@ This tutorial takes you through the steps for creating a recovery services vault
 * Azure Resource Manager-deployed VMs
 * Classic VMs
 * Standard storage VMs
-* storage VMs
+* Premium storage VMs 
 * VMs running on Managed Disks
 * VMs encrypted using Azure Disk Encryption, with BEK and KEK
 
-For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)
+For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [ Back up and restore of VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-VMs-with-Azure-Backup)
 
 > [!NOTE]
 > This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
