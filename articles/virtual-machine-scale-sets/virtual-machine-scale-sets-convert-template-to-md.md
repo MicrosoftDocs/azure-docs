@@ -23,11 +23,11 @@ ms.author: negat
 
 # Convert a scale set template to a managed disk scale set template
 
-Customers with a Resource Manager template for creating a scale set not using managed disk may wish to modify it to use managed disk. This article will show how to do this, using as an example a pull request from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates), a community-driven repo for sample Resource Manager templates. The full pull request can be seen here: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), and the relevant parts of the diff are below, along with explanations:
+Customers with a Resource Manager template for creating a scale set not using managed disk may wish to modify it to use managed disk. This article shows how to do this, using as an example a pull request from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates), a community-driven repo for sample Resource Manager templates. The full pull request can be seen here: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), and the relevant parts of the diff are below, along with explanations:
 
 ## Making the OS disks managed
 
-In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary (Standard_LRS is the default), but we could still specify it if we wished to. Note that only Standard_LRS and Premium_LRS are supported with managed disk. New storage account suffix, unique string array, and sa count were used to generate storage account names but are no longer necessary because managed disk will automatically create storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary because managed disk will automatically name the underlying storage blob containers and disks.
+In the diff below, we can see that we have removed several variables related to storage account and disk properties. Storage account type is no longer necessary (Standard_LRS is the default), but we could still specify it if we wished to. Only Standard_LRS and Premium_LRS are supported with managed disk. New storage account suffix, unique string array, and sa count were used in the old template to generate storage account names; these are no longer necessary in the new template because managed disk automatically creates storage accounts on the customer's behalf. Similarly, vhd container name and os disk name are no longer necessary because managed disk automatically names the underlying storage blob containers and disks.
 
 ```diff
    "variables": {
@@ -65,7 +65,7 @@ In the diff below, we can see that we updated the compute api version to 2016-04
    },
 ```
 
-In the diff below, we can see that we are removing the storage account resource from the resources array completely. We no longer need them since managed disk will create them automatically on our behalf.
+In the diff below, we can see that we are removing the storage account resource from the resources array completely. We no longer need them since managed disk creates them automatically on our behalf.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -90,7 +90,7 @@ In the diff below, we can see that we are removing the storage account resource 
        "location": "[resourceGroup().location]",
 ```
 
-In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. If we wished, we could add `"managedDisk": { "storageAccountType": "Premium_LRS" }` in the "osDisk" configuration if we wanted premium OS disks (remember that only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks).
+In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this clause is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these properties are automatically handled under the hood by managed disk. If we wished, we could add `"managedDisk": { "storageAccountType": "Premium_LRS" }` in the "osDisk" configuration if we wanted premium OS disks. Only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -119,12 +119,12 @@ In the diff below, we can see that we are removing the depends on clause referri
 
 ```
 
-Note that there is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying the template to ensure that the right properties are in the storage profile of the scale set.
+There is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying the template to ensure that the right properties are in the storage profile of the scale set.
 
 
 ## Data disks
 
-With the changes above, the scale set will use managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is the only supported option at this time), and "diskSizeGB" (the size of the disk in gigabytes; this must be greater than 0 and less than 1024) as below. If you specify `n` disks in this array, each VM in the scale set will have `n` data disks. Do note, however, that the disk will be a raw device. It will not be formatted or have a filesystem on it. It is up to the customer to attach the disk, format it, and put a file system on it. Optionally, we could also specify `"managedDisk": { "storageAccountType": "Premium_LRS" }` in each data disk object to specify that it should be a premium data disk (remember that only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks).
+With the changes above, the scale set uses managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is the only supported option at this time), and "diskSizeGB" (the size of the disk in gigabytes; must be greater than 0 and less than 1024) as in the following example. If you specify `n` disks in this array, each VM in the scale set gets `n` data disks. Do note, however, that these data disks are raw devices. They are not formatted. It is up to the customer to attach the disk, format it, and put a file system on it. Optionally, we could also specify `"managedDisk": { "storageAccountType": "Premium_LRS" }` in each data disk object to specify that it should be a premium data disk. Only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks.
 
 ```
 "dataDisks": [
