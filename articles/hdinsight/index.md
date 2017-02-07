@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure HDInsight Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn Hadoop on HDInsight. Documentation shows you how to use Hadoop, Spark, HBase, R-Server, and more to process, analyze, and gain insights from big data.
+services: hdinsight
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: hdinsight
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #Azure HDInsight Documentation
 

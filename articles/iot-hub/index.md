@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure IoT Hub Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 #IoT Hub Documentation
 
