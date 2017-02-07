@@ -33,18 +33,10 @@ This means:
 7. In summary, the inviting tenancy is *always* responsible for MFA of B2B collaboration users from the partner organization, not the partner organization itself (even if it has MFA capabilities). In future releases, we will be enabling the inviting organization to trust specific partner organizations' MFA instead of using the inviting organization's MFA.
 
 ## Setting up MFA for B2B users
-To discover how easy it is to set up MFA for B2B collaboration users, see how in the following video:
-
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup]
-
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+To discover how easy it is to set up MFA for B2B collaboration users, see how in [this video](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
 
 ## B2B users MFA experience for offer redemption
-Check out the animation below to see the redemption experience, as shown in the following video:
-
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption]
-
-  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+Check out the animation below to see the redemption experience, as shown in [this video](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
 
 ## MFA reset for B2B collaboration users
 Currently, the admin can require B2B collaboration users to proof up again only by using the following PowerShell cmdlets. Therefore, the following PowerShell cmdlets should be used if you want to reset a B2B collaboration user's proof up method.
