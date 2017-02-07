@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Media Services Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to securely stream on-demand or live broadcast-quality video with Media Services, an extensible cloud platform. Tutorials, API references, and more.
+services: media-services
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: media-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 # Media Services Documentation
 
