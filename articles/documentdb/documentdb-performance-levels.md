@@ -20,7 +20,7 @@ ms.author: mimig
 # Performance levels in DocumentDB
 
 > [!IMPORTANT] 
-> The S1, S2, and S3 performance levels discussed in this article are being retired and no longer available for new DocumentDB collections.
+> The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB collections.
 >
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to the new Standard pricing tier on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
@@ -45,7 +45,7 @@ The S1, S2, and S3 performance levels do not offer the flexibility that the new 
 
 ## How does the Standard pricing tier compare to the S1, S2, S3 performance levels?
 
-The following table compares the throughput and storage options available in S1, S2, S3, and Standard. Here is an example for US East 2 region:
+The following table compares the throughput and storage options available in Standard pricing and the S1, S2, S3 performance levels. Here is an example for US East 2 region:
 
 |   |Standard with partitioned collection|Standard with single partition collection|S1|S2|S3|
 |---|---|---|---|---|---|
@@ -58,7 +58,7 @@ The following table compares the throughput and storage options available in S1,
 
 ## What do I need to do to ensure uninterrupted access to my data?
 
-Nothing, DocumentDB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to the Standard performance tier August 1, 2017. 
+Nothing, DocumentDB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to the Standard performance tier on July 31, 2017. 
 
 <a name="collection-change"></a>
 
