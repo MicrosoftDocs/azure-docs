@@ -7,7 +7,7 @@
 4. In **Registration**, select the registration key you downloaded from the vault.
 
     ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the internet.
+5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet.
 
    * If you want to connect with the proxy that's currently set up on the machine, select **Connect with existing proxy settings**.
    * If you want the Provider to connect directly, select **Connect directly without a proxy**.
