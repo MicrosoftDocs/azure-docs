@@ -90,7 +90,7 @@ In the diff below, we can see that we are removing the storage account resource 
        "location": "[resourceGroup().location]",
 ```
 
-In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. We do add one new property, though, which is "diskSizeGB", specifying the size of our OS disk in gigabytes. If we wished, we could also specify `"managedDisk": { "storageAccountType": "Premium_LRS" }` in the "osDisk" configuration if we wanted premium OS disks (remember that only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks).
+In the diff below, we can see that we are removing the depends on clause referring from the scale set to the loop that was creating storage accounts. In the old template, this was ensuring that the storage accounts were created before the scale set began creation, but this is no longer necessary with managed disk. We also remove the vhd containers property, and the os disk name property as these are automatically handled under the hood by managed disk. If we wished, we could add `"managedDisk": { "storageAccountType": "Premium_LRS" }` in the "osDisk" configuration if we wanted premium OS disks (remember that only VMs with an uppercase or lowercase 's' in the VM sku can use premium disks).
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -113,9 +113,6 @@ In the diff below, we can see that we are removing the depends on clause referri
 -                "[concat('https://', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]"
 -              ],
 -              "name": "[variables('osDiskName')]",
--              "createOption": "FromImage"
-+              "createOption": "FromImage",
-+              "diskSizeGB": 100
              },
              "imageReference": "[variables('imageReference')]"
            },
