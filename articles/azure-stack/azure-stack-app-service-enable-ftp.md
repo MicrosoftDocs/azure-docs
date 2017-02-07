@@ -43,7 +43,6 @@ Once you have successfully deployed App Service on Azure Stack if you wish to en
 1.  Log in to the Azure Stack portal as either the service administrator or as a tenant.
 2.  Browse to **App Services** and select a Web, Mobile, or API App you have created. ![App Services][7]
 3.  In the application details note the **FTP Hostname** and **FTP/deployment username**. ![App Service App Details][8]
-
 > [!NOTE]
 > If you do not see an entry under **FTP/deployment username**, you need to set the Deployment credentials first using the **Deployment Credentials** Blade.
 
