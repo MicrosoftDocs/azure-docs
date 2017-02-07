@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/17/2016
+ms.date: 02/02/2017
 ms.author: magoedte;bwren
 
 ---
@@ -51,8 +51,7 @@ The following example invokes a test child runbook that accepts three parameters
 Following is the same example using a PowerShell runbook as the child.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
-    $output = .\PS-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
-
+    $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 
 ## Starting a child runbook using cmdlet

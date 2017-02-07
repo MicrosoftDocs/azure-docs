@@ -97,6 +97,28 @@
 #### [Optional: Change the LED behavior](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Troubleshoot](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Get started with an Arduino (Node)
+### [Get started with an Arduino board: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Lesson 1: Configure your device
+#### [Configure your device](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Get the tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Get the tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Get the tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Create and deploy the blink application](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Lesson 2: Create your IoT hub
+#### [Get the Azure tools (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Get the Azure tools (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Get the Azure tools (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Create your IoT hub and register your Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Lesson 3: Send device-to-cloud messages
+#### [Create an Azure function app and storage account](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [Run the sample application to send messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Read messages persisted in storage](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Lesson 4: Send cloud-to-device messages
+#### [Run the sample application to receive messages](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Optional: Change the LED behavior](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Troubleshoot](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Get started with the Gateway SDK (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Get started with the Gateway SDK (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -221,6 +243,7 @@
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (Device Twins)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
 ## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
 ## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 

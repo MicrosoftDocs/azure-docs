@@ -1,5 +1,5 @@
 ---
-title: Replicate Hyper-V virtual machines in VMM clouds to Azure using the Azure portal | Microsoft Docs
+title: Replicate Hyper-V VMs in VMM clouds to Azure| Microsoft Docs
 description: Describes how to deploy Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds, to Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
@@ -44,7 +44,7 @@ For a full deployment, we strongly recommend you follow all the steps in the art
 | **On-premises limitations** |HTTPS-based proxy isn't supported |
 | **Provider/agent** |Replicated VMs need the Azure Site Recovery Provider.<br/><br/> Hyper-V hosts need the Recovery Services agent.<br/><br/> You install these during deployment. |
 |  **Azure requirements** |Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
-|  **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. 
+|  **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions.
 |  **VM replication** |[VMs must comply with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
 |  **Replication limitations** |You can't replicate VMs running Linux with a static IP address.<br/><br/> You can exclude specific disks from replication, but not OS disk.
 | **Deployment steps** |1) Prepare Azure (subscription, storage, network) -> 2) Prepare on-premises (VMM and network mapping) -> 3) Create Recovery Services vault -> 4) Set up VMM and Hyper-V hosts -> 5) Configure replication settings -> 6) Enable replication -> 7) Test replication and failover. |
@@ -390,16 +390,16 @@ Now enable replication as follows:
 7. In **Properties** > **Configure properties**,  select the operating system for the selected VMs, and the OS disk. By default all the disks of the VM are selected for replication. You might want to exclude disk(s) from replication to reduce the bandwidth consumption of replicating unnecessary data to Azure. For example you might not want to replicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or Microsoft SQL Server tempdb). You can exclude the disk from replication by unselecting the disk. Verify that the Azure VM name (Target Name) complies with [Azure virtual machine requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) and modify it if you need to. Then click **OK**. You can set additional properties later..
 
 	![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
-	
+
 	>[!NOTE]
-	> 
-	> * Only basic disks can be excluded from replication. You can't exclude OS disk and it is not recommend to exclude dynamic disks. ASR cannot identify which VHD disk is basic or dynamic disk inside the guest VM.  If all the dependent dynamic volume disks are not excluded, protected dynamic disk will come as a failed disk on failover VM and the data on that disk cannot be accessible.	
+	>
+	> * Only basic disks can be excluded from replication. You can't exclude OS disk and it is not recommend to exclude dynamic disks. ASR cannot identify which VHD disk is basic or dynamic disk inside the guest VM.  If all the dependent dynamic volume disks are not excluded, protected dynamic disk will come as a failed disk on failover VM and the data on that disk cannot be accessible.
 	> * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you'll need to disable protection for the VM and then reenable it.
 	> * If you exclude a disk that's needed for an application to operate, after failover to Azure you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
 	> * Disks you create manually in Azure will be not be  failed back. For example, if you failover three disks and create two directly in Azure VM, only three disks which were failed over will be failed back from Azure to Hyper-V. You can't include disks created manually in failback or in reverse replication from Hyper-V to Azure.
 	>
 	>
-    
+
 
 8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Settings** > **Replication policies** > policy name > **Edit Settings**. Changes you apply are used for machines that are already replicating, and new machines.
 
@@ -416,7 +416,7 @@ We recommend that you verify the properties of the source machine. Remember that
 2. In **Properties**, you can view replication and failover information for the VM.
 
     ![Enable replication](./media/site-recovery-vmm-to-azure/test-failover2.png)
-3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) if you need to. You can also view and modify information about the target network, subnet, and the IP address that's assigned to the Azure VM. 
+3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) if you need to. You can also view and modify information about the target network, subnet, and the IP address that's assigned to the Azure VM.
 Note that:
 
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover will fail. The same target IP address can be used for test failover if the address is available in the test failover network.

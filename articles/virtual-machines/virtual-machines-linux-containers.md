@@ -17,6 +17,6 @@ ms.date: 08/23/2016
 ms.author: rasquill
 
 ---
-# Virtual Machines and Containers in Azure
+# Virtual Machines vs. Containers in Azure
 [!INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: apipm
+ms.author: apimpm
 ---
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 ## Overview

@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/31/2017
 ms.author: dobett
 
 ---
@@ -57,6 +57,9 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 ## Back-end app
 In the context of [IoT Hub](#iot-hub), a back-end app is an app that connects to one of the service-facing endpoints on an IoT hub. For example, a back-end app might retrieve [device-to-cloud](#device-to-cloud)messages or manage the [identity registry](#identity-registry). Typically, a back-end app runs in the cloud, but in many of the tutorials the back-end apps are console apps running on your local development machine.
 
+## Built-in endpoints
+Every IoT hub includes a built-in [endpoint](iot-hub-devguide-endpoints.md) that is Event Hubs-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
+
 ## Cloud gateway
 A cloud gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). A cloud gateway is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A typical use case for a cloud gateway is to implement protocol translation for your devices.
 
@@ -67,6 +70,9 @@ Refers to messages sent from an IoT hub to a connected device. Often, these mess
 You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
 - *Device connection strings* enable devices to connect to the device-facing endpoints on an IoT hub.
 - *IoT Hub connection strings* enable back-end apps to connect to the service-facing endpoints on an IoT hub.
+
+## Custom endpoints
+You can create custom [endpoints](iot-hub-devguide-endpoints.md) on an IoT hub to deliver messages dispatched by a [routing rule](#routing-rules). Custom endpoints connect directly to an Event hub, a Service Bus queue, or a Service Bus topic.
 
 ## Custom gateway
 A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use the [Azure IoT Gateway SDK](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
@@ -122,6 +128,9 @@ A [device twin](iot-hub-devguide-device-twins.md) is JSON document that stores d
 ## Device twin queries
 [Device twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins. You can use the same IoT Hub query language to retrieve information about [jobs](#job) running in your IoT hub.
 
+## Device twins REST API
+You can use the [Device twins REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) from the solution back end to manage your device twins. The API enables you to retrieve and update [device twin](#device-twin) properties and invoke [direct methods](#direct-method). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+
 ## Device twin synchronization
 Device twin synchronization uses the [desired properties](#desired-properties) in your device twins to configure your devices and retrieve [reported properties](#reported-properties) from your devices to store in the device twin.
 
@@ -129,7 +138,7 @@ Device twin synchronization uses the [desired properties](#desired-properties) i
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
 
 ## Endpoint
-An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management.
+An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing management endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management. There are service-facing [built-in endpoints](#built-in-endpoints) for reading device-to-cloud messages. You can create [custom endpoints](#custom-endpoints) to receive device-to-cloud messages dispatched by a [routing rule](#routing-rules).
 
 ## Event Hubs service
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enables you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
@@ -198,7 +207,7 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 There are various [quotas](iot-hub-devguide-quotas-throttling.md) that apply to your use of [IoT Hub](#iot-hub), many of the quotas vary based on the tier of the IoT hub. [IoT Hub](#iot-hub) also applies [throttles](iot-hub-devguide-quotas-throttling.md) to your use of the service at run time.
 
 ## Reported configuration
-In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that the device reports to the solution back end.
+In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that should be reported to the solution back end.
 
 ## Reported properties
 In the context of a [device twin](iot-hub-devguide-device-twins.md), reported properties is a subsection of the device twin used with [desired properties](#desired-properties) to synchronize device configuration or condition. Reported properties can only be set by the [device app](#device-app) and can be read and queried by a [back-end app](#back-end-app).
@@ -208,6 +217,9 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), reported pr
 
 ## Retry policy
 You use a retry policy to handle [transient errors](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) when you connect to a cloud service.
+
+## Routing rules
+You configure [routing rules](iot-hub-devguide-messaging.md#routing-rules) in your IoT hub to route device-to-cloud messages to a [built-in endpoint](#built-in-endpoints) or to [custom endpoints](#custom-endpoints) for processing by your solution back end.
 
 ## SASL PLAIN
 SASL PLAIN is a protocol that the [AMQP](#advanced-message-queue-protocol) protocol uses to transfer security tokens.

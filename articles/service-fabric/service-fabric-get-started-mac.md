@@ -62,8 +62,8 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
   
    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
    
-
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
+    
 5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]

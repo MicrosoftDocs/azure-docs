@@ -4,7 +4,7 @@ description: Compare SQL Database service tiers.
 keywords: database options,database performance
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: janeng
 manager: jhubbard
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/11/2017
-ms.author: carlrab; janeng
+ms.author: janeng
 
 ---
 # SQL Database options and performance: Understand what's available in each service tier
