@@ -160,6 +160,7 @@
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
+#### [Tenant restrictions](active-directory-tenant-restrictions.md)
 
 ### [Use SCIM provision users](active-directory-scim-provisioning.md)
 ### [Document library](active-directory-apps-index.md)
