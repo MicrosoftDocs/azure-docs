@@ -1,5 +1,5 @@
 ---
-title: Create VM from a specialized disk | Microsoft Docs
+title: Create VM from a specialized disk in Azure | Microsoft Docs
 description: Create a new VM by attaching a specialized managed disk or unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/06/2017
 ms.author: cynthn
 
 ---
@@ -88,7 +88,7 @@ This example sets the VM name to "myVM" and the VM size to "Standard_A2".
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-````
+```
 
 ## Add the NIC
 	
