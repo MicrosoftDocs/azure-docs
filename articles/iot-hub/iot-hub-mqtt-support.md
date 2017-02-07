@@ -88,6 +88,7 @@ The device app can also use `devices/{device_id}/messages/events/{property_bag}`
 
 IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
 IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
+IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID will cause IoT Hub to sever the existing connection.
 
 Refer to [Messaging developer's guide][lnk-messaging] for more information.
 
