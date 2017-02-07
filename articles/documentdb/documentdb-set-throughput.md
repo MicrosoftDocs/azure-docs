@@ -18,22 +18,22 @@ ms.author: mimig
 
 ---
 
-# Set throughput for Azure DocumentDB
+# Set throughput for Azure DocumentDB collections
 
-You can set collection level throughput for your DocumentDB collections in the Azure portal or by using the client SDKs. 
+You can set throughput for your DocumentDB collections in the Azure portal or by using the client SDKs. 
 
 ## To set the throughput by using the Azure portal
 
 1. In a new window, open the [Azure portal](https://portal.azure.com).
-2. On the left bar, click **NoSQL (DocumentDB)**, or click **More Services** at the bottom, then scroll to **NoSQL (DocumentDB)** under **Databases**.
+2. On the left bar, click **NoSQL (DocumentDB)**, or click **More Services** at the bottom, then scroll to **Databases**, and then click **NoSQL (DocumentDB)**.
 3. Select your DocumentDB account.
-4. In the new window, under **Collections** click **Scale** as shown in the following screenshot.
+4. In the new window, under **Collections**, click **Scale** as shown in the following screenshot.
 5. In the new window, select your collection from the drop-down, change the **Throughput** value, and then click **Save**.
 
     ![Screenshot showing how to change throughput for a collection in the Azure portal by navigating to your account and clicking Scale](./media/documentdb-set-throughput/azure-documentdb-change-throughput-value.png)
 
 ## To set the throughput by using the .NET SDK
-
+    ```c#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
         .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -45,6 +45,7 @@ You can set collection level throughput for your DocumentDB collections in the A
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
+    ```
 
 ## Next steps
 
