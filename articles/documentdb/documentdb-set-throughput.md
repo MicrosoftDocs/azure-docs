@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 
-# Set throughtput for Azure DocumentDB
+# Set throughput for Azure DocumentDB
 
 You can set collection level throughput for your DocumentDB collections in the Azure portal or by using the client SDKs. 
 
@@ -28,7 +28,7 @@ You can set collection level throughput for your DocumentDB collections in the A
 2. On the left bar, click **NoSQL (DocumentDB)**, or click **More Services** at the bottom, then scroll to **NoSQL (DocumentDB)** under **Databases**.
 3. Select your DocumentDB account.
 4. In the new window, under **Collections** click **Scale** as shown in the following screenshot.
-5. In the new window, select your collection from the drop-down, change the **Throughtput** value, and then click **Save**.
+5. In the new window, select your collection from the drop-down, change the **Throughput** value, and then click **Save**.
 
     ![Screenshot showing how to change throughput for a collection in the Azure portal by navigating to your account and clicking Scale](./media/documentdb-set-throughput/azure-documentdb-change-throughput-value.png)
 
