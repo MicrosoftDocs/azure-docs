@@ -298,21 +298,20 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
    
     The output is similar to the following:
    
-    ```dwarfs  13635
-    ago     13664
-    snow    13636
-    dwarfs  13636
-    ago     13665
-    a       13803
-    ago     13666
-    a       13804
-    ago     13667
-    ago     13668
-    jumped  13640
-    jumped  13641
-    a       13805
-    snow    13637
-    ```
+        dwarfs  13635
+        ago     13664
+        snow    13636
+        dwarfs  13636
+        ago     13665
+        a       13803
+        ago     13666
+        a       13804
+        ago     13667
+        ago     13668
+        jumped  13640
+        jumped  13641
+        a       13805
+        snow    13637
    
     Note that the count increments each time a word is encountered.
 

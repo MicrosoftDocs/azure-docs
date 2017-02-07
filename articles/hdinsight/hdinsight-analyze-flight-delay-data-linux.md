@@ -51,7 +51,9 @@ Before you begin this tutorial, you must have the following:
 
 1. Use the following command to upload the zip file to the HDInsight cluster head node:
    
-    ```scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:```
+    ```
+    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```
    
     Replace **FILENAME** with the name of the zip file. Replace **USERNAME** with the SSH login for the HDInsight cluster. Replace CLUSTERNAME with the name of the HDInsight cluster.
    
@@ -69,7 +71,9 @@ Before you begin this tutorial, you must have the following:
 
 3. Once connected, use the following to unzip the .zip file:
    
-    ```unzip FILENAME.zip```
+    ```
+    unzip FILENAME.zip
+    ```
    
     This extracts a .csv file that is roughly 60MB in size.
 
@@ -85,11 +89,13 @@ Use the following steps to import data from the CSV file into a Hive table named
 
 1. Use the following to create and edit a new file named **flightdelays.hql**:
    
-    ```nano flightdelays.hql```
+    ```
+    nano flightdelays.hql
+    ```
    
     Use the following as the contents of this file:
    
-    ```hive
+    ```hiveql
     DROP TABLE delays_raw;
     -- Creates an external table over the csv file
     CREATE EXTERNAL TABLE delays_raw (
@@ -153,18 +159,22 @@ Use the following steps to import data from the CSV file into a Hive table named
 
 3. Use the following to start Hive and run the **flightdelays.hql** file:
    
-    ```beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql```
+    ```
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
+    ```
    
    > [!NOTE]
    > In this example, `localhost` is used since you are connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
 
 4. Once the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
    
-    ```beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin```
+    ```
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```
 
 5. When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following to retrieve data from the imported flight delay data.
    
-    ```
+    ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     SELECT regexp_replace(origin_city_name, '''', ''),
@@ -194,11 +204,15 @@ If you do not already have a SQL Database, use the information in [SQL Database 
 
 2. Use the following command to install FreeTDS:
    
-    ```sudo apt-get --assume-yes install freetds-dev freetds-bin```
+    ```
+    sudo apt-get --assume-yes install freetds-dev freetds-bin
+    ```
 
 3. Once the install completes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
    
-    ```TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>```
+    ```
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    ```
    
     You receive output similar to the following:
    
@@ -243,25 +257,33 @@ If you do not already have a SQL Database, use the information in [SQL Database 
 
 1. Use the following command to verify that Sqoop can see your SQL Database:
    
-    ```sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>```
+    ```
+    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    ```
    
     This should return a list of databases, including the database that you created the delays table in earlier.
 
 2. Use the following command to export data from hivesampletable to the mobiledata table:
    
-    ```sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1```
+    ```
+    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+    ```
    
     This instructs Sqoop to connect to SQL Database, to the database containing the delays table, and export data from the `/tutorials/flightdelays/output` directory (where we stored the output of the hive query earlier,) to the delays table.
 
 3. After the command completes, use the following to connect to the database using TSQL:
    
-    ```TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>```
+    ```
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    ```
    
     Once connected, use the following statements to verify that the data was exported to the mobiledata table:
    
-        SELECT * FROM delays
-        GO
-   
+    ```
+    SELECT * FROM delays
+    GO
+    ```
+    
     You should see a listing of data in the table. Type `exit` to exit the tsql utility.
 
 ## <a id="nextsteps"></a> Next steps
