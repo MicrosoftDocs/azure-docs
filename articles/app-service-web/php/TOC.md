@@ -8,7 +8,7 @@
 ## App Service for developers 
 ## App Service everywhere	
 ## [Web apps in App Service](../app-service-web-overview.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service on Linux](../app-service-linux-intro.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 # [Concepts](../concepts/TOC.md)	
@@ -39,19 +39,19 @@
 ## [Deploy to App Service](../deploy/TOC.md)
 	
 ## Connect to DB/resources		
-### [Connect to MySQL in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Connect to MySQL in Azure](../../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### Connect to local DB
 ### [Connect to on-premises data](../web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
 ### [Connect to Azure Virtual Network](../web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ### [Connect to Azure Virtual Network with PowerShell](../app-service-vnet-integration-powershell.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
 ## Secure app
-### [Authenticate with Azure AD](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Authenticate with Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Authenticate with Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Authenticate with Microsoft account](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Authenticate with Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-### [Authenticate with on-prem AD](web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Authenticate with Azure AD](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Authenticate with Facebook](../../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Authenticate with Google](../../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Authenticate with Microsoft account](../../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Authenticate with Twitter](../../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Authenticate with on-prem AD](../web-sites-authentication-authorization.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ### [Buy SSL cert](../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ### [Configure 3rd-party SSL cert](../web-sites-configure-ssl-certificate.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ### [Enforce HTTPS](../web-sites-configure-ssl-certificate.md#enforce-https-on-your-app?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
