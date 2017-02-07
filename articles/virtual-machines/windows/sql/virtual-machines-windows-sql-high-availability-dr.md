@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/07/2017
 ms.author: mikeray
 
 ---
@@ -33,20 +33,20 @@ In addition, Geo Redundant Storage (GRS) in Azure, which is implemented with a f
 SQL Server HADR technologies that are supported in Azure include:
 
 * [Always On Availability Groups](https://technet.microsoft.com/library/hh510230.aspx)
-* [Database Mirroring](https://technet.microsoft.com/library/ms189852.aspx)
+* [Always On Failover Cluster Instances](https://technet.microsoft.com/library/ms189134.aspx)
 * [Log Shipping](https://technet.microsoft.com/library/ms187103.aspx)
 * [Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx)
-* [Always On Failover Cluster Instances](https://technet.microsoft.com/library/ms189134.aspx)
+* [Database Mirroring](https://technet.microsoft.com/library/ms189852.aspx) - Deprecated in SQL Server 2016
 
 It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities. Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network. The sections below show you some of the example deployment architectures.
 
 ## Azure-only: High availability solutions
-You can have a high availability solution for your SQL Server databases in Azure using Always On Availability Groups or database mirroring.
+You can have a high availability solution for your SQL Server databases in Azure using Always On capabilities including Availability Groups or Failover Cluster Instances.
 
 | Technology | Example Architectures |
 | --- | --- |
 | **Always On Availability Groups** |All availability replicas running in Azure VMs for high availability within the same region. You need to configure a domain controller VM, because Windows Server Failover Clustering (WSFC) requires an Active Directory domain.<br/> ![Always On Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>For more information, see [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
-| **Always On Failover Cluster Instances** |Failover Cluster Instances (FCI), which require shared storage, can be created in 2 different ways.<br/><br/>1. An FCI on a two-node WSFC running in Azure VMs with storage supported by a third-party clustering solution. For a specific example that uses SIOS DataKeeper, see [High availability for a file share using WSFC and 3rd party software SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. An FCI on a two-node WSFC running in Azure VMs with remote iSCSI Target shared block storage via ExpressRoute. For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.<br/><br/>For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.<br/><br/>Note that using FCI on top of [Azure File storage](https://azure.microsoft.com/services/storage/files/) is not supported yet, because this solution does not utilize Premium Storage. We are working to support this soon. |
+| **Always On Failover Cluster Instances** |Failover Cluster Instances (FCI), which require shared storage, can be created in 3 different ways.<br/><br/>1. On [Windows Server 2016 Storage Spaces Direct](http://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster)<br/><br/>1. An FCI on a two-node WSFC running in Azure VMs with storage supported by a third-party clustering solution. For a specific example that uses SIOS DataKeeper, see [High availability for a file share using WSFC and 3rd party software SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. An FCI on a two-node WSFC running in Azure VMs with remote iSCSI Target shared block storage via ExpressRoute. For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.<br/><br/>For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.<br/><br/>Note that using FCI on top of [Azure File storage](https://azure.microsoft.com/services/storage/files/) is not supported yet, because this solution does not utilize Premium Storage. We are working to support this soon. |
 
 ## Azure-only: Disaster recovery solutions
 You can have a disaster recovery solution for your SQL Server databases in Azure using Always On Availability Groups, database mirroring, or backup and restore with storage blobs.
