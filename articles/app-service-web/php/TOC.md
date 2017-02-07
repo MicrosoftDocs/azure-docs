@@ -1,11 +1,15 @@
 # Quickstart
 ## [Windows](../app-service-web-get-started-php.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
-## Linux (preview)
+## [Linux (preview)](app-service-linux-how-to-create-a-web-app.md)
+## [From template (WordPress)](web-sites-php-web-site-gallery.md)
 
 # Overview	
-## [What is App Service?](../../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [What is App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## App Service for developers 
-## App Service everywhere
+## App Service everywhere	
+## [Web apps in App Service](app-service-web-overview.md)
+## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [App Service on Linux](app-service-linux-intro.md)
 
 # [Concepts](../concepts/TOC.md)	
 		
@@ -14,15 +18,20 @@
 ## [Laravel app with MySQL](../app-service-web-php-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
 ## CodeIgniter
 ## CakePHP
-## [WordPress](../web-sites-php-web-site-gallery.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [Enterprise-class WordPress](web-sites-php-enterprise-wordpress.md)
+## DevOps
+### [Azure Resource Manager deployment](app-service-deploy-complex-application-predictably.md)
+### [Agile development](app-service-agile-software-development.md)
+### [Flighting deployment (beta testing)](app-service-web-test-in-production-controlled-test-flight.md)
 
 # How to guides
 ## Develop your app	
-### Set up your PHP project for App Service
-### Configure PHP runtime
+### [Set up your PHP project for App Service](app-service-web-php-get-started.md)	
+### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md) 
+### [Configure PHP runtime](web-sites-php-configure.md)
 ### Configure server
-#### Configure IIS server
-#### Configure Apache on Linux
+#### Configure IIS (Windows)
+#### [Configure Apache (Linux)]
 ### Configure application	
 #### Use app settings
 #### Use connection strings
@@ -30,45 +39,66 @@
 ## [Deploy to App Service](../deploy/TOC.md)
 	
 ## Connect to DB/resources		
-### Connect to Cloud DB
+### [Connect to MySQL in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### Connect to local DB
-### Connect to on-premises data 
-### Connect to Azure Virtual Network
+### [Connect to on-premises data](web-sites-hybrid-connection-get-started.md) 
+### [Connect to Azure Virtual Network](web-sites-integrate-with-vnet.md)
+### [Connect to Azure Virtual Network with PowerShell](app-service-vnet-integration-powershell.md)
 
 ## Secure app
-### Authenticate users
-### Configure 3rd-party SSL
-### Enforce HTTPS
+### [Authenticate with Azure AD](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
+### [Authenticate with Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+### [Authenticate with Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+### [Authenticate with Microsoft account](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+### [Authenticate with Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+### [Authenticate with on-prem AD](web-sites-authentication-authorization.md)
+### [Buy SSL cert](web-sites-purchase-ssl-web-site.md)
+### [Configure 3rd-party SSL cert](web-sites-configure-ssl-certificate.md)
+### [Enforce HTTPS](web-sites-configure-ssl-certificate.md#enforce-https-on-your-app)
+### [Configure TLS mutual authentication](app-service-web-configure-tls-mutual-auth.md)
 
 ## Scale app
-### Scale up
-### Scale out
-### Load-balance with Azure Traffic Manager
-### Achieve high scale with App Service Environments
-### Optimize global reach with Azure CDN
+### [Scale up](web-sites-scale.md)
+### [Scale out](../monitoring-and-diagnostics/insights-how-to-scale.md)
+### [Load-balance with Traffic Manager](web-sites-traffic-manager.md)
+### [High-scale with App Service Environments]((../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json))
+### [Reach globally with Azure CDN](cdn-websites-with-cdn.md)
+#### [Connect to Redis Cache via the Memcache protocol](web-sites-connect-to-redis-using-memcache-protocol.md)
+#### [Create a Redis Cache using a template](../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
-## Monitor app
-### Enable logs
-### Stream logs
+## Monitor and troubleshoot		
+### [Monitor apps](web-sites-monitor.md)
+### [Enable logs](web-sites-enable-diagnostic-log.md)
+### [Stream logs](web-sites-streaming-logs-and-console.md)
+### [Troubleshoot HTTP 502 & 503](app-service-web-troubleshoot-http-502-http-503.md)
+### [Troubleshoot performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
-## Back up content
-### Back up your app
-### Restore your app from backup
-		
+## Back up content		
+### [Back up your app](web-sites-backup.md)
+### [Restore your app from backup](web-sites-restore.md)
+### [Backup with REST API](websites-csm-backup.md)
+
+## Manage app resources
+### [Clone app with PowerShell](app-service-web-app-cloning.md)
+### [Clone app with portal](app-service-web-app-cloning-portal.md)
+### [Move resources](app-service-move-resources.md)
+### [Use Azure Resource Manager with PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
+### [Manage apps using Azure Automation](automation-manage-web-app.md)
+
 # Reference	
-## REST API 
-## CLI 2.0
+## [REST API](/rest/api/appservice/) 
+## [CLI 2.0](/cli/azure/appservice)
 		
 # Resources	
-## Pricing 	
-## Quota Information	
-## Service Updates & Release Notes	
+## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/) 	
+## [Quota Information](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits)	
+## [Service Updates & Release Notes](https://azure.microsoft.com/en-us/updates/?product=app-service)	
+## [Best practices](app-service-best-practices.md)
 ## Community Content	
 ## Samples	
 ## Videos
 ## Cookbooks	
-### Reference Architectures	
-### Deployment Scripts	
+### [Reference Architectures](https://docs.microsoft.com/en-us/azure/guidance/guidance-ra-app-service)	
+### [Deployment Scripts](https://azure.microsoft.com/en-us/documentation/scripts/)	
 ### Common Web.config	
 ### Common Application.xdt Transforms
-	
