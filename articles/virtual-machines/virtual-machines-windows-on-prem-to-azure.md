@@ -24,18 +24,19 @@ ms.author: cynthn
 You can upload VHD files from AWs or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. 
 
 You can upload either generalized and specialized VHDs. 
-* **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. 
-* **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. 
+**Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. 
+**Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. 
 
 > [!IMPORTANT]
 > Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
+## Migration options
 
 - [Migrate from Amazon Web Services (AWS) to Azure Managed Disks](virtual-machines-windows-aws-to-azure.md)
-- [Upload a generalized VHD](virtual-machines-windows-upload-generalized-managed.md)
-- [Upload a specialized VHD](virtual-machines-windows-upload-specialized.md)
+- [Upload a generalized VHD to Azure and create a new VM using Managed Disks](virtual-machines-windows-upload-generalized-managed.md)
+- [Upload a specialized VHD to Azure and create a new VM using Managed Disks](virtual-machines-windows-upload-specialized.md)
 
 
 ## Plan for the migration to Managed Disks
