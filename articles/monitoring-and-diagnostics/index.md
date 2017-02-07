@@ -1,6 +1,17 @@
 ---
-layout: LandingPage
+title: Azure Monitoring and Diagnostics Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use monitoring and diagnostics services to track performance, maintain security, and identify trends. API references, best practices, and more.
+services: monitoring-and-diagnostics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid:	
+ms.service: monitoring-and-diagnostics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 ---
 
 # Monitoring and Diagnostics Documentation
