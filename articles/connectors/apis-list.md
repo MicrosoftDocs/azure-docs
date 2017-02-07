@@ -1,6 +1,6 @@
 ---
-title: List of Microsoft-managed connectors for use in Microsoft Azure Logic apps | Microsoft Docs
-description: Get a complete list of the Microsoft-Managed connectors you can use to build logic apps
+title: List of connectors to use in Azure Logic apps | Microsoft Docs
+description: Get a complete list of the Microsoft-managed connectors you can use to build and create your logic apps
 services: logic-apps
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,7 +14,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2017
+ms.date: 01/27/2017
 ms.author: mandia
 
 ---

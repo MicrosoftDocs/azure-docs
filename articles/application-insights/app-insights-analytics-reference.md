@@ -1646,6 +1646,12 @@ The evaluated argument. If the argument is a table, returns the first column of 
     and 
     or 
 
+### Convert to boolean
+
+If you have a string `aStringBoolean` that contains a value "true" or "false", you can convert it to Boolean as follows:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## Numbers
@@ -1707,7 +1713,7 @@ Alias `floor`.
 
 The nearest multiple of *roundTo* below *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Examples**
 
@@ -1792,18 +1798,11 @@ The square root function.
 
 ### toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
-
-### tolong
-    tolong(20.7) == 21 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
 
 
 ### todouble
@@ -1812,6 +1811,13 @@ The square root function.
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## Date and time
@@ -2083,7 +2089,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Equals |Yes |`"aBc" == "aBc"` |
 | `<>` `!=` |Not equals |Yes |`"abc" <> "ABC"` |
-| `=~` |Equals |No |`"abc" =~ "ABC"` |
+| `=~` |Equals |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Not equals |No |`"aBc" !~ "xyz"` |
 | `has` |Right-hand-side (RHS) is a whole term in left-hand-side (LHS) |No |`"North America" has "america"` |
 | `!has` |RHS is not a full term in LHS |No |`"North America" !has "amer"` |

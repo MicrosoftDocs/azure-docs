@@ -1,20 +1,19 @@
 ---
 title: Azure Government Subscriptions | Microsoft Docs
 description: Information on managing your subscription in Azure Government
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: ''
 author: zakramer
 manager: liki
-editor: ''
 
 ms.assetid: d3375e84-a37d-4e44-9040-70dbe08eabfc
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/21/2016
+ms.date: 01/12/2017
 ms.author: zakramer
 
 ---

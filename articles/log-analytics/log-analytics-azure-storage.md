@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/31/2017
 ms.author: banders
 
 ---
@@ -29,7 +29,6 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
 | Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Networking Analytics (Preview)](log-analytics-azure-networking-analytics.md) |
-| API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
 | Application insights    |                                         | Connector   | Connector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
 | Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [More information](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |

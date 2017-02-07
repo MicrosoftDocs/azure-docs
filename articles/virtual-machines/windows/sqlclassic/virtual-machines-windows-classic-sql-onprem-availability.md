@@ -9,13 +9,13 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 07/12/2016
-ms.author: MikeRayMSFT
+ms.author: mikeray
 
 ---
 # Extend on-premises Always On Availability Groups to Azure

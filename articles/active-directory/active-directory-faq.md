@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory FAQ | Microsoft Docs
-description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management and application access.
+description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/19/2017
+ms.date: 02/01/2017
 ms.author: markvi
 
 ---
@@ -41,18 +41,25 @@ All users who are set up to use web services are defined as user accounts in one
 
 Azure AD paid services like Enterprise Mobility + Security complement other web services like Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
 - - -
-**Q:  Why can I sign in to the Azure portal but not the classic portal?**
+**Q:  Why can I sign in to the Azure portal but not the Azure classic portal?**
 
 **A:**  The Azure portal does not require a valid subscription, and the classic portal does require a valid subscription.  If you do not have a subscription, you can't sign in to the classic portal.
 - - -
 **Q:  What are the differences between Subscription Administrator and Directory Administrator?**
 
 **A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription admin can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
+
 If others need to sign in and access services using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+
 
 Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
+Additionally, Azure AD paid services like Enterprise Mobility + Security complement other Online services such as Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
 
+- - -
+**Q: Is there a report that shows when my Azure AD user licenses will expire?**
+
+**A:** No.  This is not currently available.
 
 - - -
 ## Get started with Hybrid Azure AD
@@ -117,6 +124,7 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 - [Reset accounts in the classic portal](active-directory-create-users-reset-password.md)
 - [Using PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
 
+
 - - -
 ## Application access
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
@@ -178,6 +186,7 @@ For more details, see [Securing access to Office 365 and other apps connected to
 **A:** Azure AD allows you to automate the creation, maintenance, and removal of user identities in many popular cloud (SaaS) applications.
 
 For more information, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
+
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
