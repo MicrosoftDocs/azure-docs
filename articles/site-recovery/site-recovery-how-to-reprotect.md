@@ -33,7 +33,7 @@ Following are the few pre-requisite steps you need to take or consider when prep
 Where replication from on-premises to Azure can happen over internet or an Express route with public peering, reprotect and failback requires a S2S VPN set up to replicate data. The network should be provided such that the failed over VMs in Azure can reach the on-premises configuration server. You may be also deploying a process server in the Azure network of the failed over VM - this process server should also be able to communicate with the on-premises configuration server.
 
 ### Process server is needed to replicate the data from source VMs to on-premises
-Read more about a process server here.!todo
+<!-- Read more about a process server here.!todo -->
 
 Th Azure VMs that you want to reprotect, send the replication data to a Process server. Your network should be set up such that the process server is reachable from the Azure VM.
 
@@ -57,11 +57,11 @@ Remember, that the replication will only happen over S2S VPN, or the private pee
 ![Failover-Failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
 ### Master target needs to be available on-premises to receive data from process server
-A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT!todo component. For Linux VMs, you will need to setup an additional Linux master target on-premises.
+A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT <!-- !todo component -->. For Linux VMs, you will need to setup an additional Linux master target on-premises.
 
 Click on the following links to reads the steps on How to install a Master Target server.
 
-* [How to install Windows Master Target server](site-recovery-how-to-install-windows-master-target.md)
+* [How to install Windows Master Target server](site-recovery-vmware-to-azure.md#run-site-recovery-unified-setup)
 * [How to install Linux Master Target server](site-recovery-how-to-install-linux-master-target.md)
 
 
@@ -93,7 +93,7 @@ Click on the following links to reads the steps on How to install a Master Targe
 
 * Install VMware tools on the master target server. Without the VMware tools, the datastores on the MT's ESXi host cannot be detected.
 
-* Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. !todo Needs link.
+* Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. <!-- !todo Needs link. -->
 
 
 
