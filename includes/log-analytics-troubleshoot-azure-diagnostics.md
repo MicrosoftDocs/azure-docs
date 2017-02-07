@@ -7,7 +7,7 @@ If you receive the following error message:
 You can resolve the error by performing the following steps in the Azure portal:
 
 1.	In the navigation pane on the left, click *Subscriptions*
-2.	Seect the subscription identified in the error message
+2.	Select the subscription identified in the error message
 3.	Click *Resource Providers*
 4.	Find the *Microsoft.insights* provider
 5.	Click the *Register* link
