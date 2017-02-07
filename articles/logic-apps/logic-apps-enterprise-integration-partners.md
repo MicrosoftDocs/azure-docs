@@ -102,7 +102,7 @@ select **Discard**.
 
 1. Select the **Partners** tile.
 2. After the Partner blade opens, select the partner that you want to delete.
-3. Choose**Delete**.
+3. Choose **Delete**.
 
 	![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
