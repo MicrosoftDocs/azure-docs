@@ -22,14 +22,14 @@ ms.author: msfussell
 > This feature is in preview for Linux and Windows Server 2016. 
 >   
 
-## Introduction and Roadmap
+## Introduction
 Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines, with years of usage and optimization in massive scale services at Microsoft. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application. 
 
-## Containers roadmap
-Over the next few releases Service Fabric will continue to add extensive support for containers on both Windows and Linux including improvments to 
+## Containers and Service Fabric roadmap
+Over the next few releases, Service Fabric will continue to add extensive support for containers on both Windows and Linux including improvments to 
 networking, resources constraints, security, diagnostics, volume drivers, and tooling support especially in Visual Studio, so that the experience of using container images
-to deploy services is first class. This provides you with the choice of using either containers to say package existing code (e.g. IIS MVC apps) or the Service Fabric programming models and because
-Service Fabric treats these all the same, you can mix them both in your applications providing you the flexibility of how to deploy your code. You get the best of both worlds, depending on your scenario.
+to deploy services is first class. This provides you with the choice of using either containers to package existing code (e.g. IIS MVC apps) or the Service Fabric programming models and, because
+Service Fabric treats these all the same, you can mix them in your applications providing you the flexibility of how to deploy your code. You get the best of both worlds, depending on your scenario.
 
 ## What are containers?
 Containers are encapsulated, individually deployable components that run as isolated instances on the same kernel to take advantage of virtualization that an operating system provides. This means that each application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Along with portability, this degree of security and resource isolation is the main benefit for using containers with Service Fabric, which otherwise runs services in processes.
