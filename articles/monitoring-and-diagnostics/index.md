@@ -13,7 +13,6 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
-
 # Monitoring and Diagnostics Documentation
 
 Learn how to use Azure monitoring and diagnostics services to track performance, maintain security, and identify trends. Tutorials, API references, best practices, and other documentation help you understand the uses of monitoring and diagnostics and how to plan and deploy scalable and reliable solutions.
