@@ -64,8 +64,8 @@ The diagram below shows how Azure AD enables secure remote access to your on-pre
  ![AzureAD Application Proxy Connectors](./media/application-proxy-security-considerations/secure-remote-access.png)
 
 >[!NOTE] 
->To improve the security of applications published by Azure AD Appl Proxy, we block Web crawler robots from indexing and archiving your applications. Each time a Web crawler robot tries to retrieve the robots settings for a published app, App Proxy replies with a robots.txt file that have the following content:
->   User-agent: *
+>To improve the security of applications published by Azure AD Appl Proxy, we block Web crawler robots from indexing and archiving your applications. Each time a Web crawler robot tries to retrieve the robots settings for a published app, App Proxy replies with a robots.txt file that have the following content: <br>
+>   User-agent: *<br>
 >   Disallow: /
 >
 
