@@ -1,6 +1,6 @@
 ---
 title: Get started with certificate based authentication | Microsoft Docs
-description: Learn how to configure certificate based authentication
+description: Learn how to configure certificate based authentication in your environment
 author: MarkusVi
 documentationcenter: na
 manager: femila
@@ -28,9 +28,9 @@ Configuring this feature eliminates the need to enter a username and password co
 This topic provides you with the steps to configure and utilize certificate based authentication for users of tenants in Office 365 Enterprise, Business, and Education plans. 
 
 
-## General requirements
+## Requirements
 
-For all certificate-based authority related scenarios, the following must be true:  
+To configure certificate based authentication, the following must be true:  
 
 - Access to certificate authority(s) to issue client certificates.  
 
@@ -42,31 +42,31 @@ For all certificate-based authority related scenarios, the following must be tru
 
 - The client certificate must be issued for client authentication.  
 
-- For Exchange ActiveSync clients only, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
+- For Exchange ActiveSync clients, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.  
 
 
 
 ## Step 1: Select your device platform
 
-As a first step, for the device plattform you care about, you need to review the following:
+As a first step, for the device platform you care about, you need to review the following:
 
 - The Office mobile applications support 
 - The specific implementation requirements  
 
-Currently, certificate based authentication supports the following device platforms:
+The related information exists for the following device platforms:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
 
-## Step 2: Configure the certificate authorities in Azure Active Directory
+## Step 2: Configure the certificate authorities 
 
-To get started, you need to configure the certificate authorities in Azure Active Directory. For each certificate authority, upload the following: 
+To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following: 
 
 * The public portion of the certificate, in *.cer* format 
 * The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
 
-Below is the schema for a certificate authority: 
+The schema for a certificate authority looks as follows: 
 
     class TrustedCAsForPasswordlessAuth 
     { 
@@ -90,60 +90,44 @@ Below is the schema for a certificate authority:
         IntermediateAuthority = 1 
     } 
 
-
-To upload the information, you can use  the Azure AD module through Windows PowerShell.  
-Below are examples for adding, removing or modifying a certificate authority. 
-
-
-## Step 3: Configure your Azure AD tenant for certificate based authentication
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/):  
 
 1. Start Windows PowerShell with administrator privileges. 
 2. Install the Azure AD module. You need to install Version [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.  
    
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
-3. Connect to your target tenant: 
-   
-        Connect-AzureAD 
 
-### Adding a new certificate authority
-1. Set various properties of the certificate authority and add it to Azure Active Directory: 
-   
-        $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
-        $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
-        $new_ca.AuthorityType=0 
-        $new_ca.TrustedCertificate=$cert 
-        New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
-2. Get the Certificate Authorities: 
-   
-        Get-AzureADTrustedCertificateAuthority 
+As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete and modify the trusted certificate authorities that are defined in your directory. 
 
-### Retrieving the list certificate authorities
-Retrieve the certificate authorities currently stored in Azure Active Directory for your tenant: 
+**Connect -** To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread) cmdlet:
 
-        Get-AzureADTrustedCertificateAuthority 
+    Connect-AzureAD 
+
+**Retrieve -** To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority) cmdlet. 
+ 
+
+**Add -** To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority) cmdlet: 
+   
+    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
+    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
+    $new_ca.AuthorityType=0 
+    $new_ca.TrustedCertificate=$cert 
+    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
 
-### Removing a certificate authority
-1. Retrieve the certificate authorities: 
+**Remove -** To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority) cmdlet:
    
-     $c=Get-AzureADTrustedCertificateAuthority 
-2. Remove the certificate for the certificate authority: 
-   
-        Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+    $c=Get-AzureADTrustedCertificateAuthority 
+    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
 
-### Modfiying a certificate authority
-1. Retrieve the certificate authorities: 
-   
-     $c=Get-AzureADTrustedCertificateAuthority 
-2. Modify properties on the certificate authority: 
-   
-        $c[0].AuthorityType=1 
-3. Set the **Certificate Authority**: 
-   
-        Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+**Modfiy -** To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority) cmdlet:
+
+    $c=Get-AzureADTrustedCertificateAuthority 
+    $c[0].AuthorityType=1 
+    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
 
 
-## Step 4: Configure revocation
+## Step 3: Configure revocation
 
 To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (**Effective Date** property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
 
@@ -153,25 +137,30 @@ To ensure that the revocation persists, you must set the **Effective Date** of t
 
 The following steps outline the process for updating and invalidating the authorization token by setting the **StsRefreshTokenValidFrom** field. 
 
+**To configure revocation:** 
+
 1. Connect with admin credentials to the MSOL service: 
    
         $msolcred = get-credential 
         connect-msolservice -credential $msolcred 
+
 2. Retrieve the current StsRefreshTokensValidFrom value for a user: 
    
-     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-     $user.StsRefreshTokensValidFrom 
+        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
+        $user.StsRefreshTokensValidFrom 
+
 3. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp: 
    
-     Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command). 
 
 
-## Step 5: Test your configuration
+## Step 4: Test your configuration
 
 ### Testing Office mobile applications
-To test certificate authentication on your mobile Office application: 
+
+**To test certificate authentication on your mobile Office application:** 
 
 1. On your test device, install an Office mobile application (e.g. OneDrive) from the Google Play Store.
 2. Verify that the user certificate has been provisioned to your test device. 
@@ -181,15 +170,18 @@ To test certificate authentication on your mobile Office application:
 You should be successfully signed in. 
 
 ### Testing Exchange ActiveSync client applications
+
 To access Exchange ActiveSync via certificate based authentication, an EAS profile containing the client certificate must be available to application. The EAS profile must contain the following information:
 
-* The user certificate to be used for authentication 
-* The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
+- The user certificate to be used for authentication 
+
+- The EAS endpoint must be outlook.office365.com (as this feature is currently supported only in the Exchange online multi-tenant environment)
 
 An EAS profile can be configured and placed on the device through the utilization of an MDM such as Intune or by manually placing the certificate in the EAS profile on the device.  
 
 ### Testing EAS client applications on Android
-To test certificate authentication with an application on Android 5.0 (Lollipop) or later, perform the steps below:  
+
+**To test certificate authentication with an application on Android 5.0 (Lollipop) or later:**  
 
 1. Configure an EAS profile in the application that satisfies the requirements above.  
 2. Once the profile is properly configured, open the application, and verify that mail is synchronizing. 
