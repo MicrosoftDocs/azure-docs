@@ -13,6 +13,7 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ---
+
 # Multi-factor Authentication Documentation
 
 Learn how to deploy and manage Azure Multi-Factor Authentication, a two-step identity verification system. Tutorials, an SDK, and other documentation show you how to deliver strong authentication with a range of verification methods while providing a simple sign-in process.
