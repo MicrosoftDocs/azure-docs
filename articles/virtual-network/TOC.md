@@ -100,7 +100,7 @@
 ### Accelerated networking for VMs
 #### [Azure portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
-### [Optimize VM network performance](virtual-network-optimize-network-bandwidth.md)
+### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
 ### Access control lists
 #### [Classic portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
