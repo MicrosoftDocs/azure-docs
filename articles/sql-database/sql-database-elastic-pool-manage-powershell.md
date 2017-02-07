@@ -29,7 +29,7 @@ The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt61937
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
-## Create a database in an elastic pool
+## Create a pooled database in an elastic pool
 Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into an elastic pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -55,7 +55,7 @@ This script creates an Azure resource group and a server. When prompted, supply 
 
     New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -ElasticPoolName $poolName -MaxSizeBytes 10GB
 
-## Create an elastic pool and add multiple databases
+## Create an elastic pool and add multiple pooled databases
 Creation of many databases in an elastic pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into an elastic pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
 ## Move a database into an elastic pool
@@ -146,7 +146,7 @@ This example adds an alert for getting notified when an elastic pool’s eDTU co
 You can add alert rules to all database in an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when a resource hits a utilization threshold set up by the alert.
 
 > [!IMPORTANT]
-> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for elastic pools use a period (WindowSize) of 30 minutes or more.
+> Resource utilization monitoring for elastic pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for elastic pools is not currently supported. Any alerts set for elastic pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Make sure that any alerts you define for elastic pools use a period (WindowSize) of 30 minutes or more.
 >
 >
 
@@ -181,9 +181,9 @@ This example adds an alert to each of the databases in an elastic pool for getti
     }
 
 ## Collect and monitor resource usage data across multiple pools in a subscription
-When you have a large number of databases in a subscription, it is cumbersome to monitor each elastic pool separately. Instead, SQL database PowerShell cmdlets and T-SQL queries can be combined to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage. A [sample implementation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) of such a set of powershell scripts can be found in the GitHub SQL Server samples repository along with documentation on what it does and how to use it.
+When you have many databases in a subscription, it is cumbersome to monitor each elastic pool separately. Instead, SQL database PowerShell cmdlets and T-SQL queries can be combined to collect resource usage data from multiple pools and their databases for monitoring and analysis of resource usage. A [sample implementation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) of such a set of powershell scripts can be found in the GitHub SQL Server samples repository along with documentation on what it does and how to use it.
 
-To use this sample implementation, follow these steps listed below.
+To use this sample implementation, follow these steps.
 
 1. Download the [scripts and documentation](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
 2. Modify the scripts for your environment. Specify one or more servers on which elastic pools are hosted.

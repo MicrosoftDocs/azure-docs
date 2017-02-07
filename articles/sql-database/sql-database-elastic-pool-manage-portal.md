@@ -105,7 +105,9 @@ The pool recommendation comprises:
 - The **eDTU MAX** and **eDTU Min** per database
 - The list of recommended databases for the pool
 
-The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
+> ![IMPORTANT]
+> The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool, it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
+>
 
 The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 

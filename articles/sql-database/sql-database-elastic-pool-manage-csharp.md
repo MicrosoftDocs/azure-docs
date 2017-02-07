@@ -31,7 +31,7 @@ This topic describes how to use C# to create and manage an Azure SQL elastic poo
 The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model based libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
+> Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so you should always use the latest **Azure SQL Database Management Library for .NET ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. The older [classic deployment model libraries](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) are supported for backward compatibility only, so we recommend you use the newer Resource Manager based libraries.
 > 
 
 ## Prerequisites
@@ -366,5 +366,5 @@ Retrieve existing the pool properties. Modify the values and execute the CreateO
 ## Additional Resources
 *  For SQL error codes for SQL Database client applications, database connection error and other issues, see [Error messages](sql-database-develop-error-messages.md).
 * [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* For elsatic pool guidance, see [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
+* For elastic pool guidance, see [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
 
