@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network peering - PowerShell | Microsoft Docs
+title: Azure Virtual Network peering - PowerShell | Microsoft Docs
 description: Learn how to create a virtual network peering using Azure PowerShell.
 services: virtual-network
 documentationcenter: ''
