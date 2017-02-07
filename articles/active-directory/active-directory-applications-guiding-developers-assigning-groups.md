@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD and Applications: Assigning Groups to an Application | Microsoft Docs'
+title: Assigning groups to Azure AD apps | Microsoft Docs'
 description: How to implement group assignment for Azure applications.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2015
+ms.date: 02/06/2017
 ms.author: inhenk
 
 ---
-# Azure AD and Applications: Assigning Groups to an Application
+# Azure AD and Applications: Assign groups to an application
 Before you can assign users and groups to an application, you must require user assignment. To learn how to require user assignment, see the [Requiring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md) article.
 
 This article assumes that you have already created groups in the active directory you are using for this application.
@@ -36,4 +36,3 @@ This article assumes that you have already created groups in the active director
 
 ## Next Steps
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-

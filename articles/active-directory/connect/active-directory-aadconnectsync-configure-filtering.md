@@ -112,34 +112,27 @@ If you have updated your domain filter, you also need to update the run profiles
 
 1. In the **Connectors** list, make sure the Connector you changed in the previous step is selected. From **Actions**, select **Configure Run Profiles**.  
    ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
-
-Adjust the following profiles:
-
-* Full Import
-* Full Synchronization
-* Delta Import
-* Delta Synchronization
-* Export
-
-For each of the five profiles, take the following steps for each **added** domain:
-
-1. Select the run profile and click **New Step**.
-2. On the **Configure Step** page, in the **Type** drop-down, select the step type with the same name as the profile you are configuring. Then click **Next**.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
-3. On the **Connector Configuration** page, in the **Partition** drop-down, select the name of the domain you have added to your domain filter.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
-4. To close the **Configure Run Profile** dialog, click **Finish**.
-
-For each of the five profiles, take the following steps for each **removed** domain:
-
-1. Select the run profile.
-2. If the **Value** of the **Partition** attribute is a GUID, select the run step and click **Delete Step**.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
-
-The result should be that each domain you want to synchronize should be listed as a step in each run profile.
-
-1. To close the **Configure Run Profiles** dialog, click **OK**.
-2.  To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
+2. Find and identify the following profiles:
+    * Full Import
+    * Full Synchronization
+    * Delta Import
+    * Delta Synchronization
+    * Export
+3. For each profile, adjust **added** and **removed** domains.
+    1. For each of the five profiles, take the following steps for each **added** domain:
+        1. Select the run profile and click **New Step**.
+        2. On the **Configure Step** page, in the **Type** drop-down, select the step type with the same name as the profile you are configuring. Then click **Next**.  
+        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
+        3. On the **Connector Configuration** page, in the **Partition** drop-down, select the name of the domain you have added to your domain filter.  
+        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
+        4. To close the **Configure Run Profile** dialog, click **Finish**.
+    2. For each of the five profiles, take the following steps for each **removed** domain:
+        1. Select the run profile.
+        2. If the **Value** of the **Partition** attribute is a GUID, select the run step and click **Delete Step**.  
+        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
+    3. Verify your change. The result should be that each domain you want to synchronize should be listed as a step in each run profile.
+4. To close the **Configure Run Profiles** dialog, click **OK**.
+5.  To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
 The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
