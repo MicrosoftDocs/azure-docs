@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/06/2017
+ms.date: 02/07/2017
 ms.author: alkohli
 
 ---
@@ -38,12 +38,11 @@ The following key improvements and bug fixes have been made in Update 4.
 * **Smarter automated space reclamation algorithms** – Starting Update 4, the automated space reclamation algorithms have been enhanced so as to the adjust the space reclaimation cycles based on the expected reclaimed space available in the cloud. 
 * **Performance enhancements for locally pinned volumes** – Update 4 has improved the performance of locally pinned volumes in scenarios which have high data ingestion (data comparable to volume size).
 * **Heatmap-based restore** - In the earlier releases, following a disaster recovery (DR), the read-write performance was degraded when the data was being served from the cloud. A new feature is implemented in Update 4 that tracks frequently accessed data to create a heatmap (most used data chunks have high heat whereas less used chunks have low heat) when the device is in use prior to DR. After DR, StorSimple uses the heat map to restore and rehydrate the data from the cloud. 
-* **Standalone diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released that allows for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. To download this tool, go to [StorSimple Diagnostics tool]().
-* **UI-based Migration tool** - Prior to this release, migration of data from 5000-7000 series required the users to execute a part of the migration workflow using the Azure PowerShell interface. In this release, an easy-to-use UI-based StorSimple Migration tool is made available for Support and customers to facilitate the same migration workflow. This tool would also allow for the consolidation of recovery buckets. To download this tool, go to [StorSimple Migration tool](). 
-* **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
+* **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. For more information on the assoicated cmdlet, go to [StorSimple Diagnostics tool]().
+* **UI-based StorSimple Migration tool** - Prior to this release, migration of data from 5000-7000 series required the users to execute a part of the migration workflow using the Azure PowerShell interface. In this release, an easy-to-use UI-based StorSimple Migration tool is made available for Support and customers to facilitate the same migration workflow. This tool would also allow for the consolidation of recovery buckets. To download this tool, go to [StorSimple Migration tool](). 
 * **MPIO support for StorSimple Snapshot Manager** - In this release, we have implemented the MPIO support for the StorSimple Snapshot Manager.
 * **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
-* **Failback bug fixes** - In earlier releases, following a DR, the user would encounter several issues related to clean up in the failback. In Update 4, these failback issues have been addressed.
+* **Failback bug fixes** - In earlier releases, following a DR , the user would encounter several issues related to clean up in the . In Update 4, these failback issues have been addressed.
 
 
 
