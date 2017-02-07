@@ -22,7 +22,7 @@ ms.author: cynthn
 # Migrate a single Azure VM from classic to Managed Disks and the Resource Manager deployment model
 
 
-This section will help you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
+This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
 
 ## Plan for the migration to Managed Disks
 
@@ -42,7 +42,7 @@ Review the performance characteristics of virtual machines that work with Premiu
 
 **Premium Managed Disks**
 
-There are three types of Premium Managed disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
+There are three types of Premium Managed disks that can be used with your VM and each has specific IOPs and throughput limits. Consider these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
 
 | Premium Disks Type  | P10               | P20               | P30               |
 |---------------------|-------------------|-------------------|-------------------|
@@ -77,16 +77,16 @@ Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing
 
 2.  Decide the new VM series you will be using. It should be a Premium Storage capable if you are migrating to Premium Managed Disks.
 
-3.  Decide the exact VM size you will use which are available in the region you are migrating to. VM size needs to be large enough to support the number of data disks you have. E.g. if you have 4 data disks, the VM must have 2 or more cores. Also, consider processing power, memory and network bandwidth needs.
+3.  Decide the exact VM size you will use which are available in the region you are migrating to. VM size needs to be large enough to support the number of data disks you have. For example, if you have four data disks, the VM must have two or more cores. Also, consider processing power, memory and network bandwidth needs.
 
 4.  Have the current VM details handy, including the list of disks and corresponding VHD blobs.
 
-Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration depends on the amount of data in the disks to migrate.
 
 
 ## Migrate the VM
 
-Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration depends the amount of data in the disks to migrate.
 
 
 1.  First, set the common parameters:
