@@ -1,6 +1,6 @@
 ---
 title: Create Azure VMs from on-premises VHDs | Microsoft Docs
-description: Create VMs in Azure using VHDs uplaoded from on-premises, in the Resource Manager deployment model.
+description: Create VMs in Azure using VHDs uploaded from on-premises, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -37,32 +37,10 @@ You can upload VHD files to Azure in order to create Azure virtual machines. You
 * To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 
-## Upload a generalized VHD to Azure and use Managed Disks 
-
-1. [Generalized on-premises Windows VM using Sysprep](virtual-machines-windows-generalize-vhd.md)
-2. [Upload the generalized VHD to Azure](virtual-machines-windows-upload-image.md)
-3. [Create a managed image from the VHD Azure](virtual-machines-windows-capture-image-resource.md)
-4. [Create a VM from the managed image](virtual-machines-windows-create-vm-generalized-managed.md)
-
-
-## Upload a specialized VHD to Azure and use Managed Disks 
-
-1. [Upload the specialized Windows VHD from on-premises to Azure](virtual-machines-windows-upload-image.md)
-2. [Create the managed disk from the VHD and then create the VM](virtual-machines-windows-create-vm-specialized.md)
-
-
-## Upload a generalized VHD to Azure and use unmanaged disks in a storage account
-
-1. [Generalized the Windows VM using Sysprep](virtual-machines-windows-generalize-vhd.md)
-2. [Upload the Windows VHD from on-premises to Azure](virtual-machines-windows-upload-image.md)
-3. [Capture an unmanaged image of the VHD](virtual-machines-windows-capture-image)
-4. [Create the VM from the unmanged image](virtual-machines-windows-create-vm-generalized.md)
-
-
-## Upload a specialized VHD to Azure and use unmanaged disks in a storage account
-
-1. [Upload the specialized Windows VHD from on-premises to Azure](virtual-machines-windows-upload-image.md)
-2. [Create a VM from the specialized VHD](virtual-machines-windows-create-vm-specialized.md)
+- [Migrate from Amazon Web Services (AWS) to Azure Managed Disks](virtual-machines-windows-aws-to-azure.md)
+- [Upload a generalized VHD to Azure and use Managed Disks](virtual-machines-windows-upload-generalized-managed.md)
+- [Upload a generalized VHD to Azure and use unmanaged disks in a storage account](virtual-machines-windows-upload-generalized-managed.md)
+- [Upload a specialized VHD to Azure and use either Managed Disks or unmanaged disks in a storage account](virtual-machines-windows-upload-specialized.md)
 
 
 ## Next Steps
