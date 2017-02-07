@@ -21,7 +21,7 @@
 ### [Add artifacts repository](devtest-lab-add-artifact-repo.md)
 ### [Create custom artifacts](devtest-lab-artifact-author.md)
 
-## Manage VM bases
+## Manage VM bases and templates
 ### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
 ### [Upload VHD file using AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Upload VHD file using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
@@ -31,6 +31,7 @@
 ### [Create custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Manage formulas](devtest-lab-manage-formulas.md)
+### [Create multi-VM environments with ARM templates](devtest-lab-create-environment-from-arm.md)
 
 
 # Resources
