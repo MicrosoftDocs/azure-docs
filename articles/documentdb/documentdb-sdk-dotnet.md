@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 02/06/2017
 ms.author: rnagpal
 
 ---
@@ -47,6 +47,11 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
+
+### <a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Fix for an issue wherein some of the cross-partition queries were failing in the 32-bit host process.
+* Fix for an issue wherein the session container was not being updated with the token for failed requests in Gateway mode.
+* Fix for an issue wherein a query with UDF calls in projection was failing in some cases.
 
 ### <a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
 * Fix for an issue wherein the session container was not being updated with the token for failed requests.
@@ -191,6 +196,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.4](#1.11.4) |February 06, 2017 |--- |
 | [1.11.3](#1.11.3) |January 26, 2017 |--- |
 | [1.11.1](#1.11.1) |December 21, 2016 |--- |
 | [1.11.0](#1.11.0) |December 08, 2016 |--- |
