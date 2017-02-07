@@ -38,27 +38,25 @@ trigger to your logic app.
 3. To add the **XML Validation** action, choose **Add an action**.
 
 4. To filter all the actions to the one that you want, 
-enter *xml* in the search box.
-
-5. Choose **XML Validation**.
+enter *xml* in the search box. Choose **XML Validation**.
 
 	![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
 
-6. To specify the XML content that you want to validate, 
+5. To specify the XML content that you want to validate, 
 select **CONTENT**.
 
 	![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
 
-7. Select the body tag as the content that you want to validate.
+6. Select the body tag as the content that you want to validate.
 
 	![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
 
-8. To specify the schema you want to use for validating 
+7. To specify the schema you want to use for validating 
 the previous *content* input, choose **SCHEMA NAME**.
 
 	![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
 
-9. Save your work  
+8. Save your work  
 
 	![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
 

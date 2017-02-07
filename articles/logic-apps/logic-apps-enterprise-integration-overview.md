@@ -29,7 +29,7 @@ You can also secure messages with both encryption and digital signatures.
 If you are familiar with BizTalk Server or Microsoft Azure BizTalk Services, 
 the Enterprise Integration features are easy to use because most concepts are similar. One major difference is that Enterprise Integration uses integration accounts to simplify the storage and management of artifacts used in B2B communications. 
 
-Architecturally, the Enterprise Integration Pack is based on "integration accounts" that store all the artifacts that can be used to design, deploy, and maintain your B2B apps. An integration account is basically a cloud-based container where you store artifacts such as schemas, partners, certificates, maps, and agreements. You can then build B2B workflows with these artifacts. Before you can use these artifacts, you must first link your integration account to your logic app. After that, your logic app can access your integration account's artifacts.
+Architecturally, the Enterprise Integration Pack is based on "integration accounts". These accounts are cloud-based containers that store all your artifacts, like schemas, partners, certificates, maps, and agreements. You can use these artifacts to design, deploy, and maintain your B2B apps and also to build B2B workflows for logic apps. But before you can use these artifacts, you must first link your integration account to your logic app. After that, your logic app can access your integration account's artifacts.
 
 ## Why should you use enterprise integration?
 
@@ -42,9 +42,9 @@ by using the Azure Logic Apps engine and all its connectors.
 
 ## How to get started with enterprise integration?
 
-You can build and manage B2B apps with the Enterprise Integration Pack through the Logic Apps designer in the **Azure portal**.
-
-You can also manage your logic apps with 
+You can build and manage B2B apps with the 
+Enterprise Integration Pack through the Logic Apps designer 
+in the **Azure portal**. You can also manage your logic apps with 
 [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics").
 
 Here are the high-level steps you must take before you can create apps in the Azure portal:

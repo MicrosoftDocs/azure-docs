@@ -59,7 +59,7 @@ enter the word **as2** in the search box.
 6. Add the **Body** that you want to use as input. 
 In this example, select the body of the HTTP request 
 that triggers the logic app. Or enter an expression 
-that inputs the headers in the**HEADERS** field:
+that inputs the headers in the **HEADERS** field:
 
 	@triggerOutputs()['headers']
 
@@ -68,7 +68,7 @@ which you can find in the HTTP request headers.
 In this example, select the headers of the 
 HTTP request that trigger the logic app.
 
-8. Now add the Decode X12 message action by selecting **Add an action** again.
+8. Now add the Decode X12 message action. Select **Add an action**.
 
 	![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
 
@@ -93,8 +93,8 @@ This input is the output from the previous AS2 action.
 	Now add steps to decode the X12 data received from the trading partner 
 	and output items in a JSON object. 
 	To notify the partner that the data was received, 
-	you can send back a response containing the 
-	AS2 Message Disposition Notification (MDN) in an HTTP Response Action.
+	you can send back a response containing the AS2 
+	Message Disposition Notification (MDN) in an HTTP Response Action.
 
 12.	To add the **Response** action, choose **Add an action**.
 
@@ -131,8 +131,8 @@ you can add further actions or write custom APIs.
 * The AS2 and X12 decode and encode actions let you 
 exchange data between trading partners 
 by using industry standard protocols in logic apps.
-* You can use AS2 and X12 with or without each other 
-to exchange data with trading partners as necessary.
+* To exchange data with trading partners, 
+you can use AS2 and X12 with or without each other.
 * The B2B actions help you create partners and agreements easily 
 in your integration account and consume them in a logic app.
 * When you extend your logic app with other actions, 
