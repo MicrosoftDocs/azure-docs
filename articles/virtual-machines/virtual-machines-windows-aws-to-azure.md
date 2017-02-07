@@ -23,6 +23,11 @@ ms.author: cynthn
 
 If you are migrating VHD from an Amazon Web Services (AWS) EC2 instance to Azure, you must generalize the VM and then export the generalized VHD to a local directory.
 
+> [!IMPORTANT]
+> Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+>
+>
+
 ## Generalize the Windows VM using Sysprep
 
 Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
