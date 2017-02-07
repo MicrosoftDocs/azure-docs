@@ -135,7 +135,7 @@ Refer to the [Device twins developer's guide][lnk-devguide-twin] for more inform
 
 ### Update device twin's reported properties
 
-First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the device twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the device twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the new ETag for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 The request message body contains a JSON document which provides new values for reported properties (no other property or metadata can be modified).
 Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. E.g.
