@@ -1,6 +1,6 @@
 ---
-title: Diagnose performance issues on a running IIS website | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry.
+title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
+description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
