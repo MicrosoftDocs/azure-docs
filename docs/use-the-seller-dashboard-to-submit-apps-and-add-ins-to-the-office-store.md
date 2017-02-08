@@ -1,16 +1,16 @@
 
 # Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store
 
-If you want your app or add-in to appear in the Office Store, you need to submit it to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First,  familiarize yourself with the [Office Store validation policies](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md). You can add and save your app or add-in as a draft in your Seller Dashboard account until you're ready to submit it for approval.
+If you want your app or add-in to appear in the Office Store, you need to submit it to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First,  familiarize yourself with the [Office Store validation policies](validation-policies.md). You can add and save your app or add-in as a draft in your Seller Dashboard account until you're ready to submit it for approval.
  
 
-If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see  [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets-in-the-seller-dashboard.md).
+If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see  [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
  
 
 If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with  [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The Office Store currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
  
 
-For information about the Office Store approval process, see  [Submit apps and add-ins to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md).
+For information about the Office Store approval process, see  [Submit apps and add-ins to the Office Store](submit-add-ins-and-web-apps-to-the-office-store.md).
  
 
 ## App and add-in submission checklist
@@ -115,7 +115,6 @@ After your account in the Seller Dashboard is approved, you can submit your app 
 
 
 -  [Register as an app developer](https://dev.windows.com/en-us/programs/join)
--  [Checklist for submitting Office and SharePoint Add-ins and Office 365 web apps to the Seller Dashboard](checklist-for-submitting-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-seller-dashboard.md) 
 -  [Create effective Office Store apps and add-ins](create-effective-office-store-apps-and-add-ins.md)
 -  [Have your app appear in the Office 365 App launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
     
