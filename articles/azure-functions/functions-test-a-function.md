@@ -178,35 +178,35 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
-### Test a blob trigger using Storage Explorer
-You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+### Test a blob trigger by using Storage Explorer
+You can test a blob trigger function by using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. In the [Azure Portal] for your Functions app, create a new C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. In the [Azure portal] for your Functions app, create a new C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
         files
 2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
-3. Create a text file with the following text and save it:
+3. Create a text file with the following text, and save it:
 
         A text file for blob trigger function testing.
-4. Run [Microsoft Azure Storage Explorer](http://storageexplorer.com/) and connect to the blob container in the storage account being monitored.
-5. Click the **Upload** button and upload the text file.
+4. Run [Microsoft Azure Storage Explorer](http://storageexplorer.com/), and connect to the blob container in the storage account being monitored.
+5. Click **Upload** to upload the text file.
 
-    ![](./media/functions-test-a-function/azure-storage-explorer-test.png)
+    ![Screenshot of Storage Explorer](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
-    The default blob trigger function code will report the processing of the blob in the logs:
+The default blob trigger function code reports the processing of the blob in the logs:
 
-        2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-        2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-        2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-        2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+    2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+    2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## Test a function within functions
 The Azure Functions portal is designed to let you test HTTP and timer triggered functions. You can also create functions to trigger other functions that you are testing.
 
-### Test with the functions portal run button
-The portal provides a **Run** button which will allow you to do some limited testing. You can provide a request body using the run button but, you can't provide query string parameters or update request headers.
+### Test with the Functions portal run button
+The portal provides a **Run** button, which allows you to do some limited testing. You can provide a request body using the run button, but you can't provide query string parameters or update request headers.
 
-Test the HTTP trigger function we created earlier by adding a JSON string similar to the following in the **Request body** field then click the **Run** button.
+Test the HTTP trigger function we created earlier by adding a JSON string similar to the following in the **Request body** field. Then click the **Run** button.
 
 ```json
 {
@@ -229,43 +229,43 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 
 ### Test with a timer trigger
-Some functions, can't be truly tested with the tools mentioned previously. For example, a queue trigger function which runs when a message is dropped into [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue and an example of this in a console project is provided below. However, there is another approach you can use to test with functions directly.  
+Some functions can't be adequately tested with the tools mentioned previously. For example, consider a queue trigger function that runs when a message is dropped into [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). You could always write code to drop a message into your queue, and an example of this in a console project is provided below. However, there is another approach you can use that tests functions directly.  
 
-You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section will walk through through an example.
+You could use a timer trigger configured with a queue output binding. That timer trigger code could then write the test messages to the queue. This section walks through an example.
 
 For more in-depth information on using bindings with Azure Functions, see the [Azure Functions developer reference](functions-reference.md).
 
-#### Create queue trigger for testing
-To demonstrate this approach, we will first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function will process name and address information for a new user dropped into Azure queue storage.
+#### Create a queue trigger for testing
+To demonstrate this approach, we first create a queue trigger function that we want to test for a queue named `queue-newusers`. This function processes name and address information dropped into Queue storage for a new user.
 
 > [!NOTE]
-> If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules.  Otherwise, you will get a HTTP Status code 400 : Bad Request.
+> If you use a different queue name, make sure the name you use conforms to the [Naming Queues and MetaData](https://msdn.microsoft.com/library/dd179349.aspx) rules. Otherwise, you will get an error.
 >
 >
 
-1. In the [Azure Portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
-2. Enter the queue name to be monitored by the queue function
+1. In the [Azure portal] for your Functions app, click **New Function** > **QueueTrigger - C#**.
+2. Enter the queue name to be monitored by the queue function:
 
         queue-newusers
-3. Click the **+** (add) button to select or create the storage account you want to use. Then click **Create**.
-4. Leave this portal browser window opened so you can monitor the log entries for the default queue function template code.
+3. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
+4. Leave this portal browser window open, so you can monitor the log entries for the default queue function template code.
 
 #### Create a timer trigger to drop a message in the queue
-1. Open the [Azure Portal] in a new browser window and navigate to your Function app.
-2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code will execute testing your queue function. Then click **Create**. If you want the test to run every 30 seconds you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
+1. Open the [Azure portal] in a new browser window, and navigate to your Function app.
+2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code tests your queue function. Then click **Create**. If you want the test to run every 30 seconds, you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
 3. Click the **Integrate** tab for your new timer trigger.
-4. Under **Output**, click the **+ New Output** button. Then click **queue** and the **Select** button.
-5. Note the name you use for the **queue message object** you will use this in the timer function code.
+4. Under **Output**, click **+ New Output**. Then click **queue** and **Select**.
+5. Note the name you use for the **queue message object**. You will use this in the timer function code.
 
         myQueue
 6. Enter the queue name where the message will be sent:
 
         queue-newusers
-7. Click the **+** (add) button to select the storage account you used previously with the queue trigger. Then click **Save**.
+7. Click the **+** button to select the storage account you used previously with the queue trigger. Then click **Save**.
 8. Click the **Develop** tab for your timer trigger.
-9. You can use the following code for the C# timer function as long as you used the same queue message object name shown above. Then click **Save**
+9. You can use the following code for the C# timer function, as long as you used the same queue message object name shown above. Then click **Save**.
 
 	```cs
     using System;
@@ -282,7 +282,7 @@ To demonstrate this approach, we will first create a queue trigger function that
     }
 	```
 
-At this point C# timer function will execute every 30 seconds if you used the example cron expression. The logs for the timer function will report each execution:
+At this point, the C# timer function executes every 30 seconds if you used the example cron expression. The logs for the timer function report each execution:
 
     2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
@@ -290,21 +290,21 @@ At this point C# timer function will execute every 30 seconds if you used the ex
     2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
     2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
 
-In the browser window for the queue function, you will see the each message being processed:
+In the browser window for the queue function, you can see each message being processed:
 
     2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
     2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
-## Test a function with Code
-There will some cases where you need to create an external application or framework to test your functions.
+## Test a function with code
+You may need to create an external application or framework to test your functions.
 
-### Test a HTTP trigger function with Code: Node.js
+### Test an HTTP trigger function with code: Node.js
 You can use a Node.js app to execute an HTTP request to test your function.
 Make sure to set:
 
-* The `host` in the request options to your function app host
+* The `host` in the request options to your function app host.
 * Your function name in the `path`.
 * Your access code (`<your code>`) in the `path`.
 
@@ -372,13 +372,13 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### Test a queue trigger function with Code: C# #
-We mentioned earlier that you could test a queue trigger by using code to drop a message in your queue. The following example code is based off the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
+### Test a queue trigger function with code: C# #
+We mentioned earlier that you could test a queue trigger by using code to drop a message in your queue. The following example code is based on the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
 
 To test this code in a console app you must:
 
 * [Configure your storage connection string in the app.config file](../storage/storage-dotnet-how-to-use-queues.md).
-* This code accepts the name and address for a new user as command-line arguments during runtime. Pass a `name` and `address` as parameters to the app. For example, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`
+* Pass a `name` and `address` as parameters to the app. For example, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (This code accepts the name and address for a new user as command-line arguments during runtime.)
 
 Example C# code:
 
@@ -428,7 +428,7 @@ static void Main(string[] args)
 }
 ```
 
-In the browser window for the queue function, you will see the each message being processed:
+In the browser window for the queue function, you can see each message being processed:
 
     2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
