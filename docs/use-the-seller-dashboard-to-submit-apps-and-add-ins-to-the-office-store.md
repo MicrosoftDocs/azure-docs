@@ -10,7 +10,7 @@ If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and c
 If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with  [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The Office Store currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
  
 
-For information about the Office Store approval process, see  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md).
+For information about the Office Store approval process, see  [Submit apps and add-ins to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md).
  
 
 ## App and add-in submission checklist
@@ -28,7 +28,7 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of app o
 ### Overview page
 
 |**Field name**|**Notes**|
-|:-------------||:-------|
+|:-------------|:-------|
 |Manifest|Required (except for web apps using Azure AD)<br/><br/>For more information, see [Upload your add-in package](upload-add-in-package.md).|
 |Submission title|Required|
 |Version|Required (autopopulated)|
@@ -46,24 +46,24 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of app o
 ### Details page
 
 |**Field name**|**Notes**|
-|:-------------||:-------|
+|:-------------|:-------|
 |App name|Required. One entry per language.|
 |Short description|Required. One entry per language.|
 |Long description|Required. One entry per language.|
 |Screenshots|At least one is required.|
 
-For more information, see [Store listing]().
+For more information, see [Store listing](office-store-listing).
 
 ### Block access page
 
 |**Field name**|**Notes**|
-|:-------------||:-------|
+|:-------------|:-------|
 |||
 
 ### Pricing page
 
 |**Field name**|**Notes**|
-|:-------------||:-------|
+|:-------------|:-------|
 |||
 
 
