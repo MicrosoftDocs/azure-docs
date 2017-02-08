@@ -65,52 +65,55 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 2. Replace the contents of **Program.cs** with the following:
 
-        using System;
-        using System.Security.Cryptography;
-        using System.Text;
-        using System.Threading.Tasks;
+    ```csharp
+    using System;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Threading.Tasks;
 
-        namespace HiveCSharp
+    namespace HiveCSharp
+    {
+        class Program
         {
-            class Program
+            static void Main(string[] args)
             {
-                static void Main(string[] args)
+                string line;
+                // Read stdin in a loop
+                while ((line = Console.ReadLine()) != null)
                 {
-                    string line;
-                    // Read stdin in a loop
-                    while ((line = Console.ReadLine()) != null)
-                    {
-                        // Parse the string, trimming line feeds
-                        // and splitting fields at tabs
-                        line = line.TrimEnd('\n');
-                        string[] field = line.Split('\t');
-                        string phoneLabel = field[1] + ' ' + field[2];
-                        // Emit new data to stdout, delimited by tabs
-                        Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
-                    }
-                }
-                /// <summary>
-                /// Returns an MD5 hash for the given string
-                /// </summary>
-                /// <param name="input">string value</param>
-                /// <returns>an MD5 hash</returns>
-                static string GetMD5Hash(string input)
-                {
-                    // Step 1, calculate MD5 hash from input
-                    MD5 md5 = System.Security.Cryptography.MD5.Create();
-                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-                    byte[] hash = md5.ComputeHash(inputBytes);
-
-                    // Step 2, convert byte array to hex string
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < hash.Length; i++)
-                    {
-                        sb.Append(hash[i].ToString("x2"));
-                    }
-                    return sb.ToString();
+                    // Parse the string, trimming line feeds
+                    // and splitting fields at tabs
+                    line = line.TrimEnd('\n');
+                    string[] field = line.Split('\t');
+                    string phoneLabel = field[1] + ' ' + field[2];
+                    // Emit new data to stdout, delimited by tabs
+                    Console.WriteLine("{0}\t{1}\t{2}", field[0], phoneLabel, GetMD5Hash(phoneLabel));
                 }
             }
+            /// <summary>
+            /// Returns an MD5 hash for the given string
+            /// </summary>
+            /// <param name="input">string value</param>
+            /// <returns>an MD5 hash</returns>
+            static string GetMD5Hash(string input)
+            {
+                // Step 1, calculate MD5 hash from input
+                MD5 md5 = System.Security.Cryptography.MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                byte[] hash = md5.ComputeHash(inputBytes);
+
+                // Step 2, convert byte array to hex string
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("x2"));
+                }
+                return sb.ToString();
+            }
         }
+    }
+    ```
+
 3. Build the project.
 
 ### Upload to storage
@@ -142,13 +145,15 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 4. Use the following for the Hive query:
 
-        add file wasbs:///HiveCSharp.exe;
+    ```hiveql
+    add file wasbs:///HiveCSharp.exe;
 
-        SELECT TRANSFORM (clientid, devicemake, devicemodel)
-        USING 'HiveCSharp.exe' AS
-        (clientid string, phoneLabel string, phoneHash string)
-        FROM hivesampletable
-        ORDER BY clientid LIMIT 50;
+    SELECT TRANSFORM (clientid, devicemake, devicemodel)
+    USING 'HiveCSharp.exe' AS
+    (clientid string, phoneLabel string, phoneHash string)
+    FROM hivesampletable
+    ORDER BY clientid LIMIT 50;
+    ```
 
     This selects the `clientid`, `devicemake`, and `devicemodel` fields from `hivesampletable`, and passes the fields to the HiveCSharp.exe application. The query expects the application to return three fields, which are stored as `clientid`, `phoneLabel`, and `phoneHash`. The query also expects to find HiveCSharp.exe in the root of the default storage container (`add file wasbs:///HiveCSharp.exe`).
 
@@ -164,32 +169,34 @@ Since Hive and Pig need to invoke the application at run time, the **Console App
 
 2. Replace the contents of the **Program.cs** file with the following:
 
-        using System;
+    ```csharp
+    using System;
 
-        namespace PigUDF
+    namespace PigUDF
+    {
+        class Program
         {
-            class Program
+            static void Main(string[] args)
             {
-                static void Main(string[] args)
+                string line;
+                // Read stdin in a loop
+                while ((line = Console.ReadLine()) != null)
                 {
-                    string line;
-                    // Read stdin in a loop
-                    while ((line = Console.ReadLine()) != null)
+                    // Fix formatting on lines that begin with an exception
+                    if(line.StartsWith("java.lang.Exception"))
                     {
-                        // Fix formatting on lines that begin with an exception
-                        if(line.StartsWith("java.lang.Exception"))
-                        {
-                            // Trim the error info off the beginning and add a note to the end of the line
-                            line = line.Remove(0, 21) + " - java.lang.Exception";
-                        }
-                        // Split the fields apart at tab characters
-                        string[] field = line.Split('\t');
-                        // Put fields back together for writing
-                        Console.WriteLine(String.Join("\t",field));
+                        // Trim the error info off the beginning and add a note to the end of the line
+                        line = line.Remove(0, 21) + " - java.lang.Exception";
                     }
+                    // Split the fields apart at tab characters
+                    string[] field = line.Split('\t');
+                    // Put fields back together for writing
+                    Console.WriteLine(String.Join("\t",field));
                 }
             }
         }
+    }
+    ```
 
     This application will parse the lines sent from Pig, and reformat lines that begin with `java.lang.Exception`.
 

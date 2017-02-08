@@ -43,7 +43,7 @@ If you use Script Actions to customize your cluster, any services or utilities t
 
 When using an SSH tunnel for web traffic, you must have the following:
 
-* An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+* An SSH client. For Linux and Unix distributions, Macintosh OS X, and Bash on Windows 10, the `ssh` command is provided with the operating system. For Windows versions that do not include the `ssh` command, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
   
   > [!NOTE]
   > If you want to use an SSH client other than `ssh` or PuTTY, please consult the documentation for your client on how to establish an SSH tunnel.
