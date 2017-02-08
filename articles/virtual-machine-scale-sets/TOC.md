@@ -17,6 +17,7 @@
 ### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
 ### [Use managed disks](virtual-machine-scale-sets-attached-disks.md)
+### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
