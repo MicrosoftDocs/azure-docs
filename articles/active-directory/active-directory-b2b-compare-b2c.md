@@ -1,6 +1,7 @@
 ---
+
 title: Compare B2B collaboration and B2C in Azure Active Directory | Microsoft Docs
-description: What is rhe difference between Azure Active Directory B2B collaboration and Azure AD B2C?
+description: What is the difference between Azure Active Directory B2B collaboration and Azure AD B2C?
 services: active-directory
 documentationcenter: ''
 author: sasubram
@@ -50,3 +51,4 @@ Browse our other articles on Azure AD B2B collaboration:
 * [B2B collaboration user claims mapping](active-directory-b2b-claims-mapping.md)
 * [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 * [B2B collaboration current limitations](active-directory-b2b-current-limitations.md)
+* [Getting support for B2B collaboration](active-directory-b2b-support.md)
