@@ -47,7 +47,7 @@ The managed disk will be created in the **West-US** location, in a resource grou
 
 ## Create an empty data disk as a managed disk
 
-In the example we create an empty data disk as managed disk and assign it to the parameter **$dataDisk2** to use later. An empty data disk will need to be initialized loggin g in to the VM and using diskmgmt.msc or [remotely using WinRM and a script](virtual-machines-windows-ps-manage.md#add-a-data-disk-to-a-virtual-machine), once it is attached to a running VM.
+In the example we create an empty data disk as managed disk and assign it to the parameter **$dataDisk2** to use later. An empty data disk will need to be initialized logging in to the VM and using diskmgmt.msc or [remotely using WinRM and a script](virtual-machines-windows-attach-disk-ps.md#initialize-the-disk), once it is attached to a running VM.
 
 The empty data disk will be created in the **West Central US** location, in a resource group named **myResourceGroup**. The disk will be named **myEmptyDataDisk**. The empty disk will be created in premium locally-redundant storage (LRS). StandardLRS and PremiumLRS are the only **-AccountType** options available for managed disks.
 
