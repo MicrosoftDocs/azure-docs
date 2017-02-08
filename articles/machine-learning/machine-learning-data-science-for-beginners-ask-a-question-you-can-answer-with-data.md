@@ -1,7 +1,7 @@
 ---
 title: Ask a question data can answer - data science problems - Azure | Microsoft Docs
 description: Learn how to formulate a sharp data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
-keywords: data science problems,formulate questions,regression questions,classification questions,sharp question
+keywords: data science problems,data science questions,formulate questions,regression questions,classification questions,sharp question
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
