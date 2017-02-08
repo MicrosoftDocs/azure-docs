@@ -54,7 +54,7 @@ In this step, you're registering the web API that you're running locally for tes
 We're assuming that you're registering the TODO REST API referenced earlier. But this works for any web API that you want Azure Active Directory to help protect.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account. In the **Directory** list, choose the Active Directory tenant where you want to register your application.
+2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Enter a friendly name for the application (for example, **TodoListService**), select **Web Application and/or Web API**, and click **Next**.
@@ -71,7 +71,7 @@ We're assuming that you're registering the sample application referenced earlier
 > You might wonder why you're putting both an application and a web API in one tenant. As you might have guessed, you can build an app that accesses an external API that is registered in Azure AD from another tenant. If you do that, your customers will be prompted to consent to the use of the API in the application. Active Directory Authentication Library for iOS takes care of this consent for you. As we explore more advanced features, you'll see that this is an important part of the work needed to access the suite of Microsoft APIs from Azure and Office, as well as any other service provider. For now, because you registered both your web API and your application under the same tenant, you won't see any prompts for consent. This is usually the case if you're developing an application just for your own company to use.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account. In the **Directory** list, choose the Active Directory tenant where you want to register your application.
+2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Enter a friendly name for the application (for example, **TodoListClient-Android**), select **Native Client Application**, and click **Next**.
