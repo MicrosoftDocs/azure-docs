@@ -70,7 +70,7 @@
 ### [Performance test your Azure web app under load](../app-service-web-app-performance-test.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
 
 ## Connect to DB/resources		
-### [Connect to MySQL in Azure](../../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Connect to MySQL in Azure](../../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ### Connect to local DB
 ### [Connect to on-premises data](../web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
 ### [Connect to Azure Virtual Network](../web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
