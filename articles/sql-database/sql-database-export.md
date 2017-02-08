@@ -46,4 +46,4 @@ When you need to export an Azure SQL database for archiving or for moving to ano
 ## Next steps
 
 * You can export your Azure SQL database using the [Azure portal](sql-database-export-portal.md), [PowerShell](sql-database-export-powershell.md), or [SQLPackage](sql-database-export-sqlpackage.md).
-* You can copy your Azure SQL database within Azure using the [Azure portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md), or [Transact-SQL](sql-database-copy-transactsql.md). See also [Copying an Azure SQL database](sql-database-copy.md).
+* You can copy your Azure SQL database within Azure using the [Azure portal](sql-database-copy-portal.md), [PowerShell](sql-database-copy-powershell.md), or [Transact-SQL](sql-database-copy-transact-sql.md). See also [Copying an Azure SQL database](sql-database-copy.md).
