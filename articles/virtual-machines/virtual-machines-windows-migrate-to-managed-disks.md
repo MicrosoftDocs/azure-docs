@@ -1,6 +1,6 @@
 ---
-title: Convert Azure VMs to managed disks in Azure | Microsoft Docs
-description: Convert Azure virtual machines created using storage accounts to use Managed Disks.
+title: Migrate Azure VMs to Managed Disks | Microsoft Docs
+description: Migrate Azure virtual machines created using unmanaged disks in storage accounts to use Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 
-# Convert Azure VMs to managed disks in Azure
+# Migrate Azure VMs to Managed Disks in Azure
 
 Azure managed disks removes the need of managing [Storage accounts](../storage/storage-introduction.md) for Azure VMs. You only have specify the type ([Premium](../storage/storage-premium-storage-performance.md) or [Standard](../storage/storage-standard-vm-disks.md) and size of disk you need, and Azure will create and manage the disk for you. Moreover, migrate your existing Azure VMs to Managed Disks to benefit from  better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
 
