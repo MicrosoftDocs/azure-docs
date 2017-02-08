@@ -18,7 +18,7 @@ ms.author: rasquill
 # Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
 Take a snapshot of a Managed disk for backup or create a Managed Disk from the snapshot and attach it to a test virtual machine to troubleshoot. A Managed Snapshot is a full point-in-time copy of a VM Managed Disk. It creates a read-only copy of your VHD and, by default, stores it as a Standard Managed Disk. 
 
-For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/disks/). <!--Add link to topic or blog post that explains managed disks. -->
+For information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
 Use either the Azure portal or the Azure CLI 2.0 (Preview) to take a snapshot of the Managed Disk.
 
