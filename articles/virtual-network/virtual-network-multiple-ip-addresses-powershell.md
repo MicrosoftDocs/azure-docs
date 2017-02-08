@@ -41,7 +41,8 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	```
 - Do not attempt to complete the remaining steps:
 	- Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
-	```
+	
+	```powershell
 	FeatureName                            ProviderName      RegistrationState
 	-----------                            ------------      -----------------      
 	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       

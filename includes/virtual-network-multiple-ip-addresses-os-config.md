@@ -28,7 +28,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
 
-```
+```bash
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
@@ -162,7 +162,7 @@ ping -S 10.0.0.5 hotmail.com
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
-```
+```bash
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
@@ -170,7 +170,7 @@ ping -I 10.0.0.5 hotmail.com
 
 For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
-```
+```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
 
 ip rule add from 10.0.0.5 lookup custom

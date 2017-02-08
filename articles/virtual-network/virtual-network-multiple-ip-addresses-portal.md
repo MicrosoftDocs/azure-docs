@@ -46,7 +46,8 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 	```
 - Do not attempt to complete the remaining steps:
 	- Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
-	```
+
+	```powershell
 	FeatureName                            ProviderName      RegistrationState
 	-----------                            ------------      -----------------      
 	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       

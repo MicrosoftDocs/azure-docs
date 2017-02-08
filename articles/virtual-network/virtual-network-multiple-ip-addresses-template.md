@@ -72,7 +72,8 @@ To deploy the template using the Azure portal, complete the following steps:
 	```
 - Do not attempt to complete the remaining steps:
 	- Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
-	```
+
+	```powershell
 	FeatureName                            ProviderName      RegistrationState
 	-----------                            ------------      -----------------      
 	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
