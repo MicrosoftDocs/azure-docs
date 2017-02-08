@@ -84,7 +84,7 @@ This step is optional. This tutorial provides pre-provisioned values that you ca
 Azure AD issues tokens to only known applications. Before you can use Azure AD from your app, you need to create an entry for it in your tenant. To register a new application in your tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account. In the **Directory** list, choose the Active Directory tenant where you want to register your application.
+2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts and create a **Native Client Application**. (Although Cordova apps are HTML based, we're creating a native client application here. The **Native Client Application** option must be selected, or the application won't work.)
