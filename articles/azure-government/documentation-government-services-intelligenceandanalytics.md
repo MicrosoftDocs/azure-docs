@@ -49,7 +49,7 @@ Power BI Embedded is coming soon.
 
 The URLs for Power BI are different in US Government:
 
-| Service Type | Azure Public | Azure Government |
+| Service Type | Power BI Commercial | Power BI US Government |
 | --- | --- | --- |
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
