@@ -33,14 +33,14 @@ To learn more about these services, see:
 
 ## Sharing an API definition
 
-APIs are often described using an [Open API document](https://www.openapis.org/) (sometimes referred to as a "Swagger" document). This contains all of the information about what operations are available and how the data should be structured. PowerApps and Microsoft Flow can create custom APIs for any Open API 2.0 document. Once a custom API is created, it can be used exactly the same as one of the built-in connectors and can quickly be integrated into an application.
+APIs are often described using an [Open API document](https://www.openapis.org/) (sometimes referred to as a "Swagger" document). This contains all of the information about what operations are available and how the data should be structured. PowerApps and Microsoft Flow can create custom APIs for any Open API 2.0 document. Once a custom API is created, it can be used in exactly the same way as one of the built-in connectors and can quickly be integrated into an application.
 
 Azure App Service and Azure Functions have [built-in support](../app-service-api/app-service-api-metadata) for creating, hosting, and managing an Open API document. In order to create a custom connector for a web, mobile, API, or function app, two steps will be needed:
 
 1. [Retrieving the API definition from App Service or Azure Functions](#export)
 2. [Importing the API definition into PowerApps](#import)
 
-It is possible that these two steps will need to be carried out by separate individuals within an organization, as a given user may not have permission to perform both actions. In this case, a developer who has contributor access to the App Service or Azure Functions application will need to obtain the API definition (a single JSON file) or a link to it and then provide that definition to a PowerApps or Microsoft Flow owner that can create the custom API.
+It is possible that these two steps will need to be carried out by separate individuals within an organization, as a given user may not have permission to perform both actions. In this case, a developer who has contributor access to the App Service or Azure Functions application will need to obtain the API definition (a single JSON file) or a link to it. They will then need to provide that definition to a PowerApps or Microsoft Flow owner. That owner can use the metadata to create the custom API.
 
 > [!NOTE]
 > Because a copy of the API definition is being used, PowerApps and Microsoft Flow will not immediately know about updates or breaking changes to the application. If a new version of the API is made available, these steps should be repeated for the new version. 
@@ -60,7 +60,7 @@ In this section, you will export the API definition for your App Service API, to
 
 3. You can choose to either **Download the API definition** or **Get a link**. Whichever you choose, the result will be provided to PowerApps in the next section. Select one of these options and follow the instructions.
  
-4. If your API definition includes any security definitions, these will be called out in step #2. During import, PowerApps and Microsoft Flow will detect these and will prompt for security information. The services use this to log users in so that they can access the API. If your API requires authentication, ensure that it is captured as a _security definition_ in your Open API document.
+4. If your API definition includes any security definitions, these will be called out in step #2. During import, PowerApps and Microsoft Flow will detect these and will prompt for security information. The services use this to log users in, so that they can access the API. If your API requires authentication, ensure that it is captured as a _security definition_ in your Open API document.
 
     Gather the credentials related to each definition for use in the next section. For a list of identity providers which PowerApps supports natively and the credentials each requires, see [Register custom APIs in PowerApps] and [Register custom APIs in Microsoft Flow].
  
