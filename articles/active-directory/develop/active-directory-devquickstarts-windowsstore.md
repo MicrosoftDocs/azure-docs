@@ -30,11 +30,11 @@ For Windows Store desktop apps that need to access protected resources, Azure AD
 * Searches a directory for users with a given user principal name (UPN).
 * Signs users out.
 
-To build a complete working app, follow the procedures in the next four sections.
-
 ## Before you get started
 * Download the [skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip), or download the [completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip). Each download is a Visual Studio 2015 solution.
 * You also need an Azure AD tenant in which to create users and register the app. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
+
+When you are ready, follow the procedures in the next three sections.
 
 ## Step 1: Register the DirectorySearcher app
 To enable the app to get tokens, you first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API. Here's how:
@@ -148,9 +148,9 @@ If you haven’t already populated your tenant with users, now is the time to do
 3. Close the app, and rerun it. Notice how the user’s session remains intact.
 4. Sign out by right-clicking to display the bottom bar, and then sign back in as another user.
 
-ADAL makes it easy to incorporate all these common identity features into the app. It takes care of all the dirty work for you, such as cache management, OAuth protocol support, presenting the user with a login UI, and refreshing expired tokens. All you need to know is a single API call, `authContext.AcquireToken*(…)`.
+ADAL makes it easy to incorporate all these common identity features into the app. It takes care of all the dirty work for you, such as cache management, OAuth protocol support, presenting the user with a login UI, and refreshing expired tokens. You need to know only a single API call, `authContext.AcquireToken*(…)`.
 
-For reference, see [the completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip) (without your configuration values).
+For reference, download the [completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip) (without your configuration values).
 
 You can now move on to additional identity scenarios. For example, try [Secure a .NET Web API with Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
