@@ -35,7 +35,7 @@ To learn more about these services, see:
 
 APIs are often described using an [Open API document](https://www.openapis.org/) (sometimes referred to as a "Swagger" document). This contains all of the information about what operations are available and how the data should be structured. PowerApps and Microsoft Flow can create custom APIs for any Open API 2.0 document. Once a custom API is created, it can be used exactly the same as one of the built-in connectors and can quickly be integrated into an application.
 
-Azure App Service and Azure Functions have [built-in support](../app-service-api/app-service-api-metadata) for creating, hosting, and managing an Open API document. In order to create a custom connector for a web, mobile, API, or function app, two steps will be needed:
+Azure App Service and Azure Functions have [built-in support](https://docs.microsoft.com/azure/app-service-api/app-service-api-metadata) for creating, hosting, and managing an Open API document. In order to create a custom connector for a web, mobile, API, or function app, two steps will be needed:
 
 1. [Retrieving the API definition from App Service or Azure Functions](#export)
 2. [Importing the API definition into PowerApps](#import)
