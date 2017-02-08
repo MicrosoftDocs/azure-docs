@@ -97,7 +97,7 @@ Here are JavaScript-to-Stream Analytics conversions:
 
 JavaScript | Stream Analytics
 --- | ---
-Number | Bigint (If the number is round and between long.MinValue and long.MaxValue; otherwise, it's double)
+Number | Bigint (if the number is round and between long.MinValue and long.MaxValue; otherwise, it's double)
 Date | DateTime
 String | nvarchar(MAX)
 Object | Record
