@@ -6,12 +6,6 @@
 ### [Resource limits](sql-database-resource-limits.md)
 ### [Features](sql-database-features.md)
 ### [SQL Database FAQ](sql-database-faq.md)
-## Benefits
-### [Learns and adapts](sql-database-learn-and-adapt.md)
-### [Scales on the fly](sql-database-scale-on-the-fly.md)
-### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
-### [Secures and protects](sql-database-helps-secures-and-protects.md)
-### [Works in your environment](sql-database-works-in-your-environment.md)
 ## Comparisons
 ### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL differences](sql-database-transact-sql-information.md)
