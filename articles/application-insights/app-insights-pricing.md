@@ -38,7 +38,7 @@ The Basic plan is the default when a new Application Insights resource is create
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
-* [Continuous Export](app-insights-export-telemetry.md) and [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) are available for an extra per-GB charge in the Basic plan, although they are free until early March 2017.
+* [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan, although it is free until early March 2017.
 
 ### Enterprise plan
 

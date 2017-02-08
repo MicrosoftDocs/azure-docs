@@ -173,9 +173,10 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 | Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Event Hub |No schema available. |
+| Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Service Bus |No schema available. |
-| Stream Analytics |No schema available. |
+
 
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|

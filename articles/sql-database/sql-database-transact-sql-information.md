@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: rick.byham@microsoft.com
+ms.author: rickbyh
 
 ---
 # Azure SQL Database Transact-SQL differences   

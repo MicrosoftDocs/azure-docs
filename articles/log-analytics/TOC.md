@@ -8,6 +8,7 @@
 ## [Proxy and firewall](log-analytics-proxy-firewall.md)
 ## [Usage data](log-analytics-usage.md)
 ## [Log Analytics FAQ](log-analytics-faq.md)
+## [Service providers](log-analytics-service-providers.md)
 
 # How To
 ## Collect data
@@ -15,7 +16,7 @@
 #### [Windows agents](log-analytics-windows-agents.md)
 #### [Linux agents](log-analytics-linux-agents.md)
 #### [Azure virtual machines](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+#### [Azure resources](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Gateway](log-analytics-oms-gateway.md)
