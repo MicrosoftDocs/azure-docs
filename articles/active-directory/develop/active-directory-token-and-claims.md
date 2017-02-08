@@ -1,5 +1,5 @@
 ---
-title: Azure AD Token Reference | Microsoft Docs
+title: Learn about the different token and claim types supported by Azure AD | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
 author: bryanla
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/06/2016
+ms.date: 02/08/2017
 ms.author: mbaldwin
 
 ---
@@ -298,4 +298,4 @@ In addition to claims, the token includes a version number in **ver** and **appi
 
 ## Related content
 * See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
-* For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md). 
+* For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md). 
