@@ -48,6 +48,9 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 ### If your app is an Azure web app or Cloud Service
 * Select Application Insights on the app's control panel in Azure.
 
+    ![Set up Application Insights for an Azure web app](./media/app-insights-monitor-performance-live-website-now/azure-web-setup.png)
+* When the Application Insights summary page opens, click the link at the bottom to open the full Application Insights resource.
+
     [Learn more](app-insights-azure.md).
 
 ### If your app is hosted on your IIS server
@@ -67,10 +70,12 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 Instrumentation adds DLLs and ApplicationInsights.config to your app.
 
+## When you re-publish your app
+
 >[!IMPORTANT]
->When you re-publish the app, re-run Status Monitor to ensure that instrumentation is still enabled. This is necessary because the Application Insights DLLs and .config file may be deleted by the publication process. 
->
-> Alternatively, [add Application Insights to your app in Visual Studio][greenbrown] before you republish. This provides you with more detailed monitoring and the ability to code your own telemetry.
+>When you re-publish the app, re-enable Application Insights monitoring. This is necessary because the Application Insights DLLs and .config file may be deleted by the publication process. 
+
+Alternatively, consider [adding Application Insights to your app in Visual Studio][greenbrown] before you republish. This provides you with more detailed monitoring, Live Stream monitoring, and the ability to code your own telemetry.
 
 
 ## Troubleshooting
