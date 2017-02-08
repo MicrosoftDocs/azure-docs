@@ -31,22 +31,22 @@ You are now ready to create an Azure Function app.
 ## Create an Azure Function app 
 
 Azure Function Apps are containers for one or more Azure functions. Azure functions are just that - a function. Each Azure function is tied to one trigger, which is an event that causes the function to run.
-Each function can contain zero or more input and zero or output bindings. Bindings are services that you can use in a function. For SendGrid, it's an output binding that you can use to send email. 
+Each function can contain any number of input or output bindings. Bindings are services that you can use in a function. For SendGrid, it's an output binding that you can use to send email. 
 
-1. Login to the Azure Portal and [create an Azure Function App](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) or open an existing Function app. 
+1. Log in to the Azure portal and [create an Azure Function App](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) or open an existing Function app. 
 2. Create an Azure function. To keep it simple, choose a manual trigger and C#. 
 
  ![Create an Azure function](./media/functions-how-to-use-sendgrid/functions-new-function-manual-trigger-page.png)
 
 ## Configure SendGrid for use in an Azure Function app
 
-You must store your SendGrid Api Key as an app setting to use it in a function. The ApiKey field is not your actual SendGrid api key, but an app setting you define that represents your actual api key. Storing your key this way in Azure  is for security reasons, since it is separate from any code or files that might be checked into source code control.
+You must store your SendGrid Api Key as an app setting to use it in a function. The ApiKey field is not your actual SendGrid api key, but an app setting you define that represents your actual api key. Storing your key this way is for security, since it is separate from any code or files that might be checked into source code control.
 
 1. Create an **AppSettings** key in your function app's **Application Settings**.
 
  ![Create an Azure function](./media/functions-how-to-use-sendgrid/functions-configure-sendgrid-api-key-app-settings.png)
 
-Function apps also requre a reference to external assemblies before you may use them.  
+Function apps also require a reference to external assemblies before you may use them.  
 
 2. List the SendGrid assembly in the **project.json** file. If no project.json file exists, create one. Azure will automatically create the **project.lock.json** file to track dependencies.
 
@@ -72,8 +72,8 @@ Now that you have created and configured the Function App and function, you can 
 SendGrid is available as an Azure function output binding. To create a SendGrid output binding:
 
 1. Go to the **Integrate** tab of the function in the Azure portal.
-1. Click on **New Output** to create a new SendGrid output binding.
-2. Fill in the **API Key** and **Message parameter name** properties. You can enter the other properties now if you want, or code them instead. These settings can be used as defaults.
+1. Click **New Output** to create a SendGrid output binding.
+2. Fill in the **API Key** and **Message parameter name** properties. If you want, you can enter the other properties now, or code them instead. These settings can be used as defaults.
 
  ![Configure SendGrid output bindings](./media/functions-how-to-use-sendgrid/functions-configure-sendgrid-output-bindings.png)
 
@@ -95,7 +95,7 @@ Setting the **ApiKey**, **message**, and **from** fields create the following en
 }
 ```
 
-You may modify this file yourself directly if you prefer.
+If you prefer, you may modify this file yourself directly.
 
 ## Write code that creates and sends email
 
@@ -131,7 +131,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```
 
 Notice the first line contains the ```#r``` directive that references the SendGrid assembly. After that, you can use a ```using``` statement to more easily access the objects in that namespace. 
-In the code, create new instances of ```Mail```, ```Personalization```, and ```Content``` objects that compose the email. When you return the message, SendGrid delivers it. 
+In the code, create instances of ```Mail```, ```Personalization```, and ```Content``` objects that compose the email. When you return the message, SendGrid delivers it. 
 
 The function's signature also contains an extra out parameter of type ```Mail``` named ```message```. Both input and output bindings express themselves as function parameters in code. 
 
@@ -144,11 +144,11 @@ The function's signature also contains an extra out parameter of type ```Mail```
 ## Next steps
 This article has demonstrated how to use the SendGrid service to create and send email. To learn more about using Azure Functions in your apps, see the following topics: 
 
-- [Best practices for Azure Functions](../azure-functions/functions-best-practices)
+- [Best practices for Azure Functions](functions-best-practices)
 Lists some best practices to use when creating Azure Functions.
 
-- [Azure Functions developer reference](../azure-functions/functions-reference)
+- [Azure Functions developer reference](functions-reference)
 Programmer reference for coding functions and defining triggers and bindings.
 
-- [Testing Azure Functions](../azure-functions/functions-test-a-function)
+- [Testing Azure Functions](functions-test-a-function)
 Describes various tools and techniques for testing your functions.
