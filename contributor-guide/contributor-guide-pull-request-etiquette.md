@@ -23,7 +23,7 @@ Here's the basics you need to know about working with pull request reviewers.
   * Pull requests that change or add lots of files
 * <b>SLA for pull request review</b>
   
-  In the private repository, each time your pull request enters the pull request queue with the ready-to-merge label, the team tries to review the pull request within 12 business hours (M-F, 8 AM to 5 PM) and provide feedback or merge if no feedback is required. This SLA applies to the act of reviewing the PR, not merging it. PRs will be merged when they meet [the criteria for merging](contributor-guide-pr-criteria.md). PRs that are merged to master are published at 10:00 AM and 3:00 PM, Monday - Friday PST.
+  In the private repository, each time your pull request enters the pull request queue with the ready-to-merge label, the team tries to review the pull request within 12 business hours (8:00 AM to 5:00 PM, Monday - Friday PST) and provide feedback or merge if no feedback is required. This SLA applies to the act of reviewing the PR, not merging it. PRs will be merged when they meet [the criteria for merging](contributor-guide-pr-criteria.md). PRs that are merged to master are published at 10:00 AM and 3:00 PM, Monday - Friday PST.
 
 ## Make the pull request queue work better for everyone
 There are two basic realities in the PR queue:
