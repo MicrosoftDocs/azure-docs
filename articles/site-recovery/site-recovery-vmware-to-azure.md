@@ -84,7 +84,7 @@ Here's what you do:
 
 ## Prepare the configuration server
 
-1. Install Windows Server 2012 R2 or later on a VMware VM.
+1. Install Windows Server 2012 R2 or later, on a VMware VM.
 2. Make sure the VM has access to these URLs: [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 3. Install [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0).
 
