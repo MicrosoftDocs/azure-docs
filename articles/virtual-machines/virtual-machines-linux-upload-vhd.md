@@ -75,7 +75,7 @@ You can create a VM using Azure Managed Disks or unmanaged disks. Managed disks 
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
-  --source-blob-uri https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
 Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
@@ -226,7 +226,7 @@ To create a VM from your VHD, first convert the VHD to a managed disk with [az d
 
 ```azurecli
 az disk create --resource-group myResourceGroup --name myManagedDisk \
-  --source-blob-uri https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+  --source https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
 ```
 
 Obtain the URI of the managed disk you created with [az disk list](/cli/azure/disk/list):
