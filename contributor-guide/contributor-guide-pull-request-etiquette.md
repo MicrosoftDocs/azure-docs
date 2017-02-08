@@ -54,6 +54,9 @@ PRMerger will merge your PR automatically if these criteria are met:
 * Adds no new files
 * Deletes no existing files.
 * Modifies no images.
+* Modifies no index.md or TOC.md files.
+* Contains only approved file types.
+* Adds no files to the root folder of the repo.
 
 If your pull request does not meet these criteria, the "requires-human-merge" label is automatically assigned so you know it requires review by a human PR reviewer.
 
