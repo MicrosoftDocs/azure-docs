@@ -523,6 +523,13 @@ For example, to invoke **SetAirResistance** you can send this message to a devic
 
 The action name must exactly match an action defined in your model. The parameter names must match as well. Also note case sensitivity. **Name** and **Parameters** are always uppercase. Make sure to match the case of your action name and parameters in your model. In this example, the action name is "SetAirResistance" and not "setairresistance".
 
+The two other actions **TurnFanOn** and **TurnFanOff** can be invoked by sending these messages to a device:
+
+```
+{"Name" : "TurnFanOn", "Parameters" : {}}
+{"Name" : "TurnFanOff", "Parameters" : {}}
+```
+
 This section described everything you need to know when sending events and receiving messages with the **serializer** library. Before moving on, let's cover some parameters you can configure that control how large your model is.
 
 ## Macro configuration

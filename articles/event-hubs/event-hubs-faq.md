@@ -76,11 +76,15 @@ Technical support for Event Hubs is available through the [community forums](htt
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
-## Next steps
-To learn more about Event Hubs, see the following articles:
+## Diagnostic logs
 
-* [Event Hubs overview][Event Hubs overview].
-* A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
+Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.md) - Archive error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
+
+## Next steps
+You can learn more about Event Hubs by visiting the following links:
+
+* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](event-hubs-create.md)
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
