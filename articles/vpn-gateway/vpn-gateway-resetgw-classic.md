@@ -41,7 +41,7 @@ Verify the following items before resetting your gateway:
 
 ## Reset an Azure VPN Gateway using the Azure portal
 
-You can reset a Resource Manager Azure VPN gateway using the Azure portal. If you want to reset a classic gateway, see the [PowerShell](#resetclassic) steps.
+You can reset a Resource Manager VPN gateway using the Azure portal. If you want to reset a classic gateway, see the [PowerShell](#resetclassic) steps.
 
 ### Resource Manager deployment model
 
