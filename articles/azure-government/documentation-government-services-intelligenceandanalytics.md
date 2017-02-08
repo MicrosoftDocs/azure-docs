@@ -19,8 +19,9 @@ ms.author: MeganYount
 ---
 # Azure Government Intelligence + Analytics
 This article outlines the intelligence and analytics services, variations, and considerations for the Azure Government environment.
+
 ## Azure HDInsight
-HDInsight on Linux Standard is generally available in Azure Government.
+HDInsight on Linux Standard is generally available in Azure Government. You can see a demo on how to build data-centric solutions on Azure Government using HDInsight <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
 
 HDInsight on Linux Premium is coming soon.
 
@@ -40,6 +41,8 @@ For more information, see [Azure HDInsight public documentation](../hdinsight/hd
 
 ## Power BI
 Power BI US Government is generally available as part of the Office 365 US Government Community subscriptions. You can learn about Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/> here</a>. 
+You can see a demo on how to build data-centric solutions on Azure Government using Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>here</a>.
+
 Power BI Embedded is coming soon.
 
 ### Variations
