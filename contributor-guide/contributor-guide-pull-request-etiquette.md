@@ -45,7 +45,7 @@ You can help make the pull request queue work better by following these best pra
 ## In a hurry? Submit PRs that can be accepted automatically
 Use the PRMerger automation rules to get more of your day-to-day PRs merged automatically.
 
-PRMerger can accept your PR automatically if these criteria are met:
+PRMerger will merge your PR automatically if these criteria are met:
 
 * The PR can contain up to 10 changed files.
 * Contains up to 15 commits.
