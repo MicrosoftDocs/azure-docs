@@ -20,7 +20,7 @@ ms.author: tarcher
 # Add a VM to a lab in Azure DevTest Labs
 You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-create-template.md), [formula](devtest-lab-manage-formulas.md), or [Marketplace image](devtest-lab-configure-marketplace-images.md). This tutorial walks you through using the Azure portal to add a VM to a lab in DevTest Labs.
 
-## Add a VM with artifacts
+## Steps to add a VM to a lab in Azure DevTest Labs
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **More Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the lab in which you want to create the VM.  
