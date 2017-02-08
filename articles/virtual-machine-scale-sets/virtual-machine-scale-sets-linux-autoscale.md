@@ -533,20 +533,20 @@ The template can be uploaded as long as you know the name and primary key of the
 ## Step 4: Deploy the template
 Now that you created the template, you can start deploying the resources. Use this command to start the process:
 
-    ```cli
-    azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
-    ```
+```cli
+azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
+```
 
 When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
 
-    ```cli
-    vmName: vmsstestvm1
-    vmSSName: vmsstest1
-    instanceCount: 5
-    adminUserName: vmadmin1
-    adminPassword: VMpass1
-    resourcePrefix: vmsstest
-    ```
+```cli
+vmName: vmsstestvm1
+vmSSName: vmsstest1
+instanceCount: 5
+adminUserName: vmadmin1
+adminPassword: VMpass1
+resourcePrefix: vmsstest
+```
 
 It should take about 15 minutes for all the resources to successfully be deployed.
 
@@ -580,9 +580,9 @@ You can get some information about virtual machine scale sets using these method
 ## Step 6: Remove the resources
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all its resources are automatically deleted.
 
-    ```cli
-    azure group delete vmsstestrg1
-    ```
+```cli
+azure group delete vmsstestrg1
+```
 
 ## Next steps
 * Find examples of Azure Monitor monitoring features in [Azure Monitor Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
