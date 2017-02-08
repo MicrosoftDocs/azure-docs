@@ -52,7 +52,8 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
 	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
 	```
-	>[!NOTE] This may take a few minutes.
+	>[!NOTE] 
+	>This may take a few minutes.
 	
 2. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
 3. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
