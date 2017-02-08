@@ -20,7 +20,7 @@ Parameters:
 * ProxyPort = "<Port>"
 * ProxyUserName="<User Name>"
 * ProxyPassword="<Password>"
-* DataTransferSecurePort. Optional. Port number to be used for replication data.
-* SkipSpaceCheck. Optional. Skip space check for cache.
-* AcceptThirdpartyEULA. Mandatory. Flag implies acceptance of third-party EULA.
-* ShowThirdpartyEULA. Mandatory. Displays third-party EULA. If provided as input all other parameters are ignored.
+* DataTransferSecurePort. Optional. The port number for replication data.
+* SkipSpaceCheck. Optional. Skip space checking for cache.
+* AcceptThirdpartyEULA. Mandatory. Accepts the third-party EULA.
+* ShowThirdpartyEULA. Mandatory. Displays third-party EULA. If provided as input, all other parameters are ignored.
