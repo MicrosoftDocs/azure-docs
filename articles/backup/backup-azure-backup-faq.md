@@ -15,7 +15,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/1/2017
+ms.date: 2/8/2017
 ms.author: trinadhk;giridham;arunak;markgal;jimpark;
 
 ---
@@ -189,7 +189,7 @@ No, the incremental copy is sent based on the time mentioned in the backup sched
 Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum. Learn more on how [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) save are efficient.
 
 ## Is there a limit on the number of recovery points that can be created?<br/>
-No. We have eliminated limits on recovery points. You can create as many recovery points as you desire.
+You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. There is no limit on the number of protected instances per backup vault. For additional information, see the explanations of [Backup and retention](./backup-introduction-to-azure-backup.md#backup-and-retention), and [What is a protected instance](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
 
 ## Why is the amount of data transferred in backup not equal to the amount of data I backed up?<br/>
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
