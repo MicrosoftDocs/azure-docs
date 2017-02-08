@@ -40,9 +40,9 @@ To set up the app to authenticate users, first register it in your tenant by doi
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts to create a new **Web Application and/or WebAPI**.
-  * The **Name** describes the app to users.
-  * The **Sign-On URL** is the base URL of the app. The skeleton's default URL is https://localhost:44320/.
-  * The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `https://contoso.onmicrosoft.com/my-first-aad-app`).
+  * **Name** describes the app to users.
+  * **Sign-On URL** is the base URL of the app. The skeleton's default URL is https://localhost:44320/.
+  * **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `https://contoso.onmicrosoft.com/my-first-aad-app`).
 6. After you've completed the registration, Azure AD assigns the app a unique Application ID. Copy the value from the app page to use in the next sections.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
@@ -89,9 +89,9 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
      ```
 
 5. Open the web.config file in the root of the project, and then enter the configuration values in the **`<`appSettings`>`** section.
-  * `ida:ClientId`: the GUID you copied from the Azure portal in "Step 1: Register the new app with Azure AD"
-  * `ida:Tenant`: the name of your Azure AD tenant (for example, contoso.onmicrosoft.com)
-  * `ida:PostLogoutRedirectUri`: indicates to Azure AD where a user should be redirected after a sign-out request is successfully completed
+  * `ida:ClientId`: The GUID you copied from the Azure portal in "Step 1: Register the new app with Azure AD."
+  * `ida:Tenant`: The name of your Azure AD tenant (for example, contoso.onmicrosoft.com).
+  * `ida:PostLogoutRedirectUri`: The indicator that tells Azure AD where a user should be redirected after a sign-out request is successfully completed.
 
 ## Step 3: Use OWIN to issue sign-in and sign-out requests to Azure AD
 The app is now properly configured to communicate with Azure AD by using the OpenID Connect authentication protocol. OWIN has handled all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is to give your users a way to sign in and sign out.
@@ -168,7 +168,7 @@ When it authenticates users with OpenID Connect, Azure AD returns an id_token to
 
 2. Build and run the app. If you haven't already created a new user in your tenant with an onmicrosoft.com domain, now is the time to do so. Here's how:
 
-  a. Sign in with that user, and notice how the user's identity is reflected in the top navigation bar.
+  a. Sign in with that user, and note how the user's identity is reflected in the top navigation bar.
 
   b. Sign out, and then sign back in as another user in your tenant.
 
