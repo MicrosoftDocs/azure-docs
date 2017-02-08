@@ -39,7 +39,7 @@ When you are ready, follow the procedures in the next four sections.
 ## Step 1: Set up your Xamarin development environment
 Because this tutorial includes projects for iOS, Android, and Windows, you need both Visual Studio and Xamarin. To create the necessary environment, complete the process in [Set up and install Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN. The instructions include material that you can review to learn more about Xamarin while you're waiting for the installations to be completed.
 
-After you've completed the setup, open the solution in Visual Studio, where you will find six projects: five platform-specific projects and one portable class library, `DirectorySearcher.cs`, which will be shared across all platforms.
+After you've completed the setup, open the solution in Visual Studio, where you will find six projects: five platform-specific projects and one portable class library, DirectorySearcher.cs, which will be shared across all platforms.
 
 ## Step 2: Register the DirectorySearcher app
 To enable the app to get tokens, you first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API. Here's how:
@@ -118,6 +118,7 @@ This action passes ADAL the coordinates it needs to communicate with Azure AD.
         }
     ...
     ```
+
     `AcquireTokenAsync(...)` first attempts to return a token for the requested resource (the Graph API in this case) without prompting users to enter their credentials (via caching or refreshing old tokens). As necessary, it shows users the Azure AD sign-in page before acquiring the requested token.
 4. Attach the access token to the Graph API request in the **Authorization** header:
 
@@ -130,7 +131,7 @@ This action passes ADAL the coordinates it needs to communicate with Azure AD.
 That's all for the `DirectorySearcher` PCL and the app's identity-related code. All that remains is to call the `SearchByAlias(...)` method in each platform's views and, where necessary, to add code for correctly handling the UI lifecycle.
 
 ### Android
-1. In `MainActivity.cs`, add a call to `SearchByAlias(...)` in the button click handler:
+1. In MainActivity.cs, add a call to `SearchByAlias(...)` in the button click handler:
 
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
@@ -148,31 +149,31 @@ That's all for the `DirectorySearcher` PCL and the app's identity-related code. 
     ```
 
 ### Windows Desktop
-In `MainWindow.xaml.cs`, make a call to `SearchByAlias(...)` by passing a `WindowInteropHelper` in the desktop's `PlatformParameters` object:
+In MainWindow.xaml.cs, make a call to `SearchByAlias(...)` by passing a `WindowInteropHelper` in the desktop's `PlatformParameters` object:
 
-    ```C#
-    List<User> results = await DirectorySearcher.SearchByAlias(
-      SearchTermText.Text,
-      new PlatformParameters(PromptBehavior.Auto, this.Handle));
-    ```
+```C#
+List<User> results = await DirectorySearcher.SearchByAlias(
+  SearchTermText.Text,
+  new PlatformParameters(PromptBehavior.Auto, this.Handle));
+```
 
 #### iOS
-In `DirSearchClient_iOSViewController.cs`, the iOS `PlatformParameters` object takes a reference to the View Controller:
+In DirSearchClient_iOSViewController.cs, the iOS `PlatformParameters` object takes a reference to the View Controller:
 
-    ```C#
-    List<User> results = await DirectorySearcher.SearchByAlias(
-      SearchTermText.Text,
-      new PlatformParameters(PromptBehavior.Auto, this.Handle));
-    ```
+```C#
+List<User> results = await DirectorySearcher.SearchByAlias(
+  SearchTermText.Text,
+  new PlatformParameters(PromptBehavior.Auto, this.Handle));
+```
 
 ### Windows Universal
-In Windows Universal, open `MainPage.xaml.cs`, and then implement the `Search` method, which uses a helper method in a shared project to update UI as necessary.
+In Windows Universal, open MainPage.xaml.cs, and then implement the `Search` method, which uses a helper method in a shared project to update UI as necessary.
 
-    ```C#
-    ...
-    List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
-    ...
-    ```
+```C#
+...
+List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
+...
+```
 
 ## What's next
 You now have a working Xamarin app that can authenticate users and securely call web APIs using OAuth 2.0 across five different platforms.
