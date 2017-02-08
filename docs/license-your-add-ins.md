@@ -205,10 +205,10 @@ The following figure shows the add-in license query and validation process for S
 -  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
     
  
--  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model-for-your-office-or-sharepoint-add-in-or-office-365-web-app.md)
+-  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
     
  
--  **VerificationSvc**
+-  [VerificationSvc](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
     
  
 
