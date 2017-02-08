@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/08/2017
+ms.date: 02/07/2017
 ms.author: v-shysun
 
 ---
