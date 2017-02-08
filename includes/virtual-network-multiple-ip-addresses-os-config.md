@@ -3,6 +3,7 @@
 Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
 
 ### Windows
+
 1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
 2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
 3. Open the properties for the appropriate adapter: **Local Area Connection**.
@@ -15,7 +16,8 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 	* Click **Use the following DNS server addresses** and enter the following values:
 		* **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
 	* Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
-		>[!WARNING] If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
+		>[!WARNING] 
+		>If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
 
 	* Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 
@@ -29,7 +31,8 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```
 ping -S 10.0.0.5 hotmail.com
 ```
->[!NOTE] You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
+>[!NOTE]
+>You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
 
 ### Linux (Ubuntu)
 
@@ -162,7 +165,8 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```
 ping -I 10.0.0.5 hotmail.com
 ```
->[!NOTE] You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
+>[!NOTE]
+>You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
 
 For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
