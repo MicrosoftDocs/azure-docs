@@ -1,6 +1,6 @@
 ---
-title: Testing Azure Functions | Microsoft Docs
-description: Test your Azure Functions using Postman, cURL, and Node.js.
+title: Testing Azure functions | Microsoft Docs
+description: Test your Azure functions by using Postman, cURL, and Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -19,24 +19,24 @@ ms.date: 02/02/2017
 ms.author: wesmc
 
 ---
-# Testing Azure Functions
-## Overview
-This topic demonstrates the various ways to test functions, which includes the following general approaches:
+# Testing Azure functions
 
-+ HTTP-based tools, such as cURL, Postman, and even a web browser for web-based triggers. 
-+ Storage explorer to test Azure Storage-based triggers.
+This topic demonstrates the various ways to test functions, including using the following general approaches:
+
++ HTTP-based tools, such as cURL, Postman, and even a web browser for web-based triggers.
++ Storage Explorer, to test Azure Storage-based triggers.
 + Test tab in the Functions portal.
 + Timer-triggered function.
 + Testing application or framework.  
 
-All of the testing methods shown use an HTTP trigger function that accepts input through either a query string parameter or the request body. You will create this function in the first section.
+All of these testing methods use an HTTP trigger function that accepts input through either a query string parameter or the request body. You create this function in the first section.
 
 ## Create a function for testing
-For most of this tutorial, we will use a slightly modified version of the HttpTrigger JavaScript function template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure Portal].
+For most of this tutorial, we use a slightly modified version of the HttpTrigger JavaScript function template that is available when you create a new function. If you need help creating a new function, review this [tutorial](functions-create-first-azure-function.md). Just choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure portal].
 
-The default function template is basically a hello world function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
+The default function template is basically a "hello world" function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We'll update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
 
-Update the function with the following code which we will use for testing:
+Update the function with the following code, which we will use for testing:
 
 ```javascript
 module.exports = function (context, req) {
@@ -80,23 +80,23 @@ function ProcessNewUserInformation(context, name, address) {
 }
 ```
 
-## Test a function with Tools
-Outside of the Azure portal, there are various tools that you can use to trigger your functions for testing. These include HTTP testing tools, both UI-based and command-line; Azure storage access tools, and even a simple web browser.
+## Test a function with tools
+Outside of the Azure portal, there are various tools that you can use to trigger your functions for testing. These include HTTP testing tools (both UI-based and command-line), Azure Storage access tools, and even a simple web browser.
 
 ### Test with a browser
-The web browser is a simple way to trigger functions via HTTP. You can use a browser for GET requests that do not require a body payload and use only query string parameters.
+The web browser is a simple way to trigger functions via HTTP. You can use a browser for GET requests that do not require a body payload, and that use only query string parameters.
 
 To test the function we defined above, copy the **Function Url** from the portal. It will have the following form:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Append the `name` parameter to the query string using an actual name for the `<Enter a name here>` placeholder. 
+Append the `name` parameter to the query string. Use an actual name for the `<Enter a name here>` placeholder.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
-Paste the URL into your browser and you should get a response similar to the following.
+Paste the URL into your browser, and you should get a response similar to the following.
 
-![](./media/functions-test-a-function/browser-test.png)
+![Screenshot of Chrome browser tab with test response](./media/functions-test-a-function/browser-test.png)
 
 This example is the Chrome browser, which wraps the returned string in XML. Other browsers display just the string value.
 
@@ -123,22 +123,22 @@ The recommended tool to test most of your functions is Postman, which integrates
 
 To test the function with a request body in Postman:
 
-1. Launch Postman from the **Apps** button in the upper left of corner of a Chrome browser window.
-2. Copy your **Function Url** and paste it into Postman. It includes the access code query string parameter.
+1. Launch Postman from the **Apps** button in the upper-left corner of a Chrome browser window.
+2. Copy your **Function Url**, and paste it into Postman. It includes the access code query string parameter.
 3. Change the HTTP method to **POST**.
-4. Click **Body** > **raw** and add JSON request body similar to the following:
-	
+4. Click **Body** > **raw**, and add a JSON request body similar to the following:
+
 	```json
     {
         "name" : "Wes testing with Postman",
-        "address" : "Seattle, W.A. 98101"
+        "address" : "Seattle, WA 98101"
     }
 	```
 5. Click **Send**.
 
 The following image shows testing the simple echo function example in this tutorial.
 
-![](./media/functions-test-a-function/postman-test.png)
+![Screenshot of Postman user interface](./media/functions-test-a-function/postman-test.png)
 
 In the portal **Logs** window, output similar to the following is logged while executing the function:
 
@@ -152,24 +152,24 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
-### Test with cURL from the command line 
-Often when testing software, it's not necessary to look any further than the command-line to help debug your application, this is no different with functions. Note that the cURL is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/). 
+### Test with cURL from the command line
+Often when testing software, it's not necessary to look any further than the command-line to help debug your application. This is no different with testing functions. Note that the cURL is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
 
 To test the function above, copy the **Function URL** from the portal. It will have the following form:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-This is the URL for triggering your function, we can test this by using the cURL command on the command-line to make a GET (`-G` or `--get`) request against the function:
+This is the URL for triggering your function. Test this by using the cURL command on the command-line to make a GET (`-G` or `--get`) request against the function:
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-This particular example above requires a query string parameter which can be passed as Data (`-d`) in the cURL command:
+This particular example requires a query string parameter, which can be passed as Data (`-d`) in the cURL command:
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
 
-Run the command and you see the following output of the function on the command-line:
+Run the command, and you see the following output of the function on the command-line:
 
-![](./media/functions-test-a-function/curl-test.png)
+![Screenshot of Command Prompt output](./media/functions-test-a-function/curl-test.png)
 
 In the portal **Logs** window, output similar to the following is logged while executing the function:
 
@@ -438,4 +438,4 @@ In the browser window for the queue function, you will see the each message bein
 
 <!-- URLs. -->
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
