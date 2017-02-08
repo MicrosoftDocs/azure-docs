@@ -8,10 +8,23 @@
 ## App Service for developers 
 ## App Service everywhere	
 ## [Web apps in App Service](../app-service-web-overview.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
-## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2faspnet%2ftoc.json)
 ## [App Service on Linux](../app-service-linux-intro.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
-# [Concepts](../concepts/TOC.md)	
+# Concepts
+## [App Service](../../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
+## Service architecture
+### Service types
+### App state (warm vs. cold)
+
+## [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
+## [App Service Environments](../app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## Deployment slots	
+## [Authentication/Authorization](../../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+
+## Extensibility	
+### API
+### Site extensions	
 		
 # Tutorials
 
@@ -33,11 +46,29 @@
 #### Configure IIS (Windows)
 #### Configure Apache (Linux)
 ### Configure application	
-#### Use app settings
-#### Use connection strings
+#### [Use app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+#### [Use connection strings](../web-sites-configure.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 
-## [Deploy to App Service](../deploy/TOC.md)
-	
+## Deploy to App Service
+### [Deployment overview](../web-sites-deploy.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy via FTP](../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy via cloud sync](../web-sites-deploy.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy continuously](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy to staging](../web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Deploy from local Git](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Set deployment credentials](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Assign custom domain
+#### [Buy domain](../custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+#### [Map 3rd-party domain](../web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+#### [Map domains with Traffic Manager](../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+#### [Map GoDaddy domains](../web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Assign custom SSL](../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### Debug remotely
+### Profile your app remotely
+### [Migrate from IIS](../web-sites-migration-from-iis-server.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Get started with test in production for Web Apps](../app-service-web-test-in-production-get-start.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+### [Performance test your Azure web app under load](../app-service-web-app-performance-test.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json) 
+
 ## Connect to DB/resources		
 ### [Connect to MySQL in Azure](../../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### Connect to local DB
@@ -90,15 +121,15 @@
 ## [CLI 2.0](/cli/azure/appservice)
 		
 # Resources	
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/) 	
-## [Quota Information](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits)	
-## [Service Updates & Release Notes](https://azure.microsoft.com/en-us/updates/?product=app-service)	
+## [Pricing](https://azure.microsoft.com/pricing/details/app-service/) 	
+## [Quota Information](../../azure-subscription-service-limits.md#app-service-limits?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
+## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](../app-service-best-practices.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
 ## Community Content	
 ## Samples	
 ## Videos
 ## Cookbooks	
-### [Reference Architectures](https://docs.microsoft.com/en-us/azure/guidance/guidance-ra-app-service)	
-### [Deployment Scripts](https://azure.microsoft.com/en-us/documentation/scripts/)	
+### [Reference Architectures](../../guidance/guidance-ra-app-service.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)	
+### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
 ### Common Web.config	
 ### Common Application.xdt Transforms

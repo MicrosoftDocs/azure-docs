@@ -1,7 +1,7 @@
 # QuickStart	
 ## [ASP.NET](app-service-web-get-started-dotnet.md)		
-## [ASP.NET Core](web-sites-create-web-app-using-vscode.md)		
-### Windows 
+## ASP.NET Core
+### [Windows](web-sites-create-web-app-using-vscode.md)		 
 ### [Linux (preview)](app-service-linux-how-to-create-a-web-app.md)
 ## [Java](app-service-web-get-started-java.md)		
 ## Node.js		
@@ -15,14 +15,27 @@
 ## [From template (WordPress)](web-sites-php-web-site-gallery.md)
 
 # Overview	
-## [What is App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2fphp%2ftoc.json)
+## [What is App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## App Service for developers 
 ## App Service everywhere	
 ## [Web apps in App Service](app-service-web-overview.md)
 ## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service on Linux](app-service-linux-intro.md)
 
-# [Concepts](./concepts/TOC.md)
+# Concepts
+## [App Service](../app-service/app-service-how-works-readme.md)	
+## Service architecture
+### Service types
+### App state (warm vs. cold)
+
+## [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)	
+## [App Service Environments](app-service-app-service-environment-intro.md)
+## Deployment slots	
+## [Authentication/Authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+
+## Extensibility	
+### API
+### Site extensions
 
 # Tutorials
 ## ASP.NET
@@ -59,27 +72,27 @@
 
 # How-To Guides
 ## Develop your app	
-### [ASP.NET]
+### ASP.NET
 #### [Create an ASP.NET app in Azure with Visual Studio](web-sites-dotnet-get-started.md)
 #### [Create an ASP.NET Core app in Visual Studio Code](web-sites-create-web-app-using-vscode.md)
-### [PHP]
+### PHP
 #### [Develop PHP apps for App Service](app-service-web-php-get-started.md)	
 #### [Create and connect to a MySQL database in Azure](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md) 
-### [Node.js]
+### Node.js
 #### [Develop Node.js for App Service](app-service-web-nodejs-get-started.md)
 #### [Create a Node.js web app](web-sites-nodejs-develop-deploy-mac.md)
 #### [Use io.js](web-sites-nodejs-iojs.md)
 #### [Develop Node.js for Azure in WebMatrix](web-sites-nodejs-use-webmatrix.md)
 #### [Debug Node.js app](web-sites-nodejs-debug.md)
-### [Java]
+### Java
 #### [Hello World with Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 #### [Hello World with IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
 #### [Create a Web App using the Azure SDK for Java](java-create-azure-website-using-java-sdk.md)
 #### [Upload an existing Java application](web-sites-java-add-app.md)
 #### [Debug remotely in Eclipse](app-service-web-debug-java-web-app-in-eclipse.md)
 #### [Debug remotely in IntelliJ](app-service-web-debug-java-web-app-in-intellij.md)
-### [Python]
+### Python
 #### [Create a web app with Bottle](web-sites-python-create-deploy-bottle-app.md)
 #### [Create a web app with Django](web-sites-python-create-deploy-django-app.md)
 #### [Create a web app with Flask](web-sites-python-create-deploy-flask-app.md)
@@ -92,7 +105,7 @@
 #### [PHP on Windows](web-sites-php-configure.md)
 #### PHP on Linux (Preview)
 #### [Python](web-sites-python-configure.md)
-### [XXXSend emails using SendGrid](sendgrid-dotnet-how-to-send-email.md)
+### [Send emails using SendGrid](sendgrid-dotnet-how-to-send-email.md)
 			
 ### Configure server	
 #### Configure IIS server
@@ -104,7 +117,25 @@
 #### [Use app settings](web-sites-configure.md)
 #### [Use connection strings](web-sites-configure.md)
 			
-## [Deploy to Azure](/deploy/TOC.md)
+## Deploy to App Service
+### [Deployment overview](web-sites-deploy.md)
+### [Deploy via FTP](app-service-deploy-content-sync.md)
+### [Deploy via cloud sync](web-sites-deploy.md)
+### [Deploy continuously](app-service-continuous-deployment.md)
+### [Deploy to staging](web-sites-staged-publishing.md)
+### [Deploy from local Git](app-service-deploy-local-git.md)
+### [Set deployment credentials](app-service-deployment-credentials.md)
+### Assign custom domain
+#### [Buy domain](custom-dns-web-site-buydomains-web-app.md)
+#### [Map 3rd-party domain](web-sites-custom-domain-name.md)
+#### [Map domains with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+#### [Map GoDaddy domains](web-sites-godaddy-custom-domain-name.md)
+### [Assign custom SSL](web-sites-purchase-ssl-web-site.md)
+### Debug remotely
+### Profile your app remotely
+### [Migrate from IIS](web-sites-migration-from-iis-server.md)
+### [Get started with test in production for Web Apps](app-service-web-test-in-production-get-start.md)
+### [Performance test your Azure web app under load](app-service-web-app-performance-test.md) 
 
 ## Connect to DB/resources		
 ### Connect to cloud DB
@@ -115,11 +146,11 @@
 ### [Connect to MongoDB on Azure VM](web-sites-dotnet-store-data-mongodb-vm.md)
 			
 ##Secure app		
-### [Authenticate with Azure AD](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
-### [Authenticate with Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
-### [Authenticate with Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
-### [Authenticate with Microsoft account](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
-### [Authenticate with Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+### [Authenticate with Azure AD](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Authenticate with Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Authenticate with Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Authenticate with Microsoft account](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
+### [Authenticate with Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Authenticate with on-prem AD](web-sites-authentication-authorization.md)
 ### [Buy SSL cert](web-sites-purchase-ssl-web-site.md)
 ### [Configure 3rd-party SSL cert](web-sites-configure-ssl-certificate.md)
@@ -128,7 +159,7 @@
 			
 ##Scale app		
 ### [Scale up](web-sites-scale.md)
-### [Scale out](../monitoring-and-diagnostics/insights-how-to-scale.md)
+### [Scale out](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Load-balance with Traffic Manager](web-sites-traffic-manager.md)
 ### [High-scale with App Service Environments](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Reach globally with Azure CDN](cdn-websites-with-cdn.md)
@@ -163,15 +194,15 @@
 ## [CLI 2.0](/cli/azure/appservice)
 		
 # Resources	
-## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/) 	
-## [Quota Information](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits)	
-## [Service Updates & Release Notes](https://azure.microsoft.com/en-us/updates/?product=app-service)	
+## [Pricing](https://azure.microsoft.com/pricing/details/app-service/) 	
+## [Quota Information](../azure-subscription-service-limits.md#app-service-limits)	
+## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](app-service-best-practices.md)
 ## Community Content	
 ## Samples	
 ## Videos
 ## Cookbooks	
-### [Reference Architectures](https://docs.microsoft.com/en-us/azure/guidance/guidance-ra-app-service)	
-### [Deployment Scripts](https://azure.microsoft.com/en-us/documentation/scripts/)	
+### [Reference Architectures](../guidance/guidance-ra-app-service.md)	
+### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
 ### Common Web.config	
 ### Common Application.xdt Transforms
