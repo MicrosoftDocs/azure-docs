@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 
 ---
@@ -36,7 +36,7 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
    ![Security policy blade][3]
 
 5. Select **Save**.
-6. Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be automatically created for you. In this example, we’ll choose **newstoracct**. You can change the storage account later by returning to the security policy for your subscription and choosing a different storage account.
+6. Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, a storage account is created for you and placed in the securitydata resource group. In this example, we’ll choose **newstoracct**. You can change the storage account later by returning to the security policy for your subscription and choosing a different storage account.
    ![Choose a storage account][4]
 7. Select **OK**.
 
@@ -64,7 +64,7 @@ You can disable data collection at any time, which will automatically remove any
 4. Select **Save** in the top ribbon.
 
 
-## See also
+## Next steps
 This article showed you how to implement the Security Center recommendation "Enable data collection.” To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
