@@ -37,7 +37,7 @@ When you navigate to the classic storage account in the [Azure portal](https://p
 
   ![Image of error when delete the Storage account](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
 
-When you navigate to the storage account in the [Azure classic portal](https://manage.windowsazure.com/) and select **Delete**, you might see one of the following error messages:
+When you navigate to the storage account in the [Azure classic portal](https://manage.windowsazure.com/) and select **Delete**, you might see one of the following errors:
 
 - *Storage account StorageAccountName contains VM Images. Ensure these VM Images are removed before deleting this storage account.*
 
