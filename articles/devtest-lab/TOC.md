@@ -22,16 +22,17 @@
 ### [Create custom artifacts](devtest-lab-artifact-author.md)
 
 ## Manage VM bases and templates
+### [Create multi-VM environments with ARM templates](devtest-lab-create-environment-from-arm.md)
+### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Comparing images versus formulas](devtest-lab-comparing-vm-base-image-types.md)
+### [Manage formulas](devtest-lab-manage-formulas.md)
+### [Create custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Create custom image from a VHD using the Azure portal](devtest-lab-create-template.md)
+### [Create custom image from a VHD using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 ### [Upload VHD file using AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Upload VHD file using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Upload VHD file using Storage Explorer](devtest-lab-upload-vhd-using-storage-explorer.md)
-### [Create custom image from a VHD using the Azure portal](devtest-lab-create-template.md)
-### [Create custom image from a VHD using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-### [Create custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
-### [Configure Marketplace images](devtest-lab-configure-marketplace-images.md)
-### [Manage formulas](devtest-lab-manage-formulas.md)
-### [Create multi-VM environments with ARM templates](devtest-lab-create-environment-from-arm.md)
+
 
 
 # Resources
