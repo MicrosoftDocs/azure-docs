@@ -18,9 +18,9 @@ ms.date: 02/07/2017
 ms.author: cherylmc
 
 ---
-# Reset an Azure VPN Gateway
+# Reset a VPN Gateway
 
-Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more S2S VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. This article walks you through resetting your Azure VPN Gateway. 
+Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. This article walks you through resetting your Azure VPN Gateway. 
 
 Each Azure VPN gateway is a virtual network gateway that is composed of two VM instances running in an active-standby configuration. When you reset the gateway, it reboots the gateway, and then reapplies the cross-premises configurations to it. The gateway keeps the public IP address it already has. This means you won’t need to update the VPN router configuration with a new public IP address for Azure VPN gateway.  
 
@@ -39,7 +39,7 @@ Verify the following items before resetting your gateway:
 * The pre-shared key must be the same on both Azure and on-premises VPN gateways.
 * If you apply specific IPsec/IKE configuration, such as encryption, hashing algorithms, and PFS (Perfect Forward Secrecy), ensure both the Azure and on-premises VPN gateways have the same configurations.
 
-## Reset an Azure VPN Gateway using the Azure portal
+## Reset a VPN Gateway using the Azure portal
 
 You can reset a Resource Manager VPN gateway using the Azure portal. If you want to reset a classic gateway, see the [PowerShell](#resetclassic) steps.
 
@@ -53,7 +53,7 @@ You can reset a Resource Manager VPN gateway using the Azure portal. If you want
 3. On the Reset blade, click the ![Reset VPN Gateway blade](./media/vpn-gateway-howto-reset-gateway/reset-button.png) button.
 
 
-## Reset an Azure VPN Gateway using PowerShell
+## Reset a VPN Gateway using PowerShell
 
 ### Resource Manager deployment model
 
