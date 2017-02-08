@@ -132,26 +132,16 @@ The following figure shows the add-in license query and validation process for S
  
 
  
-![SharePoint app license verification process](images/SP15_app_license_Verification.png)
+![SharePoint app license verification process](../../images/SP15_app_license_Verification.png)
  
 
  
 
 1. The user launches the add-in from within SharePoint.
-    
- 
 2. This launches the add-in code in the cloud.
-    
- 
 3. When the add-in needs to verify a user's add-in license, it uses server-side code to query SharePoint, via the client object model, for the add-in license token.
-    
- 
 4. It then passes that token to the Office Store verification service.
-    
- 
 5. The verification service returns whether the license token is valid, and if it is, also returns the license properties.
-    
- 
 6. The add-in can then take action, based on the validity of the license and its properties.
 
  
@@ -161,11 +151,7 @@ The following figure shows the add-in license query and validation process for S
 
 
 -  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
-    
- 
 -  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
-    
- 
 -  [VerificationSvc](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
     
  
