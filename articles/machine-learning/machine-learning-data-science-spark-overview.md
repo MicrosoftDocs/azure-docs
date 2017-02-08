@@ -120,7 +120,7 @@ You can upload the notebooks directly from Github to the Jupyter notebook server
 
 For pySpark3-Spark2.0 HDInsight clusters:
 
-1. [pySpark3-Spark2.0-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark3-Spark2.0-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
+[pySpark3-Spark2.0-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark3-Spark2.0-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)
 
 You see the file name on your Jupyter file list with an **Upload** button again. Click this **Upload** button. Now you have imported the notebook. Repeat these steps to upload the other notebooks from this walkthrough.
 
