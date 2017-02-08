@@ -1,15 +1,9 @@
 # Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store
 
 The Office Store provides a convenient location for you to upload new solutions that are aimed both at consumers and businesses. To include your app or add-in in the Office Store, you submit it to the Microsoft  [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You will need to create an individual or company account and, if applicable, add payout information. For details, see:
- 
-
 
 -  [Register as an app developer](https://dev.windows.com/en-us/programs/join). After you create your account, it goes through an approval process. 
-    
- 
 -  [Use the Seller Dashboard to submit your app or add-in to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md).
-
-
 
 ## App or add-in approval process
 <a name="bk_approval"> </a>
