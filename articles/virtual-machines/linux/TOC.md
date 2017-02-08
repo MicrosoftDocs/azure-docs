@@ -65,7 +65,7 @@
 ### Attach a data disk
 #### [Azure CLI](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure portal](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Take a snapshot of a Managed Disk](virtual-machines-linux-snapshot-copy-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Take a snapshot of a Managed Disk](virtual-machines-linux-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Convert existing VM to Managed Disks](../virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Expand the OS disk](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Disk encryption](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
