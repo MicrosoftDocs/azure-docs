@@ -19,7 +19,7 @@ ms.author: iainfou
 
 ---
 # How to generalize and capture a Linux virtual machine using the Azure CLI 2.0 (Preview)
-To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image using the Azure CLI 2.0 (Preview) for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about Azure Managed Disks, see [insert link to overview doc](). 
+To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image using the Azure CLI 2.0 (Preview) for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). 
 
 > [!TIP]
 > If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -104,7 +104,7 @@ Use the Azure CLI 2.0 (Preview) to generalize and capture the VM. In the followi
     az vm generalize --resource-group myResourceGroup --name myVM
     ```
 
-3. Now reate an image of the VM resource with [az image create](/cli//azure/image#create). The following example creates an image named `myImage` in the resource group named `myResourceGroup` using the VM resource named `myVM`:
+3. Now create an image of the VM resource with [az image create](/cli//azure/image#create). The following example creates an image named `myImage` in the resource group named `myResourceGroup` using the VM resource named `myVM`:
    
     ```azurecli
     az image create --resource-group myResourceGroup --name myImage --source myVM
