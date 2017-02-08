@@ -4,7 +4,7 @@ To offer your Office Add-in, SharePoint Add-in, or Office 365 app in languages b
  
 
 
- **Note**  For information about localizing add-ins, see  [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx) and [Localize SharePoint Add-ins](http://msdn.microsoft.com/library/localize-sharepoint-add-ins%28Office.15%29.aspx). 
+ >**Note:**  For information about localizing add-ins, see  [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx) and [Localize SharePoint Add-ins](http://msdn.microsoft.com/library/localize-sharepoint-add-ins%28Office.15%29.aspx). 
  
 
 
@@ -15,7 +15,7 @@ To distribute your app or add-in in additional languages, you can edit the detai
 
  
 
-In the case of previously approved add-ins, if you updated your manifest, you will need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version will remain in the Office Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics-in-the-seller-dashboard.md). 
+In the case of previously approved add-ins, if you updated your manifest, you will need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version will remain in the Office Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics.md). 
  
 
  
@@ -31,14 +31,14 @@ To distribute your app or add-in in additional languages, you can edit the detai
  
 
  
-In the case of previously approved add-ins, if you updated your manifest, you will need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version will remain in the Office Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics-in-the-seller-dashboard.md). 
+In the case of previously approved add-ins, if you updated your manifest, you will need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version will remain in the Office Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics.md). 
  
 
  
 
  
 
- **Note**  You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
+>**Note:**  You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
  
 
 
@@ -139,10 +139,8 @@ Table 2 lists the submission languages that the Office Store is available in, an
 <a name="bk_addresources"> </a>
 
 
--  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md)
-    
- 
--  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md)
+-  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md) 
+-  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
     
  
 
