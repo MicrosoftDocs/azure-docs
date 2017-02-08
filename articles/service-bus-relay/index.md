@@ -14,7 +14,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/service-bus.svg" alt="" />
+                            <img src="media/index/service-bus-relay.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -32,7 +32,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="meda/index/video-library.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,7 +50,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="meda/index/deploy.svg" alt="" />
+                            <img src="media/index/deploy.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,29 +68,11 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="meda/index/get-started.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Get started with Hybrid Connections</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/service-bus-relay/service-bus-dotnet-how-to-use-relay">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="meda/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with WCF Relay</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +86,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="meda/index/get-started.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
