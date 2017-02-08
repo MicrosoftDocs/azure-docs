@@ -39,18 +39,17 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 	```
-- Do not attempt to complete the remaining steps:
-	- Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 	
-	```powershell
-	FeatureName                            ProviderName      RegistrationState
-	-----------                            ------------      -----------------      
-	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-	```
-
-	>[!NOTE]
-	>This may take a few minutes.
+```powershell
+FeatureName                            ProviderName      RegistrationState
+-----------                            ------------      -----------------      
+AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+```
+	
+>[!NOTE] 
+>This may take a few minutes.
 
 3. Complete steps 1-4 of the [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Do not complete step 5 (creation of public IP resource and network interface). If you change the names of any variables used in that article, change the names of the variables in the remaining steps too. To create a Linux VM, select a Linux operating system instead of Windows.
 4. Create a variable to store the subnet object created in Step 4 (Create a VNet) of the Create a Windows VM article by typing the following command:
