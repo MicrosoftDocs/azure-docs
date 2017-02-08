@@ -225,6 +225,8 @@ The ImageStoreConnectionString is found in the cluster manifest:
 ```
 
 ## Next steps
+[Understand the image store connection string](service-fabric-image-store-connection-string.md)
+
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
 [Service Fabric health introduction](service-fabric-health-introduction.md)

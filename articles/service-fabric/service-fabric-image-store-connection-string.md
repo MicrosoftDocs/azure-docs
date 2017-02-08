@@ -1,0 +1,55 @@
+---
+title: Service Fabric image store connnection string | Microsoft Docs
+description: Understand the image store connection string
+services: service-fabric
+documentationcenter: .net
+author: alexwun
+manager: timlt
+editor: ''
+
+ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/08/2017
+ms.author: alexwun
+
+---
+# Understand the ImageStoreConnectionString setting
+
+In some of our documentation we briefly mention the existence of an "ImageStoreConnectionString" parameter without describing what it really means. And after going through an article like [Deploy and remove applications using PowerShell][10], it looks like all you do is copy/paste the value as it appears in the cluster manifest of the target cluster, so the setting must be configurable per cluster. But when you create a cluster through the [Azure portal][11], there's no option to configure this setting and it's always "fabric:ImageStore", so what's the purpose of it?
+
+![Cluster Manifest][img_cm]
+
+Service Fabric started off as a platform for internal Microsoft consumption by many diverse teams, so some aspects of it are highly customizable - the "Image Store" is one such aspect. Essentially, the Image Store is a pluggable repository for storing application packages. When your application is deployed to a node in the cluster, that node will download the contents of your application package from the Image Store. The ImageStoreConnectionString is a setting that includes all the necessary information for both clients and nodes to find the correct Image Store for a given cluster.
+
+There are currently three possible kinds of Image Store providers and their corresponding connection strings look like this:
+
+1. Image Store Service: "fabric:ImageStore"
+
+2. File System: "file:[file system path]"
+
+3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...]"
+
+The provider type used in production will be the Image Store Service, which is a stateful persisted system service that you can actually see from Service Fabric Explorer. 
+
+![Image Store Service][img_is]
+
+Hosting the Image Store in a system service within the cluster itself eliminates external dependencies for the package repository and gives us more control over the locality of storage. Future improvements around the Image Store are likely to target the Image Store provider first, if not exclusively. The connection string for the Image Store Service provider doesn't have any unique information since the client is already connected to the target cluster, so it only needs to know that protocols targeting the system service should be used.
+
+The File System provider is used instead of the Image Store Service for local onebox clusters during development to bootstrap the cluster slightly faster. The difference is typically small, but it's a useful optimization for most folks during development. It's possible to deploy a local onebox cluster with the other storage provider types as well, but there's usually no reason to do so since the develop/test workflow remains the same regardless of provider. Other than this, the File System and Azure Storage providers only exist for legacy support.
+
+So while the ImageStoreConnectionString is configurable, you generally don't need to do anything special with it. When publishing through [Visual Studio][12], the parameter is automatically set for you accordingly. For programmatic deployment to clusters hosted in Azure, the connection string will always be "fabric:ImageStore". Though when in doubt, its value can always be verified by retrieving the cluster manifest by [PowerShell](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/en-us/library/azure/mt161375.aspx), or [REST](https://docs.microsoft.com/en-us/rest/api/servicefabric/get-a-cluster-manifest).
+
+## Next Steps
+[Deploy and remove applications using PowerShell][10]
+
+<!--Image references-->
+[img_is]: ./media/service-fabric-image-store-connection-string/image_store_service.png
+[img_cm]: ./media/service-fabric-image-store-connection-string/cluster_manifest.png
+
+[10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-cluster-creation-via-portal.md
+[12]: service-fabric-publish-app-remote-cluster.md
