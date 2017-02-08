@@ -1,6 +1,6 @@
 ---
 title: Compiling configurations in Azure Automation DSC | Microsoft Docs
-description: 'Overview of two ways to compile Desired State Configuration (DSC) configurations: In the Azure portal, and with Windows PowerShell. '
+description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
 documentationcenter: na
 author: eslesar
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
-ms.date: 12/13/2016
-ms.author: eslesar
+ms.date: 02/07/2017
+ms.author: magoedte; eslesar
 ---
+
 # Compiling configurations in Azure Automation DSC
 
-You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: In the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each:
+You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: in the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each:
 
-### Azure preview portal
+### Azure portal
 
 * Simplest method with interactive user interface
 * Form to provide simple parameter values
@@ -40,7 +41,7 @@ Once you have decided on a compilation method, you can follow the respective pro
 
 ## Compiling a DSC Configuration with the Azure portal
 
-1. From your automation account, click **Configurations**.
+1. From your Automation account, click **Configurations**.
 2. Click a configuration to open its blade.
 3. Click **Compile**.
 4. If the configuration has no parameters, you will be prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade will open so you can provide parameter values. See the [**Basic Parameters**](#basic-parameters) section below for further details on parameters.
@@ -201,7 +202,7 @@ The following example shows a DSC configuration that uses an Automation credenti
 ```powershell
 Configuration CredentialSample
 {
-    $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
     {

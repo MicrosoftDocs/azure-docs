@@ -19,21 +19,22 @@ ms.author: estfan
 ---
 # Partners in B2B scenarios
 
-Before you and another entity or organization can engage 
-in Business-to-Business (B2B) messages and transactions, 
-you must both share information that helps identify 
-and validate messages sent by each other. 
+Partners are entities that participate in business-to-business (B2B) 
+transactions and exchange messages between each other. 
+Before you can create partners that represent you and 
+another organization in these transactions, 
+you must both share information that identifies 
+and validates messages sent by each other. 
 After you discuss these details and are ready 
 to start your business relationship, 
-you can create *partners* to represent 
-you both in your integration account.
+you can create partners in your integration account 
+to represent you both.
 
-## What roles do partners perform in an integration account?
+## What roles do partners have in your integration account?
 
-You create agreements between partners to define the details 
-about the messages that those partners exchange.
-
-Before you can create an agreement, you must have added 
+To define details about the messages exchanged between partners, 
+you create agreements between those partners. 
+However, before you can create an agreement, you must have added 
 at least two partners to your integration account. 
 Your organization must be part of the agreement as the **host partner**. 
 The other partner, or **guest partner** represents the organization 
@@ -102,7 +103,7 @@ select **Discard**.
 
 1. Select the **Partners** tile.
 2. After the Partner blade opens, select the partner that you want to delete.
-3. Choose**Delete**.
+3. Choose **Delete**.
 
 	![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
