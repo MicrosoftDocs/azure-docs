@@ -62,7 +62,7 @@ The following table provides a summary of issues that were fixed in Update 4.
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
-| 1 |Failover |In the earlier release, after the failover, there was an issue related to cleanup observed at the customer site. This issue is fixed in this release. |No |Yes |
+| 1 |Failover |In the earlier release, after the failover, there was an issue related to cleanup observed at the customer site. This issue is fixed in this release. |Yes |Yes |
 | 2 |Locally pinned volumes |In the previous release, there was an issue to related volume creation for locally pinned volumes that would result in volume creation failures. This issue was root-caused and fixed in this release. |Yes |No |
 | 3 |Support package |In previous release, there were issues related to Support package that would result in a System.OutOfMemory exception or other errors resulting in a Support package creation failure. These bugs are fixed in this release. |Yes |Yes |
 | 4 |Monitoring |In previous release, there an issue related to monitoring charts for locally pinned volumes where consumption was shown in EB. This bug is resolved in this release. |Yes |Yes |
