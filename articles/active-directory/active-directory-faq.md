@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2017
+ms.date: 02/07/2017
 ms.author: markvi
 
 ---
@@ -21,6 +21,7 @@ ms.author: markvi
 Azure Active Directory is a comprehensive Identity as a Service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
 For more information, see [What is Azure Active Directory?](active-directory-whatis.md)
+
 
 ## Access Azure and Azure Active Directory
 **Q: Why do I get “No subscriptions found” when I try to access Azure Active Directory (Azure AD) in the Azure classic portal (https://manage.windowsazure.com)?**
@@ -62,7 +63,14 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 **A:** No.  This is not currently available.
 
 - - -
+
 ## Get started with Hybrid Azure AD
+
+
+**Q: How do I leave a tenant when I am added as a collaborator?**
+
+**A:** When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization and Microsoft is currently working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
+- - -
 **Q: How can I connect my on-premises directory to Azure AD?**
 
 **A:** You can connect your on-premises directory to Azure AD by using Azure AD Connect.
