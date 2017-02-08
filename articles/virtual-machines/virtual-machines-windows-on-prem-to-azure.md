@@ -1,6 +1,6 @@
 ---
-title: Create Azure Managed Disks from AWS and on-premises VHDs | Microsoft Docs
-description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other on-premises virtualization platforms and take advantage of Azure Managed Disks.
+title: Migrate from AWS and other platforms to Managed Disks in Azure | Microsoft Docs
+description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -19,9 +19,9 @@ ms.author: cynthn
 
 ---
 
-# Migrate AWS and on-premises VMs to Managed Disks in Azure
+# Migrate from AWS and other platforms to Managed Disks in Azure
 
-You can upload VHD files from AWs or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. 
+You can upload VHD files from AWs or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need of to managing storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure will create and manage the disk for you. 
 
 You can upload either generalized and specialized VHDs. 
 **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. 
@@ -32,12 +32,22 @@ You can upload either generalized and specialized VHDs.
 >
 >
 
-## Migration options
 
-- [Migrate from Amazon Web Services (AWS) to Azure Managed Disks](virtual-machines-windows-aws-to-azure.md)
-- [Upload a generalized VHD to Azure and create a new VM using Managed Disks](virtual-machines-windows-upload-generalized-managed.md)
-- [Upload a specialized VHD to Azure and create a new VM using Managed Disks](virtual-machines-windows-upload-specialized.md)
+| Scenario                                                                                                                         | Documentation                                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| You have an existing AWS EC2 instances that you could like to migrate to Azure Managed Disks                                     | [Migrate from Amazon Web Services (AWS) to Azure Managed Disks](virtual-machines-windows-aws-to-azure.md)                           |
+| You have a VM from and other virtualization platform that you would like to use to use as an image to create multiple Azure VMs. | [Upload a generalized VHD to Azure and create a new VM using Managed Disks](virtual-machines-windows-upload-generalized-managed.md) |
+| You have a uniquely customized VM that you would like to recreate in Azure.                                                      | [Upload a specialized VHD to Azure and create a new VM using Managed Disks](virtual-machines-windows-upload-specialized.md)         |
 
+
+## Overview of Managed Disks
+
+Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures. 
+Based on your needs, you can choose from two types of storage options: 
+ 
+- [Premium Managed Disks](../storage/storage-premium-storage.md) are Solid State Drive (SSD) based storage storage media which delivers highperformance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.  
+
+- [Standard Managed Disks](../storage/storage-standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.  
 
 ## Plan for the migration to Managed Disks
 
@@ -83,7 +93,7 @@ By default, disk caching policy is *Read-Only* for all the Premium data disks, a
 
 ### Pricing
 
-Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/storage/disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
+Review the [pricing for Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Pricing of Premium Managed Disks is same as the Premium Unmanaged Disks. But pricing for Standard Managed Disks is different than Standard Unmanaged Disks.
 
 
 ## Next Steps
