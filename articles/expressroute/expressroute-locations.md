@@ -136,7 +136,7 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Not Supported |Frankfurt |
 | **e-shelter** |Supported |Not Supported |Berlin |
 | **Interxion** |Supported |Not Supported |Frankfurt |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin+ |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported  | Not Supported | Berlin |
 
 ## <a name="nonpartners"></a>Connectivity through service providers not listed
 If your connectivity provider is not listed in previous sections, you can still create a connection.
