@@ -26,7 +26,9 @@ Triggers are special actions that are designed to instantiate a new instance of 
 * **Polling trigger** – this trigger continually polls an endpoint until it receives a message that satisfies the criteria for creating an instance of a logic app.  The polling interval can be configured in the trigger in the Logic Apps designer.  Each polling request, even if it doesn’t create an instance of a logic app, counts as an action execution.
 * **Webhook trigger** – this trigger waits for a client to send it a request on a particular endpoint.  Each request sent to the webhook endpoint counts as an action execution. The Request and the HTTP Webhook trigger are both webhook triggers.
 * **Recurrence trigger** – this trigger creates an instance of the logic app based on the recurrence interval configured in the trigger.  For example, a recurrence trigger can be configured to run every three days or even every minute.
+
 Trigger executions can be seen in the Logic Apps resource blade in the Trigger History part.
+
 All actions that were executed, whether they were successful or failed are metered as an action execution.  Actions that were skipped due to a condition not being met or actions that didn’t execute because the logic app terminated before completion are not counted as action executions.
 
 Actions executed within loops are counted per iteration of the loop.  For example, a single action in a for each loop iterating through a list of 10 items will be counted as the count of items in the list (10) multiplied by the number of actions in the loop (1) plus one for the initiation of the loop, which, in this example, would be (10 * 1) + 1 = 11 action executions.
