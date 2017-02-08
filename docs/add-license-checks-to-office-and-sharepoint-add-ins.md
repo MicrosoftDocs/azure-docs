@@ -1,13 +1,13 @@
 
 # Add license checks to Office and SharePoint Add-ins
 
-You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the Office Store, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md).
+You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the Office Store, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the [add-in license schema structure](add-in-license-schema.md).
  
 
 To create a test token: 
  
 
-- Copy the example in  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) license schema into a text file and save it with a .tok extension.
+- Copy the example [license schema](add-in-license-schema.md) into a text file and save it with a .tok extension.
     
  
 - Change the appropriate attributes, such as Product ID.
@@ -119,12 +119,12 @@ For task pane and content add-ins, your code should first test for the presence 
  
 
  
-For more information, see  [Add-in license tokens and anonymous access for Office Add-ins](license-your-office-and-sharepoint-add-ins.md#bk_anonymous) in [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md).
+For more information, see  [add-in license tokens and anonymous access for Office Add-ins](license-your-add-ins.md#bk_anonymous) in [License your add-ins](license-your-add-ins.md).
  
 
  
 
- **Important**  Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, will change the literal value of the <t> element and therefore cause the license verification check to fail. Also, do not store the license token using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
+ >**Important:**  Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, will change the literal value of the <t> element and therefore cause the license verification check to fail. Also, do not store the license token using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
  
 
 When the add-in needs to perform a license check, pass the license token to the Office Store license verification web service for validation. The verification service is located at the following URL:
@@ -504,7 +504,7 @@ By the end of this example,  `licensecollection` includes all the add-in license
 
  
 
- **Important**  Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, change the literal value of the <t> element and cause the license verification check to fail. 
+>**Important:**  Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, change the literal value of the <t> element and cause the license verification check to fail. 
  
 
 
@@ -667,16 +667,16 @@ private void VerifyLicenseToken(string rawLicenseToken)
 <a name="bk_addresources"> </a>
 
 
--  [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md)
+-  [License your add-ins](license-your-add-ins.md)
     
  
--  [How licenses work for Office and SharePoint Add-ins](how-licenses-work-for-office-and-sharepoint-add-ins.md)
+-  [How licenses work](how-licenses-work.md)
     
  
--  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md)
+-  [Add-in license XML schema structure](add-in-license-schema.md)
     
  
--  **VerificationSvc**
+-  [VerificationSvc](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
     
  
 -  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
