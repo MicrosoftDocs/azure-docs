@@ -20,13 +20,13 @@ ms.author: dastrock
 # Help protect a web API by using bearer tokens from Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-If you’re building an application that provides access to protected resources, you need to know how to help protect those resources from unwarranted access.
+If you’re building an application that provides access to protected resources, you need to know how to prevent unwarranted access to those resources.
 Azure Active Directory (Azure AD) makes it simple and straightforward to help protect a web API by using OAuth 2.0 bearer access tokens with only a few lines of code.
 
 In ASP.NET web apps, you can accomplish this protection by using the Microsoft implementation of the community-driven OWIN middleware included in .NET Framework 4.5. Here we’ll use OWIN to build a "To Do List" web API that:
 
 * Designates which APIs are protected.
-* Validates that the Web API calls contain a valid access token.
+* Validates that the web API calls contain a valid access token.
 
 To build the To Do List API, you first need to:
 
@@ -40,17 +40,17 @@ To get started, [download the app skeleton](https://github.com/AzureADQuickStart
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the top bar, click your account. In the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **Add**.
-5. Follow the prompts and create a new **Web Application and/or WebAPI**.
+5. Follow the prompts and create a new **Web Application and/or Web API**.
   * **Name** describes your application to users. Enter **To Do List Service**.
   * **Redirect Uri** is a scheme and string combination that Azure AD uses to return any tokens that your app has requested. Enter `https://localhost:44321/` for this value.
   * For **AppID URI**, enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
 6. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
-You need to set up your application to communicate with Azure AD in order to validate incoming requests and tokens.
+To validate incoming requests and tokens, you need to set up your application to communicate with Azure AD.
 
 1. To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project by using the Package Manager Console.
 
@@ -61,7 +61,7 @@ You need to set up your application to communicate with Azure AD in order to val
 
 2. Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right-click the project, select **Add** > **New Item**, and then search for **OWIN**. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
 
-3. Change the class declaration to `public partial class Startup`. We’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to ConfgureAuth(…) to set up authentication for your web app.
+3. Change the class declaration to `public partial class Startup`. We’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to `ConfgureAuth(…)` to set up authentication for your web app.
 
     ```C#
     public partial class Startup
@@ -97,7 +97,7 @@ You need to set up your application to communicate with Azure AD in order to val
 
     When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller. OWIN provides access to the claims inside the bearer token via the `ClaimsPrincpal` object.  
 
-6. A common requirement for web APIs is to validate the "scopes" present in the token. This ensures that the user has consented to the permissions required to access the To Do List Service:
+6. A common requirement for web APIs is to validate the "scopes" present in the token. This ensures that the user has consented to the permissions required to access the To Do List Service.
 
     ```C#
     public IEnumerable<TodoItem> Get()
@@ -114,7 +114,7 @@ You need to set up your application to communicate with Azure AD in order to val
     }
     ```
 
-7. Finally, open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
+7. Open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
   * `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.onmicrosoft.com.
   * `ida:Audience` is the App ID URI of the application that you entered in the Azure portal.
 
@@ -140,6 +140,6 @@ Before you can see the To Do List Service in action, you need to configure the T
 ## Next steps
 Finally, clean, build, and run each project. If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain. Sign in to the To Do List client with that user, and add some tasks to the user's To Do List.
 
-For reference, the completed sample (without your configuration values) is provided in [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to more identity scenarios.
+For reference, the completed sample (without your configuration values) is available in [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to more identity scenarios.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
