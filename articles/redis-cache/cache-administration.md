@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/08/2017
 ms.author: sdanie
 
 ---
 # How to administer Azure Redis Cache
-This topic describes how to perform administration tasks such as rebooting and scheduling updates for your Azure Redis Cache instances.
+This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Redis Cache instances.
 
 > [!IMPORTANT]
 > The settings and features described in this article are only available for Premium tier caches.
 > 
 > 
 
-## Administration settings
-The Azure Redis Cache **Administration** settings allow you to perform the following administrative tasks for your premium cache. To access administration settings, click **Settings** or **All settings** from the Redis Cache blade and scroll to the **Administration** section in the **Settings** blade.
+## Reboot
+The **Reboot** blade allows you to reboot one or more nodes of your cache. This enables you to test your application for resiliency in the event of a failure.
 
 ![Administration](./media/cache-administration/redis-cache-administration.png)
 
-* [Reboot](#reboot)
-* [Schedule updates](#schedule-updates)
-
-## Reboot
-The **Reboot** blade allows you to reboot one or more nodes of your cache. This enables you to test your application for resiliency in the event of a failure.
+Select the nodes to reboot and click **Reboot**.
 
 ![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
