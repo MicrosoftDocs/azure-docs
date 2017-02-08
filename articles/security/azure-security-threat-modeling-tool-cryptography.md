@@ -1,20 +1,21 @@
 ---
-  title: Cryptography | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+title: Cryptography - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Cryptography | Mitigations 
@@ -30,7 +31,7 @@
 
 ## <a id="cipher-length"></a>Use only approved symmetric block ciphers and key lengths
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -51,9 +52,10 @@ For products using symmetric block ciphers:
   
 For symmetric block encryption algorithms, a minimum key length of 128 bits is required. The only block encryption algorithm recommended for new code is AES (AES-128, AES-192 and AES-256 are all acceptable). Three-key 3DES is currently acceptable if already in use in existing code; transition to AES is recommended. DES, DESX, RC2, and Skipjack are no longer considered secure. These algorithms may only be used for decrypting existing data for the sake of backward-compatibility, and data should be re-encrypted using a recommended block cipher. 
 
-Note that all symmetric block ciphers must be used with an approved cipher mode, which requires use of an appropriate initialization vector (IV). An appropriate IV, is typically a random number and never a constant value. 
+[!NOTE]
+All symmetric block ciphers must be used with an approved cipher mode, which requires use of an appropriate initialization vector (IV). An appropriate IV, is typically a random number and never a constant value. 
 
-Also, note that use of legacy or otherwise unapproved crypto algorithms and smaller key lengths for reading existing data (as opposed to writing new data) may be permitted after your organization's Crypto Board review. However, you must file for an exception against this requirement. Additionally, in enterprise deployments, products should consider warning administrators when weak crypto is used to read data. Such warnings should be explanatory and actionable. In some cases, it may be appropriate to have Group Policy control the use of weak crypto. 
+The use of legacy or otherwise unapproved crypto algorithms and smaller key lengths for reading existing data (as opposed to writing new data) may be permitted after your organization's Crypto Board review. However, you must file for an exception against this requirement. Additionally, in enterprise deployments, products should consider warning administrators when weak crypto is used to read data. Such warnings should be explanatory and actionable. In some cases, it may be appropriate to have Group Policy control the use of weak crypto. 
 
 Allowed .NET algorithms for managed crypto agility (in order of preference): 
 
@@ -62,11 +64,12 @@ Allowed .NET algorithms for managed crypto agility (in order of preference):
 * AESCryptoServiceProvider (FIPS compliant) 
 * AESManaged (non-FIPS compliant) 
 
-Note that none of these algorithms can be specified via the `SymmetricAlgorithm.Create` or `CryptoConfig.CreateFromName` methods without making changes to the machine.config file. Also, note that AES in versions of .NET prior to .NET 3.5 is named `RijndaelManaged`, and `AesCng` and `AuthenticatedAesCng` are available through CodePlex and require CNG in the underlying OS. 
+[!NOTE]
+None of these algorithms can be specified via the `SymmetricAlgorithm.Create` or `CryptoConfig.CreateFromName` methods without making changes to the machine.config file. Also, note that AES in versions of .NET prior to .NET 3.5 is named `RijndaelManaged`, and `AesCng` and `AuthenticatedAesCng` are available through CodePlex and require CNG in the underlying OS. 
 
 ## <a id="vector-ciphers"></a>Use approved block cipher modes and initialization vectors for symmetric ciphers
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -80,7 +83,7 @@ Reusing the same initialization vector (IV) with block ciphers in "streaming cip
 
 ## <a id="padding"></a>Use approved asymmetric algorithms, key lengths, and padding
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -100,7 +103,7 @@ Products must use only those cryptographic algorithms and associated key lengths
 
 ## <a id="numgen"></a>Use approved random number generators
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -121,7 +124,7 @@ Products must use approved random number generators. Pseudorandom functions such
 
 ## <a id="stream-ciphers"></a>Do not use symmetric stream ciphers
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -133,7 +136,7 @@ Symmetric stream ciphers, such as RC4, must not be used. Instead of symmetric st
 
 ## <a id="mac-hash"></a>Use approved MAC/HMAC/keyed hash algorithms
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -149,7 +152,7 @@ Use of HMAC-SHA1 may be permissible for platform compatibility, but you will be 
 
 ## <a id="hash-functions"></a>Use only approved cryptographic hash functions
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -175,7 +178,7 @@ Allowed .NET hash algorithms for managed crypto agility (in order of preference)
 
 ## <a id="strong-db"></a>Use strong encryption algorithms to encrypt data in the database
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -187,7 +190,7 @@ Encryption algorithms define data transformations that cannot be easily reversed
 
 ## <a id="ssis-signed"></a>SSIS packages should be encrypted and digitally signed
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -199,7 +202,7 @@ The source of a package is the individual or organization that created the packa
 
 ## <a id="securables-db"></a>Add digital signature to critical database securables
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -211,7 +214,7 @@ In cases where the integrity of a critical database securable has to be verified
 
 ## <a id="ekm-keys"></a>Use SQL server EKM to protect encryption keys
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -223,7 +226,7 @@ SQL Server Extensible Key Management enables the encryption keys that protect th
 
 ## <a id="keys-engine"></a>Use AlwaysEncrypted feature if encryption keys should not be revealed to Database engine
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -235,7 +238,7 @@ Always Encrypted is a feature designed to protect sensitive data, such as credit
 
 ## <a id="keys-iot"></a>Store Cryptographic Keys securely on IoT Device
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Build |  
@@ -263,7 +266,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 
 ## <a id="random-hub"></a>Generate a random symmetric key of sufficient length for authentication to IoT Hub
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway | 
 | SDL Phase               | Build |  
@@ -275,7 +278,7 @@ IoT Hub contains a device Identity Registry and while provisioning a device, aut
 
 ## <a id="pin-remote"></a>Ensure a device management policy is in place that requires a use PIN and allows remote wiping
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM Mobile Client | 
 | SDL Phase               | Deployment |  
@@ -287,7 +290,7 @@ Ensure a device management policy is in place that requires a use PIN and allows
 
 ## <a id="bitlocker"></a>Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker)
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM Outlook Client | 
 | SDL Phase               | Build |  
@@ -299,7 +302,7 @@ Ensure a device management policy is in place that requires a PIN/password/auto 
 
 ## <a id="rolled-server"></a>Ensure that signing keys are rolled over when using Identity Server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Identity Server | 
 | SDL Phase               | Deployment |  
@@ -311,7 +314,7 @@ Ensure that signing keys are rolled over when using Identity Server. The link in
 
 ## <a id="client-server"></a>Ensure that cryptographically strong client id, client secret are used in Identity Server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Identity Server | 
 | SDL Phase               | Build |  

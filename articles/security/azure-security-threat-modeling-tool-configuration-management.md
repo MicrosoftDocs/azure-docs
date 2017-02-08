@@ -1,20 +1,21 @@
 ---
-  title: Configuration Management | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+title: Configuration Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Configuration Management | Mitigations 
@@ -32,7 +33,7 @@
 
 ## <a id="csp-js"></a>Implement Content Security Policy (CSP), and disable inline javascript
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -73,7 +74,7 @@ CSP provides the following security benefits:
 
 ## <a id="xss-filter"></a>Enable browser's XSS filter
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -92,7 +93,7 @@ This is a Chromium function utilizing CSP violation reports to send details to a
 
 ## <a id="trace-deploy"></a>ASP.NET applications must disable tracing and debugging prior to deployment
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -104,7 +105,7 @@ When tracing is enabled for the page, every browser requesting it also obtains t
 
 ## <a id="js-trusted"></a>Access third party javascripts from trusted sources only
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -116,7 +117,7 @@ Third party JavaScripts should be referenced only from trusted sources. The refe
 
 ## <a id="ui-defenses"></a>Ensure that authenticated ASP.NET pages incorporate UI Redressing or clickjacking defenses
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -152,7 +153,7 @@ Web.config code for sites that should only be framed by pages in the same domain
 
 ## <a id="cors-aspnet"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web Applications
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -180,11 +181,12 @@ If access to web.config is not available, then CORS can be configured by adding 
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
-NOTE: It is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application without any restrictions, thereby making the application vulnerable to CSRF attacks. 
+[!NOTE]
+It is critical to ensure that the list of origins in "Access-Control-Allow-Origin" attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the web application without any restrictions, thereby making the application vulnerable to CSRF attacks. 
 
 ## <a id="validate-aspnet"></a>Enable ValidateRequest attribute on ASP.NET Pages
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -210,11 +212,12 @@ or, at application level
 </configuration>
 ```
 
-Please note that Request Validation feature is not supported, and is not part of MVC6 pipeline. 
+[!NOTE]
+Request Validation feature is not supported, and is not part of MVC6 pipeline. 
 
 ## <a id="local-js"></a>Use locally-hosted latest versions of JavaScript libraries
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -250,7 +253,7 @@ Never load any JavaScript library from external sites such as public CDNs
 
 ## <a id="mime-sniff"></a>Disable automatic MIME sniffing
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -315,7 +318,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="standard-finger"></a>Remove standard server headers on Windows Azure Web Sites to avoid fingerprinting
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -327,7 +330,7 @@ Headers such as Server, X-Powered-By, X-AspNet-Version reveal information about 
 
 ## <a id="firewall-db"></a>Configure a Windows Firewall for Database Engine Access
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -339,7 +342,7 @@ Firewall systems help prevent unauthorized access to computer resources. To acce
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -410,7 +413,8 @@ public class ResourcesController : ApiController
 }
 ```
 
-NOTE: It is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, thereby making the API vulnerable to CSRF attacks. EnableCors can be decorated at controller level. To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
+[!NOTE]
+It is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, thereby making the API vulnerable to CSRF attacks. EnableCors can be decorated at controller level. To disable CORS on a particular method in a class, the DisableCors attribute can be used as shown below: 
 
 ```C#
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
@@ -433,7 +437,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -514,7 +518,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-NOTE: It is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, thereby making the API vulnerable to CSRF attacks. 
+[!NOTE]
+It is critical to ensure that the list of origins in EnableCors attribute is set to a finite and trusted set of origins. Failing to configure this inappropriately (e.g., setting the value as '*') will allow malicious sites to trigger cross origin requests to the API without any restrictions, thereby making the API vulnerable to CSRF attacks. 
 
 To disable CORS for a controller or action, use the [DisableCors] attribute. 
 
@@ -528,7 +533,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 
 ## <a id="config-sensitive"></a>Encrypt sections of Web API's configuration files that contain sensitive data
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Deployment |  
@@ -540,7 +545,7 @@ Configuration files such as the Web.config, appsettings.json are often used to h
 
 ## <a id="admin-strong"></a>Ensure that all admin interfaces are secured with strong credentials
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Deployment |  
@@ -552,7 +557,7 @@ Any administrative interfaces that the device or field gateway exposes should be
 
 ## <a id="unknown-exe"></a>Ensure that unknown code cannot execute on devices
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Build |  
@@ -564,7 +569,7 @@ UEFI Secure Boot restricts the system to only allow execution of binaries signed
 
 ## <a id="partition-iot"></a>Encrypt OS and additional partitions of IoT Device with Bitlocker
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Build |  
@@ -578,7 +583,7 @@ These preOS measurements ensure that the OS later has a definitive record of how
 
 ## <a id="min-enable"></a>Ensure that only the minimum services/features are enabled on devices
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Deployment |  
@@ -590,7 +595,7 @@ Do not enable or turn off any features or services in the OS that is not require
 
 ## <a id="field-bitlocker"></a>Encrypt OS and additional partitions of IoT Field Gateway with Bitlocker
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Field Gateway | 
 | SDL Phase               | Deployment |  
@@ -602,7 +607,7 @@ Windows 10 IoT Core implements a lightweight version of BitLocker Device Encrypt
 
 ## <a id="default-change"></a>Ensure that the default login credentials of the field gateway are changed during installation
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Field Gateway | 
 | SDL Phase               | Deployment |  
@@ -614,7 +619,7 @@ Ensure that the default login credentials of the field gateway are changed durin
 
 ## <a id="cloud-firmware"></a>Ensure that the Cloud Gateway implements a process to keep the connected devices firmware up to date
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway | 
 | SDL Phase               | Build |  
@@ -626,7 +631,7 @@ LWM2M is a protocol from the Open Mobile Alliance for IoT Device Management. Azu
 
 ## <a id="controls-policies"></a>Ensure that devices have end point security controls configured as per organizational policies
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -638,7 +643,7 @@ Ensure that devices have end point security controls such as bitlocker for disk-
 
 ## <a id="secure-keys"></a>Ensure secure management of Azure storage access keys
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Deployment |  
@@ -655,7 +660,7 @@ Key Regeneration: It is recommended to have a process in place to regenerate Azu
 
 ## <a id="cors-storage"></a>Ensure that only trusted origins are allowed if CORS is enabled on Azure storage
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -667,7 +672,7 @@ Azure Storage allows you to enable CORS – Cross Origin Resource Sharing. For e
 
 ## <a id="throttling"></a>Enable WCF's service throttling feature
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -693,7 +698,7 @@ RECOMMENDATIONS Enable WCF's service throttling feature and set limits appropria
 
 ## <a id="info-metadata"></a>WCF-Information disclosure through metadata
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  

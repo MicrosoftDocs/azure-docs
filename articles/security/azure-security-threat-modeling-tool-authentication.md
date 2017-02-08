@@ -1,20 +1,21 @@
-  ---
-  title: Authentication | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+---
+title: Authentication - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Authentication | Mitigations 
@@ -36,7 +37,7 @@
 
 ## <a id="standard-authn-web-app"></a>Consider using a standard authentication mechanism to authenticate to Web Application
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -57,7 +58,7 @@ Consider using a standard authentication mechanism to identify the source proces
 
 ## <a id="handle-failed-authn"></a>Applications must handle failed authentication scenarios securely
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -79,7 +80,7 @@ Test for:
 
 ## <a id="step-up-adaptive-authn"></a>Enable step up or adaptive authentication
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -93,7 +94,7 @@ This also means that the adaptation of authentication has to be implemented in s
 
 ## <a id="admin-interface-lockdown"></a>Ensure that administrative interfaces are appropriately locked down
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -105,7 +106,7 @@ The first solution is to grant access only from a certain source IP range to the
 
 ## <a id="forgot-pword-fxn"></a>Implement forgot password functionalities securely
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -119,7 +120,7 @@ This could lead to a Denial of service attack whenever an attacker decides to in
 
 ## <a id="pword-account-policy"></a>Ensure that password and account policy are implemented
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -141,7 +142,7 @@ If the application has to auto-generate passwords, ensure that the generated pas
 
 ## <a id="controls-username-enum"></a>Implement controls to prevent username enumeration
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -153,7 +154,7 @@ All error messages should be generalised in order to prevent username enumeratio
 
 ## <a id="win-authn-sql"></a>When possible, use Windows Authentication for connecting to SQL Server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -165,7 +166,7 @@ Windows Authentication uses Kerberos security protocol, provides password policy
 
 ## <a id="aad-authn-sql"></a>When possible use Azure Active Directory Authentication for Connecting to SQL Database
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -177,7 +178,7 @@ Minimum version: Azure SQL Database V12 required to allow Azure SQL Database to 
 
 ## <a id="authn-account-pword"></a>When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -189,7 +190,7 @@ When using SQL Server Authentication, logins are created in SQL Server that are 
 
 ## <a id="autn-contained-db"></a>Do not use SQL Authentication in contained databases
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -199,7 +200,7 @@ When using SQL Server Authentication, logins are created in SQL Server that are 
 
 The absence of an enforced password policy may increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication.
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -211,7 +212,7 @@ The absence of an enforced password policy may increase the likelihood of a weak
 
 ## <a id="authn-sas-tokens"></a>Use per device authentication credentials using SaS tokens
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Event Hub | 
 | SDL Phase               | Build |  
@@ -225,7 +226,7 @@ All messages are tagged with originator on service side allowing detection of in
 
 ## <a id="multi-factor-azure-admin"></a>Enable Azure Multi-Factor Authentication for Azure Administrators
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -241,7 +242,7 @@ Multi-factor authentication (MFA) is a method of authentication that requires mo
 
 ## <a id="anon-access-cluster"></a>Restrict anonymous access to Service Fabric Cluster
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Service Fabric Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -255,7 +256,7 @@ While creating a service fabric cluster, ensure that the security mode is set to
 
 ## <a id="fabric-cn-nn"></a>Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Service Fabric Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -269,7 +270,7 @@ The admin client and user client certificates you specify should be different th
 
 ## <a id="aad-client-fabric"></a>Use AAD to authenticate clients to service fabric clusters
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Service Fabric Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -281,7 +282,7 @@ Clusters running on Azure can also secure access to the management endpoints usi
 
 ## <a id="fabric-cert-ca"></a>Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Service Fabric Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -299,7 +300,7 @@ Some important things to consider while using certificates in service fabrics:
 
 ## <a id="standard-authn-id"></a>Use standard authentication scenarios supported by Identity Server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Identity Server | 
 | SDL Phase               | Build |  
@@ -318,7 +319,7 @@ Below are the typical interactions supported by Identity Server:
 
 ## <a id="override-token"></a>Override the default Identity Server token cache with a scalable alternative
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Identity Server | 
 | SDL Phase               | Deployment |  
@@ -336,7 +337,7 @@ For all the above reasons, while implementing web apps, it is recommended to ove
 
 ## <a id="binaries-signed"></a>Ensure that deployed application's binaries are digitally signed
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -348,7 +349,7 @@ Ensure that deployed application's binaries are digitally signed so that the int
 
 ## <a id="msmq-queues"></a>Enable authentication when connecting to MSMQ queues in WCF
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -390,7 +391,7 @@ Example 2: The `<netMsmqBinding/>` element of the WCF configuration file below i
 
 ## <a id="message-none"></a>WCF-Do not set Message clientCredentialType to none
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -406,7 +407,7 @@ The absence of authentication means everyone is able to access this service. A s
 
 ## <a id="transport-none"></a>WCF-Do not set Transport clientCredentialType to none
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -422,7 +423,7 @@ The absence of authentication means everyone is able to access this service. A s
 
 ## <a id="authn-secure-api"></a>Ensure that standard authentication techniques are used to secure Web APIs
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -443,7 +444,7 @@ Links in the references section provide low-level details on how each of the aut
 
 ## <a id="authn-aad"></a>Use standard authentication scenarios supported by Azure Active Directory
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure AD | 
 | SDL Phase               | Build |  
@@ -463,7 +464,7 @@ Please refer to the links in the references section for low-level implementation
 
 ## <a id="adal-scalable"></a>Override the default ADAL token cache with a scalable alternative
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure AD | 
 | SDL Phase               | Build |  
@@ -481,7 +482,7 @@ For all the above reasons, while implementing web apps, it is recommended to ove
 
 ## <a id="tokenreplaycache-adal"></a>Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure AD | 
 | SDL Phase               | Build |  
@@ -552,7 +553,7 @@ When the protection is not in place, replaying this request in fiddler will set 
 
 ## <a id="adal-oauth2"></a>Use ADAL libraries to manage token requests from OAuth2 clients to AAD (or on-premises AD)
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure AD | 
 | SDL Phase               | Build |  
@@ -568,7 +569,7 @@ By handling most of the complexity, ADAL can help a developer focus on business 
 
 ## <a id="authn-devices-field"></a>Authenticate devices connecting to the Field Gateway
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Field Gateway | 
 | SDL Phase               | Build |  
@@ -580,7 +581,7 @@ Ensure that each device is authenticated by the Field Gateway before accepting d
 
 ## <a id="authn-devices-cloud"></a>Ensure that devices connecting to Cloud gateway are authenticated
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway | 
 | SDL Phase               | Build |  
@@ -693,7 +694,7 @@ client.open(fn);
 
 ## <a id="authn-cred"></a>Use per-device authentication credentials
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway  | 
 | SDL Phase               | Build |  
@@ -705,7 +706,7 @@ Use per device authentication credentials using SaS tokens based on Device key o
 
 ## <a id="req-containers-anon"></a>Ensure that only the required containers and blobs are given anonymous read access
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -725,7 +726,7 @@ Anonymous access is best for scenarios where certain blobs should always be avai
 
 ## <a id="limited-access-sas"></a>Grant limited access to objects in Azure storage using SAS or SAP
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  

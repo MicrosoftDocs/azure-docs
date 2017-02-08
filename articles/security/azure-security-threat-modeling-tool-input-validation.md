@@ -1,20 +1,21 @@
 ---
-  title: Input Validation | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+title: Input Validation - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Input Validation | Mitigations 
@@ -28,7 +29,7 @@
 
 ## <a id="disable-xslt"></a>Disable XSLT scripting for all transforms using untrusted style sheets
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -59,7 +60,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 
 ## <a id="out-sniffing"></a>Ensure that each page that could contain user controllable content opts out of automatic MIME sniffing
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -138,7 +139,7 @@ Frequently Asked Questions
 
 ## <a id="xml-resolution"></a>Harden or Disable XML Entity Resolution
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -199,7 +200,7 @@ Note that in MSXML6, ProhibitDTD is set to true (disabling DTD processing) by de
 
 ## <a id="app-verification"></a>Applications utilizing http.sys perform URL canonicalization verification
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -222,7 +223,7 @@ Any application that uses http.sys should follow these guidelines:
 
 ## <a id="controls-users"></a>Ensure appropriate controls are in place when accepting files from users
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -350,7 +351,7 @@ For the last point regarding file format signature validation, refer to the clas
 
 ## <a id="typesafe"></a>Ensure that type-safe parameters are used in Web Application for data access
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -383,7 +384,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ## <a id="binding-mvc"></a>Use separate model binding classes or binding filter lists to prevent MVC mass assignment vulnerability
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -405,7 +406,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ## <a id="rendering"></a>Encode untrusted web output prior to rendering
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -429,7 +430,7 @@ Cross-site scripting (commonly abbreviated as XSS) is an attack vector for onlin
 
 ## <a id="typemodel"></a>Perform input validation and filtering on all string type Model properties
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -448,7 +449,7 @@ The following input validation checks must be performed upon model binding:
 
 ## <a id="richtext"></a>Sanitization should be applied on form fields that accept all characters e.g, rich text editor
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -472,7 +473,7 @@ Input validation and Output Encoding are considered better security controls.
 
 ## <a id="inbuilt-encode"></a>Do not assign DOM elements to sinks that do not have inbuilt encoding
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -495,7 +496,7 @@ Don't use innerHtml; instead use innerText. Similarly, instead of $("#elm").html
 
 ## <a id="redirect-safe"></a>Validate all redirects within the application are closed or done safely
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -511,7 +512,7 @@ To do this:
 
 ## <a id="string-method"></a>Implement input validation on all string type parameters accepted by Controller methods
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -523,7 +524,7 @@ For methods that just accept primitive data type, and not models as argument,inp
 
 ## <a id="dos-expression"></a>Set upper limit timeout for regular expression processing to prevent DoS due to bad regular expressions
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -539,7 +540,7 @@ To ensure denial of service attacks against badly created regular expressions, t
 
 ## <a id="html-razor"></a>Avoid using Html.Raw in Razor views
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -563,7 +564,7 @@ Do not use Html.Raw() unless you need to display markup. This method does not pe
 
 ## <a id="stored-proc"></a>Do not use dynamic queries in stored procedures
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -623,7 +624,7 @@ AS
 
 ## <a id="validation-api"></a>Ensure that model validation is done on Web API methods
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -676,7 +677,7 @@ namespace MyApi.Controllers
 
 ## <a id="string-api"></a>Implement input validation on all string type parameters accepted by Web API methods
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -688,7 +689,7 @@ For methods that just accept primitive data type, and not models as argument,inp
 
 ## <a id="typesafe-api"></a>Ensure that type-safe parameters are used in Web API for data access
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -719,7 +720,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ## <a id="sql-docdb"></a>Use parametrized SQL queries for DocumentDB
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Document DB | 
 | SDL Phase               | Build |  
@@ -731,7 +732,7 @@ Although DocumentDB only supports read-only queries, SQL injection is still poss
 
 ## <a id="schema-binding"></a>WCF Input validation through Schema binding
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -747,7 +748,7 @@ RECOMMENDATIONS To perform message validation, you first build a schema that rep
 
 ## <a id="parameters"></a>WCF- Input validation through Parameter Inspectors
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  

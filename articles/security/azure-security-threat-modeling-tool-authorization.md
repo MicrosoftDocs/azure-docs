@@ -1,20 +1,21 @@
 ---
-  title: Authorization | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+title: Authorization - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Authorization | Mitigations 
@@ -39,7 +40,7 @@
 
 ## <a id="acl-restricted-access"></a>Ensure that proper ACLs are configured to restrict unauthorized access to data on the device
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -51,7 +52,7 @@ Ensure that proper ACLs are configured to restrict unauthorized access to data o
 
 ## <a id="sensitive-directory"></a>Ensure that sensitive user-specific application content is stored in user-profile directory
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -63,7 +64,7 @@ Ensure that sensitive user-specific application content is stored in user-profil
 
 ## <a id="deployed-privileges"></a>Ensure that the deployed applications are run with least privileges
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Machine Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -75,7 +76,7 @@ Ensure that the deployed application is run with least privileges.
 
 ## <a id="sequential-logic"></a>Enforce sequential step order when processing business logic flows
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -87,7 +88,7 @@ In order to verify that this stage was run through by a genuine user you want to
 
 ## <a id="rate-enumeration"></a>Implement rate limiting mechanism to prevent enumeration
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -99,7 +100,7 @@ Ensure that sensitive identifiers are random. Implement CAPTCHA control on anony
 
 ## <a id="principle-least-privilege"></a>Ensure that proper authorization is in place and principle of least privileges is followed
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -113,7 +114,7 @@ This principle can also be applied to your web-applications. Instead of solely d
 
 ## <a id="logic-request-parameters"></a>Business logic and resource access authorization decisions should not be based on incoming request parameters
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -133,7 +134,7 @@ Now an possible attacker can not tamper and change the application operation sin
 
 ## <a id="enumerable-browsing"></a>Ensure that content and resources are not enumerable or accessible via forceful browsing
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -149,7 +150,7 @@ To mitigate this, capabilities for detection of bruteforce attempts should be in
 
 ## <a id="privileged-server"></a>Ensure that least-privileged accounts are used to connect to Database server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -161,7 +162,7 @@ Least-privileged accounts should be used to connect to the database. Application
 
 ## <a id="rls-tenants"></a>Implement Row Level Security RLS to prevent tenants from accessing each others data
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -175,11 +176,12 @@ Row-Level Security (RLS) simplifies the design and coding of security in your ap
 
 The access restriction logic is located in the database tier rather than away from the data in another application tier. The database system applies the access restrictions every time that data access is attempted from any tier. This makes the security system more reliable and robust by reducing the surface area of the security system.
 
-Note: RLS as an out-of-the-box database feature is applicable only to SQL Server starting 2016 and Azure SQL database. If the out-of-the-box RLS feature is not implemented, it should be ensured that data access is restricted Using Views and Procedures
+[!NOTE]
+RLS as an out-of-the-box database feature is applicable only to SQL Server starting 2016 and Azure SQL database. If the out-of-the-box RLS feature is not implemented, it should be ensured that data access is restricted Using Views and Procedures
 
 ## <a id="sysadmin-users"></a>Sysadmin role should only have valid necessary users
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -191,7 +193,7 @@ Members of the SysAdmin fixed server role should be very limited and never conta
 
 ## <a id="cloud-least-privileged"></a>Connect to Cloud Gateway using least-privileged tokens
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway | 
 | SDL Phase               | Deployment |  
@@ -203,7 +205,7 @@ Provide least privilege permissions to various components that connect to Cloud 
 
 ## <a id="sendonly-sas"></a>Use a send-only permissions SAS Key for generating device tokens
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Event Hub | 
 | SDL Phase               | Build |  
@@ -215,7 +217,7 @@ A SAS key is used to generate individual device tokens. Use a send-only permissi
 
 ## <a id="access-tokens-hub"></a>Do not use access tokens that provide direct access to the Event Hub
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Event Hub | 
 | SDL Phase               | Build |  
@@ -227,7 +229,7 @@ A token that grants direct access to the event hub should not be given to the de
 
 ## <a id="sas-minimum-permissions"></a>Connect to Event Hub using SAS keys that have the mimimum permissions required
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Event Hub | 
 | SDL Phase               | Build |  
@@ -239,7 +241,7 @@ Provide least privilege permissions to various back-end applications that connec
 
 ## <a id="resource-docdb"></a>Use resource tokens to connect to DocumentDB whenever possible
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Document DB | 
 | SDL Phase               | Build |  
@@ -251,7 +253,7 @@ A resource token is associated with a DocumentDB permission resource and capture
 
 ## <a id="grained-rbac"></a>Enable fine-grained access management to Azure Subscription using RBAC
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Trust Boundary | 
 | SDL Phase               | Build |  
@@ -263,7 +265,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using RBAC
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Service Fabric Trust Boundary | 
 | SDL Phase               | Deployment |  
@@ -279,7 +281,7 @@ You specify the two client roles (administrator and client) at the time of clust
 
 ## <a id="modeling-field"></a>Perform security modeling and use Field Level Security where required
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Build |  
@@ -291,7 +293,7 @@ Perform security modeling and use Field Level Security where required
 
 ## <a id="portal-security"></a>Perform security modeling of portal accounts keeping in mind that the security model for the portal differs from the rest of CRM
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM Portal | 
 | SDL Phase               | Build |  
@@ -303,7 +305,7 @@ Perform security modeling of portal accounts keeping in mind that the security m
 
 ## <a id="permission-entities"></a>Grant fine-grained permission on a range of entities in Azure Table Storage
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -315,7 +317,7 @@ In certain business scenarios, Azure Table Storage may be required to store sens
 
 ## <a id="rbac-azure-manager"></a>Enable Role-Based Access Control (RBAC) to Azure storage account using Azure Resource Manager
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -329,7 +331,7 @@ With the Azure Resource Manager (ARM) model, you put the storage account in a re
 
 ## <a id="rooting-detection"></a>Implement implicit jailbreak or rooting detection
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Mobile Client | 
 | SDL Phase               | Build |  
@@ -344,7 +346,7 @@ If the application can access any of these files, it denotes that the applicatio
 
 ## <a id="weak-class-wcf"></a>Weak Class Reference in WCF
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -389,7 +391,7 @@ Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"" />
 
 ## <a id="wcf-authz"></a>WCF-Implement Authorization control
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -440,7 +442,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implement proper authorization mechanism in ASP.NET Web API
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -495,7 +497,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Perform authorization checks in the device if it supports various actions that require different permission levels
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Build |  
@@ -509,7 +511,7 @@ The Smart Door Lock provides unlocking functionality only when someone physicall
 
 ## <a id="field-permission"></a>Perform authorization checks in the Field Gateway if it supports various actions that require different permission levels
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Field Gateway | 
 | SDL Phase               | Build |  

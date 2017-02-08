@@ -1,20 +1,21 @@
 ---
-  title: Communication Security | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+title: Communication Security - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Communication Security | Mitigations 
@@ -36,7 +37,7 @@
 
 ## <a id="comm-ssltls"></a>Secure communication to Event Hub using SSL/TLS
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Event Hub | 
 | SDL Phase               | Build |  
@@ -48,7 +49,7 @@ Secure AMQP or HTTP connections to Event Hub using SSL/TLS
 
 ## <a id="priv-aspnet"></a>Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Build |  
@@ -60,7 +61,7 @@ Check service account privileges and check that the custom Services or ASP.NET P
 
 ## <a id="sqlserver-factory"></a>Use Data managent gateway while connecting On Prem SQL Server to Azure Data Factory
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Data Factory | 
 | SDL Phase               | Deployment |  
@@ -72,7 +73,7 @@ The Data Management Gateway (DMG) tool is required to connect to data sources wh
 
 ## <a id="identity-https"></a>Ensure that all traffic to Identity Server is over HTTPS connection
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Identity Server | 
 | SDL Phase               | Deployment |  
@@ -84,7 +85,7 @@ By default, IdentityServer requires all incoming connections to come over HTTPS.
 
 ## <a id="x509-ssltls"></a>Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -104,7 +105,7 @@ Applications that use SSL, TLS, or DTLS must fully verify the X.509 certificates
 
 ## <a id="ssl-appservice"></a>Configure SSL certificate for custom domain in Azure App Service
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -116,7 +117,7 @@ By default, Azure already enables HTTPS for every app with a wildcard certificat
 
 ## <a id="appservice-https"></a>Force all traffic to Azure App Service over HTTPS connection
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -151,7 +152,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 
 ## <a id="http-hsts"></a>Enable HTTP Strict Transport Security (HSTS)
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -169,7 +170,7 @@ To implement HSTS, the following response header has to be configured for a webs
 
 ## <a id="sqlserver-validation"></a>Ensure SQL server connection encryption and certificate validation
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -183,7 +184,7 @@ However, they may not validate the server certificates and thus will be suscepti
 
 ## <a id="encrypted-sqlserver"></a>Force Encrypted communication to SQL server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -195,7 +196,7 @@ Enabling SSL encryption increases the security of data transmitted across networ
 
 ## <a id="comm-storage"></a>Ensure that communication to Azure Storage is over HTTPS
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Deployment |  
@@ -207,7 +208,7 @@ To ensure the security of Azure Storage data in-transit, always use the HTTPS pr
 
 ## <a id="md5-https"></a>Validate MD5 hash after downloading blob if HTTPS cannot be enabled
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -221,7 +222,7 @@ This will help with protection from network/transport layer errors, but not nece
 
 ## <a id="smb-shares"></a>Use SMB 3.0 compatible client to ensure in-transit data encryption to Azure File Shares
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Mobile Client | 
 | SDL Phase               | Build |  
@@ -233,7 +234,7 @@ Azure File Storage supports HTTPS when using the REST API, but is more commonly 
 
 ## <a id="cert-pinning"></a>Implement Certificate Pinning
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Build |  
@@ -276,7 +277,7 @@ public static bool PinPublicKey(object sender, X509Certificate certificate, X509
 
 ## <a id="https-transport"></a>Enable HTTPS - Secure Transport channel
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -294,7 +295,7 @@ From a practical point of view, the people responsible for securing the network 
 
 ## <a id="message-protection"></a>WCF: Set Message security Protection level to EncryptAndSign
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -331,7 +332,7 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF: Use a least-privileged account to run your WCF service
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -349,7 +350,7 @@ In a development scenario, use the local network service account, which is a spe
 
 ## <a id="webapi-https"></a>Force all traffic to Web APIs over HTTPS connection
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -391,7 +392,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>Ensure that communication to Azure Redis Cache is over SSL
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Redis Cache | 
 | SDL Phase               | Build |  
@@ -401,11 +402,12 @@ public class ValuesController : ApiController
 
 Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Redis Cache instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients.  
 
-Note: Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
+[!NOTE]
+Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
 
 ## <a id="device-field"></a>Secure Device to Field Gateway communication
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Field Gateway | 
 | SDL Phase               | Build |  
@@ -417,7 +419,7 @@ For IP based devices, the communication protocol could typically be encapsulated
 
 ## <a id="device-cloud"></a>Secure Device to Cloud Gateway communication using SSL/TLS
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway | 
 | SDL Phase               | Build |  

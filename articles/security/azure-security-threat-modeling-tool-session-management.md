@@ -1,22 +1,21 @@
+---
+title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
 
-  ---
-  title: Session Management | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats within session management exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
-
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
 ---
 
 # Security Frame: Session Management | Articles 
@@ -32,7 +31,7 @@
 
 ## <a id="logout-adal"></a>Implement proper logout using ADAL methods when using Azure AD
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure AD | 
 | SDL Phase               | Build |  
@@ -66,7 +65,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 ```
 ## <a id="finite-tokens"></a>Use finite lifetimes for generated SaS tokens
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Device | 
 | SDL Phase               | Build |  
@@ -78,7 +77,7 @@ SaS tokens generated for authenticating to Azure IoT Hub should have a finite ex
 
 ## <a id="resource-tokens"></a>Use minimum token lifetimes for generated Resource tokens
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Document DB | 
 | SDL Phase               | Build |  
@@ -90,7 +89,7 @@ Reduce the timespan of resource token to a minimum value required. Resource toke
 
 ## <a id="wsfederation-logout"></a>Implement proper logout using WsFederation methods when using ADFS
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | ADFS | 
 | SDL Phase               | Build |  
@@ -139,7 +138,7 @@ If the application relies on STS token issued by ADFS, the logout event handler 
 
 ## <a id="proper-logout"></a>Implement proper logout when using Identity Server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Identity Server | 
 | SDL Phase               | Build |  
@@ -151,7 +150,7 @@ IdentityServer supports the ability to federate with external identity providers
 
 ## <a id="https-secure-cookies"></a>Applications available over HTTPS must use secure cookies
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -174,7 +173,7 @@ This requirement can be enforced in the web.config file by setting the requireSS
 
 This setting is enforced even if HTTP is used to access the application. If HTTP is used to access the application, this setting will break the application because the cookies will be set with the secure attribute and the browser will not send them back to the application.
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -196,7 +195,7 @@ When the web application is the Relying Party, and the IdP is ADFS server, the F
 
 ## <a id="cookie-definition"></a>All http based application should specify http only for cookie definition
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -218,7 +217,7 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 </system.web>
 ```
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -235,7 +234,7 @@ The following code example sets the requireSSL attribute in the Web.config file.
 </authentication>
 ```
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -259,7 +258,7 @@ To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value sh
 
 ## <a id="csrf-asp"></a>Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -271,7 +270,7 @@ Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attack
 
 This type of attack can be prevented if the server sends an additional token to the client, requires the client to include that token in all future requests, and verifies that all future requests include a token that pertains to the current session, such as by using the ASP.NET AntiForgeryToken or ViewState. 
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -359,7 +358,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -379,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Set up session for inactivity lifetime
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -398,7 +397,7 @@ Session timeout represents the event occuring when a user do not perform any act
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
 ```
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -413,7 +412,7 @@ Set the Forms Authentication Ticket cookie timeout to 15 minutes:
 </forms>
 ```
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -448,7 +447,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="proper-app-logoout"></a>Implement proper logout from the application
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -460,7 +459,7 @@ Perform proper Sign Out from the application, when user presses log out button. 
 
 ## <a id="csrf-api"></a>Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -470,7 +469,7 @@ Perform proper Sign Out from the application, when user presses log out button. 
 
 Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker can carry out actions in the security context of a different user's established session with a web site, such as to modify or delete content, if the targeted web site relies exclusively on session cookies to authenticate received request. An attacker could exploit this vulnerability by getting a different user's browser to load an URL with a command from a vulnerable site on which the user is already logged in. There are many ways for an attacker to do that, such as by hosting a different web site that loads a resource from the vulnerable server, or getting the user to click a link. This type of attack can be prevented if the server sends an additional token to the client, requires the client to include that token in all future requests, and verifies that all future requests include a token that pertains to the current session, such as by using the ASP.NET AntiForgeryToken or ViewState. 
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -558,7 +557,7 @@ This is an authorization filter that checks that:
 
 Assuming all is well, the request goes through as normal. But if not, then an authorization failure with message “A required anti-forgery token was not supplied or was invalid”.
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -566,7 +565,10 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 | Attributes              | Identity Provider - ADFS, Identity Provider - Azure AD |
 | References              | [Secure a Web API with Individual Accounts and Local Login in ASP.NET Web API 2.2](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 
-If the Web API is secured using OAuth 2.0, then it expects a bearer token in Authorization request header and grants access to the request only if the token is valid. Unlike cookie based authentication, browsers do not attach the bearer tokens to requests. The requesting client needs to explicitly attach the bearer token in the request header. Therefore, for ASP.NET Web APIs protected using OAuth 2.0, bearer tokens are considered as a defense against CSRF attacks. NOTE: If the MVC portion of the application uses forms authentication (i.e., uses cookies), anti-forgery tokens have to be used by the MVC web app. In this case, the Web API has to be informed to rely ONLY on bearer tokens and not on cookies. This can be done by the following configuration in WebApiConfig.Register method:
+If the Web API is secured using OAuth 2.0, then it expects a bearer token in Authorization request header and grants access to the request only if the token is valid. Unlike cookie based authentication, browsers do not attach the bearer tokens to requests. The requesting client needs to explicitly attach the bearer token in the request header. Therefore, for ASP.NET Web APIs protected using OAuth 2.0, bearer tokens are considered as a defense against CSRF attacks. 
+
+[!NOTE]
+If the MVC portion of the application uses forms authentication (i.e., uses cookies), anti-forgery tokens have to be used by the MVC web app. In this case, the Web API has to be informed to rely ONLY on bearer tokens and not on cookies. This can be done by the following configuration in WebApiConfig.Register method:
 
 ```C-Sharp code
 config.SuppressDefaultHostAuthentication();

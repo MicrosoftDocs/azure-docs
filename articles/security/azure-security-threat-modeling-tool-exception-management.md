@@ -1,20 +1,21 @@
 ---
-  title: Exception Management | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+title: Exception Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Exception Management | Mitigations 
@@ -26,7 +27,7 @@
 
 ## <a id="servicedebug"></a>WCF- Do not include serviceDebug node in configuration file
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -52,7 +53,7 @@ RECOMMENDATIONS Disable debugging information in the service. This can be accomp
 
 ## <a id="servicemetadata"></a>WCF- Do not include serviceMetadata node in configuration file
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -68,7 +69,7 @@ RECOMMENDATIONS At a minimum, only allow trusted users to access the metadata an
 
 ## <a id="exception"></a>Ensure that proper exception handling is done in ASP.NET Web API
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -178,7 +179,7 @@ Check the links in the references section for additional details about exception
 
 ## <a id="messages"></a>Do not expose security details in error messages
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -208,7 +209,7 @@ Trapping all errors within an application and providing generic error messages, 
 
 ## <a id="default"></a>Implement Default error handling page
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -225,7 +226,7 @@ Open the `web.config` file for the application/site and ensure that the tag has 
 
 ## <a id="deployment"></a>Set Deployment Method to Retail in IIS
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Deployment |  
@@ -239,7 +240,7 @@ Often times, switches and options that are developer-focused, such as failed req
 
 ## <a id="fail"></a>Exceptions should fail safely
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  

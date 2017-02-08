@@ -1,20 +1,21 @@
-  ---
-  title: Auditing and Logging | Microsoft Threat Modeling Tool | Azure | Microsoft Docs
-  description: mitigations for threats exposed in the Threat Modeling Tool 
-  services: ''
-  documentationcenter: ''
-  author: rodsan
-  manager: rodsan
-  editor: rodsan
+---
+title: Auditing and Logging - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: mitigations for threats exposed in the Threat Modeling Tool 
+services: security
+documentationcenter: na
+author: RodSan
+manager: RodSan
+editor: RodSan
 
-  ms.assetid: 
-  ms.service: security
-  ms.workload: na
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: article
-  ms.date: 02/07/2017
-  ms.author: rodsan
+ms.assetid: na
+ms.service: security
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+ms.author: rodsan
+
 ---
 
 # Security Frame: Auditing and Logging | Mitigations 
@@ -31,7 +32,7 @@
 
 ## <a id="sensitive-entities"></a>Identify sensitive entities in your solution and implement change auditing
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Dynamics CRM | 
 | SDL Phase               | Build |  
@@ -43,7 +44,7 @@ Identify entities in your solution containing sensitive data and implement chang
 
 ## <a id="auditing"></a>Ensure that auditing and logging is enforced on the application
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -55,7 +56,7 @@ Enable auditing and logging on all components. Audit logs should capture user co
 
 ## <a id="log-rotation"></a>Ensure that log rotation and separation are in place
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -67,7 +68,7 @@ Log rotation is an automated process used in system administration in which date
 
 ## <a id="log-sensitive-data"></a>Ensure that the application does not log sensitive user data
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -86,7 +87,7 @@ Check that you do not log any sensitive data that a user submits to your site. C
 
 ## <a id="log-restricted-access"></a>Ensure that Audit and Log Files have Restricted Access
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -104,7 +105,7 @@ Check Windows ACL on log files to ensure they are properly restricted:
 
 ## <a id="user-management"></a>Ensure that User Management Events are Logged
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -116,7 +117,7 @@ Ensure that the application monitors user management events such as successful a
 
 ## <a id="inbuilt-defenses"></a>Ensure that the system has inbuilt defenses against misuse
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -135,7 +136,7 @@ For example, it is recommended to have security exceptions logged and actions ta
 
 ## <a id="diagnostics-logging"></a>Enable diagnostics logging for web apps in Azure App Service
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web Application | 
 | SDL Phase               | Build |  
@@ -147,7 +148,7 @@ Azure provides built-in diagnostics to assist with debugging an App Service web 
 
 ## <a id="identify-sensitive-entities"></a>Ensure that login auditing is enabled on SQL Server
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -159,7 +160,7 @@ Database Server login auditing must be enabled to detect/confirm password guessi
 
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Database | 
 | SDL Phase               | Build |  
@@ -173,7 +174,7 @@ Threat Detection makes it simple to address potential threats to the database wi
 
 ## <a id="analytics"></a>Use Azure Storage Analytics to audit access of Azure Storage
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Azure Storage | 
 | SDL Phase               | Deployment |  
@@ -187,7 +188,7 @@ This can be really helpful if you are tightly guarding access to storage. For ex
 
 ## <a id="sufficient-logging"></a>Implement sufficient Logging
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -212,7 +213,7 @@ messageAuthenticationAuditLevel=""SuccessAndFailure"" />
 
 ## <a id="audit-failure-handling"></a>Implement sufficient Audit Failure Handling
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | WCF | 
 | SDL Phase               | Build |  
@@ -241,7 +242,7 @@ Configure WCF to notify the program whenever it is unable to write to an audit l
 
 ## <a id="logging-web-api"></a>Ensure that auditing and logging is enforced on Web API
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | Web API | 
 | SDL Phase               | Build |  
@@ -253,7 +254,7 @@ Enable auditing and logging on Web APIs. Audit logs should capture user context.
 
 ## <a id="logging-field-gateway"></a>Ensure that appropriate auditing and logging is enforced on Field Gateway
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Field Gateway | 
 | SDL Phase               | Build |  
@@ -265,7 +266,7 @@ When multiple devices connect to a Field Gateway, ensure that connection attempt
 
 ## <a id="logging-cloud-gateway"></a>Ensure that appropriate auditing and logging is enforced on Cloud Gateway
 
-| #                       | #            |
+| Title                       | Details            |
 | ----------------------- | ------------ |
 | Component               | IoT Cloud Gateway | 
 | SDL Phase               | Build |  
