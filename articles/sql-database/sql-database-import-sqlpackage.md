@@ -35,13 +35,11 @@ Use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) comma
 > The following steps assume that you have already provisioned an Azure SQL Database server and have the connection information on hand.
 >  
 
-At a command prompt in the directory containing the newest version of the sqlpackage.exe command-line utilityexecute a command similar to the following sample command that imports a BACPAC file into an Azure SQL Database as a Premium P11.
-
+At a command prompt in the directory containing the newest version of the sqlpackage.exe command-line utility, execute a command similar to the following sample command that imports a BACPAC file into an Azure SQL Database as a Premium P11.
 
 ```
 SqlPackage.exe /a:import /tcs:"Data Source=SERVER;Initial Catalog=DBNAME;User Id=USER;Password=PASSWORD" /sf:C:\db.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P11
 ```   
-
 
 ## Next steps
 

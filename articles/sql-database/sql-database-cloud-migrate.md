@@ -20,7 +20,7 @@ ms.author: carlrab
 
 ---
 # SQL Server database migration to SQL Database in the cloud
-In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but necessitates some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
+In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
 
 In both cases, you need to ensure that the source database is compatible with Azure SQL Database. With SQL Database V12, we are approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 

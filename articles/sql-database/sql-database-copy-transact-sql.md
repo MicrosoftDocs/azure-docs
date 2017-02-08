@@ -20,25 +20,25 @@ ms.tgt_pltfrm: NA
 ---
 # Copy an Azure SQL database using Transact-SQL
 
-This following steps show you how to copy a SQL database with Transact-SQL to the same server or a different server. The database copy operation uses the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. 
+The following steps show you how to copy a SQL database with Transact-SQL to the same server or a different server. The database copy operation uses the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. 
 
 > [!NOTE]
-> You can also copy a SQL database using the the [Azure portal](sql-database-copy-portal.md) or [PowerShell](sql-database-copy-powershell.md).
+> You can also copy a SQL database using the [Azure portal](sql-database-copy-portal.md) or [PowerShell](sql-database-copy-powershell.md).
 >
 
-To complete the steps in this article you need the following:
+To complete the steps in this article, you need the following:
 
 * An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 * An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 * [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms174173.aspx). If you don't have SSMS, or if features described in this article are not available, [download the latest version](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Copy your SQL database
-Log on to the master database using the server-level principal login or the login that created the database you want to copy. Logins that are not the server-level principal must be members of the dbmanager role in order to copy databases. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
+Log on to the master database using the server-level principal login or the login that created the database you want to copy. Logins that are not the server-level principal must be members of the dbmanager role to copy databases. For more information about logins and connecting to the server, see [Manage logins](sql-database-manage-logins.md).
 
 Start copying the source database with the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. Executing this statement initiates the database copying process. Because copying a database is an asynchronous process, the CREATE DATABASE statement returns before the database completes copying.
 
 ### Copy a SQL database to the same server
-Log on to the master database using the server-level principal login or the login that created the database you want to copy. Logins that are not the server-level principal must be members of the dbmanager role in order to copy databases.
+Log on to the master database using the server-level principal login or the login that created the database you want to copy. Logins that are not the server-level principal must be members of the dbmanager role to copy databases.
 
 This command copies Database1 on to a new database named Database2 on the same server. Depending on the size of your database the copy operation may take some time to complete.
 
@@ -74,6 +74,6 @@ All users in the new database maintain the permissions that they had in the sour
 
 ## Next steps
 * To learn about managing users and logins when copying a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
-* To export a database to a BACPAC file uisng Transact-SQL, see [Export the database to a BACPAC using Transact-SQL](sql-database-export-tsql.md).
+* To export a database to a BACPAC file using Transact-SQL, see [Export the database to a BACPAC using Transact-SQL](sql-database-export-tsql.md).
 * [Business Continuity Overview](sql-database-business-continuity.md)
 * [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)

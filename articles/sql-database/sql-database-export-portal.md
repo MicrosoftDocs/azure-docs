@@ -87,7 +87,7 @@ Open the SQL Database blade for the database you want to export.
    ![.bacpac file details][5]    
 
 ## Next steps
-* To learn about importing a BACPAC to an Azure SQL Database uisng the Azure portal, see [Import a BACPCAC to an Azure SQL database](sql-database-import-portal.md)
+* To learn about importing a BACPAC to an Azure SQL Database using the Azure portal, see [Import a BACPCAC to an Azure SQL database](sql-database-import-portal.md)
 * To learn about importing a BACPAC to a SQL Server database, see [Import a BACPCAC to a SQL Server database](https://msdn.microsoft.com/library/hh710052.aspx)
 
 <!--Image references-->
