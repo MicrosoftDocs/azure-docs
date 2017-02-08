@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage pipelines by using the Azure portal/PowerShell | Microsoft Docs
+title: Monitor and manage pipelines by using the Azure portal and PowerShell | Microsoft Docs
 description: Learn how to use the Azure portal and Azure PowerShell to monitor and manage the Azure data factories and pipelines that you have created.
 services: data-factory
 documentationcenter: ''
@@ -34,7 +34,7 @@ Azure Data Factory provides a reliable and complete view of your storage, proces
 This article describes how to monitor, manage, and debug your pipelines. It also provides information on how to create alerts and get notified about failures.
 
 ## Understand pipelines and activity states
-Using the Azure portal, you can do tasks like the following:
+By using the Azure portal, you can:
 
 * View your data factory as a diagram.
 * View activities in a pipeline.
@@ -44,41 +44,41 @@ This section also describes how a slice transitions from one state to another st
 
 ### Navigate to your data factory
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Data factories** in the menu on the left. If you don't see it, click **More services >**, and click **Data factories** under the **INTELLIGENCE + ANALYTICS** category.
+2. Click **Data factories** on the menu on the left. If you don't see it, click **More services >**, and then click **Data factories** under the **INTELLIGENCE + ANALYTICS** category.
 
    ![Browse all > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
-   You should see all the data factories in the **Data factories** blade.
-3. In the **Data factories** blade, select the data factory that you're interested in.
+   You should see all the data factories on the **Data factories** blade.
+3. On the **Data factories** blade, select the data factory that you're interested in.
 
     ![Select data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
-   You should see the home page (**Data factory** blade) for the data factory.
+   You should see the home page for the data factory.
 
    ![Data factory blade](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### Diagram view of your data factory
 The **Diagram** view of a data factory provides a single pane of glass to monitor and manage the data factory and its assets.
 
-To see the **Diagram** view of your data factory, click **Diagram** on the **Data factory** home page.
+To see the **Diagram** view of your data factory, click **Diagram** on the home page for the data factory.
 
 ![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and tables. You can also see the data lineage information (that is, show upstream and downstream items of selected items).
 
 ### Activities inside a pipeline
-1. Right-click the pipeline and click **Open pipeline** to see all activities in the pipeline, along with input and output datasets for the activities. This feature is useful when your pipeline includes more than one activity and you want to understand the operational lineage of a single pipeline.
+1. Right-click the pipeline, and then click **Open pipeline** to see all activities in the pipeline, along with input and output datasets for the activities. This feature is useful when your pipeline includes more than one activity and you want to understand the operational lineage of a single pipeline.
 
     ![Open pipeline menu](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
 2. In the following example, you see two activities in the pipeline with their inputs and outputs. The activity titled **JoinData** of type HDInsight Hive Activity and **EgressDataAzure** of type Copy Activity are in this sample pipeline.
 
     ![Activities inside a pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
-3. You can navigate back to the **Data factory** home page by clicking the **Data factory** link in the breadcrumb at the top-left corner.
+3. You can navigate back to the home page of the data factory by clicking the **Data factory** link in the breadcrumb at the top-left corner.
 
     ![Navigate back to data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### View the state of each activity inside a pipeline
-You can view the current state of an activity by viewing the status of any of the datasets produced by the activity.
+You can view the current state of an activity by viewing the status of any of the datasets that are produced by the activity.
 
 In the following example, the **BlobPartitionHiveActivity** ran successfully and produced a dataset named **PartitionedProductsUsageTable**, which is in the **Ready** state.
 
@@ -138,7 +138,7 @@ The dataset slices in the data factory can have one of the following statuses:
 <td>Ready</td><td>-</td><td>The slice is ready for consumption.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>The slice isn't processed.</td>
+<td>Skipped</td><td>None</td><td>The slice isn't being processed.</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>A slice used to exist with a different status, but it has been reset.</td>
@@ -147,7 +147,7 @@ The dataset slices in the data factory can have one of the following statuses:
 
 
 
-You can view the details about a slice by clicking a slice entry in the **Recently Updated Slices** blade.
+You can view the details about a slice by clicking a slice entry on the **Recently Updated Slices** blade.
 
 ![Slice details](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
@@ -166,7 +166,7 @@ After you deploy a data factory and the pipelines have a valid active period, th
 
 The dataset state transition flow in data factory is the following: Waiting -> In-Progress/In-Progress (Validating) -> Ready/Failed.
 
-The slices start in a **Waiting** state, waiting for preconditions to be met before executing. Then, the activity starts executing, and the slice goes into an **In-Progress** state. The activity execution might succeed or fail. The slice is marked as **Ready** or **Failed**, based on the result of the execution.
+The slice starts in a **Waiting** state, waiting for preconditions to be met before it executes. Then, the activity starts executing, and the slice goes into an **In-Progress** state. The activity execution might succeed or fail. The slice is marked as **Ready** or **Failed**, based on the result of the execution.
 
 You can reset the slice to go back from the **Ready** or **Failed** state to the **Waiting** state. You can also mark the slice state to **Skip**, which prevents the activity from executing and not processing the slice.
 
@@ -174,9 +174,9 @@ You can reset the slice to go back from the **Ready** or **Failed** state to the
 You can manage your pipelines by using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets.
 
 ### Pause and resume pipelines
-You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
+You can pause/suspend pipelines by using the **Suspend-AzureRmDataFactoryPipeline** PowerShell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
 
-For example, in the following screenshot, an issue has been identified with the **PartitionProductsUsagePipeline** in **productrecgamalbox1dev** data factory, and we want to suspend the pipeline.
+For example, in the following screenshot, an issue has been identified with the **PartitionProductsUsagePipeline** in the **productrecgamalbox1dev** data factory, and we want to suspend the pipeline.
 
 ![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
@@ -205,16 +205,16 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 Azure Data Factory provides rich capabilities for you to debug and troubleshoot pipelines by using the Azure portal and Azure PowerShell.
 
 ### Find errors in a pipeline
-If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state because of the failure. You can debug and troubleshoot errors in Azure Data Factory by using the following methods.
+If the activity run fails in a pipeline, the dataset that is produced by the pipeline is in an error state because of the failure. You can debug and troubleshoot errors in Azure Data Factory by using the following methods.
 
 #### Use the Azure portal to debug an error
-1. In the **Table** blade, click the problem slice with the **Status** set to **Failed**.
+1. On the **Table** blade, click the problem slice that has the **Status** set to **Failed**.
 
    ![Table blade with problem slice](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. In the **Data slice** blade, click the activity run that failed.
+2. On the **Data slice** blade, click the activity run that failed.
 
    ![Data slice with an error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. In the **Activity run details** blade, you can download the files that are associated with the HDInsight processing. Click **Download** for Status/stderr to download the error log file that contains details about the error.
+3. On the **Activity run details** blade, you can download the files that are associated with the HDInsight processing. Click **Download** for Status/stderr to download the error log file that contains details about the error.
 
    ![Activity run details blade with error](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
@@ -286,12 +286,13 @@ In case the slice has failed validation because of a policy failure (for example
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Use Azure PowerShell
-You can rerun failures by using the Set-AzureRmDataFactorySliceStatus cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet.
+You can rerun failures by using the **Set-AzureRmDataFactorySliceStatus** cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet.
 
 **Example:**
-The following example sets the status of all slices for the table `DAWikiAggregatedData` to `Waiting` in the Azure data factory `WikiADF`.
 
-The `UpdateType` is set to `UpstreamInPipeline`, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to `Waiting`. The other possible value for this parameter is `Individual`.
+The following example sets the status of all slices for the table 'DAWikiAggregatedData' to 'Waiting' in the Azure data factory 'WikiADF'.
+
+The 'UpdateType' is set to 'UpstreamInPipeline', which means that statuses of each slice for the table and all the dependent (upstream) tables are set to 'Waiting'. The other possible value for this parameter is 'Individual'.
 
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
@@ -301,7 +302,7 @@ Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiAD
 Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. You can create alerts on these events. You can use Data Factory to capture various metrics and create alerts on metrics. We recommend that you use events for real-time monitoring and use metrics for historical purposes.
 
 ### Alerts on events
-Azure events provide useful insights into what is happening in your Azure resources. Azure logs user events when an Azure resource (for example, a data factory) is created, updated, or deleted. When you're using Azure Data Factory, events are generated when:
+Azure events provide useful insights into what is happening in your Azure resources. When you're using Azure Data Factory, events are generated when:
 
 * A data factory is created, updated, or deleted.
 * Data processing (as "runs") has started or completed.
@@ -430,7 +431,7 @@ Outputs           :
 2. Click the **Events** tile to see the events.
 
     ![Events tile](./media/data-factory-monitor-manage-pipelines/events-tile.png)
-3. In the **Events** blade, you can see details about events, filtered events, and so on.
+3. On the **Events** blade, you can see details about events, filtered events, and so on.
 
     ![Events blade](./media/data-factory-monitor-manage-pipelines/events-blade.png)
 4. Click an **Operation** in the operations list that causes an error.
@@ -512,7 +513,7 @@ get-help Get-AlertRule -examples
 ```
 
 
-If you see the alert generation events on the portal blade but you don't receive email notifications, check whether the e-mail address that is specified is set to receive emails from external senders. The alert e-mails might have been blocked by your e-mail settings.
+If you see the alert generation events on the portal blade but you don't receive email notifications, check whether the email address that is specified is set to receive emails from external senders. The alert emails might have been blocked by your email settings.
 
 ### Alerts on metrics
 In Data Factory, you can capture various metrics and create alerts on metrics. You can monitor and create alerts on the following metrics for the slices in your data factory:
@@ -522,10 +523,10 @@ In Data Factory, you can capture various metrics and create alerts on metrics. Y
 
 These metrics are useful and help you to get an overview of overall failed and successful runs in the data factory. Metrics are emitted every time there is a slice run. At the beginning of the hour, these metrics are aggregated and pushed to your storage account. To enable metrics, set up a storage account.
 
-#### Enable metrics:
-To enable metrics, click the following from **Data Factory** blade:
+#### Enable metrics
+To enable metrics, click the following from the **Data Factory** blade:
 
-**Monitoring** > **Metric** > **Diagnostic settings** > **Diagnostic**
+**Monitoring** > **Metric** > **Diagnostic settings** > **Diagnostics**
 
 ![Diagnostics link](./media/data-factory-monitor-manage-pipelines/diagnostics-link.png)
 
@@ -535,7 +536,7 @@ On the **Diagnostics** blade, click **On**, select the storage account, and clic
 
 It might take up to one hour for the metrics to be visible on the **Monitoring** blade because metrics aggregation happens hourly.
 
-### Set up an alert on metrics:
+### Set up an alert on metrics
 Click the **Data Factory metrics** tile:
 
 ![Data factory metrics tile](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
@@ -554,7 +555,7 @@ On the **Add an alert rule** page, do the following steps, and click **OK**.
 
 ![Data factory metric blade > Add alert rule](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
 
-After the alert rule is added successfully, the blade closes and you see the new alert on the **Metric** page.
+After the alert rule is added successfully, the blade closes and you see the new alert on the **Metric** blade.
 
 ![Data factory metric blade > New alert added](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
 
@@ -567,14 +568,14 @@ On the **Alerts rules** blade, you see any existing alerts. To add an alert, cli
 ![Alert rules blade](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 
 ### Alert notifications
-After the alert rule matches the condition, you should get an alert-activated email. After the issue is resolved and the alert condition doesn’t match any more, you get an alert-resolved email.
+After the alert rule matches the condition, you should get an email that says the alert is activated. After the issue is resolved and the alert condition doesn’t match any more, you get an email that says the alert is resolved.
 
 This behavior is different than events where a notification is sent on every failure that an alert rule qualifies for.
 
 ### Deploy alerts by using PowerShell
 You can deploy alerts for metrics the same way that you do for events.
 
-**Alert definition:**
+**Alert definition**
 
 ```JSON
 {
