@@ -108,7 +108,7 @@ What if you have a VM has five disks and they are striped? You could take a snap
 
 ## Azure Backup service support 
 
-You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies.You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup#using-managed-disk-vms-with-azure-backup).
+You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies.<!-- You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup#using-managed-disk-vms-with-azure-backup). -->
 
 ## Next steps
 
