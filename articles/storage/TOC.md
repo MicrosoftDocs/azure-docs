@@ -49,9 +49,9 @@
 ### Attaching a managed disk
 #### [Attach a managed disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
 #### [Add a managed disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md)
-### Using snapshots (full disk copy) with Managed Disks
-#### [Create copy of VHD stored as Azure Managed Disk using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-#### [Create copy of VHD stored as Azure Managed Disk using Managed Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### Using snapshots (full disk copy) with Azure Managed Disks
+#### [Create copy of VHD stored as an Azure Managed Disk using Managed Snapshots in Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+#### [Create copy of VHD stored as an Azure Managed Disk using Managed Snapshots in Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
 
 # How To
 ## [Create a storage account](storage-create-storage-account.md)
@@ -80,10 +80,10 @@
 #### [Migrate a Linux VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
 ### Migrate VMs from other platforms to Managed Disks
 #### [Migrate AWS and on-premises VMs to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-#### [Convert Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+#### [Migrate Azure VMs to managed disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
-#### [High-performance Premium Storage and unmanaged and managed VM Disks](storage-premium-storage.md)
+#### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
 #### [Design for high performance](storage-premium-storage-performance.md)
 <!--### Standard Storage-->
 <!--

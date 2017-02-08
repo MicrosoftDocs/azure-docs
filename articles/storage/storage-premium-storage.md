@@ -1,6 +1,6 @@
 ---
 title: High-Performance Premium Storage and Azure VM Disks | Microsoft Docs
-description: Discuss high-performance Premium Storage and unmanaged and managed VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
+description: Discuss high-performance Premium Storage for unmanaged and managed VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
 services: storage
 documentationcenter: ''
 author: ramankumarlive
@@ -17,7 +17,7 @@ ms.date: 02/06/2017
 ms.author: ramankum
 
 ---
-# High-Performance Premium Storage and unmanaged and managed VM Disks
+# High-Performance Premium Storage for unmanaged and managed VM Disks
 Microsoft Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) running I/O-intensive workloads. VM disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
 
 An Azure VM supports attaching several premium storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 input/output operations per second (IOPS) per VM and disk throughput up to 2000 MB/s per VM with extremely low latencies for read operations.
