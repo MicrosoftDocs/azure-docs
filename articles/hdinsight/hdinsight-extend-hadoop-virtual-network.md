@@ -93,37 +93,37 @@ If you need to install HDInsight into a secured Virtual Network, you must allow 
 > [!IMPORTANT]
 > The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following to find the IP addresses for the region you are using.
 
-    __Brazil South__ region:
+__Brazil South__ region:
 
-    * 191.235.84.104
-    * 191.235.87.113
+* 191.235.84.104
+* 191.235.87.113
 
-    __Canada East__ region:
+__Canada East__ region:
 
-    * 52.229.127.96
-    * 52.229.123.172
+* 52.229.127.96
+* 52.229.123.172
 
-    __Canada Central__ region:
+__Canada Central__ region:
 
-    * 52.228.37.66
-    * 52.228.45.222
+* 52.228.37.66
+* 52.228.45.222
 
-    __West Central US__ region:
+__West Central US__ region:
 
-    * 52.161.23.15
-    * 52.161.10.167
+* 52.161.23.15
+* 52.161.10.167
 
-    __West US 2__ region:
+__West US 2__ region:
 
-    * 52.175.211.210
-    * 52.175.222.222
+* 52.175.211.210
+* 52.175.222.222
 
-    __All other regions__:
+__All other regions__:
 
-    * 168.61.49.99
-    * 23.99.5.239
-    * 168.61.48.131
-    * 138.91.141.162
+* 168.61.49.99
+* 23.99.5.239
+* 168.61.48.131
+* 138.91.141.162
 
 Allowing inbound access from port 443 for these addresses will allow you to successfully install HDInsight into a secured virtual network.
 
