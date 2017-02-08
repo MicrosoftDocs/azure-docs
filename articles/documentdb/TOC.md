@@ -42,14 +42,13 @@
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Performance levels](documentdb-performance-levels.md)
+### [Retire S1, S2, S3](documentdb-performance-levels.md)
 ### [Request units](documentdb-request-units.md)
 ### Azure CLI
 #### [Create an account](documentdb-automation-resource-manager-cli.md)
 #### [Add or remove regions](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
-### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
@@ -73,6 +72,7 @@
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)
 ### [Create a collection](documentdb-create-collection.md)
+### [Set throughput](documentdb-set-throughput.md)
 ### [Add global replication](documentdb-portal-global-replication.md)
 ### [Add and edit documents](documentdb-view-json-document-explorer.md)
 ### [Query documents](documentdb-query-collections-query-explorer.md)

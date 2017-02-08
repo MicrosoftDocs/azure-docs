@@ -54,7 +54,9 @@
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
 ### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
-## [Monitor](automation-manage-send-joblogs-log-analytics.md)
+## Monitor
+### [Forward Azure Automation job data to Log Analytics](automation-manage-send-joblogs-log-analytics.md)
+### [Unlink Azure Automation account from Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migrate
 ### [Migrate from Orchestrator](automation-orchestrator-migration.md)
 ### [Move Automation Account](automation-migrate-account-subscription.md)

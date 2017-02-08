@@ -243,6 +243,7 @@
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (Device Twins)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
 ## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
 ## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
