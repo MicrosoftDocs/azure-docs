@@ -70,7 +70,7 @@ If you need to quickly accomplish the task, the following section details the ba
 
     ```azurecli
     az vm create --resource-group myResourceGroup --name myVMDeployed --image myImage
-        --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub
+        --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
     ```
 
 
@@ -118,7 +118,7 @@ Create a VM using the image you created with [az vm create](/cli/azure/vm#create
 
 ```azurecli
 az vm create --resource-group myResourceGroup --name myVMDeployed --image myImage
-    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 With managed disks, you can create VMs from an image in any resource group within your subscription. This behavior is a change from unmanaged disks where you could only create VMs in the same storage account as your source VHD. To create a VM in a different resource group than the image, specify the full resource ID to your image. Use [az image list](/cli/azure/image#list) to view a list of images. The output is similar to the following example:
@@ -134,7 +134,7 @@ The following example uses **az vm create** to create a VM in a different resour
 ```azurecli
 az vm create --resource-group myOtherResourceGroup --name myOtherVMDeployed 
     --image "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage"
-    --admin-username ops --ssh-key-value ~/.ssh/id_rsa.pub
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
