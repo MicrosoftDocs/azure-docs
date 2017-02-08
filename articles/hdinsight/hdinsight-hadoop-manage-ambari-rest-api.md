@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 12/02/2016
 ms.author: larryfr
 
 ---
@@ -22,12 +22,17 @@ ms.author: larryfr
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on Linux-based HDInsight clusters, and is used to monitor the cluster and make configuration changes. In this document, you learn the basics of working with the Ambari REST API by performing common tasks using cURL.
+Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters that use the Linux operating system, and is used to monitor the cluster and make configuration changes. In this document, you learn the basics of working with the Ambari REST API by performing common tasks using cURL.
 
 > [!IMPORTANT]
 > The examples in this document were tested using PowerShell on Windows 10 and Bash. In many cases, the same command works on both. In cases where there is a difference, both a PowerShell and Bash example is provided.
 
 ## Prerequisites
+
+* An HDInsight cluster that uses the Linux operating system. See [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) for more information on creating a cluster...
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [cURL](http://curl.haxx.se/): cURL is a cross-platform utility that can be used to work with REST APIs from the command-line. In this document, it is used to communicate with the Ambari REST API.
 
@@ -36,7 +41,7 @@ Apache Ambari simplifies the management and monitoring of a Hadoop cluster by pr
 
 * [jq](https://stedolan.github.io/jq/): jq is a cross-platform command-line utility for working with JSON documents. In this document, it is used to parse the JSON documents returned from the Ambari REST API.
 
-* [Azure CLI](../xplat-cli-install.md): a cross-platform command-line utility for working with Azure services.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview): a cross-platform command-line utility for working with Azure services.
   
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
@@ -60,8 +65,6 @@ The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehd
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
-> 
-> 
 
 Connecting to Ambari on HDInsight requires HTTPS. When authenticating the connection, you must use the admin account name (the default is **admin**,) and password you provided when the cluster was created.
 
@@ -93,6 +96,7 @@ Since this is JSON, it is easier to use a JSON parser to work with the data. For
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME" | jq '.Clusters.health_report'
 
 ## Example: Get the FQDN of cluster nodes
+
 When working with HDInsight, you may need to know the fully qualified domain name (FQDN) of a cluster node. You can easily retrieve the FQDN for the various nodes in the cluster using the following:
 
 * **Head nodes**: `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'`
@@ -114,6 +118,7 @@ The `host_components` element of the return document contains multiple items. Us
 This returns the first FQDN from the collection.
 
 ## Example: Get the default storage account and container
+
 When you create an HDInsight cluster, you must use an Azure Storage Account and a blob container as the default storage for the cluster. You can use Ambari to retrieve this information after the cluster has been created. For example, if you want to programmatically write data directly to the container.
 
 The following will retrieve the WASB URI of the clusters default storage:
@@ -130,46 +135,33 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 > [!NOTE]
 > This returns the first configuration applied to the server (`service_config_version=1`,) which contains this information. If you retrieve a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
-> 
-> 
 
 This returns a value similar to the following example, where **CONTAINER** is the default container and **ACCOUNTNAME** is the Azure Storage Account name:
 
     wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-You can then use this information with the [Azure CLI](../xplat-cli-install.md) to upload or download data from the container.
+You can then use this information with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) to upload or download data from the container.
 
-1. Get the resource group for the Storage Account. Replace **ACCOUNTNAME** with the Storage Account name retrieved from Ambari:
-   
-    ```bash
-    azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
-    ```
+1. Use the following command to get the unique ID for the Storage Account. In the following command, replace **ACCOUNTNAME** with the Storage Account name retrieved from Ambari:
 
-    ```PowerShell
-    azure storage account list --json | jq '.[] | select(.name=="""ACCOUNTNAME""").resourceGroup'
-    ```
-   
-    This returns the resource group name for the account.
-   
-   > [!NOTE]
-   > If nothing is returned from this command, you may need to change the Azure CLI to Azure Resource Manager mode and run the command again. To switch to Azure Resource Manager mode, use the following command:
-   > 
-   > `azure config mode arm`
+        az storage account list --query "[?name=='ACCOUNTNAME'].id" --out list
 
-2. Get the key for the Storage account. Replace **GROUPNAME** with the Resource Group from the previous step. Replace **ACCOUNTNAME** with the Storage Account name:
-   
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
-   
-    This example returns the primary key for the account.
+2. Use the following to get a key for the storage account. Replace **STORAGEID** with the storage account ID:
+
+        az storage account keys list --ids STORAGEID --query "keys[?keyName=='key1'].value" --out list
+
+    This will return the primary key for the account.
+
 3. Use the upload command to store a file in the container:
    
-        azure storage blob upload -a ACCOUNTNAME -k ACCOUNTKEY -f FILEPATH --container __CONTAINER__ -b BLOBPATH
+        az storage blob upload --account-name ACOUNTNAME --account-key ACCOUNTKEY -f FILEPATH -c CONTAINER -n BLOBPATH
    
-    Replace **ACCOUNTNAME** with the Storage Account name. Replace **ACCOUNTKEY** with the key retrieved previously. **FILEPATH** is the path to the file you want to upload, while **BLOBPATH** is the path in the container.
+    Replace **ACCOUNTNAME** with the Storage Account name. Replace **ACCOUNTKEY** with the key retrieved previously. Replace __CONTAINER__ with the container name. **FILEPATH** is the path to the file you want to upload, while **BLOBPATH** is the path in the container.
    
     For example, if you want the file to appear in HDInsight at wasbs://example/data/filename.txt, then **BLOBPATH** would be `example/data/filename.txt`.
 
 ## Example: Update Ambari configuration
+
 1. Get the current configuration, which Ambari stores as the "desired configuration":
    
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
@@ -193,6 +185,7 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
         }
    
     From this list, you need to copy the name of the component (for example, **spark\_thrift\_sparkconf** and the **tag** value.
+
 2. Retrieve the configuration for the component and tag by using the following command. Replace **spark-thrift-sparkconf** and **INITIAL** with the component and tag that you want to retrieve the configuration for.
    
     ```bash
@@ -209,34 +202,33 @@ You can then use this information with the [Azure CLI](../xplat-cli-install.md) 
    
     Curl retrieves the JSON document, then jq is used to make modifications to the data in order to create a template. The template is then used to add/modify configuration values. Specifically it does the following:
    
-   * Creates a unique value containing the string "version" and the date, which is stored in **newtag**.
+    * Creates a unique value containing the string "version" and the date, which is stored in **newtag**.
 
-   * Creates a root document for the new desired configuration.
+    * Creates a root document for the new desired configuration.
 
-   * Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
+    * Gets the contents of the `.items[]` array and adds it under the **desired_config** element.
 
-   * Deletes the **href**, **version**, and **Config** elements, as these elements aren't needed to submit a new configuration.
+    * Deletes the **href**, **version**, and **Config** elements, as these elements aren't needed to submit a new configuration.
 
-   * Adds a new **tag** element and sets its value to **version#################**. The numeric portion is based on the current date. Each configuration must have a unique tag.
+    * Adds a new **tag** element and sets its value to **version#################**. The numeric portion is based on the current date. Each configuration must have a unique tag.
      
-     Finally, the data is saved to the **newconfig.json** document. The document structure should appear similar to the following example:
+        Finally, the data is saved to the **newconfig.json** document. The document structure should appear similar to the following example:
      
      ```json
-       {
-     
-           "Clusters": {
-               "desired_config": {
-               "tag": "version1459260185774265400",
-               "type": "spark-thrift-sparkconf",
-               "properties": {
-                   ....
-                },
-                "properties_attributes": {
-                    ....
-                }
-           }
-       }
-       ```
+    {
+        "Clusters": {
+            "desired_config": {
+            "tag": "version1459260185774265400",
+            "type": "spark-thrift-sparkconf",
+            "properties": {
+                ....
+            },
+            "properties_attributes": {
+                ....
+            }
+        }
+    }
+    ```
 
 3. Open the **newconfig.json** document and modify/add values in the **properties** object. The following example changes the value of **"spark.yarn.am.memory"** from **"1g"** to **"3g"** and, and adds a new element for **"spark.kryoserializer.buffer.max"** with a value of **"256m"**.
    
@@ -264,10 +256,13 @@ At this point, if you look at the Ambari web UI, the Spark service will indicate
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK" | jq .ServiceInfo.maintenance_state
    
     This will return a value of `"ON"`.
+
 2. Next, use the following to turn the service off:
-   
-        echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
-   
+    
+    ```
+    echo '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+    ```
+    
     This command returns a response similar to the following.
    
     ```json
@@ -279,17 +274,21 @@ At this point, if you look at the Ambari web UI, the Spark service will indicate
         }
     }
     ```
-   
+    
     The `href` value returned by this URI is using the internal IP address of the cluster node. To use it from outside the cluster, replace the `10.0.0.18:8080' portion with the FQDN of the cluster. For example, the following command retrieves the status of the request.
-   
-        curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
-   
+    
+    ```
+    curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
+    ```
+    
     If this returns a value of `"COMPLETED"` then the request has finished.
+
 3. Once the previous request completes, use the following to start the service.
    
-        echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
+        echo '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
    
     Once the service restarts, it is the new configuration settings.
+
 4. Finally, use the following to turn off maintenance mode.
    
         echo '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"

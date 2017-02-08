@@ -93,12 +93,12 @@ az acr credential show -n myRegistry
 
 ### Enable admin user for an existing registry
 ```azurecli
-az acr update -n myRegistry --enable-admin
+az acr update -n myRegistry --admin-enabled true
 ```
 
 ### Disable admin user for an existing registry
 ```azurecli
-az acr update -n myRegistry --disable-admin
+az acr update -n myRegistry --admin-enabled false
 ```
 
 ## List images and tags

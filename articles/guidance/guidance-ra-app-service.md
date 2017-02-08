@@ -19,13 +19,16 @@ ms.author: mwasson
 
 ---
 # Web application architectures for Azure App Service
+
+[!INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
+
 Azure App Service is a fully managed cloud service for hosting web applications, mobile app back ends, and web APIs. However, most applications require more than just a web tier. For example, a typical application may use a data tier, cache, and CDN. Other considerations include deployment, diagnostics, monitoring, and multi-region deployments for high availability.
 
 The patterns & practices group has created a set of reference architectures to address these scenarios. Each reference architecture includes:
 
 * An architecture diagram, showing the components that make up the architecture.
 * Recommendations and best practices.
-* Considerations for availability, security, scalability and manageability.
+* Considerations for availability, security, scalability, and manageability.
 
 This article gives a summary of each reference architecture, and helps you to decide which solution will best meet your needs.
 

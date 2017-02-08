@@ -54,7 +54,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 ## Site recovery in the Azure portal
 Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal.
 
-This article describes how to deploy in the Azure portal, which provides new features and a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal. 
+This article describes how to deploy in the Azure portal, which provides new features and a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
 
 
 ## Site recovery in your business
@@ -450,6 +450,10 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 Make sure that machines you want to replicate are prepared for Mobility service installation, and then enable replication.
 
 ### Install the Mobility service
+
+  > [!TIP]
+  > Azure Site Recovery now supports installing Mobility Service using software deployment tools like System Center Configuration Manager. Read more on how to [Automate Mobility Service deployment](site-recovery-install-mobility-service-using-sccm.md) .  
+
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in a couple of ways:
 
 * **Process server push**: When you enable replication on a machine, push and install the Mobility service component from the process server. Note that push installation won't occur if machines are already running an up-to-date version of the component.
@@ -547,7 +551,8 @@ The mobility service can be uninstalled using Add Remove Programs in the Control
 
 **You can also install from the command-line**:
 
-1. Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the configuration server, and save it as "passphrase.txt" on the configuration server. Then run these commands. In our example, the configuration server IP address is 104.40.75.37 and the HTTPS port should be 443:
+Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the configuration server, and save it as "passphrase.txt" on the configuration server. Then run these commands. In our example, the configuration server IP address is 104.40.75.37 and the HTTPS port should be 443:
+
 
 To install on a production server:
 
@@ -575,7 +580,8 @@ When you enable replication, by default all disks on a machine are replicated. Y
 * Only basic disks can be excluded from replication. You can't exclude OS or dynamic disks.
 * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you'll need to disable protection for the machine and then reenable it.
 * If you exclude a disk that's needed for an application to operate, after failover to Azure you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-* Disks you create manually in Azure will be failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
+* Window VM :Disks you create manually in Azure will be not be  failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks which were failed over will be failed back. You can't include disks created manually in failback or in re-protect from On-prem to Azure.
+* Linux VM: Disks you create manually in Azure will be failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
 
 **Now enable replication as follows**:
 
@@ -586,14 +592,17 @@ When you enable replication, by default all disks on a machine are replicated. Y
 5. Select the process server. If you haven't created any additional process servers this will be the name of the configuration server. Then click **OK**.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication2.png)
-6. In **Target**, select the vault subscription, and in **Post-failover deployment model**, select the model (classic or Resource Manager) that you want to use in Azure after failover.
+
+6. In **Target** select the subscription and the resource group where you want to create the failed over virtual machines. Choose the deployment model that you want to use in Azure (classic or resource management) for the failed over virtual machines.
+
+
 7. Select the Azure storage account you want to use for replicating data. Note that:
 
    * You can select a premium or standard storage account. If you select a premium account, you'll need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
    * If you want to use a different storage account than those you have, you can [create one](#set-up-an-azure-storage-account). To create a storage account using Resource Manager, click **Create new**. If you want to create a storage account using the classic model, you do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
 8. Select the Azure network and subnet to which Azure VMs will connect, when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network using Resource Manager, click **Create new**. If you want to create a network using the classic model, do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Select a subnet if applicable. Then click **OK**.
 
-    ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication3.png)
+    ![Enable replication](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 9. In **Virtual Machines** > **Select virtual machines**, click and select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication5.png)
@@ -649,6 +658,39 @@ In order to test the deployment you can run a test failover for a single virtual
 
   * If possible, you should shut down primary machines before you run an unplanned failover. This ensures that you don't have both the source and replica machines running at the same time. If you're replicating VMware VMs, then you can specify that Site Recovery should make a best effort to shut down the source machines. Depending on the state of the primary site this might or might not work. If you're replicating physical servers, Site Recovery doesn't offer this option.
   * When you run an unplanned failover, it stops data replication from primary machines so any data delta won't be transferred after an unplanned failover begins. In addition, if you run an unplanned failover on a recovery plan it will run until complete, even if an error occurs.
+
+## Failover
+After initial replication is complete for  your machines, you can invoke failovers as the need arises. Site Recovery supports various types of failovers - Test failover, Planned failover and Unplanned failover.
+[Learn more](site-recovery-failover.md) about different types of failovers and detailed descriptions of when and how to perform each of them.
+
+> [!NOTE]
+> If your intent is to migrate virtual machines to Azure, we strongly recommend that you use a [Planned Failover operation](site-recovery-failover.md#run-an-unplanned-failover) to migrate the virtual machines to Azure. Once the migrated application is validated in Azure using test failover, use the steps mentioned under [Complete Migration](#Complete-migration-of-your-virtual-machines-to-Azure) to complete the migration of your virtual machines. You do not need to perform a Commit or Delete. Complete Migration completes the migration, removes the protection for the virtual machine and stops Azure Site Recovery billing for the machine.
+>
+>
+
+### Run an Unplanned Failover
+This procedure describes how to run an 'unplanned failover' for a recovery plan. Alternatively you can run the failover for a single virtual machine on the Virtual Machines tab. Before you start, make sure all the virtual machines you want to fail over have completed initial replication.
+
+1. Select **Recovery Plans > recoveryplan_name**.
+2. On the Recovery plan blade, Click **Unplanned Failover**.
+3. On the **unplanned Failover** page, choose the source and target locations.
+4. Select **Shut down virtual machines and synchronize the latest data** to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.
+5. After the failover, the virtual machines are in a commit pending state.  Click **Commit** to commit the failover.
+
+[Learn more](site-recovery-failover.md#run-an-unplanned-failover)
+
+## Complete migration of your virtual machines to Azure
+> [!NOTE]
+> The following steps apply only if you are migrating virtual machines to Azure
+>
+>
+
+1. Perform an unplanned failover as mentioned [here](site-recovery-failover.md#run-an-unplanned-failover)
+2. In **Settings > Replicated items**, right-click the virtual machine and select **Complete Migration**
+
+    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
+3. Click **OK** to complete the migration. You can track progress by clicking on the VM to open its properties, or by using the Complete Migration job in **Settings > Site Recovery jobs**.
+
 
 ### Prepare to connect to Azure VMs after failover
 If you want to connect to Azure VMs using RDP after failover, make sure you do the following:

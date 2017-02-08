@@ -44,7 +44,7 @@ There are best practices to be followed with regards to the storage accounts use
 
 1. **Keep all disks (OS and data) associated with a VM in the same storage account**
 2. **Storage account [limits](../articles/storage/storage-scalability-targets.md) should be considered** when adding more VHDs to a storage account
-3. **Use multiple Storage Accounts for each Availability Set.** Use separate storage account for each VM in an Availability Set. Multiple VMs in the same availability set must NOT share the same storage account. It is acceptable for VMs across different Availability Sets to share storage accounts as long as the best practices above are followed
+3. **Use separate storage account for each VM in an Availability Set.** Multiple VMs in the same availability set must NOT share the same storage account. It is acceptable for VMs across different Availability Sets to share storage accounts as long as the best practices above are followed
 
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy

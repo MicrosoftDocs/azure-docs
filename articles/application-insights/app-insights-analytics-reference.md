@@ -12,15 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 
 ---
 # Reference for Analytics
-[Analytics](app-insights-analytics.md) is the powerful search feature of 
-[Application Insights](app-insights-overview.md). These pages describe the
- Analytics query language.
+[Analytics](app-insights-analytics.md) is the powerful search feature of [Application Insights](app-insights-overview.md). These pages describe the Analytics query language.
 
+Additional sources of information:
+
+* Much reference material is available in Analytics as you type. Just start typing a query and you're prompted with possible completions.
+* [The tutorial page](app-insights-analytics-tour.md) gives a step-by-step introduction to the language features.
 * [SQL users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
 * [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
  
@@ -28,7 +30,7 @@ ms.author: awills
 ## Index
 **Let** [let](#let-clause)
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -364,6 +366,70 @@ traces
     Age = now() - timestamp
 ```
 
+### find operator
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Find rows that match a predicate across a set of tables.
+
+**Syntax**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Arguments**
+
+* *Table1* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
+* *Predicate* A boolean expression evaluated for every row in the specified tables.
+* *Column1* The `project` option allows you to specify which columns must always appear in the output. 
+
+**Result**
+
+By default, the output table contains:
+
+* `source_` - An indicator of the source table for each row.
+* Columns explicitly mentioned in the predicate
+* Non-empty columns common to all the input tables.
+* `pack_` - A property bag containing the data from the other columns.
+
+Notice that this format can change with changes in the input data or predicate. To specify a fixed set of columns, use `project`.
+
+**Example**
+
+Get all the requests and exceptions, excluding those from availability tests and robots:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Find all requests and exceptions from UK, excluding those from availability tests and robots:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Find most recent telemetry where any field contains the term 'test':
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Performance Tips**
+
+* Add time-based terms to the `where` predicate.
+* Use `let` clauses rather than writing queries inline.
+
+
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +453,10 @@ A table with:
 
 * A column for every column in each of the two tables, including the matching keys. The columns of the right side will be automatically renamed if there are name clashes.
 * A row for every match between the input tables. A match is a row selected from one table that has the same value for all the `on` fields as a row in the other table. 
-* `Kind` unspecified
+* `Kind` unspecified or `= innerunique`
   
     Only one row from the left side is matched for each value of the `on` key. The output contains a row for each match of this row with rows from the right.
-* `Kind=inner`
+* `kind=inner`
   
      There's a row in the output for every combination of matching rows from left and right.
 * `kind=leftouter` (or `kind=rightouter` or `kind=fullouter`)
@@ -399,8 +465,10 @@ A table with:
 * `kind=leftanti`
   
      Returns all the records from the left side that do not have matches from the right. The result table just has the columns from the left side. 
+* `kind=leftsemi` (or `leftantisemi`)
 
-If there are several rows with the same values for those fields, you'll get rows for all the combinations.
+    Returns a row from the left table if there is (or is not) a match for it in the right table. The result does not include data from the right.
+
 
 **Tips**
 
@@ -947,13 +1015,13 @@ This more efficient version produces the same result. It filters each table befo
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### Forcing an order of results
+#### Forcing an order of results
 
 Union doesn't guarantee a specific ordering in the rows of results.
 To get the same order every time you run the query, append a tag column to each input table:
@@ -963,6 +1031,9 @@ To get the same order every time you run the query, append a tag column to each 
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### See also
+
+Consider the [join operator](#join-operator) as an alternative.
 
 ### where operator
      requests | where resultCode==200
@@ -974,11 +1045,13 @@ Filters a table to the subset of rows that satisfy a predicate.
 **Syntax**
 
     T | where Predicate
+    T | where * has Term
 
 **Arguments**
 
 * *T:* The tabular input whose records are to be filtered.
 * *Predicate:* A `boolean` [expression](#boolean) over the columns of *T*. It is evaluated for each row in *T*.
+* *Term* - a string that must match the whole of a word in a column.
 
 **Returns**
 

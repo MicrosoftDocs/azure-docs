@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 
 ---
@@ -31,7 +31,7 @@ The following video shows how to perform the basic steps in this tutorial
 >
 
 ## Create a webhook-triggered function from the template
-A function app hosts the execution of your functions in Azure. Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/). 
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
 
 1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
 
@@ -47,9 +47,12 @@ A function app hosts the execution of your functions in Azure. Before you can cr
 
 1. Copy the **Function URL** and **GitHub Secret** values. You need these values to create the webhook in GitHub. 
 
-2. Scroll down to **Run**, note the predefined JSON body of an issue comment in the Request body, then click **Run**. 
+2. Click **Test**, note the predefined JSON body of an issue comment in the **Request body**, then click **Run**. 
+
+	![Test webhook function in the portal](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    You can always test a new template-based function right in the **Develop** tab by supplying any expected body JSON data and clicking the **Run** button. In this case, the template has a predefined body for an issue comment. 
+    > [!NOTE]
+    > You can always test a new template-based function right in the **Develop** tab by supplying any expected body JSON data and clicking the **Run** button. In this case, the template has a predefined body for an issue comment. 
 
 Next, you will create the actual webhook in your GitHub repository.
 

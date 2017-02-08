@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect a virtual network to multiple sites using VPN Gateway and PowerShell | Microsoft Docs
 description: This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model.
 services: vpn-gateway
@@ -54,7 +54,7 @@ Before you begin configuration, verify that you have the following:
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
 * An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
-* You'll need to install the latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+* You'll need to install the latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 * Someone who is proficient at configuring your VPN hardware. You won't be able to use the auto-generated VPN scripts from the Azure Classic Portal to configure your VPN devices. This means you'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
 * The IP address ranges that you want to use for your virtual network (if you haven't already created one). 
 * The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap. Otherwise, the Azure Classic Portal or the REST API will reject the configuration being uploaded. 

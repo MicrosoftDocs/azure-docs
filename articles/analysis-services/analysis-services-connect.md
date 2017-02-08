@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/24/2016
+ms.date: 01/20/2017
 ms.author: owend
 
 ---
@@ -77,13 +77,8 @@ Integrated authentication will pick up the Azure Active Directory credential cac
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
 ```
 
-## Client libraries
-When connecting to Azure Analysis Services from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest provider client libraries. Get the latest:  
-
-[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
-[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>
-[AMO](https://go.microsoft.com/fwlink/?linkid=829578)</br>
-[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
+## Data providers (aka client libraries)
+When connecting to an Azure Analysis Services server from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest data providers. To learn more, see [Data providers](analysis-services-data-providers.md).
 
 ## Next steps
 [Manage your server](analysis-services-manage.md)

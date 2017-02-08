@@ -20,7 +20,7 @@ ms.author: nitinme
 # Frequently asked questions for Azure Data Lake Store
 In this article you will learn about FAQs related to Azure Data Lake Store.
 
-## How do I handle disaster recovery and data corruption for my Azure Data Lake Store account?
+## How can I further protect my data from region-wide disasters or accidental deletions?
 The data in your Azure Data Lake Store account is resilient to transient hardware failures within a region through automated replicas. This ensures durability and high availability, meeting the Azure Data Lake Store SLA. Here's some guidance on how to further protect your data from rare region-wide outages or accidental deletions.
 
 ### Disaster recovery guidance

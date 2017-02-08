@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ that provides answers to questions in conjunction with accessing Azure and Azure Active Directory, password management and application access.
 services: active-directory
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
-ms.author: markusvi
+ms.date: 01/19/2017
+ms.author: markvi
 
 ---
 # Azure Active Directory FAQ
@@ -40,6 +40,18 @@ For more details, see:
 In fact, all the users you have enabled for Microsoft Online services are defined as user accounts in one or more Azure AD instances. You can enable these accounts for free Azure AD capabilities such as cloud application access.
 
 Additionally, Azure AD paid services (e.g.: Azure AD basic, Premium, EMS, etc.) complement other Online services such as Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
+
+**Q:  Why can I sign-in to the Azure portal but not the classic portal?**
+**A:**  The new Azure portal does not require a valid subscription whereas the classic portal does require you to have a valid subscription.  If you do not have a subscription, you will not be able to sign-in to the classic portal.
+
+**Q:**  What are the differences between Subscription Administrator and Directory Administrator?**
+
+**A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription Administrator can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
+If others need to sign in and access services using the same subscription, you can add them as co-administrators. This role has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories.  For additional information on Subscription Administrators see [here.](../billing-add-change-azure-subscription-administrator.md) and [here](active-directory-how-subscriptions-associated-directory.md)
+
+Azure AD has a different set of administrative roles to manage the directory and identity-related features.  These administrators will have access to various features in the Azure portal or Azure classic portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things.  For additional information on Azure AD Directory Administrators and their roles see [here.](active-directory-assign-admin-roles.md)
+
+
 
 - - -
 ## Getting started with Hybrid Azure AD
@@ -91,6 +103,18 @@ For more details, see [Getting started with Password Management](active-director
 **A:** Yes, if you have password write-back enabled, the password operations performed by an administrator are written back to your on-premises environment.  
 
 For more answers to password related questions, see [Password Management Frequently Asked Questions](active-directory-passwords-faq.md).
+
+**Q:  What can I do if I cannot remember my existing Office 365/Azure AD password while trying to change my password?**
+
+**A:** For this type of situation there are a couple of options.  If your organization has enabled self-service password reset then you can try this.  This may or may not work depending on how self-serive password reset has been configured.  For more information see [How does the password reset portal work.](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work)
+
+For Office 365 users, your administrator can reset the password using the steps outlined [here.](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)
+
+For Azure AD accounts, administrators can reset passwords using one of the following:
+
+- [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
+- [Reset accounts in the classic portal](active-directory-create-users-reset-password.md) 
+- [Using PowerShell](https://docs.microsoft.com/en-us/powershell/msonline/v1/Set-MsolUserPassword?redirectedfrom=msdn)
 
 - - -
 ## Application access
@@ -153,5 +177,8 @@ For more details, see [Securing access to Office 365 and other apps connected to
 **A:** Azure Active Directory allows you to automate the creation, maintenance, and removal of user identities in many popular cloud (SaaS) applications. 
 
 For more information, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+**Q:  Can I setup a secure LDAP connection with Azure Active Directory?**
+**A:**  No.  Azure AD does not support using the LDAP protocol.
 
 - - -

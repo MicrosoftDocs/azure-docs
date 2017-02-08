@@ -1,10 +1,10 @@
-﻿---
+---
 title: Switch your Azure subscription to another offer | Microsoft Docs
 description: Learn about how to change your Azure subscription and switch to a different offer using the subscription management portal
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: ''
 tags: billing,top-support-issue
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/6/2016
 ms.author: genli
 
 ---
@@ -87,9 +87,8 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 ## Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 We currently don't support offer switch to CSP or EA in the Accounts Center. To move your existing subscription into EA, have your enrollment admin add your account into the EA. Then, you receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions are automatically moved under the Enterprise Agreement. To migrate to CSP, see [Azure Subscription Migration to CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
-## Next steps
-* Learn how to [manage administrator roles](billing-add-change-azure-subscription-administrator.md) for your subscription
-* Track your usage by [downloading usage data and invoice](billing-download-azure-invoice-daily-usage-date.md)
+## Can I migrate data and services for my Azure subscription to a new subscription?
+Yes. For more information, see [Move resources to new resource group or subscription](./azure-resource-manager/resource-group-move-resources.md).
 
 ## Need help? Contact support.
 If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

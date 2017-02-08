@@ -3,8 +3,8 @@ title: Create an internal load balancer using PowerShell in Resource Manager | M
 description: Learn how to create an internal load balancer using PowerShell in Resource Manager
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Create an internal load balancer using PowerShell

@@ -30,18 +30,20 @@
 
 # How to
 ## Plan and design
-
 ### [Deep diagnostics for web apps and services](app-insights-devops.md)
 ### [Developer Analytics with Application Insights and HockeyApp](app-insights-developer-analytics.md)
 ### [Monitor performance in web applications](app-insights-web-monitor-performance.md)
 ### [Usage analysis with Application Insights](app-insights-overview-usage.md)
 ### [Separating Application Insights resources](app-insights-separate-resources.md)
 ### [How do I ... in Application Insights?](app-insights-how-do-i.md)
+## Migrate
+### [Migration from Azure Endpoint Monitoring to Availability tests](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Configure
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [Diagnostics](app-insights-azure-diagnostics.md)
+## [IP addresses](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Collect more telemetry](app-insights-asp-net-more.md)
@@ -102,7 +104,6 @@
 ### [Continuous export](app-insights-export-telemetry.md)
 ### [Export to Power BI](app-insights-export-power-bi.md)
 
-
 ## Develop
 
 ### [API for custom events and metrics ](app-insights-api-custom-events-metrics.md)
@@ -111,33 +112,30 @@
 
 
 ## Manage
-
 ### [Manage pricing and quota](app-insights-pricing.md)
 ### [Application Performance Monitoring using Application Insights for SCOM](app-insights-scom.md)
 
+##Export
+## [Export data model](app-insights-export-data-model.md)
 
 ## Secure
-
 ### [Data collection, retention and storage](app-insights-data-retention-privacy.md)
 ### [Resources, roles, and access control](app-insights-resources-roles-access-control.md)
-
-
 ## Troubleshoot
 ### [No data for .NET](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analytics](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Reference
-## [Java API](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](/java/api/com.microsoft.applicationinsights)
+## [REST](https://dev.applicationinsights.io/)
+
+# Resources
 ## [Analytics reference](app-insights-analytics-reference.md)
-## [Sampling](app-insights-sampling.md)
-## [IP addresses](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Export data model](app-insights-export-data-model.md)
-## [Migration from Azure Endpoint Monitoring to Availability tests](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Developer analytics: languages, platforms, and integrations](app-insights-platforms.md)
+### [Sampling](app-insights-sampling.md)
 ### [Samples and walkthroughs](app-insights-code-samples.md)
 #### [Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 #### [Walkthrough: Export to SQL using Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,13 +143,11 @@
 ## [Release notes for Application Insights SDK for Windows Phone and Store](app-insights-release-notes-windows.md)
 ## [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [SDK release notes Application Insights](app-insights-release-notes.md)
-## [Data access REST API](https://dev.applicationinsights.io/)
-
-# Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
 ## [Service updates](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Support](app-insights-get-dev-support.md)
+
 

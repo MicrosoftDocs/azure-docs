@@ -1,10 +1,10 @@
-﻿---
+---
 title: Troubleshoot Azure sign up issues | Microsoft Docs
 description: Describes how to troubleshoot some common Azure sign up issues.
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: felixwu
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 
@@ -20,6 +20,22 @@ ms.author: cjiang
 ---
 # I can't sign up for Azure
 If you can't sign up for Azure, there are several things you can check to troubleshoot the issue.
+
+## Progress bar hangs in "Identity verification by card" section
+
+During Azure sign-up, there's a section called "Identity verification by card". If the progress bar hangs:
+
+![Screenshot of the Identity verification by card section hanging during sign-up](./media/billing-troubleshoot-azure-sign-up-issues/identity-verification-hangs.PNG)
+
+This issue occurs when third-party cookies are blocked for your browser.
+
+### Suggestion
+
+1. Allow third-party cookies in your browser settings.
+  * In Edge, go to Settings -> View advanced settings -> Cookies, select "Don't block cookies".
+  * In Chrome, go to Settings -> Show advanced settings -> Privacy -> Content settings, uncheck "Block third-party cookies and site data".
+2. Refresh the Azure sign-up page, and check if the problem is resolved. 
+3. If the refresh didn't solve the issue, quit and restart your browser then try again.
 
 ## No text messages or calls during sign up account verification
 * Verify that your phone number can receive SMS.

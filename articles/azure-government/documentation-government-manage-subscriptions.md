@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Subscriptions | Microsoft Docs
 description: Information on managing your subscription in Azure Government
 services: Azure-Government
@@ -33,7 +33,7 @@ Whether you are using Azure PowerShell to manage a large subscription through sc
 * Region names
 
 > [!NOTE]
-> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](../powershell-install-configure.md).
+> If you have not used PowerShell yet, check out the [Introduction to Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 

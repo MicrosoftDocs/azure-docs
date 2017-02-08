@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 11/29/2016
 ms.author: alkohli
 ---
 # Deploy the StorSimple Device Manager service for StorSimple Virtual Array

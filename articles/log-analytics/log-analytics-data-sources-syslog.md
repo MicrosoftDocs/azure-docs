@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
 
 ---
@@ -74,7 +74,7 @@ You can remove a facility by removing its section of the configuration file.  Yo
 
 
 #### syslog-ng
-The configuration file for rsyslog is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities and all severities.   
+The configuration file for syslog-ng is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below.  This collects syslog messages sent from the local agent for all facilities and all severities.   
 
     #
     # Warnings (except iptables) in one file:

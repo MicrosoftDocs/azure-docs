@@ -18,8 +18,8 @@ ms.date: 10/05/2016
 ms.author: nitinme
 
 ---
-# Create Linux-based clusters in HDInsight by using Azure PowerShell
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# Create Linux-based clusters in HDInsight using Azure PowerShell
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Microsoft Azure. This document provides information about how to create a Linux-based HDInsight cluster by using Azure PowerShell. It also includes an example script.
 
@@ -55,8 +55,8 @@ The two most important parameters that you must set to create Linux clusters are
 * Make sure you specify the **-OSType** parameter as **Linux**.
 * To use SSH for remote sessions on the clusters, you can specify the SSH user password or the SSH public key. If you specify both the SSH user password and the SSH public key, the key will be ignored. If you want to use the SSH key for remote sessions, you must specify a blank SSH password when prompted for one. For more information about using SSH with HDInsight, see one of the following articles:
   
-  * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Use SSH with Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 The following script demonstrates how to create a new cluster:
 
@@ -151,7 +151,7 @@ The following sample demonstrates how to add an additional storage account:
 
 ## Customize clusters
 * See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
-* See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
+* See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## Delete the cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

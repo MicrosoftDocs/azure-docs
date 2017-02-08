@@ -12,7 +12,7 @@ keywords: ''
 ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
@@ -39,7 +39,7 @@ You will need to go to this [link](https://login.microsoftonline.com/common/oaut
 
 ## Create a resource group
 ```azurecli
-az resource group create -n acsrg1 -l "westus"
+az group create -n acsrg1 -l "westus"
 ```
 
 ![Image resource group create](media/container-service-create-acs-cluster-cli/rg-create.png)
@@ -115,7 +115,7 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ![Image ACS scale](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## Delete a container service cluster
-```
+```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
 *Note that this delete command does not delete all resources (network and storage) created while creating the container service. To delete all resources, it is recommended that a single ACS cluster be created per resource group and then the resource group itself be deleted when the acs cluster is no longer required to ensure that all related resources are deleted and you are not charged for them.*

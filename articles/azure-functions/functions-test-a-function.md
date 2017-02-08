@@ -358,7 +358,7 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### Test a queue trigger function with Code: C#
+### Test a queue trigger function with Code: C# #
 We mentioned earlier that you could test a queue trigger by using code to drop a message in your queue. The following example code is based off the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
 
 To test this code in a console app you must:

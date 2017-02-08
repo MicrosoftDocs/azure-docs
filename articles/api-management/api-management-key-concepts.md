@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 
 ---
@@ -39,7 +39,7 @@ This topic provides an overview of API Management key concepts.
 > * Securing access
 > * Analytics and metrics
 > * Gaining control and insight with an API Management platform
-> * Using cloud vs on-premise solutions
+> * Using cloud vs on-premises solutions
 > * Azure API Management
 > 
 > 

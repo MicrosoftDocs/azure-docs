@@ -1,9 +1,9 @@
-﻿---
+---
 title: Azure Container Service container management through the REST API | Microsoft Docs
 description: Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API.
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -12,11 +12,11 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure
 ms.assetid: c7175446-4507-4a33-a7a2-63583e5996e3
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 
 ---
 # Container management through the REST API
@@ -37,13 +37,13 @@ API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 Before you deploy containers to the DC/OS cluster, gather some
 information about the DC/OS cluster, such as the names and current
 status of the DC/OS agents. To do so, query the `master/slaves`
-endpoint of the DC/OS REST API. If everything goes well, you will see a list of DC/OS agents and several properties for each.
+endpoint of the DC/OS REST API. If everything goes well, the query returns a list of DC/OS agents and several properties for each.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-Now, use the Marathon `/apps` endpoint to check for current application deployments to the DC/OS cluster. If this is a new cluster, you will see an empty array for apps.
+Now, use the Marathon `/apps` endpoint to check for current application deployments to the DC/OS cluster. If this is a new cluster, you see an empty array for apps.
 
 ```
 curl localhost/marathon/v2/apps
@@ -52,7 +52,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## Deploy a Docker-formatted container
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This will deploy the container to an agent in the public-facing agent scale set.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample deploys the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container. Also note that the ‘acceptedResourceRoles’ property is set to ‘slave_public’. This deploys the container to an agent in the public-facing agent scale set.
 
 ```json
 {
@@ -88,7 +88,7 @@ The output will be similar to the following:
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Now, if you query Marathon for applications, this new application will show in the output.
+Now, if you query Marathon for applications, this new application appears in the output.
 
 ```
 curl localhost/marathon/v2/apps
@@ -104,7 +104,7 @@ You can also use the Marathon API to scale out or scale in application deploymen
 Run the following command to scale out the application.
 
 > [!NOTE]
-> The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
+> The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -112,7 +112,7 @@ Run the following command to scale out the application.
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Finally, query the Marathon endpoint for applications. You will see that there are now three of the Nginx containers.
+Finally, query the Marathon endpoint for applications. You see that there are now three Nginx containers.
 
 ```
 curl localhost/marathon/v2/apps
@@ -127,7 +127,7 @@ To gather information about the DC/OS cluster, such as agent names and agent sta
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample will deploy the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container.
+You deploy Docker-formatted containers through Marathon by using a JSON file that describes the intended deployment. The following sample deploys the Nginx container, binding port 80 of the DC/OS agent to port 80 of the container.
 
 ```json
 {
@@ -163,7 +163,7 @@ You can also use the Marathon API to scale out or scale in application deploymen
 Run the following command to scale out the application.
 
 > [!NOTE]
-> The URI will be http://localhost/marathon/v2/apps/ and then the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
+> The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 

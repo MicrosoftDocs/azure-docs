@@ -118,5 +118,5 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
 [Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Azure Storage account]: ../articles/storage/storage-create-storage-account.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com

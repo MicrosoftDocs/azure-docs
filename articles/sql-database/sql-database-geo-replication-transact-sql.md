@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Docs
 description: Configure Geo-Replication for Azure SQL Database using Transact-SQL
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -17,21 +18,21 @@ ms.date: 10/13/2016
 ms.author: carlrab
 
 ---
-# Configure Geo-Replication for Azure SQL Database with Transact-SQL
+# Configure active geo-replication for Azure SQL Database with Transact-SQL
 > [!div class="op_single_selector"]
 > * [Overview](sql-database-geo-replication-overview.md)
-> * [Azure Portal](sql-database-geo-replication-portal.md)
+> * [Azure portal](sql-database-geo-replication-portal.md)
 > * [PowerShell](sql-database-geo-replication-powershell.md)
 > * [T-SQL](sql-database-geo-replication-transact-sql.md)
 > 
 > 
 
-This article shows you how to configure Active Geo-Replication for an Azure SQL Database with Transact-SQL.
+This article shows you how to configure active geo-replication for an Azure SQL Database with Transact-SQL.
 
 To initiate failover using Transact-SQL, see [Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
+> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 > 
 > 
 
@@ -49,8 +50,8 @@ To configure Active Geo-Replication using Transact-SQL, you need the following:
 > 
 
 ## Add secondary database
-You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
-After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure Geo-Replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
+You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or in an elastic pool. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
+After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure Geo-Replication using Management Studio. Steps to create non-readable and readable secondaries, either as a single database or in an elastic pool, are provided.
 
 > [!NOTE]
 > If a database exists on the specified partner server with the same name as the primary database the command will fail.
@@ -84,8 +85,8 @@ Use the following steps to create a readable secondary as a single database.
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
 4. Click **Execute** to run the query.
 
-### Add non-readable secondary (elastic database)
-Use the following steps to create a non-readable secondary as an elastic database.
+### Add non-readable secondary (elastic pool)
+Use the following steps to create a non-readable secondary in an elastic pool.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -96,8 +97,8 @@ Use the following steps to create a non-readable secondary as an elastic databas
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Click **Execute** to run the query.
 
-### Add readable secondary (elastic database)
-Use the following steps to create a readable secondary as an elastic database.
+### Add readable secondary (elastic pool)
+Use the following steps to create a readable secondary in an elastic pool.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -121,10 +122,11 @@ Use the following steps to remove geo-replicated secondary from a Geo-Replicatio
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
 4. Click **Execute** to run the query.
 
-## Monitor Geo-Replication configuration and health
+## Monitor active geo-replication configuration and health
+
 Monitoring tasks include monitoring of the Geo-Replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_link_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
 
-Use the following steps to monitor a Geo-Replication partnership.
+Use the following steps to monitor an active geo-replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -144,7 +146,7 @@ Use the following steps to monitor a Geo-Replication partnership.
 9. Click **Execute** to run the query.
 
 ## Upgrade a non-readable secondary to readable
-In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries. If you are using non-readable secondaries today and want to upgrade them to be readable, you can use the following simple steps for each secondary.
+In April 2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries. If you are using non-readable secondaries today and want to upgrade them to be readable, you can use the following simple steps for each secondary.
 
 > [!IMPORTANT]
 > There is no self-service method of in-place upgrading of a non-readable secondary to readable. If you drop your only secondary, then the primary database will remain unprotected until the new secondary is fully synchronized. If your application’s SLA requires that the primary is always protected, you should consider creating a parallel secondary in a different server before applying the upgrade steps above. Note each primary can have up to 4 secondary databases.
@@ -160,6 +162,6 @@ In April 2017 the non-readable secondary type will be retired and existing non-r
             ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## Next steps
-* To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
+* To learn more about active geo-replication, see - [Active geo-replication](sql-database-geo-replication-overview.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 

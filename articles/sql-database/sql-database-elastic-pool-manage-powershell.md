@@ -1,6 +1,6 @@
-﻿---
-title: Manage an elastic database pool (PowerShell) | Microsoft Docs
-description: Learn how to use PowerShell to manage an elastic database pool.
+---
+title: Manage an elastic pool (PowerShell) | Microsoft Docs
+description: Learn how to use PowerShell to manage an elastic pool.
 services: sql-database
 documentationcenter: ''
 author: srinia
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -17,7 +18,7 @@ ms.date: 06/22/2016
 ms.author: srinia
 
 ---
-# Monitor and manage an elastic database pool with PowerShell
+# Monitor and manage an elastic pool with PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -26,15 +27,15 @@ ms.author: srinia
 >
 >
 
-Manage an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
+Manage an [elastic pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
-Values for pools can be found in [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Values for pools can be found in [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ## Prerequisites
-* Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-* Elastic database pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
+* Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* elastic pools are only available with SQL Database V12 servers. If you have a SQL Database V11 server, [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
 
 ## Move a database into an elastic pool
 You can move a database into or out of a pool with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
@@ -42,15 +43,15 @@ You can move a database into or out of a pool with the [Set-AzureRmSqlDatabase](
     Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## Change performance settings of a pool
-When performance suffers, you can change the settings of the pool to accommodate growth. Use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx) cmdlet. Set the -Dtu parameter to the eDTUs per pool. See [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for possible values.  
+When performance suffers, you can change the settings of the pool to accommodate growth. Use the [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx) cmdlet. Set the -Dtu parameter to the eDTUs per pool. See [eDTU and storage limits](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) for possible values.  
 
-    Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50
+    Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
 
 
 ## Get the status of pool operations
 Creating a pool can take time. To track the status of pool operations including creation and updates, use the [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx) cmdlet.
 
-    Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1”
+    Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
 
 
 ## Get the status of moving an elastic database into and out of a pool
@@ -88,7 +89,7 @@ To retrieve the metrics:
 
 
 ## Get resource usage data for an elastic database
-These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference.
+These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a single database, except for the following semantic difference.
 
 For this API, metrics retrieved are expressed as a percentage of the per max eDTUs (or equivalent cap for the underlying metric like CPU, IO etc) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per database cap limit for that resource in the parent pool.
 

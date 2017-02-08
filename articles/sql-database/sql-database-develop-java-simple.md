@@ -9,6 +9,7 @@ editor: genemi
 
 ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
 ms.service: sql-database
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java

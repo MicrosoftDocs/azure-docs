@@ -3,7 +3,7 @@ title: Get Started with Event Hubs in Java with Apache Storm | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster.
 services: event-hubs
 documentationcenter: ''
-author: fsautomata
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: sethm
 
 ---
@@ -54,14 +54,13 @@ Now you are ready to run the applications.
 ## Next Steps
 The following resources are available for developing applications integrating Event Hubs and Storm.
 
-* [Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
+* [Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in a Hadoop cluster.
 * [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview]: event-hubs-overview.md
 

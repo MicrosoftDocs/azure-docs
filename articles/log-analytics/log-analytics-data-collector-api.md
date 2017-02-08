@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log Analytics HTTP Data Collector API | Microsoft Docs
 description: You can use the Log Analytics HTTP Data Collector API to add POST JSON data to the Log Analytics repository from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
 services: log-analytics
@@ -13,15 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/21/2016
 ms.author: bwren
 
 ---
-# Log Analytics HTTP Data Collector API
-When you use the Azure Log Analytics HTTP Data Collector API, you can add POST JavaScript Object Notation (JSON) data to the Log Analytics repository from any client that can call the REST API. By using this method, you can send data from third-party applications or from scripts, like from a runbook in Azure Automation.  
+# Send data to Log Analytics with the HTTP Data Collector API
+This article shows you how to use the HTTP Data Collector API to send data to Log Analytics from a REST API client.  It describes how to format data collected by your script or application, include it in a request, and have that request authorized by Log Analytics.  Examples are provided for PowerShell, C#, and Python.
+
+## Concepts
+You can use the HTTP Data Collector API to send data to Log Analytics from any client that can call a REST API.  This might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternate management system that uses Log Analytics to consolidate and analyze data.
+
+All data in the Log Analytics repository is stored as a record with a particular record type.  You format your data to send to the HTTP Data Collector API as multiple records in JSON.  When you submit the data, an individual record is created in the repository for each record in the request payload.
+
+
+![HTTP Data Collector overview](media/log-analytics-data-collector-api/overview.png)
+
+
 
 ## Create a request
-The next two tables list the attributes that are required for each request to the Log Analytics HTTP Data Collector API. We describe each attribute in more detail later in the article.
+To use the HTTP Data Collector API, you create a POST request that includes the data to send in JavaScript Object Notation (JSON).  The next three tables list the attributes that are required for each request. We describe each attribute in more detail later in the article.
 
 ### Request URI
 | Attribute | Property |
@@ -153,13 +163,13 @@ There are some constraints around the data posted to the Log Analytics Data coll
 * Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
 
 ## Return codes
-The HTTP status code 202 means that the request has been accepted for processing, but processing has not yet finished. This indicates that the operation completed successfully.
+The HTTP status code 200 means that the request has been received for processing. This indicates that the operation completed successfully.
 
 This table lists the complete set of status codes that the service might return:
 
 | Code | Status | Error code | Description |
 |:--- |:--- |:--- |:--- |
-| 202 |Accepted | |The request was successfully accepted. |
+| 200 |OK | |The request was successfully accepted. |
 | 400 |Bad request |InactiveCustomer |The workspace has been closed. |
 | 400 |Bad request |InvalidApiVersion |The API version that you specified was not recognized by the service. |
 | 400 |Bad request |InvalidCustomerId |The workspace ID specified is invalid. |
@@ -170,6 +180,8 @@ This table lists the complete set of status codes that the service might return:
 | 400 |Bad request |MissingLogType |The required value log type wasn’t specified. |
 | 400 |Bad request |UnsupportedContentType |The content type was not set to **application/json**. |
 | 403 |Forbidden |InvalidAuthorization |The service failed to authenticate the request. Verify that the workspace ID and connection key are valid. |
+| 404 |Not Found | | Either the URL provided is incorrect, or the request is too large. |
+| 429 |Too Many Requests | | The service is experiencing a high volume of data from your account. Please retry the request later. |
 | 500 |Internal Server Error |UnspecifiedError |The service encountered an internal error. Please retry the request. |
 | 503 |Service Unavailable |ServiceUnavailable |The service currently is unavailable to receive requests. Please retry your request. |
 
@@ -413,7 +425,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 202):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)
@@ -422,5 +434,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## Next steps
-* Use [View Designer](log-analytics-view-designer.md) to build custom views on the data that you submit.
-
+- Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.

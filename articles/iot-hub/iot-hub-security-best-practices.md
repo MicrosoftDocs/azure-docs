@@ -1,6 +1,6 @@
 ---
-title: IoT Security Best Practices | Microsoft Docs
-description: Security best practices for securing your IoT infrastructure
+title: Azure IoT security best practices | Microsoft Docs
+description: IoT security best practices for securing your IoT infrastructure. Includes recommendations for solution developers, solution deployers, and solution operators.
 services: iot-hub
 documentationcenter: ''
 author: YuriDio

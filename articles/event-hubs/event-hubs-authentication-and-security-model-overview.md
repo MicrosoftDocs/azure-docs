@@ -1,5 +1,5 @@
 ---
-title: Overview of Event Hubs authentication and security model | Microsoft Docs
+title: Overview of Azure Event Hubs authentication and security model | Microsoft Docs
 description: Event Hubs authentication and security model overview.
 services: event-hubs
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm;clemensv
 
 ---
 # Event Hubs authentication and security model overview
-The Event Hubs security model meets the following requirements:
+The Azure Event Hubs security model meets the following requirements:
 
 * Only devices that present valid credentials can send data to an Event Hub.
 * A device cannot impersonate another device.
@@ -36,7 +36,7 @@ Although not recommended, it is possible to equip devices with tokens that grant
 All tokens are signed with a SAS key. Typically, all tokens are signed with the same key. Devices are not aware of the key; this prevents devices from manufacturing tokens.
 
 ### Create the SAS key
-When creating an Event Hubs namespace, Azure Event Hubs generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
+When creating an Azure Event Hubs namespace, the service generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key **EventHubSendKey**.
 
 The following example creates a send-only key when creating the Event Hub:
 
@@ -100,10 +100,10 @@ In the absence of SAS authentication for individual consumer groups, you can use
 To learn more about Event Hubs, visit the following topics:
 
 * [Event Hubs overview]
-* A [queued messaging solution] using Service Bus queues.
-* A complete [sample application that uses Event Hubs].
+* [SAS overview]
+* A complete [sample application that uses Event Hubs]
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[SAS overview]: ../service-bus-messaging/service-bus-sas-overview.md
 

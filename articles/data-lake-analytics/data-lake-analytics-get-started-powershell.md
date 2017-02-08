@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to use the Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
@@ -28,7 +28,7 @@ In this tutorial, you will develop a job that reads a tab separated values (TSV)
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create Data Lake Analytics account
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:

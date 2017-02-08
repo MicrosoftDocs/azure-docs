@@ -1,6 +1,6 @@
 ---
-title: Developer guide - direct methods | Microsoft Docs
-description: Azure IoT Hub developer guide - use direct methods to invoke code on your devices
+title: Understand Azure IoT Hub direct methods | Microsoft Docs
+description: Developer guide - use direct methods to invoke code on your devices from a service app.
 services: iot-hub
 documentationcenter: .net
 author: nberdy
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 
 ---
-# Invoke a direct method on a device
+# Direct methods
 ## Overview
 IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 
@@ -57,7 +57,7 @@ Direct method invocations on a device are HTTP calls which comprise:
 ```
 {
     "methodName": "reboot",
-    "timeoutInSeconds": 200,
+    "responseTimeoutInSeconds": 200,
     "payload": {
         "input1": "someInput",
         "input2": "anotherInput"
@@ -65,10 +65,10 @@ Direct method invocations on a device are HTTP calls which comprise:
 }
 ```
 
-  Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
 
 ### Response
-The back-end receives a response which comprises:
+The back-end app receives a response which comprises:
 
 * *HTTP status code*, which is used for errors coming from the IoT Hub, including a 404 error for devices not currently connected
 * *Headers* which contain the etag, request ID, content type, and content encoding
@@ -107,16 +107,16 @@ The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`,
 The body is set by the device and can be any status.
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
+* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to use direct methods, you may be interested in the following Developer Guide topic:
+Now you have learned how to use direct methods, you may be interested in the following IoT Hub developer guide topic:
 
 * [Schedule jobs on multiple devices][lnk-devguide-jobs]
 

@@ -1,6 +1,6 @@
 ---
-title: Change the service tier and performance level of an Azure SQL database using PowerShell | Microsoft Docs
-description: Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down with PowerShell. Changing the pricing tier of an Azure SQL database with PowerShell.
+title: 'PowerShell: Change Azure SQL Database pricing tier | Microsoft Docs'
+description: Learn how to use PowerShell to change the service tier and performance level of an Azure SQL database and scale the resources and pricing of your SQL database up or down.
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 6f016c17-b048-4968-b82b-d2dcec954e54
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -20,8 +21,7 @@ ms.tgt_pltfrm: NA
 # Change the service tier and performance level (pricing tier) of a SQL database with PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-scale-up.md)
-> * [**PowerShell**](sql-database-scale-up-powershell.md)
-> 
+> * [**PowerShell**](sql-database-scale-up-powershell.md)> 
 > 
 
 Service tiers and performance levels describe the features and resources available for your SQL database and can be updated as the needs of your application change. For details, see [Service Tiers](sql-database-service-tiers.md).

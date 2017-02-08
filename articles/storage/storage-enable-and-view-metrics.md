@@ -4,7 +4,7 @@ description: How to enable storage metrics for the Blob, Queue, Table, and File 
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
@@ -57,7 +57,7 @@ The following command retrieves the current hourly metrics level and retention d
 Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## How to enable Storage metrics programmatically
 The following C# snippet shows how to enable metrics and logging for the Blob service using the storage client library for .NET:

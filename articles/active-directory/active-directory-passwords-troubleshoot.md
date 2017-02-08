@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Troubleshooting: Azure AD Password Management | Microsoft Docs'
 description: Common troubleshooting steps for Azure AD Password Management, including reset, change, writeback, registration, and what information to include when looking for help.
 services: active-directory
@@ -656,7 +656,7 @@ If you encounter an error when enabling, disabling, or using Password Writeback,
               <p>When attempting to reset a password on behalf of a user from the Azure Management Portal, you see a message stating: “The password reset service running in your on-premises environment does not support administrators resetting user passwords. Please upgrade to the latest version of Azure AD Connect to resolve this.”</p>
             </td>
             <td>
-              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect. For more information, see [Integrating your on-premises identities](active-directory-aadconnect.md) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
+              <p>This occurs when the version of the synchronization engine does not support the particular Password Writeback operation that was used. Versions of Azure AD Connect later than 1.0.0419.0911 support all password management operations, including password reset writeback, password change writeback, and administrator-initiated password reset writeback from the Azure Management Portal.&nbsp; DirSync versions later than 1.0.6862 support password reset writeback only. To resolve this issue, we highly recommend that you install the latest version of Azure AD Connect or Azure Active Directory Connect. For more information, see [Integrating your on-premises identities](connect/active-directory-aadconnect.md) to resolve this issue and to get the most out of Password Writeback in your organization.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1483,7 +1483,7 @@ If disabling and re-enabling the Password Writeback feature does not resolve you
 Re-installing the Azure AD Connect package will resolve any configuration issues which may be affecting your ability to either connect to our cloud services or to manage passwords in your local AD environment.
 We recommend, you perform this step only after attempting the first two steps described above.
 
-1. Download the latest version of Azure AD Connect [here](active-directory-aadconnect.md#install-azure-ad-connect).
+1. Download the latest version of Azure AD Connect [here](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 2. Since you have already installed Azure AD Connect, you will only need to perform an in-place upgrade to update your Azure AD Connect installation to the latest version.
 3. Execute the downloaded package and follow the on-screen instructions to update your Azure AD Connect machine.  No additional manual steps are required unless you have customized the out of box sync rules, in which case you should **back these up before proceeding with upgrade and manually re-deploy them after you are finished**.
 

@@ -154,7 +154,6 @@ To see the results, open Metrics Explorer and add a new chart. Set it to display
 
 ![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-There are some [limits on the number of metrics](#limits) you can use.
 
 ## Page views
 In a device or web page app, page view telemetry is sent by default when each screen or page is loaded. But you can change that to track page views at additional or different times. For example, in an app that displays tabs or blades, you might want to track a "page" whenever the user opens a new blade.

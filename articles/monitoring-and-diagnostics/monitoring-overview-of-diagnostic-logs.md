@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Diagnostic Logs | Microsoft Docs
 description: Learn what Azure Diagnostic Logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 12/20/2016
 ms.author: johnkem; magoedte
 
 ---
@@ -25,16 +25,18 @@ ms.author: johnkem; magoedte
 ## What you can do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
 
-* Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
+* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+
+The storage account or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Diagnostic Settings
 Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
 
 * Where Diagnostic Logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
 * Which Log Categories are sent.
-* How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. Otherwise, this value can range from 1 to 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example if only Event Hubs or OMS options are selected), the retention policies have no effect.
+* How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. Otherwise, this value can range from 1 to 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example if only Event Hubs or OMS options are selected), the retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 These settings are easily configured via the Diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -88,14 +90,13 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 
-> [!NOTE]
-> The WorkspaceId parameter is not available in the October release. It will become available in the November release.
-> 
-> 
+You can obtain the resource id of your Log Analytics workspace using the following command:
 
-You can obtain your Log Analytics workspace ID in the Azure portal.
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 You can combine these parameters to enable multiple output options.
 
@@ -116,14 +117,7 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> The workspaceId parameter is not available in the October release. It will become available in the November release.
-> 
-> 
-
-You can obtain your Log Analytics workspace ID in the Azure portal.
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 
 You can combine these parameters to enable multiple output options.
 
@@ -157,7 +151,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 
 | Service | Schema & Docs |
 | --- | --- |
-| Software Load Balancer |[Log analytics for Azure Load Balancer (Preview)](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log analytics for Azure Load Balancer (Preview)](../load-balancer/load-balancer-monitor-log.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
@@ -172,35 +166,36 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 | Stream Analytics |No schema available. |
 
 ## Supported log categories per resource type
-| Resource Type | Category | Category Display Name |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |Job Logs |
-| Microsoft.Automation/automationAccounts |JobStreams |Job Streams |
-| Microsoft.Batch/batchAccounts |ServiceLog |Service Logs |
-| Microsoft.DataLakeAnalytics/accounts |Audit |Audit Logs |
-| Microsoft.DataLakeAnalytics/accounts |Requests |Request Logs |
-| Microsoft.DataLakeStore/accounts |Audit |Audit Logs |
-| Microsoft.DataLakeStore/accounts |Requests |Request Logs |
-| Microsoft.EventHub/namespaces |ArchiveLogs |Archive Logs |
-| Microsoft.EventHub/namespaces |OperationalLogs |Operational Logs |
-| Microsoft.KeyVault/vaults |AuditEvent |Audit Logs |
-| Microsoft.Logic/workflows |WorkflowRuntime |Workflow runtime diagnostic events |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |Network Security Group Event |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |Network Security Group Rule Counter |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |Network Security Group Rule Flow Event |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |Load Balancer Alert Events |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |Load Balancer Probe Health Status |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Application Gateway Access Log |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Application Gateway Performance Log |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Application Gateway Firewall Log |
-| Microsoft.Search/searchServices |OperationLogs |Operation Logs |
-| Microsoft.ServerManagement/nodes |RequestLogs |Request Logs |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |Operational Logs |
-| Microsoft.StreamAnalytics/streamingjobs |Execution |Execution |
-| Microsoft.StreamAnalytics/streamingjobs |Authoring |Authoring |
+|Resource Type|Category|Category Display Name|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
+|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
+|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
+|Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
+|Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
+|Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
+|Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
+|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Search/searchServices|OperationLogs|Operation Logs|
+|Microsoft.ServerManagement/nodes|RequestLogs|Request Logs|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
+|Microsoft.StreamAnalytics/streamingjobs|Execution|Execution|
+|Microsoft.StreamAnalytics/streamingjobs|Authoring|Authoring|
 
 ## Next Steps
 * [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change Diagnostic Settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

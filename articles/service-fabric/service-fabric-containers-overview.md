@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Service Fabric and containers | Microsoft Docs
 description: An overview of Service Fabric and the use of containers to deploy microservice applications. This article provides an overview of how containers can be used and the available capabilities in Service Fabric.
 services: service-fabric
@@ -13,15 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 1/4/2017
 ms.author: msfussell
 
 ---
 # Preview: Service Fabric and containers
 > [!NOTE]
-> This feature is in preview for Linux and is not currently available on Windows Server 2016. This will be in preview for Windows Server on the next release of Azure Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
-> 
-> 
+> This feature is in preview for Linux and Windows Server 2016. 
+>   
 
 ## Introduction
 Azure Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines. Services can be developed in many ways, from using the [Service Fabric programming models](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default, Service Fabric deploys and activates these services as processes. Processes provide the fastest activation and highest density usage of the resources in a cluster. Service Fabric can also deploy services in container images. Importantly, you can mix services in processes and services in containers in the same application. You get the best of both worlds, depending on your scenario.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough | Microsoft Docs'
 description: How to use Azure Data Lake to do data exploration and binary classification tasks on a dataset.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: bradsev;weig
 
 ---

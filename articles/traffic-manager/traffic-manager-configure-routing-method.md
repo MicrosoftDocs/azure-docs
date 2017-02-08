@@ -3,8 +3,8 @@ title: Configure Traffic Manager routing methods | Microsoft Docs
 description: This article explains how to configures different routing methods in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Configure Traffic Manager routing methods

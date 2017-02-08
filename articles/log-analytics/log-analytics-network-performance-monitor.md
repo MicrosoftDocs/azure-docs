@@ -4,22 +4,21 @@ description: Network Performance Monitor helps you monitor the performance of yo
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---
 # Network Performance Monitor (Preview) solution in OMS
 > [!NOTE]
-> This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> This is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 >
 >
 

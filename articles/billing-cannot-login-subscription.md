@@ -1,10 +1,10 @@
-﻿---
+---
 title: Can't sign in to Azure subscription | Microsoft Docs
 description: Describes how to troubleshoot some common Azure subscription login issues.
 services: ''
 documentationcenter: ''
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/2/2016
 ms.author: genli
 
 ---
@@ -33,7 +33,7 @@ If your internet browser page hangs, try each of the following steps until you c
   B.    Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
 
 ## Error message "No subscriptions found”
-If your account doesn’t have sufficient permissions, you may see a **No subscription found** error message. Only an account administrator can get to the [Account Center](https://account.windowsazure.com/), not the service administrators (SA) or co-administrators (CA).
+If your account doesn’t have sufficient permissions, you may see a **No subscription found** error message. Make sure you log in as the right administrator. An Account Administrator can only access the [Account Center](https://account.windowsazure.com/Subscriptions). The Service Administrators (SA) and Co-Administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the Azure classic portal.
 
 **Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
 
@@ -49,7 +49,7 @@ Check whether the account that you used is the account administrator. To verify 
 4. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
 ## You are automatically signed in as a different user
-This issue can occur if you're using more than one user account in an Internet browser.
+This issue can occur if you use more than one user account in an Internet browser.
 
 To resolve the issue, try one of the following methods:
 

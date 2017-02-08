@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data Factory - Naming Rules | Microsoft Docs
 description: Describes naming rules for Data Factory entities.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/05/2016
 ms.author: shlo
 
 ---

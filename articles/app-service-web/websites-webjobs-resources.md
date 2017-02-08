@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure WebJobs documentation resources
 description: Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK.
 services: app-service
@@ -30,10 +30,10 @@ The WebJobs dashboard in the Azure portal provides powerful management capabilit
 ## <a name="getstarted"></a>Getting started with WebJobs and the WebJobs SDK
 * [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Azure WebJobs are awesome and you should start using them right now!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog post by Troy Hunt.)
-* [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
+* [Azure WebJobs Features](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md)
 * [Background Jobs Guidance by Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
-* [Announcing the 1.1.0 RTM of Microsoft Azure WebJobs SDK](/blog/azure-webjobs-sdk-1-1-0-rtm/)
+* [Announcing the 1.1.0 RTM of Microsoft Azure WebJobs SDK](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 * [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)

@@ -3,8 +3,8 @@ title: How Traffic Manager Works | Microsoft Docs
 description: This article explains how Azure Traffic Manager works
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: a6c9370d-e60d-440f-aa82-b6d3fa5416b0
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # How Traffic Manager works

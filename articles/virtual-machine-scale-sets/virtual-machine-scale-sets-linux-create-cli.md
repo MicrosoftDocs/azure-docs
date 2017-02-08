@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/22/2016
-ms.author: gatneil
+ms.author: negat
 
 ---
 # Create a Linux Virtual Machine Scale Set using Azure CLI

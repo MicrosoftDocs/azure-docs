@@ -14,7 +14,7 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
 
 ---
@@ -23,12 +23,12 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Collect audit logs
-To start troubleshooting, collect the audit logs to identify the error associated with the issue. The following links contain detailed information on the process:
+## Collect activity logs
+To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process:
 
-[Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+[View deployment operations](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Audit operations with Resource Manager](../resource-group-audit.md)
+[View activity logs to manage Azure resources](../azure-resource-manager/resource-group-audit.md)
 
 ## Issue: Error when starting a stopped VM
 You try to start a stopped VM but get an allocation failure.

@@ -15,16 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: ganesr
+ms.author: ganesr;cherylmc
 
 ---
 # Create and modify an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> * [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classic](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 This article describes how to create an Azure ExpressRoute circuit by using Windows PowerShell cmdlets and the Azure Resource Manager deployment model. This article will also show you how to check the status of the circuit, update it, or delete and deprovision it.
 
@@ -33,8 +34,9 @@ This article describes how to create an Azure ExpressRoute circuit by using Wind
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
-* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+
 
 ## Create and provision an ExpressRoute circuit
 ### 1. Sign in to your Azure account and select your subscription
@@ -373,6 +375,7 @@ You can delete your ExpressRoute circuit by running the following command:
 
 
 ## Next steps
+
 After you create your circuit, make sure that you do the following:
 
 * [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)

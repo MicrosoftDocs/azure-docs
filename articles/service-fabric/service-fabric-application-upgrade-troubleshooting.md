@@ -41,7 +41,7 @@ These entries only show up in the output when the upgrade fails and starts rolli
 ### Investigate upgrade timeouts
 Upgrade timeout failures are most commonly caused by service availability issues. The output following this paragraph is typical of upgrades where service replicas or instances fail to start in the new code version. The **UpgradeDomainProgressAtFailure** field captures a snapshot of any pending upgrade work at the time of failure.
 
-~~~
+```
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
 ApplicationName                : fabric:/DemoApp
@@ -73,7 +73,7 @@ UpgradeKind                    : Rolling
 RollingUpgradeMode             : UnmonitoredAuto
 ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
-~~~
+```
 
 In this example, the upgrade failed at upgrade domain *MYUD1* and two partitions (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* and *4b43f4d8-b26b-424e-9307-7a7a62e79750*) were stuck. The partitions were stuck because the runtime was unable to place primary replicas (*WaitForPrimaryPlacement*) on target nodes *Node1* and *Node4*.
 
@@ -86,7 +86,7 @@ The current **UpgradeState** is *RollingBackCompleted*, so the original upgrade 
 ### Investigate health check failures
 Health check failures can be triggered by various issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output following this paragraph is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of health checks that failed at the time of the upgrade according to the specified [health policy](service-fabric-health-introduction.md).
 
-~~~
+```
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
 ApplicationName                         : fabric:/DemoApp
@@ -136,7 +136,7 @@ MaxPercentUnhealthyReplicasPerPartition :
 MaxPercentUnhealthyServices             :
 MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
-~~~
+```
 
 Investigating health check failures first requires an understanding of the Service Fabric health model. But even without such an in-depth understanding, we can see that two services are unhealthy: *fabric:/DemoApp/Svc3* and *fabric:/DemoApp/Svc2*, along with the error health reports ("InjectedFault" in this case). In this example, two out of four services are unhealthy, which is below the default target of 0% unhealthy (*MaxPercentUnhealthyServices*).
 
@@ -155,7 +155,7 @@ The **Resume-ServiceFabricApplicationUpgrade** command can be used to proceed th
 
 The **Update-ServiceFabricApplicationUpgrade** command can be used to resume the monitored upgrade with both safety and health checks being performed.
 
-~~~
+```
 PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 
 UpgradeMode                             : Monitored
@@ -175,7 +175,7 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 
 PS D:\temp>
-~~~
+```
 
 The upgrade continues from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the preceding output can be changed in the same command when the upgrade resumes. In this example, the upgrade was resumed in Monitored mode, with the parameters and the health policies unchanged.
 

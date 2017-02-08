@@ -1,6 +1,6 @@
 ---
-title: Create an new elastic database pool with PowerShell | Microsoft Docs
-description: Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases.
+title: Create an new elastic pool with PowerShell | Microsoft Docs
+description: Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic pool to manage multiple databases.
 services: sql-database
 documentationcenter: ''
 author: srinia
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
@@ -17,7 +18,7 @@ ms.date: 05/27/2016
 ms.author: srinia
 
 ---
-# Create a new elastic database pool with PowerShell
+# Create a new elastic pool with PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -25,7 +26,7 @@ ms.author: srinia
 >
 >
 
-Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
+Learn how to create an [elastic pool](sql-database-elastic-pool.md) using PowerShell cmdlets.
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
@@ -34,10 +35,10 @@ For common error codes, see [SQL error codes for SQL Database client application
 >
 >
 
-You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create a new pool
-The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 

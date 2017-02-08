@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 
 ---
@@ -133,7 +133,7 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
    
     **administratorLogin** specifies the user name for the SQL Server administrator. Do not use common admin names like **sa** or **admin**. 
    
-    The **administratorLoginPassword** specifies a password for SQL Server administrator. The **Save passwords as plain text in the parameters file** option is not secure; therefore, do not select this option. Since the password is not saved as plain text, you will need to provide this password again during deployment. 
+    The **administratorLoginPassword** specifies a password for SQL Server administrator. The **Save passwords as plain text in the parameters file** option is not secure; therefore, do not select this option. Since the password is not saved as plain text, you need to provide this password again during deployment. 
    
     **databaseName** specifies a name for the database to create. 
    
@@ -188,7 +188,7 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
    
     The properties are:
    
-   * The **Additional Properties** contains the web deployment package staging location that is pushed to the Azure Storage. Note the folder (ExampleApp) and file (package.zip). You will provide these values as parameters when deploying the app. 
+   * The **Additional Properties** contains the web deployment package staging location that is pushed to the Azure Storage. Note the folder (ExampleApp) and file (package.zip). You need to know these values because you provide them as parameters when deploying the app. 
    * The **Include File Path** contains the path where the package is created. The **Include Targets** contains the command that deployment executes. 
    * The default value of **Build;Package** enables the deployment to build and create a web deployment package (package.zip).  
      

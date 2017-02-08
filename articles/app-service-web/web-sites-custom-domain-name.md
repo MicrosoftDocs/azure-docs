@@ -1,4 +1,4 @@
-﻿---
+---
 title: Map a custom domain name to an Azure app
 description: Learn how to map a custom domain name (vanity domain) to your app in Azure App Service.
 services: app-service
@@ -141,8 +141,8 @@ Configure your A record as follows (@ typically represents the root domain):
     <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
   <tr>
-    <td>*.contoso.com (wildcard)</td>
-    <td>*</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>\*</td>
     <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
 </table>
@@ -167,8 +167,8 @@ Your additional TXT record takes on the convention that maps from &lt;*subdomain
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com (wildcard)</td>
-    <td>*</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -200,8 +200,8 @@ Configure your CNAME record as follows (@ typically represents the root domain):
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com (wildcard)</td>
-    <td>*</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -229,50 +229,45 @@ domain name (FQDN) of your custom domain to the list.
 7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. 
 8. Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
-> [!NOTE]
-> If DNS record is already in use (active domain serving traffic scenario) and you need to preemptively bind your web app to it for domain verification, then simply create a TXT records as examples shown in following table. Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.azurewebsites.net. 
-> 
-> <table cellspacing="0" border="1">
-> 
-> <tr>
-> 
-> <th>FQDN example</th>
-> 
-> <th>TXT Host</th>
-> 
-> <th>TXT Value</th>
-> </tr>
-> 
-> <tr>
-> 
-> <td>contoso.com (root)</td>
-> 
-> <td>awverify.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>www.contoso.com (sub)</td>
-> 
-> <td>awverify.www.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>*.contoso.com (sub)</td>
-> 
-> <td>awverify.*.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> </table>
-> Once this DNS record is created, go back to Azure portal and add your custom domain name to your web app.
-> 
-> 
+## Migrate an active domain with no downtime 
+
+When you migrate a live site and its domain name to App Service, that domain name is already serving live traffic, and you don't want any downtime in DNS resolution during
+the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification. To do this, follow the modified steps below:
+
+1. First, create a verification TXT record with your DNS registry by following the steps at [Step 2. Create the DNS record(s)](#createdns).
+Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.azurewebsites.net.
+See the following table for examples:  
+ 
+    <table cellspacing="0" border="1">
+    <tr>
+    <th>FQDN example</th>
+    <th>TXT Host</th>
+    <th>TXT Value</th>
+    </tr>
+    <tr>
+    <td>contoso.com (root)</td>
+    <td>awverify.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    <tr>
+    <td>www.contoso.com (sub)</td>
+    <td>awverify.www.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    <tr>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>awverify.\*.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    </table>
+
+2. Then, add your custom domain name to your Azure app by following the steps at [Step 3. Enable the custom domain name for your app](#enable).
+
+    Your custom domain is now enabled in your Azure app. The only thing left to do is to update the DNS record with your domain registrar.
+
+3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Step 2. Create the DNS record(s)](#createdns). 
+
+    User traffic should be redirected to your Azure app immediately after DNS propagation happens.
 
 <a name="verify"></a>
 
@@ -290,7 +285,7 @@ After you finish the configuration steps, it can take some time for the changes 
 Learn how to secure your custom domain name with HTTPS by [buying an SSL certificate in Azure](web-sites-purchase-ssl-web-site.md) or [using an SSL certificate from elsewhere](web-sites-configure-ssl-certificate.md).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

@@ -1,10 +1,9 @@
-﻿
 ---
 title: Azure RemoteApp image requirements | Microsoft Docs
 description: Learn about the requirements for creating images to be used with Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 7cbb90f4-6dc9-462c-a429-088cdb57414e
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Requirements for Azure RemoteApp images

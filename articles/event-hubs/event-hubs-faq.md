@@ -1,6 +1,6 @@
 ---
 title: Event Hubs frequently asked questions (FAQ) | Microsoft Docs
-description: Event Hubs FAQ.
+description: Event Hubs FAQ
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: sethm
 
 ---
@@ -68,16 +68,8 @@ For senders, connection charges apply only when the AMQP protocol is used. There
 Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Geographic availability
-Event Hubs is available in the following regions:
 
-| Geo | Regions |
-| --- | --- |
-| United States |Central US, East US, East US 2, South Central US, West US |
-| Europe |North Europe, West Europe |
-| Asia Pacific |East Asia, Southeast Asia |
-| Japan |Japan East, Japan West |
-| Brazil |Brazil South |
-| Australia |Australia East, Australia Southeast |
+Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions][] page.  
 
 ## Support and SLA
 Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
@@ -92,3 +84,4 @@ To learn more about Event Hubs, see the following articles:
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Azure regions]: https://azure.microsoft.com/regions/

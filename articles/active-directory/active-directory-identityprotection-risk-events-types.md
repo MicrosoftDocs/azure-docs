@@ -1,6 +1,6 @@
-﻿---
-title: Types of risk events detected by Azure Active Directory Identity Protection | Microsoft Docs
-description: This topic gives you a detailed overview of the available types of risk events in Azure Active Directory Identity Protection
+---
+title: Types of risk events detected by Azure Active Directory | Microsoft Docs
+description: This topic gives you a detailed overview of the available types of risk events in Azure Active Directory.
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 11/30/2016
 ms.author: markvi
 
 ---
-# Types of risk events detected by Azure Active Directory Identity Protection
-In Azure Active Directory Identity Protection, risk events are events that:
+# Types of risk events detected by Azure Active Directory 
+In Azure Active Directory, risk events are events that:
 
 * were flagged as suspicious
 * indicate that an identity may have been compromised. 
@@ -27,7 +27,7 @@ In Azure Active Directory Identity Protection, risk events are events that:
 This topic gives you a detailed overview of the available types of risk events.
 
 ## Leaked credentials
-Leaked credentials are found posted publicly in the dark web by Microsoft security researchers. These credentials are usually found in plain text. They are checked against Azure AD credentials, and if there is a match, they are reported as “Leaked credentials” in Identity Protection.
+Leaked credentials are found posted publicly in the dark web by Microsoft security researchers. These credentials are usually found in plain text. They are checked against Azure AD credentials, and if there is a match, they are reported as “Leaked credentials”.
 
 Leaked credentials risk events are classified as a “High” severity risk event, because they provide a clear indication that the user name and password are available to an attacker.
 
@@ -65,7 +65,7 @@ Unfamiliar locations can provide a strong indication that an attacker is able at
 Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure portal. 
 The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
 
-| Identity Protection Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
+| Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
 |:--- |:--- |
 | Leaked credentials |Users with leaked credentials |
 | Impossible travel to atypical locations |Irregular sign-in activity |
@@ -75,7 +75,7 @@ The table below lists the various risk event types and the corresponding **Azure
 | Signs in from unfamiliar locations |- |
 | Lockout events |- |
 
-The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure portal however they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
+The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD, and will therefore not be available through Azure AD. These reports are still available in the Azure portal however they will be deprecated at some time in the future as they are being superseded by risk events in Azure AD.
 
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies

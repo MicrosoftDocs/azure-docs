@@ -49,6 +49,7 @@ Stateful microservices simplify application designs because they remove the need
 ## Next steps
 * Get started building stateless and stateful services with the Service Fabric
   [reliable services](service-fabric-reliable-services-quick-start.md) and [reliable actors](service-fabric-reliable-actors-get-started.md) programming models.
+* Learn more about [Patterns and scenarios](service-fabric-patterns-and-scenarios.md).
 * Also see the following topics:
   * [Tell me about microservices](service-fabric-overview-microservices.md)
   * [Define and manage service state](service-fabric-concepts-state.md)

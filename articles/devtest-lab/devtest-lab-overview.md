@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 01/11/2017
 ms.author: tarcher
 
 ---
@@ -32,7 +32,7 @@ Developers and testers are looking to solve the delays in creating and managing 
 
 Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts. Easily integrate your deployment pipeline with DevTest Labs to provision on-demand environments. Scale up your load testing by provisioning multiple test agents, and create pre-provisioned environments for training and demos.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/What-is-Azure-DevTest-Labs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
 > 
 > 
 

@@ -15,6 +15,10 @@ To create an inline link from one technical article to another technical article
   
   `[link text](../service-directory/article-name.md)`
 
+* An article links to a .NET API topic:
+
+  `[link text](/dotnet/api/type-or-member-name)`
+
 ## Links to anchors
 You do not have to create anchors - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections.
 

@@ -30,7 +30,7 @@
 ### [Configure webhook on an activity log alert](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archive the activity log](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Stream the activity log to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Audit operations with Resource Manager](../resource-group-audit.md)
+### [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Manage diagnostic logs
 ### [Archive](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Stream to Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -40,8 +40,11 @@
 
 
 # Reference
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
+## [REST](/rest/api/monitor/)
+
+# Resources
+## [PowerShell Samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Azure CLI 2.0 (Preview) Samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [List of supported metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST API](https://msdn.microsoft.com/library/azure/dn931943)

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
-ms.author: gatneil
+ms.author: negat
 
 ---
 # Designing VM Scale Sets For Scale

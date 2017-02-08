@@ -1,10 +1,10 @@
-﻿---
+---
 title: Configure Traffic Manager failover traffic routing method | Microsoft Docs
 description: This article will help you configure failover traffic routing method in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: 1a6b13a0-5f23-4624-be64-606156f0dc4b
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 
 ---
 <!-- repub for nofollow -->

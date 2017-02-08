@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/05/2017
 ms.author: spelluru
 
 ---
@@ -54,13 +54,13 @@ You need the account name and account key of your Azure storage account to do th
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **More services** on the left menu and select **Storage Accounts**.
 
-    ![Browse - Storage accounts](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
+    ![Browse - Storage accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. In the **Storage Accounts** blade, select the **Azure storage account** that you want to use in this tutorial.
 4. Select **Access keys** link under **SETTINGS**.
 5. Click **copy** (image) button next to **Storage account name** text box and save/paste it somewhere (for example: in a text file).
 6. Repeat the previous step to copy or note down the **key1**.
 
-    ![Storage access key](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
+    ![Storage access key](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
@@ -85,27 +85,28 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
 
-        John, Doe
-        Jane, Doe
+	```
+    John, Doe
+    Jane, Doe
+	```
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
     ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+	```SQL
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+	```
 
-
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio
-](../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
-
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
     If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
@@ -118,4 +119,3 @@ You have completed the prerequisites. You can create a data factory using one of
 * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-* [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub scaling | Microsoft Docs
-description: Describes how to scale Azure IoT Hub.
+description: How to scale your IoT hub to support your anticipated message throughput. Includes a summary of the supported throughput for each tier and options for sharding.
 services: iot-hub
 documentationcenter: ''
 author: fsautomata
@@ -40,7 +40,7 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 | S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
 ## Identity registry operation throughput
-IoT Hub identity registry operations are not supposed to be runtime operations, as they are mostly related to device provisioning.
+IoT Hub identity registry operations are not supposed to be run-time operations, as they are mostly related to device provisioning.
 
 For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
 
@@ -50,7 +50,7 @@ While a single IoT hub can scale to millions of devices, sometimes your solution
 ## Next steps
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

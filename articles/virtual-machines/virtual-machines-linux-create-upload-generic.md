@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 12/02/2016
 ms.author: szark
 
 ---
 # Information for Non-Endorsed Distributions
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
+The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
 * [Linux on Azure - Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Support for Linux images in Microsoft Azure](https://support.microsoft.com/kb/2941892)
@@ -77,6 +77,7 @@ To remedy this you can resize the VM using either the Hyper-V Manager console or
 1. Resizing the VHD directly using tools such as `qemu-img` or `vbox-manage` may result in an unbootable VHD.  So it is recommended to first convert the VHD to a RAW disk image.  If the VM image was already created as RAW disk image (the default for some Hypervisors such as KVM) then you may skip this step:
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+
 2. Calculate the required size of the disk image to ensure that the virtual size is aligned to 1MB.  The following bash shell script can assist with this.  The script uses "`qemu-img info`" to determine the virtual size of the disk image and then calculates the size to the next 1MB:
    
        rawdisk="MyLinuxVM.raw"
@@ -88,12 +89,18 @@ To remedy this you can resize the VM using either the Hyper-V Manager console or
    
        rounded_size=$((($size/$MB + 1)*$MB))
        echo "Rounded Size = $rounded_size"
+
 3. Resize the raw disk using $rounded_size as set in the above script:
    
        # qemu-img resize MyLinuxVM.raw $rounded_size
+
 4. Now, convert the RAW disk back to a fixed-size VHD:
    
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+
+   Or, with qemu version **2.6+** include the `force_size` option:
+
+       # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## Linux Kernel Requirements
 The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an [endorsed distribution](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that will include these fixes and updates.

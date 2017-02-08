@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 12/02/2016
 ms.author: szark
 
 ---
@@ -146,4 +146,31 @@ In this guide we will assume you have attached three data disks, which we'll ref
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
+    ```
+
+## TRIM/UNMAP support
+Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. These operations are primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. Discarding pages can save cost if you create large files and then delete them.
+
+There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
+
+- Use the `discard` mount option in `/etc/fstab`, for example:
+
+    ```bash 
+    /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
+    ```
+
+- In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+
+    **Ubuntu**
+
+    ```bash 
+    # sudo apt-get install util-linux
+    # sudo fstrim /datadrive
+    ```
+
+    **RHEL/CentOS**
+
+    ```bash 
+    # sudo yum install util-linux
+    # sudo fstrim /datadrive
     ```

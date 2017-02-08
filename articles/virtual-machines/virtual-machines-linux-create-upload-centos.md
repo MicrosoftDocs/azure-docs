@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2016
-ms.author: szarkos
+ms.author: szark
 
 ---
 # Prepare a CentOS-based virtual machine for Azure

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Share a single Azure AD tenant across Office 365 and Azure subscriptions | Microsoft Docs
 description: Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: ''
 tags: billing,top-support-issue
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 12/16/2016
 ms.author: cjiang
 
 ---
@@ -47,16 +47,13 @@ In this scenario, we assume Kelley Wall is a user who has an Office 365 subscrip
 
 To sign up for Azure, follow these steps:
 
-1. Sign up for Azure at [Azure.com](https://azure.microsoft.com/). Click **Try for free**. On the next page, click **Start now**.
+1. Sign up for Azure at [Azure.com](https://azure.microsoft.com/). Click **Free Account**. On the next page, click **Start free**.
 
     ![Try Azure for free.](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
-2. Click **Sign in with your organizational account**.
-
-    ![Sign in to Azure.](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
-3. Sign in with your Office 365 account. In this case, it is Kelley’s Office 365 account.
+2. Sign in with your Office 365 account. In this case, it is Kelley’s Office 365 account.
 
     ![Sign in with your Office 365 account.](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
-4. Fill in the information and complete the sign-up process.
+3. Fill in the information and complete the sign-up process.
 
     ![Fill in information and complete sign-up.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
 

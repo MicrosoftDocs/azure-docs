@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Works in Your Environment
 description: Learn how SQL Database helps, secures and protects
 keywords: ''
@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 7677e697-7ad4-4773-9cf5-49db59a948e3
 ms.service: sql-database
+ms.custom: benefits
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 12/1/2016
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to administer your StorSimple Virtual Array
@@ -38,11 +38,11 @@ The StorSimple Device Manager service runs in Microsoft Azure and connects to mu
 
 #### To connect to the service
 1. Go to [https://ms.portal.azure.com](https://ms.portal.azure.com).
-2. Using your Microsoft account credentials, log on to the Microsoft Azure classic portal (located at the top-right of the pane).
-3. Scroll down the left navigation pane to access the StorSimple Device Manager service.
+2. Using your Microsoft account credentials, log on to the Microsoft Azure portal (located at the top-right of the pane).
+3. Navigate to Browse --> 'Filter' on StorSimple Device Managers to view all your device managers in a given subscription.
 
 ## Use the StorSimple Device Manager service to perform management tasks
-The following table shows a summary of all the common management tasks and complex workflows that can be performed within the StorSimple Device Manager service UI. These tasks are organized based on the UI pages on which they are initiated.
+The following table shows a summary of all the common management tasks and complex workflows that can be performed within the StorSimple Device Manager service summary blade. These tasks are organized based on the blades on which they are initiated.
 
 For more information about each workflow, click the appropriate procedure in the table.
 
@@ -50,11 +50,11 @@ For more information about each workflow, click the appropriate procedure in the
 | If you want to do this ... | Use this procedure |
 | --- | --- | --- |
 | Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key |[Deploy the StorSimple Device Manager service](storsimple-virtual-array-manage-service.md) |
-| Change the service data encryption key</br>View the activity logs |[Use the StorSimple service summary](storsimple-virtual-array-service-summary.md) |
+| View the activity logs |[Use the StorSimple service summary](storsimple-virtual-array-service-summary.md) |
 | Deactivate a Virtual Array</br>Delete a Virtual Array |[Deactivate or delete a virtual array](storsimple-virtual-array-deactivate-and-delete-device.md) |
-| Disaster recovery and device failover</br>Failover prerequisites</br>Failover to a virtual device</br>Business continuity disaster recovery (BCDR)</br>Errors during disaster recovery |[Disaster recovery and device failover for your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
+| Disaster recovery and device failover</br>Failover prerequisites</br>Business continuity disaster recovery (BCDR)</br>Errors during disaster recovery |[Disaster recovery and device failover for your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
 | Back up shares and volumes</br>Take a manual backup</br>Change the backup schedule</br>View existing backups |[Back up your StorSimple Virtual Array](storsimple-virtual-array-backup.md) |
-| Restore shares from a backup set</br>Restore volumes from a backup set</br>Item-level recovery (file server only) |[Restore from a backup of your StorSimple Virtual Array](storsimple-virtual-array-clone.md) |
+| Clone shares from a backup set</br>Clone volumes from a backup set</br>Item-level recovery (file server only) |[Clone from a backup of your StorSimple Virtual Array](storsimple-virtual-array-clone.md) |
 | About  storage accounts</br>Add a storage account</br>Edit a storage account</br>Delete a storage account |[Manage storage accounts for the StorSimple Virtual Array](storsimple-virtual-array-manage-storage-accounts.md) |
 | About access control records</br>Add or modify an access control record </br>Delete an access control record |[Manage access control records for the StorSimple Virtual Array](storsimple-virtual-array-manage-acrs.md) |
 | View job details |[Manage StorSimple Virtual Array jobs](storsimple-virtual-array-manage-jobs.md) |

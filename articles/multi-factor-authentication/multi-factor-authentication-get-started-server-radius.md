@@ -1,4 +1,4 @@
-﻿---
+---
 title: RADIUS Authentication and Azure Multi-Factor Authentication Server
 description: This is the Azure Multi-factor authentication page that will assist in deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
 services: multi-factor-authentication
@@ -45,7 +45,7 @@ To configure RADIUS authentication, install the Azure Multi-Factor Authenticatio
 11. If the Azure Multi-Factor Authentication Server is installed on a domain-joined server in an Active Directory environment, select Windows domain.
 12. If users should be authenticated against an LDAP directory, select LDAP bind. When using LDAP bind, you must click the Directory Integration icon and edit the LDAP configuration on the Settings tab so that the Server can bind to your directory. Instructions for configuring LDAP can be found in the LDAP Proxy configuration guide.
 13. If users should be authenticated against another RADIUS server, select RADIUS server(s).
-14. Configure the server that the Server will proxy the RADIUS requests to by clicking the Add… button.
+14. Configure the server that the Server will proxy the RADIUS requests to by clicking the Add button.
 15. In the Add RADIUS Server dialog box enter the IP address of the RADIUS server and a Shared secret. The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and RADIUS server. Change the Authentication port and Accounting port if different ports are used by the RADIUS server.
 16. Click the OK button.
 17. You must add the Azure Multi-Factor Authentication Server as a RADIUS client in the other RADIUS server so that it will process access requests sent to it from the Azure Multi-Factor Authentication Server. You must use the same shared secret configured in the Azure Multi-Factor Authentication Server.

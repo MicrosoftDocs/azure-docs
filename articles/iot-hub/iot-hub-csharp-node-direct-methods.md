@@ -1,6 +1,6 @@
 ---
-title: Use Azure IoT Hub direct methods (C#) | Microsoft Docs
-description: This tutorial shows you how to use direct methods
+title: Use Azure IoT Hub direct methods (.NET/Node) | Microsoft Docs
+description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for Node.js to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 
 ---
-# Tutorial: Use direct methods (C#)
+# Use direct methods (.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-At the end of this tutorial, you will have a .NET and a Node.js console application:
+At the end of this tutorial, you will have a .NET and a Node.js console app:
 
-* **CallMethodOnDevice.sln**, a .NET app meant to be run from the back end, which calls a method on the simulated device and displays the response.
+* **CallMethodOnDevice.sln**, a .NET back-end app, which calls a method in the simulated device app and displays the response.
 * **SimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
-> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -41,14 +41,14 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a method called by the back end.
+In this section, you create a Node.js console app that responds to a method called by the solution back end.
 
-1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
@@ -62,7 +62,7 @@ In this section, you create a Node.js console app that responds to a method call
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Add a **connectionString** variable and use it to create a device client. Replace **{device connection string}** with the connection string you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a **DeviceClient** instance. Replace **{device connection string}** with the device connection string you generated in the *Create a device identity* section:
    
     ```
     var connectionString = '{device connection string}';
@@ -103,21 +103,21 @@ In this section, you create a Node.js console app that responds to a method call
 > 
 
 ## Call a direct method on a device
-In this section, you create a .NET console app that calls a method on the simulated device and then displays the response.
+In this section, you create a .NET console app that calls a method in the simulated device app and then displays the response.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CallMethodOnDevice**.
    
     ![New Visual C# Windows Classic Desktop project][10]
-2. In Solution Explorer, right-click the **CallMethodOnDevice** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+2. In Solution Explorer, right-click the **CallMethodOnDevice** project, and then click **Manage NuGet Packages**.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
    
-    ![Nuget Package Manager window][11]
+    ![NuGet Package Manager window][11]
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -145,14 +145,14 @@ In this section, you create a .NET console app that calls a method on the simula
 ## Run the applications
 You are now ready to run the applications.
 
-1. At a command-prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
+1. At a command prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
    
     ```
     node SimulatedDevice.js
     ```
    
     ![][7]
-2. Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method on the simulated device. You should see the device response written in the console.
+2. Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method in the simulated device app. You should see the device response written in the console.
    
     ![][8]
 3. You will see the device react to the method by printing out the message and the application which called the method display the response from the device:
@@ -160,7 +160,7 @@ You are now ready to run the applications.
     ![][9]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
@@ -180,7 +180,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

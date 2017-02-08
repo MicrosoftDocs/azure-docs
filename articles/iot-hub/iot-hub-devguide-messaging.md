@@ -1,6 +1,6 @@
-﻿---
-title: Developer guide - messaging | Microsoft Docs
-description: Azure IoT Hub developer guide - device-to-cloud and cloud-to-device messaging
+---
+title: Understand Azure IoT Hub messaging | Microsoft Docs
+description: Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/13/2016
 ms.author: dobett
 
 ---
@@ -21,14 +21,14 @@ ms.author: dobett
 ## Overview
 IoT Hub provides the following messaging primitives to communicate with a device:
 
-* [Device-to-cloud][lnk-d2c] from a device to an application back end.
-* [Cloud-to-device][lnk-c2d] from an application back end (*service* or *cloud*).
+* [Device-to-cloud][lnk-d2c] from a device to a back-end app.
+* [Cloud-to-device][lnk-c2d] from a back-end app (*service* or *cloud*).
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. These properties enable resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
 IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT, AMQP, and HTTP). To support seamless interoperability across protocols, IoT Hub defines a [common message format][lnk-message-format] that all device-facing protocols support.
 
-IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
+IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end apps to read the device-to-cloud messages received by the hub. You can also add custom routing endpoints to your IoT hub by linking other services in your subscription to the hub.
 
 ### When to use
 Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to the device app.
@@ -39,30 +39,26 @@ Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt 
 For a comparison of the IoT Hub and Event Hubs services, see [Comparison of IoT Hub and Event Hubs][lnk-compare].
 
 ## Device-to-cloud messages
-You send device-to-cloud messages through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Your back-end service receives device-to-cloud messages through a service-facing endpoint (**/messages/events**) that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard [Event Hubs integration and SDKs][lnk-compatible-endpoint] to receive device-to-cloud messages.
+You send device-to-cloud messages through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Message routes then route your messages to one of the service-facing endpoints on your IoT hub. Message routes use the properties of the device-to-cloud messages flowing through your hub to determine where to route them. By default, messages are routed to the built-in service-facing endpoint (messages/events), that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard [Event Hubs integration and SDKs][lnk-compatible-endpoint] to receive device-to-cloud messages.
 
-IoT Hub implements device-to-cloud messaging in a way that is similar to [Event Hubs][lnk-event-hubs]. IoT Hub's device-to-cloud messages are more like Event Hubs *events* than [Service Bus][lnk-servicebus] *messages*.
+IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs][lnk-event-hubs] *events* than [Service Bus][lnk-servicebus] *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
 
 This implementation has the following implications:
 
-* Similarly to Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub for up to seven days (see [Device-to-cloud configuration options][lnk-d2c-configuration]).
-* Device-to-cloud messages are partitioned across a fixed set of partitions that is set at creation time (see [Device-to-cloud configuration options][lnk-d2c-configuration]).
-* Analogously to Event Hubs, clients reading device-to-cloud messages must handle partitions and checkpointing. See [Event Hubs - Consuming events][lnk-event-hubs-consuming-events].
-* Like Event Hubs events, device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB, and at most 500 messages.
+* Similarly to Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days (see [Device-to-cloud configuration options][lnk-d2c-configuration]).
+* Like Event Hubs events, device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
 
 There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
 
 * As explained in the [Control access to IoT Hub][lnk-devguide-security] section, IoT Hub allows per-device authentication and access control.
+* IoT Hub allows you to add up to ten additional endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub.
 * IoT Hub allows millions of simultaneously connected devices (see [Quotas and throttling][lnk-quotas]), while Event Hubs is limited to 5000 AMQP connections per namespace.
 * IoT Hub does not allow arbitrary partitioning using a **PartitionKey**. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 * Scaling IoT Hub is slightly different than scaling Event Hubs. For more information, see [Scaling IoT Hub][lnk-guidance-scale].
 
-> [!NOTE]
-> You cannot substitute IoT Hub for Event Hubs in all scenarios. For example, in some event processing computations, it might be necessary to repartition events with respect to a different property or field before analyzing the data streams. In this scenario, you could use an Event Hub to decouple two portions of the stream processing pipeline. For more information, see *Partitions* in [Azure Event Hubs Overview][lnk-eventhub-partitions].
-> 
-> 
+For details about how to use device-to-cloud messaging, see [Azure IoT SDKs][lnk-sdks].
 
-For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-sdks].
+For details about how to set up message routing, see Device-to-cloud configuration options below.
 
 > [!NOTE]
 > When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
@@ -70,17 +66,33 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 > 
 
 ### Non-telemetry traffic
-Often, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the back end, or device responses to commands sent from the back end.
+Often, in addition to telemetry data points, devices also send messages and requests that require separate execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the back end. You can easily write a routing rule to send these types of messages to an endpoint dedicated to their processing.
 
 For more information about the best way to process this kind of message, see the [Tutorial: How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial] tutorial.
 
 ### Device-to-cloud configuration options
-An IoT hub exposes the following properties to enable you to control device-to-cloud messaging.
+
+IoT Hub enables you to route messages to IoT Hub endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need to stand up additional services to process messages or to write additional code. Each rule you configure has the following properties
+
+* **Name**. This is a unique name which identifies the rule.
+* **Source**. This represents the origination of the data stream to be acted upon. For example, device telemetry.
+* **Condition**. This is the query expression for the routing rule which is run against the message's properties and used to determine whether or not it is a match for the endpoint. For more information about constructing a route condition, see the [Reference - query language for device twins and jobs][lnk-devguide-query-language].
+* **Endpoint**. The name of the endpoint where IoT Hub sends messages which match the condition. Endpoints should be in the same region as the IoT hub, because you may be charged for cross-region writes.
+
+A single message may match the condition on multiple message routes, in which case IoT Hub delivers the message to the endpoint associated with each matched rule. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple rules that all have the same as the destination, it is only written to that destination once.
+
+For more information about adding additional endpoints to IoT Hub, see [IoT Hub endpoints][lnk-devguide-endpoints].
+
+#### Built-in endpoint: messages/events
+
+An IoT hub exposes the following properties to enable you to control the built-in messaging endpoint **messages/events**.
 
 * **Partition count**. Set this property at creation to define the number of partitions for device-to-cloud event ingestion.
 * **Retention time**. This property specifies the retention time for device-to-cloud messages. The default is one day, but it can be increased to seven days.
 
-Also, analogously to Event Hubs, IoT Hub enables you to manage consumer groups on the device-to-cloud receive endpoint.
+IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint.
+
+By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this "fallback route", messages that do not explicitly match any message routing rules are dropped.
 
 You can modify all these properties, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
 
@@ -117,7 +129,7 @@ Each cloud-to-device message is targeted at a single device by setting the **to*
 > 
 
 ### Message lifecycle
-To guarantee  at least once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
+To guarantee at least once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
 
 The following diagram shows the lifecycle state graph for a cloud-to-device message.
 
@@ -134,10 +146,10 @@ A thread could fail to process a message without notifying IoT Hub. In this case
 
 A message can transition between the **Enqueued** and **Invisible** states for, at most, the number of times specified in the **max delivery count** property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live][lnk-ttl]).
 
-For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-sdks].
+For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]. For reference topics on how the different Azure IoT SDKs expose the cloud-to-device functionality, see [Azure IoT SDKs][lnk-sdks].
 
 > [!NOTE]
-> Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the application back end with one or more device-to-cloud messages at various stages of progress of the task.
+> Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the solution back end with one or more device-to-cloud messages at various stages of progress of the task.
 > 
 > 
 
@@ -217,21 +229,30 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 For more information, see [Create IoT hubs][lnk-portal].
 
 ## Read device-to-cloud messages
-IoT Hub exposes an endpoint for your back-end services to read the device-to-cloud messages received by your hub. The endpoint is Event Hub-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
+IoT Hub exposes a built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub, the **messages/events** endpoint. This endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
+
+You can also add custom routing endpoints to IoT Hub. IoT Hub currently supports adding Event Hubs, Service Bus queues, and Service Bus topics as custom routing endpoints. For more information about reading from those services, see: reading from [Event Hubs][lnk-getstarted-eh], reading from [Service Bus queues][lnk-getstarted-queue], reading from [Service Bus topics][lnk-getstarted-topic].
+
+### Reading from the built-in endpoint
 
 When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
 
 When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
 
-1. In the IoT hub blade, click **Messaging**.
-2. In the **Device-to-cloud settings** section, you find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
+1. In the IoT hub blade, click **Endpoints**.
+2. In the **Built-in endpoints** section, click on **Events**. The blade contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
    
     ![Device-to-cloud settings][img-eventhubcompatible]
 
 > [!NOTE]
-> If the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+> The IoT Hub SDK requires the IoT Hub endpoint name, which is **messages/events** as shown in the **Endpoints** blade.
+>
+>
+
+> [!NOTE]
+> If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 > 
-> 
+>
 
 You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
 
@@ -257,7 +278,7 @@ IoT Hub messages comprise:
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-For more information about how the message is encoded in different protocols, see [IoT Hub APIs and SDKs][lnk-sdks].
+For more information about how the message is encoded in different protocols, see [Azure IoT SDKs][lnk-sdks].
 
 The following table lists the set of system properties in IoT Hub messages.
 
@@ -283,7 +304,7 @@ IoT Hub measures message size in a protocol-agnostic way, considering only the a
 * The size in bytes of all the values of the message system properties, plus
 * The size in bytes of all user property names and values.
 
-Note that property names and values are limited to ASCII characters, so the the length of the strings equals the size in bytes.
+Note that property names and values are limited to ASCII characters, so the length of the strings equals the size in bytes.
 
 ## Communication protocols
 IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
@@ -319,29 +340,29 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 | HTTP |443 |
 | LWM2M (Device management) |5684 |
 
-Once you have created an IoT hub in an Azure region, the hub keeps the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
+Once you have created an IoT hub in an Azure region, the IoT hub keeps the same IP address for the lifetime of that IoT hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
 
 ## Notes on MQTT support
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
 
-* **QoS 2 is not supported**. When a device client publishes a message with **QoS 2**, IoT Hub closes the network connection. When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet.
-* **Retain messages do not persist**. If a device client publishes a message with the RETAIN flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, IoT Hub does not persist the retain message, but instead passes it to the back-end application.
+* **QoS 2 is not supported**. When a device app publishes a message with **QoS 2**, IoT Hub closes the network connection. When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet.
+* **Retain messages do not persist**. If a device app publishes a message with the RETAIN flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, IoT Hub does not persist the retain message, but instead passes it to the back-end app.
 
 For more information, see [IoT Hub MQTT support][lnk-devguide-mqtt].
 
 As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
+* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to send and receive messages with IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to send and receive messages with IoT Hub, you may be interested in the following IoT Hub developer guide topics:
 
 * [Upload files from a device][lnk-devguide-upload]
 * [Manage device identities in IoT Hub][lnk-devguide-identities]
@@ -371,6 +392,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
+[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
@@ -402,7 +426,8 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
-
+[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

@@ -261,7 +261,7 @@ Live Metrics Stream shows you your application metrics right at this very moment
 Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
 ### Annotations
-[Release annotations](app-insights-annotations.md) on metrics charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
+[Release annotations](app-insights-annotations.md) on metrics charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) and by web deployments from Visual Studio. You can also [create them from PowerShell](#create-annotations-from-powershell).
 
 ![Example of annotations with visible correlation with server response time](./media/app-insights-overview/00.png)
 

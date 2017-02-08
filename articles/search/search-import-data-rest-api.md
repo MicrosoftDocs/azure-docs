@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data upload in Azure Search using the REST API | Microsoft Docs
 description: Learn how to upload data to an index in Azure Search using the REST API.
 services: search
@@ -14,7 +14,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 ---
 
@@ -27,16 +27,16 @@ ms.author: ashmaka
 >
 >
 
-This article will show you how to use the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to import data into an Azure Search index.
+This article will show you how to use the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) to import data into an Azure Search index.
 
 Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md).
 
 In order to push documents into your index using the REST API, you will issue an HTTP POST request to your index's URL endpoint. The body of the HTTP request body is a JSON object containing the documents to be added, modified, or deleted.
 
-## I. Identify your Azure Search service's admin api-key
+## Identify your Azure Search service's admin api-key
 When issuing HTTP requests against your service using the REST API, *each* API request must include the api-key that was generated for the Search service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+1. To find your service's api-keys, you can sign in to the [Azure portal](https://portal.azure.com/)
 2. Go to your Azure Search service's blade
 3. Click on the "Keys" icon
 
@@ -47,7 +47,7 @@ Your service will have *admin keys* and *query keys*.
 
 For the purposes of importing data into an index, you can use either your primary or secondary admin key.
 
-## II. Decide which indexing action to use
+## Decide which indexing action to use
 When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
 
 Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete, etc). Depending on which of the below actions you choose, only certain fields must be included for each document:
@@ -59,7 +59,7 @@ Each JSON object in the "value" array represents a document to be indexed. Each 
 | `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |
 | `delete` |Removes the specified document from the index. |key only |Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null. |
 
-## III. Construct your HTTP request and request body
+## Construct your HTTP request and request body
 Now that you have gathered the necessary field values for your index actions, you are ready to construct the actual HTTP request and JSON request body to import your data.
 
 #### Request and Request Headers
@@ -123,7 +123,7 @@ Assume that this example "hotels" index is already populated with a number of do
 
 Also, note that you can only include up to 1000 documents (or 16 MB) in a single indexing request.
 
-## IV. Understand your HTTP response code
+## Understand your HTTP response code
 #### 200
 After submitting a successful indexing request you will receive an HTTP response with status code of `200 OK`. The JSON body of the HTTP response will be as follows:
 
@@ -172,7 +172,7 @@ A status code of `503` will be returned if none of the items in the request were
 >
 >
 
-For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-## Next
+## Next steps
 After populating your Azure Search index, you will be ready to start issuing queries to search for documents. See [Query Your Azure Search Index](search-query-overview.md) for details.

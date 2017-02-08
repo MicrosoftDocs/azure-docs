@@ -1,6 +1,6 @@
-﻿---
-title: Kernels available with Jupyter notebooks on HDInsight Spark clusters on Linux| Microsoft Docs
-description: Learn about the additional Jupyter notebook kernels available with Spark cluster on HDInsight Linux.
+---
+title: Use kernels with Jupyter notebooks on Spark - Linux - Azure | Microsoft Docs
+description: Learn about the PySpark and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -18,7 +18,8 @@ ms.date: 10/05/2016
 ms.author: nitinme
 
 ---
-# Kernels available for Jupyter notebooks with Apache Spark clusters on HDInsight Linux
+# Kernels available for Jupyter notebooks with Apache Spark clusters on HDInsight
+
 Apache Spark cluster on HDInsight (Linux) includes Jupyter notebooks that you can use to test your applications. A kernel is a program that runs and interprets your code. HDInsight Spark clusters provide two kernels that you can use with the Jupyter notebook. These are:
 
 1. **PySpark** (for applications written in Python)
@@ -31,28 +32,28 @@ In this article, you will learn about how to use these kernels and what are the 
 You must have the following:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## How do I use the kernels?
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-   
+
    > [!NOTE]
    > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   > 
+   >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
+   >
+   >
 3. Create a new notebook with the new kernels. Click **New**, and then click **Pyspark** or **Spark**. You should use the Spark kernel for Scala applications and PySpark kernel for Python applications.
-   
-    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook") 
+
+    ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a new Jupyter notebook")
 4. This should open a new notebook with the kernel you selected.
 
 ## Why should I use the PySpark or Spark kernels?
 Here are a few benefits of using the new kernels.
 
 1. **Preset contexts**. With the **PySpark** or **Spark** kernels that are provided with Jupyter notebooks, you do not need to set the Spark or Hive contexts explicitly before you can start working with the application you are developing; these are available for you by default. These contexts are:
-   
+
    * **sc** - for Spark context
    * **sqlContext** - for Hive context
 
@@ -67,9 +68,9 @@ Here are a few benefits of using the new kernels.
     Instead, you can directly use the preset contexts in your application.
 
 1. **Cell magics**. The PySpark kernel provides some predefined “magics”, which are special commands that you can call with `%%` (e.g. `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, will cause an error.     For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
-   
+
     The table below lists the different magics available through the kernels.
-   
+
    | Magic | Example | Description |
    | --- | --- | --- |
    | help |`%%help` |Generates a table of all the available magics with example and description |
@@ -80,11 +81,11 @@ Here are a few benefits of using the new kernels.
    | logs |`%%logs` |Outputs the logs for the current Livy session. |
    | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
-   
+
    > [!NOTE]
-   > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode. 
-   > 
-   > 
+   > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
+   >
+   >
 2. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You have the option to choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic
@@ -100,7 +101,7 @@ The %%sql magic supports different parameters that you can use to control the ki
 
 **Example:**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2 
+    %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
 The statement above does the following:
@@ -163,4 +164,3 @@ The new kernels are in evolving stage and will mature over time. This could also
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
-

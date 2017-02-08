@@ -13,48 +13,71 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 12/1/2016
 ms.author: richrund
 
 ---
 # Azure Networking Analytics (Preview) solution in Log Analytics
+
+You can use the Azure Networking Analytics solution in Log Analytics to review:
+
+* Azure Application Gateway logs
+* Azure Application Gateway metrics, and 
+* Azure network security group logs.
+
 > [!NOTE]
-> This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> Azure Networking Analytics is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 > 
 > 
 
-You can use the Azure Networking Analytics solution in Log Analytics to review Azure Application Gateway logs and Azure network security group logs.
-
-You can enable logging for Azure Application Gateway logs and Azure network security groups. These logs are written to Blob storage where they can then be indexed by Log Analytics for searching and analysis.
+To use the solution, enable diagnostics for Azure Application Gateway logs and Azure network security groups and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 The following logs are supported for Application Gateways:
 
 * ApplicationGatewayAccessLog
 * ApplicationGatewayPerformanceLog
+* ApplicationGatewayFirewallLog
+
+The following metrics are supported for Application Gateways:
+
+* 5 minute throughput
 
 The following logs are supported for network security groups:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
+* NetworkSecurityGroupFlowEvent
 
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Networking Analytics solution:
 
 1. Enable diagnostics logging for the resources you want to monitor:
-   * [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
+   * [Application gateway](../application-gateway/application-gateway-diagnostics.md)
    * [Network security group](../virtual-network/virtual-network-nsg-manage-log.md)
-2. Configure Log Analytics to read the logs from Blob storage by using the process described in [JSON files in blob storage](log-analytics-azure-storage-json.md).
-3. Enable the Azure Networking Analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+2. Enable the Azure Networking Analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
 
-If you do not enable diagnostic logging for a particular resource type, the dashboard blades for that resource will be blank.
+The following PowerShell script provides an example of how to enable diagnostic logging for application gateways and network security groups 
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+
+Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+
+$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+
+Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+
+
+If you do not enable diagnostic logging for a particular resource type, the dashboard blades for that resource are blank.
 
 ## Review Azure Networking Analytics data collection details
-The Azure Networking Analytics solution collects diagnostics logs from Azure Blob storage for Azure Application Gateways and network security groups.
-No agent is required for data collection.
+Azure Networking Analytics management solution collects diagnostics logs directly from Azure Application Gateways and network security groups. It is not necessary to write the logs to Azure Blob storage and no agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Azure Networking Analytics.
 
-| Platform | Direct agent | Systems Center Operations Manager (SCOM) agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | Collection frequency |
+| Platform | Direct agent | Systems Center Operations Manager agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |10 minutes |
 

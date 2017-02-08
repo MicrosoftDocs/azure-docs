@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 
 ---
@@ -28,6 +28,19 @@ Here are the differences between using **Import** and **DirectQuery**.
 | Tables, columns, *and data* are imported or copied into the report's dataset. To see changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again. |Only *tables and columns* are imported or copied into the report's dataset. You always view the most current data. |
 
 With Power BI Embedded, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
+
+> [!NOTE]
+> The On-Premises Data Gateway is not supported with Power BI Embedded at this time. This means you cannot use DirectQuery with on-premises data sources.
+
+## Supported data sources
+
+**DirectQuery**
+* Azure SQL database
+* Azure SQL Data Warehouse
+
+**Import**
+
+You can import using all of the available data sources within Power BI Desktop. You will **not** be able to refresh that data within Power BI Embedded. You will have to upload changes to your PBIX file to Power BI Embedded. This is due to no available gateway. 
 
 ## Benefits of using DirectQuery
 There are two primary benefits when using **DirectQuery**:
@@ -52,4 +65,6 @@ To ensure queries sent to the underlying data source have acceptable performance
 ## See Also
 * [Get started with Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
+
+More questions? [Try the Power BI Community](http://community.powerbi.com/)
 

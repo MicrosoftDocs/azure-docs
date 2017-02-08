@@ -1,3 +1,4 @@
+
 ---
 title: Azure Backup FAQ | Microsoft Docs
 description: Answers to frequently asked questions about the backup service, backup agent, backup and retention, recovery, security and other common questions about backup and disaster recovery.
@@ -30,6 +31,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 | Windows 7 and latest SPs |64 bit |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 and latest SPs |64 bit |Enterprise, Pro |
 | Windows 10 |64 bit |Enterprise, Pro, Home |
+| Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |

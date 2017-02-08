@@ -3,7 +3,7 @@ title: Get started with Azure File storage on Windows | Microsoft Docs
 description: Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows.
 services: storage
 documentationcenter: .net
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/18/2016
-ms.author: minet
+/ms.date: 1/18/2017
+ms.author: renash
 
 ---
 # Get started with Azure File storage on Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -115,7 +115,7 @@ The [Azure Portal](https://portal.azure.com) provides a user interface for custo
 Alternatively, you can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for the install point and installation instructions.
 
 > [!NOTE]
 > It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
@@ -643,6 +643,9 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
 15. **How do I troubleshoot Azure File Storage errors?**
     
     You can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-file-connection-problems.md) for end-to-end troubleshooting guidance.               
+16. ** Can I use FileSystemWatcher to listen to events such as the creation/modification/deletion of files and directories in my Azure File Service share?
+
+No. You can use the Azure web jobs SDK. you can write your own triggered or non triggered bindings and listen to the events in your file storage. You can find details to get started here - [Guideline for authoring new triggers and binders](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 ## Next steps
 See these links for more information about Azure File storage.

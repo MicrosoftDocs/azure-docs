@@ -1,24 +1,29 @@
 ---
-title: SQL Database Develop Overview | Microsoft Docs
+title: SQL Database Application Development Overview | Microsoft Docs
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
 documentationcenter: ''
-author: annemill
+author: stevestein
 manager: jhubbard
 editor: genemi
 
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
-ms.author: annemill
+ms.author: sstein
 
 ---
-# SQL Database Development Overview
+# SQL Database Application Development Overview
 This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
+
+> [!TIP]
+> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, connect using SQL Server Management Studio, query the master database, create a sample database and a blank database, query database properties, connect using SQL Server Management Studio, and query the sample database, see [Get Started Tutorial](sql-database-get-started.md).
+>
 
 ## Language and platform
 There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
@@ -33,7 +38,7 @@ Azure SQL Database manages the resources available to a database using two diffe
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
 
-* More Information: [Securing your SQL Database](sql-database-security.md)
+* More Information: [Securing your SQL Database](sql-database-security-overview.md)
 
 ## Authentication
 * Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.

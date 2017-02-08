@@ -27,16 +27,6 @@ ms.author: barbkess
 > 
 > 
 
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
-
-This collection of tasks uses the Azure portal to:
-
-* Scale compute
-* Pause compute
-* Resume compute
-
-To learn about this, see [Manage compute overview][Manage compute overview].
-
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
 

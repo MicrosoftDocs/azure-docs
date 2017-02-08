@@ -13,12 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/18/2017
 ms.author: nitinme
 
 ---
 # Install and use Hue on HDInsight Hadoop clusters
-Learn how to install Hue on HDInsight Linux clusters and use tunneling to route the requests to Hue.
+
+Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.
+
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## What is Hue?
 Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are available with Hue installations on an HDInsight Hadoop cluster.
@@ -38,6 +42,7 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 >
 
 ## Install Hue using Script Actions
+
 The following script action can be used to install Hue on a Linux-based HDInsight cluster.
     https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 
@@ -75,8 +80,8 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
     For more information on using SSH, see the following documents:
 
-   * [Use SSH with Linux-based HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Use SSH with Linux-based HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Use SSH with HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Use SSH with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. Once connected, use the following command to obtain the fully qualified domain name of the primary headnode:
 
         hostname -f

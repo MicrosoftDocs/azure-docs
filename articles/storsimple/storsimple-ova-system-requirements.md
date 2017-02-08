@@ -123,5 +123,5 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | `http://*.data.microsoft.com ` |Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## Next step
-* [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
+* [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
 

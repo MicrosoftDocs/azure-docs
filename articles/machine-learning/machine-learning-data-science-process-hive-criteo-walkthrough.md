@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 
 ---
@@ -447,7 +447,7 @@ Right-click the output port of the **Import Data** module. This reveals a **Save
 
 To select the saved dataset for use in a machine learning experiment, locate the datasets using the **Search** box shown in the following figure. Then simply type out the name you gave the dataset partially to access it and drag the dataset onto the main panel. Dropping it onto the main panel selects it for use in machine learning modeling.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
+![Drage dataset onto the main panel](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Do this for both the train and the test datasets. Also, remember to use the database name and table names that you gave for this purpose. The values used in the figure are solely for illustration purposes.**
@@ -457,7 +457,7 @@ To select the saved dataset for use in a machine learning experiment, locate the
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 Our Azure ML experiment looks like this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
+![Machine Learning experiment](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 We now examine the key components of this experiment. As a reminder, we need to drag our saved train and test datasets on to our experiment canvas first.
 
@@ -474,56 +474,56 @@ There can be millions of unique values for some categorical features of large da
 ##### Building counting transforms
 To build count features, we use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+![Build Counting Transform module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
+![Build Counting Transform module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
 **Important Note** : In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
 
 To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration can be reused for this purpose as well) and its credentials. The  previous figures illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
+![Module parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 In the figure above, we show how to enter the input blob location. This location has the data reserved for building count tables on.
 
 After this module finishes running, we can save the transform for later by right-clicking the module and selecting the **Save as Transform** option:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
+!["Save as Transform" option](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 In our experiment architecture shown above, the dataset "ytransform2" corresponds precisely to a saved count transform. For the remainder of this experiment, we assume that the reader used a **Build Counting Transform** module on some data to generate counts, and can then use those counts to generate count features on the train and test datasets.
 
 ##### Choosing what count features to include as part of the train and test datasets
 Once we have a count transform ready, the user can choose what features to include in their train and test datasets using the **Modify Count Table Parameters** module. We just show this module here for completeness, but in interests of simplicity do not actually use it in our experiment.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
+![Modify Count Table parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
 In this case, as can be seen, we have chosen to use just the log-odds and to ignore the back off column. We can also set parameters such as the garbage bin threshold, how many pseudo-prior examples to add for smoothing, and whether to use any Laplacian noise or not. All these are advanced features and it is to be noted that the default values are a good starting point for users who are new to this type of feature generation.
 
 ##### Data transformation before generating the count features
 Now we focus on an important point about transforming our train and test data prior to actually generating count features. Note that there are two **Execute R Script** modules used before we apply the count transform to our data.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
+![Execute R Script modules](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 Here is the first R script:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+![First R script](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
 
 In this R script, we rename our columns to names "Col1" to "Col40". This is because the count transform expects names of this format.
 
 In the second R script, we balance the distribution between positive and negative classes (classes 1 and 0 respectively) by downsampling the negative class. The R script here shows how to do this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
+![Second R script](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
 In this simple R script, we use "pos\_neg\_ratio" to set the amount of balance between the positive and the negative classes. This is important to do since improving class imbalance usually has performance benefits for classification problems where the class distribution is skewed (recall that in our case, we have 3.3% positive class and 96.7% negative class).
 
 ##### Applying the count transformation on our data
 Finally, we can use the **Apply Transformation** module to apply the count transforms on our train and test datasets. This module takes the saved count transform as one input and the train or test datasets as the other input, and returns data with count features. It is shown here:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
+![Apply Transformation module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### An excerpt of what the count features look like
 It is instructive to see what the count features look like in our case. Here we show an excerpt of this:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
+![Count features](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 In this excerpt, we show that for the columns that we counted on, we get the counts and log odds in addition to any relevant backoffs.
 
@@ -533,19 +533,19 @@ We are now ready to build an Azure Machine Learning model using these transforme
 ##### Choice of learner
 First, we need to choose a learner. We are going to use a two class boosted decision tree as our learner. Here are the default options for this learner:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
+![Two-Class Boosted Decision Tree parameters](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 For our experiment, we are going to choose the default values. We note that the defaults are usually meaningful and a good way to get quick baselines on performance. You can improve on performance by sweeping parameters if you choose to once you have a baseline.
 
 #### Train the model
 For training, we simply invoke a **Train Model** module. The two inputs to it are the Two-Class Boosted Decision Tree learner and our train dataset. This is shown here:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+![Train Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
 
 #### Score the model
 Once we have a trained model, we are ready to score on the test dataset and to evaluate its performance. We do this by using the **Score Model** module shown in the following figure, along with an **Evaluate Model** module:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+![Score Model module](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="step5"></a> Step 5: Evaluate the model
 Finally, we would like to analyze model performance. Usually, for two class (binary) classification problems, a good measure is the AUC. To visualize this, we hook up the **Score Model** module to an **Evaluate Model** module for this. Clicking **Visualize** on the **Evaluate Model** module yields a graphic like the following one:
@@ -599,7 +599,7 @@ To get the blue input and output ports, you simply click **prepare webservice** 
 
 Once the webservice is published, we get redirected to a page that looks thus:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
+![Web service dashboard](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 We see two links for webservices on the left side:
 

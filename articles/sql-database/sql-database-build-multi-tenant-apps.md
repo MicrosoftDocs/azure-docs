@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 8ebd5499-ca03-4e4e-8755-4cb34339285c
 ms.service: sql-database
+ms.custom: benefits
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -18,11 +19,15 @@ ms.date: 10/13/2016
 ms.author: carlrab
 
 ---
-# Builds Multi-tenant Apps with Azure SQL Database With Isolation and Efficiency
+# Build Multi-tenant Apps with Azure SQL Database With Isolation and Efficiency
 ## Leverage elastic pools and build more efficient multi-tenant apps
-If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database elastic pools, you no longer have to make that compromise. These pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+>
+>
 
 ## Auto-scaling you control
 Pools automatically scale performance and storage capacity for elastic databases on the fly. You can control the performance assigned to a pool, add or remove elastic databases on demand, and define performance of elastic databases without affecting the overall cost of the pool. This means you don't have to worry about managing the usage of individual databases.
@@ -42,13 +47,13 @@ Basic, Standard, and Premium pools provide you a broad spectrum of performance, 
 ## Elastic tools
 In addition to elastic pools, there are SQL Database features to help manage operational activities across multiple databases:
 
-** Perform cross-database queries and reporting. **  
+**Perform cross-database queries and reporting**  
 [Elastic database query](sql-database-elastic-query-overview.md) enables you to run queries or reports across databases in your elastic pool and access remote data stored in many databases of your pool at once.
 
-** Run cross database transactions. **  
+**Run cross database transactions**  
 [Elastic database transactions](sql-database-elastic-transactions-overview.md) allow you to run transactions that span several databases in SQL Databases and perform operations (i.e. when processing financial transactions across databases, or when updating inventory in one database and orders).
 
-** Execute the same operations on several databases. **  
+**Execute the same operations on several databases**  
 [Elastic database jobs](sql-database-elastic-jobs-overview.md) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
 
 Go to the homepage to see what else SQL Database has to offer.

@@ -32,7 +32,7 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 ## Prepare the data
 
-If you have created the HDInsight cluster with Data Lake Store as default storage, you do need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
+If you have created the HDInsight cluster with Data Lake Store as default storage, you do not need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
 
 if you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 

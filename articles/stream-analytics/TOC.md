@@ -40,13 +40,14 @@
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST](/rest/api/streamanalytics/)
-## [Release notes](stream-analytics-release-notes.md)
+## [REST](/rest/api/streamanalytics)
+
 
 # Resources
+## [Release notes](stream-analytics-release-notes.md)
 ## [Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)

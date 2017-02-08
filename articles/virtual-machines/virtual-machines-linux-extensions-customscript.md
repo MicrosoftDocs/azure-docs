@@ -60,7 +60,7 @@ When using the Azure CLI to run the Custom Script Extension, create a configurat
 
 ```azurecli
 azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+  --auto-upgrade-minor-version --public-config-path /script-config.json
 ```
 
 Optionally, the command can be run using the `--public-config` and `--private-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
@@ -198,7 +198,7 @@ See the .Net Core Music Store Demo for a complete example - [Music Store Demo](h
 When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
 
 ```bash
-/var/lib/azure/custom-script/download/0/
+/var/lib/waagent/custom-script/download/0/
 ```
 
 The Azure Script Extension produces a log, which can be found here.

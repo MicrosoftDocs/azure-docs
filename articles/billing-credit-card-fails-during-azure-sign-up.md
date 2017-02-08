@@ -1,10 +1,10 @@
-﻿---
+---
 title: Debit card or credit card declined at sign up | Microsoft Docs
 description: Learn how to resolve issues when your credit or debit card is declined when you try to sign up for Azure.
 services: ''
 documentationcenter: ''
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 keywords: credit card declined, debit card declined, your credit card was declined, do not honor credit card

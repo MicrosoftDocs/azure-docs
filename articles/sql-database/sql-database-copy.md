@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 10/24/2016
 ms.author: sstein; sashan
@@ -26,7 +27,7 @@ ms.tgt_pltfrm: NA
 > 
 > 
 
-You can use the Azure [SQL Database automated backups](sql-database-automated-backups.md) to create a copy of your SQL database. The database copy uses the same technology as the geo-replication feature. But unlike geo-replication it terminates the replication link as once the seeding phase is completed. Therefore, the copy database is a snapshot of the source database as of the time of the copy request.  
+You can use the Azure [Active Geo-Replication](sql-database-geo-replication-overview.md) feature to create a copy of your SQL database. But unlike geo-replication it terminates the replication link as once the seeding phase is completed. Therefore, the copy database is a snapshot of the source database as of the time of the copy request.  
 You can create the database copy on either the same server or a different server. The service tier and performance level (pricing tier) of the database copy are the same as the source database by default. When using the API, you can select a different performance level within the same service tier (edition). After the copy is complete, the copy becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently.  
 
 When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner (DBO) on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
