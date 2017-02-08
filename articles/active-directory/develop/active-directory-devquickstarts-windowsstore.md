@@ -1,6 +1,6 @@
 ---
-title: Azure AD Windows Store getting started | Microsoft Docs
-description: Build a Windows Store app that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth.
+title: Azure AD Windows Store Getting Started | Microsoft Docs
+description: Build Windows Store apps that integrate with Azure AD for sign-in and call Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: windows
 author: dstrockis
@@ -17,12 +17,12 @@ ms.date: 09/16/2016
 ms.author: dastrock
 
 ---
-# Integrate Azure AD with a Windows Store app
+# Integrate Azure AD with Windows Store apps
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-If you're developing an app for the Windows Store, Azure Active Directory (AD) makes it simple and straightforward to authenticate your users with their Active Directory accounts. By integrating with Azure AD, the app can securely consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
+If you're developing apps for the Windows Store, Azure Active Directory (Azure AD) makes it simple and straightforward to authenticate your users with their Active Directory accounts. By integrating with Azure AD, an app can securely consume any web API that's protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 For Windows Store desktop apps that need to access protected resources, Azure AD provides the Active Directory Authentication Library (ADAL). The sole purpose of ADAL is to make it easy for the app to get access tokens. To demonstrate how easy it is, this article shows how to build a DirectorySearcher Windows Store app that:
 
@@ -30,10 +30,10 @@ For Windows Store desktop apps that need to access protected resources, Azure AD
 * Searches a directory for users with a given user principal name (UPN).
 * Signs users out.
 
-To build the complete working app, follow the instructions in the next sections.
+To build a complete working app, follow the procedures in the next four sections.
 
 ## Before you get started
-* Download [a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip), or download [the completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip). Each download is a Visual Studio 2015 solution.
+* Download the [skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip), or download the [completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip). Each download is a Visual Studio 2015 solution.
 * You also need an Azure AD tenant in which to create users and register the app. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 ## Step 1: Register the DirectorySearcher app
@@ -91,7 +91,7 @@ The basic principle behind ADAL is that whenever the app needs an access token, 
     }
     ```
 
-2. Locate the `Search(...)` method, which is invoked when users click the **Search** button on the app's UI. This method makes a get request to the Azure AD Graph API to query for users whose UPN begins with the given search term. To query the Graph API, include an access_token in the request's **Authorization** header. This is where ADAL comes in.
+2. Locate the `Search(...)` method, which is invoked when users click the **Search** button on the app's UI. This method makes a get request to the Azure AD Graph API to query for users whose UPN begins with the given search term. To query the Graph API, include an access token in the request's **Authorization** header. This is where ADAL comes in.
 
     ```C#
     private async void Search(object sender, RoutedEventArgs e)
@@ -114,7 +114,7 @@ The basic principle behind ADAL is that whenever the app needs an access token, 
     }
     ```
     When the app requests a token by calling `AcquireTokenAsync(...)`, ADAL attempts to return a token without asking the user for credentials. If ADAL determines that the user needs to sign in to get a token, it displays a sign-in dialog box, collects the user's credentials, and returns a token after authentication succeeds. If ADAL is unable to return a token for any reason, the *AuthenticationResult* status is an error.
-3. Now it's time to use the access_token you just acquired. Also in the `Search(...)` method, attach the token to the Graph API get request in the **Authorization** header:
+3. Now it's time to use the access token you just acquired. Also in the `Search(...)` method, attach the token to the Graph API get request in the **Authorization** header:
 
     ```C#
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
