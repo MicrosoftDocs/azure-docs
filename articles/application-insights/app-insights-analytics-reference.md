@@ -30,7 +30,7 @@ Additional sources of information:
 ## Index
 **Let** [let](#let-clause)
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Queries and operators** [count](#count-operator) | [datatable](#datatable-operator) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -91,6 +91,18 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
     let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
+Convert a table result to a scalar and use in a query:
+
+```
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
 
 Self-join:
 
@@ -155,6 +167,63 @@ This function returns a table with a single record and column of type
 ```AIQL
 requests | count
 ```
+
+### datatable operator
+
+Specify a table inline. The schema and values are defined in the query itself.
+
+Note that this operator does not have a pipeline input.
+
+**Syntax**
+
+    datatable ( ColumnName1 : ColumnType1 , ...) [ScalarValue1, ...]
+
+* *ColumnName* A name for a column.
+* *ColumnType* A [data type](#scalars). 
+* *ScalarValue* A value of the appropriate type. The count of values must be a multiple of the number of columns. 
+
+**Returns**
+
+A table containing the specified values.
+
+**Example**
+
+```AIQL
+datatable (Date:datetime, Event:string)
+    [datetime(1910-06-11), "Born",
+     datetime(1930-01-01), "Enters Ecole Navale",
+     datetime(1953-01-01), "Published first book",
+     datetime(1997-06-25), "Died"]
+| where strlen(Event) > 4
+```
+
+### distinct operator
+
+Returns a table containing the set of rows that have distinct combinations of values. Optionally projects to a subset of the columns before the operation.
+
+**Syntax**
+
+    T | distinct *              // All columns
+    T | distinct Column1, ...   // Columns to project
+
+**Example**
+
+```AIQL
+datatable (Supplier: string, Fruit: string, Price:int) 
+["Contoso", "Grapes", 22,
+"Fabrikam", "Apples", 14,
+"Contoso", "Apples", 15,
+"Fabrikam", "Grapes", 22]
+| distinct Fruit, Price 
+```
+
+
+|Fruit|Price|
+|---|---|
+|Grapes|22|
+|Apples|14|
+|Apples|15|
+
 
 ### evaluate operator
 `evaluate` is an extension mechanism that allows specialized algorithms to be appended to queries.
@@ -849,6 +918,50 @@ Specifies the set of table names available to operators that follow. For example
     restrict access to (e1, e2);
     union * |  take 10 
 
+### sample operator
+
+Returns uniformly distributed random rows from the input table.
+
+
+**Syntax**
+
+    T | sample NumerOfRows
+
+* *NumberOfRows* The number of rows to return in the sample.
+
+**Tip**
+
+Use `Take` when you don't need a uniformly distributed sample.
+
+
+### sample-distinct operator
+
+Returns a single column that contains up to the specified number of distinct values of the requested column. Does not currently return a fairly distributed sample.
+
+**Syntax**
+
+    T | sample-distinct NumberOfValues of ColumnName
+
+* *NumberOfValues* The length of the table you want.
+* *ColumnName* The column you want.
+
+**Tips**
+
+Can be handy to sample a population by putting sample-distinct in a let statement and later filter using the in operator (see example).
+ 
+If you want the top values rather than just a sample, you can use the top-hitters operator.
+
+If you want to sample data rows (rather than values of a specific column), refer to the [sample operator](#sample-operator).
+
+**Example**
+
+Sample a population and do further computation knowing the summarize won't exceed query limits. 
+
+```AIQL
+let sampleops = toscalar(requests | sample-distinct 10 of OperationName);
+requests | where OperationName in (sampleops) | summarize total=count() by OperationName
+```
+
 ### sort operator
     T | sort by country asc, price desc
 
@@ -1086,17 +1199,54 @@ Notice that we put the comparison between two columns last, as it can't utilize 
 
 **Syntax**
 
-    T | where col in (expr1, expr2, ...)
-    T | where col !in (expr1, expr2, ...)
+    T | where col in (listExpression)
+    T | where col !in (listExpression)
 
 **Arguments**
 
 * `col`: A column in the table.
-* `expr1`...: A list of scalar expressions.
+* `listExpression`...: A list of scalar expressions, or an expression that evaluates to a list. 
+
+A nested array is flattened into a single list - for example, `where x in (dynamic([1,[2,3]]))` becomes `where x in (1,2,3)`.
 
 Use `in` is used to include only rows in which `col` is equal to one of the expressions `expr1...`.
 
 Use `!in` to include only rows in which `col` is not equal to any of the expressions `expr1...`.  
+
+**Examples**
+
+```AIQL
+let cities = dynamic(['Dublin','Redmond','Amsterdam']);
+requests | where client_City in (cities) 
+|  summarize count() by client_City
+```
+
+Computed list:
+
+```AIQL
+let topCities =  toscalar ( // convert single column to value
+   requests
+   | summarize count() by client_City 
+   | top 4 by count_ 
+   | summarize makeset(client_City)) ;
+requests
+| where client_City in (topCities) 
+| summarize count() by client_City;
+```
+
+Using a function call as the list expression:
+
+```AIQL
+let topCities =  (n:int) {toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City)) };
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+ 
 
 ## Aggregations
 Aggregations are functions used to combine values in groups created in the [summarize operation](#summarize-operator). For example, in this query, dcount() is an aggregation function:
@@ -1646,6 +1796,12 @@ The evaluated argument. If the argument is a table, returns the first column of 
     and 
     or 
 
+### Convert to boolean
+
+If you have a string `aStringBoolean` that contains a value "true" or "false", you can convert it to Boolean as follows:
+
+    booleanResult = aStringBoolean =~ "true"
+
 
 
 ## Numbers
@@ -1798,13 +1954,6 @@ The square root function.
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
-### tolong
-    tolong(20.7) == 20 // conversion from double
-    tolong(20.4) == 20 // conversion from double
-    tolong("  123  ")  // parse string
-    tolong(a[0])       // cast from dynamic
-    tolong(b.c)        // cast from dynamic
-
 
 ### todouble
     todouble(20) == 20.0 // conversion from long or int
@@ -1812,6 +1961,13 @@ The square root function.
     todouble(a[0])       // cast from dynamic
     todouble(b.c)        // cast from dynamic
 
+
+### tolong
+    tolong(20.7) == 20 // conversion from double
+    tolong(20.4) == 20 // conversion from double
+    tolong("  123  ")  // parse string
+    tolong(a[0])       // cast from dynamic
+    tolong(b.c)        // cast from dynamic
 
 
 ## Date and time
@@ -2083,7 +2239,7 @@ h"hello"
 | --- | --- | --- | --- |
 | `==` |Equals |Yes |`"aBc" == "aBc"` |
 | `<>` `!=` |Not equals |Yes |`"abc" <> "ABC"` |
-| `=~` |Equals |No |`"abc" =~ "ABC"` |
+| `=~` |Equals |No |`"abc" =~ "ABC"` <br/>`boolAsString =~ "true"` |
 | `!~` |Not equals |No |`"aBc" !~ "xyz"` |
 | `has` |Right-hand-side (RHS) is a whole term in left-hand-side (LHS) |No |`"North America" has "america"` |
 | `!has` |RHS is not a full term in LHS |No |`"North America" !has "amer"` |
