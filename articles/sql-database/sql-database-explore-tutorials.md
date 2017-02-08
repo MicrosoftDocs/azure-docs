@@ -100,7 +100,7 @@ In the following tutorials, you will learn about application and database develo
 
 | Tutorial | Description |
 | --- | --- | 
-| [Create a report using Excel](sql-database/sql-database-connect-excel.md) |In this tutorial, you learn how to connect Excel to a SQL database in the cloud so you can import data and create tables and charts based on values in the database. |
+| [Create a report using Excel](sql-database-connect-excel.md) |In this tutorial, you learn how to connect Excel to a SQL database in the cloud so you can import data and create tables and charts based on values in the database. |
 | [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) |In this tutorial, you learn how to build an application using SQL Server |
 | [Use entity framework with elastic tools](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) |In this tutorial, you learn the changes in an Entity Framework application that are needed to integrate with the Elastic Database tools. |
 | [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md) | In this tutorial, you learn how to use [in-memory OLTP](sql-database-in-memory.md) to improve the performance of transaction processing. |
