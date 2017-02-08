@@ -20,12 +20,12 @@ ms.author: carlrab
 
 ---
 # SQL Server database migration to SQL Database in the cloud
-In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but will necessitate some downtime during the migration. The second method is more complex and will not work for all databases, but will substantially eliminate downtime during the migration.
+In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but will necessitate some downtime during the migration. The second method is more complex, but will substantially eliminate downtime during the migration.
 
-In both cases, you need to ensure that the source database is compatible with Azure SQL Database. With SQL Database V12, there we are approaching [feature parity](sql-database-features.md), other than issue related to server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) need some re-engineering to fix these incompatibilities before the SQL Server database can be migrated.
+In both cases, you need to ensure that the source database is compatible with Azure SQL Database. With SQL Database V12, there we are approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-cloud-migration.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 
 > [!NOTE]
-> To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
+> To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
 ## Method 1: Migration with downtime during the migration
@@ -36,7 +36,7 @@ The general workflow for a SQL Server database migation using this method is the
 
   ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. Assess the database for compatibility using the [Data Migration Assistant (DMA) v3.0](https://www.microsoft.com/download/details.aspx?id=53595).
+1. Assess the database for compatibility using the latest version of [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare any necessary fixes as Transact-SQL scripts.
 3. Make a transactionally consistent copy of the source database being migrated - and ensure no further changes are being made to the source database (or you will need to manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
@@ -113,7 +113,7 @@ In addition to searching the Internet and using these resources, use the [MSDN S
 ## Next steps
 * Use the script on the Azure SQL EMEA Engineers blog to [Monitor tempdb usage during migration](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
 * Use the script on the Azure SQL EMEA Engineers blog to [Monitor the transaction log space of your database while migration is occurring](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
-* For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using Bacpac Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * For information about working with UTC time after migration, see [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 * For information about changing the default language of a database after migration, see [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
 
