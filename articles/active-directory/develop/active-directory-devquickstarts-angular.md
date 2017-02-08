@@ -143,7 +143,7 @@ The preceding steps are the bare minimum necessary to build a single-page app by
     <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
     ```
 
-Your Azure AD-integrated single-page app can authenticate users, securely call its back end by using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users. Run your To Do List single-page app, and sign in with one of those users. Add tasks to the user's to do list, sign out, and sign back in.
+Your Azure AD-integrated single-page app can authenticate users, securely call its back end by using OAuth 2.0, and get basic information about the user. If you haven't already, now is the time to populate your tenant with some users. Run your To Do List single-page app, and sign in with one of those users. Add tasks to the user's to-do list, sign out, and sign back in.
 
 Adal.js makes it easy to incorporate common identity features into your application. It takes care of all the dirty work for you: cache management, OAuth protocol support, presenting the user with a sign-in UI, refreshing expired tokens, and more.
 
