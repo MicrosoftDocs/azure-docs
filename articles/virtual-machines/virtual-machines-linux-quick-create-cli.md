@@ -64,7 +64,7 @@ Now you can create your VM and its environment. Remember to replace the `--publi
 ```azurecli
 az vm create \
 --image credativ:Debian:8:latest \
---admin-username ops \
+--admin-username azureuser \
 --ssh-key-value ~/.ssh/id_rsa.pub \
 --public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
@@ -144,7 +144,7 @@ Now you can create your VM and its environment. Remember to replace the `--publi
 ```azurecli
 az vm create \
 --image credativ:Debian:8:latest \
---admin-username ops \
+--admin-username azureuser \
 --ssh-key-value ~/.ssh/id_rsa.pub \
 --public-ip-address-dns-name nativedisks \
 --resource-group nativedisks \
