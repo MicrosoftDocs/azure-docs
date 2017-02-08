@@ -18,13 +18,13 @@ ms.author: markvi
 
 ---
 # Azure Active Directory FAQ
-Azure Active Directory is a comprehensive Identity as a Service (IDaaS) solution that spans all aspects of identity, access management, and security.
+Azure Active Directory (Azure AD) is a comprehensive identity as a service (IDaaS) solution that spans all aspects of identity, access management, and security.
 
-For more information, see [What is Azure Active Directory?](active-directory-whatis.md)
+For more information, see [What is Azure Active Directory?](active-directory-whatis.md).
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure Active Directory (Azure AD) in the Azure classic portal (https://manage.windowsazure.com)?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
 
 **A:** To access the Azure classic portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
 
@@ -40,7 +40,7 @@ For more information, see:
 
 All users who are set up to use web services are defined as user accounts in one or more Azure AD instances. You can set up these accounts for free Azure AD capabilities like cloud application access.
 
-Azure AD paid services like Enterprise Mobility + Security complement other web services like Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
+Azure AD paid services like Enterprise Mobility + Security complement other web services like Office 365 and Microsoft Azure with comprehensive enterprise-scale management and security solutions.
 - - -
 **Q:  Why can I sign in to the Azure portal but not the Azure classic portal?**
 
@@ -53,9 +53,9 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
 
-Additionally, Azure AD paid services like Enterprise Mobility + Security complement other Online services such as Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
+Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Office 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
 
 - - -
 **Q: Is there a report that shows when my Azure AD user licenses will expire?**
@@ -69,7 +69,7 @@ Additionally, Azure AD paid services like Enterprise Mobility + Security complem
 
 **Q: How do I leave a tenant when I am added as a collaborator?**
 
-**A:** When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization and Microsoft is currently working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
+**A:** When you are added to another organization's tenant as a collaborator, you can use the "tenant switcher" in the upper right to switch between tenants.  Currently, there is no way to leave the inviting organization, and Microsoft is working on providing this functionality.  Until this feature is available, you can ask the inviting organization to remove you from their tenant.
 - - -
 **Q: How can I connect my on-premises directory to Azure AD?**
 
@@ -82,7 +82,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 **A:** You only need to set up single sign-on (SSO) between your on-premises directory and Azure AD. As long as you access your cloud applications through Azure AD, the service automatically drives your users to correctly authenticate with their on-premises credentials.
 
-Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (ADFS), or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
+Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. You can easily deploy both options by using the Azure AD Connect configuration wizard.
 
 For more information, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
@@ -137,7 +137,7 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 ## Application access
 **Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
 
-**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
+**A:** Azure AD has more than 2,600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
 
 For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
@@ -154,11 +154,11 @@ For more information, see:
 - - -
 **Q: How do users sign in to applications by using Azure AD?**
 
-**A:** Azure AD provides several ways for users to view and access their applications such as:
+**A:** Azure AD provides several ways for users to view and access their applications, such as:
 
 * The Azure AD access panel
 * The Office 365 application launcher
-* Direct sign in to federated apps
+* Direct sign-in to federated apps
 * Deep links to federated, password-based, or existing apps
 
 For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
@@ -166,7 +166,7 @@ For more information, see [Deploying Azure AD integrated applications to users](
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
 
-**A:** Azure AD supports many standardized protocols for authentication and authorization such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation. Azure AD also supports password vaulting and automated sign-in capabilities for apps that only support forms-based authentication.  
+**A:** Azure AD supports many standardized protocols for authentication and authorization, such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation. Azure AD also supports password vaulting and automated sign-in capabilities for apps that only support forms-based authentication.  
 
 For more information, see:
 
@@ -182,9 +182,9 @@ For more information, see:
 For more information, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
 
 - - -
-**Q: How do I require MFA for users who access a particular application?**
+**Q: How do I require multi-factor authentication for users who access a particular application?**
 
-**A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require MFA always, or when users are not connected to the local network.  
+**A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
 
 For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md).
 
