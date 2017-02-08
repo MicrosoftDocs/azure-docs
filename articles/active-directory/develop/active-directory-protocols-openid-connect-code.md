@@ -1,5 +1,5 @@
 ---
-title: Azure AD OpenID Connect Protocol Overview | Microsoft Docs
+title: Understand the OpenID Connect authentication code flow in Azure AD  | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
 services: active-directory
 documentationcenter: .net
@@ -22,7 +22,7 @@ ms.author: priyamo
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## Authentication flow using OpenID Connect
 The most basic sign-in flow contains the following steps - each of them is described in detail below.

@@ -1,5 +1,5 @@
 ---
-title: Azure AD OAuth 2.0 Protocol Overview | Microsoft Docs
+title: Understand the OAuth 2.0 authorization code flow in Azure AD  | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize acce
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## OAuth 2.0 authorization flow
 At a high level, the entire authorization flow for an application looks a bit like this:
