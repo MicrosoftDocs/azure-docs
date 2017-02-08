@@ -73,7 +73,7 @@ To create a recovery services vault:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vault**.
 
-    ![Click the Browse button and type Recovery Services. When you see the Recovery Services vault option, click it to open the Recovery Services vault blade.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults.png) <br/>
+    ![Click the Browse button and type Recovery Services. When you see the Recovery Services vault option, click it to open the Recovery Services vault blade.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     The list of Recovery Services vaults is displayed.
 3. On the **Recovery Services vaults** menu, click **Add**.
