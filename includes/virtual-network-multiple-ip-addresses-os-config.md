@@ -24,7 +24,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
 
 
-## Validation (Windows)
+### Validation (Windows)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
 
@@ -158,7 +158,7 @@ ping -S 10.0.0.5 hotmail.com
 
 	You should see the IP address you added, *eth0:0*, in the list returned.
 
-## Validation (Linux)
+### Validation (Linux)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
