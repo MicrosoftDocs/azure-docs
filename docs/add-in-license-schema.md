@@ -162,16 +162,16 @@ The following example shows the add-in license for a user who is signed in with 
 <a name="SP15applicenseschema_addlresources"> </a>
 
 
--  [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md)
+-  [License your Office and SharePoint Add-ins](license-your-add-ins.md)
     
  
--  [How licenses work for Office and SharePoint Add-ins](how-licenses-work-for-office-and-sharepoint-add-ins.md)
+-  [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
     
  
 -  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
     
  
--  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model-for-your-office-or-sharepoint-add-in-or-office-365-web-app.md)
+-  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
     
  
 -  [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
