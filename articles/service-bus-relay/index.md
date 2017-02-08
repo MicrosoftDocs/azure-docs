@@ -122,7 +122,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                     <div class="cardText">
                         <h3>.NET</h3>
                         <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
                     </div>
                 </div>
             </div>
