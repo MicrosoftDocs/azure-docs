@@ -211,6 +211,8 @@
 #### [Current limitations](active-directory-b2b-current-limitations.md)
 #### [Licensing](active-directory-b2b-licensing.md)
 #### [Troubleshooting B2B](active-directory-b2b-troubleshooting.md)
+#### [Compare B2B collaboration to B2C](active-directory-b2b-compare-b2c.md)
+#### [Getting support for B2B](active-directory-b2b-support.md)
 #### [FAQ](active-directory-b2b-faq.md)
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
