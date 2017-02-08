@@ -132,7 +132,7 @@ Allowing inbound access from port 443 for these addresses will allow you to succ
 
 The following examples demonstrate how to create a new Network Security Group that allows required addresses, and applies the security group to a subnet within your Virtual Network. The addresses used in this example are from the __All other regions__ list above. If you are in one of the regions specifically listed, such as __West Central US__, modify the script to use the IP addresses for your region.
 
-These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal).
+These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!IMPORTANT]
 > Note the `priority` value used in these examples; rules are tested against network traffic in order by priority. Once a rule matches the test criteria and is applied, no more rules are tested.
