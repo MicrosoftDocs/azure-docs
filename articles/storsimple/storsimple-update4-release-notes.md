@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/07/2017
+ms.date: 02/08/2017
 ms.author: alkohli
 
 ---
@@ -37,26 +37,23 @@ The following key improvements and bug fixes have been made in Update 4.
 
 * **Smarter automated space reclamation algorithms** – Starting Update 4, the automated space reclamation algorithms have been enhanced so as to the adjust the space reclaimation cycles based on the expected reclaimed space available in the cloud. 
 * **Performance enhancements for locally pinned volumes** – Update 4 has improved the performance of locally pinned volumes in scenarios which have high data ingestion (data comparable to volume size).
-* **Heatmap-based restore** - In the earlier releases, following a disaster recovery (DR), the read-write performance was degraded when the data was being served from the cloud. A new feature is implemented in Update 4 that tracks frequently accessed data to create a heatmap (most used data chunks have high heat whereas less used chunks have low heat) when the device is in use prior to DR. After DR, StorSimple uses the heat map to restore and rehydrate the data from the cloud. 
+* **Heatmap-based restore** - In the earlier releases, following a disaster recovery (DR), the read-write performance was degraded when the data was being served from the cloud. A new feature is implemented in Update 4 that tracks frequently accessed data to create a heatmap (most used data chunks have high heat whereas less used chunks have low heat) when the device is in use prior to DR. After DR, StorSimple uses the heat map to restore and rehydrate the data from the cloud. For more information on changes to restore and clone cmdlets with rehydration jobs, go to [Windows PowerShell for StorSimple cmdlet reference]().
 * **StorSimple Diagnostics tool** – In Update 4, a StorSimple Diagnostics tool is being released to allow for easy diagnosing and troubleshooting of issues related to system, network, performance, and hardware component health. This tool is run via the Windows PowerShell for StorSimple. For more information on the assoicated cmdlet, go to [StorSimple Diagnostics tool]().
 * **UI-based StorSimple Migration tool** - Prior to this release, migration of data from 5000-7000 series required the users to execute a part of the migration workflow using the Azure PowerShell interface. In this release, an easy-to-use UI-based StorSimple Migration tool is made available for Support and customers to facilitate the same migration workflow. This tool would also allow for the consolidation of recovery buckets. To download this tool, go to [StorSimple Migration tool](). 
 * **MPIO support for StorSimple Snapshot Manager** - In this release, we have implemented the MPIO support for the StorSimple Snapshot Manager.
 * **FIPS-related changes** - This release onwards, FIPS is enabled by default on all the StorSimple 8000 series devices for both the Microsoft Azure Government and Azure public cloud accounts.
-* **Failback bug fixes** - In earlier releases, following a DR , the user would encounter several issues related to clean up in the . In Update 4, these failback issues have been addressed.
-
 
 
 ## Issues fixed in Update 4
+
 The following table provides a summary of issues that were fixed in Update 4.    
 
 | No | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
-| 1 |Host-side data migration |In the earlier release, the StorSimple Cloud Appliance was going offline during a host-side data migration. This issue is fixed in this release. |No |Yes |
-| 2 |Locally pinned volumes |In the previous release, there were issues related to I/O failures, volume conversion failures, and datapath failures for locally pinned volumes. These issues were root-caused and fixed in this release. |Yes |No |
-| 3 |Monitoring |There were multiple issues related to reporting units and monitoring as well as device dashboard charts where incorrect information was displayed for locally pinned volumes. These issues are fixed in this release. |Yes |No |
-| 4 |Heavy writes I/O |When using StorSimple for workloads involving heavy writes, the user would run into an infrequent bug where the working set was being tiered into the cloud. This bug is fixed in this release. |Yes |Yes |
-| 5 |Backup |In certain rare instances, in the previous versions of software, when user took a backup of a remote clone, they would run into cloud errors and the operation would error out. In this release, the issue is fixed and the operation completes successfully. |Yes |Yes |
-| 6 |Backup policy |In certain rare instances, in the earlier releases of software, there was a bug related to the deletion of backup policy. This issue is fixed in this release. |Yes |Yes |
+| 1 |Failover |In the earlier release, after the failover, there was an issue related to cleanup observed at the customer site. This issue is fixed in this release. |No |Yes |
+| 2 |Locally pinned volumes |In the previous release, there was an issue to related volume creation for locally pinned volumes that would result in volume creation failures. This issue was root-caused and fixed in this release. |Yes |No |
+| 3 |Support package |In previous release, there were issues related to Support package that would result in a System.OutOfMemory exceptions or other errors resulting in a Support package creation failure. These bugs are fixed in this release. |Yes |Yes |
+
 
 ## Known issues in Update 4
 
@@ -87,9 +84,9 @@ The following table provides a summary of known issues in this release.
 | 21 |Volume conversion |Do not update the ACRs attached to a volume while a volume conversion is in progress (tiered to locally pinned or vice versa). Updating the ACRs could result in data corruption. |If needed, update the ACRs prior to the volume conversion and do not make any further ACR updates while the conversion is in progress. | | |
 | 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is successfully updated to Update 4, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
 
-## Controller and firmware updates in Update 4
+## Serial-attached SCSI (SAS) controller and firmware updates in Update 4
 
-This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 4](storsimple-install-update-4.md) on your StorSimple device.
+This release has SAS controller and LSI driver and firmware updates. For more information on how to install these updates, see [install Update 4](storsimple-install-update-4.md) on your StorSimple device.
 
 ## Virtual device updates in Update 4
 
