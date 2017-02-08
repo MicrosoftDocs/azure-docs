@@ -2,7 +2,7 @@
 
 On the Overview page in the Seller Dashboard, under **App package**, you upload your manifest. The upload process varies based on your submission type.
 
-## Office Add-ins
+## Upload your Office Add-in manifest
 
 Choose the tile under **App package**, and upload the manifest file for your add-in.
 
@@ -11,7 +11,7 @@ When you upload your manifest file, you might get one of the following messages:
 - Manifest errors. If your manifest contains errors, the Seller Dashboard will report those errors and you will have to resolve them before you can submit your add-in.
 - Applications and platforms supported. Office apps, platforms, and operating systems are specified in the **Requirements** element in your manifest. For more information, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
 
-## SharePoint Add-ins
+## Upload your SharePoint Add-in manifest
 
 Choose the tile under **App package**, and upload the manifest file for your add-in.
 
@@ -26,7 +26,7 @@ To submit a SharePoint Add-in that uses OAuth that you want to distribute it to 
 
 For more information, see [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md).
 
-## Office 365 web apps
+## Upload an Office 365 web app
 
 Office 365 web apps are registered in Azure Active Directory (Azure AD) and do not have a manifest. Instead, you must provide the app ID.
 
