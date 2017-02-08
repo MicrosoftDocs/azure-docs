@@ -7,7 +7,7 @@ The Office Store provides a convenient location for you to upload new solutions 
 -  [Register as an app developer](https://dev.windows.com/en-us/programs/join). After you create your account, it goes through an approval process. 
     
  
--  [Use the Seller Dashboard to submit your app or add-in to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md).
+-  [Use the Seller Dashboard to submit your app or add-in to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md).
 
 
 
@@ -24,7 +24,7 @@ In order for your app or add-in to be approved:
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
 - If you want a tailored experience for users in regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
 
- >**Note:**  For more information, see  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md).
+ >**Note:**  For more information, see  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies.md).
  
 
 When the validation process is complete, you will receive a message to let you know that either your app or add-in is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
