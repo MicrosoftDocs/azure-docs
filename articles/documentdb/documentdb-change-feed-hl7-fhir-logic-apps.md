@@ -1,6 +1,6 @@
 ﻿---
 title: Change feed for HL7 FHIR resources - Azure DocumentDB | Microsoft Docs
-description: .
+description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, DocumentDB, and Service Bus.
 keywords: hl7 fhir
 services: documentdb
 author: hedidin
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/08/2017
 ms.author: b-hoedid
 
 ---
