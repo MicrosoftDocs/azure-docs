@@ -107,6 +107,7 @@ To enable diagnostics on a resource when it is created, and have the diagnostics
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Azure diagnostics to storage then to Log Analytics
 

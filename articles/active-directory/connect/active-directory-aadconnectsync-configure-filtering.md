@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/07/2017
 ms.author: billmath
 ---
 
@@ -70,12 +70,12 @@ To disable the scheduled task that triggers a synchronization cycle every 3 hour
 After you have completed all your filtering changes, don't forget to come back and **Enable** the task again.
 
 ## Filtering Options
-The following filtering configuration types can be applied to the Directory Synchronization tool:
+The following filtering configuration types can be applied to Azure AD Connect sync:
 
-* [**Group based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial install using the installation wizard. It is not further covered in this topic.
 * [**Domain-based**](#domain-based-filtering): This option enables you to select which domains that synchronize to Azure AD. It also allows you to add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you installed Azure AD Connect sync.
 * [**Organizational-Unit–based**](#organizational-unitbased-filtering):  This filtering option enables you to select which OUs synchronize to Azure AD. This option is for all object types in selected OUs.
 * [**Attribute–based**](#attribute-based-filtering): This option allows you to filter objects based on attribute values on the objects. You can also have different filters for different object types.
+* [**Group-based**](#group-based-filtering): Filtering based on a single group can only be configured on initial install using the installation wizard. It is used for a small pilot deployment.
 
 You can use multiple filtering options at the same time. For example, you can use OU-based filtering to only include objects in one OU and at the same time attribute-based filtering to filter the objects further. When you use multiple filtering methods, the filters use a logical AND between the filters.
 
@@ -112,34 +112,27 @@ If you have updated your domain filter, you also need to update the run profiles
 
 1. In the **Connectors** list, make sure the Connector you changed in the previous step is selected. From **Actions**, select **Configure Run Profiles**.  
    ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/connectorrunprofiles1.png)  
-
-Adjust the following profiles:
-
-* Full Import
-* Full Synchronization
-* Delta Import
-* Delta Synchronization
-* Export
-
-For each of the five profiles, take the following steps for each **added** domain:
-
-1. Select the run profile and click **New Step**.
-2. On the **Configure Step** page, in the **Type** drop-down, select the step type with the same name as the profile you are configuring. Then click **Next**.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
-3. On the **Connector Configuration** page, in the **Partition** drop-down, select the name of the domain you have added to your domain filter.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
-4. To close the **Configure Run Profile** dialog, click **Finish**.
-
-For each of the five profiles, take the following steps for each **removed** domain:
-
-1. Select the run profile.
-2. If the **Value** of the **Partition** attribute is a GUID, select the run step and click **Delete Step**.  
-   ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
-
-The result should be that each domain you want to synchronize should be listed as a step in each run profile.
-
-1. To close the **Configure Run Profiles** dialog, click **OK**.
-2.  To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
+2. Find and identify the following profiles:
+    * Full Import
+    * Full Synchronization
+    * Delta Import
+    * Delta Synchronization
+    * Export
+3. For each profile, adjust **added** and **removed** domains.
+    1. For each of the five profiles, take the following steps for each **added** domain:
+        1. Select the run profile and click **New Step**.
+        2. On the **Configure Step** page, in the **Type** drop-down, select the step type with the same name as the profile you are configuring. Then click **Next**.  
+        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
+        3. On the **Connector Configuration** page, in the **Partition** drop-down, select the name of the domain you have added to your domain filter.  
+        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep2.png)  
+        4. To close the **Configure Run Profile** dialog, click **Finish**.
+    2. For each of the five profiles, take the following steps for each **removed** domain:
+        1. Select the run profile.
+        2. If the **Value** of the **Partition** attribute is a GUID, select the run step and click **Delete Step**.  
+        ![Connector Run Profiles](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
+    3. Verify your change. The result should be that each domain you want to synchronize should be listed as a step in each run profile.
+4. To close the **Configure Run Profiles** dialog, click **OK**.
+5.  To complete the configuration you need to run a **Full import** and **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
 The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
@@ -301,7 +294,7 @@ Now it is time to enable the scheduler again.
 2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Enable**.
 
 ## Group-based filtering
-Group-based filtering can be configured the first time you install Azure AD Connect using custom installation. It is intended for a pilot deployment where only a small set of objects should be synchronized. When you have disabled group-based filtering, it cannot be enabled again. It is **not supported** to use group based filtering in a custom configuration. It is only supported to configure this feature with the installation wizard. When you have completed your pilot, then you should use one of the other filtering options in this topic.
+Group-based filtering can be configured the first time you install Azure AD Connect using [custom installation](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). It is intended for a pilot deployment where only a small set of objects should be synchronized. When you have disabled group-based filtering, it cannot be enabled again. It is **not supported** to use group based filtering in a custom configuration with custom sync rules. It is only supported to configure this feature with the installation wizard. When you have completed your pilot, then you should use one of the other filtering options in this topic.
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

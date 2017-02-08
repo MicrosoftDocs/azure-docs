@@ -38,6 +38,9 @@ IoT Hub monitors six categories of events:
    
     ![][2]
 
+> [!NOTE]
+> Selecting **Verbose** monitoring for the **Connections** category causes IoT Hub to generate additional diagnostics messages. For all other categories, the **Verbose** setting changes the quantity of information IoT Hub includes in each error message.
+
 ## Event categories and how to use them
 Each operations monitoring category tracks a different type of interaction with IoT Hub, and each monitoring category has a schema that defines how events in that category are structured.
 

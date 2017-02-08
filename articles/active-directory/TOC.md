@@ -160,6 +160,7 @@
 ### [Manage access to apps](active-directory-managing-access-to-apps.md)
 #### [Self-service access](active-directory-self-service-application-access.md)
 #### [Certificates for SSO](active-directory-sso-certs.md)
+#### [Tenant restrictions](active-directory-tenant-restrictions.md)
 
 ### [Use SCIM provision users](active-directory-scim-provisioning.md)
 ### [Document library](active-directory-apps-index.md)
@@ -192,7 +193,7 @@
 #### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adding B2B users](active-directory-b2b-admin-add-users.md)
-#### [Information workers adding B2B users](active-directory-b2b-how-it-works.md)
+#### [Information workers adding B2B users](active-directory-b2b-iw-add-users.md)
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Licensing](active-directory-b2b-licensing.md)
@@ -200,6 +201,15 @@
 #### [FAQ](active-directory-b2b-faq.md)
 #### [API and customization](active-directory-b2b-api.md)
 #### [Multi-factor authentication for B2B](active-directory-b2b-mfa-instructions.md)
+#### [Add a guest user to a role](active-directory-b2b-add-guest-to-role.md)
+#### [Delegate invitations](active-directory-b2b-delegate-invitations.md)
+#### [Dynamic groups and B2B](active-directory-b2b-dynamic-groups.md)
+#### [Code and PowerShell samples](active-directory-b2b-code-samples.md)
+#### [Configure SaaS apps for B2B](active-directory-b2b-configure-saas-apps.md)
+#### [B2B user tokens](active-directory-b2b-user-token.md)
+#### [B2B user claims mapping](active-directory-b2b-claims-mapping.md)
+#### [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
+#### [Current limitations](active-directory-b2b-current-limitations.md)
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 
