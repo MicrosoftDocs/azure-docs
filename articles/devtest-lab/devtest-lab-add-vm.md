@@ -30,8 +30,8 @@ You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-
 1. On the **Virtual machine** blade, enter a name for the new virtual machine in the **Virtual machine name** text box.
    
     ![Lab VM blade](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
-1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
-1. If you want to use a password stored in your *secret store*, select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labeled **Type a value**.
+1. Enter a **User Name** that is granted administrator privileges on the virtual machine.  
+1. If you want to use a password stored in your *secret store*, select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
 1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
 1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. 
@@ -39,7 +39,7 @@ You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-
 1. Select **Advanced settings** to configure the VM's network options and expiration options.
 1. If you want to view or copy the Azure Resource Manager template, refer to the [Save Azure Resource Manager template](./devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) section, and return here when finished.
 1. Select **Create** to add the specified VM to the lab.
-1. The lab blade displays the status of the VM's creation; first as **Creating**, then as **Running** after the VM has been started.
+1. The lab blade displays the status of the VM's creation - first as **Creating**, then as **Running** after the VM has been started.
 
 ## Next steps
 * Once the VM has been created, you can connect to the VM by selecting **Connect** on the VM's blade.
