@@ -106,7 +106,7 @@ Once the backup job finishes, the staging location is deleted. The price of stor
 Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
 
 ## Using managed disk VMs with Azure Backup
-Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning. For more information about managed disks, see the article, [Creating managed disks](../virtual-machines/virtual-machines-windows-create-managed-data-disk.md)
+Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning. 
 
 ### Back up managed disk VMs
 Backup of VMs on managed disks is no different than back up of Resource Manager VMs. You can backup directly from VM view or from Recovery Services vault view. Backup of VMs on managed disks is supported through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backup of managed disk VMs encrypted using Azure Disk encryption(ADE).
