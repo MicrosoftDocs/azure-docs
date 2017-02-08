@@ -15,18 +15,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: carlrab
 
 ---
-# Import to SQL Database from a BACPAC file using SqlPackage
-> [!div class="op_single_selector"]
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> * [Azure portal](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> 
-> 
+# Import a database from a BACPAC file to Azure SQL Database using SqlPackage
 
 This article shows how to import to SQL database from a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility. This utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
 
