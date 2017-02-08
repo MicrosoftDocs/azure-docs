@@ -20,15 +20,15 @@ ms.author: carlrab
 
 ---
 # Explore Azure SQL Database tutorials
-The links below take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
+The links in the following tables take you to an overview of each listed feature area and a simple step-by-start tutorial for each area. For solution-scoped quick starts that demonstrate the use of SQL Database in a complete solution based on real world scenarios, see [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md).
 
 ## Create servers, databases and server-level firewall rules
-In the following tutorials, you create servers, databases and server-level firewall rules - and learn to connect and query servers and databases.
+In the following tutorials, you create servers, databases, and server-level firewall rules - and learn to connect and query servers and databases.
 
 | Tutorial | Description |
 | --- | --- | 
-| [Quick start tutorial: Your first Azure SQL database](sql-database-get-started.md) | When you finish this quick start tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have two server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. Finally, you will know how to query a database in the Azure portal and to connect and query using SQL Server Management Studio. |
-| [Tutorial: Provision and access an Azure SQL database using PowerShell](sql-database-get-started-powershell.md) | When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). |
+| [Quick start tutorial: Your first Azure SQL database](sql-database-get-started.md) | When you finish this quick start tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have two server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. Finally, you learn know how to query a database in the Azure portal and to connect and query using SQL Server Management Studio. |
+| [Tutorial: Provision and access an Azure SQL database using PowerShell](sql-database-get-started-powershell.md) | When you finish this tutorial, you have a sample database and a blank database running in an Azure resource group and attached to a logical server. You also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). |
 | [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
@@ -42,7 +42,7 @@ In the following tutorial, you restore a database to a point in time, configure 
 |  | |
 
 ## Sharded databases
-In the following tutorials, you will learn how to [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).
+In the following tutorials, you learn how to [Scale out databases with the shard map manager](sql-database-elastic-scale-shard-map-management.md).
 
 | Tutorial | Description |
 | --- | --- | 
@@ -51,26 +51,26 @@ In the following tutorials, you will learn how to [Scale out databases with the 
 |  | |
 
 ## Elastic database jobs
-In the following tutorials, you will learn about using [elastic database jobs](sql-database-elastic-jobs-overview.md).
+In the following tutorials, you learn about using [elastic database jobs](sql-database-elastic-jobs-overview.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Get started with Azure SQL Database elastic jobs](sql-database-elastic-jobs-getting-started.md) |In this tutorial, you learn how to  how to create and manage jobs that manage a group of related databases. |
+| [Get started with Azure SQL Database elastic jobs](sql-database-elastic-jobs-getting-started.md) |In this tutorial, you learn how to create and manage jobs that manage a group of related databases. |
 |  | |
 
 ## Elastic queries
-In the following tutorials, you will learn about running [elastic queries](sql-database-elastic-query-overview.md).
+In the following tutorials, you learn about running [elastic queries](sql-database-elastic-query-overview.md).
 
 | Tutorial | Description |
 | --- | --- | 
 | [Create elastic queries)](sql-database-elastic-query-getting-started-vertical.md) | In this tutorial, you learn how to run T-SQL queries that span multiple databases using a single connection point |
 | [Report across scaled-out cloud databases](sql-database-elastic-query-getting-started.md) |In this tutorial, you learn how to create reports from all databases in a horizontally partitioned (sharded) database |
 | [Query across cloud databases with different schemas](sql-database-elastic-query-vertical-partitioning.md) | In this tutorial, you learn how to run T-SQL queries that span multiple databases with different schemas |
-| [Reporting across scaled-out cloud databases](sql-database-elastic-query-horizontal-partitioning.md) |In this tutorial, you learn to can create reports that span all databases in a sharded database. |
+| [Reporting across scaled-out cloud databases](sql-database-elastic-query-horizontal-partitioning.md) |In this tutorial, you learn to create reports that span all databases in a sharded database. |
 |  | |
 
 ## Database authentication and authorization
-In the following tutorials, you will learn about [creating and managing logins and users](sql-database-manage-logins.md).
+In the following tutorials, you learn about [creating and managing logins and users](sql-database-manage-logins.md).
 
 | Tutorial | Description |
 | --- | --- | --- |
@@ -79,24 +79,24 @@ In the following tutorials, you will learn about [creating and managing logins a
 |  | |
 
 ## Secure and protect data
-In the following tutorials, you will learn about [securing Azure SQL Database data](sql-database-security-overview.md).
+In the following tutorials, you learn about [securing Azure SQL Database data](sql-database-security-overview.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Secure sensitive data uisng Always Encrypted ](sql-database-always-encrypted-azure-key-vault.md) |In this tutorial, you will use the Always Encrypted wizard to secure sensitive data in an Azure SQL database. |
+| [Secure sensitive data using Always Encrypted ](sql-database-always-encrypted-azure-key-vault.md) |In this tutorial, you use the Always Encrypted wizard to secure sensitive data in an Azure SQL database. |
 |  | |
 
 ## Backups, long-term retention, and database recovery
-In the following tutorials, you will learn about using [database backups](sql-database-automated-backups.md), [long-term backup retention](sql-database-long-term-retention.md), and [database recovery using backups](sql-database-recovery-using-backups.md).
+In the following tutorials, you learn about using [database backups](sql-database-automated-backups.md), [long-term backup retention](sql-database-long-term-retention.md), and [database recovery using backups](sql-database-recovery-using-backups.md).
 
 | Tutorial | Description |
 | --- | --- | 
-| [Backup and Restore using the Azure portal](sql-database-get-started-backup-recovery.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup rentention and recover from a backup in the Azure Recovery Services vault
-| [Backup and Restore using PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup rentention and recover from a backup in the Azure Recovery Services vault
+| [Back up and restore using the Azure portal](sql-database-get-started-backup-recovery.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
+| [Back up and restore using PowerShell](sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
 
 ## Develop
-In the following tutorials, you will learn about application and database development.
+In the following tutorials, you learn about application and database development.
 
 | Tutorial | Description |
 | --- | --- | 
@@ -107,7 +107,7 @@ In the following tutorials, you will learn about application and database develo
 |  | |
 
 ## Data sync
-In this tutorial, you will learn about [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+In this tutorial, you learn about [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 | Tutorial | Description |
 | --- | --- | 

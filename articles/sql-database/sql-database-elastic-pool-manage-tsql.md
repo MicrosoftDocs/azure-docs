@@ -66,7 +66,7 @@ Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/l
     WHERE elastic_pool_name = 'MyElasticPool'
     ORDER BY end_time DESC;
 
-## Get resource usage for apooled database
+## Get resource usage for a pooled database
 Use the [sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for a single database.
 
 ## Next steps
