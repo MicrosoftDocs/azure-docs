@@ -152,7 +152,7 @@ The output of this command should appear similar to the following output:
 ## 6. Install Passport.js in your web API
 [Passport](http://passportjs.org/) is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively dropped in to any Express-based or restify web application. A comprehensive set of strategies support authentication with a username and password, Facebook, Twitter, and more.
 
-We have developed a strategy for Azure Active Directory. We  install this module and then add the Azure Active Directory strategy plug-in.
+We have developed a strategy for Azure Active Directory. We install this module and then add the Azure Active Directory strategy plug-in.
 
 From the command-line, change directories to the **azuread** directory.
 
@@ -330,7 +330,7 @@ var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config
 
 Save the file.
 
-## 13. Add The MongoDB Model and schema information by using Moongoose
+## 13. Add The MongoDB Model and schema information by using Mongoose
 Now all this preparation is going to start paying off as combine these three files together into a REST API service.
 
 For this walkthrough, we use MongoDB to store our tasks as discussed in **Step 4**.
@@ -432,7 +432,7 @@ function createTask(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-    // Create a new task model, fill it,  and save it to Mongodb.
+    // Create a new task model, fill it, and save it to Mongodb.
     var _task = new Task();
 
     if (!req.params.task) {
@@ -514,7 +514,7 @@ function getTask(req, res, next) {
 
 function listTasks(req, res, next) {
     // restify currently has a bug which doesn't allow you to set default headers.
-    // This headers comply with CORS and allow us to mongodbServer our response to any origin.
+    // These headers comply with CORS and allow us to mongodbServer our response to any origin.
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -534,7 +534,7 @@ function listTasks(req, res, next) {
         }
 
         if (!data.length) {
-            log.warn(err, "There is no tasks in the database. Did you initalize the database as stated in the README?");
+            log.warn(err, "There is no tasks in the database. Did you initialize the database as stated in the README?");
         }
 
         if (!owner) {
@@ -706,7 +706,7 @@ The easiest way to test your server is by using curl in a command line. Before w
 
 This installs the JSON tool globally. Now that we’ve accomplished that, let’s play with the server:
 
-First, make sure that your monogoDB instance is running:
+First, make sure that your mongoDB instance is running:
 
 `$sudo mongod`
 
@@ -834,14 +834,14 @@ passport.use(bearerStrategy);
 Passport uses a similar pattern for all its strategies (Twitter, Facebook, and so on) that all strategy writers adhere to. Looking at the strategy, you see we pass it a function() that has a token and a done as the parameters. The strategy comes back to us after it does its work. After it does, we store the user and stash the token so we won’t need to ask for it again.
 
 > [!IMPORTANT]
-> The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. In production servers, you we recommend that you don't let anyone in without first having them go through a registration process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command-line program, we could have just extracted the email from the token object that is returned and then asked the user to fill out additional information. Since this is a test server, we simply add them to the in-memory database.
+> The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. In production servers, you we recommend that you don't let anyone in without first having them go through a registration process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command-line program, we could have extracted the email from the token object that is returned and then asked the user to fill out additional information. Since this is a test server, we simply add them to the in-memory database.
 >
 >
 
 ### 2. Finally, protect some endpoints
 You protect endpoints by specifying the `passport.authenticate()` call with the protocol that you want to use.
 
-Let’s edit our route in our server code to do something more interesting:
+To make our sever code do something more interesting, let’s edit the route in our server code.
 
 ```Javascript
 server.get('/tasks', passport.authenticate('oauth-bearer', {
@@ -880,9 +880,9 @@ next();
 ```
 
 ## 19. Run your server application again and ensure it rejects you
-Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We do this before running any of our client SDKs against this endpoint. The headers that are returned should be enough to tell us if we're going down the right path.
+Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We do this test before running any of our client SDKs against this endpoint. The headers that are returned should be enough to tell us whether we're going down the right path.
 
-First, make sure that your monogoDB instance is running:
+First, make sure that your mongoDB instance is running:
 
   $sudo mongod
 
@@ -903,16 +903,16 @@ Date: Tue, 14 Jul 2015 05:45:03 GMT
 Transfer-Encoding: chunked
 ```
 
-A 401 is the response you are looking for here. This indicates that the Passport layer is trying to redirect to the authorized endpoint, which is exactly what you want.
+A 401 is the response you are looking for here. This response indicates that the Passport layer is trying to redirect to the authorized endpoint, which is exactly what you want.
 
 ## Congratulations! You have a REST API Service using OAuth2!
 You've gone as far as you can with this server without using an OAuth2 compatible client. You will need to go through an additional walkthrough.
 
-If you were just looking for information on how to implement a REST API by using restify and OAuth2, you have more than enough code to keep developing your service and learning how to build on this example.
+You've now learned how to implement a REST API by using restify and OAuth2. You also have more than enough code to keep developing your service and learning how to build on this example.
 
 If you are interested in the next steps in your ADAL journey, here are some supported ADAL clients we recommend for you to keep working:
 
-Simply clone down to your developer machine and configure as described in the walkthrough.
+Clone down to your developer machine and configure as described in the walkthrough.
 
 [ADAL for iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios)
 
