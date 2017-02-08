@@ -1,10 +1,9 @@
 # Office Store listing
 
-You enter the Store listing information for your app or add-in on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your app or add-in does and how it can provide value to them.
+You enter the Store listing information for your app or add-in on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your app or add-in does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
-We recommend that you follow the guidelines we provide to [Create effective Office Store apps and add-ins](create-effective-office-store-apps-and-add-ins.md).
+We recommend that you follow the guidelines in [Create effective Office Store apps and add-ins](create-effective-office-store-apps-and-add-ins.md) when you create your Office Store listing.
 
-The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
 ## App name
 In the **App name** field, specify the app or add-in title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-apps-and-add-ins.md#use-a-succinct-and-descriptive-title).
