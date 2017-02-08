@@ -123,4 +123,4 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q.** Do VM scale sets work with Azure availability sets?
 
-**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. VM scale sets of more than 100 VMs span multiple 'placement groups' which are equivalent to multiple availability sets. An availability set of VMs, can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs which often require unique confiuration in the availability set, and data nodes in the scale set.
+**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. VM scale sets of more than 100 VMs span multiple 'placement groups' which are equivalent to multiple availability sets. An availability set of VMs can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs which often require unique configuration in the availability set, and data nodes in the scale set.

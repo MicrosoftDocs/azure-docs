@@ -27,7 +27,7 @@ Azure AD B2B collaboration capabilities enable organizations of all sizes and in
 
 ## How does it work?
 
-In the current release (in the [Azure classic portal](https://manage.windowsazure.com)), to establish a relationship with an organization, IT pros and information workers can add users from another org one or a few at a time through the portal or the Invitation Manager API. Now, admins can use the new portal experiences in the Azure portal (https://portal.azure.com) and PowerShell for this. And information workers can use the Access Panel experiences in http://myapps.microsoft.com. Developers can create applications using the Azure AD B2B invitation manager API to add B2B collaboration users and customize the invitation and onboarding workflows.
+In the current preview release, to establish a relationship with an organization, IT pros and information workers can add users from another org one or a few at a time through the portal or the Invitation Manager API. Admins can use the new portal experiences in the Azure portal (https://portal.azure.com) and PowerShell for this. And information workers can use the Access Panel experiences in http://myapps.microsoft.com. Developers can create applications using the Azure AD B2B invitation manager API to add B2B collaboration users and customize the invitation and onboarding workflows.
 
 B2B collaboration users are typically brought on board through an invitation + redemption process. Here's how it works.
 

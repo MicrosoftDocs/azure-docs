@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 
 ---
 # ExpressRoute FAQ
 ## What is ExpressRoute?
-ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability and speeds with lower latencies than typical connections over the Internet.
+ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet.
 
 ### What are the benefits of using ExpressRoute and private network connections?
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
@@ -43,7 +43,7 @@ No. You can purchase a VPN connection of any speed from your service provider. H
 Yes. ExpressRoute circuits are configured to support cases where you can burst up to two times the bandwidth limit you procured for no additional cost. Check with your service provider if they support this capability.
 
 ### Can I use the same private network connection with Virtual Network and other Azure services simultaneously?
-Yes. An ExpressRoute circuit, once setup will allow you to access services within a virtual network and other Azure services simultaneously. You will connect to virtual networks over the private peering path and other services over the public peering path.
+Yes. An ExpressRoute circuit, once set up, will allow you to access services within a virtual network and other Azure services simultaneously. You will connect to virtual networks over the private peering path, and to other services over the public peering path.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
 Please refer to the [ExpressRoute SLA page](https://azure.microsoft.com/support/legal/sla/) for more information.
@@ -96,7 +96,7 @@ Yes. Each Express Route circuit has a redundant pair of cross connections config
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
-No, you only need one physical connection if your service provider can establish two Ethernet virtual circuits over the physical connection. The physical connection (e.g. an optical fiber) is terminated on a layer 1 (L1) device (see image below). The two Ethernet virtual circuits are tagged with different VLAN IDs, one for the primary circuit and one for the secondary. Those VLAN IDs are in the outer 802.1Q Ethernet header. The inner 802.1Q Ethernet header (not shown) is mapped to a specific [ExpressRoute routing domain](expressroute-circuit-peerings.md). 
+No, you only need one physical connection if your service provider can establish two Ethernet virtual circuits over the physical connection. The physical connection (for example, an optical fiber) is terminated on a layer 1 (L1) device (see image below). The two Ethernet virtual circuits are tagged with different VLAN IDs, one for the primary circuit and one for the secondary. Those VLAN IDs are in the outer 802.1Q Ethernet header. The inner 802.1Q Ethernet header (not shown) is mapped to a specific [ExpressRoute routing domain](expressroute-circuit-peerings.md). 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
@@ -213,7 +213,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
-1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) page to make sure you meet the requirements.
+1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).

@@ -8,7 +8,7 @@ author: brendalee
 manager: zakramer
 
 ms.assetid: a1e173a9-996a-4091-a2e3-6b1e36da9ae1
-ms.service: azure.government
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

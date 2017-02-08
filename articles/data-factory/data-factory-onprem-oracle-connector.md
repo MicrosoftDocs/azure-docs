@@ -29,10 +29,10 @@ Data Factory supports connecting to on-premises Oracle sources using the Data Ma
 ## Supported versions and installation
 Oracle connector support two versions of drivers:
 
-- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. With that, you don't need to install anything else besides the gateway to connect to Oracle. Oracle Database version 10g Release 2 or later are supported. You are **recommended** to use this driver to simplify environment setup.
+- **Microsoft driver for Oracle** is bundled with Data Management Gateway starting from version 2.7. You are **recommended** to use this driver. With that, you don't need to install anything else besides the gateway to connect to Oracle, and you can also experience better copy performance. Oracle Database version 10g Release 2 or later are supported.
 
     > [!NOTE]
-    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle.
+    > Currently Microsoft driver for Oracle only supports copying data from Oracle but not writing to Oracle. And note the test connection capability in Data Management Gateway Diagnostics tab does not support this driver. Alternatively, you can use the copy wizard to validate the connectivity.
     >
 
 - **Oracle Data Provider for .NET:** you can also choose to use Oracle Data Provider to copy data from/to Oracle. This component is included in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the appropriate version (32/64 bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access to Oracle Database 10g Release 2 or later.
