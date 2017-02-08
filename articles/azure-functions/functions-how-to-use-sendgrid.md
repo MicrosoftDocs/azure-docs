@@ -40,7 +40,7 @@ Each function can contain any number of input or output bindings. Bindings are s
 
 ## Configure SendGrid for use in an Azure Function app
 
-You must store your SendGrid Api Key as an app setting to use it in a function. The ApiKey field is not your actual SendGrid api key, but an app setting you define that represents your actual api key. Storing your key this way is for security, since it is separate from any code or files that might be checked into source code control.
+You must store your SendGrid API Key as an app setting to use it in a function. The ApiKey field is not your actual SendGrid API key, but an app setting you define that represents your actual API key. Storing your key this way is for security, since it is separate from any code or files that might be checked into source code control.
 
 1. Create an **AppSettings** key in your function app's **Application Settings**.
 
@@ -65,7 +65,6 @@ Function apps also require a reference to external assemblies before you may use
    }
 }
 ```
-Now that you have created and configured the Function App and function, you can write the code to send an email.
 
 ## Configure SendGrid output bindings
 
@@ -96,6 +95,8 @@ Setting the **ApiKey**, **message**, and **from** fields create the following en
 ```
 
 If you prefer, you may modify this file yourself directly.
+
+Now that you have created and configured the Function App and function, you can write the code to send an email.
 
 ## Write code that creates and sends email
 
@@ -131,7 +132,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```
 
 Notice the first line contains the ```#r``` directive that references the SendGrid assembly. After that, you can use a ```using``` statement to more easily access the objects in that namespace. 
-In the code, create instances of ```Mail```, ```Personalization```, and ```Content``` objects that compose the email. When you return the message, SendGrid delivers it. 
+In the code, create instances of ```Mail```, ```Personalization```, and ```Content``` objects from the SendGrid API that compose the email. When you return the message, SendGrid delivers it. 
 
 The function's signature also contains an extra out parameter of type ```Mail``` named ```message```. Both input and output bindings express themselves as function parameters in code. 
 
