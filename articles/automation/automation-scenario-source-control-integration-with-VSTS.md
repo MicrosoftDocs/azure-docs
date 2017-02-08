@@ -79,7 +79,7 @@ VSAccount | The name of the Visual Studio Team Services account.|
 VSProject | The name of the project in VSTS where the runbooks and configurations exist.|
 GitRepo | The name of the Git repository.|
 GitBranch | The name of the branch in VSTS Git repository.|
-VSFolder | The name of the folder in VSTS Git branch.|
+Folder | The name of the folder in VSTS Git branch.|
 VSAccessTokenVariableName | The name of the secure variable (VSToken) that holds the VSTS personal access token.|
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
