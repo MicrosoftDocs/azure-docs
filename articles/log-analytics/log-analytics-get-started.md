@@ -19,10 +19,10 @@ ms.author: banders
 # Get started with a Log Analytics workspace
 You can get up and running quickly with Azure Log Analytics, which helps you evaluate operational intelligence gathered from your IT infrastructure. Using this article, you can easily start exploring, analyzing, and take action on data that you collect *for free*.
 
-This article serves as an introduction to Log Analytics using a brief tutorial to walk you through a minimal deployment in Azure so that you can start using the service. The logical container where your management data in Azure is stored is called a workspace. After you've reviewed this information and completed your own evaluation, you can remove the evaluation workspace. Because this is a tutorial, it doesn't address business requirements, planning, or architecture guidance.
+This article serves as an introduction to Log Analytics using a brief tutorial to walk you through a minimal deployment in Azure so that you can start using the service. The logical container where your management data in Azure is stored is called a workspace. After you've reviewed this information and completed your own evaluation, you can remove the evaluation workspace. Because this article is a tutorial, it doesn't address business requirements, planning, or architecture guidance.
 
 >[!NOTE]
->If you use the Microsoft Azure Government Cloud, please use [Azure Government Monitoring + Management documentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) instead.
+>If you use the Microsoft Azure Government Cloud, use [Azure Government Monitoring + Management documentation](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) instead.
 
 Here's a quick look at the process used to get started:
 
@@ -49,15 +49,15 @@ The next step is to create a workspace.
    * **Location**
    * **Pricing tier**  
        ![quick create](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. Click **OK** and you'll see a list of your workspaces.
-4. Select a workspace to see its details in the Azure portal.       
+3. Click **OK** to see a list of your workspaces.
+4. Select a workspace to see it's details in the Azure portal.       
     ![workspace details](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## 3 Add solutions and solution offerings
 
 Next, add management solutions and solution offerings. Management solutions are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area. A solution offering is a bundle of management solutions.
 
-Adding solutions to your workspace allows Log Analytics to collect various kinds of data from computers that are connected to your workspace using agents. We'll cover onboarding agents later.
+Adding solutions to your workspace allows Log Analytics to collect various kinds of data from computers that are connected to your workspace using agents. We cover onboarding agents later.
 
 ### To add solutions and solution offerings
 
@@ -67,13 +67,13 @@ Adding solutions to your workspace allows Log Analytics to collect various kinds
 3. In the *management solution name* blade, select a workspace that you want to associate with the management solution.
 4. Click **Create**.  
     ![solution workspace](./media/log-analytics-get-started/solution-workspace.png)  
-5. Repeat steps 1 - 4 above to add:
+5. Repeat steps 1 - 4 to add:
     - The **Security & Compliance** service offering with the Antimalware Assessment and Security and Audit solutions.
-    - The **Automation & Control** service offering with the Automation Hybrid Worker, Change Tracking, and System Update Assessment (also called Update Management) solutions. You need to create a Automation account when you add the solution offering.  
+    - The **Automation & Control** service offering with the Automation Hybrid Worker, Change Tracking, and System Update Assessment (also called Update Management) solutions. You must create an Automation account when you add the solution offering.  
         ![Automation account](./media/log-analytics-get-started/automation-account.png)  
-6. You can view the management solutions that you added to your workspace by  navigating to **Log Analytics** > **Subscriptions** > ***workspace name*** > **Overview**. Tiles for the management solutions that you added are shown.  
+6. You can view the management solutions that you added to your workspace by navigating to **Log Analytics** > **Subscriptions** > ***workspace name*** > **Overview**. Tiles for the management solutions that you added are shown.  
     >[!NOTE]
-    >Because we have not yet connected any agents to the workspace, you will not see any data for the solutions that you added.  
+    >Because we have not yet connected any agents to the workspace, you do not see any data for the solutions that you added.  
 
     ![solution tiles without data](./media/log-analytics-get-started/solutions-no-data.png)
 
@@ -91,9 +91,9 @@ Next, create a simple virtual machine in Azure. After you create a VM, onboard t
 
 ## 5 View and act on data
 
-Previously, you enabled the Activity Log Analytics solution and the Security & Compliance and Automation & Control service offerings. Next, we'll start looking at data collected by solutions and results in log searches.
+Previously, you enabled the Activity Log Analytics solution and the Security & Compliance and Automation & Control service offerings. Next, we start looking at data collected by solutions and results in log searches.
 
-To start, we'll look at data that is displayed from within solutions. Then, we'll look at some log searches that are accessed from log searches. Log searches allow you to combine and correlate any machine data from multiple sources within your environment. For more information, see [Log searches in Log Analytics](log-analytics-log-searches.md). Lastly, we'll take action on data that we find using the OMS portal, which is outside of the Azure portal.
+To start, look at data that is displayed from within solutions. Then, look at some log searches that are accessed from log searches. Log searches allow you to combine and correlate any machine data from multiple sources within your environment. For more information, see [Log searches in Log Analytics](log-analytics-log-searches.md). Lastly, take act on data that we find using the OMS portal, which is outside of the Azure portal.
 
 ### To view Antimalware data
 
@@ -108,7 +108,7 @@ To start, we'll look at data that is displayed from within solutions. Then, we'l
 ### To view Security and Audit data
 
 1. In the blade for your workspace, under **General**, click **Overview**.  
-2. Click the **Security and Audit** tile. In this example, you there are two notable issues: there is one computer that is missing critical updates and there is one computer with insufficient protection.  
+2. Click the **Security and Audit** tile. In this example, you can see that there are two notable issues: there is one computer that is missing critical updates and there is one computer with insufficient protection.  
     ![Security and Audit](./media/log-analytics-get-started/security-audit.png)
 3. For this example, under **Notable Issues**, click **Computers missing critical updates** to open Log Search and view details about computers missing critical updates. In this example, there is one critical update missing and 63 other updates missing.  
     ![Security and Audit Log Search](./media/log-analytics-get-started/security-audit-log-search.png)
@@ -120,10 +120,10 @@ To start, we'll look at data that is displayed from within solutions. Then, we'l
     ![System Updates](./media/log-analytics-get-started/system-updates.png)
 3. For this example, under **Missing Updates**, click **Critical Updates** to open Log Search and view details about computers missing critical updates. In this example, there is one missing update and there is one required update.  
     ![System Updates Log Search](./media/log-analytics-get-started/system-updates-log-search.png)
-4. Go to the [Operations Management Suite](http://microsoft.com/oms) website and sign in with your Azure account. When signed in, notice that the solution information is very similar to what you've see in the Azure portal.  
+4. Go to the [Operations Management Suite](http://microsoft.com/oms) website and sign in with your Azure account. When signed in, notice that the solution information is similar to what you've see in the Azure portal.  
     ![OMS portal](./media/log-analytics-get-started/oms-portal.png)
 5. Click the **Update Management** tile.
-6. In the Update Management dashboard, notice that that the system update information is very similar to the System Update information you've seen in the Azure portal. However, the **Manage Update Deployments** tile is new. Click the **Manage Update Deployments** tile.  
+6. In the Update Management dashboard, notice that the system update information is similar to the System Update information you've seen in the Azure portal. However, the **Manage Update Deployments** tile is new. Click the **Manage Update Deployments** tile.  
     ![Update Management tile](./media/log-analytics-get-started/update-management.png)
 7. On the **Update Deployments** page, click **Add** to create an *update run*.  
     ![Update Deployments](./media/log-analytics-get-started/update-management-update-deployments.png)
@@ -137,7 +137,7 @@ To start, we'll look at data that is displayed from within solutions. Then, we'l
 
 ## After evaluation
 
-In this tutorial, you installed an agent on a virtual machine and got started quickly. The steps that you followed were quick and simple. However, most large organizations and enterprises have complex on-premises IT infrastructures. So, collecting data from those complex environments takes additional planning and effort than this tutorial. Review the information in the Next steps below for links to helpful articles.
+In this tutorial, you installed an agent on a virtual machine and got started quickly. The steps that you followed were quick and simple. However, most large organizations and enterprises have complex on-premises IT infrastructures. So, collecting data from those complex environments takes additional planning and effort than the tutorial does. Review the information in the following Next steps section for links to helpful articles.
 
 You can optionally remove the workspace that you created with this tutorial.
 
