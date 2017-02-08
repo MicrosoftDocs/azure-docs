@@ -76,7 +76,7 @@ Here's what you do:
     - Azure VMs will be placed in this network when they're created after failover.
     - You can set up a network in [Resource Manager](../resource-manager-deployment-model.md), or in classic mode.
     -
-2. [Set up an [Azure storage account](../storage/storage-create-storage-account#create-a-storage-accountset-up-an-azure-storage-account) for replicated data.
+2. [Set up an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-accountset-up-an-azure-storage-account) for replicated data.
     - The account can be standard or premium.
     - You can set up an account in Resource Manager, or in classic mode.
 
@@ -304,7 +304,7 @@ By default all disks on a machine are replicated. You can exclude disks from rep
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-11. By default all disks are replicated. Click **All Disks** and clear any disks you don't want to replicate. Then click **OK**. You can set additional VM properties later. [Learn more](site-recovery-exclude-disk.md) about excluding disks from replication.
+11. By default all disks are replicated. Click **All Disks** and clear any disks you don't want to replicate. Then click **OK**. You can set additional VM properties later.
 
     ![Enable replication](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. If you modify a policy, changes will be applied to replicating machine, and to new machines.
@@ -349,7 +349,7 @@ We recommend that you verify the VM properties, and make any changes you need to
 
 ## Run a test failover
 
-After you've set everything up, [run a test failover](site-recovery-test-failover-to-azure) to make sure everything's working as expected.
+After you've set everything up, [run a test failover](site-recovery-test-failover-to-azure.md) to make sure everything's working as expected.
 
 
 
