@@ -28,7 +28,7 @@ This topic describes how to perform administration tasks such as [rebooting](#re
 ## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This enables you to test your application for resiliency in the event of a failure.
 
-![Administration](./media/cache-administration/redis-cache-administration.png)
+![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Select the nodes to reboot and click **Reboot**.
 
