@@ -37,7 +37,7 @@ The following table helps you decide between using Azure AD Domain Services and 
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Domain join**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
-| [**Kerberos constrained delegation**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|resource-based|resource based & account based|
+| [**Kerberos constrained delegation**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|resource-based|resource-based & account-based|
 | [**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**Schema extensions**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
@@ -67,7 +67,7 @@ You can join virtual machines to the managed domain similar to how you join comp
 With Azure AD Domain Services, you can use your corporate credentials to authenticate with the managed domain. Credentials are kept in sync with your Azure AD tenant. For synced tenants, Azure AD Connect ensures that changes to credentials made on-premises are synchronized to Azure AD. With a DIY domain setup, you may need to set up a domain trust relationship with an on-premises account forest for users to authenticate with their corporate credentials. Alternately, you may need to set up AD replication to ensure that user passwords synchronize to your Azure domain controller virtual machines.
 
 #### Kerberos constrained delegation
-With Azure AD Domain Services you do not have 'Domain Administrator' privileges. Therefore, you cannot configure account based (traditional) kerberos constrained delegation. However, you can configure the more secure resource-based constrained delegation.
+You do not have 'Domain Administrator' privileges on an Active Directory Domain Services managed domain. Therefore, you cannot configure account-based (traditional) kerberos constrained delegation. However, you can configure the more secure resource-based constrained delegation.
 [More information](active-directory-ds-enable-kcd.md)
 
 #### Custom OU structure
