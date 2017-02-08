@@ -924,7 +924,7 @@ The TOP keyword can be used to limit the number of values from a query. When TOP
 TOP can be used with a constant value (as shown above) or with a variable value using parameterized queries. For more details, please see parameterized queries below.
 
 ## ORDER BY clause
-Like in ANSI-SQL, you can include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For a more detailed look at Order By, refer to [DocumentDB Order By Walkthrough](documentdb-orderby.md).
+Like in ANSI-SQL, you can include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved.
 
 For example, here's a query that retrieves families in order of the resident city's name.
 

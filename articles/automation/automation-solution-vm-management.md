@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 ---
 
 # Start/Stop VMs during off-hours [Preview] solution in Automation
 
-The Start/Stop VMs during off-hours [Preview] solution starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
+The Start/Stop VMs during off-hours [Preview] solution starts and stops your Azure Resource Manager and classic virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ To configure the variables highlighted earlier, perform the following steps:
 
 ### Modifying the startup and shutdown schedule
 
-Managing the startup and shutdown schedule in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-scheduling-a-runbook.md).  Remember, you cannot modify the schedule configuration.  You will need to disable the existing schedule and then create a new one and then link to the **StartByResourceGroup-MS-Mgmt-VM** or **StopByResourceGroup-MS-Mgmt-VM** runbook that you want the schedule to apply to.   
+Managing the startup and shutdown schedule in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).  Remember, you cannot modify the schedule configuration.  You will need to disable the existing schedule and then create a new one and then link to the **StartByResourceGroup-MS-Mgmt-VM** or **StopByResourceGroup-MS-Mgmt-VM** runbook that you want the schedule to apply to.   
 
 ## Log Analytics records
 

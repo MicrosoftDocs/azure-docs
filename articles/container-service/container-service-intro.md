@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service Introduction | Microsoft Docs
+title: Docker container clusters in Azure cloud | Microsoft Docs
 description: Azure Container Service provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications.
 services: container-service
 documentationcenter: ''
@@ -12,10 +12,10 @@ keywords: Docker, Containers, Micro-services, Mesos, Azure
 ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 
 ---
@@ -24,22 +24,26 @@ Azure Container Service makes it simpler for you to create,
 configure, and manage a cluster of virtual machines that are
 preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
-![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
+![Azure Container Service provides a means to manage containerized applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster-new.png)
 
-Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS or Docker Swarm so that you can scale these applications to thousands of containers, or even tens of thousands.
+Azure Container Service leverages the Docker container format to ensure that your application containers are fully portable. It also supports your choice of Marathon and DC/OS, Docker Swarm, or Kubernetes so that you can scale these applications to thousands of containers, or even tens of thousands.
+
+>[!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
 
 By using Azure Container Service, you can take advantage of the
 enterprise-grade features of Azure, while still maintaining application portability--including portability at the orchestration layers.
 
 ## Using Azure Container Service
 Our goal with Azure Container Service is to provide a container
-hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator (DC/OS or Docker Swarm). By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI.
+hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard API endpoints for your chosen orchestrator (DC/OS or Docker Swarm or Kubernetes). By using these endpoints, you can leverage any software that is capable of talking to those endpoints. For example, in the case of the Docker Swarm endpoint, you might choose to use the Docker command-line interface (CLI). For DC/OS, you might choose to use the DCOS CLI. For Kubernetes, you might choose to use kubectl.
 
 ## Creating a Docker cluster by using Azure Container Service
-To begin using Azure Container Service, you deploy an Azure Container Service cluster via the portal (search for 'Azure Container Service'), by using an Azure Resource Manager template ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) or [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)) or with the [CLI](/documentation/articles/xplat-cli-install/). The provided quickstart templates can be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
+To begin using Azure Container Service, you deploy an Azure Container Service cluster via the portal (search for 'Azure Container Service'), by using an Azure Resource Manager template ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) or [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) or [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) or with the [CLI](/articles/xplat-cli-install.md). The provided quickstart templates can be modified to include additional or advanced Azure configuration. For more information on deploying an Azure Container Service cluster, see [Deploy an Azure Container Service cluster](container-service-deployment.md).
 
 ## Deploying an application
-Azure Container Service provides a choice of either Docker Swarm or DC/OS for orchestration. How you deploy your application depends on your choice of orchestrator.
+Azure Container Service provides a choice of either Docker Swarm or DC/OS or Kubernetes for orchestration. How you deploy your application depends on your choice of orchestrator.
 
 ### Using DC/OS
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Apache Mesos is housed at the Apache Software
@@ -89,16 +93,30 @@ to, the following:
 * Krane
 * Jenkins
 
+### Using Kubernetes
+Kubernetes is a popular open-source production grade container orchestrator tool for automated container deployment, scaling and management of containerized applications. Because it is an open-source solution and is driven by the open-source community, it runs seamlessly on Azure Container Service and can be used to deploy containers at scale on Azure Container Service.
+
+![Azure Container Service configured to use Kubernetes--showing  agents, and masters.](media/acs-intro/kubernetes.png)
+
+It has a rich set of features including:
+* Horizontal scaling
+* Service discovery and load balancing
+* Secrets and configuration management
+* API based automated rollouts and rollbacks
+* Self-healing
+* and many more.
+
+
+
 ## Videos
 Getting started with Azure Container Service (101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
 Building Applications Using the Azure Container Service (Build 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
-
+>
+>

@@ -1,5 +1,5 @@
 ---
-title: Deploy the StorSimple Device Manager service for Microsoft Azure StorSimple Virtual Array| Microsoft Docs
+title: Deploy StorSimple Device Manager service | Microsoft Docs
 description: Explains how to create and delete the StorSimple Device Manager service in the Azure portal, and describes how to manage the service registration key.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 11/29/2016
 ms.author: alkohli
 ---
 # Deploy the StorSimple Device Manager service for StorSimple Virtual Array

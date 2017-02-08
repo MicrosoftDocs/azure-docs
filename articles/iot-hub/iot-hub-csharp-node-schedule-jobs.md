@@ -1,6 +1,6 @@
 ---
-title: How to schedule jobs with Azure IoT Hub | Microsoft Docs
-description: This tutorial shows you how to schedule jobs
+title: Schedule jobs with Azure IoT Hub (.NET/Node) | Microsoft Docs
+description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT device SDK for Node.js to implement the simulated device apps and the Azure IoT service SDK for .NET to implement a service app to run the job.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,14 +17,14 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Schedule and broadcast jobs
+# Schedule and broadcast jobs
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
 ## Introduction
 Azure IoT Hub is a fully managed service that enables an back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
-* Update device twin desired properties
-* Update device twin tags
+* Update desired properties
+* Update tags
 * Invoke direct methods
 
 Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, using a job an back-end app can invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
@@ -32,18 +32,18 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
-* direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: C2D methods][lnk-c2d-methods]
+* direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
 
 This tutorial shows you how to:
 
-* Create a simulated device that has a direct method which enables **lockDoor** which can be called by the back-end app.
-* Create a console application that calls the **lockDoor** direct method on the simulated device using a job and updates the device twin desired properties using a device job.
+* Create a simulated device app that has a direct method which enables **lockDoor** which can be called by the back-end app.
+* Create a .NET console app that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
-**ScheduleJob**, which calls a direct method on the simulated device and updates the device twin's desired properties using a job.
+**ScheduleJob**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -62,15 +62,15 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. In Solution Explorer, right-click the **ScheduleJob** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+2. In Solution Explorer, right-click the **ScheduleJob** project, and then click **Manage NuGet Packages**.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
 
-    ![Nuget Package Manager window][img-servicenuget]
+    ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the multiple placeholders with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
@@ -144,14 +144,14 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 10. Build the solution.
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
-1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
+1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -165,7 +165,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Add a **connectionString** variable and use it to create a device client.  
+5. Add a **connectionString** variable and use it to create a **Client** instance.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -195,7 +195,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -210,7 +210,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 ## Run the apps
 You are now ready to run the apps.
 
-1. At the command-prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
+1. At the command prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
    
     ```
     node simDevice.js
@@ -238,7 +238,7 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

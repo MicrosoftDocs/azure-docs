@@ -1,4 +1,4 @@
-﻿---
+---
 title: Encrypting your Content with Storage Encryption using AMS REST API
 description: Learn how to encrypt your content with storage encryption using AMS REST APIs.
 services: media-services
@@ -56,7 +56,7 @@ The following are general steps for generating content keys that you will associ
 1. For storage encryption, randomly generate a 32-byte AES key. 
    
     This will be the content key for your asset, which means all files associated with that asset will need to use the same content key during decryption. 
-2. Call the [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
+2. Call the [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3. Encrypt your content key with the public key of the X.509 Certificate. 
    
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see a .NET example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -297,7 +297,7 @@ Response:
     HTTP/1.1 204 No Content 
 
 ## Create an AssetFile
-The [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 Note that the **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 

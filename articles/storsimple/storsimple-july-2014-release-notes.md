@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 Release version release notes | Microsoft Docs
 description: Describes the new features, open issues, and available workarounds for the July 2014 Microsoft Azure StorSimple release.
 services: storsimple

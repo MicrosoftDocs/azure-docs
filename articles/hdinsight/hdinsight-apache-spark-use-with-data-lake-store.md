@@ -1,6 +1,6 @@
 ---
-title: Run Spark jobs on data stored in Azure Data Lake Store | Microsoft Docs
-description: Run Spark jobs on data stored in Azure Data Lake Store
+title: Use Apache Spark to analyze data in Azure Data Lake Store | Microsoft Docs
+description: Run Spark jobs to analyze data stored in Azure Data Lake Store
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -32,7 +32,7 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 ## Prepare the data
 
-If you have created the HDInsight cluster with Data Lake Store as default storage, you do need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
+If you have created the HDInsight cluster with Data Lake Store as default storage, you do not need to perform this step because the cluster creation processes adds some sample data in the Data Lake Store account that you specify while creating the cluster.
 
 if you created an HDInsight cluster with Data Lake Store as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Store account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](http://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
@@ -111,7 +111,7 @@ if you created an HDInsight cluster with Data Lake Store as additional storage a
          # Register the data fram as a table to run queries against
          hvacdf.registerTempTable("hvac")
 
-6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+6. Because you are using a PySpark kernel, you can now directly run a SQL query on the temporary table **hvac** that you just created by using the `%%sql` magic. For more information about the `%%sql` magic, as well as other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
          %%sql
          SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

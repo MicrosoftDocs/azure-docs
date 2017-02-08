@@ -1,6 +1,6 @@
 ---
 title: 'First look: Protect Azure VMs with a recovery services vault | Microsoft Docs'
-description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
+description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2016
+ms.date: 02/06/2017
 ms.author: markgal; jimpark
 
 ---
@@ -30,10 +30,11 @@ This tutorial takes you through the steps for creating a recovery services vault
 * Azure Resource Manager-deployed VMs
 * Classic VMs
 * Standard storage VMs
-* Premium storage VMs
+* Premium storage VMs 
+* VMs running on Managed Disks
 * VMs encrypted using Azure Disk Encryption, with BEK and KEK
 
-For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)
+For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [ Back up and restore of VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)
 
 > [!NOTE]
 > This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
@@ -46,26 +47,27 @@ Based on no of VMs you want to protect, you can start from different start point
 
 ## Configure Backup from VM management blade
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **More Services** and in the list of resources, type **Virtual machines**.  The list of virtual machines appears. From the list of virtual machines, select a virtual machine, which you want to backup. This opens virtual machine management blade. 
+2. On the Hub menu, click **More Services** and in the list of resources, type **Virtual machines**.  The list of virtual machines appears. From the list of virtual machines, select a virtual machine, which you want to backup. This opens virtual machine management blade.
  ![VM Management blade](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
- 
+
 3. In the VM management blade, click "Backup" option present on the left-hand side under Settings.
 ![Backup option in VM management blade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
 
-4. This opens Enable Backup blade. This blade expects two inputs: Recovery Services vault - an Azure Backup resource, which is used to store backups of the VMs; A backup Policy - Backup policy specifies schedule of the backups and how long to retain backup copies. This blade comes with default options. You can customize them as per backup requirements. 
-![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+4. This opens Enable Backup blade. This blade expects two inputs: Recovery Services vault - an Azure Backup resource, which is used to store backups of the VMs; A backup Policy - Backup policy specifies schedule of the backups and how long to retain backup copies. This blade comes with default options. You can customize them as per backup requirements.
 
-5. For Recovery Services vault, you can select an existing vault or create a new Vault. If you are creating a new vault, it gets created in the same Resource Group as virtual machine and location is same as virtual machine. If you want to create a Recovery Services vault with different values, [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) before clicking Backup option in Step#3 and select that in this blade. 
+  ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. For Recovery Services vault, you can select an existing vault or create a new Vault. If you are creating a new vault, it gets created in the same Resource Group as virtual machine and location is same as virtual machine. If you want to create a Recovery Services vault with different values, [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) before clicking Backup option in Step#3 and select that in this blade.
 
 6. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
     ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
     The details of the default policy are listed in the details. If you want to create a policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the virtual machine.
-    
-7. Click "Enable Backup" to configure Backup on the virtual machine. This will trigger a deployment. 
+
+7. Click "Enable Backup" to configure Backup on the virtual machine. This will trigger a deployment.
 ![Enable Backup button](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
 
-8. You can track the progress of configuration through notifications. 
+8. You can track the progress of configuration through notifications.
 ![Enable Backup notification](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
 9. Once deployment for Configure backup is completed, clicking on "backup" option on VM management blade takes you to Backup Item blade corresponding to backed up VM.

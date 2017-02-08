@@ -1,19 +1,18 @@
-﻿---
+---
 title: Analyze data usage in Log Analytics | Microsoft Docs
 description: You can use the Usage dashboard in Log Analytics to view how much data is being sent to the OMS service.
 services: log-analytics
 documentationcenter: ''
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: ''
-
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 01/02/2017
 ms.author: banders
 
 ---

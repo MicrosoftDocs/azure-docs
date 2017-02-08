@@ -23,7 +23,7 @@ This article shows you how to use Azure PowerShell to create an image of a gener
 
 ## Prerequisites
 * You need to have already [generalized the VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
-* You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
+* You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for installation steps.
 
 ## Log in to Azure PowerShell
 1. Open Azure PowerShell and sign in to your Azure account.

@@ -30,8 +30,7 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 > To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
 > 
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things will work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-> 
-> 
+
 
 ## Prerequisites
 
@@ -54,6 +53,9 @@ You will also learn how to create hybrid topologies that use C# and Java compone
   > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
 
 * Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Templates
 

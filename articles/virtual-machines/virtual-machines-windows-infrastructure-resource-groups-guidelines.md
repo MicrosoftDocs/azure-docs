@@ -1,5 +1,5 @@
 ---
-title: Resource Groups Guidelines | Microsoft Docs
+title: Resource groups for Windows VMs in Azure | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying Resource Groups in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---

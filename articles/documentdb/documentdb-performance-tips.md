@@ -1,5 +1,5 @@
 ---
-title: DocumentDB performance tips | Microsoft Docs
+title: Performance tips - Azure DocumentDB NoSQL | Microsoft Docs
 description: Learn client configuration options to improve Azure DocumentDB database performance
 keywords: how to improve database performance
 services: documentdb
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 
 ---
@@ -34,6 +34,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    2. Direct Mode
 
       Gateway Mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to DocumentDB.   Because of this, Direct Mode offers better performance due to fewer network hops.
+<a id="use-tcp"></a>
 2. **Connection policy: Use the TCP protocol**
 
     When leveraging Direct Mode, there are two protocol options available:
@@ -125,6 +126,18 @@ So if you're asking "How can I improve my database performance?" consider the fo
 10. **Increase number of threads/tasks**
 
     See [Increase number of threads/tasks](#increase-threads) in the Networking section.
+    
+11. **Use 64-bit host processing**
+
+    The DocumentDB SDK works in a 32-bit host process; however, if you are using cross partition queries, 64-bit host processing is recommended for improved performance. The following type of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
+    
+    - For Executable applications, this can be done by unchecking the **Prefer 32-bit** option in the **Project Properties** window, on the **Build** tab. 
+    
+    - For VSTest based test projects, this can be done by selecting **Test**->**Test Settings**->**Default Processor Architecture as X64**, from the **Visual Studio Test** menu option.
+    
+    - For locally deployed ASP.NET Web applications, this can be done by checking the **Use the 64 bit version of IIS Express for web sites and projects**, under **Tools**->**Options**->**Projects and Solutions**->**Web Projects**.
+    
+    - For ASP.NET Web applications deployed on Azure, this can be done by choosing the **Platform as 64-bit** in the **Application Settings** on the Azure portal.
 
 ## Indexing Policy
 1. **Use lazy indexing for faster peak time ingestion rates**
@@ -170,9 +183,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
              }
 
     The request charge returned in this header is a fraction of your provisioned throughput (i.e., 2000 RUs / second). For example, if the query above returns 1000 1KB documents, the cost of the operation will be 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](documentdb-request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Handle rate limiting/request rate too large**
 
-    When a client attempts to exceed the reserved throughput for an account, there are no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+    When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

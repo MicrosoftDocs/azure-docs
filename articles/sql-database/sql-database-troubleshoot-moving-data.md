@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: dea01868-5757-41e2-826c-ec26361a339c
 ms.service: sql-database
+ms.custom: migrate and move
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 02/07/2017
 ms.author: v-shysun
 
 ---

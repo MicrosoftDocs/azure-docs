@@ -4,7 +4,7 @@ description: The Azure Storage Client Library for .NET supports client-side encr
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

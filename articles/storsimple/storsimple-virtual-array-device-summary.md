@@ -1,5 +1,5 @@
 ---
-title: Device summary blade for StorSimple Device Manager  - Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: StorSimple Virtual Array device summary blade | Microsoft Docs
 description: Describes the device summary blade for StorSimple Device Manager and explains how to use it to monitor the health of your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 11/29/2016
 ms.author: manuaery
 ---
 # Use the device summary blade for StorSimple Device Manager connected to StorSimple Virtual Array
@@ -48,8 +48,7 @@ The essentials area captures some of the important properties such as, the statu
 
 ## Next steps
 Learn how to:
+- [Manage shares on a StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
     
-    - [Manage shares on a StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
-    
-    - [Manage volumes on a StorSimple Virtual Array](storsimple-virtual-array-manage-volumes.md)
+- [Manage volumes on a StorSimple Virtual Array](storsimple-virtual-array-manage-volumes.md)
 

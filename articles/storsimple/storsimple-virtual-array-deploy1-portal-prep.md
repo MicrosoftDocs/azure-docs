@@ -1,10 +1,10 @@
 ---
-title: Deploy Microsoft Azure StorSimple Virtual Array 1 - Portal Preparation| Microsoft Docs
+title: Portal prep for StorSimple Virtual Array | Microsoft Docs
 description: First tutorial to deploy StorSimple virtual array involves preparing the Azure portal
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
@@ -13,13 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Prepare the portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
-
 ## Overview
 
 This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
@@ -29,12 +28,11 @@ You need administrator privileges to complete the setup and configuration proces
 The information published in this article applies to the deployment of StorSimple Virtual Arrays in the Azure portal and Microsoft Azure Government Cloud.
 
 ### Get started
-
 The deployment workflow consists of preparing the portal, provisioning a virtual array in your virtualized environment, and completing the setup. To get started with the StorSimple Virtual Array deployment as a file server or an iSCSI server, you need to refer to the following tabulated resources.
 
 #### Deployment articles
 
-To deploy your StorSimple Virtual Array, refer to the following articles in the prescribed sequence .
+To deploy your StorSimple Virtual Array, refer to the following articles in the prescribed sequence.
 
 | **#** | **In this step** | **You do this …** | **And use these documents.** |
 | --- | --- | --- | --- |
@@ -71,7 +69,7 @@ Before you deploy a virtual array, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual array:
   
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million plan files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 
@@ -79,7 +77,7 @@ Before you deploy a virtual array, make sure that:
 
 Before you begin, make sure that:
 
-* The network in your datacenter is configured as per the networking requirements for your StorSimple device. For more information, see the [StorSimple Virtual Array System Requirements](storsimple-virtual-array-system-requirements.md).
+* The network in your datacenter is configured as per the networking requirements for your StorSimple device. For more information, see the [StorSimple Virtual Array System Requirements](storsimple-ova-system-requirements.md).
 * Your StorSimple Virtual Array has a dedicated 5 Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications.
 
 ## Step-by-step preparation

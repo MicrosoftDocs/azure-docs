@@ -1,6 +1,6 @@
 ---
-title: Get started with device twins | Microsoft Docs
-description: This tutorial shows you how to use device twins
+title: Get started with Azure IoT Hub device twins (.NET/Node) | Microsoft Docs
+description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Node.js to implement the simulated device app and the Azure IoT service SDK for .NET to implement a service app that adds the tags and runs the IoT Hub query.
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -17,16 +17,16 @@ ms.date: 09/13/2016
 ms.author: elioda
 
 ---
-# Tutorial: Get started with device twins
+# Get started with device twins (.NET/Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-At the end of this tutorial, you will have a .NET and a Node.js console application:
+At the end of this tutorial, you will have a .NET and a Node.js console app:
 
-* **AddTagsAndQuery.sln**, a .NET app meant to be run from the back end, which adds tags and queries device twins.
+* **AddTagsAndQuery.sln**, a .NET back-end app, which adds tags and queries device twins.
 * **TwinSimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
 > [!NOTE]
-> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
 > 
 > 
 
@@ -41,19 +41,19 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create the service app
-In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
+In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
    
     ![New Visual C# Windows Classic Desktop project][img-createapp]
-2. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+2. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then click **Manage NuGet Packages**.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
    
-    ![Nuget Package Manager window][img-servicenuget]
+    ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -100,20 +100,20 @@ In this section, you create a Node.js console app that adds location metadata to
 In the next section you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
 ## Create the device app
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
+In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
 
-1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
-4. Add the following code to the **ReportConnectivity.js** file, and substitute the **{device connection string}** placeholder with the connection string you copied when you created the **myDeviceId** device identity:
+4. Add the following code to the **ReportConnectivity.js** file, and substitute the **{device connection string}** placeholder with the device connection string you copied when you created the **myDeviceId** device identity:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -162,7 +162,7 @@ In this section, you create a Node.js console app that connects to your hub as *
     ![][img-addtagapp2]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You added device metadata as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end app, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
 
 Use the following resources to learn how to:
 
@@ -191,5 +191,5 @@ Use the following resources to learn how to:
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

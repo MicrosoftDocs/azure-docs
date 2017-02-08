@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use request and response actions | Microsoft Docs
 description: Overview of the request and response trigger and action in an Azure logic app
 services: ''
@@ -27,7 +27,7 @@ For example, you can:
 * Trigger a logic app from an external webhook event.
 * Call a logic app with a request and response action from within another logic app.
 
-To get started using the request and response actions in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+To get started using the request and response actions in a logic app, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## Use the HTTP Request trigger
 A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
@@ -106,5 +106,5 @@ The following are input fields for the HTTP Response action. A * means that it i
 | Body |body |The response body |
 
 ## Next steps
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Now, try out the platform and [create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 

@@ -1,20 +1,22 @@
 ---
-title: Migrate to SQL Database using transactional replication | Microsoft Docs
-description: Microsoft Azure SQL Database, database migration, import database, transactional replication
+title: Use transacation replication to migrate to Azure SQL Database | Microsoft Docs
+description: In this article, you learn to migrate a compatible SQL Server database to Azure SQL Database with minimal downtime using SQL Server transactional replication.
+keywords: Microsoft Azure SQL Database, database migration, import database, transactional replication
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: jognanay
 manager: jhubbard
 editor: ''
 
 ms.assetid: eebdd725-833d-4151-9b2b-a0303f39e30f
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 12/09/2016
+ms.author: carlrab; jognanay;
 
 ---
 # Migrate SQL Server database to Azure SQL Database using transactional replication
@@ -37,19 +39,42 @@ With transactional replication, all changes to your data or schema show up in yo
 
  ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
+## How Transactional Replication works
+
+Transactional replication involves 3 main components. They are the publisher, the distributor and the subscriber. Together these components carry out replication. 
+The distributor is responsible for controlling the processes which move your data between servers. When you set up distribution SQL will create a distribution database. Each publisher needs to be tied to a distribution database. The distribution database holds the metadata for each associated publication and data on the progress of each replication. For transaction replication it will hold all the transactions than need to be executed in the subscriber.
+
+The publisher is the database where all data for migration originates. Within the publisher there can be many publications. These publications contain articles which map to all the tables and data that need to be replicated. Depending on how you define the publication and articles you can replicate either all or part of your database. 
+
+In replication the subscriber is the server which receives all the data and transactions from the publication. Each publication can have many replications.
+
 ## Transactional Replication requirements
-Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016](https://www.microsoft.com/sql-server/sql-server-2016), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported when the publisher and the distributor are at least one of the following SQL Server versions:
-
-* SQL Server 2016 and above 
-* SQL Server 2014 SP1 CU3 and above
-* SQL Server 2014 RTM CU10 and above
-* SQL Server 2012 SP2 CU8 and above
-* SQL Server 2012 SP3 and above
-
+[Go to this link for an updated list of requirements.](https://msdn.microsoft.com/en-US/library/mt589530.aspx)
 > [!IMPORTANT]
 > Use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
-> 
+
+## Migration to SQL Database using Transaction Replication workflow
+
+1. Set up Distribution
+   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Create Publication
+   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Create Subscription
+   -  [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Using Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+## Some tips and differences for migrating to SQL Database
+
+1. Use a local distributor 
+   - This will cause a performance impact on the server. 
+   - If the performance impact is unacceptable you can use another server but it will add complexity in management and administration.
+2. When selecting a snapshot folder make sure the folder you select is large enough to hold a BCP of every table you want to replicate. 
+3. Note that snapshot creation will lock the associated tables until it is complete, keep this in mind when scheduling your snapshot. 
+4. Only push subscriptions are supported in Azure SQL Database
+   - You can only add subscribers from the side of your on premise database.
 
 ## Next steps
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -57,8 +82,5 @@ Transactional replication is a technology built-in and integrated with SQL Serve
 * [SQL Server 2016 ](https://www.microsoft.com/sql-server/sql-server-2016)
 
 ## Additional resources
-* [Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx)
-* [SQL Database features](sql-database-features.md)
-* [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-* [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
-
+* To learn more about Transactional Replication, see [Transactional Replication](https://msdn.microsoft.com/library/mt589530.aspx).
+* To learn about the overall migration process and options, see [SQL Server database migration to SQL Database in the cloud](sql-database-cloud-migrate.md).

@@ -2,15 +2,11 @@
 
 1.  Using your Microsoft account credentials, log on to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, log in at: <https://portal.azure.us/>
 
-2.  In the Azure portal, click **New** &gt; **Data + Storage** &gt; **StorSimple Virtual Series**.
+2.  In the Azure portal, click **+ New** &gt; **Storage** &gt; **StorSimple Virtual Series**.
 
     ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
-3.  In the **StorSimple Virtual Series** blade, click **Create**.
-
-     ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice3.png)
-
-4.  In the **StorSimple Device Manager** blade, do the following:
+3.  In the **StorSimple Device Manager** blade that opens up, do the following:
 
     1.  Supply a unique **Resource name** for your service. The resource name is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
 

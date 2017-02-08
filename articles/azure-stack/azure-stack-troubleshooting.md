@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Azure Stack troubleshooting | Microsoft Docs
 description: Azure Stack troubleshooting.
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 1/26/2017
 ms.author: helaw
 
 ---
@@ -27,14 +27,8 @@ The recommendations for troubleshooting issues that are described in this sectio
 Code examples are provided as is and expected results cannot be guaranteed. This section is subject to frequent edits and updates as improvements to the product are implemented.
 
 ## Known Issues
-* You may see the following non-terminating errors during deployment, which do affect deployment success:
-  * “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
-  * “Invoke-EceAction: Cannot index into a null array” 
-  * “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
-* You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to rerun the installation script using the *-rerun* parameter below until deployment is complete.
-* You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
-* When creating a new virtual machine in the portal, in the **Basics** step, the storage option may default to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
-* You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
+* You may see non-terminating errors during deployment, which do not affect deployment success:
+* You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
 * You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
@@ -43,13 +37,11 @@ Code examples are provided as is and expected results cannot be guaranteed. This
   * Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propagate.
   * Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
 * When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
-* You may see a deployment failure in the portal, when the VM has actually deployed successfully.
 * When you delete a plan, offer, or subscription, VMs may not be deleted.
-* You will see the VM extensions in the marketplace.
 * You cannot deploy a VM from a saved VM image.
 * Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
 * When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
-* For STATIC network configurations, make sure to activate the BGPNAT VM before it is out of license, otherwise your environment may stop working. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
+* Deployments with static IP network configurations require additional steps to activate the BGPNAT VM before the OS license expires, otherwise your environment may stop working and may require redeploying. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
 
 ## Deployment
 ### Deployment failure
@@ -78,8 +70,16 @@ Make sure that:
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
 
 ## Virtual machines
-### After starting my Microsoft Azure Stack POC host, all my tenants VMs are gone from Hyper-V Manager, and come back automatically after waiting a bit?
-As the system comes back up the storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may be some time after a reboot of the host for tenant VMs to come back and be recognized.
+### After starting my Azure Stack TP2 host, some VMs may not automatically start.
+After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
+
+You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2, and just requires a few manual steps to bring them online:
+
+1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
+2.  Select the cluster **S-Cluster.azurestack.local**.
+3.  Select **Roles**.
+4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
+
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 Yes, this is behavior expected. It was designed this way because:

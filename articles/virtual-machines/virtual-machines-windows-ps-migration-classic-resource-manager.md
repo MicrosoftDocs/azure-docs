@@ -41,7 +41,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 ## Step 2: Install the latest version of Azure PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 <br>
 

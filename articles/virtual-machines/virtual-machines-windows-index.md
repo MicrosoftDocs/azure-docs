@@ -21,7 +21,8 @@ ms.author: danlep
 # Technical articles for Windows VMs in the classic deployment model
 Find all the documentation you need to create and manage Windows-based Azure virtual machines in the classic deployment model.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Overview
 [About virtual machines](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -35,7 +36,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Environment setup
 [Free account](https://azure.microsoft.com/free/)
 
-[Install Azure PowerShell](../powershell-install-configure.md)
+[Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Install Azure CLI](../xplat-cli-install.md)
 
@@ -82,10 +83,6 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Manage virtual machine extensions](virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Custom Script extension for classic Windows virtual machines](virtual-machines-windows-classic-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-[Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
-[Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
@@ -140,12 +137,12 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [SAP](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[SQL Server](./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Reference
-[Azure CLI commands in Service Management mode](../virtual-machines-command-line-tools.md)
+[Azure CLI commands in Service Management mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 

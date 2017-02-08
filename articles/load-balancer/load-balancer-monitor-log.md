@@ -1,10 +1,10 @@
-﻿---
+---
 title: Monitor operations, events, and counters for Load Balancer | Microsoft Docs
 description: Learn how to enable alert events, and probe health status logging for Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 
 ms.assetid: 56656d74-0241-4096-88c8-aa88515d676d
@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
-# Log analytics for Azure Load Balancer (Preview)
+# Log analytics for Azure Load Balancer
 
 You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal. All logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 

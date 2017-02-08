@@ -1,6 +1,6 @@
 ---
 title: Use the Azure portal to configure file upload | Microsoft Docs
-description: An overview of how to configure file upload using the Azure portal
+description: How to use the Azure portal to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 
 ---
-# Configure file uploads using the Azure portal
+# Configure IoT Hub file uploads using the Azure portal
 ## File upload
 To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
 
@@ -38,17 +38,17 @@ To use the [file upload functionality in IoT Hub][lnk-upload], you must first as
 ![][15]
 
 ## Next steps
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the developer guide.
+For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the IoT Hub developer guide.
 
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 * [Secure your IoT solution from the ground up][lnk-securing]
 

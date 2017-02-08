@@ -65,7 +65,7 @@ backups to be performed than **Standard** tier.
 2. Select the storage account that contains the backup that you want to download or delete.
    
     The blade for the storage account will be displayed.
-3. In the storage accountn blade, select the container you want
+3. In the storage account blade, select the container you want
    
     ![View Containers][ViewContainers]
 4. Select backup file you want to download or delete.
@@ -87,7 +87,7 @@ The details blade will display the available information related to the restore 
 You can also backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

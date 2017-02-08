@@ -10,16 +10,17 @@ See the following article for steps to view/copy the account key for an Azure St
 
 **Example:**  
 
-    {  
-        "name": "StorageLinkedService",  
-        "properties": {  
-            "type": "AzureStorage",  
-            "typeProperties": {  
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-            }  
+```json
+{  
+    "name": "StorageLinkedService",  
+    "properties": {  
+        "type": "AzureStorage",  
+        "typeProperties": {  
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
         }  
     }  
-
+}  
+```
 
 ## Azure Storage Sas Linked Service
 A shared access signature (SAS) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)
@@ -33,15 +34,17 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 
 **Example:**
 
-    {  
-        "name": "StorageSasLinkedService",  
-        "properties": {  
-            "type": "AzureStorageSas",  
-            "typeProperties": {  
-                "sasUri": "<storageUri>?<sasToken>"   
-            }  
+```json
+{  
+    "name": "StorageSasLinkedService",  
+    "properties": {  
+        "type": "AzureStorageSas",  
+        "typeProperties": {  
+            "sasUri": "<storageUri>?<sasToken>"   
         }  
     }  
+}  
+```
 
 When creating an **SAS URI**, considering the following:  
 

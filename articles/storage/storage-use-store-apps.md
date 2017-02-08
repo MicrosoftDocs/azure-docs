@@ -3,8 +3,8 @@ title: Use Azure storage in Windows Store apps | Microsoft Docs
 description: Learn how to create a Windows Store app that uses Azure Blob, Queue, Table, or File storage.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 63c4b29d-b2f2-4d7c-b164-a0d38f4d14f6
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Azure Storage in Windows Store apps
@@ -39,16 +39,20 @@ Next, add a reference to the Azure Storage Client Library by right-clicking **Re
 ### Using the library with the Blob and Queue services
 At this point, your app is ready to call the Azure Blob and Queue services. Add the following **using** statements so that Azure Storage types can be referenced directly:
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+```
 
 Next, add a button to your page. Add the following code to its **Click** event and modify your event handler method by using the [async keyword](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var blobClient = account.CreateCloudBlobClient();
-    var container = blobClient.GetContainerReference("container1");
-    await container.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var blobClient = account.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference("container1");
+await container.CreateIfNotExistsAsync();
+```
 
 This code assumes that you have two string variables, *accountName* and *accountKey*. They represent the name of your storage account and the account key that is associated with that account.
 
@@ -67,11 +71,13 @@ This command will automatically add all required references to your project. If 
 
 When you have referenced the WCF Data Services NuGet package, change the code in your button's **Click** event:
 
-    var credentials = new StorageCredentials(accountName, accountKey);
-    var account = new CloudStorageAccount(credentials, true);
-    var tableClient = account.CreateCloudTableClient();
-    var table = tableClient.GetTableReference("table1");
-    await table.CreateIfNotExistsAsync();
+```csharp
+var credentials = new StorageCredentials(accountName, accountKey);
+var account = new CloudStorageAccount(credentials, true);
+var tableClient = account.CreateCloudTableClient();
+var table = tableClient.GetTableReference("table1");
+await table.CreateIfNotExistsAsync();
+```
 
 This code checks whether a table named *table1* exists in your account, and then creates it if not.
 

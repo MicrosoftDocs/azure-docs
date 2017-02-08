@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure IoT Hub device management | Microsoft Docs
-description: This tutorial shows you how to get started with device management on Azure IoT Hub
+title: Get started with Azure IoT Hub device management (.NET/Node) | Microsoft Docs
+description: How to use Azure IoT Hub device management to initiate a remote device reboot. You use the Azure IoT device SDK for Node.js to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,33 +17,33 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Get started with device management
+# Get started with device management (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 ## Introduction
-IoT back-end apps can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT back-end apps and a device work together to initiate and monitor a remote device reboot using IoT Hub.
+Back-end apps can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how back-end apps and devices work together to initiate and monitor a remote device reboot using IoT Hub.
 
-To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use IoT Hub primitives such as [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
+To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use IoT Hub primitives such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
 
 You use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
 
 * Handling the method request sent from IoT Hub.
 * Initiating the corresponding device specific action on the device.
-* Providing status updates through the device twin reported properties to IoT Hub.
+* Providing status updates through the reported properties to IoT Hub.
 
 You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
 
 This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
-* Create a simulated device that has a direct method which enables reboot which can be called by the cloud.
-* Create a console application that calls the reboot direct method on the simulated device through your IoT hub.
+* Create a simulated device app that has a direct method which enables reboot which can be called by the cloud.
+* Create a .NET console app that calls the reboot direct method in the simulated device app through your IoT hub.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 
-**TriggerReboot**, which calls a direct method on the simulated device, displays the response, and displays the updated device twin reported properties.
+**TriggerReboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
 To complete this tutorial, you need the following:
 
@@ -62,15 +62,15 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![New Visual C# Windows Classic Desktop project][img-createapp]
 
-2. In Solution Explorer, right-click the **TriggerReboot** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+2. In Solution Explorer, right-click the **TriggerReboot** project, and then click **Manage NuGet Packages**.
+3. In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.
 
-    ![Nuget Package Manager window][img-servicenuget]
+    ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section and the target device.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section and the target device.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -78,7 +78,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Add the following method to the **Program** class.  This code gets the twin for the rebooting device and outputs the reported properties.
+6. Add the following method to the **Program** class.  This code gets the device twin for the rebooting device and outputs the reported properties.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -114,14 +114,14 @@ In this section, you will
 
 * Create a Node.js console app that responds to a direct method called by the cloud
 * Trigger a simulated device reboot
-* Use the device twin reported properties to enable device twin queries to identify devices and when they last rebooted
+* Use the reported properties to enable device twin queries to identify devices and when they last rebooted
 
-1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
+1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -135,7 +135,7 @@ In this section, you will
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Add a **connectionString** variable and use it to create a device client.  Replace the connection string with your device connection string.  
+5. Add a **connectionString** variable and use it to create a **Client** instance.  Replace the connection string with your device connection string.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -202,7 +202,7 @@ In this section, you will
 ## Run the apps
 You are now ready to run the apps.
 
-1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
     ```
     node dmpatterns_getstarted_device.js
@@ -218,7 +218,7 @@ Your IoT solutions can expand the defined set of device management patterns or e
 Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
 
 ## Next steps
-In this tutorial, you used a direct method to trigger a remote reboot on a device, used the device twin reported properties to report the last reboot time from the device, and queried for the device twin to discover the last reboot time of the device from the cloud.
+In this tutorial, you used a direct method to trigger a remote reboot on a device, used the reported properties to report the last reboot time from the device, and queried for the device twin to discover the last reboot time of the device from the cloud.
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
 
@@ -234,7 +234,7 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md

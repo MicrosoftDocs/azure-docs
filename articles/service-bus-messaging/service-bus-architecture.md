@@ -1,5 +1,5 @@
 ---
-title: Service Bus architecture | Microsoft Docs
+title: Azure Service Bus message processing architecture overview | Microsoft Docs
 description: Describes the message and relay processing architecture of Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 
 ---
 # Service Bus architecture
-This article describes the message and relay processing architecture of Azure Service Bus.
+This article describes the message processing architecture of Azure Service Bus.
 
 ## Service Bus scale units
 Service Bus is organized by *scale units*. A scale unit is a unit of deployment and contains all components required run the service. Each region deploys one or more Service Bus scale units.
@@ -46,7 +46,7 @@ When the relay connection is established, the clients can exchange messages via 
 ![Processing of Incoming WCF Relay Requests](./media/service-bus-architecture/IC690645.png)
 
 ## Next steps
-Now that you've read an overview of Service Bus architecture, to get started visit the following links:
+Now that you've read an overview of Service Bus architecture, visit the following links for more information:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)

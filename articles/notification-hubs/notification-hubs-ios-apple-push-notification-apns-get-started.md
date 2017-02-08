@@ -67,24 +67,26 @@ This section walks you through creating a new notification hub and configuring a
 <p>Make sure to select <b>Sandbox</b> mode since this is for development. Only use the <b>Production</b> if you want to send push notifications to users who purchased your app from the store.</p>
 </li>
 </ol>
-&emsp;&emsp;![Configure APNS in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Configure APNS in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Configure APNS certification in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Configure APNS certification in Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Your notification hub is now configured to work with APNS, and you have the connection strings to register your app and send push notifications.
 
 ## Connect your iOS app to Notification Hubs
 1. In Xcode, create a new iOS project and select the **Single View Application** template.
    
-       ![Xcode - Single View Application][8]
+    ![Xcode - Single View Application][8]
+    
 2. When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you previously set the bundle ID on the Apple Developer portal.
    
     ![Xcode - project options][11]
+    
 3. Under **Targets**, click your project name, click the **Build Settings** tab and expand **Code Signing Identity**, and then under **Debug**, set your code-signing identity. Toggle **Levels** from **Basic** to **All**, and set **Provisioning Profile** to the provisioning profile that you created previously.
    
     If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity. Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode - provisioning profile][9]
 4. Download the [Mobile Services iOS SDK version 1.2.4] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Copy items if needed**, and then click **Add**.
    
    > [!NOTE]
@@ -92,7 +94,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Unzip Azure SDK][10]
 5. Add a new header file to your project named `HubInfo.h`. This file will hold the constants for your notification hub.  Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* that you noted earlier.
    
         #ifndef HubInfo_h

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Copy others' data science work - machine learning example | Microsoft Docs
 description: 'Trade secret of data science: Get others to do your work for you. See examples in Cortana Analytics Gallery such as a clustering algorithm example.'
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example
@@ -24,7 +24,7 @@ One of the trade secrets of data science is getting other people to do your work
 
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 > 
 > 
 

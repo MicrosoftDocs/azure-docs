@@ -25,12 +25,12 @@
 ### [Batch diagnostic logs](batch-diagnostics.md)
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET API](https://docs.microsoft.com/dotnet/api)
-## [Python SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
+## [REST](/rest/api/batchservice)
 
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)

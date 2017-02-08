@@ -50,7 +50,7 @@ The following are a list of variable types available in Automation:
 
 ## Cmdlets and workflow activities
 
-The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configuration.
+The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks and DSC configuration.
 
 |Cmdlets|Description|
 |:---|:---|

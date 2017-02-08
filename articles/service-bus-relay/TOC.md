@@ -21,7 +21,7 @@
 ## [Samples](service-bus-relay-samples.md)
 ## [Hybrid Connections .NET API](/dotnet/api/microsoft.servicebus)
 ## [WCF Relay .NET API](/dotnet/api/microsoft.servicebus)
-
+## [Port settings](service-bus-relay-port-settings.md)
 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)

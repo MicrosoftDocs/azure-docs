@@ -3,7 +3,7 @@ title: Update your Azure RemoteApp collection | Microsoft Docs
 description: Learn how to update your Azure RemoteApp collection
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Update a collection in Azure RemoteApp

@@ -1,5 +1,5 @@
 ---
-title: Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template | Microsoft Docs
+title: Deploy a web app with a template - Azure DocumentDB | Microsoft Docs
 description: Learn how to deploy a DocumentDB account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template.
 services: documentdb, app-service\web
 author: h0n
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
 
 ---
@@ -70,6 +70,7 @@ Now let's deploy our first template.
       
       ![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
+
     ![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashboard** so the resulting deployment is easily visible on your Azure portal home page.
    ![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -110,6 +111,7 @@ Now let's deploy our second template.  This template is useful to show how you c
       
       ![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
+
     ![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashboard** so the resulting deployment is easily visible on your Azure portal home page.
    ![Screenshot of the template deployment UI](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -118,6 +120,7 @@ Now let's deploy our second template.  This template is useful to show how you c
 8. Click the Web App resource in the Resources list and then click **Application settings**
     ![Screenshot of the resource group](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 9. Note how there are application settings present for the DocumentDB endpoint and each of the DocumentDB master keys.
+
     ![Screenshot of application settings](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. Feel free to continue exploring the Azure Portal, or follow one of our DocumentDB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own DocumentDB application.
 

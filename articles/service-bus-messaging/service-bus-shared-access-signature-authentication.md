@@ -205,7 +205,7 @@ The following table shows the access rights required for various operations on S
 | Create a queue |Manage |Any namespace address |
 | Delete a queue |Manage |Any valid queue address |
 | Enumerate queues |Manage |/$Resources/Queues |
-| Get the queue description |Manage or Send |Any valid queue address |
+| Get the queue description |Manage |Any valid queue address |
 | Configure authorization rule for a queue |Manage |Any valid queue address |
 | Send into to the queue |Send |Any valid queue address |
 | Receive messages from a queue |Listen |Any valid queue address |
@@ -218,28 +218,23 @@ The following table shows the access rights required for various operations on S
 | Create a topic |Manage |Any namespace address |
 | Delete a topic |Manage |Any valid topic address |
 | Enumerate topics |Manage |/$Resources/Topics |
-| Get the topic description |Manage or Send |Any valid topic address |
+| Get the topic description |Manage |Any valid topic address |
 | Configure authorization rule for a topic |Manage |Any valid topic address |
 | Send to the topic |Send |Any valid topic address |
 | **Subscription** | | |
 | Create a subscription |Manage |Any namespace address |
 | Delete subscription |Manage |../myTopic/Subscriptions/mySubscription |
 | Enumerate subscriptions |Manage |../myTopic/Subscriptions |
-| Get subscription description |Manage or Listen |../myTopic/Subscriptions/mySubscription |
+| Get subscription description |Manage |../myTopic/Subscriptions/mySubscription |
 | Abandon or complete messages after receiving the message in peek-lock mode |Listen |../myTopic/Subscriptions/mySubscription |
 | Defer a message for later retrieval |Listen |../myTopic/Subscriptions/mySubscription |
 | Deadletter a message |Listen |../myTopic/Subscriptions/mySubscription |
 | Get the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | Set the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
-| **Rule** | | |
+| **Rules** | | |
 | Create a rule |Manage |../myTopic/Subscriptions/mySubscription |
 | Delete a rule |Manage |../myTopic/Subscriptions/mySubscription |
 | Enumerate rules |Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules |
-| **Notification Hubs** | | |
-| Create a notification hub |Manage |Any namespace address |
-| Create or update registration for an active device |Listen or Manage |../notificationHub/tags/{tag}/registrations |
-| Update PNS information |Listen or Manage |../notificationHub/tags/{tag}/registrations/updatepnshandle |
-| Send to a notification hub |Send |../notificationHub/messages |
 
 ## Next steps
 For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).

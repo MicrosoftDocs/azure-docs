@@ -1,20 +1,21 @@
-﻿---
-title: Configure your device | Microsoft Docs
+---
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Configure device | Microsoft Docs'
+description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
 documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'install raspbian, raspbian download, how to install raspbian, raspbian setup, raspberry pi install raspbian, raspberry pi install os, raspberry pi sd card install, raspberry pi connect, connect to raspberry pi, raspberry pi connectivity'
 
 ms.assetid: 43f7c2cf-f1a5-4dd5-93f0-7e546c6dc91e
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
@@ -47,7 +48,7 @@ To complete this operation, you need the following parts from your Raspberry Pi 
 You also need:
 
 * A wired or wireless connection for Pi to connect to.
-* A USB-SD adapter or miniSD card to burn the OS image onto the microSD card.
+* A USB-SD adapter or miniSD card to burn the operating system image onto the microSD card.
 * A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the microSD card.
 * An Internet connection to download the necessary tools and software.
 
@@ -76,8 +77,6 @@ Turn on Pi by using the micro USB cable and the power supply.
 
 > [!NOTE]
 > It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.
-> 
-> 
 
 ## Connect Raspberry Pi 3 to the network
 You can connect Pi to a wired network or to a wireless network. Make sure that Pi is connected to the same network as your computer. For example, you can connect Pi to the same switch that your computer is connected to.

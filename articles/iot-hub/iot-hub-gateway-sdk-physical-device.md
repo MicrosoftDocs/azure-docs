@@ -1,6 +1,6 @@
-﻿---
-title: Use a real device with the IoT Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on A Raspberry Pi 3
+---
+title: Use a physical device with the Azure IoT Gateway SDK | Microsoft Docs
+description: How to use a Texas Instruments SensorTag device to send data to an IoT hub through a gateway running on a Raspberry Pi 3 device. The gateway is built using the Azure IoT Gateway SDK.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 11/14/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK – send device-to-cloud messages with a real device using Linux
+# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a physical device (Linux)
 This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:
@@ -215,7 +215,7 @@ At the time of writing, the IoT Gateway SDK only supports gateways that use BLE 
 
 ### Configure two sample devices in your IoT Hub
 * [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
+* Add one device called **SensorTag_01** to your IoT hub and make a note of its id and device key. You can use the [device explorer or iothub-explorer][lnk-explorer-tools] tools to add this device to the IoT hub you created in the previous step and to retrieve its key. You will map this device to the SensorTag device when you configure the gateway.
 
 ### Build the Azure IoT Gateway SDK on your Raspberry Pi 3
 
@@ -233,10 +233,10 @@ cd azure-iot-gateway-sdk
 git submodule update --init --recursive
 ```
 
-When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
+When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK
 
 ```
-./tools/build.sh --skip-unittests --skip-e2e-tests
+./tools/build.sh
 ```
 
 ### Configure and run the BLE sample on your Raspberry Pi 3
@@ -344,7 +344,7 @@ Add the name of your IoT Hub. The suffix value is typically **azure-devices.net*
 ```
 
 #### Identity mapping module configuration
-Add the MAC address of your SensorTag device and the device Id and key of the **SensorTag_01** device you added to your IoT Hub:
+Add the MAC address of your SensorTag device and the device ID and key of the **SensorTag_01** device you added to your IoT Hub:
 
 ```json
 {
@@ -423,14 +423,14 @@ To run the sample, pass the path to the JSON configuration file to the **ble_gat
 
 You may need to press the small button on the SensorTag device to make it discoverable before you run the sample.
 
-When you run the sample, you can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
+When you run the sample, you can use the [device explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages the gateway forwards from the SensorTag device.
 
 ## Send cloud-to-device messages
-The BLE module also supports sending instructions from Azure IoT Hub to the device. You can use the [Azure IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) or the [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer) to send JSON messages that the BLE gateway module passes on to the BLE device.
+The BLE module also supports sending instructions from Azure IoT Hub to the device. You can use the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) or the [iothub-explorer](https://github.com/Azure/iothub-explorer) tool to send JSON messages that the BLE gateway module passes on to the BLE device.
 If you are using the Texas Instruments SensorTag device then you can turn on the red LED, green LED, or buzzer by sending commands from IoT Hub. To do this, first send the following two JSON messages in order. Then you can send any of the commands to turn on the lights or buzzer.
 
-1 Reset all LEDs and the buzzer (turn them off)
-  
+1. Reset all LEDs and the buzzer (turn them off):
+
     ```json
     {
       "type": "write_once",
@@ -438,7 +438,8 @@ If you are using the Texas Instruments SensorTag device then you can turn on the
       "data": "AA=="
     }
     ```
-2 Configure I/O as 'remote'
+	
+2. Configure I/O as 'remote':
   
     ```json
     {
@@ -447,7 +448,10 @@ If you are using the Texas Instruments SensorTag device then you can turn on the
       "data": "AQ=="
     }
     ```
-* Turn on the red LED
+	
+Then you can send any of the following commands to turn on the lights or buzzer.
+
+* Turn on the red LED:
   
     ```json
     {
@@ -456,7 +460,8 @@ If you are using the Texas Instruments SensorTag device then you can turn on the
       "data": "AQ=="
     }
     ```
-* Turn on the green LED
+
+* Turn on the green LED:
   
     ```json
     {
@@ -465,7 +470,8 @@ If you are using the Texas Instruments SensorTag device then you can turn on the
       "data": "Ag=="
     }
     ```
-* Turn on the buzzer
+
+* Turn on the buzzer:
   
     ```json
     {
@@ -482,7 +488,7 @@ If you want to gain a more advanced understanding of the IoT Gateway SDK and exp
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway

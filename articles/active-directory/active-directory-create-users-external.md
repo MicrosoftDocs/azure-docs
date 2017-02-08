@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add users from other directories or partner companies in Azure Active Directory | Microsoft Docs
 description: Explains how to add users or change user information in Azure Active Directory, including external and guest users.
 services: active-directory
@@ -76,6 +76,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 * PowerBI doesn't currently support access by external users
 * Office Portal doesn't support licensing external users
 * With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
+* When configuring Dynamics CRM Outlook plugin, external users may need to manually enter the URL of the Dynamics CRM Online tenant instead of selecting 'CRM Online'
 
 ## What's next
 * [Add new users to Azure Active Directory](active-directory-create-users.md)

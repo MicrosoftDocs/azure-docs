@@ -1,5 +1,5 @@
 ---
-title: Azure solutions for Internet of Things | Microsoft Docs
+title: Azure solutions for Internet of Things (IoT Hub) | Microsoft Docs
 description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions
 services: ''
 suite: iot-suite

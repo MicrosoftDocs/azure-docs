@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 11/18/2016
 ms.author: cynthn
 
 ---
@@ -65,6 +65,23 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
 > 
+
+## Use TRIM with standard storage
+
+If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them. 
+
+You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+If the command returns 0, TRIM is enabled correctly. If it returns 1, run the following command to enable TRIM:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+
 
 ## Next steps
 * [Attach a disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.
