@@ -370,10 +370,10 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 <a name="bk_addresources"> </a>
 
 
--  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-office-and-sharepoint-add-ins-and-office-365-apps-to-the-office-store.md)
+-  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
     
  
--  [Validation policies for apps and add-ins submitted to the Office Store (version 2.0)](validation-policies-for-apps-and-add-ins-submitted-to-the-office-store-version-2.0.md)
+-  [Validation policies](validation-policies.md)
     
  
 
