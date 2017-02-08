@@ -19,7 +19,7 @@ To avoid common submission errors:
 - Make sure that all locations are SSL-secured (HTTPS).
     
  
-- Make sure you that you specify an icon for your app or add-in in your package or manifest, and that the icon is correctly sized and formatted. For details, see  [Checklist for submitting Office and SharePoint Add-ins and Office 365 web apps to the Seller Dashboard](checklist-for-submitting-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-seller-dashboard.md).
+- Make sure you that you specify an icon for your app or add-in in your package or manifest, and that the icon is correctly sized and formatted. 
     
  
 - Make sure your ID is unique.
@@ -81,7 +81,7 @@ The following is the update process for Office Add-ins:
 - You submit your revised add-in and add-in manifest to the Office Store via the  [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). The revised add-in goes through the validation process, and when approved, is made available in the store.
     
  
-- You can choose to continue to offer the previous version of your add-in in the store, or you can unpublish the previous version via the Seller Dashboard. For details, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics-in-the-seller-dashboard.md).
+- You can choose to continue to offer the previous version of your add-in in the store, or you can unpublish the previous version via the Seller Dashboard. For details, see  [Update, unpublish, and view app and add-in metrics in the Seller Dashboard](update-unpublish-and-view-app-and-add-in-metrics.md).
     
  
 - When an existing customer launches the updated add-in for the first time, a notification appears either in the task pane or the body of the document that prompts the user to update their add-in. When the user chooses  **Update**, the latest version of the add-in launches.
@@ -181,10 +181,10 @@ Two aspects of your submission relate to supported languages:
   - For Office Add-ins that aren't dictionaries, declare language support by using the  **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx).
     
  
-  - For Office Add-ins that are dictionaries, you can also use the  **TargetDialects** element within the add-in manifest. For more information, see [Create a dictionary task pane add-in](http://msdn.microsoft.com/library/80b91b8e-23c2-4077-8629-dd0a20c4defa%28Office.15%29.aspx).
+  - For Office Add-ins that are dictionaries, you can also use the  **TargetDialects** element within the add-in manifest. 
     
  
-2. In your Seller Dashboard submission first step, you select a default language . As a second step, you can add additional languages via  **Add A Language**.
+2. In your Seller Dashboard submission first step, you select a default language. As a second step, you can add additional languages via **Add A Language**.
     
      >**Note:**  You can declare more languages in your or add-in package than are available for submission in Seller Dashboard.
 
