@@ -20,7 +20,7 @@ Both the short description and long description appear in the Office Store listi
 |Short description|100 characters|70 characters|First 30 characters|
 |Long description|4,000 characters|300-500 characters|First 300 characters|
 
-For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-apps-and-add-ins.md#write-compelling-descriptions).
+For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-apps-and-add-ins#write-compelling-descriptions).
 
 ## Screenshots
 
@@ -28,7 +28,7 @@ Your screenshots appear on the Store app or add-in details page and can help dra
 
 Choose **Primary** to upload at least one screenshot. You can upload up to five images. Each screenshot must have the file extension .png, .jpg, .jpeg, or .gif, must be exactly 512 pixels wide and 384 pixels high, and be no larger than 300 KB.
 
-For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-apps-and-add-ins.md#use-screenshots-effectively).
+For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-apps-and-add-ins#use-screenshots-effectively).
  
 ## Regional availability
 
