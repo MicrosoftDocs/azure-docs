@@ -341,7 +341,9 @@ Know the following information, for SAP sizing:
 ### Resource groups
 In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. For more information, see [Azure Resource Manager overview][resource-group-overview].
 
-## <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP resources
+## Resources
+
+### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP resources
 When you are setting up your SAP software deployment, you need the following SAP resources:
 
 * SAP Note [1928533], which has:
@@ -361,15 +363,16 @@ When you are setting up your SAP software deployment, you need the following SAP
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * SAP-specific PowerShell cmdlets that are part of [Azure PowerShell][azure-ps].
 * SAP-specific Azure CLI commands that are part of [Azure CLI][azure-cli].
-* [Azure portal][azure-portal].
 
 [comment]: <> (MSSedusch TODO Add ARM patch level for SAP Host Agent in SAP Note 1409604)
 
+### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Windows resources
 These Microsoft articles cover SAP deployments in Azure:
 
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
+* [Azure portal][azure-portal]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Deployment scenarios for SAP software on Azure VMs
 You have multiple options for deploying VMs and associated disks in Azure. It's important to understand the differences between deployment options, because you might take different steps to prepare your VMs for deployment based on the deployment type you choose.
