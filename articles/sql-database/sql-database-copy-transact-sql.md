@@ -19,15 +19,12 @@ ms.tgt_pltfrm: NA
 
 ---
 # Copy an Azure SQL database using Transact-SQL
-> [!div class="op_single_selector"]
-> * [Overview](sql-database-copy.md)
-> * [Azure portal](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-This following steps show you how to copy a SQL database with Transact-SQL to the same server or a different server. The database copy operation uses the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement.
+This following steps show you how to copy a SQL database with Transact-SQL to the same server or a different server. The database copy operation uses the [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) statement. 
+
+> [!NOTE]
+> You can also copy a SQL database using the the [Azure portal](sql-database-copy-portal.md) or [PowerShell](sql-database-copy-powershell.md).
+>
 
 To complete the steps in this article you need the following:
 
@@ -76,15 +73,7 @@ After the new database is online on the destination server, use the [ALTER USER]
 All users in the new database maintain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner (DBO), can log on to the new database.
 
 ## Next steps
-* See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
-* See [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
-* See [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md) to copy a database using PowerShell.
-* See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
-
-## Additional resources
-* [Manage logins](sql-database-manage-logins.md)
-* [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
-* [Export the database to a BACPAC](sql-database-export.md)
+* To learn about managing users and logins when copying a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+* To export a database to a BACPAC file uisng Transact-SQL, see [Export the database to a BACPAC using Transact-SQL](sql-database-export-tsql.md).
 * [Business Continuity Overview](sql-database-business-continuity.md)
 * [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
-

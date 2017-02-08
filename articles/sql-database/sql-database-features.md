@@ -44,7 +44,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 > [!TIP]
-> To test an existing database for compatibility with Azure SQL Database, see [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> To test an existing database for compatibility with Azure SQL Database, see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
 >
 
 | **Feature** | **SQL Server** | **Azure SQL Database** | 
