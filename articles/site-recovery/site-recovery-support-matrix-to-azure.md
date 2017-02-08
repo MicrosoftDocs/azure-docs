@@ -31,7 +31,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
 --- | --- | --- | ---
-**Azure portal** | On-premises VMware VMs to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs (not in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V (VMs in MM clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
+**Azure portal** | On-premises VMware VMs to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs (not in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V (VMs in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only. | Maintenance mode only.
 **PowerShell** | Not currently supported. | Supported | Supported
 
