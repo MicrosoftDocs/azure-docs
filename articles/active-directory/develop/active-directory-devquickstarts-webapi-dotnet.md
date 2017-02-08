@@ -40,13 +40,18 @@ To get started, [download the app skeleton](https://github.com/AzureADQuickStart
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
+
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+
 4. Click **App registrations**, and then select **Add**.
+
 5. Follow the prompts and create a new **Web Application and/or Web API**.
   * **Name** describes your application to users. Enter **To Do List Service**.
   * **Redirect Uri** is a scheme and string combination that Azure AD uses to return any tokens that your app has requested. Enter `https://localhost:44321/` for this value.
   * For **AppID URI**, enter a tenant-specific identifier. For example, enter `https://contoso.onmicrosoft.com/TodoListService`.
+  
 6. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
