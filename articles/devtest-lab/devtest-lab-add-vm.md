@@ -18,18 +18,21 @@ ms.author: tarcher
 
 ---
 # Add a VM to a lab in Azure DevTest Labs
-You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-create-template.md), [formula](devtest-lab-manage-formulas.md), or [Marketplace image](devtest-lab-configure-marketplace-images.md).
+You add a VM to a lab from a *base* that is either a [custom image](devtest-lab-create-template.md), [formula](devtest-lab-manage-formulas.md), or [Marketplace image](devtest-lab-configure-marketplace-images.md). This tutorial walks you through using the Azure portal to add a VM to a lab in DevTest Labs.
 
 ## Add a VM with artifacts
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **More Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the lab in which you want to create the VM.  
 1. On the lab's **Overview** blade, select **+ Add**.  
+
     ![Add VM button](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
+
 1. On the **Choose a base** blade, select a base for the VM.
 1. On the **Virtual machine** blade, enter a name for the new virtual machine in the **Virtual machine name** text box.
    
     ![Lab VM blade](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
+
 1. Enter a **User Name** that is granted administrator privileges on the virtual machine.  
 1. If you want to use a password stored in your *secret store*, select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
 1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
