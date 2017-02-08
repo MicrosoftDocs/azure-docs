@@ -135,17 +135,13 @@ To remove a license, go to the user or group and open the **Licenses** tile. Sel
 
 ![remove a license](media/active-directory-licensing-get-started-azure-portal/remove-license.png)
 
-Please note that licenses inherited by the user from a group cannot be removed directly. Instead, remove the user from the group from which they are inheriting the license.``
+Please note that licenses inherited by the user from a group cannot be removed directly. Instead, remove the user from the group from which they are inheriting the license.
 
 ### Extending trials
 
 Trial extensions for customers are available as self-service through the Office 365 portal. A customer admin can navigate to the Office portal (access depends on permissions for the Office portal) and select the Azure AD Premium trial. Clicking the **Extend trial** link starts the extension process. A credit card is required, but it will not be charged.
 
 ![extend a trial in the Azure portal](media/active-directory-licensing-get-started-azure-portal/extend-trial-beginning.png)
-
-Customers can also request a trial extension by submitting a support request. A customer admin can navigate to the Office 365 portal [support page](http://aka.ms/extendAADtrial) (access depends on permissions for the Office support page). On this page select **Billing and product info** and click **Submit a service request**. Under **Feature** choose **Subscriptions and Trials** and under **Symptom** pick **Trial questions**. Finally, enter information on the circumstances.
-
-![Extend a trial using a service request](media/active-directory-licensing-get-started-azure-portal/extend-trial-service-request.png)
 
 ## Next steps
 
