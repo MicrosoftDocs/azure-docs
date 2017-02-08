@@ -30,10 +30,14 @@ Add B2B collaboration users to the directory as an Azure AD administrator, as sh
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant]
 
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/Admin-adding-guests-for-B2B-collaboration-to-Azure-AD-tenant).
+
 ## Admins adding guest users to a group
 Add B2B collaboration users to a group as an Azure AD administrator, as shown in the following video:
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
+
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
 
 ## Admins adding guest users to an application
 
@@ -41,13 +45,14 @@ Add B2B collaboration users to an application as an Azure AD administrator, as s
 
   >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps]
 
+  If this video does not appear embedded, you can reach it [here](https://channel9.msdn.com/Blogs/Azure/admin-assign-b2b-to-apps).
 
 ## Related articles
 
 Browse our other articles on Azure AD B2B collaboration:
 
 * [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-how-it-works.md)
+* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
 * [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)

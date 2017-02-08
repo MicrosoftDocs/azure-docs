@@ -77,7 +77,7 @@ The following table shows data collection methods and other details about how da
 | Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | on arrival |
 
 ## Use Azure Key Vault
-After you install the solution, view the Key Vault data by clicking on the **Azure Key Vault** tile from the **Overview** page of Log Analytics.
+After you install the solution, view the Key Vault data by clicking the **Azure Key Vault** tile from the **Overview** page of Log Analytics.
 
 ![image of Azure Key Vault tile](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
@@ -146,6 +146,9 @@ To use the updated solution:
 4. Remove the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
 
 Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
+
+## Troubleshooting
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Azure Key Vault data.
