@@ -1,4 +1,4 @@
-# Office Store listing
+# Create your Office Store listing
 
 You enter the Store listing information for your app or add-in on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your app or add-in does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
