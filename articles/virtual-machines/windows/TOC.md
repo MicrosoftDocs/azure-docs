@@ -86,7 +86,7 @@
 #### [Copy a specialized Azure VM](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### Create a VM from a generalized image
 ##### [Create an unmanaged VM from a generalized VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-##### [Create a VM from a generalized Managed Disk image](../virtual-machines-windows-create-vm-generalized-managed.md.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Create a VM from a generalized Managed Disk image](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Create a VM from a specialized VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Configure
