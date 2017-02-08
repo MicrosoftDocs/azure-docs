@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/08/2017
 ms.author: billmath
 ---
 
@@ -70,12 +70,12 @@ To disable the scheduled task that triggers a synchronization cycle every 3 hour
 After you have completed all your filtering changes, don't forget to come back and **Enable** the task again.
 
 ## Filtering Options
-The following filtering configuration types can be applied to Azure AD Connect sync:
+The following filtering configuration types can be applied to the Directory Synchronization tool:
 
+* [**Group based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial install using the installation wizard. It is not further covered in this topic.
 * [**Domain-based**](#domain-based-filtering): This option enables you to select which domains that synchronize to Azure AD. It also allows you to add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you installed Azure AD Connect sync.
 * [**Organizational-Unit–based**](#organizational-unitbased-filtering):  This filtering option enables you to select which OUs synchronize to Azure AD. This option is for all object types in selected OUs.
 * [**Attribute–based**](#attribute-based-filtering): This option allows you to filter objects based on attribute values on the objects. You can also have different filters for different object types.
-* [**Group-based**](#group-based-filtering): Filtering based on a single group can only be configured on initial install using the installation wizard. It is used for a small pilot deployment.
 
 You can use multiple filtering options at the same time. For example, you can use OU-based filtering to only include objects in one OU and at the same time attribute-based filtering to filter the objects further. When you use multiple filtering methods, the filters use a logical AND between the filters.
 
@@ -294,7 +294,7 @@ Now it is time to enable the scheduler again.
 2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Enable**.
 
 ## Group-based filtering
-Group-based filtering can be configured the first time you install Azure AD Connect using [custom installation](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). It is intended for a pilot deployment where only a small set of objects should be synchronized. When you have disabled group-based filtering, it cannot be enabled again. It is **not supported** to use group based filtering in a custom configuration with custom sync rules. It is only supported to configure this feature with the installation wizard. When you have completed your pilot, then you should use one of the other filtering options in this topic.
+Group-based filtering can be configured the first time you install Azure AD Connect using custom installation. It is intended for a pilot deployment where only a small set of objects should be synchronized. When you have disabled group-based filtering, it cannot be enabled again. It is **not supported** to use group based filtering in a custom configuration. It is only supported to configure this feature with the installation wizard. When you have completed your pilot, then you should use one of the other filtering options in this topic.
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
