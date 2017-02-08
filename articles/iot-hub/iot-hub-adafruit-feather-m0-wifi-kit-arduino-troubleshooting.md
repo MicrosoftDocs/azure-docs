@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Adafruit Feather M0 WiFi Azure IoT Starter Kit | Microsoft Docs
+title: 'Connect Arduino (C) to Azure IoT - Troubleshoot | Microsoft Docs'
 description: Troubleshooting page for Adafruit Feather M0 WiFi Arduino experience
 services: iot-hub
 documentationcenter: ''

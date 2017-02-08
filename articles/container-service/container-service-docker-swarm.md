@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service container management with Docker Swarm | Microsoft Docs
-description: Deploy containers to a Docker Swarm in Azure Container Service
+title: Manage Azure Swarm cluster with Docker API | Microsoft Docs
+description: Deploy containers to a Docker Swarm cluster in Azure Container Service
 services: container-service
 documentationcenter: ''
 author: rgardler

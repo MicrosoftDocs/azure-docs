@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET Protocol Overview | Microsoft Docs
+title: Understand the OAuth 2.0 authorization code flow in Azure AD | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net

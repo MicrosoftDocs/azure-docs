@@ -1,5 +1,5 @@
 ---
-title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery | Microsoft Docs
+title: Replicate VMware VMs and physical servers to Azure in the classic portal | Microsoft Docs
 description: This article describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
@@ -247,7 +247,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 >
 
 
->[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. On the **Quick Start** page download the unified installation file to the server.
@@ -335,7 +335,7 @@ Where:
 * /ProxySettingsFilePath. Optional. Specifies settings for a custom proxy (either default proxy on the server that requires authentication, or custom proxy)
 
 ## Step 6: Set up credentials for the vCenter server
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -377,7 +377,7 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## Step 8: Create a protection group
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -589,7 +589,7 @@ In addition, protection status can be monitored in **Protected Items** > <protec
      * If the network adapter of the source machine is configured to use a static IP address then you can specify a static IP address for the Azure VM. If you don't provide a static IP address then any available IP address will be allocated. If the target IP address is specified but it's already in use by another VM in Azure then failover will fail. If the network adapter of the source machine is configured to use DHCP then you'll have DHCP as the setting for Azure.
 
 ## Step 12: Create a recovery plan and run a failover
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 

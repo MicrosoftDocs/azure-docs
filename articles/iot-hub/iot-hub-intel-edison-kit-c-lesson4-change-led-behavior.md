@@ -1,5 +1,5 @@
 ---
-title: Change the LED blink behaviour with messages from Azure IoT Hub | Microsoft Docs
+title: 'Connect Intel Edison (C) to Azure IoT - Lesson 4: Blink the LED | Microsoft Docs'
 description: Customize the messages to change the LED's on and off behavior.
 services: iot-hub
 documentationcenter: ''

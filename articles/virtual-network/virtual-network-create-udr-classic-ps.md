@@ -1,5 +1,5 @@
 ---
-title: Control routing and use virtual appliances using PowerShell Microsoft Docs
+title: Control routing in an Azure Virtual Network - PowerShell - Classic | Microsoft Docs
 description: Learn how to control routing in VNets using PowerShell | Classic
 services: virtual-network
 documentationcenter: na

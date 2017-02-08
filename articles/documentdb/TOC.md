@@ -1,3 +1,4 @@
+
 # Overview
 ## [What is DocumentDB?](documentdb-introduction.md)
 ## [Core concepts](documentdb-resources.md)
@@ -29,24 +30,25 @@
 ### [Partitioning and scaling](documentdb-partition-data.md)
 ### [Consistency](documentdb-consistency-levels.md)
 ### [NoSQL vs SQL](documentdb-nosql-vs-sql.md)
+### [Cost-effective reads and writes](documentdb-key-value-store-cost.md)
 
 ## Manage
 ### [Import your data](documentdb-import-data.md)
 ### [Model your data](documentdb-modeling-data.md)
 ### [Use geospatial data](documentdb-geospatial.md)
 ### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
+### [Regional failovers](documentdb-regional-failovers.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
 ### [Back up and restore](documentdb-online-backup-and-restore.md)
-### [Performance levels](documentdb-performance-levels.md)
+### [Retire S1, S2, S3](documentdb-performance-levels.md)
 ### [Request units](documentdb-request-units.md)
 ### Azure CLI
 #### [Create an account](documentdb-automation-resource-manager-cli.md)
 #### [Add or remove regions](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
-### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
@@ -54,6 +56,9 @@
 ### [Track changes with Change feed](documentdb-change-feed.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
+### Best practices
+#### [Multi-master setup](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## Use DocumentDB Support for MongoDB
 ### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
@@ -67,6 +72,7 @@
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)
 ### [Create a collection](documentdb-create-collection.md)
+### [Set throughput](documentdb-set-throughput.md)
 ### [Add global replication](documentdb-portal-global-replication.md)
 ### [Add and edit documents](documentdb-view-json-document-explorer.md)
 ### [Query documents](documentdb-query-collections-query-explorer.md)
@@ -87,6 +93,7 @@
 ### [Get notifications with Logic Apps](documentdb-change-notification.md)
 ### [Process sensor data in real time](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualize your data with Power BI](documentdb-powerbi-visualize.md)
+### [Leverage the ODBC driver for data visualization](documentdb-nosql-odbc-driver.md)
 
 
 # Reference

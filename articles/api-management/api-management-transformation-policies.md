@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mijiang
+ms.author: apimpm
 ---
 # API Management transformation policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -469,11 +469,11 @@ This topic provides a reference for the following API Management policies. For i
   
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.  
-  
+
 ### Policy statement  
   
 ```xml  
-<rewrite-uri template="uri template" />  
+<rewrite-uri template="uri template" copy-unmatched-params="true | false" />  
 ```  
   
 ### Example  
@@ -489,7 +489,33 @@ This topic provides a reference for the following API Management policies. For i
     </outbound>  
 </policies>  
 ```  
-  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put?c=d -->
+```  
+```xml
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<policies>  
+    <inbound>  
+        <base />  
+        <rewrite-uri template="/put" copy-unmatched-params="false" />  
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+<!-- Resulting URL will be /put -->
+```
+
 ### Elements  
   
 |Name|Description|Required|  
@@ -500,7 +526,8 @@ This topic provides a reference for the following API Management policies. For i
   
 |Attribute|Description|Required|Default|  
 |---------------|-----------------|--------------|-------------|  
-|template|The actual web service URL with any query string parameters.|Yes|N/A|  
+|template|The actual web service URL with any query string parameters. When using expressions, the whole value must be an expression.|Yes|N/A|  
+|copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the re-write template|No|true|  
   
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

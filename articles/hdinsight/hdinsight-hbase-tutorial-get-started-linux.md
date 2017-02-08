@@ -1,5 +1,5 @@
 ---
-title: 'HBase tutorial: Get started with Linux-based HBase clusters in Hadoop | Microsoft Docs'
+title: Get started with HBase on Azure HDInsight | Microsoft Docs
 description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
 keywords: apache hbase,hbase,hbase shell,hbase tutorial
 services: hdinsight

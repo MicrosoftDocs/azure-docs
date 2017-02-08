@@ -1,5 +1,5 @@
 ---
-title: Get the tools (Windows 7 or later) | Microsoft Docs
+title: 'Connect Raspberry Pi (Node) to Azure IoT - Lesson 1: Get tools (Windows) | Microsoft Docs'
 description: Download and install the necessary tools and software for the first sample application for Pi on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''

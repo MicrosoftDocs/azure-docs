@@ -1,5 +1,5 @@
 ---
-title: Monitor and manage HDInsight clusters using the Apache Ambari REST API | Microsoft Docs
+title: Monitor and manage Azure HDInsight using Ambari REST API | Microsoft Docs
 description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 services: hdinsight
 documentationcenter: ''

@@ -14,15 +14,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 06/09/2016
+ms.date: 02/01/2017
 ms.author: thmullan;jackr
 
 ---
 # Securing your SQL Database
 
-This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article will get you started with resources for protecting data, controlling access, and proactive monitoring. The following diagream illustrates the layers of security provided by SQL Database.
-
-![SQL security and compliance](./media/sql-database-security-overview/diagram.png)
+This article walks through the basics of securing the data tier of an application using Azure SQL Database. In particular, this article will get you started with resources for protecting data, controlling access, and proactive monitoring. 
 
 For a complete overview of security features available on all flavors of SQL, see the [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589). Additional information is also available in the [Security and Azure SQL Database technical white paper](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
@@ -68,9 +66,7 @@ SQL Database secures your data by providing auditing and threat detection capabi
 ### Auditing
 SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
 
-### Auditing & Threat Detection 
-SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
- 
+### Threat detection
 Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile and detect anomalous database activities. You will be alerted about suspicious activities, potential vulnerabilities, SQL injection attacks and anomalous database access patterns. You can respond to alerts by following the provided informative and actionable instructions. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
  
 ### Data Masking 
@@ -83,4 +79,5 @@ In addition to the above features and functionality that can help your applicati
 
 - For a discussion of the use of data protection features in SQL Database, see [Data protection and security](sql-database-protect-data.md).
 - For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
+- For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
 - For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).

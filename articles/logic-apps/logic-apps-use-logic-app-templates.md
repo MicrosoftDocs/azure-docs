@@ -1,6 +1,6 @@
 ---
-title: Logic App templates | Microsoft Docs
-description: Learn how to use pre-created Logic app templates to help you get started
+title: Create workflows from templates - Azure Logic Apps | Microsoft Docs
+description: Get started - create workflows quickly by using Azure Logic App templates to connect apps and integrate data.
 author: kevinlam1
 manager: anneta
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 01/23/2017
 ms.author: klam
 
 ---

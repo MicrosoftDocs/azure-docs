@@ -1,5 +1,5 @@
 ---
-title: Create FQDN for a VM in Azure portal | Microsoft Docs
+title: Create FQDN for a Windows VM in the Azure portal | Microsoft Docs
 description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a Resource Manager based virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Encrypt disks on a Linux VM | Microsoft Docs
+title: Encrypt disks on a Linux VM in Azure | Microsoft Docs
 description: How to encrypt disks on a Linux VM using the Azure CLI and the Resource Manager deployment model
 services: virtual-machines-linux
 documentationcenter: ''

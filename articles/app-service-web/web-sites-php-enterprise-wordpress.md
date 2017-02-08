@@ -1,5 +1,5 @@
 ---
-title: Enterprise-class WordPress on Azure App Service | Microsoft Docs
+title: Enterprise-class WordPress on Azure | Microsoft Docs
 description: Learn how to host an enterprise-class WordPress site on Azure App Service
 services: app-service\web
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 10/24/2016
 ms.author: sumuth
 
 ---
-# Enterprise-class WordPress on Azure App Service
+# Enterprise-class WordPress on Azure
 Azure App Service provides a scalable, secure, and easy-to-use environment for mission-critical, large-scale [WordPress][wordpress] sites. Microsoft itself runs enterprise-class sites such as the [Office][officeblog] and [Bing][bingblog] blogs. This article shows you how to use the Web Apps feature of Microsoft Azure App Service to establish and maintain an enterprise-class, cloud-based WordPress site that can handle a large volume of visitors.
 
 ## Architecture and planning

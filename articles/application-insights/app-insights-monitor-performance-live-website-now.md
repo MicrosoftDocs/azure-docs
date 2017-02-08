@@ -4,7 +4,7 @@ description: Monitor a website's performance without re-deploying it. Use standa
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 02/03/2017
 ms.author: awills
 
 ---
 # Instrument web apps at runtime with Application Insights
 
 
-You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. In your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -52,78 +52,35 @@ You need a [Microsoft Azure](http://azure.com) subscription.
 
 ### If your app is hosted on your IIS server
 1. On your IIS web server, sign in with administrator credentials.
-2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).  
-3. Pick the installed web application or website that you want to monitor, then configure the resource in which you want to see the results in the Application Insights portal. You should be signed in to Microsoft Azure.
+2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
+3. In Status Monitor, select the installed web application or website that you want to monitor. Sign in with your Azure credentials.
+
+    Configure the resource where you want to see the results in the Application Insights portal. (Normally, it's best to create a new resource. Select an existing resource if you already have [web tests][availability] or [client monitoring][client] for this app.) 
 
     ![Choose an app and a resource.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Normally, you choose to configure a new resource and [resource group][roles].
-
-    Otherwise, use an existing resource if you already set up [web tests][availability] for your site, or [web client monitoring][client].
 4. Restart IIS.
 
     ![Choose Restart at the top of the dialog.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Your web service will be interrupted for a short while.
-5. Notice that ApplicationInsights.config has been inserted into the web apps that you want to monitor.
 
-    ![Find the .config file alongside the code files of the web app.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-   
+Instrumentation adds DLLs and ApplicationInsights.config to your app.
 
-#### Want to (re)configure later?
-After you complete the wizard, you can re-configure the agent whenever you want. You can also use this if you installed the agent but there was some trouble with the initial setup.
+>[!IMPORTANT]
+>When you re-publish the app, re-run Status Monitor to ensure that instrumentation is still enabled. This is necessary because the Application Insights DLLs and .config file may be deleted by the publication process. 
+>
+> Alternatively, [add Application Insights to your app in Visual Studio][greenbrown] before you republish. This provides you with more detailed monitoring and the ability to code your own telemetry.
 
-![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
-
-## View performance telemetry
-Sign into [the Azure portal](https://portal.azure.com), browse Application Insights and open the resource that you created.
-
-![Choose Browse, Application Insights, then select your app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
-
-Open the Performance blade to see request, response time, dependency and other data.
-
-![Performance](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
-
-Click any chart to open a more detailed view.
-
-You can [edit, rearrange, save](app-insights-metrics-explorer.md), and pin charts or the whole blade to a [dashboard](app-insights-dashboards.md).
-
-## Dependencies
-The Dependency Duration chart shows the time taken by calls from your app to external components such as databases, REST APIs, or Azure blob storage.
-
-To segment the chart by calls to different dependencies: Edit the chart, turn on Grouping, and then group by Dependency, Dependency Type or Dependency Performance.
-
-![Dependency](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
-
-## Performance counters
-Click Servers on the overview blade to see charts of server performance counters such as CPU occupancy and memory usage.
-
-If you have several server instances, you might want to edit the charts to group by Role instance.
-
-![Servers](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
-
-You can also change the set of performance counters that are reported by the SDK. 
-
-## Exceptions
-![Click through the server exceptions chart](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
-
-You can drill down to specific exceptions (from the last seven days) and get stack traces and context data.
-
-## Sampling
-If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 ## Troubleshooting
-### Connection errors
-You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+### Can't connect? No telemetry?
 
-### No telemetry?
-* Use your site, to generate some data.
-* Wait a few minutes to let the data arrive, then click **Refresh**.
-* Open Diagnostic Search (the Search tile) to see individual events. Events are often visible in Diagnostic Search before aggregate data appears in the charts.
+* You need to open [some outgoing ports](app-insights-ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+
 * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 
   ![Open the Performance blade to see request, response time, dependency and other data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
-* Make sure your server firewall allows outgoing traffic on the ports listed above.
 * On the server, if you see a message about "insufficient permissions", try the following:
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
@@ -207,10 +164,19 @@ Find out which apps are being monitored:
 * Downloads the latest Application Insights SDK to the server.
 
 ## <a name="next"></a>Next steps
+
+View your telemetry:
+
+* [Explore metrics](app-insights-metrics-explorer.md) to monitor performance and usage
+* [Search events and logs][diagnostic] to diagnose problems
+* [Analytics](app-insights-analytics.md) for more advanced queries
+* [Create dashboards](app-insights-dashboards.md)
+
+Add more telemetry:
+
 * [Create web tests][availability] to make sure your site stays live.
-* [Search events and logs][diagnostic] to help diagnose problems.
 * [Add web client telemetry][usage] to see exceptions from web page code and to let you insert trace calls.
-* [Add Application Insights SDK to your web service code][greenbrown] so that you can insert trace and log calls in the server code.
+* [Add Application Insights SDK to your code][greenbrown] so that you can insert trace and log calls
 
 <!--Link references-->
 

@@ -1,5 +1,5 @@
 ---
-title: DocumentDB performance tips | Microsoft Docs
+title: Performance tips - Azure DocumentDB NoSQL | Microsoft Docs
 description: Learn client configuration options to improve Azure DocumentDB database performance
 keywords: how to improve database performance
 services: documentdb
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 
 ---
@@ -126,6 +126,18 @@ So if you're asking "How can I improve my database performance?" consider the fo
 10. **Increase number of threads/tasks**
 
     See [Increase number of threads/tasks](#increase-threads) in the Networking section.
+    
+11. **Use 64-bit host processing**
+
+    The DocumentDB SDK works in a 32-bit host process; however, if you are using cross partition queries, 64-bit host processing is recommended for improved performance. The following type of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
+    
+    - For Executable applications, this can be done by unchecking the **Prefer 32-bit** option in the **Project Properties** window, on the **Build** tab. 
+    
+    - For VSTest based test projects, this can be done by selecting **Test**->**Test Settings**->**Default Processor Architecture as X64**, from the **Visual Studio Test** menu option.
+    
+    - For locally deployed ASP.NET Web applications, this can be done by checking the **Use the 64 bit version of IIS Express for web sites and projects**, under **Tools**->**Options**->**Projects and Solutions**->**Web Projects**.
+    
+    - For ASP.NET Web applications deployed on Azure, this can be done by choosing the **Platform as 64-bit** in the **Application Settings** on the Azure portal.
 
 ## Indexing Policy
 1. **Use lazy indexing for faster peak time ingestion rates**

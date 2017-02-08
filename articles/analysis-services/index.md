@@ -73,7 +73,7 @@ Learn how to set up and manage data modeling with Analysis Services. Tutorials a
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>

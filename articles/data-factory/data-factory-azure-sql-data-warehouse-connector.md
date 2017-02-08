@@ -13,18 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/24/2017
 ms.author: jingwang
 
 ---
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
 This article outlines how you can use Copy Activity in Azure Data Factory to move data from/to Azure SQL Data Warehouse to/from another data store.
 
-You can specify whether you want to use PolyBase while loading data into Azure SQL Data Warehouse. We suggest that you use PolyBase to achieve best performance when loading data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+> [!TIP]
+> To achieve best performance, use PolyBase to load data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+>
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Load data into SQL Data Warehouse with Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
-
 
 The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
@@ -379,7 +380,8 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
             "blobColumnSeparators": ","
           },
           "sink": {
-            "type": "SqlDWSink"
+            "type": "SqlDWSink",
+            "allowPolyBase": true
           }
         },
        "scheduler": {
@@ -397,7 +399,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
    }
 }
 ```
-For a walkthrough, see the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation.
+For a walkthrough, see the see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) and [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation.
 
 ## Linked service properties
 The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service.
@@ -405,7 +407,7 @@ The following table provides description for JSON elements specific to Azure SQL
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **AzureSqlDW** |Yes |
-| **connectionString** |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
+| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
 
 > [!IMPORTANT]
 > Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) and the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Data Warehouse from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Data Warehouse.
@@ -507,7 +509,7 @@ Using **PolyBase** is an efficient way of loading large amount of data into Azur
 * If your source data format is compatible with PolyBase, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. See **[Direct copy using PolyBase](#direct-copy-using-polybase)** with details. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * If your source data format is not originally supported by PolyBase, you can leverage **[Staged Copy using PolyBase](#staged-copy-using-polybase)** instead, which will also provide you better throughput by automatically firstly converting the data into PolyBase-compatible format and storing in Azure Blob storage, then loading into SQL Data Warehouse.
 
-Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section for details about properties that you can use with polyBaseSettings.
+Set the `allowPolyBase` property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the `polyBaseSettings` property group. see the [SqlDWSink](#SqlDWSink) section for details about properties that you can use with polyBaseSettings.
 
 ```JSON
 "sink": {
@@ -527,14 +529,15 @@ If your source data meets the criteria described in this section, you can direct
 
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. **Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
-2. The **input dataset** is of type: **Azure Blob** and the format type under type properties is **OrcFormat** or **TextFormat** with the following configurations:
+1. **Source linked service** is of type: **AzureStorage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
+2. The **input dataset** is of type: **AzureBlob** and the format type under `type` properties is **OrcFormat**, or **TextFormat** with the following configurations:
 
-   1. **rowDelimiter** must be **\n**.
-   2. **nullValue** is set to **empty string** ("").
-   3. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value.
-   4. **escapeChar** and **quoteChar** are not specified.
-   5. **Compression** is not **BZIP2**.
+   1. `rowDelimiter` must be **\n**.
+   2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
+   3. `encodingName` is set to **utf-8**, which is **default** value.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` and `skipLineCount` are not specified.
+   5. `compression` can be **no compression**, **GZip** or **Deflate**.
+
 	```JSON
 	"typeProperties": {
 	   "folderPath": "<blobpath>",
@@ -551,9 +554,10 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 	   }  
 	},
 	```
-3. There is no **skipHeaderLineCount** setting under **BlobSource** for the Copy activity in the pipeline.
-4. There is no **sliceIdentifierColumnName** setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use **sqlWriterCleanupScript**.
-5. There is no **columnMapping** being used in the associated in Copy activity.
+
+3. There is no `skipHeaderLineCount` setting under **BlobSource** for the Copy activity in the pipeline.
+4. There is no `sliceIdentifierColumnName` setting under **SqlDWSink** for the Copy activity in the pipeline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use `sqlWriterCleanupScript`).
+5. There is no `columnMapping` being used in the associated in Copy activity.
 
 ### Staged Copy using PolyBase
 When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure blob storage. In this case, Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
@@ -563,7 +567,7 @@ When your source data doesn’t meet the criteria introduced in the previous sec
 >
 >
 
-To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown in the following code:
+To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code:
 
 ```JSON
 "activities":[  

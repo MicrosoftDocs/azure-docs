@@ -32,6 +32,11 @@ There are a few different strategies to upgrade Azure AD Connect.
 
 For required permissions, see [permissions required for upgrade](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
+> [!NOTE]
+> Once you have enabled your new Azure AD Connect server to start synchronizing changes to Azure AD, you must not roll back to using DirSync or Azure AD Sync. Downgrading from Azure AD Connect to legacy clients including DirSync and Azure AD Sync is not supported and can lead to issues such as data loss in Azure AD. 
+> 
+> 
+
 ## In-place upgrade
 An in-place upgrade works for moving from Azure AD Sync or Azure AD Connect. It will not work for DirSync or for a solution with FIM + Azure AD Connector.
 
