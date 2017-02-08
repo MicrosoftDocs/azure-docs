@@ -63,7 +63,7 @@ DC/OS and Apache Mesos include an impressive feature set:
 * Java, Python, and C++ APIs for developing new parallel applications
 * A web UI for viewing cluster state
 
-By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads. However, included with the DC/OS deployment of ACS is the Mesosphere Universe of services that can be added to your service, these include Spark, Hadoop, Cassandra and much more.
+By default, DC/OS running on Azure Container Service includes the Marathon  orchestration platform for scheduling workloads. However, included with the DC/OS deployment of ACS is the Mesosphere Universe of services that can be added to your service, these include Spark, Hadoop, Cassandra and much more. 
 
 ![DC/OS Universe in Azure Container Service](media/dcos/universe.png)
 
