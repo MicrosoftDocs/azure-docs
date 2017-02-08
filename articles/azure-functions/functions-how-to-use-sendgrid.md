@@ -144,11 +144,11 @@ The function's signature also contains an extra out parameter of type ```Mail```
 ## Next steps
 This article has demonstrated how to use the SendGrid service to create and send email. To learn more about using Azure Functions in your apps, see the following topics: 
 
-- [Best practices for Azure Functions](functions-best-practices)
+- [Best practices for Azure Functions](functions-best-practices.md)
 Lists some best practices to use when creating Azure Functions.
 
-- [Azure Functions developer reference](functions-reference)
+- [Azure Functions developer reference](functions-reference.md)
 Programmer reference for coding functions and defining triggers and bindings.
 
-- [Testing Azure Functions](functions-test-a-function)
+- [Testing Azure Functions](functions-test-a-function.md)
 Describes various tools and techniques for testing your functions.
