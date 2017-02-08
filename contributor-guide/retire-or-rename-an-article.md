@@ -29,7 +29,7 @@ See [the OPS documentation](https://opsdocs.azurewebsites.net/opsdocs/partnerdoc
 Do not delete articles from the azure-docs-pr or azure-docs repositories, period. If you delete an article, you cannot create the article-level redirects, which guarantees that customers will experience 404s.
     
 ### Step 3: Remove or update all crosslinks to the article from the technical content repository
-CDo not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are retiring, renaming, or moving, including links in articles owned by other authors.
+Do not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are retiring, renaming, or moving, including links in articles owned by other authors.
 
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command).
 2. Scan the azure-docs-pr/articles folder and the azure-docs-pr/includes folder for any articles and includes that link to the article you want to retire, move, or rename. Either remove the crosslinks or replace them with an appropriate new crosslink. You can use a search and replace utility to find the crosslinks if you have one installed. If you don't, you can use Windows PowerShell for free! Here's how to use PowerShell to find the crosslinks:
