@@ -113,7 +113,7 @@ The following figure shows the add-in license query and validation process for O
 
 
  
-![Office app license verification process](images/O15_app_license_Verification.png)
+![Office app license verification process](../../images/O15_app_license_Verification.png)
  
 
  
