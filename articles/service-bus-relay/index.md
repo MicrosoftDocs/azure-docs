@@ -44,7 +44,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="/azure/service-bus-relay/relay-create-namespace-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +62,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </a>
     </li>    
     <li>
-        <a href="">
+        <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +80,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="/azure/service-bus-relay/service-bus-dotnet-how-to-use-relay">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +98,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="/azure/service-bus-relay/service-bus-sas">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -138,9 +138,9 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus">Hybrid Connections .NET API</a></p>
-                        <p><a href="/dotnet/api/microsoft.servicebus">WCF Relay .NET API</a></p>
+                        <h3>.NET</h3>
+                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.servicebus">Microsoft.Azure.Management.ServiceBus</a></p>
                     </div>
                 </div>
             </div>
