@@ -1,6 +1,5 @@
 # Promote your Office or SharePoint Add-in or Office 365 web app
-Promote your Office Add-in, SharePoint Add-in, or Office 365 web app in the Office Store by adding Office Store badges to your webpage.
- 
+
 
 After you submit your app or add-in to the Seller Dashboard and it is approved for addition to the Office Store, you might want to brand it as an Office Store app or add-in on your webpage. You can use the Office Store badges to promote your app or add-in and drive traffic from your site to the store. To do so:
  
@@ -134,11 +133,9 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 
--  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](submit-office-and-sharepoint-add-ins-and-office-365-web-apps-to-the-office-store.md)
-    
+-  [Submit Office and SharePoint Add-ins and Office 365 web apps to the Office Store](ssubmit-add-ins-and-web-apps-to-the-office-store.md) 
  
--  [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)
-    
+-  [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
  
 -  [SharePoint Add-ins](http://msdn.microsoft.com/library/sharepoint-add-ins%28Office.15%29.aspx)
     
