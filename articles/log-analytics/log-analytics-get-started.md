@@ -113,7 +113,7 @@ To start, look at data that is displayed from within solutions. Then, look at so
 3. For this example, under **Notable Issues**, click **Computers missing critical updates** to open Log Search and view details about computers missing critical updates. In this example, there is one critical update missing and 63 other updates missing.  
     ![Security and Audit Log Search](./media/log-analytics-get-started/security-audit-log-search.png)
 
-## To view and act on System Update data
+### To view and act on System Update data
 
 1. In the blade for your workspace, under **General**, click **Overview**.  
 2. Click the **System Update Assessment** tile. In this example, you can see that there is one Windows computer named *getstarted* that needs critical updates and one that needs definition updates.  
