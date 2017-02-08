@@ -73,10 +73,8 @@
 ## Use disks
 ### [Disks and VHDs for Azure VMs](storage-about-disks-and-vhds-windows.md)
 ### [Azure Managed Disks Overview](storage-managed-disks-overview.md)
-### [Migrate a Windows VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-windows-convert-unmanaged-to-managed-disks.md)
-### [Migrate a Linux VM from unmanaged disks to Azure Managed Disks](../virtual-machines/virtual-machines-linux-convert-unmanaged-to-managed-disks.md)
-### [Migrate AWS and on-premises VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 ### [Migrate Azure VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migrate AWS and on-premises VMs to Azure Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
 ### [Frequently Asked Questions about Azure IaaS VM Disks](storage-faq-for-disks.md)
 ### Premium Storage
 #### [High-performance Premium Storage for VM Disks](storage-premium-storage.md)
