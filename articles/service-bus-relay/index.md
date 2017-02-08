@@ -90,7 +90,7 @@ Learn how Azure Relay service facilitates hybrid applications between on-premise
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started sharing Access Signatures</h3>
+                        <h3>Get started with Shared Access Signatures</h3>
                     </div>
                 </div>
             </div>

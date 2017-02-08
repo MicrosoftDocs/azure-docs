@@ -44,7 +44,7 @@ The messaging service provides dependable information delivery as a brokered or 
         </a>
     </li>
     <li>
-        <a href="/azure/service-bus-messaging/relay-create-namespace-portal">
+        <a href="/azure/service-bus-messaging/service-bus-create-namespace-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -54,7 +54,7 @@ The messaging service provides dependable information delivery as a brokered or 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a namespace using the Portal</h3>
+                        <h3>Create a namespace using the portal</h3>
                     </div>
                 </div>
             </div>
