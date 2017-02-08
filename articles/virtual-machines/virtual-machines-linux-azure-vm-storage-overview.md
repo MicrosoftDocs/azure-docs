@@ -16,7 +16,6 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 
-
 ---
 # Azure and Linux VM storage
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
