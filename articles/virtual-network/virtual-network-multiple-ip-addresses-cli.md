@@ -40,17 +40,17 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 	Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 	```
-Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
-	
-```powershell
-FeatureName                            ProviderName      RegistrationState
------------                            ------------      -----------------      
-AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
-```
-	
->[!NOTE] 
->This may take a few minutes.
+	Do not attempt to complete the remaining steps Until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
+		
+	```powershell
+	FeatureName                            ProviderName      RegistrationState
+	-----------                            ------------      -----------------      
+	AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+	AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+	```
+		
+	>[!NOTE] 
+	>This may take a few minutes.
 
 3. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
 
