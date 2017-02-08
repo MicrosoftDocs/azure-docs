@@ -36,7 +36,7 @@ Each function can contain zero or more input and zero or output bindings. Bindin
 1. Login to the Azure Portal and [create an Azure Function App](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) or open an existing Function app. 
 2. Create an Azure function. To keep it simple, choose a manual trigger and C#. 
 
- ![Create an Azure function](./media/functions-new-function-manual-trigger-page.png)
+ ![Create an Azure function](./media/functions-how-to-use-sendgrid/functions-new-function-manual-trigger-page.png)
 
 ## Configure SendGrid for use in an Azure Function app
 
@@ -44,13 +44,13 @@ You must store your SendGrid Api Key as an app setting in order to use it in a f
 
 1. Create an **AppSettings** key in your function app's **Application Settings**.
 
- ![Create an Azure function](./media/functions-configure-sendgrid-api-key-app-settings.png)
+ ![Create an Azure function](./media/functions-how-to-use-sendgrid/functions-configure-sendgrid-api-key-app-settings.png)
 
 Function apps also requre a reference to external assemblies before you may use them.  
 
 2. List the SendGrid assembly in the **project.json** file. If no project.json file exists, create one. Azure will automatically create the **project.lock.json** file to keep track of dependencies.
 
- ![Reference SendGrid assembly](./media/functions-reference-sendgrid-assembly.png)
+ ![Reference SendGrid assembly](./media/functions-how-to-use-sendgrid/functions-reference-sendgrid-assembly.png)
  
  The contents of the **project.json** file should look like the following:
 
@@ -75,7 +75,7 @@ SendGrid is available as an Azure function output binding. To create a SendGrid 
 1. Click on **New Output** to create a new SendGrid output binding.
 2. Fill in the **API Key** and **Message parameter name** properties. You can enter the other properties now if you want, or code them instead. These settings can be used as defaults.
 
- ![Configure SendGrid output bindings](./media/functions-configure-sendgrid-output-bindings.png)
+ ![Configure SendGrid output bindings](./media/functions-how-to-use-sendgrid/functions-configure-sendgrid-output-bindings.png)
 
 Adding a binding to a function creates a file called **function.json** in your function's folder. This file contains all the same information that you see in the Azure function's **Integrate** tab, but in Json format. 
 Setting the **ApiKey**, **message**, and **from** fields creates the following **function.json** file. 
@@ -137,7 +137,7 @@ The function's signature also contains an extra out parameter of type ```Mail```
 
 2. Test your code by clicking **Test** and entering a message into the **Request body** field, then clicking the **Run** button.
 
- ![Test your code](./media/functions-develop-test-sendgrid.png)
+ ![Test your code](./media/functions-how-to-use-sendgrid/functions-develop-test-sendgrid.png)
 
 3. Check email to verify that SendGrid sent the email. It should go to the address in the code from step 1, and contain the message from the **Request body**.
 
