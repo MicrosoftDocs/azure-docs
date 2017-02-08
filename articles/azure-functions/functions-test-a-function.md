@@ -15,99 +15,82 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 02/02/2017
 ms.author: wesmc
 
 ---
 # Testing Azure Functions
 ## Overview
-In this tutorial, we will walk through different approaches to testing functions. We will define a http trigger function that accepts input through a query string parameter, or the request body. The default **HttpTrigger Node.js Function** template code supports a `name` query string parameter. We will also add code to support that parameter along with `address` information for the user in the request body.
+This topic demonstrates the various ways to test functions, which includes the following general approaches:
+
++ HTTP-based tools, such as cURL, Postman, and even a web browser for web-based triggers. 
++ Storage explorer to test Azure Storage-based triggers.
++ Test tab in the Functions portal.
++ Timer-triggered function.
++ Testing application or framework.  
+
+All of the testing methods shown use an HTTP trigger function that accepts input through either a query string parameter or the request body. You will create this function in the first section.
 
 ## Create a function for testing
-For most of this tutorial, we will use a slightly modified version of the **HttpTrigger Nodejs Function** template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger Nodejs Function** template when creating the test function in the [Azure Portal].
+For most of this tutorial, we will use a slightly modified version of the HttpTrigger JavaScript function template that is available when creating a new function.  You can review the [Create your first Azure Function tutorial](functions-create-first-azure-function.md) if you need help creating a new function.  Just choose the **HttpTrigger- JavaScript** template when creating the test function in the [Azure Portal].
 
 The default function template is basically a hello world function that echoes back the name from the request body or query string parameter, `name=<your name>`.  We will update the code to also allow you to provide the name and an address as JSON content in the request body. Then the function will echo these back to the client when available.   
 
 Update the function with the following code which we will use for testing:
 
 ```javascript
-module.exports = function(context, req) {
-    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));    
+module.exports = function (context, req) {
+    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));
+    var res;
 
     if (req.query.name || (req.body && req.body.name)) {
         if (typeof req.query.name != "undefined") {
             context.log("Name was provided as a query string param...");
-            ProcessNewUserInformation(context, req.query.name);
+            res = ProcessNewUserInformation(context, req.query.name);
         }
         else {
             context.log("Processing user info from request body...");
-            ProcessNewUserInformation(context, req.body.name, req.body.address);
+            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
     }
     else {
-        context.res = {
+        res = {
             status: 400,
             body: "Please pass a name on the query string or in the request body"
         };
     }
-    context.done();
+    context.done(null, res);
 };
+function ProcessNewUserInformation(context, name, address) {
+    context.log("Processing user information...");
+    context.log("name = " + name);
+    var echoString = "Hello " + name;
+    var res;
 
-function ProcessNewUserInformation(context, name, address)
-{    
-    context.log("Processing User Information...");            
-    context.log("name = " + name);            
-    echoString = "Hello " + name;
-
-    if (typeof address != "undefined")
-    {
+    if (typeof address != "undefined") {
         echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);            
+        context.log("address = " + address);
     }
-
-    context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: echoString
-        };
+    res = {
+        // status: 200, /* Defaults to 200 */
+        body: echoString
+    };
+    return res;
 }
 ```
 
 ## Test a function with Tools
-### Test with cURL
-Often when testing software, it's not necessary to look any further than the command-line to help debug your application, this is no different with functions.
-
-To test the function above, copy the **Function Url** from the portal. It will have the following form:
-
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-This is the Url for triggering your function, we can test this by using the cURL command on the command-line to make a Get (`-G` or `--get`) request against our function:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-This particular example above requires a query string parameter which can be passed as Data (`-d`) in the cURL command:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
-
-Hit enter and you will see the output of the function on the command-line.
-
-![](./media/functions-test-a-function/curl-test.png)
-
-In the portal **Logs** window, output similar to the following is logged while executing the function:
-
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+Outside of the Azure portal, there are various tools that you can use to trigger your functions for testing. These include HTTP testing tools, both UI-based and command-line; Azure storage access tools, and even a simple web browser.
 
 ### Test with a browser
-Functions that do not require parameters, or only need query string parameters, can be tested using a browser.
+The web browser is a simple way to trigger functions via HTTP. You can use a browser for GET requests that do not require a body payload and use only query string parameters.
 
 To test the function we defined above, copy the **Function Url** from the portal. It will have the following form:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Append the `name` query string parameter as follows, using an actual name for the `<Enter a name here>` placeholder.
+Append the `name` parameter to the query string using an actual name for the `<Enter a name here>` placeholder. 
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
@@ -115,21 +98,23 @@ Paste the URL into your browser and you should get a response similar to the fol
 
 ![](./media/functions-test-a-function/browser-test.png)
 
+This example is the Chrome browser, which wraps the returned string in XML. Other browsers display just the string value.
+
 In the portal **Logs** window, output similar to the following is logged while executing the function:
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
     2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T07:35:10.338 Name was provided as a query string param.
     2016-03-23T07:35:10.338 Processing User Information...
     2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
 
 ### Test with Postman
-The recommended tool to test most of your functions is Postman. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
+The recommended tool to test most of your functions is Postman, which integrates with the Chrome browser. To install Postman, see [Get Postman](https://www.getpostman.com/). Postman provides control over many more attributes of an HTTP request.
 
 > [!TIP]
-> Use the REST Client in which you are comfortable. Here are some alternatives to Postman:  
+> Use the HTTP testing tool that you are most comfortable with. Here are some alternatives to Postman:  
 >
 > * [Fiddler](http://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
@@ -159,7 +144,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
     2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:04:57.763 Processing user info from request body...
     2016-03-23T08:04:57.763 Processing User Information...
@@ -167,10 +152,36 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
+### Test with cURL from the command line 
+Often when testing software, it's not necessary to look any further than the command-line to help debug your application, this is no different with functions. Note that the cURL is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/). 
+
+To test the function above, copy the **Function URL** from the portal. It will have the following form:
+
+    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+This is the URL for triggering your function, we can test this by using the cURL command on the command-line to make a GET (`-G` or `--get`) request against the function:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+This particular example above requires a query string parameter which can be passed as Data (`-d`) in the cURL command:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+
+Run the command and you see the following output of the function on the command-line:
+
+![](./media/functions-test-a-function/curl-test.png)
+
+In the portal **Logs** window, output similar to the following is logged while executing the function:
+
+    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
+    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
+    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+
 ### Test a blob trigger using Storage Explorer
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. In the [Azure Portal] for your Functions app, create a new C#, F# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. In the [Azure Portal] for your Functions app, create a new C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
         files
 2. Click the **+** button to select or create the storage account you want to use. Then click **Create**.
@@ -190,6 +201,8 @@ You can test a blob trigger function using [Microsoft Azure Storage Explorer](ht
         2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## Test a function within functions
+The Azure Functions portal is designed to let you test HTTP and timer triggered functions. You can also create functions to trigger other functions that you are testing.
+
 ### Test with the functions portal run button
 The portal provides a **Run** button which will allow you to do some limited testing. You can provide a request body using the run button but, you can't provide query string parameters or update request headers.
 
@@ -206,7 +219,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
     2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:03:18.697 Processing user info from request body...
     2016-03-23T08:03:18.697 Processing User Information...
@@ -285,16 +298,17 @@ In the browser window for the queue function, you will see the each message bein
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 ## Test a function with Code
-### Test a HTTP trigger function with Code: Node.js
-You can use Node.js code to execute a http request to test your Azure Function.
+There will some cases where you need to create an external application or framework to test your functions.
 
+### Test a HTTP trigger function with Code: Node.js
+You can use a Node.js app to execute an HTTP request to test your function.
 Make sure to set:
 
 * The `host` in the request options to your function app host
 * Your function name in the `path`.
 * Your access code (`<your code>`) in the `path`.
 
-Code Example:
+Code example:
 
 ```javascript
 var http = require("http");
@@ -349,7 +363,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
     2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
     2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
     2016-03-23T08:09:01.153 Request Body Type = object
@@ -358,7 +372,7 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### Test a queue trigger function with Code: C#
+### Test a queue trigger function with Code: C# #
 We mentioned earlier that you could test a queue trigger by using code to drop a message in your queue. The following example code is based off the C# code presented in the [Getting started with Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md) tutorial. Code for other languages is also available from that link.
 
 To test this code in a console app you must:

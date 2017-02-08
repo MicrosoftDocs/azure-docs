@@ -35,7 +35,8 @@ Continuous deployment is a great option for projects where multiple and frequent
 Deployments are configured on a per-function-app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
 
 ## Continuous deployment requirements
-You must have your deployment source configured and your functions code in the deployment source before you set up continuous deployment. In a given function app deployment, each function lives in a named subdirectory, there the directory name is the name of the function. This folder structure is essentially your site code. 
+
+You must have your deployment source configured and your functions code in the deployment source before you set-up continuous deployment. In a given function app deployment, each function lives in a named subdirectory, where the directory name is the name of the function. This folder structure is essentially your site code. 
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -48,9 +49,8 @@ Use the following procedure to configure continuous deployment for an existing f
    
     ![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-    You can also get to the **Deployments** blade from the **Functions quickstart** by clicking **Start from source control**.
-
-2. In the **Deployments** blade, click **Choose source**, then fill in the information for your chosen deployment source and click **OK**.
+    You can also get to the Deployments blade from the Functions quickstart by clicking **Start from source control**.
+2. In the **Deployment source** blade, click **Choose source**, then fill-in the information for your chosen deployment source and click **OK**.
    
     ![Choose deployment source](./media/functions-continuous-deployment/choose-deployment-source.png)
 

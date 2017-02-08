@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure ExpressRoute for Cloud Solution Providers | Microsoft Docs
 description: This article provides information for Cloud Service Providers that want to incorporate Azure services and ExpressRoute into their offerings.
 documentationcenter: na

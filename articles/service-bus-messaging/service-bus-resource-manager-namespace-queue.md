@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus namespace with queue using an Azure Resource Manager template | Microsoft Docs
+title: Create Azure Service Bus namespace and queue using template | Microsoft Docs
 description: Create a Service Bus namespace and a queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 
 ---
@@ -53,7 +53,7 @@ The template defines the following parameters.
 ### serviceBusNamespaceName
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -65,7 +65,7 @@ The name of the Service Bus namespace to create.
 ### serviceBusQueueName
 The name of the queue created in the Service Bus namespace.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -74,7 +74,7 @@ The name of the queue created in the Service Bus namespace.
 ### serviceBusApiVersion
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -83,7 +83,7 @@ The Service Bus API version of the template.
 ## Resources to deploy
 Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -112,12 +112,14 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
-```
+
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
-```
+
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
@@ -127,11 +129,11 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
 * [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
-* [Manage Service Bus resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
-[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

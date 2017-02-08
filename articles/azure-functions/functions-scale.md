@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to scale Azure Functions | Microsoft Docs
 description: Understand how Azure Functions scale to meet the needs of your event-driven workloads.
 services: functions
@@ -29,9 +29,13 @@ If you are not yet familiar with Azure Functions, see the [Azure Functions overv
 
 ## Choose a service plan
 
-When you create functions, you can select to run them on a Consumption service plan or an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+When you create a function app, you must configure a hosting plan for functions contained in the app. The available hosting plans are: the **Consumption Plan** and the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Currently this choice must be made during the creation of the function app. You can not change between these two options after creation. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). No changes are currently supported for the Consumption plan as scaling is dynamic.
+
+### Consumption plan
 
 In the **Consumption plan**, your Function Apps are assigned to a compute processing instance. If needed more instances are added or removed dynamically. Moreover, your functions run in parallel minimizing the total time needed to process requests. Execution time for each function is aggregated by the containing Function App. Cost is driven by memory size and total execution time across all functions in a Function App as measured in gigabyte-seconds. This is an excellent option if your compute needs are intermittent or your job times tend to be very short as it allows you to only pay for compute resources when they are actually in use. 
+
+### App service plan
 
 In the **App Service plan**, your Function Apps run on dedicated VMs, just like Web Apps work today for Basic, Standard, or Premium SKUs. Dedicated VMs are allocated to your App Service apps and Function Apps and are always available whether code is being actively executed or not. This is a good option if you have existing, under-utilized VMs that are already running other code or if you expect to run functions continuously or almost continuously. A VM decouples cost from both runtime and memory size. As a result, you can limit the cost of many long-running functions to the cost of the one or more VMs that they run on.
 

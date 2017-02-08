@@ -52,7 +52,7 @@ The following SPECInt benchmark scores show compute performance for Azure's high
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |22 |762.8 |3.7 |
 
 ## H-series
-| Size | vCPUs | NUMA nodes | CPU | Runs | Iterations/sec | StdDev |
+| Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate  | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3.2 GHz |5 |297.4 |0.9 |
 | Standard_H16 |16 |2 |Intel Xeon E5-2667 v3 @ 3.2 GHz |5 |575.8 |6.8 |

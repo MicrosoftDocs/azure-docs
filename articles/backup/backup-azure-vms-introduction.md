@@ -1,4 +1,4 @@
-﻿---
+---
 title: Planning your VM backup infrastructure in Azure | Microsoft Docs
 description: Important considerations when planning to back up virtual machines in Azure
 services: backup
@@ -6,7 +6,7 @@ documentationcenter: ''
 author: markgalioto
 manager: cfreeman
 editor: ''
-keywords: backup vms, back up virtual machines
+keywords: backup vms, backup virtual machines
 
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
@@ -14,12 +14,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 12/08/2016
 ms.author: trinadhk; jimpark; markgal;
 
 ---
 # Plan your VM backup infrastructure in Azure
-This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to backup VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to back up VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. This snapshot is taken in coordination with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the disks in the virtual machine without having to shut it down.
@@ -89,13 +89,18 @@ While a majority of the backup time is spent in reading and copying data, there 
 * Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 * Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
 
-## Best Practices
+## Total restore time
+A restore operation consists of two main sub tasks: Copying data back from vault to chosen customer storage account and creating the virtual machine. Copying data back from vault depends upon where backups are stored internally in Azure and where customer storage account is stored. Time taken to copy data depends upon:
+* Queue wait time - Since service is processing restores from multiple customers at the same time, restore requests are put in queue.
+* Data copy time - Data is copied similar to a first backup process from vault to customer storage account. If the customer storage account to which backup service needs to write data from vault is loaded, copying time can increase. So, make sure to select a storage account which is not loaded with other application writes and reads during restore to optimize on the copy time. 
+
+## Best practices
 We suggest following these practices while configuring backups for virtual machines:
 
-* Don't schedule more than four classic VMs from the same cloud service to back up at the same time. We suggest staggering backup start times by an hour if you want to back up multiple VMs from same cloud service.
-* Do not schedule more than 40 Resource Manager-deployed VMs to back up at the same time.
+* Don't schedule more than 10 classic VMs from the same cloud service to back up at the same time. We suggest staggering backup start times by an hour if you want to back up multiple VMs from same cloud service.
+* Do not schedule more than 40 VMs to back up at the same time.
 * Schedule VM backups during non-peak hours so the backup service uses IOPS for transferring data from the customer storage account to the backup or Recovery Services vault.
-* Make sure that a policy addresses VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by one policy. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
+* Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
 * Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
 * We recommend running each Premium VM on a distinct premium storage account to ensure optimal backup performance.
 

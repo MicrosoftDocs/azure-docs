@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Azure Stack preview to deliver Azure services from your datacenter. Learn and demonstrate features from a proof of concept environment.
 ---
 #Azure Stack Documentation
 
-Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliver Azure services from your organization’s datacenter. Microsoft Azure Stack Technical Preview 2 is being made available through a Proof of Concept (POC). The POC is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine to create an environment for evaluating key concepts and capabilities, and validating the extensibility model for APIs.
+Learn how to use Azure Stack technical preview to deliver Azure services from your organization's datacenter. Tutorials and other documentation show you how to use the proof of concept environment to learn and demonstrate Azure Stack features.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -25,7 +26,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-stack">
+        <a href="https://azure.microsoft.com/search/videos/?q=azure+stack">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -36,6 +37,24 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                     </div>
                     <div class="cardText">
                         <h3>Azure Stack Video Library</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/azure-stack/azure-stack-run-powershell-script"> 
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/deploy.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Deploy Azure Stack POC</h3>
                     </div>
                 </div>
             </div>
@@ -60,33 +79,8 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/azure-stack/azure-stack-run-powershell-script">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/deploy.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started connecting with PowerShell</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
 
----
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Stack Documentation
-        </div>
-    </a>
-</div>
+
+

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Site Recovery: Replicate Hyper-V virtual machines on a single VMM server | Microsoft Docs'
+title: Replicate Hyper-V VMs with a single VMM server | Microsoft Docs
 description: This article describes how to replicate Hyper-V virtual machines when you only have a single VMM server.
 services: site-recovery
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/14/2016
+ms.date: 01/23/2017
 ms.author: raynew
 
 ---
@@ -21,7 +21,7 @@ ms.author: raynew
 
 Read this article to learn how to replicate Hyper-V virtual machines, on a Hyper-V host servers in VMM clouds, when you only have a single VMM server in your deployment.
 
-Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article contains instructions for setting up replication in the Azure portal.
+Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models. This article contains instructions for setting up replication in the Azure portal.
 
 If you have any questions after reading this article, post them in the Disqus comments at the bottom of this article or on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

@@ -1,6 +1,7 @@
 ---
-title: Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Docs
-description: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard
+title: 'SAMW: Fix Azure SQL Database compatibility migration issues | Microsoft Docs'
+description: In this article, you learn about options to detect and fix SQL Server database compatibility issues using the SQL Azure Migration Wizard before migration to Azure SQL Database.
+keywords: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard
 services: sql-database
 documentationcenter: ''
 author: CarlRabeler
@@ -9,6 +10,7 @@ editor: ''
 
 ms.assetid: bba0893a-3247-406c-b155-acb4b3ef479c
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -19,11 +21,10 @@ ms.author: carlrab
 ---
 # Use SQL Azure Migration Wizard to Fix SQL Server database compatibility issues before migration to Azure SQL Database
 > [!div class="op_single_selector"]
-> * Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
+> * Use [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > * Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> 
-> 
+>  
 
 In this article, you learn to detect and fix SQL Server database compatibility issues using the SQL Azure Migration Wizard before migration to Azure SQL Database.
 
@@ -43,7 +44,7 @@ Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/) CodePlex t
 * [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Configure Performance traffic routing method | Microsoft Docs
 description: This article will help you configure performance traffic routing method in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: 6dd23b8e-0ed5-4ea4-b5ae-018f42e72688
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 
 ---
 <!-- repub for nofollow -->

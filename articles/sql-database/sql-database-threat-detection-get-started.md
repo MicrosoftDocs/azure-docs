@@ -9,6 +9,7 @@ editor: v-romcal
 
 ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
+ms.custom: secure and protect
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

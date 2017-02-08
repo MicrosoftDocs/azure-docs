@@ -1,10 +1,10 @@
 ---
-title: Analytics - the powerful search tool of Application Insights | Microsoft Docs
+title: Analytics - the powerful search tool of Azure Application Insights | Microsoft Docs
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
@@ -12,17 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/23/2016
 ms.author: awills
 
 ---
 # Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage. 
+ Analytics query language. 
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+* **[SQL-users' cheat sheet](https://aka.ms/sql-analytics)** translates the most common idioms.
+* **[Language Reference](app-insights-analytics-reference.md)** Learn how to use all the powerful features of the Analytics query language.
 
 ## Queries in Analytics
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 

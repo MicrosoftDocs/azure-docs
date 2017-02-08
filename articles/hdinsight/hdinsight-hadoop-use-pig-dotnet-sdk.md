@@ -29,6 +29,10 @@ The HDInsight .NET SDK provides .NET client libraries that makes it easier to wo
 To complete the steps in this article, you will need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
+
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Visual Studio 2012 or 2013 or 2015.
 
 ## Create the application

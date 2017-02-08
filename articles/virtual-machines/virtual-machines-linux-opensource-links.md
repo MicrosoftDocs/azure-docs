@@ -21,7 +21,8 @@ ms.author: rasquill
 # Linux and open-source computing on Azure
 Find all the documentation you need to create and manage Linux-based virtual machines in the classic deployment model.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Get Started
 * [Introduction for Linux on Azure](virtual-machines-linux-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -101,7 +102,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 * [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## Reference
-* [Azure CLI commands in Azure Service Management (asm) mode](../virtual-machines-command-line-tools.md)
+* [Azure CLI commands in Azure Service Management (asm) mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## General Links

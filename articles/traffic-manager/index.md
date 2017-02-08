@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to manage incoming traffic for optimal application performance. Documentation shows how to distribute traffic to Azure or external service endpoints.
 ---
 #Traffic Manager Documentation
 
-Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters.  Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints, giving your application the availability and responsiveness a large-scale application needs.
+Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Tutorials, API references, and other documentation show how to manage traffic to Azure or external service endpoints.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +107,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Traffic Manager REST API Reference</p>
+                        <p>Traffic Manager REST API</p>
                     </div>
                 </div>
             </div>
@@ -115,11 +116,4 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Traffic Manager Documentation
-        </div>
-    </a>
-</div>
+

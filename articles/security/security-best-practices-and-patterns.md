@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: terrylan
 
 ---
@@ -24,6 +24,7 @@ We currently have the following Azure security best practices and patterns artic
 * [Azure data security and encryption best practices](azure-security-data-encryption-best-practices.md)
 * [Identity management and access control security best practices](azure-security-identity-management-best-practices.md)
 * [Internet of Things security best practices](azure-security-iot-best-practices.md)
+* [Azure IaaS Security Best Practices] (azure-security-iaas.md)
 * [Best practices for software update on Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Azure boundary security best practices](../best-practices-network-security.md)
 * [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
@@ -43,4 +44,3 @@ For each best practice we strive to explain:
 * How you can learn to enable the best practice
 
 We look forward to including many more articles on Azure security architecture and best practices. If there are topics that you'd like us to include, let us know in the discussion area at the bottom of this page.
-

@@ -1,5 +1,5 @@
 ---
-title: Overview of Event Hubs authentication and security model | Microsoft Docs
+title: Overview of Azure Event Hubs authentication and security model | Microsoft Docs
 description: Event Hubs authentication and security model overview.
 services: event-hubs
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm;clemensv
 
 ---
 # Event Hubs authentication and security model overview
-The Event Hubs security model meets the following requirements:
+The Azure Event Hubs security model meets the following requirements:
 
 * Only devices that present valid credentials can send data to an Event Hub.
 * A device cannot impersonate another device.
@@ -36,11 +36,11 @@ Although not recommended, it is possible to equip devices with tokens that grant
 All tokens are signed with a SAS key. Typically, all tokens are signed with the same key. Devices are not aware of the key; this prevents devices from manufacturing tokens.
 
 ### Create the SAS key
-When creating an Event Hubs namespace, Azure Event Hubs generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
+When creating an Azure Event Hubs namespace, the service generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key **EventHubSendKey**.
 
 The following example creates a send-only key when creating the Event Hub:
 
-```
+```csharp
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -61,7 +61,7 @@ nm.CreateEventHub(ed);
 ### Generate tokens
 You can generate tokens using the SAS key. You must produce only one token per device. Tokens can then be produced using the following method. All tokens are generated using the **EventHubSendKey** key. Each token is assigned a unique URI.
 
-```
+```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
@@ -69,13 +69,13 @@ When calling this method, the URI should be specified as `//<NAMESPACE>.serviceb
 
 This method generates a token with the following structure:
 
-```
+```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
 The token expiration time is specified in seconds from Jan 1, 1970. The following is an example of a token:
 
-```
+```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
@@ -100,10 +100,10 @@ In the absence of SAS authentication for individual consumer groups, you can use
 To learn more about Event Hubs, visit the following topics:
 
 * [Event Hubs overview]
-* A [queued messaging solution] using Service Bus queues.
-* A complete [sample application that uses Event Hubs].
+* [SAS overview]
+* A complete [sample application that uses Event Hubs]
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[SAS overview]: ../service-bus-messaging/service-bus-sas-overview.md
 

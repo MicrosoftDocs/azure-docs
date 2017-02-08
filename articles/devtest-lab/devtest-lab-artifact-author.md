@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create custom artifacts for your DevTest Labs VM | Microsoft Docs
 description: Learn how to author your own artifacts for use with DevTest Labs
 services: devtest-lab,virtual-machines
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/25/2016
 ms.author: tarcher
 
 ---

@@ -42,7 +42,7 @@ It’s a good idea to create a site in Active Directory that represents the netw
 
 ## Create an Azure virtual network
 1. In the [Azure classic portal](https://manage.windowsazure.com), click **New** > **Network Services** > **Virtual Network** > **Custom Create** and use the following values to complete the wizard.
-   
+
    | On this wizard page… | Specify these values |
    | --- | --- |
    |  **Virtual Network Details** |<p>Name: Type a name for the virtual network, such as WestUSVNet.</p><p>Region: Choose the closest region.</p> |
@@ -57,7 +57,7 @@ Repeat the following steps to create VMs to host the DC role as needed. You shou
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. In the [Azure classic portal](https://manage.windowsazure.com), click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
-   
+
    | On this wizard page… | Specify these values |
    | --- | --- |
    |  **Choose an Image** |Windows Server 2012 R2 Datacenter |
@@ -66,8 +66,8 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
    |  **Virtual Machine Configuration** |<p>Select <b>Install the VM Agent</b> and any other extensions you need.</p> |
 2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. After you first sign in to the VM, open **Server Manager** > **File and Storage Services** to create a volume on this disk using NTFS.
-4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](../powershell-install-configure.md) and run the Set-AzureStaticVNetIP cmdlet. For example:
-   
+4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azureps-cmdlets-docs) and run the Set-AzureStaticVNetIP cmdlet. For example:
+
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
 For more information about setting a static IP address, see [Configure a Static Internal IP Address for a VM](../virtual-network/virtual-networks-reserved-private-ip.md).
@@ -81,7 +81,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 ## Create VMs for application servers
 1. Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.
-   
+
    | On this wizard page… | Specify these values |
    | --- | --- |
    |  **Choose an Image** |Windows Server 2012 R2 Datacenter |

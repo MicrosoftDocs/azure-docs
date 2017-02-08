@@ -13,28 +13,35 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 
 ---
-# Deploy and manage Apache Storm topologies on Linux-based HDInsight
-In this document, learn the basics of managing and monitoring Storm topologies running on Linux-based Storm on HDInsight clusters.
+# Deploy and manage Apache Storm topologies on HDInsight
+
+In this document, learn the basics of managing and monitoring Storm topologies running on Storm on HDInsight clusters.
 
 > [!IMPORTANT]
-> The steps in this article require a Linux-based Storm on HDInsight cluster. For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 > 
-> 
+> For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+
 
 ## Prerequisites
 * **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster
+
 * **Familiarity with SSH and SCP**: For more information on using SSH and SCP with HDInsight, see the following:
   
   * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+
   * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 * **An SCP client**: This is provided with all Linux, Unix, and OS X systems. For Windows clients, we recommend PSCP, which is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## Start a Storm topology
+
 ### Using SSH and the Storm command
+
 1. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -42,10 +49,12 @@ In this document, learn the basics of managing and monitoring Storm topologies r
     For more information on using SSH to connect to your HDInsight cluster, see the following documents:
    
    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+
    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 2. Use the following command to start an example topology:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
    
     This will start the example WordCount topology on the cluster. It will randomly generate sentences and count the occurrance of each word in the sentences.
    
@@ -57,9 +66,11 @@ In this document, learn the basics of managing and monitoring Storm topologies r
    > 
 
 ### Programmatically
+
 You can programmatically deploy a topology to Storm on HDInsight by communicating with the Nimbus service hosted in your cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
 
 ## Monitor and manage using the storm command
+
 The `storm` utility allows you to work with running topologies from the command line. The following is a list of commonly used commands. Use `storm -h` for a full list of commands.
 
 ### List topologies

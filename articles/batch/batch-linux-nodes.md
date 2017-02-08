@@ -1,9 +1,9 @@
 ---
-title: Linux nodes in Azure Batch pools | Microsoft Docs
+title: Provision Linux compute nodes in pools - Azure Batch | Microsoft Docs
 description: Learn how to process your parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
-ms.date: 09/08/2016
-ms.author: marsma
+ms.date: 01/23/2017
+ms.author: tamram
 
 ---
 # Provision Linux compute nodes in Azure Batch pools
@@ -22,8 +22,8 @@ You can use Azure Batch to run parallel compute workloads on both Linux and Wind
 
 > [!NOTE]
 > [Application packages](batch-application-packages.md) are currently unsupported on Linux compute nodes.
-> 
-> 
+>
+>
 
 ## Virtual machine configuration
 When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration.
@@ -44,8 +44,8 @@ The Batch service uses [Virtual machine scale sets](../virtual-machine-scale-set
 
 > [!TIP]
 > You can learn more about these properties and how to list Marketplace images in [Navigate and select Linux virtual machine images in Azure with CLI or PowerShell](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Note that not all Marketplace images are currently compatible with Batch. For more information, see [Node agent SKU](#node-agent-sku).
-> 
-> 
+>
+>
 
 ### Node agent SKU
 The Batch node agent is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. Essentially, when you create a Virtual Machine Configuration, you first specify the virtual machine image reference, and then you specify the node agent to install on the image. Typically, each node agent SKU is compatible with multiple virtual machine images. Here are a few examples of node agent SKUs:
@@ -56,8 +56,8 @@ The Batch node agent is a program that runs on each node in the pool and provide
 
 > [!IMPORTANT]
 > Not all virtual machine images that are available in the Marketplace are compatible with the currently available Batch node agents. You must use the Batch SDKs to list the available node agent SKUs and the virtual machine images with which they are compatible. See the [List of Virtual Machine images](#list-of-virtual-machine-images) later in this article for more information.
-> 
-> 
+>
+>
 
 ## Create a Linux pool: Batch Python
 The following code snippet shows an example of how to use the [Microsoft Azure Batch Client Library for Python][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package ][py_batch_docs] on Read the Docs.
@@ -205,34 +205,31 @@ The following table lists the Marketplace virtual machine images that are compat
 
 > [!WARNING]
 > The following list may change at any time. Always use the **list node agent SKU** methods available in the Batch APIs to list and then select from the compatible virtual machine and node agent SKUs when you run your Batch jobs.
-> 
-> 
+>
+>
 
 | **Publisher** | **Offer** | **Image SKU** | **Version** | **Node agent SKU ID** |
-| --- | --- | --- | --- | --- |
-| Canonical |UbuntuServer |14.04.0-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.1-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.2-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.3-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.4-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |14.04.5-LTS |latest |batch.node.ubuntu 14.04 |
-| Canonical |UbuntuServer |16.04.0-LTS |latest |batch.node.ubuntu 16.04 |
-| Credativ |Debian |8 |latest |batch.node.debian 8 |
-| OpenLogic |CentOS |7.0 |latest |batch.node.centos 7 |
-| OpenLogic |CentOS |7.1 |latest |batch.node.centos 7 |
-| OpenLogic |CentOS-HPC |7.1 |latest |batch.node.centos 7 |
-| OpenLogic |CentOS |7.2 |latest |batch.node.centos 7 |
-| Oracle |Oracle-Linux |7.0 |latest |batch.node.centos 7 |
-| SUSE |openSUSE |13.2 |latest |batch.node.opensuse 13.2 |
-| SUSE |openSUSE-Leap |42.1 |latest |batch.node.opensuse 42.1 |
-| SUSE |SLES-HPC |12 |latest |batch.node.opensuse 42.1 |
-| SUSE |SLES |12-SP1 |latest |batch.node.opensuse 42.1 |
-| microsoft-ads |standard-data-science-vm |standard-data-science-vm |latest |batch.node.windows amd64 |
-| microsoft-ads |linux-data-science-vm |linuxdsvm |latest |batch.node.centos 7 |
-| MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |latest |batch.node.windows amd64 |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |latest |batch.node.windows amd64 |
-| MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |latest |batch.node.windows amd64 |
-| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |latest |batch.node.windows amd64 |
+| ------------- | --------- | ------------- | ----------- | --------------------- |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04.0-LTS | latest | batch.node.ubuntu 16.04 |
+| Credativ | Debian | 8 | latest | batch.node.debian 8 |
+| OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.2 | latest | batch.node.centos 7 |
+| SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
 
 ## Connect to Linux nodes
 During development or while troubleshooting, you may find it necessary to sign in to the nodes in your pool. Unlike Windows compute nodes, you cannot use Remote Desktop Protocol (RDP) to connect to Linux nodes. Instead, the Batch service enables SSH access on each node for remote connection.

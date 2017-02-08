@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 11/27/2016
 ms.author: tdykstra
 
 ---
 # Run Background tasks with WebJobs
 ## Overview
-You can run programs or scripts in WebJobs in your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+You can run programs or scripts in WebJobs in your [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
 This article shows how to deploy WebJobs by using the [Azure Portal](https://portal.azure.com). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
- Azure Functions (currently in preview) is another way to run programs and scripts in Azure App Service. For more information, see [Azure Functions overview](../azure-functions/functions-overview.md).
+ Azure Functions provides another way to run programs and scripts from either a serverless environment or from an App Service app. For more information, see [Azure Functions overview](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 

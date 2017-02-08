@@ -47,7 +47,7 @@ connection to be accepted for establishing a bi-directional communication path.
 "Connect," "Listen," and "Accept" are the same terms you will find on most socket
 APIs.
 
-Any relayed communication model has either party making outbound connections
+Any relayed communication model has either party making outbound connections Azure Relay Hybrid Connections Protocol Guide
 towards a service endpoint, which makes the "listener" also a "client" in
 colloquial use and may also cause other terminology overloads; the precise
 terminology we therefore use for Hybrid Connections is as follows:
@@ -362,7 +362,7 @@ The query string parameter options are as follows
 
 | Param | Required? | Description |
 | --- | --- | --- |
-| sb-hc-action |Yes |For the listener role the parameter must be `action=connect`. |
+| sb-hc-action |Yes |For the sender role the parameter must be `action=connect`. |
 | {path} |Yes |(see the following paragraph) |
 | sb-hc-token |Yes\* |The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right. |
 | sb-hc-id |No |An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake. |

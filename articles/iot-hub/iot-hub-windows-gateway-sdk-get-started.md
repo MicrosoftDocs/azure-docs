@@ -1,6 +1,6 @@
 ---
-title: Get started with the IoT Hub Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using Windows to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK.
+title: Get started with the Azure IoT Gateway SDK (Windows) | Microsoft Docs
+description: How to build a gateway on a Windows machine and learn about key concepts in the Azure IoT Gateway SDK such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -13,11 +13,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK - Get started using Windows
+# Get started with the Azure IoT Gateway SDK (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -25,13 +25,17 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. Open a **Developer Command Prompt for VS2015** command prompt.
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
-3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file, builds the solution, and runs the tests. You can find the Visual Studio solution in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository.
+3. Run the **tools\\build.cmd** script. This script creates a Visual Studio solution file and builds 
+the solution. You can find the Visual Studio solution in the **build** folder in your local copy of 
+the **azure-iot-gateway-sdk** repository. Additional parameters can be given to the script to build 
+and run unit and end to end tests. These paramaters are **--run-unittests** and **--run-e2e-tests**
+respectively. 
 
 ## How to run the sample
 1. The **build.cmd** script creates a folder called **build** in your local copy of the repository. This folder contains the two modules used in this sample.
    
-    The build script places **logger.dll** in the **build\\modules\\logger\\Debug** folder and **hello_world.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
-2. The hello_world_sample process takes the path to a JSON configuration file as an argument in the command line. An example JSON file has been provided as part of the repo at **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json** and is copied below. It will work as is unless you have modified the build script to place modules or sample executables in non-default locations. 
+    The build script places **logger.dll** in the **build\\modules\\logger\\Debug** folder and **hello_world.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** value as shown in the following JSON settings file.
+2. The hello_world_sample process takes the path to a JSON configuration file as an argument in the command-line. The following example JSON file has been provided as part of the repo at **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. It works as is unless you have modified the build script to place modules or sample executables in non-default locations. 
 
    > [!NOTE]
    > The module paths are relative to the directory where the hello_world_sample.exe is located. The sample JSON configuration file defaults to writing 'log.txt' in your current working directory.
@@ -40,18 +44,24 @@ Before you get started, you must [set up your development environment][lnk-setup
     {
       "modules": [
         {
-          "module name": "logger",
-          "loading args": {
-            "module path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+          "name": "logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+            }
           },
           "args": { "filename": "log.txt" }
         },
         {
-          "module name": "hello_world",
-          "loading args": {
-            "module path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+          "name": "hello_world",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+            }
           },
-            "args": null
+          "args": null
           }
       ],
       "links": [

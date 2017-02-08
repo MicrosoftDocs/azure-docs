@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Site Recovery? | Microsoft Docs
 description: Provides an overview of the Azure Site Recovery service, and summarizes deployment scenarios.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2016
+ms.date: 02/06/2017
 ms.author: raynew
 
 ---
@@ -27,7 +27,7 @@ Site Recovery contributes to your BCDR strategy by orchestrating replication of 
 When outages occur in the primary site, you fail over to the secondary site to keep  workloads accessible and available. You fail back to your primary location when it returns to normal operations.
 
 ## Site Recovery in the Azure portal
-Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources. The Azure Resource Manager model, and the classic services management model. Azure also has two portals. The [Azure classic portal](https://manage.windowsazure.com/), and the [Azure portal](https://portal.azure.com).
+Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources. The Azure Resource Manager model, and the classic services management model. Azure also has two portals. The [Azure classic portal](https://manage.windowsazure.com/), and the [Azure portal](https://portal.azure.com).
 
 * Site Recovery can be deployed in both the classic portal and the Azure portal.
 * In the Azure classic portal, you can support Site Recovery with the classic services management model.

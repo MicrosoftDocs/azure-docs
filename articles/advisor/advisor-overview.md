@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumudd
+ms.author: kumud
 ---
 
 # Introduction to Azure Advisor
@@ -78,4 +78,4 @@ See these resources to learn more about Advisor recommendations:
 -  [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 -  [Advisor Security recommendations](advisor-security-recommendations.md)
 -  [Advisor Performance recommendations](advisor-performance-recommendations.md)
--  [Advisor Cost recommendations](advisor-performance-recommendations.md)
+-  [Advisor Cost recommendations](advisor-cost-recommendations.md)

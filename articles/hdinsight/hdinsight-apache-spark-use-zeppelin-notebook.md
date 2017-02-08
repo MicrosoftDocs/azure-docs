@@ -1,5 +1,5 @@
 ---
-title: Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux | Microsoft Docs
+title: Use script action to install Zeppelin notebooks for Spark cluster on Azure HDInsight  | Microsoft Docs
 description: Step-by-step instructions on how to install and use Zeppelin notebooks with Spark clusters on HDInsight Linux.
 services: hdinsight
 documentationcenter: ''
@@ -13,22 +13,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: nitinme
 
 ---
-# Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux
+# Install Zeppelin notebooks for Apache Spark cluster on HDInsight
+
 Learn how to install Zeppelin notebooks on Apache Spark clusters and how to use the Zeppelin notebooks to run Spark jobs.
 
 > [!IMPORTANT]
-> Zeppelin notebooks are now available by default with Spark clusters. You don't need to explicitly install them on a Spark cluster anymore. For more information see, [Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md).
+> If you provisioned Spark 1.6 clusters on HDInsight 3.5. you can access Zeppelin notebooks by default using the instructions at [Use Zeppelin notebooks with Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-zeppelin-notebook.md). If you want to use Zeppelin on HDInsight cluster versions 3.3, 3.4, or Spark 2.0 on HDInsight 3.5, you must follow the instructions in this article to install Zeppelin.
 >
 >
 
 **Prerequisites:**
 
 * Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
   > [!NOTE]
@@ -104,102 +105,15 @@ Use the following PowerShell snippet to create a Spark cluster on HDInsight Linu
 
     New-AzureRMHDInsightCluster -Config $azureHDInsightConfigs -OSType Linux -HeadNodeSize "Standard_D12" -WorkerNodeSize "Standard_D12" -ClusterSizeInNodes 2 -Location $location -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $clusterCredential -DefaultStorageContainer $clusterContainerName -SshCredential $clusterSshCredential -Version "3.3"
 
-## Set up SSH tunneling to access a Zeppelin notebook
-You will use SSH tunnels to access the Zeppelin notebooks running on Spark cluster on HDInsight Linux. The steps below demonstrate how to create an SSH tunnel using ssh command line (Linux) and PuTTY (Windows).
-
-### Create a tunnel using the SSH command (Linux)
-Use the following command to create an SSH tunnel using the `ssh` command. Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster
-
-    ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-
-This creates a connection that routes traffic to local port 9876 to the cluster over SSH. The options are:
-
-* **D 9876** - The local port that will route traffic through the tunnel.
-* **C** - Compress all data, because web traffic is mostly text.
-* **2** - Force SSH to try protocol version 2 only.
-* **q** - Quiet mode.
-* **T** - Disable pseudo-tty allocation, since we are just forwarding a port.
-* **n** - Prevent reading of STDIN, since we are just forwarding a port.
-* **N** - Do not execute a remote command, since we are just forwarding a port.
-* **f** - Run in the background.
-
-If you configured the cluster with an SSH key, you may need use the `-i` parameter and specify the path to the private SSH key.
-
-Once the command finishes, traffic sent to port 9876 on the local computer will be routed over Secure Sockets Layer (SSL) to the cluster head node and appear to originate there.
-
-### Create a tunnel using PuTTY (Windows)
-Use the following steps to create an SSH tunnel using PuTTY.
-
-1. Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
-2. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
-3. Provide the following information on the **Options controlling SSH port forwarding** form:
-
-   * **Source port** - The port on the client that you wish to forward. For example, **9876**.
-   * **Destination** - The SSH address for the Linux-based HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.
-   * **Dynamic** - Enables dynamic SOCKS proxy routing.
-
-     ![image of tunneling options](./media/hdinsight-apache-spark-use-zeppelin-notebook/puttytunnel.png)
-4. Click **Add** to add the settings, and then click **Open** to open an SSH connection.
-5. When prompted, log in to the server. This will establish an SSH session and enable the tunnel.
-
-### Use the tunnel from your browser
-> [!NOTE]
-> The steps in this section use the FireFox browser, as it is freely available for Linux, Unix, Macintosh OS X and Windows systems. Other modern browsers such as Google Chrome, Microsoft Edge, or Apple Safari should work as well; however, the FoxyProxy plugin used in some steps may not be available for all browsers.
->
->
-
-1. Configure the browser to use **localhost:9876** as a **SOCKS v5** proxy. Here's what the Firefox settings look like. If you used a different port than 9876, change the port to the one you used:
-
-    ![image of Firefox settings](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
-
-   > [!NOTE]
-   > Selecting **Remote DNS** will resolve Domain Name System (DNS) requests by using the HDInsight cluster. If this is unselected, DNS will be resolved locally.
-   >
-   >
-2. Verify that traffic is being routed through the tunnel by vising a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/) with the proxy settings enabled and disabled in Firefox. While the settings are enabled, the IP address will be for a machine in the Microsoft Azure datacenter.
-
-### Browser extensions
-While configuring the browser to use the tunnel works, you don't usually want to route all traffic over the tunnel. Browser extensions such as [FoxyProxy](http://getfoxyproxy.org/) support pattern matching for URL requests (FoxyProxy Standard or Plus only), so that only requests for specific URLs will be sent over the tunnel.
-
-If you have installed FoxyProxy Standard, use the following steps to configure it to only forward traffic for HDInsight over the tunnel.
-
-1. Open the FoxyProxy extension in your browser. For example, in Firefox, select the FoxyProxy icon next to the address field.
-
-    ![foxyproxy icon](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxy.png)
-2. Select **Add New Proxy**, select the **General** tab, and then enter a proxy name of **HDInsightProxy**.
-
-    ![foxyproxy general](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxygeneral.png)
-3. Select the **Proxy Details** tab and populate the following fields:
-
-   * **Host or IP Address** - This is localhost, since we are using an SSH tunnel on the local machine.
-   * **Port** - This is the port you used for the SSH tunnel.
-   * **SOCKS proxy** - Select this to enable the browser to use the tunnel as a proxy.
-   * **SOCKS v5** - Select this to set the required version for the proxy.
-
-     ![foxyproxy proxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxyproxyproxy.png)
-4. Select the **URL Patterns** tab, and then select **Add New Pattern**. Use the following to define the pattern, and then click **OK**:
-
-   * **Pattern Name** - **zeppelinnotebook** - This is just a friendly name for the pattern.
-   * **URL pattern** - **\*hn0*** - This defines a pattern that matches the internal fully qualified domain name of endpoint where the Zeppelin notebooks are hosted. Because Zeppelin notebooks are available only on the headnode0 of the cluster, and the endpoint is typically `http://hn0-<string>.internal.cloudapp.net`, using the pattern **hn0** would ensure that the request is redirected to the Zeppelin endpoint.
-
-       ![foxyproxy pattern](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
-5. Click **OK** to add the proxy and close **Proxy Settings**.
-6. At the top of the FoxyProxy dialog, change **Select Mode** to **Use proxies based on their pre-defined patterns and priorities**, and then click **Close**.
-
-    ![foxyproxy select mode](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
-
-After following these steps, only requests for URLs that contain the string **hn0** will be routed over the SSL tunnel.
-
 ## Access the Zeppelin notebook
-Once you have SSH tunneling setup, you can use the following steps to access Zeppelin notebook on the Spark cluster by following the steps below. In this section, you will see how to run %sql and %hive statements.
+
+Once you have successfully installed Zeppelin using script action, you can use the following steps to access Zeppelin notebook on the Spark cluster by following the steps below. In this section, you will see how to run %sql and %hive statements.
 
 1. From the web browser, open the following endpoint:
 
-        http://hn0-myspar:9995
+        https://CLUSTERNAME.azurehdinsight.net/zeppelin
 
-   * **hn0** denotes headnode0
-   * **myspar** is the first six letters of the Spark cluster name.
-   * **9995** is the port where Zeppelin notebook is accessible.
+   
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
 
     ![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.createnewnote.png "Create a new Zeppelin notebook")

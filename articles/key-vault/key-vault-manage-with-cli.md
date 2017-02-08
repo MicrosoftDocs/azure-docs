@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Key Vault using CLI | Microsoft Docs
 description: Use this tutorial to automate common tasks in Key Vault by using the CLI
 services: key-vault
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 01/07/2017
 ms.author: bruceper
 
 ---

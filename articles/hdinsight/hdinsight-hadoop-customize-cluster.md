@@ -24,6 +24,9 @@ during the cluster creation process for installing additional software on a clus
 
 The information in this article is specific to Windows-based HDInsight clusters. For Linux-based clusters, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 HDInsight clusters can be customized in a variety of other ways as well, such as including
 additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml,
 hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common locations
@@ -339,7 +342,7 @@ See [Develop Script Action scripts for HDInsight][hdinsight-write-script].
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"

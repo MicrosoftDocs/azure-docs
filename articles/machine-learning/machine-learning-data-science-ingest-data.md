@@ -1,5 +1,5 @@
 ---
-title: Load data into storage environments for analytics | Microsoft Docs
+title: Load data into Azure storage environments for analytics | Microsoft Docs
 description: Move Data to and from Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 
 ---

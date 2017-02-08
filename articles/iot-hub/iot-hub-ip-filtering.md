@@ -1,6 +1,6 @@
 ---
-title: IoT Hub - IP Filter | Microsoft Docs
-description: This tutorial show you to blacklist or whitelist certain IP addresses for Azure IoT Hub.
+title: Azure IoT Hub IP connection filters | Microsoft Docs
+description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
 services: iot-hub
 documentationcenter: ''
 author: BeatriceOltean
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/05/2017
 ms.author: boltean
 
 ---
 
-# IP Filter
+# Use IP filters
 
 Security is an important aspect of any IoT solution based on Azure IoT Hub. Sometimes you need to blacklist or whitelist certain IP addresses as part of your security configuration. The _IP filter_ feature enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
 
@@ -31,7 +31,7 @@ There are two specific use-cases when it is useful to block the IoT Hub endpoint
 
 ## How filter rules are applied
 
-The IP filter rules are applied at the IoT Hub service level. Therefore the IP filter rules apply to all connections from devices and back-end applications using any supported protocol.
+The IP filter rules are applied at the IoT Hub service level. Therefore the IP filter rules apply to all connections from devices and back-end apps using any supported protocol.
 
 Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description. The response message does not mention the IP rule.
 
@@ -58,6 +58,9 @@ The **Add** option is disabled when you reach the maximum of ten IP filter rules
 
 You can edit an existing rule by double-clicking the row that contains the rule.
 
+> [!NOTE]
+> Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with the IoT hub.
+
 ## Delete an IP filter rule
 
 To delete an IP filter rule, select one or more rules in the grid and click **Delete**.
@@ -68,7 +71,7 @@ To delete an IP filter rule, select one or more rules in the grid and click **De
 
 IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
 
-For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0. If you add a last rule that rejects the range 0.0.0.0/0, you change the default behavior to whitelisting.
+For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0.
 
 You can change the order of your IP filter rules in the grid by clicking on the three vertical dots at the start of a row and using drag and drop.
 
@@ -93,7 +96,7 @@ To further explore the capabilities of IoT Hub, see:
 
 <!-- Links -->
 
-[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Azure Express Route]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md

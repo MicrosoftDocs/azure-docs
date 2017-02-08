@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/19/2016
 ms.author: awills
 
 ---
@@ -71,12 +71,13 @@ Select-AzureSubscription -SubscriptionName "MySubscription"
 
 # Create the App Insights Resource
 
+
 $resource = New-AzureRmResource `
   -ResourceName $appInsightsName `
   -ResourceGroupName Fabrikam `
   -Tag @{ applicationType = "web", applicationName = $applicationTagName} `
   -ResourceType "Microsoft.Insights/components" `
-  -Location "Central US" `
+  -Location "East US" `  // or North Europe, West Europe, South Central US
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 

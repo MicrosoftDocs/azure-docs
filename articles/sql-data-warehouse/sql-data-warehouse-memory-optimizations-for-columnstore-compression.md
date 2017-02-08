@@ -1,5 +1,5 @@
 ---
-title: Memory optimizations - columnstore indexes in Azure SQL Data Warehouse | Microsoft Docs
+title: Improve columnstore index performance in Azure SQL | Microsoft Docs
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/145/2016
+ms.date: 11/18/2016
 ms.author: shigu;barbkess
 
 ---
@@ -53,7 +53,7 @@ The maximum required memory to compress one rowgroup is approximately
 
 where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes. 
 
-Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There should be only one dictionary for each long string column in the rowgroup. If there is more than one dictionary, it is likely the columnstore index started a new dictionary because of memory pressure. 
+Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
 For an in-depth discussion of columnstore memory requirements, see the 
 video [Azure SQL Data Warehouse scaling: configuration and guidance](https://myignite.microsoft.com/videos/14822). 

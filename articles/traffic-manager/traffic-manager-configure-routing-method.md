@@ -3,8 +3,8 @@ title: Configure Traffic Manager routing methods | Microsoft Docs
 description: This article explains how to configures different routing methods in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Configure Traffic Manager routing methods
@@ -69,7 +69,7 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 2. In the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify. To open the profile settings page, click the arrow to the right of the profile name.
 3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present.
 4. On the page for your profile, click **Configure** at the top to open the configuration page.
-5. For **traffic routing method settings**, verify that the traffic routing method is **Performance*. If it's not, click **Performance** in the dropdown list.
+5. For **traffic routing method settings**, verify that the traffic routing method is **Performance**. If it's not, click **Performance** in the dropdown list.
 6. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
 7. After you complete your configuration changes, click **Save** at the bottom of the page.
 8. Test the changes in your configuration.

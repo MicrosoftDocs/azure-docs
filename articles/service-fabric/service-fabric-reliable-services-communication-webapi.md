@@ -286,7 +286,6 @@ Before you get a port for the web server, it's important that you understand tha
 Configure an HTTP endpoint in PackageRoot\ServiceManifest.xml:
 
 ```xml
-
 <Resources>
     <Endpoints>
         <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="8281" />

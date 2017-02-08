@@ -4,7 +4,7 @@ description: Learn how to use the Azure PowerShell cmdlets for Azure Storage to 
 services: storage
 documentationcenter: na
 author: robinsh
-manager: carmonm
+manager: timlt
 
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/06/2016
 ms.author: robinsh
 ---
 
@@ -129,11 +129,11 @@ After the script runs, you should have a local destination folder that includes 
 > [!NOTE]
 > The "Getting started with Azure Storage and PowerShell in 5 minutes" section provided a quick introduction on how to use Azure PowerShell with Azure Storage. For detailed information and instructions, we encourage you to read the following sections.
 > 
-> 
+
 ## Prerequisites for using Azure PowerShell with Azure Storage
 You need an Azure subscription and account to run the PowerShell cmdlets given in this guide, as described above.
 
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. For information on installing and setting up Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). We recommend that you download and install or upgrade to the latest Azure PowerShell module before using this guide.
+Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. For information on installing and setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). We recommend that you download and install or upgrade to the latest Azure PowerShell module before using this guide.
 
 You can run the cmdlets in the standard Windows PowerShell console or the Windows PowerShell Integrated Scripting Environment (ISE). For example, to open **Windows PowerShell ISE**, go to the Start menu, type Administrative Tools and click to run it. In the Administrative Tools window, right-click Windows PowerShell ISE, click Run as Administrator.
 
@@ -142,7 +142,7 @@ You can run the cmdlets in the standard Windows PowerShell console or the Window
 Let's take a look at managing storage accounts in Azure with PowerShell
 
 ### How to set a default Azure subscription
-To manage Azure Storage using Azure PowerShell, you need to authenticate your client environment with Azure via Azure Active Directory authentication or certificate-based authentication. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) tutorial. This guide uses the Azure Active Directory authentication.
+To manage Azure Storage using Azure PowerShell, you need to authenticate your client environment with Azure via Azure Active Directory authentication or certificate-based authentication. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) tutorial. This guide uses the Azure Active Directory authentication.
 
 1. In Windows PowerShell ISE, type the following command to add your Azure account to the local PowerShell environment:
 
@@ -161,7 +161,7 @@ To manage Azure Storage using Azure PowerShell, you need to authenticate your cl
 
 	```powershell
 	Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
-	````
+	```
 5. To set a default Azure subscription, run the Select-AzureSubscription cmdlet:
 
 	```powershell

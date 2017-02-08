@@ -1,4 +1,4 @@
-﻿---
+---
 title: Developing with multiple regions in DocumentDB | Microsoft Docs
 description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
 services: documentdb
@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 12/09/2016
 ms.author: kipandya
 
 ---
@@ -52,6 +52,8 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+    
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
     //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
@@ -147,7 +149,6 @@ Learn more about the distributing data globally with DocumentDB in the following
 
 * [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
 * [Consistency levels](documentdb-consistency-levels.md)
-* [How throughput works with multiple regions](documentdb-manage.md)
 * [Add regions using the Azure portal](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/

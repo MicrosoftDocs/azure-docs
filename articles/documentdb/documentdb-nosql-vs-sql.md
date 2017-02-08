@@ -1,4 +1,4 @@
-﻿---
+---
 title: When to use NoSQL vs SQL | Microsoft Docs
 description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions. Learn whether one of the Microsoft Azure NoSQL services or SQL Server best fits your scenario.
 keywords: nosql vs sql, when to use NoSQL, sql vs nosql
@@ -10,11 +10,12 @@ editor: ''
 
 ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
 ms.service: documentdb
+ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 11/22/2016
 ms.author: mimig
 
 ---

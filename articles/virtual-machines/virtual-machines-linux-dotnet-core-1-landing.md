@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
+title: Azure Linux Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---

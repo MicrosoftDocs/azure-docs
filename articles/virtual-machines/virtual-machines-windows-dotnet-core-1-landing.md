@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
+title: Azure Windows Virtual Machine DotNet Core Tutorial 1 | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Custom fields in Log Analytics | Microsoft Docs
 description: The Custom Fields feature of Log Analytics allows you to create your own searchable fields from OMS data that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
 services: log-analytics

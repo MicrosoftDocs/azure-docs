@@ -1,10 +1,10 @@
 ---
-title: Create and modify an ExpressRoute circuit by using the classic deployment model and PowerShell| Microsoft Docs
+title: 'Create and modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-service-management
 
@@ -20,11 +20,12 @@ ms.author: ganesr;cherylmc
 ---
 # Create and modify an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> * [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - Classic](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Classic - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Video - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 This article walks you through the steps to create an Azure ExpressRoute circuit by using PowerShell cmdlets and the classic deployment model. This article will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
 
@@ -37,7 +38,7 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
 
 ### 2. Install the latest versions of the Azure PowerShell modules
-Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
 
 ### 3. Log in to your Azure account and select a subscription
 1. Run the following cmdlet using an elevated Windows PowerShell prompt:

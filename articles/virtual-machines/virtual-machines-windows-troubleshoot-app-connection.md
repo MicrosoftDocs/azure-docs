@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot application access on a Windows VM | Microsoft Docs
+title: Troubleshoot application access on a Windows VM in Azure | Microsoft Docs
 description: If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 
 ---

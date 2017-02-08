@@ -1,5 +1,5 @@
 ---
-title: Application Insights for ASP.NET Core | Microsoft Docs
+title: Azure Application Insights for ASP.NET Core | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 services: application-insights
 documentationcenter: .net

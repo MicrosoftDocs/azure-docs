@@ -1,5 +1,5 @@
 ---
-title: Get started with Relay Hybrid Connections | Microsoft Docs
+title: Get started with Azure Relay Hybrid Connections in Node | Microsoft Docs
 description: How to write a Node console application for Hybrid Connections
 services: service-bus-relay
 documentationcenter: node

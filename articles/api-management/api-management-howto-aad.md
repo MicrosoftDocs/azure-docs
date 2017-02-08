@@ -1,5 +1,5 @@
 ---
-title: How to authorize developer accounts using Azure Active Directory in Azure API Management
+title: Authorize developer accounts using Azure Active Directory - Azure API Management | Microsoft Docs
 description: Learn how to authorize users using Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 ## Overview
