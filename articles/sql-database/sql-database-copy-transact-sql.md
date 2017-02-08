@@ -74,6 +74,5 @@ All users in the new database maintain the permissions that they had in the sour
 
 ## Next steps
 * To learn about managing users and logins when copying a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
-* To export a database to a BACPAC file using Transact-SQL, see [Export the database to a BACPAC using Transact-SQL](sql-database-export-tsql.md).
 * [Business Continuity Overview](sql-database-business-continuity.md)
 * [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
