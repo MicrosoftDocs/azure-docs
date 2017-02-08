@@ -234,13 +234,13 @@
 ### Export database to a BACPAC file
 #### [Export using the Azure portal](sql-database-export.md)
 #### [Export using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-#### [Export using SQL Package utility](sql-database-export-sqlpackage.md)
+#### [Export using SQL Package utility](cloud-migrate-compatible-export-bacpac-.md)
 #### [Export using PowerShell](sql-database-export-powershell.md)
 ### Import database from a BACPAC file
 #### [Import using the Azure portal](sql-database-import.md)
 #### [Import using PowerShell](sql-database-import-powershell.md)
 #### [Import using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-#### [Import using SQL Package utility](sql-database-import-sqlpackage.md)
+#### [Import using SQL Package utility](cloud-migrate-compatible-import-bacpac-.md)
 ### [Load from CSV file using BCP](sql-database-load-from-csv-with-bcp.md)
 ## Query
 ### [Query using SSMS](sql-database-connect-query-ssms.md)
