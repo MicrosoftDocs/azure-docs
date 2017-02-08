@@ -44,8 +44,8 @@ In the tool, you can compute the percentage by pointing the vSphere planning too
 
 **Component** | **Details** |
 --- | --- | ---
-**Replication** | **Maximum daily change rate**—A protected machine can only use one process server, and a single process server can handle a daily change rate up to 2 TB. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.<br/><br/> **Maximum throughput**—A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of IOPS across a source machine to 20,000. For example if you have a source machine with 5 disks and each disk generates 120 IOPS (8K size) on the source then it will be within the Azure per disk IOPS limit of 500. The number of storage accounts required = total source IOPs/20000.
-**Configuration server** | The configuration server should be able to handle the daily change rate capacity across all workloads running on protected machines, and needs sufficient bandwidth to continuously replicate data to Azure storage.<br/><br/> As a best practice we recommend that the configuration server be located on the same network and LAN segment as the machines you want to protect. It can be located on a different network but machines you want to protect should have L3 network visibility to it.<br/><br/> Size recommendations for the configuration server are summarized in the table below.
+**Replication** | **Maximum daily change rate**—A protected machine can only use one process server, and a single process server can handle a daily change rate up to 2 TB. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.<br/><br/> **Maximum throughput**—A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of IOPS across a source machine to 20,000. For example, if you have a source machine with 5 disks and each disk generates 120 IOPS (8K size) on the source, then it will be within the Azure per disk IOPS limit of 500. The number of storage accounts required = total source IOPs/20000.
+**Configuration server** | The configuration server should be able to handle the daily change rate capacity across all workloads running on protected machines, and needs sufficient bandwidth to continuously replicate data to Azure storage.<br/><br/> As a best practice, we recommend that the configuration server be located on the same network and LAN segment as the machines you want to protect. It can be located on a different network but machines you want to protect should have L3 network visibility to it.<br/><br/> Size recommendations for the configuration server are summarized in the table below.
 **Process server** | The first process server is installed by default on the configuration server. You can deploy additional process servers to scale your environment. Note that:<br/><br/> The process server receives replication data from protected machines and optimizes it with caching, compression, and encryption before sending to Azure. The process server machine should have sufficient resources to perform these tasks.<br/><br/> The process server uses disk-based cache. We recommend a separate cache disk of 600 GB or more to handle data changes stored in the event of network bottleneck or outage.
 
 ## Size recommendations for the configuration server
@@ -64,7 +64,7 @@ Where:
 
 ### Size recommendations for the process server
 
-If you need to protect more than 200 machines, or daily change rate is greater than 2 TB, you can add additional process servers to handle the replication load. To scale out you can:
+If you need to protect more than 200 machines, or daily change rate is greater than 2 TB, you can add additional process servers to handle the replication load. To scale out, you can:
 
 * Increase the number of configuration servers. For example, you can protect up to 400 machines with two configuration servers.
 * Add additional process servers, and use these to handle traffic instead of (or in addition to) the configuration server.
@@ -202,10 +202,10 @@ You can run the tool in a couple of modes:
    * **Bandwidth required for initial replication** (MB/sec). Network bandwidth for initial replication is calculated on the initial replication values you put in.
    * **Storage required (in GBs)** is the total Azure storage required.
    * **Total IOPS on standard storage accounts** is calculated based on 8K IOPS unit size on the total standard storage accounts.  For the Quick Planner, the number is calculated based on all the source VMs disks and daily data change rate. For the Detailed Planner, the number is calculated based on total number of VMs that are mapped to standard Azure VMs, and data change rate on those VMs.
-   * **Number of standard storage accounts** provides the total number of standard storage accounts needed to protect the VMs. A standard storage account can hold up to 20000 IOPS across all the VMs in a standard storage, and a maximum of 500 IOPS is supported per disk.
+   * **Number of standard storage accounts** provides the total number of standard storage accounts needed to protect the VMs. A standard storage account can hold up to 20000 IOPS across all the VMs in a standard storage account, and a maximum of 500 IOPS are supported per disk.
    * **Number of blob disks required** gives the number of disks that will be created on Azure storage.
-   * **Number of premium storage accounts required** provides the total number of premium storage accounts needed to protect the VMs. A source VM with high IOPS (greater than 20000) needs  a premium storage account. A premium storage account can hold up to 80000 IOPS.
-   * **Total IOPS on premium storage** is calculated based on 256K IOPS unit size on the total premium storage accounts.  For the Quick Planner, the number is calculated based on all the source VMs disks and daily data change rate. For the Detailed Planner, the number is calculated based on the total number of VMs that are mapped to premium Azure VM (DS and GS series), and the data change rate on those VMs.
+   * **Number of premium storage accounts required** provides the total number of premium storage accounts needed to protect the VMs. A source VM with high IOPS (greater than 20000) needs a premium storage account. A premium storage account can hold up to 80000 IOPS.
+   * **Total IOPS on premium storage** are calculated based on 256K IOPS unit size on the total premium storage accounts.  For the Quick Planner, the number is calculated based on all the source VMs disks and daily data change rate. For the Detailed Planner, the number is calculated based on the total number of VMs that are mapped to premium Azure VM (DS and GS series), and the data change rate on those VMs.
    * **Number of configuration servers required** shows how many configuration servers are required for the deployment.
    * **Number of additional process servers required** shows whether additional process servers are required, in addition to the process server that's running on the configuration server by default.
    * **100% additional storage on the source** shows whether additional storage is required in the source location.
@@ -233,7 +233,7 @@ You can run the tool in a couple of modes:
 4. If you click **Compute IaaS VMs** here's what it does:
 
    * Validates the mandatory inputs.
-   * Calculates IOPS and suggests the best Azure VM aize match for each VMs that's eligible for replication to Azure. If an appropriate size of Azure VM can't be detected an error is issued. For example, if the number of disks attached in 65, an error is issued because the highest size Azure VM is 64.
+   * Calculates IOPS and suggests the best Azure VM size match for each VM that's eligible for replication to Azure. If an appropriate size of Azure VM can't be detected an error is issued. For example, if the number of disks attached in 65, an error is issued because the highest size Azure VM is 64.
    * Suggests a storage account that can be used for an Azure VM.
    * Calculates the total number of standard storage accounts and premium storage accounts required for the workload. Scroll down to view the Azure storage type, and the storage account that can be used for a source server.
    * Completes and sorts the rest of the table based on required storage type (standard or premium) assigned for a VM, and the number of disks attached. For all VMs that meet the requirements for Azure, the column **Is VM qualified?** shows **Yes**. If a VM can't be backed up to Azure, an error is shown.
@@ -263,7 +263,7 @@ As an example, for six VMs with the values shown in the table, the tool calculat
 1. After all the details are in place, click **Submit data to the planner tool** to open the **Capacity Planner** Workloads are highlighted, to show whether they're eligible for protection or not.
 
 ### Submit data in the Capacity Planner
-1. When you open the **Capacity Planner** worksheet it's populated based on the settings you've specified. The word 'Workload' appears in the **Infra inputs source** cell, to show that the input is the **Workload Qualification** worksheet.
+1. When you open the **Capacity Planner** worksheet it's populated based on the settings you've specified. The word 'Workload' appears in **Infra inputs source**, to show that the input is the **Workload Qualification** worksheet.
 2. If you want to make changes, you need to modify the **Workload Qualification** worksheet, and click **Submit data to the planner tool** again.  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
