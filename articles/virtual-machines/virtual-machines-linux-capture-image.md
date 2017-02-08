@@ -19,7 +19,7 @@ ms.author: iainfou
 
 ---
 # How to generalize and capture a Linux virtual machine using the Azure CLI 2.0 (Preview)
-To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image using the Azure CLI 2.0 (Preview) for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md). 
+To reuse virtual machines (VMs) deployed and configured in Azure, you capture an image of the VM. The process also involves generalizing the VM to remove personal account information before you deploy new VMs from the image. This article details how to capture a VM image using the Azure CLI 2.0 (Preview) for a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 > [!TIP]
 > If you want to create a copy of your existing Linux VM with its specialized state for backup or debugging, see [Create a copy of a Linux virtual machine running on Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). And if you want to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -38,7 +38,7 @@ Ensure that you meet the following prerequisites:
 You also need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the base commands to capture an image of a Linux VM in Azure. More detailed information and context for each step can be found in the rest of the document, starting [here](#step-1-remove-the-azure-linux-agent). In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myVM`, and `myImage`.
+If you need to quickly accomplish the task, the following section details the base commands to capture an image of a Linux VM in Azure. More detailed information and context for each step can be found in the rest of the document, starting [here](#detailed-steps). In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `myVM`, and `myImage`.
 
 1. Deprovision your source VM:
 
@@ -48,19 +48,19 @@ If you need to quickly accomplish the task, the following section details the ba
     exit
     ```
 
-2. Deallocate the VM with [az vm deallocate](/cli//azure/vm#deallocate):
+2. Deallocate the VM with [az vm deallocate](/cli/azure/vm#deallocate):
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Generalize the VM with [az vm generalize](/cli//azure/vm#generalize):
+3. Generalize the VM with [az vm generalize](/cli/azure/vm#generalize):
    
     ```azurecli
     az vm generalize --resource-group myResourceGroup --name myVM
     ```
 
-4. Create an image from the VM resource with [az image create](/cli//azure/image#create):
+4. Create an image from the VM resource with [az image create](/cli/azure/image#create):
    
     ```azurecli
     az image create --resource-group myResourceGroup --name myImage --source myVM
@@ -73,6 +73,8 @@ If you need to quickly accomplish the task, the following section details the ba
         --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub
     ```
 
+## Detailed steps
+In the following steps you deprovision an existing VM, deallocate and generalize the VM resource, then create an image. You can use this image to create VMs across any resource group within your subscription. This process gives [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) an advantage over unmanaged disks. With unmanaged disks, you create a blob copy of the underlying virtual hard disk (VHD) and are then limited to creating VMs in the same storage account as the copied VHD blob. With managed disks, you create an image resource that can be deployed across your whole subscription.
 
 ## Step 1: Remove the Azure Linux agent
 To make the VM ready for generalizing, you deprovision the VM using the Azure VM agent to delete files and data. Use the **waagent** command with the **deprovision** parameter on your target Linux VM. For more information, see the [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
