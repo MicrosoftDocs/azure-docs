@@ -28,15 +28,56 @@ Azure VMs are now available using [Azure Managed Disks](../storage/storage-manag
 - Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
 - Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md). 
 
-Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see Pricing and Billing for Managed Disks(../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
 
 ## Azure Storage: Standard and Premium
 Azure VMs -- whether using Managed Disks or unmanaged -- can be built upon standard storage disks or premium storage disks. When using the portal to choose your VM you must toggle a dropdown on the **Basics** screen to view both standard and premium disks. When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard-storage-enabled VMs backed by spinning disk drives are shown, along with premium storage VMs backed by SSD.
 
 When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
 
-### Create a VM with standard storage VM on the cli
-The cli flag `-z` chooses Standard_A1 with A1 being a standard storage based Linux VM.
+## Creating a VM with a Managed Disk
+
+The following example requires the Azure CLI 2.0 (Preview), which you can [install here].
+
+First, create a resource group to manage the resources:
+
+```azurecli
+az group create --location westus --name myResourceGroup
+```
+
+Then create the VM with the `az vm create` command, as in the following example; remember to specify a unique `--public-ip-address-dns-name` argument, as `manageddisks` is likely taken.
+
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+The previous example creates a VM with a managed disk in a Standard storage account. To use a Premium storage account, add the `--storage-sku Premium_LRS` argument, like the following example:
+
+```azurecli
+az vm create \
+--storage-sku Premium_LRS
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+
+### Create a VM with an unmanaged, standard disk using the Azure CLI 1.0
+
+You can of course also use the Azure CLI 1.0 to create standard and premium disk VMs as well; at this time, you cannot use the Azure CLI 1.0 to create VMs backed by Managed Disks.
+
+The `-z` option chooses Standard_A1, which is a standard-storage based Linux VM.
 
 ```azurecli
 azure vm quick-create -g rbg \
@@ -49,8 +90,8 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### Create a VM with premium storage on the cli
-The cli flag `-z` chooses Standard_DS1 with DS1 being a premium storage based Linux VM.
+### Create a VM with premium storage using the Azure CLI 1.0
+TThe `-z` option chooses Standard_DS1, which is a Premium-storage based Linux VM.
 
 ```azurecli
 azure vm quick-create -g rbg \
