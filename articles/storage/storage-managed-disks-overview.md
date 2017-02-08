@@ -93,7 +93,7 @@ to create a new VM, and it will include all of the disks.
 
 A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
-What if you have a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported. So in this case, if you want to create a copy of your VM, you will need to create an image. By default, the image will include a coordinated copy of all five disks.
+What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported. So in this case, if you want to create a copy of your VM, you will need to create an image. By default, the image will include a coordinated copy of all five disks.
 
 ## Next steps
 
