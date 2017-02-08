@@ -36,9 +36,9 @@ In this quick start tutorial, you learn how to:
 * [Delete a database](sql-database-get-started.md#delete-a-single-database) 
 
 
-When you finish this quick start tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have twp server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. 
+In this quick start tutorial, you create a sample database and a blank database running in an Azure resource group and attached to a logical server. You also create two server-level firewall rules configured to enable the server-level principal to log in to the server from two specified IP addresses. Finally, you learn how to query a database in the Azure portal and to connect and query using SQL Server Management Studio. 
 
-**Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
+**Time estimate**: This tutorial takes approximately 30 minutes (assuming you already meet the prerequisites).
 
 > [!TIP]
 > You can perform these same tasks with either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
@@ -85,7 +85,7 @@ Follow the steps in this procedure to create a new logical server with the Azure
     ![new server name](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > The fully qualified name for your new server will be <your_server_name>.database.windows.net.
+    > The fully qualified name for your new server is in the form of: <your_server_name>.database.windows.net.
     >
     
 4. In the Server admin login text box, provide a user name for the SQL authentication login for this server. This login is known as the server principal login. A green check mark indicates that you have provided a valid name.
@@ -115,7 +115,7 @@ Follow the steps in this procedure to create a new logical server with the Azure
 
 ## View the logical server properties
 
-Follow the steps in this procedure to view the server properties with the Azure portal. You will need the fully qualified server name to connect to this server in a subsequent procedure. 
+Follow the steps in this procedure to view the server properties with the Azure portal. You need the fully qualified server name to connect to this server in a subsequent procedure. 
 
 1. In the Azure portal, click **More services**.
 
@@ -193,7 +193,7 @@ Follow the steps in this procedure to connect to the SQL logical server with SQL
 
 ## Create a database with sample data
 
-Follow the steps in this procedure to create a database with sample data with the Azure portal. You will create this database attached to the logical server that you previously created. If the Basic service tier is not available in the region in which you created your server, delete your server and recreate it in another region. For deletion steps, see the last procedure in this tutorial.
+Follow the steps in this procedure to create a database with sample data with the Azure portal. You create this database attached to the logical server that you previously created. If the Basic service tier is not available in the region in which you created your server, delete your server and recreate it in another region. For deletion steps, see the last procedure in this tutorial.
 
 1. In Azure portal, click **SQL databases** in the default blade.
 
@@ -273,7 +273,7 @@ Follow the steps in this procedure to query the database with the query editor i
    ```select * from sys.objects```
 
     ![query editor query](./media/sql-database-get-started/query-editor-query.png)
-10  Click **Run**.
+10.  Click **Run**.
 11. Review the query results in the**Results** pane.
 
     ![query editor results](./media/sql-database-get-started/query-editor-results.png)
@@ -346,7 +346,7 @@ Follow the steps in this procedure to delete a single database with the Azure po
     ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
 
 > [!TIP]
-> During the retention period for your database, you can restore it from the service-initiated automatic backups. For Basic edition databases, you can restore them within seven days. However, do not delete a server. If you do so, you cannot recover the server or any of its deleted databases. For more information about database backups, see [Learn about SQL Database backups](sql-database-automated-backups.md) and for information about restoring a database from backups, see [Database recovery](sql-database-recovery-using-backups.md). For a how-to article on restoring a deleted database, see [Restore a deleted Azure SQL database - Azure Portal](sql-database-restore-deleted-database-portal.md).
+> During the retention period for your database, you can restore it from the service-initiated automatic backups. For Basic edition databases, you can restore them within seven days. However, do not delete a server. If you do so, you cannot recover the server or any of its deleted databases. For more information about database backups, see [Learn about SQL Database backups](sql-database-automated-backups.md) and for information about restoring a database from backups, see [Database recovery](sql-database-recovery-using-backups.md). For a how-to article on restoring a deleted database, see [Restore a deleted Azure SQL database - Azure portal](sql-database-restore-deleted-database-portal.md).
 >
 
 
@@ -364,6 +364,6 @@ Now that you've completed this tutorial, there are number of additional tutorial
 
 ## Additional resources
 
-- For a technical overview see [What is SQL Database?](sql-database-technical-overview.md).
+- For a technical overview see [What is SQL Database?](sql-database-technical-overview.md)
 - For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
