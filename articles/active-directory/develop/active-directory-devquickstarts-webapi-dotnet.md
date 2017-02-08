@@ -138,7 +138,7 @@ Before you can see the To Do List Service in action, you need to configure the T
   * `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure portal.
 
 ## Next steps
-Finally, clean, build, and run each project. If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain. Sign in to the To Do List client with that user, and add some tasks to the user's To Do List.
+Finally, clean, build, and run each project. If you haven’t already, now is the time to create a new user in your tenant with a *.onmicrosoft.com domain. Sign in to the To Do List client with that user, and add some tasks to the user's to-do list.
 
 For reference, the completed sample (without your configuration values) is available in [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to more identity scenarios.
 
