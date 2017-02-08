@@ -248,7 +248,7 @@ Make your screenshots rich and informative. Help customers understand how your a
     
  
 
- **Note**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
+>**Note:**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
  
 
 
