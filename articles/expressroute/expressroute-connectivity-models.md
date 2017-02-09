@@ -34,7 +34,7 @@ You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically 
 
 ## Next steps
 * Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
-* Learn about ExpressRoute features. See the [ExpressRoute Technical Overview](expressroute-features.md)
+* Learn about ExpressRoute features. See the [ExpressRoute Technical Overview](expressroute-introduction.md)
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
 * Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
