@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Create a virtual machine with Docker enabled
 
-The sample script provided here uses the Docker VM extension to create a Docker host in the West Europe Azure region. The Docker VM extension then creates a Docker container running an NGINX web server. Finally, the script configures an Azure Network Security Group to allow inbound traffic to the VM on port 80. Once the script has been successfully run, the NGINX web server can be access through the FQDN of the Azure virtual machine.
+This sample script creates a virtual machine and then uses the Azure Docker VM extension to configure a Docker host. The Docker VM extension then creates a container running the NGINX. Finally, the script configures the Azure NSG to all inbound traffic on port 80. Once the script has been successfully run, the NGINX web server can be access through the FQDN of the Azure virtual machine.
 
 This script needs to be run from a PowerShell console. Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the `c:\ssh` directory.
 

@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Secure network traffic between virtual machine
 
-This script creates two virtual machines in the West Europe Azure region and secures incoming network traffic to both using a Network Security Group (NSG). One VM includes a public IP address and is accessible on the internet. This VM has an NSG configuration that allows port 22 and port 80 into the VM from the internet. The second VM does not have a public IP address and is not accessible from the internet. An NSG has been configured on the second VM that allows network traffic only from the first VM.
+This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has an NSG configured to allow traffic on port 22 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory.
 

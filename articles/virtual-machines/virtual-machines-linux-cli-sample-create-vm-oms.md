@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Monitor a VM with Operations Management Suite
 
-Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, see [What is OMS](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview). This script creates and Azure Virtual Machine in the West Europe Azure region, installs the Operations Management Suite agent onto the virtual machine, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, see [What is OMS](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview). This script creates an Azure Virtual Machine in the West Europe Azure region, installs the Operations Management Suite agent, and enrolls the system with an OMS workspace. Once the script has run, the virtual machine will be visible in the OMS console.
 
 Before running this script, ensure that a connection with Azure has been created using the `az login` command. Also, an SSH public key with the name `id_rsa.pub` must be stored in the ~/.ssh directory. Finally, the OMS workspace ID and workspace key need to be updated in the script.
 

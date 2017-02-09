@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Troubleshoot a VMs operating system disk
 
-Mount the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. When running this script an existing virtual machine will be needed. The resource group name and virtual machine name will need to be updated in the script sample.
+This script mounts the operating system disk of a failed or problematic virtual machine as a data disk to a second virtual machine. This can be useful when troubleshooting disk issues or recovering data. When running this script an existing virtual machine will be needed. The resource group name and virtual machine name will need to be updated in the script sample.
 
 ## Mount disk sample
 
