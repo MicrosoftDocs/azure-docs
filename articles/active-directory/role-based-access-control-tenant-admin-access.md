@@ -21,13 +21,13 @@ ms.author: kgremban
 
 Role-based Access Control helps tenant administrators get temporary elevations in access so that they can grant higher permissions than normal. A tenant admin can elevate herself to the User Access Administrator role when needed. That role gives the tenant admin permissions to grant herself of others roles at the "/" scope.
 
-This feature is important because it allows the tenant admin to see all the subscription that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization from a billing or asset management perspective.  
+This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps (like invoicing and auditing) to access all the subscriptions and provide an accurate view of the state of the organization from a billing or asset management perspective.  
 
 ## How to use elevateAccess to give tenant access
 
 The basic process works with the following steps:
 
-1. Using the REST endpoint of ARM, call *elevateAccess* which grants you the User Access Administrator role at "/" scope.
+1. Using REST, call *elevateAccess*, which grants you the User Access Administrator role at "/" scope.
 
     ```
     POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
@@ -77,7 +77,7 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
     Save the GUID from the *name* parameter, in this case **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Call [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) where principalId = your own ObjectId. This will list all your assignments in the tenant. Look for the one where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1. The role assignment should look like this:
+2. Call [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) where principalId = your own ObjectId. This lists all your assignments in the tenant. Look for the one where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1. The role assignment should look like this:
 
     ```
     {"value":[{"properties":{
