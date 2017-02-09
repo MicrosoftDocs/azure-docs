@@ -73,4 +73,4 @@ See the following links to get started with App Service on Linux. You can post q
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
 * [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-using-dotnetcore.md)
-* [Release Notes for Azure App Service Web Apps on Linux](app-service-web\app-service-linux-release-notes.md)
+* [Release Notes for Azure App Service Web Apps on Linux](app-service-linux-release-notes.md)
