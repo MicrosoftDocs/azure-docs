@@ -102,7 +102,7 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
 2. On the  **General** tab, choose **Accessibility**, and select  **Ignore colors specified on webpages**. You can also choose to use the settings specified in your own style sheet.
     
  
-3. To customize the colors used in Help, on the  **General** tab, choose **Colors**. Clear the ** Use Windows Colors** check box, and then select the font and background colors that you want to use.
+3. To customize the colors used in Help, on the  **General** tab, choose **Colors**. Clear the **Use Windows Colors** check box, and then select the font and background colors that you want to use.
     
      >**Note:**  If you change the background color of the Help topics in the Help window, the change also affects the background color when you view a webpage in Internet Explorer.
 
