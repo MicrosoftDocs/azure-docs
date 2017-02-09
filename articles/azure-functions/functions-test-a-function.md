@@ -1,6 +1,6 @@
 ---
-title: Testing Azure functions | Microsoft Docs
-description: Test your Azure functions by using Postman, cURL, and Node.js.
+title: Testing Azure Functions | Microsoft Docs
+description: Test your Azure Functions by using Postman, cURL, and Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -19,13 +19,13 @@ ms.date: 02/02/2017
 ms.author: wesmc
 
 ---
-# Testing Azure functions
+# Testing Azure Functions
 
 This topic demonstrates the various ways to test functions, including using the following general approaches:
 
 + HTTP-based tools, such as cURL, Postman, and even a web browser for web-based triggers.
-+ Storage Explorer, to test Azure Storage-based triggers.
-+ Test tab in the Functions portal.
++ Azure Storage Explorer, to test Azure Storage-based triggers.
++ Test tab in the Azure Functions portal.
 + Timer-triggered function.
 + Testing application or framework.  
 
@@ -179,7 +179,7 @@ In the portal **Logs** window, output similar to the following is logged while e
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
 ### Test a blob trigger by using Storage Explorer
-You can test a blob trigger function by using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+You can test a blob trigger function by using [Azure Storage Explorer](http://storageexplorer.com/).
 
 1. In the [Azure portal] for your Functions app, create a new C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
@@ -188,7 +188,7 @@ You can test a blob trigger function by using [Microsoft Azure Storage Explorer]
 3. Create a text file with the following text, and save it:
 
         A text file for blob trigger function testing.
-4. Run [Microsoft Azure Storage Explorer](http://storageexplorer.com/), and connect to the blob container in the storage account being monitored.
+4. Run [Azure Storage Explorer](http://storageexplorer.com/), and connect to the blob container in the storage account being monitored.
 5. Click **Upload** to upload the text file.
 
     ![Screenshot of Storage Explorer](./media/functions-test-a-function/azure-storage-explorer-test.png)
@@ -251,7 +251,7 @@ To demonstrate this approach, we first create a queue trigger function that we w
 4. Leave this portal browser window open, so you can monitor the log entries for the default queue function template code.
 
 #### Create a timer trigger to drop a message in the queue
-1. Open the [Azure portal] in a new browser window, and navigate to your Function app.
+1. Open the [Azure portal] in a new browser window, and navigate to your Function App.
 2. Click **New Function** > **TimerTrigger - C#**. Enter a cron expression to set how often the timer code tests your queue function. Then click **Create**. If you want the test to run every 30 seconds, you can use the following [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
@@ -304,7 +304,7 @@ You may need to create an external application or framework to test your functio
 You can use a Node.js app to execute an HTTP request to test your function.
 Make sure to set:
 
-* The `host` in the request options to your function app host.
+* The `host` in the request options to your Function App host.
 * Your function name in the `path`.
 * Your access code (`<your code>`) in the `path`.
 
