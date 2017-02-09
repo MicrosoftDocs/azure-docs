@@ -1,6 +1,6 @@
 ---
 title: High-Performance Premium Storage and Azure VM Disks | Microsoft Docs
-description: Discuss high-performance Premium Storage for unmanaged and managed VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
+description: Discuss high-performance Premium Storage and unmanaged and managed Azure VM disks. Azure DS-series, DSv2-series and GS-series VMs support Premium Storage.
 services: storage
 documentationcenter: ''
 author: ramankumarlive
@@ -17,7 +17,7 @@ ms.date: 02/06/2017
 ms.author: ramankum
 
 ---
-# High-Performance Premium Storage for unmanaged and managed VM Disks
+# High-Performance Premium Storage and unmanaged and managed Azure VM Disks
 Microsoft Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) running I/O-intensive workloads. VM disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
 
 An Azure VM supports attaching several premium storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 input/output operations per second (IOPS) per VM and disk throughput up to 2000 MB/s per VM with extremely low latencies for read operations.
@@ -34,9 +34,9 @@ There are two ways to create Premium disks for Azure VMs:
 This is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. 
 
 **[Azure Managed Disks](storage-managed-disks-overview.md)**: 
-This feature manages the storage accounts used for the VM disks. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you.  
+This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. You don’t have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
 
-Even though both types of disks are available, we recommend using Managed Disks. Managed Disks handles the day-to-day management of storage accounts used for your VMs for you. 
+Even though both types of disks are available, we recommend using Managed Disks to take advantage of their many features.
 
 To get started with Azure Premium Storage, visit [Get started for free](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -258,14 +258,11 @@ For detailed information on pricing for Premium Storage, Premium Storage-support
 * [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## Backup
+## Azure Backup service support 
 
-Virtual machines using premium storage can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
 
-> [!NOTE]
-> The Azure Backup service is not available for virtual machines with managed disks. It will be available in the future. 
-> 
- 
+You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup.md). 
 
 ## Next steps
 For more information about Azure Premium Storage refer to the following articles.

@@ -20,7 +20,11 @@ ms.author: ramankum
 
 # Azure Managed Disks Overview
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or Standard <!--[Standard](storage-standard-storage.md)-->) and size of disk you need, and Azure creates and manages the disk for you.
+Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](storage-premium-storage.md) or [Standard](storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+
+>[!NOTE]
+> Managed Disks require the availability of port 8443; if you want to block that port, you must use unmanaged disks.
+>
 
 ## Benefits of managed disks
 
@@ -57,9 +61,8 @@ When using Managed Disks, the following billing considerations apply:
 Let’s take a closer look at these.
 
 **Storage Type:** Managed Disks offers 2 performance tiers:
-[Premium](storage-premium-storage.md) (SSD-based) and
-Standard (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
-<!-- [Standard](storage-standard-storage.md) -->
+[Premium](storage-premium-storage.md) (SSD-based) and [Standard](storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+
 
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
@@ -80,7 +83,7 @@ Here are the disk sizes available for a standard managed disk:
 
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Managed Disk Snapshots (full disk copy):** A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
+*Managed Disk Snapshots (full disk copy):** A Managed Snapshot is a read-only copy of a managed disk which is stored as a standard managed disk. With snapshots, you can back up your managed disks at any point in time. These 
 snapshots exist independent of the source disk and can be used to create new Managed Disks. The cost of a managed snapshot is the same as that for standard managed disk. For example, if you take a snapshot of a 128 GB premium managed disk, then the cost of the managed snapshot is equivalent to a 128 GB standard managed disk.
 
 [Incremental snapshots](storage-incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
@@ -112,6 +115,8 @@ What if you have a VM has five disks and they are striped? You could take a snap
 
 ## Azure Backup service support 
 
+Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../backup/backup-azure-vms-first-look-arm.md).
+
 You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## Next steps
@@ -132,8 +137,7 @@ For more information about Managed Disks, please refer to the following articles
 
 * [Premium storage and disks](storage-premium-storage.md)
 
-<!--
-* [Standard storage and disks](storage-standard-storage.md) -->
+* [Standard storage and disks](storage-standard-storage.md)
 
 ### Operational guidance
 
