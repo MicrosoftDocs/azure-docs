@@ -24,7 +24,7 @@ Integrating Intacct with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Intacct
 - You can set up your users to automatically get signed in to Intacct (single sign-on) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+- You can manage your accounts in one central location: the Azure portal
 
 If you want more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -89,11 +89,11 @@ This link relationship is established by assigning the value of the **user name*
 
 To configure and test Azure AD single sign-on with Intacct, you need to complete the following building blocks:
 
-1. **[Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Intacct test user](#creating-an-intacct-test-user)** - to have a counterpart of Britta Simon in Intacct that is linked to Britta's Azure AD representation.
-4. **[Assign the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on):** To enable your users to use this feature.
+2. **[Create an Azure AD test user](#create-an-azure-ad-test-user):** To test Azure AD single sign-on with Britta Simon.
+3. **[Create an Intacct test user](#create-an-intacct-test-user):** To have a counterpart of Britta Simon in Intacct that is linked to Britta's Azure AD representation.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user):** To enable Britta Simon to use Azure AD single sign-on.
+5. **[Test single sign-on](#test-single-sign-on):** To verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
