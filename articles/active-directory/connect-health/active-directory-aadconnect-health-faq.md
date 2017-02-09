@@ -16,123 +16,123 @@ ms.date: 02/06/2017
 ms.author: billmath
 
 ---
-# Azure AD Connect Health Frequently Asked Questions (FAQ)
-This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
+# Azure AD Connect Health frequently asked questions
+This article includes answers to frequently asked questions (FAQs) about Azure Active Directory (Azure AD) Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 
-## General Questions
-**Q: I manage multiple Azure AD directories. How do I switch to the one with Azure Active Directory Premium?**
+## General questions
+**Q: I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?**
 
-You can switch between different Azure AD tenants by selecting the currently signed in User Name on the top right corner and choosing the appropriate account. If the account is not listed here, select Sign out and then use the global admin credentials of the Directory that has Azure Active Directory Premium enabled to sign in.
+To switch between different Azure AD tenants, choose the currently signed-in **User Name** on the top, right corner, and then choose the appropriate account. If the account is not listed here, choose **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium enabled to sign in.
 
 **Q: How many licenses do I need to monitor my infrastructure?**
 
-* First Connect Health agent requires at least one Azure AD Premium license.
-* Each additional registered agent requires 25 additional AADP licenses. 
-* Agent count is equivalent to the total number of agents registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS.)
+* The first Connect Health Agent requires at least one Azure AD Premium license.
+* Each additional registered agent requires 25 additional Azure AD Premium licenses.
+* Agent count is equivalent to the total number of agents that are registered across all monitored roles (Active Directory Federation Services, Azure AD Connect, and/or Active Directory Domain Services.)
 
 Licensing information is also found on the [Azure AD Pricing page](https://aka.ms/aadpricing).
 
 Example:
 
-| Registered Agents | Licenses Needed | Example Monitoring Configuration |
+| Registered agents | Licenses needed | Example monitoring configuration |
 | ------ | --------------- | --- |
-| 1 | 1 | 1 AAD Connect Server |
-| 2 | 26| 1 AAD Connect Server and 1 Domain Controller |
-| 3 | 51 | 1 AD FS Server, 1 AD FS Proxy and 1 Domain Controller |
-| 4 | 76 | 1 AD FS Server, 1 AD FS Proxy and 2 Domain Controller |
-| 5 | 101 | 1 AAD Connect Server, 1 AD FS Server, 1 AD FS Proxy and 2 Domain Controllers |
+| 1 | 1 | 1 Azure AD Connect server |
+| 2 | 26| 1 Azure AD Connect server and 1 domain controller |
+| 3 | 51 | 1 AD FS server, 1 AD FS proxy and 1 domain controller |
+| 4 | 76 | 1 AD FS server, 1 AD FS proxy and 2 domain controllers |
+| 5 | 101 | 1 Azure AD Connect server, 1 AD FS server, 1 AD FS proxy and 2 domain controllers |
 
 
-## Installation Questions
+## Installation questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sync) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+The impact of installing the Microsoft Azure AD Connect Health Agent, Active Directory Federation Services (AD FS), web application proxy servers, Azure AD Connect (sync) servers, domain controllers is minimal with respect to the CPU, memory consumption, network bandwidth, and storage.
 
-The numbers below are an approximation.
+The following numbers are an approximation.
 
 * CPU consumption: ~1% increase
 * Memory consumption: Up to 10% of the total system memory
 
 > [!NOTE]
-> In the event of the agent being unable to communicate to Azure, the agent stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
-> 
-> 
+> If the agent cannot communicate with Azure, the agent stores the data locally for a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
+>
+>
 
 * Local buffer storage for Azure AD Connect Health Agents: ~20 MB
-* For AD FS servers, it is recommended that you provision a disk space of 1024 MB (1 GB) for the AD FS Audit Channel for Azure AD Connect Health Agents to process all the audit data before it is overwritten.
+* For AD FS servers, we recommend that you provision a disk space of 1,024 MB (1 GB) for the AD FS audit channel for Azure AD Connect Health Agents to process all the audit data before it is overwritten.
 
 **Q: Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?**
 
-No. The installation of the agents will not require you to reboot the server. However, installation of some of the prerequisite steps may require a reboot of the server.
+No. The installation of the agents will not require you to reboot the server. However, installation of some prerequisite steps might require a reboot of the server.
 
-For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework requires a server reboot.
+For example, on Windows Server 2008 R2, installation of .Net 4.5 Framework requires a server reboot.
 
-**Q: Does Azure AD Connect Health Services work through a pass-through http proxy?**
+**Q: Does Azure AD Connect Health Services work through a pass-through HTTP proxy?**
 
-Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy.
+Yes. For ongoing operations, you can configure the Health Agent to use an HTTP proxy to forward outbound HTTP requests.
 
-If you need to configure a proxy during Agent registration, you may need to modify your Internet Explorer Proxy settings beforehand.
+If you need to configure a proxy during agent registration, you might need to modify your Internet Explorer Proxy settings beforehand.
 
-1. Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.
-2. Select Use a Proxy Server for your LAN.
-3. Select Advanced if you have different proxy ports for HTTP and HTTPS/Secure.
+1. Open Internet Explorer > **Settings** > **Internet Options** > **Connections** > **LAN Settings**.
+2. Choose **Use a Proxy Server for your LAN**.
+3. Choose **Advanced** if you have different proxy ports for HTTP and HTTPS/Secure.
 
-**Q: Does Azure AD Connect Health Services support basic authentication when connecting to Http Proxies?**
+**Q: Does Azure AD Connect Health Services support basic authentication when connecting to HTTP proxies?**
 
-No. A mechanism for specifying arbitrary username/password for Basic Authentication is not currently supported.
+No. A mechanism to specify an arbitrary user name and password for Basic authentication is not currently supported.
 
-**Q: What version of AD DS are supported by Azure AD Connect Health for AD DS?**
+**Q: What versions of AD DS are supported by Azure AD Connect Health for AD DS?**
 
-Monitoring of AD DS is supported while installed on the following OS Versions:
+Monitoring of Active Directory Domain Services (AD DS) is supported while installed on the following operating system versions:
 
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
 
-## Operations Questions
-**Q: Do I need to enable auditing on my AD FS Application Proxy Servers or my Web Application Proxy Servers?**
+## Operations questions
+**Q: Do I need to enable auditing on my AD FS application proxy servers or my web application proxy servers?**
 
-No, auditing does not need to be enabled on the Web Application Proxy (WAP) Servers. Enable it on the AD FS servers.
+No, auditing does not need to be enabled on the web application proxy servers. Enable it on the AD FS servers.
 
-**Q: How do Azure AD Connect Health Alerts get resolved?**
+**Q: How do Azure AD Connect Health alerts get resolved?**
 
-Azure AD Connect Health Alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service on a periodic basis. For a few alerts, the suppression is time-based. In other words, if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
+Azure AD Connect Health alerts get resolved on a success condition. Azure AD Connect Health Agents detect and report the success conditions to the service periodically. For a few alerts, the suppression is time-based. In other words, if the same error condition is not observed within 72 hours from alert generation, the alert is automatically resolved.
 
 **Q: What firewall ports do I need to open for the Azure AD Connect Health Agent to work?**
 
-You need to have TCP/UDP ports 443 and 5671 open for the Azure AD Connect Health Agent to be able to communicate with the Azure AD Health service endpoints.
+You need to have TCP/UDP ports 443 and 5671 open so that the Azure AD Connect Health Agent can communicate with the Azure AD Health service endpoints.
 
-**Q: Why do I see two servers with the same name in the Azure AD Connect Health Portal?**
+**Q: Why do I see two servers with the same name in the Azure AD Connect Health portal?**
 
-When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal.  If you manually removed an agent from a server or removed the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal. 
+When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Health portal. If you manually remove an agent from a server or remove the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal.
 
-If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
-In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
+You might reimage a server or created a new server with the same details (such as machine name). If you did not remove the already registered server from the Azure AD Connect Health portal, and you installed the agent on the new server, you might see two entries with the same name.
 
-## Migration Questions
+In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
-This section only applies to customers, who were notified about an upcoming migration of their Azure AD Connect Health service data.
+## Migration questions
 
-**Q: Will I have to re-register my agents or reconfigure my notification settings, after the migration happens?**
+This section applies only to customers who were notified about an upcoming migration of their Azure AD Connect Health Service data.
 
-No, agent registration information and notification settings will be moved as part of the migration. 
+**Q: Will I have to register my agents or configure my notification settings again after the migration happens?**
 
-**Q: How long after the migration, will I start seeing data in the portal?**
+No, agent registration information and notification settings will be moved as part of the migration.
 
-Data will start appearing in the portal, within one hour after the migration. 
+**Q: How long after the migration will I start seeing data in the portal?**
 
-**Q: What happens to my existent active alerts?**
+Data will start to appear in the portal within one hour after the migration.
 
-Any applicable alerts will be reactivated, within one hour after the migration.
+**Q: What happens to my existing active alerts?**
+
+Any applicable alerts will be reactivated within one hour after the migration.
 
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect Health Agent installation](active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
-* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-
+* [Azure AD Connect Health version history](active-directory-aadconnect-health-version-history.md)
