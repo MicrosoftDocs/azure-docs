@@ -4,7 +4,7 @@ To offer your Office Add-in, SharePoint Add-in, or Office 365 app in languages b
  
 
 
- >**Note:**  For information about localizing add-ins, see  [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx) and [Localize SharePoint Add-ins](http://msdn.microsoft.com/library/localize-sharepoint-add-ins%28Office.15%29.aspx). 
+ >**Note:**  For information about localizing add-ins, see  [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx) and [Localize SharePoint Add-ins](https://msdn.microsoft.com/en-us/library/office/fp179919.aspx). 
  
 
 
@@ -22,7 +22,7 @@ In the case of previously approved add-ins, if you updated your manifest, you wi
 
  
 
- **Note**  You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
+>**Note:**  You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
  
 
 To distribute your app or add-in in additional languages, you can edit the details in the Seller Dashboard. After you add other languages, you will need to submit it for approval again. 
@@ -62,14 +62,14 @@ Users can verify whether a market-specific Office Store front is available for a
  
 
  
-![Choose a different market for the Office Store.](images/mod_off15_OfficeStoreChooseMarket.png)
+![Choose a different market for the Office Store.](../../images/mod_off15_OfficeStoreChooseMarket.png)
  
-Table 2 lists the submission languages that the Office Store is available in, and the locales and markets that correspond to each of these languages.  [Language identifiers and OptionState Id values in Office 2013](http://technet.microsoft.com/en-us/library/cc179219%28Office.15%29.aspx) lists all the languages and locales for which you can localize an app or add-in.
- 
-
+The following table lists the submission languages that the Office Store is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office 2013](http://technet.microsoft.com/en-us/library/cc179219%28Office.15%29.aspx).
  
 
-**Table 2. List of distribution languages and corresponding markets for the Office Store**
+ 
+
+**List of distribution languages and corresponding markets for the Office Store**
 
 
 |**Submission language**|**Locale (language tag)**|**Market (country/region)**|
@@ -140,7 +140,7 @@ Table 2 lists the submission languages that the Office Store is available in, an
 
 
 -  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md) 
--  [Use the Seller Dashboard to submit Office and SharePoint Add-ins and Office 365 apps to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
+-  [Use the Seller Dashboard to submit apps and add-ins to the Office Store](use-the-seller-dashboard-to-submit-apps-and-add-ins-to-the-office-store.md)
     
  
 
