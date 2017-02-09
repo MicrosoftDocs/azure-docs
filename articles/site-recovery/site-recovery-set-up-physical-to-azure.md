@@ -77,3 +77,4 @@ The following table lists the minimum hardware, software, and network requiremen
 
 ## Next steps
 Next steps involve [setting up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
+ 

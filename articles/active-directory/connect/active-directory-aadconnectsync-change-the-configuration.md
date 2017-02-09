@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 02/08/2017
 ms.author: billmath
 
 ---
@@ -148,6 +148,25 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 * Save the Sync Rule. Start **Synchronization Service**, find the Connector, select **Run**, and **Full Synchronization**. This step recalculates all attribute flows.
 * Verify that the intended changes are about to be exported by searching the connector space.
   ![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
+
+## Create rules with PowerShell
+Using the sync rule editor works fine when you only have a few changes to make. If you need to make many changes, then PowerShell might be a better option. Some advanced features are only available with PowerShell.
+
+### Get the PowerShell script for an out-of-box rule
+To see the PowerShell script that created an out-of-box rule, select the rule in the sync rules editor and click **Export**. This action gives you the PowerShell script that created the rule.
+
+### Advanced precedence
+The out-of-box sync rules start with a precedence value of 100. If you have many forests and you need to make many custom changes, then 99 sync rules might not be enough.
+
+You can instruct the Sync Engine that you want additional rules inserted before the out-of-box rules. To get this behavior, follow these steps:
+
+1. Mark the first out-of-box sync rule (this rule is the **In from AD-User Join**) in the sync rule editor and select **Export**. Copy the SR Identifier value.  
+![PowerShell before change](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
+2. Create the new sync rule. You can use the sync rule editor to create it. Export the rule to a PowerShell script.
+3. In the property **PrecedenceBefore**, insert the identifier value from the out-of-box rule. Set the **Precedence** to **0**. Make sure the Identifier attribute is unique and you are not reusing a GUID from another rule. Also make sure that the **ImmutableTag** property is not set; this property should only be set for an out-of-box rule. Save the PowerShell script and run it. The result is that your custom rule is assigned the precedence value of 100 and all other out-of-box rules are incremented.  
+![PowerShell after change](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
+
+You can have many custom sync rules using the same **PrecedenceBefore** value when needed.
 
 ## Next steps
 * Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).

@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;jimpark;trinadhk
 
 ---
 # What is Azure Backup?
@@ -42,7 +42,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 **Application-consistent backup** - Whether backing up a file server, virtual machine, or SQL database, you need to know that a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensured additional fixes are not needed to restore the data. Restoring application consistent data reduces the restoration time, allowing you to quickly return to a running state.
 
-**Long-term retention** -  Back up data to Azure for 99 years. Instead of switching backup copies from disk to tape, and then moving the tape to an off-site location for long-term storage, you can use Azure for short-term and long-term retention.
+**Long-term retention** -  Instead of switching backup copies from disk to tape, and then moving the tape to an off-site location for long-term storage, you can use Azure for short-term and long-term retention. Azure does not limit the length of time you keep data in a Backup or Recovery Services vault. You can keep data in a vault for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. See the [Backup and retention](backup-introduction-to-azure-backup.md#backup-and-retention) section in this article for an explanation of how this limit may impact your backup needs.  
 
 ## Which Azure Backup components should I use?
 If you aren't sure which Azure Backup component works for your needs, see the following table for information about what you can protect with each component. The Azure portal provides a wizard, which is built into the portal, to guide you through choosing the component to download and deploy. The wizard, which is part of the Recovery Services vault creation, leads you through the steps for selecting a backup goal, and choosing the data or application to protect.
@@ -104,6 +104,15 @@ Once the backup job finishes, the staging location is deleted. The price of stor
 
 ### Restore Premium Storage VMs
 Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
+
+## Using managed disk VMs with Azure Backup
+Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning. 
+
+### Back up managed disk VMs
+Backup of VMs on managed disks is no different than back up of Resource Manager VMs. You can backup directly from VM view or from Recovery Services vault view. Backup of VMs on managed disks is supported through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backup of managed disk VMs encrypted using Azure Disk encryption(ADE).
+
+### Restore managed disk VMs
+Azure Backup allows you to restore a complete VM with managed disks or restoring managed disks to a Resource Manager storage account. While the disks created during restore process are managed by Azure, storage account created as part of restore process is similar to any other Resource Manager storage account and are expected to be managed by customer.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
@@ -172,7 +181,7 @@ If you are backing up your data to a System Center DPM or Azure Backup Server, c
 #### Network Throttling
 The Azure Backup agent offers network throttling, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
 
-### Backup and retention
+## Backup and retention
 
 Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per *protected instance*. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. For more information see the section, [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). An instance is protected once a backup copy of data has been saved. The backup copy of data is the protection. If the source data was lost or became corrupt, the backup copy could restore the source data. The following table shows the maximum backup frequency for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
 

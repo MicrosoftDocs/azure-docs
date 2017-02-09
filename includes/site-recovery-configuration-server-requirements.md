@@ -9,9 +9,9 @@
 | Operating system version | Windows Server 2012 R2 |
 | Operating system locale | English (en-us)|
 | VMware vSphere PowerCLI version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
-| Windows server roles | Do not enable the following roles: <br> - Active Directory Domain Services <br> - Internet Information Service <br> - Hyper-V |
+| Windows Server roles | Do not enable the following roles: <br> - Active Directory Domain Services <br>- Internet Information Service <br> - Hyper-V |
 | **Network** | |
 | Network interface card type | VMXNET3 |
 | IP address type | Static |
-| Internet access | The server should be able to access the following URLs either directly or through a Proxy Server <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br> - time.nist.gov <br> - time.windows.com |
-| Ports | 443 (control channel orchestration)<br>9443 (data transport)|
+| Internet access | The server should be able to access the following URLs either directly or through a proxy server: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br> - time.nist.gov <br> - time.windows.com |
+| Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|

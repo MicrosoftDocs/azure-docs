@@ -4,10 +4,10 @@
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 
     ![Third=party software](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
-4. In **Registration**, browse and select the registration key you downloaded from the vault.
+4. In **Registration**, select the registration key you downloaded from the vault.
 
     ![Registration](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the internet.
+5. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet.
 
    * If you want to connect with the proxy that's currently set up on the machine, select **Connect with existing proxy settings**.
    * If you want the Provider to connect directly, select **Connect directly without a proxy**.
@@ -17,7 +17,7 @@
      * If you're using a proxy, you should have already allowed the URLs described in [prerequisites](#configuration-server-prerequisites).
 
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. In **Prerequisites Check**, setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
+6. In **Prerequisites Check**, Setup runs a check to make sure that installation can run. If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.
 
     ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.
@@ -26,6 +26,7 @@
 8. In **Environment Details**, select whether you're going to replicate VMware VMs. If you are, then setup checks that PowerCLI 6.0 is installed.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
+
 9. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
 
     ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
