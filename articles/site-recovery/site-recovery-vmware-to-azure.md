@@ -96,10 +96,7 @@ Here's what you do:
     1. To use a dedicated account, create a role (at the vCenter level, with [these permissions](#vmware-account-permissions). Give it a name like Azure_Site_Recovery.
     2. Create a new user on the vSphere host/vCenter server, and assign the role to the user. You specify this user during Site Recovery deployment.
 
-
-    >
-
-2. **Account for Mobility service**: If you want to push the Mobility service to VMs, you need an account that can be used by the process server to access the VM. The account is only used for the push installation. You can use a domain or local account:
+- **Account for Mobility service**: If you want to push the Mobility service to VMs, you need an account that can be used by the process server to access the VM. The account is only used for the push installation. You can use a domain or local account:
 
     - For Windows, if you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1. To add the registry entry from a CLI type REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.
     - For Linux, the account should be a root user on the source Linux server.
@@ -133,7 +130,7 @@ Select what you want to replicate and where you want to replicate to.
 
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
-## Step 2: Set up the source environment
+## Set up the source environment
 
 Set up the configuration server, register it in the vault, and discover VMs.
 
@@ -157,7 +154,7 @@ Before you start:
 
 Then run the Unified Setup installation file on the configuration server.
 
-1. In Unified Setup** > **Before you begin**, select **Install the configuration server and process server**.
+1. In Unified Setup > **Before you begin**, select **Install the configuration server and process server**.
 
    ![Before you start](./media/site-recovery-vmware-to-azure/combined-wiz1.png)
 2. In **Third-Party Software License**, click **I Accept the third party license agreement**, to download and install MySQL.
@@ -224,7 +221,7 @@ Connect to vSphere ESXi hosts or vCenter servers to discover VMware VMs. Note th
 
 Site Recovery connects to VMware servers using the specified settings, and discovers VMs.
 
-## Step 3: Set up the target
+## Set up the target
 
 Before you set up the target environment, check you have an [Azure storage account and network](#set-up-azure)
 
@@ -235,7 +232,7 @@ Before you set up the target environment, check you have an [Azure storage accou
    ![Target](./media/site-recovery-vmware-to-azure/gs-target.png)
 4. If you haven't created a storage account or network, click **+Storage account** or **+Network**, to create a Resource Manager account or network inline.
 
-## Step 4: Set up replication settings
+## Set up replication settings
 
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
@@ -249,7 +246,7 @@ Before you set up the target environment, check you have an [Azure storage accou
 
     ![Replication policy](./media/site-recovery-vmware-to-azure/gs-replication3.png)
 
-## Step 5: Capacity planning
+## Plan capacity
 
 1. Now that you have your basic infrastructure set up you can think about capacity planning, and figure out whether you need additional resources. [Learn more](site-recovery-plan-capacity-vmware.md).
 2. When you’re done with capacity planning, select **Yes** in **Have you completed capacity planning?**
@@ -257,7 +254,7 @@ Before you set up the target environment, check you have an [Azure storage accou
    ![Capacity planning](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
 
 
-## Step 6: Prepare VMs for replication
+## Prepare VMs for replication
 
 All machines that you want to replicate must have the Mobility service installed. You can install the Mobility service in a number of ways:
 
@@ -268,7 +265,7 @@ All machines that you want to replicate must have the Mobility service installed
 [Learn more](site-recovery-vmware-to-azure-install-mob-svc.md)
 
 
-## Step 7: Enable replication
+## Enable replication
 
 Before you start:
 
