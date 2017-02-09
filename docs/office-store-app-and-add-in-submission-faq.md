@@ -93,7 +93,7 @@ The following is the update process for Office Add-ins:
  >**Note:**  You cannot have two or more versions of the same add-in in the store at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two Office Store listings and will potentially split your customer base.
  
 
-Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see  [SharePoint Add-ins update process](http://msdn.microsoft.com/library/sharepoint-add-ins-update-process%28Office.15%29.aspx).
+Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see  [SharePoint Add-ins update process](https://msdn.microsoft.com/en-us/library/office/fp179904.aspx).
  
 
  
@@ -134,7 +134,7 @@ For paid apps and add-ins in the Office Store, 20% goes to Microsoft.
 ## Can I submit an autohosted SharePoint Add-in to the Office Store?
 <a name="bk_q5"> </a>
 
-The Office 365 Autohosted Add-ins Preview program ended on June 30, 2014. You cannot create new autohosted add-ins in SharePoint. For more information, see  [Update on Autohosted Add-ins Preview program](http://blogs.office.com/2014/05/16/update-on-autohosted-apps-preview-program/). For information about how to convert your autohosted add-in, see  [Convert an autohosted SharePoint Add-in to a provider-hosted add-in](http://msdn.microsoft.com/library/convert-an-autohosted-sharepoint-add-in-to-a-provider-hosted-add-in%28Office.15%29.aspx).
+The Office 365 Autohosted Add-ins Preview program ended on June 30, 2014. You cannot create new autohosted add-ins in SharePoint. For more information, see  [Update on Autohosted Add-ins Preview program](http://blogs.office.com/2014/05/16/update-on-autohosted-apps-preview-program/). For information about how to convert your autohosted add-in, see  [Convert an autohosted SharePoint Add-in to a provider-hosted add-in](https://msdn.microsoft.com/en-us/library/office/dn722449.aspx).
  
 
  
@@ -175,7 +175,7 @@ Two aspects of your submission relate to supported languages:
     
     You declare which languages your add-in supports differently depending on type:
     
-      - For SharePoint Add-ins, declare language support using the  [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](http://msdn.microsoft.com/library/49bde91a-8d7a-be17-4c91-82c9c19f0f61%28Office.15%29.aspx), in the add-in manifest within the add-in package. For more information, see  [Explore the app manifest structure and the package of a SharePoint Add-in](http://msdn.microsoft.com/library/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in%28Office.15%29.aspx).
+      - For SharePoint Add-ins, declare language support using the  [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](http://msdn.microsoft.com/library/49bde91a-8d7a-be17-4c91-82c9c19f0f61%28Office.15%29.aspx), in the add-in manifest within the add-in package. For more information, see  [Explore the app manifest structure and the package of a SharePoint Add-in](https://msdn.microsoft.com/en-us/library/office/fp179918.aspx).
     
  
   - For Office Add-ins that aren't dictionaries, declare language support by using the  **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx).
