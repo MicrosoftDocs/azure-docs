@@ -145,6 +145,6 @@ The local SSD is temporary storage that is included with a managed disks VM. The
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments or in the [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) on MSDN to engage with the Azure Storage team and other community members about this article.
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments or in the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) to engage with the Azure Storage team and other community members about this article.
 
 To make a feature request, please submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
