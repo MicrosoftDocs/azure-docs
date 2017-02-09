@@ -29,7 +29,7 @@ This article summarizes supported configurations and components for Azure Site R
 
 **Deployment** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
-**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the help guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide. Not available in the Azure portal. | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br/><br/> Standard Hyper-V Replication only. SAN not supported.
+**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br/><br/> Standard Hyper-V Replication only. SAN not supported.
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Not supported | Maintenance mode only
 **PowerShell** | Not supported | Not supported | Supported
 
@@ -40,7 +40,7 @@ This article summarizes supported configurations and components for Azure Site R
 **Deployment** | **Support**
 --- | ---
 **VMware VM/physical server** | vSphere 6.0, 5.5, or 5.1 with latest update
-**Hyper-V (with VMM)** | SCVMM 2016 & SCVMM 2012 R2
+**Hyper-V (with VMM)** | SCVMM 2016 and SCVMM 2012 R2
 
   >[!Note]
   > An SCVMM 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
@@ -50,11 +50,11 @@ This article summarizes supported configurations and components for Azure Site R
 **Deployment** | **Support**
 --- | ---
 **VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
-**Hyper-V (no VMM)** | Not a supported configuration for replicating to secondary site
-**Hyper-V with VMM** | Windows Server 2016, Windows Server 2012 R2 with latest updates<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016
+**Hyper-V (no VMM)** | Not a supported configuration for replicating to a secondary site
+**Hyper-V with VMM** | Windows Server 2016, Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by SCVMM 2016.
 
 ## Support for replicated machine OS versions
-The following table summarizes operating system support in various deployment scenarios while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
+The following table summarizes operating system support in various deployment scenarios encountered while using Azure Site Recovery. This support is applicable for any workload running on the mentioned OS.
 
 **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -129,7 +129,7 @@ Multi-path (MPIO) | N/A | Yes
 **Action** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
-Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
+Move storage, network, and Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
 ## Support for Provider and Agent
 
