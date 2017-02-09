@@ -79,8 +79,7 @@ Here are the list of the Service Fabric versions that are supported and their su
 | All cluster versions prior to 5.3.121 |January 20, 2017 |
 | 5.3.121.* |February 24, 2017 |
 | 5.3.204.* |February 24, 2017 |
-| 5.3.301.* |February 24, 2017 |
-| 5.3.311.* |February 24, 2017 |
+| 5.3.* |February 24, 2017 |
 | 5.4.*     |April 17,2017     |
 | 5.5.*     |Current version and so no end date
 
