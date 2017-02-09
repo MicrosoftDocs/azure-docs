@@ -1,19 +1,19 @@
 ---
 title: List of Azure Diagnostics configuration schema versions | Microsoft Docs
 description: Used to configure the collection of perf counters in Azure Virtual Machines, VM Scale Sets, Service Fabric, and Cloud Services.
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: ''
 
 ms.assetid:
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 
 ---
@@ -37,6 +37,10 @@ Azure Diagnostics is used in conjunction with other Microsoft diagnostics produc
 |2.6               |1.3                         |"|  
 |2.7               |1.4                         |"|  
 |2.8               |1.5                         |"|  
+|2.9               |1.6                         |"|
+|2.96              |1.7                         |"|
+|3.0               |1.8                         |"|
+
 
  Azure Diagnostics version 1.0 first shipped in a plug-in model, meaning that when you installed the Azure SDK, you got the version of Azure diagnostics shipped with it.  
 
