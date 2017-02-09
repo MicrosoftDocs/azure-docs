@@ -73,7 +73,7 @@ You can also manually add a connection string for an existing hub by adding a co
 
 1. On the **Function app** blade of the Azure portal, click **Function App Settings > Go to App Service settings**.
 2. In the **Settings** blade, click **Application Settings**.
-3. Scroll down to the **App settings ** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub.
+3. Scroll down to the **App settings** section, and add a named entry for *DefaultFullSharedAccessSignature* value for your notification hub.
 4. Reference your App setting string name in the output bindings. Similar to **MyHubConnectionString** used in the example above.
 
 ## APNS native notifications with C# queue triggers
