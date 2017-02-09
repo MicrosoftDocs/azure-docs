@@ -4,7 +4,7 @@ description: Describes how Azure IoT Suite uses Azure Active Directory to manage
 services: ''
 suite: iot-suite
 documentationcenter: ''
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 
 ---
 # Permissions on the azureiotsuite.com site

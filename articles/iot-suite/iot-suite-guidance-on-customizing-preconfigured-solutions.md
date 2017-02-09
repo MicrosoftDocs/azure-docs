@@ -4,7 +4,7 @@ description: Provides guidance on how to customize the Azure IoT Suite preconfig
 services: ''
 suite: iot-suite
 documentationcenter: .net
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 
 ---
 # Customize a preconfigured solution
