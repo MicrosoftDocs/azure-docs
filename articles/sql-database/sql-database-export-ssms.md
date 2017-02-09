@@ -1,5 +1,5 @@
 ---
-SSMS: Export a SQL Server database to a BACPAC file (Azure) | Microsoft Docs
+title: 'SSMS: Export a database to a BACPAC file (Azure) | Microsoft Docs'
 description: This article shows how to export a SQL Server database to a BACPAC file using the Export Data Tier Application Wizard in SQL Server Management Studio.
 keywords: Microsoft Azure SQL Database, database migration, export database, export BACPAC file, Export Data Tier Application wizard		
 services: sql-database
@@ -19,9 +19,9 @@ ms.date: 02/07/2017
 ms.author: carlrab
 
 ---
-# Export a SQL Server database to a BACPAC file using SQL Server Management Studio		
+# Export an Azure SQL database or a SQL Server database to a BACPAC file using SQL Server Management Studio		
 		
-This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the Export Data Tier Application Wizard in SQL Server Management Studio. For an overview of exporting to a BACPAC file, see [Export to a BACPAC](sql-database-export.md).	
+This article shows how to export an Azure SQL database or a SQL Server database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the Export Data Tier Application Wizard in SQL Server Management Studio. For an overview of exporting to a BACPAC file, see [Export to a BACPAC](sql-database-export.md).	
 		
 1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.		
    		
